@@ -5,34 +5,48 @@ import {
   Briefcase,
   Building,
   ChevronRight,
+  Landmark,
   MapPin,
+  Megaphone,
+  PenSquare,
   Search,
-  Star,
-  TrendingUp,
   Users,
-  Zap,
+  CircleHelp,
 } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/ui/carousel';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
-import { DUMMY_JOBS, DUMMY_COMPANIES, DUMMY_REVIEWS } from '@/lib/data';
+import { DUMMY_JOBS } from '@/lib/data';
+import JobCard from '@/components/job-card';
 
 export default function HomePage() {
-  const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-1');
-  const featuredJobs = DUMMY_JOBS.slice(0, 6);
-  const featuredCompanies = DUMMY_COMPANIES.slice(0, 6);
-  const successStories = DUMMY_REVIEWS.slice(0, 3);
+  const heroBanner1 = PlaceHolderImages.find((img) => img.id === 'hero-banner-1');
+  const heroBanner2 = PlaceHolderImages.find((img) => img.id === 'hero-banner-2');
+  const chartImage = PlaceHolderImages.find((img) => img.id === 'chart-image');
+
+  const featuredJobs = DUMMY_JOBS.slice(0, 8);
+
+  const jobCategories = [
+    { name: 'Retail & Products', icon: Briefcase },
+    { name: 'Content Writer', icon: PenSquare },
+    { name: 'Marketing & Sale', icon: Megaphone },
+    { name: 'Customer Help', icon: CircleHelp },
+    { name: 'Finance', icon: Landmark },
+    { name: 'Human Resource', icon: Users },
+  ];
+
+  const locations = [
+    { name: 'Paris, France', companies: 3, jobs: 5 },
+    { name: 'London, England', companies: 4, jobs: 3 },
+    { name: 'New York, USA', companies: 3, jobs: 4 },
+    { name: 'New York, Holland', companies: 3, jobs: 5 },
+    { name: 'Copenhagen, Denmark', companies: 4, jobs: 9 },
+    { name: 'Berlin, Germany', companies: 3, jobs: 3 },
+  ];
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -44,19 +58,19 @@ export default function HomePage() {
             <div className="grid gap-8 md:grid-cols-2 md:gap-16">
               <div className="flex flex-col justify-center space-y-6">
                 <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-                  Find Your Next React Role, Faster.
+                  The Easiest Way to Get Your New Job
                 </h1>
                 <p className="max-w-xl text-lg text-muted-foreground">
-                  ReactHire is the #1 job board for React developers. Discover thousands of opportunities from top
-                  companies and build the career you've always dreamed of.
+                  Each month, more than 3 million job seekers turn to website in their search for work, making over
+                  140,000 applications every single day.
                 </p>
                 <div className="rounded-lg bg-card p-4 shadow-md">
-                  <form className="grid gap-4 sm:grid-cols-[1fr_1fr_auto] md:grid-cols-[2fr_1.5fr_auto]">
+                  <form className="grid gap-4 sm:grid-cols-[1fr_1fr_auto]">
                     <div className="relative">
                       <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
                       <Input
                         type="search"
-                        placeholder="Job title, keyword, or company"
+                        placeholder="Job title, keyword..."
                         className="w-full pl-10"
                       />
                     </div>
@@ -70,31 +84,69 @@ export default function HomePage() {
                   </form>
                 </div>
                 <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-sm font-medium text-muted-foreground">Trending Searches:</span>
-                  <Badge variant="outline">React Native</Badge>
-                  <Badge variant="outline">Senior Engineer</Badge>
-                  <Badge variant="outline">Remote</Badge>
-                  <Badge variant="outline">Fintech</Badge>
+                  <span className="text-sm font-medium text-muted-foreground">Popular Searches:</span>
+                  <Badge variant="outline">Design</Badge>
+                  <Badge variant="outline">Development</Badge>
+                  <Badge variant="outline">Manager</Badge>
+                  <Badge variant="outline">Senior</Badge>
                 </div>
               </div>
-              <div className="relative hidden h-full min-h-[300px] w-full items-center justify-center md:flex">
-                {heroImage && (
-                  <Image
-                    src={heroImage.imageUrl}
-                    alt={heroImage.description}
-                    width={500}
-                    height={500}
-                    className="rounded-xl object-cover shadow-2xl"
-                    data-ai-hint={heroImage.imageHint}
-                  />
-                )}
+              <div className="relative hidden items-center justify-center md:flex">
+                <div className="grid grid-cols-2 gap-4">
+                  {heroBanner1 && (
+                    <Image
+                      src={heroBanner1.imageUrl}
+                      alt={heroBanner1.description}
+                      width={250}
+                      height={250}
+                      className="rounded-xl object-cover shadow-lg"
+                      data-ai-hint={heroBanner1.imageHint}
+                    />
+                  )}
+                  <div className="h-full w-full"></div>
+                   <div className="h-full w-full"></div>
+                  {heroBanner2 && (
+                    <Image
+                      src={heroBanner2.imageUrl}
+                      alt={heroBanner2.description}
+                      width={250}
+                      height={250}
+                      className="rounded-xl object-cover shadow-lg"
+                      data-ai-hint={heroBanner2.imageHint}
+                    />
+                  )}
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Featured Jobs Section */}
+        {/* Categories Section */}
         <section className="py-16 md:py-24">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="mb-10 text-center">
+              <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">We are HIRING</h2>
+              <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+                Let’s Work Together & Explore Opportunities
+              </p>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+              {jobCategories.map((category) => (
+                <Card key={category.name} className="group cursor-pointer overflow-hidden text-center transition-all hover:border-primary hover:shadow-lg">
+                  <CardContent className="p-6 flex flex-col items-center justify-center gap-4">
+                    <div className="rounded-full bg-primary/10 p-4 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                      <category.icon className="h-8 w-8" />
+                    </div>
+                    <p className="font-semibold text-sm">{category.name}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Featured Jobs Section */}
+        <section className="bg-secondary py-16 md:py-24">
           <div className="container mx-auto px-4 md:px-6">
             <div className="mb-10 text-center">
               <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">Featured Jobs</h2>
@@ -102,65 +154,11 @@ export default function HomePage() {
                 Hand-picked opportunities from the best companies in the industry.
               </p>
             </div>
-            <Carousel
-              opts={{
-                align: 'start',
-                loop: true,
-              }}
-              className="w-full"
-            >
-              <CarouselContent>
-                {featuredJobs.map((job, index) => (
-                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                    <Card className="flex h-full flex-col">
-                      <CardHeader>
-                        <div className="mb-4 flex items-start justify-between">
-                          <div className="flex items-center gap-4">
-                            <Image
-                              src={
-                                PlaceHolderImages.find((img) => img.id === job.company.logo)?.imageUrl ||
-                                `https://picsum.photos/seed/${job.company.name}/40/40`
-                              }
-                              alt={`${job.company.name} logo`}
-                              width={40}
-                              height={40}
-                              className="rounded-md"
-                            />
-                            <div>
-                              <CardTitle className="text-lg">{job.title}</CardTitle>
-                              <CardDescription>{job.company.name}</CardDescription>
-                            </div>
-                          </div>
-                          {job.isUrgent && (
-                            <Badge variant="destructive" className="flex items-center gap-1">
-                              <Zap size={14} /> Urgent
-                            </Badge>
-                          )}
-                        </div>
-                        <div className="flex flex-wrap gap-2 text-sm">
-                          <Badge variant="secondary">{job.type}</Badge>
-                          <Badge variant="secondary">{job.location}</Badge>
-                          <Badge variant="secondary">{job.experienceLevel}</Badge>
-                        </div>
-                      </CardHeader>
-                      <CardContent className="flex-grow">
-                        <p className="text-muted-foreground line-clamp-2">{job.description}</p>
-                      </CardContent>
-                      <CardFooter className="flex justify-between items-center">
-                        <p className="font-semibold text-primary">{job.salaryRange}</p>
-                        <Button asChild variant="ghost" size="sm">
-                          <Link href="/jobs">
-                            View Details <ArrowRight className="ml-2 h-4 w-4" />
-                          </Link>
-                        </Button>
-                      </CardFooter>
-                    </Card>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
-            </Carousel>
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+              {featuredJobs.map((job) => (
+                <JobCard key={job.id} job={job} />
+              ))}
+            </div>
             <div className="mt-12 text-center">
               <Button asChild size="lg">
                 <Link href="/jobs">
@@ -171,141 +169,55 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Live Stats Counter */}
-        <section className="bg-secondary py-16">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="grid grid-cols-2 gap-8 text-center md:grid-cols-4">
-              <div className="space-y-1">
-                <p className="font-headline text-4xl font-bold text-primary">1,204</p>
-                <p className="text-muted-foreground">Jobs Posted Today</p>
-              </div>
-              <div className="space-y-1">
-                <p className="font-headline text-4xl font-bold text-primary">789</p>
-                <p className="text-muted-foreground">Hires This Week</p>
-              </div>
-              <div className="space-y-1">
-                <p className="font-headline text-4xl font-bold text-primary">500+</p>
-                <p className="text-muted-foreground">Top Companies</p>
-              </div>
-              <div className="space-y-1">
-                <p className="font-headline text-4xl font-bold text-primary">25k+</p>
-                <p className="text-muted-foreground">Active Developers</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Featured Companies */}
+        {/* Locations Section */}
         <section className="py-16 md:py-24">
           <div className="container mx-auto px-4 md:px-6">
-            <h2 className="font-headline mb-10 text-center text-3xl font-bold tracking-tight sm:text-4xl">
-              Who's Hiring?
-            </h2>
-            <div className="grid grid-cols-2 gap-6 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-              {featuredCompanies.map((company) => (
-                <div
-                  key={company.id}
-                  className="flex items-center justify-center rounded-lg border bg-card p-6 transition-transform hover:scale-105 hover:shadow-lg"
-                >
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div>
+                {chartImage && (
                   <Image
-                    src={PlaceHolderImages.find((img) => img.id === company.logo)?.imageUrl || ''}
-                    alt={`${company.name} Logo`}
-                    width={120}
-                    height={40}
-                    className="object-contain"
-                    data-ai-hint="company logo"
+                    src={chartImage.imageUrl}
+                    alt={chartImage.description}
+                    width={600}
+                    height={400}
+                    className="rounded-lg object-cover"
+                    data-ai-hint={chartImage.imageHint}
                   />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Success Stories */}
-        <section className="bg-secondary py-16 md:py-24">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="mb-10 text-center">
-              <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">Success Stories</h2>
-              <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-                See how ReactHire helped developers land their dream jobs.
-              </p>
-            </div>
-            <div className="grid gap-8 lg:grid-cols-3">
-              {successStories.map((story) => (
-                <Card key={story.id}>
-                  <CardContent className="pt-6">
-                    <div className="flex mb-4">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className={`h-5 w-5 ${
-                            i < story.rating ? 'text-yellow-400 fill-yellow-400' : 'text-muted-foreground'
-                          }`}
-                        />
-                      ))}
-                    </div>
-                    <p className="text-muted-foreground italic">"{story.comment}"</p>
-                  </CardContent>
-                  <CardFooter>
-                    <div className="flex items-center gap-4">
-                      <Image
-                        src={
-                          PlaceHolderImages.find((img) => img.id === story.user.avatar)?.imageUrl ||
-                          `https://picsum.photos/seed/${story.user.name}/40/40`
-                        }
-                        alt={story.user.name}
-                        width={40}
-                        height={40}
-                        className="rounded-full"
-                      />
-                      <div>
-                        <p className="font-semibold">{story.user.name}</p>
-                        <p className="text-sm text-muted-foreground">{story.user.role}</p>
+                )}
+              </div>
+              <div>
+                <h2 className="font-headline text-3xl font-bold">Millions Of Jobs.</h2>
+                <div className="mt-8 grid grid-cols-2 gap-6">
+                  {locations.map((loc) => (
+                    <div key={loc.name} className="rounded-lg border bg-card p-4 hover:shadow-md transition-shadow">
+                      <h3 className="font-semibold">{loc.name}</h3>
+                      <div className="flex gap-4 text-sm text-muted-foreground">
+                        <span>{loc.companies} companies</span>
+                        <span>{loc.jobs} jobs</span>
                       </div>
                     </div>
-                  </CardFooter>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-16 md:py-24">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="overflow-hidden rounded-xl bg-primary text-primary-foreground">
-              <div className="grid md:grid-cols-2">
-                <div className="space-y-6 p-8 md:p-12 lg:p-16">
-                  <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">
-                    Ready to Find Your Dream Team?
-                  </h2>
-                  <p className="text-lg text-primary-foreground/80">
-                    Post a job on ReactHire and connect with thousands of skilled React developers actively looking for
-                    their next challenge.
-                  </p>
-                  <Button asChild size="lg" variant="secondary">
-                    <Link href="/employer/jobs/new">
-                      Post a Job <Building className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
-                </div>
-                <div className="space-y-6 bg-primary/80 p-8 md:p-12 lg:p-16">
-                  <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">
-                    Take the Next Step in Your Career
-                  </h2>
-                  <p className="text-lg text-primary-foreground/80">
-                    Create your developer profile to get personalized job recommendations and let top companies find you.
-                  </p>
-                  <Button asChild size="lg" variant="secondary">
-                    <Link href="/dashboard/profile">
-                      Create Profile <Users className="ml-2 h-4 w-4" />
-                    </Link>
-                  </Button>
+                  ))}
                 </div>
               </div>
             </div>
           </div>
         </section>
+        
+        {/* Newsletter CTA Section */}
+        <section className="bg-secondary py-16 md:py-24">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="text-center max-w-2xl mx-auto">
+                <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">
+                  New Things Will Always Update Regularly
+                </h2>
+                <div className="mt-8 flex max-w-md mx-auto">
+                  <Input type="email" placeholder="Enter Your Email" className="rounded-r-none focus:z-10"/>
+                  <Button type="submit" className="rounded-l-none">Subscribe</Button>
+                </div>
+            </div>
+          </div>
+        </section>
+
       </main>
       <Footer />
     </div>

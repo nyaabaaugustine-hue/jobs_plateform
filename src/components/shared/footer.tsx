@@ -1,34 +1,35 @@
 import Link from 'next/link';
-import { Twitter, Github, Linkedin } from 'lucide-react';
+import { Facebook, Linkedin, Twitter } from 'lucide-react';
 import Logo from './logo';
+import { Button } from '../ui/button';
 
 export default function Footer() {
   const navSections = [
     {
-      title: 'For Job Seekers',
-      links: [
-        { href: '/jobs', label: 'Find Jobs' },
-        { href: '/dashboard/profile', label: 'Create Profile' },
-        { href: '/dashboard/applications', label: 'My Applications' },
-        { href: '#', label: 'Salary Estimator' },
-      ],
-    },
-    {
-      title: 'For Employers',
-      links: [
-        { href: '/employer/jobs/new', label: 'Post a Job' },
-        { href: '/employer/applicants', label: 'Browse Applicants' },
-        { href: '#', label: 'Pricing' },
-        { href: '#', label: 'Employer Dashboard' },
-      ],
-    },
-    {
-      title: 'Company',
+      title: 'Resources',
       links: [
         { href: '#', label: 'About Us' },
+        { href: '#', label: 'Our Team' },
+        { href: '#', label: 'Products' },
         { href: '#', label: 'Contact' },
-        { href: '#', label: 'Privacy Policy' },
-        { href: '#', label: 'Terms of Service' },
+      ],
+    },
+    {
+      title: 'Community',
+      links: [
+        { href: '#', label: 'Feature' },
+        { href: '#', label: 'Pricing' },
+        { href: '#', label: 'Credit' },
+        { href: '#', label: 'FAQ' },
+      ],
+    },
+    {
+      title: 'Quick links',
+      links: [
+        { href: '#', label: 'iOS' },
+        { href: '#', label: 'Android' },
+        { href: '#', label: 'Microsoft' },
+        { href: '#', label: 'Desktop' },
       ],
     },
   ];
@@ -37,24 +38,24 @@ export default function Footer() {
     <footer className="border-t bg-secondary">
       <div className="container mx-auto px-4 py-12 md:px-6">
         <div className="grid gap-8 md:grid-cols-12">
-          <div className="md:col-span-3">
+          <div className="md:col-span-4 lg:col-span-3">
             <Logo />
             <p className="mt-4 text-sm text-muted-foreground">
-              The modern React job platform for top talent.
+              JobBox is the heart of the design community and the best resource to discover and connect with designers and jobs worldwide.
             </p>
             <div className="mt-6 flex space-x-4">
               <Link href="#" className="text-muted-foreground hover:text-primary">
-                <Twitter />
-              </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary">
-                <Github />
+                <Facebook />
               </Link>
               <Link href="#" className="text-muted-foreground hover:text-primary">
                 <Linkedin />
               </Link>
+              <Link href="#" className="text-muted-foreground hover:text-primary">
+                <Twitter />
+              </Link>
             </div>
           </div>
-          <div className="grid gap-8 md:col-span-9 md:grid-cols-3">
+          <div className="grid gap-8 md:col-span-8 lg:col-span-6 md:grid-cols-3">
             {navSections.map((section) => (
               <div key={section.title}>
                 <h3 className="font-headline font-semibold text-foreground">{section.title}</h3>
@@ -72,6 +73,14 @@ export default function Footer() {
                 </ul>
               </div>
             ))}
+          </div>
+          <div className="md:col-span-12 lg:col-span-3">
+            <h3 className="font-headline font-semibold text-foreground">Download App</h3>
+            <p className="mt-4 text-sm text-muted-foreground">Get the app for a better experience.</p>
+            <div className="mt-4 flex flex-col space-y-2">
+                <Button variant="outline">App Store</Button>
+                <Button variant="outline">Google Play</Button>
+            </div>
           </div>
         </div>
         <div className="mt-12 border-t pt-6 text-center text-sm text-muted-foreground">

@@ -149,6 +149,24 @@
       "description": "Avatar for a twelfth user.",
       "imageUrl": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
       "imageHint": "person portrait"
+    },
+    {
+      "id": "hero-banner-1",
+      "description": "Two people collaborating in an office.",
+      "imageUrl": "https://images.unsplash.com/photo-1600880292203-942bb64c5324?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxvZmZpY2UlMjBjb2xsYWJvcmF0aW9ufGVufDB8fHx8MTcxNzE3NjcxN3ww&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "office collaboration"
+    },
+    {
+      "id": "hero-banner-2",
+      "description": "A person smiling and working on a laptop.",
+      "imageUrl": "https://images.unsplash.com/photo-1554415707-6e8cf6b3fe23?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHx3b3JraW5nJTIwb24lMjBsYXB0b3B8ZW58MHx8fHwxNzE3MTc2NzU0fDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "working laptop"
+    },
+    {
+      "id": "chart-image",
+      "description": "A chart showing upward trends.",
+      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjaGFydCUyMGRhdGF8ZW58MHx8fHwxNzE3MTc2ODM1fDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageHint": "chart data"
     }
   ]
 }
