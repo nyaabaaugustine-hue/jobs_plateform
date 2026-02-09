@@ -8,10 +8,10 @@ export default function Header() {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/jobs', label: 'Find a Job' },
-    { href: '#', label: 'Companies' },
+    { href: '/companies', label: 'Companies' },
     { href: '#', label: 'Candidates' },
+    { href: '/blog', label: 'Blog' },
     { href: '#', label: 'Pages' },
-    { href: '#', label: 'Blog' },
   ];
 
   return (
@@ -32,8 +32,11 @@ export default function Header() {
           ))}
         </nav>
         <div className="hidden items-center gap-4 md:flex">
+          <Button variant="outline" asChild>
+            <Link href="/login">Login</Link>
+          </Button>
           <Button asChild>
-            <Link href="/dashboard">Register</Link>
+            <Link href="/employer/jobs/new">Post a Job</Link>
           </Button>
         </div>
         <Sheet>
@@ -60,8 +63,11 @@ export default function Header() {
                 ))}
               </nav>
               <div className="flex flex-col gap-4">
+                 <Button variant="outline" asChild>
+                    <Link href="/login">Login</Link>
+                </Button>
                  <Button asChild>
-                    <Link href="/dashboard">Register</Link>
+                    <Link href="/employer/jobs/new">Post a Job</Link>
                 </Button>
               </div>
             </div>

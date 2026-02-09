@@ -1,4 +1,4 @@
-import type { Job, Company, Review, Application, Applicant } from './types';
+import type { Job, Company, Review, Application, Applicant, User, BlogPost } from './types';
 
 export const DUMMY_COMPANIES: Company[] = [
   { id: '1', name: 'Innovate Inc.', logo: 'company-logo-1', industry: 'Tech', activeJobs: 5 },
@@ -253,4 +253,37 @@ export const DUMMY_APPLICANTS: Applicant[] = [
   { id: '10', name: 'Judy Hopps', email: 'judy@example.com', avatar: 'avatar-10', jobId: '8', skillMatch: 70, experience: 2, status: 'Reviewed' },
   { id: '11', name: 'Kevin Malone', email: 'kevin@example.com', avatar: 'avatar-11', jobId: '9', skillMatch: 65, experience: 8, status: 'Rejected' },
   { id: '12', name: 'Linda Belcher', email: 'linda@example.com', avatar: 'avatar-12', jobId: '11', skillMatch: 98, experience: 3, status: 'Hired' },
+];
+
+export const DUMMY_BLOG_POSTS: BlogPost[] = [
+  {
+    id: '1',
+    slug: 'how-to-ace-your-next-react-interview',
+    title: 'How to Ace Your Next React Interview',
+    author: DUMMY_USERS[0],
+    date: '2024-05-20',
+    image: 'blog-post-1',
+    excerpt: 'Our comprehensive guide to help you prepare for and ace your next React developer interview. From core concepts to advanced topics, we have got you covered.',
+    content: '<p>Lorem ipsum...</p>',
+  },
+  {
+    id: '2',
+    slug: 'top-5-trends-in-web-development-for-2024',
+    title: 'Top 5 Trends in Web Development for 2024',
+    author: DUMMY_USERS[1],
+    date: '2024-05-18',
+    image: 'blog-post-2',
+    excerpt: 'Stay ahead of the curve. We explore the top 5 trends shaping the future of web development, from AI integration to serverless architectures.',
+    content: '<p>Lorem ipsum...</p>',
+  },
+  {
+    id: '3',
+    slug: 'crafting-the-perfect-developer-resume',
+    title: 'Crafting the Perfect Developer Resume',
+    author: DUMMY_USERS[2],
+    date: '2024-05-15',
+    image: 'blog-post-3',
+    excerpt: 'Your resume is your first impression. Learn how to craft a compelling developer resume that stands out to recruiters and hiring managers.',
+    content: '<p>Lorem ipsum...</p>',
+  }
 ];

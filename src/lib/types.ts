@@ -53,3 +53,14 @@ export type Applicant = {
   experience: number; // years
   status: 'New' | 'Reviewed' | 'Shortlisted' | 'Interview' | 'Offer' | 'Hired' | 'Rejected';
 };
+
+export type BlogPost = {
+  id: string;
+  slug: string;
+  title: string;
+  author: User;
+  date: string;
+  image: string; // image id from placeholder-images
+  excerpt: string;
+  content: string;
+};
