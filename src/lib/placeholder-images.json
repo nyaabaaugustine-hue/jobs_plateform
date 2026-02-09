@@ -347,6 +347,54 @@
       "description": "Person working remotely at a cozy desk",
       "imageUrl": "https://images.unsplash.com/photo-1497493292307-31c376b6e479?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cmVtb3RlJTIwd29ya3xlbnwwfHx8fDE3NzA2MDA2NjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "remote work"
+    },
+    {
+      "id": "category-content-writer",
+      "description": "A person focused on writing content in a notebook at a desk.",
+      "imageUrl": "https://images.unsplash.com/photo-1455390582262-044cdead277a?q=80&w=600&h=400",
+      "imageHint": "content writing"
+    },
+    {
+      "id": "category-market-research",
+      "description": "A desk with various charts and graphs for market research.",
+      "imageUrl": "https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=600&h=400",
+      "imageHint": "market research"
+    },
+    {
+      "id": "category-marketing-sale",
+      "description": "A team collaborating on a marketing strategy in a bright office.",
+      "imageUrl": "https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=600&h=400",
+      "imageHint": "marketing sales"
+    },
+    {
+      "id": "category-customer-help",
+      "description": "A friendly customer support agent with a headset smiling.",
+      "imageUrl": "https://images.unsplash.com/photo-1587573449834-58f691252b47?q=80&w=600&h=400",
+      "imageHint": "customer support"
+    },
+    {
+      "id": "category-finance",
+      "description": "Financial documents with a calculator and a pen on a desk.",
+      "imageUrl": "https://images.unsplash.com/photo-1642052551574-c762a493959d?q=80&w=600&h=400",
+      "imageHint": "finance accounting"
+    },
+    {
+      "id": "category-software",
+      "description": "A monitor displaying lines of colorful software code.",
+      "imageUrl": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=600&h=400",
+      "imageHint": "software development"
+    },
+    {
+      "id": "category-human-resource",
+      "description": "A human resources manager interviewing a candidate.",
+      "imageUrl": "https://images.unsplash.com/photo-1516321497487-e288fb19713f?q=80&w=600&h=400",
+      "imageHint": "human resources"
+    },
+    {
+      "id": "category-management",
+      "description": "A manager leading a team meeting in a modern office.",
+      "imageUrl": "https://images.unsplash.com/photo-1573496130483-3995d82b0f49?q=80&w=600&h=400",
+      "imageHint": "management team"
     }
   ]
 }
