@@ -1,0 +1,107 @@
+/**
+ * # Core Philosophy
+ * This ruleset enforces a security model based on user ownership and a global admin role.
+ * Standard users have full control over their own data within their user document but are
+ * prevented from accessing any other user's data. A special "admin" role grants read-only
+ * access across all user profiles, which is essential for moderation and support.
+ *
+ * # Data Structure
+ * The data is organized into two main top-level collections:
+ * 1. `/users/{userId}`: Contains the profile data for each individual user. Access is
+ *    scoped directly to the user who owns the document.
+ * 2. `/roles_admin/{userId}`: A lookup collection used exclusively for authorization. The
+ *    mere existence of a document for a given `userId` in this collection grants that
+ *    user administrative privileges throughout the application.
+ *
+ * # Key Security Decisions
+ * - **User Data Privacy**: By default, users cannot see or list other users' profiles.
+ *   This is a fundamental privacy and security measure.
+ * - **Admin Role via Existence**: Admin status is determined by checking for the
+ *   existence of a document at `/roles_admin/{auth.uid}`. This is significantly more
+ *   secure than checking a role field on a user's profile, as it prevents users from
+ *   escalating their own privileges.
+ * - **Admin Access is Read-Only**: Admins are granted read-only (`get`, `list`) access
+ *   to the `/users` collection. They cannot modify or delete user data, adhering to the
+ *   principle of least privilege.
+ * - **Admin Role Management**: The `/roles_admin` collection is locked down from all
+ *   client-side writes. This assumes that granting or revoking admin rights is a
+ *   trusted server-side or console-only operation, which is critical for preventing
+ *   unauthorized privilege escalation.
+ *
+ * # Denormalization for Authorization
+ * The `/roles_admin` collection is a prime example of denormalizing for authorization.
+ * Instead of performing a slow and costly `get()` call to check a user's role on their
+ * profile during a rule evaluation for another document, we use a fast `exists()` check.
+ * This pattern is highly performant and secure.
+ *
+ * # Structural Segregation
+ * User data (`/users`) and authorization roles (`/roles_admin`) are stored in
+ * separate collections. This separation ensures that the security rules for each
+ * collection are simple, homogeneous, and easy to reason about, reducing the risk of
+ * misconfiguration.
+ */
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions for reusable logic
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    /**
+     * Checks if a user is an administrator.
+     * Admin status is determined by the existence of a document for the user
+     * in the /roles_admin collection. This is a fast and secure way to manage roles.
+     */
+    function isAdmin() {
+      return isSignedIn() && exists(/databases/$(database)/documents/roles_admin/$(request.auth.uid));
+    }
+
+    /**
+     * A stricter ownership check for update and delete operations.
+     * Ensures the user is the owner AND the document actually exists.
+     */
+    function isExistingOwner(userId) {
+      return isOwner(userId) && resource != null;
+    }
+
+    /**
+     * @description Rules for individual user profile documents.
+     * @path /users/{userId}
+     * @allow (get) A user can read their own profile. An admin can read any user's profile.
+     * @allow (create) A new user can create their own user profile document.
+     * @allow (update) A user can update their own profile document.
+     * @deny (list) A non-admin user cannot list all users.
+     * @deny (update) A user cannot update another user's profile, even if they are an admin.
+     * @principle Enforces strict document ownership for writes and provides admin read access.
+     */
+    match /users/{userId} {
+      allow get: if isOwner(userId) || isAdmin();
+      allow list: if isAdmin();
+      allow create: if isOwner(userId) && request.resource.data.id == userId;
+      allow update: if isExistingOwner(userId) && request.resource.data.id == resource.data.id;
+      allow delete: if isExistingOwner(userId);
+    }
+
+    /**
+     * @description Rules for the admin role lookup collection.
+     * @path /roles_admin/{userId}
+     * @allow (get, list) An admin can check the existence of other admin documents.
+     * @deny (get, list) A non-admin user cannot read or list this collection.
+     * @deny (create, update, delete) No user can write to this collection from the client.
+     * @principle Protects a critical authorization lookup table from client modification.
+     */
+    match /roles_admin/{userId} {
+      allow get: if isAdmin();
+      allow list: if isAdmin();
+      allow create: if false;
+      allow update: if false;
+      allow delete: if false;
+    }
+  }
+}
