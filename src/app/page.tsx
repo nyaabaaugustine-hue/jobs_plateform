@@ -1,6 +1,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Landmark, Megaphone, PenSquare, Search, Users, CircleHelp, AreaChart, Code, UserCog } from 'lucide-react';
+import {
+  ArrowRight,
+  Landmark,
+  Megaphone,
+  PenSquare,
+  Search,
+  Users,
+  CircleHelp,
+  AreaChart,
+  Code,
+  UserCog,
+} from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -26,14 +37,14 @@ export default function HomePage() {
   const featuredJobs = DUMMY_JOBS.slice(0, 8);
 
   const jobCategories = [
-    { name: 'Content Writer', imageId: 'category-content-writer', jobCount: 29 },
-    { name: 'Market Research', imageId: 'category-market-research', jobCount: 7 },
-    { name: 'Marketing & Sale', imageId: 'category-marketing-sale', jobCount: 9 },
-    { name: 'Customer Help', imageId: 'category-customer-help', jobCount: 4 },
-    { name: 'Finance', imageId: 'category-finance', jobCount: 9 },
-    { name: 'Software', imageId: 'category-software', jobCount: 4 },
-    { name: 'Human Resource', imageId: 'category-human-resource', jobCount: 10 },
-    { name: 'Management', imageId: 'category-management', jobCount: 6 },
+    { name: 'Human Resource', icon: UserCog, jobCount: 10 },
+    { name: 'Content Writer', icon: PenSquare, jobCount: 29 },
+    { name: 'Marketing & Sale', icon: Megaphone, jobCount: 9 },
+    { name: 'Finance', icon: Landmark, jobCount: 9 },
+    { name: 'Management', icon: Users, jobCount: 6 },
+    { name: 'Market Research', icon: AreaChart, jobCount: 7 },
+    { name: 'Customer Help', icon: CircleHelp, jobCount: 4 },
+    { name: 'Software', icon: Code, jobCount: 4 },
   ];
 
   const locations = [
@@ -44,6 +55,14 @@ export default function HomePage() {
     { name: 'Copenhagen, Denmark', companies: 4, jobs: 9 },
     { name: 'Berlin, Germany', companies: 3, jobs: 3 },
   ];
+  
+  const chunk = (arr: any[], size: number) =>
+    Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
+      arr.slice(i * size, i * size + size)
+    );
+  
+  const categorySlides = chunk([...jobCategories, ...jobCategories], 8);
+
 
   return (
     <div className="flex min-h-screen flex-col">
@@ -126,42 +145,29 @@ export default function HomePage() {
             <Carousel
               opts={{
                 align: 'start',
-                loop: true,
               }}
               className="w-full"
             >
               <CarouselContent>
-                {jobCategories.map((category) => {
-                  const categoryImage = PlaceHolderImages.find((img) => img.id === category.imageId);
-                  return (
-                    <CarouselItem key={category.name} className="md:basis-1/2 lg:basis-1/3 xl:basis-1/4">
-                      <div className="p-1">
-                        <Link href="/jobs" className="block">
-                          <Card className="group h-full transition-all hover:shadow-lg hover:border-primary">
-                            <CardContent className="p-4 flex items-center gap-4">
-                              {categoryImage && (
-                                <Image
-                                  src={categoryImage.imageUrl}
-                                  alt={category.name}
-                                  width={64}
-                                  height={64}
-                                  className="rounded-lg object-cover"
-                                  data-ai-hint={categoryImage.imageHint}
-                                />
-                              )}
-                              <div>
-                                <h3 className="font-semibold group-hover:text-primary transition-colors">{category.name}</h3>
-                                <p className="text-sm text-muted-foreground">
-                                  {category.jobCount} Jobs Available
-                                </p>
-                              </div>
-                            </CardContent>
+                {categorySlides.map((slide, index) => (
+                  <CarouselItem key={index}>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-1">
+                      {slide.map((category, catIndex) => (
+                        <Link href="/jobs" key={`${category.name}-${index}-${catIndex}`} className="block">
+                          <Card className="group h-full p-4 flex flex-col items-center justify-center text-center transition-all hover:shadow-lg hover:border-primary aspect-square md:aspect-auto">
+                            <div className="mb-4 rounded-full bg-primary/10 p-3">
+                              <category.icon className="h-8 w-8 text-primary" />
+                            </div>
+                            <h3 className="font-semibold text-base mb-1 group-hover:text-primary transition-colors">{category.name}</h3>
+                            <p className="text-sm text-muted-foreground">
+                              {category.jobCount} Jobs Available
+                            </p>
                           </Card>
                         </Link>
-                      </div>
-                    </CarouselItem>
-                  );
-                })}
+                      ))}
+                    </div>
+                  </CarouselItem>
+                ))}
               </CarouselContent>
               <CarouselPrevious className="absolute -left-4 top-1/2 -translate-y-1/2 hidden h-10 w-10 rounded-full bg-card shadow-md md:flex" />
               <CarouselNext className="absolute -right-4 top-1/2 -translate-y-1/2 hidden h-10 w-10 rounded-full bg-card shadow-md md:flex" />
