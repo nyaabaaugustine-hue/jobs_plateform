@@ -43,7 +43,7 @@ export default function Footer() {
           <div className="md:col-span-12 lg:col-span-4">
             <Logo />
             <p className="mt-4 text-sm text-muted-foreground">
-              JobBox is the heart of the design community and the best resource to discover and connect with designers and jobs worldwide.
+              Chapel Hill is the heart of the professional community and the best resource to discover and connect with talent and jobs worldwide.
             </p>
             <div className="mt-6 flex space-x-2">
               <Button variant="ghost" size="icon" asChild>
@@ -84,7 +84,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-12 border-t pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
-          <p>&copy; 2024 JobBox. All rights reserved.</p>
+          <p>&copy; 2024 Chapel Hill. All rights reserved.</p>
           <div className='flex gap-4'>
              <Link href="#" className="hover:text-primary">Terms & Conditions</Link>
              <Link href="#" className="hover:text-primary">Privacy Policy</Link>

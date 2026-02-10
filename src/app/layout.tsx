@@ -10,7 +10,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: 'JobBox - Find Your Next Job',
+  title: 'Chapel Hill - Find Your Next Job',
   description: 'The Easiest Way to Get Your New Job',
 };
 
