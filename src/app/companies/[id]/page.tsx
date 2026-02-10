@@ -44,11 +44,11 @@ export default function CompanyDetailPage({ params }: { params: { id: string } }
                     </div>
                      <div className="flex items-center gap-2">
                       <MapPin className="h-4 w-4" />
-                      <span>New York, USA</span>
+                      <span>{company.location}</span>
                     </div>
                      <div className="flex items-center gap-2">
                       <Globe className="h-4 w-4" />
-                      <span>{company.name.toLowerCase().replace(/\\s+/g, '')}.com</span>
+                      <span>{company.name.toLowerCase().replace(/\s+/g, '')}.com</span>
                     </div>
                   </div>
                 </div>

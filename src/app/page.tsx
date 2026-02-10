@@ -13,6 +13,7 @@ import JobCategories from '@/components/job-categories';
 import FeaturedJobs from '@/components/featured-jobs';
 import HiringSection from '@/components/hiring-section';
 import TopCompanies from '@/components/top-companies';
+import JobsByLocation from '@/components/jobs-by-location';
 
 export default function HomePage() {
   const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
@@ -101,6 +102,8 @@ export default function HomePage() {
         <HiringSection />
 
         <TopCompanies />
+
+        <JobsByLocation />
       </main>
       <Footer />
     </div>

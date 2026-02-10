@@ -343,40 +343,40 @@
       "imageHint": "apply button"
     },
     {
-      "id": "location-paris",
-      "description": "Eiffel Tower in Paris",
-      "imageUrl": "https://images.unsplash.com/photo-1642947392578-b37fbd9a4d45?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxQYXJpcyUyMGVpZmZlbHxlbnwwfHx8fDE3NzA2OTA2MzZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Paris eiffel"
+      "id": "location-accra",
+      "description": "Accra skyline",
+      "imageUrl": "https://images.unsplash.com/photo-1609121869485-a1c1a0a5cede?q=80&w=600&h=400&auto=format&fit=crop",
+      "imageHint": "Accra skyline"
     },
     {
-      "id": "location-london",
-      "description": "Tower Bridge in London",
-      "imageUrl": "https://images.unsplash.com/photo-1520967824495-b529aeba26df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxMb25kb24lMjBicmlkZ2V8ZW58MHx8fHwxNzcwNjkwNjM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "London bridge"
+      "id": "location-kumasi",
+      "description": "Kumasi cultural center",
+      "imageUrl": "https://images.unsplash.com/photo-1618233218449-e3a4f6645618?q=80&w=600&h=400&auto=format&fit=crop",
+      "imageHint": "Kumasi center"
     },
     {
-      "id": "location-new-york",
-      "description": "Statue of Liberty in New York",
-      "imageUrl": "https://images.unsplash.com/photo-1552526490-cd5901ba5682?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxOZXdZb3JrJTIwbGliZXJ0eXxlbnwwfHx8fDE3NzA2OTA2MzZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "NewYork liberty"
+      "id": "location-takoradi",
+      "description": "Takoradi harbour",
+      "imageUrl": "https://images.unsplash.com/photo-1599882296414-727933b24f0c?q=80&w=600&h=400&auto=format&fit=crop",
+      "imageHint": "Takoradi harbour"
     },
     {
-      "id": "location-holland",
-      "description": "Canals of Amsterdam",
-      "imageUrl": "https://images.unsplash.com/photo-1694957075764-4b9b13060e4b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxBbXN0ZXJkYW0lMjBjYW5hbHN8ZW58MHx8fHwxNzcwNjkwNjM2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Amsterdam canals"
+      "id": "location-cape-coast",
+      "description": "Cape Coast castle",
+      "imageUrl": "https://images.unsplash.com/photo-1558509165-3c1a403487f2?q=80&w=600&h=400&auto=format&fit=crop",
+      "imageHint": "CapeCoast castle"
     },
     {
-      "id": "location-copenhagen",
-      "description": "Nyhavn in Copenhagen",
-      "imageUrl": "https://images.unsplash.com/photo-1677635820118-e925e4c71569?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxDb3BlbmhhZ2VuJTIwTnloYXZufGVufDB8fHx8MTc3MDY5MDYzN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Copenhagen Nyhavn"
+      "id": "location-tamale",
+      "description": "Tamale mosque",
+      "imageUrl": "https://images.unsplash.com/photo-1628109328221-f89a9e388d22?q=80&w=600&h=400&auto=format&fit=crop",
+      "imageHint": "Tamale mosque"
     },
     {
-      "id": "location-berlin",
-      "description": "Brandenburg Gate in Berlin",
-      "imageUrl": "https://images.unsplash.com/photo-1560969184-10fe8719e047?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxCZXJsaW4lMjBnYXRlfGVufDB8fHx8MTc3MDY5MDYzNnww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Berlin gate"
+      "id": "location-tema",
+      "description": "Tema port",
+      "imageUrl": "https://images.unsplash.com/photo-1613278854832-61a7b0d87453?q=80&w=600&h=400&auto=format&fit=crop",
+      "imageHint": "Tema port"
     },
     {
       "id": "hiring-main",
