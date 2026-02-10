@@ -3,7 +3,7 @@
     {
       "id": "hero-main",
       "description": "A professional reviewing a market research strategy on a laptop while enjoying a coffee.",
-      "imageUrl": "https://images.unsplash.com/photo-1521791136064-7986c2920216?w=550&h=550&fit=crop&q=80",
+      "imageUrl": "https://storage.googleapis.com/project-spark-b9748.appspot.com/static/8a2f6b3e-e6c9-4b0d-b49b-73a1d953684a",
       "imageHint": "market research"
     },
     {
@@ -345,20 +345,20 @@
     {
       "id": "location-accra",
       "description": "Independence Arch in Accra",
-      "imageUrl": "https://images.unsplash.com/photo-1662973978358-2509a25287f3?q=80&w=600&h=400&auto=format&fit=crop",
-      "imageHint": "Accra architecture"
+      "imageUrl": "https://images.unsplash.com/photo-1581413813959-f68285573426?q=80&w=600&h=400&auto=format&fit=crop",
+      "imageHint": "Accra skyline"
     },
     {
       "id": "location-kumasi",
       "description": "Kejetia Market in Kumasi",
-      "imageUrl": "https://images.unsplash.com/photo-1582233342442-8238d3536b08?q=80&w=600&h=400&auto=format&fit=crop",
-      "imageHint": "Kumasi market"
+      "imageUrl": "https://images.unsplash.com/photo-1628109328221-f89a9e388d22?q=80&w=600&h=400&auto=format&fit=crop",
+      "imageHint": "Kumasi culture"
     },
     {
       "id": "location-takoradi",
       "description": "Fishing boats in Takoradi",
       "imageUrl": "https://images.unsplash.com/photo-1605332152029-47e9ed37ba31?q=80&w=600&h=400&auto=format&fit=crop",
-      "imageHint": "Takoradi boats"
+      "imageHint": "Takoradi harbour"
     },
     {
       "id": "location-cape-coast",
