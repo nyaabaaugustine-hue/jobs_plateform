@@ -19,15 +19,15 @@ export default function JobCategories() {
             <Link
               href="#"
               key={category.name}
-              className="group rounded-xl border bg-card p-4 text-center transition-all duration-300 hover:bg-primary/10 hover:border-primary hover:-translate-y-1 hover:shadow-lg"
+              className="group rounded-xl border bg-card p-3 text-center transition-all duration-300 hover:bg-primary/10 hover:border-primary hover:-translate-y-1 hover:shadow-lg"
             >
               <div
                 className={cn(
-                  'mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-lg',
+                  'mx-auto mb-2 flex h-8 w-8 items-center justify-center rounded-lg',
                   category.iconBgColor
                 )}
               >
-                <category.icon className={cn('h-5 w-5', category.color)} />
+                <category.icon className={cn('h-4 w-4', category.color)} />
               </div>
               <h3 className="font-semibold text-foreground text-sm group-hover:text-primary">
                 {category.name}
