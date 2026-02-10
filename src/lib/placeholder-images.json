@@ -425,6 +425,12 @@
       "description": "A man in a suit presenting on a whiteboard in a professional meeting.",
       "imageUrl": "https://storage.googleapis.com/project-spark-b9748.appspot.com/static/59b15132-720c-4d57-8178-9844876b6b7a",
       "imageHint": "man presenting"
+    },
+    {
+      "id": "latest-news-bg",
+      "description": "A person reading news on a digital tablet with a cup of coffee.",
+      "imageUrl": "https://images.unsplash.com/photo-1526485663820-252d799f0653?q=80&w=1470&auto=format&fit=crop",
+      "imageHint": "news reading"
     }
   ]
 }
