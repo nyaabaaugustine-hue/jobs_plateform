@@ -17,7 +17,7 @@ import {
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
@@ -70,7 +70,7 @@ export default function HomePage() {
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative w-full bg-secondary py-20 md:py-32 lg:py-40 overflow-hidden">
+        <section className="relative w-full bg-secondary py-12 md:py-20 lg:py-24 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent"></div>
           <div className="container mx-auto px-4 md:px-6 relative">
             <div className="grid gap-8 md:grid-cols-2 md:gap-16">
