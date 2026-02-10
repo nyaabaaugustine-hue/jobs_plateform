@@ -349,52 +349,58 @@
       "imageHint": "remote work"
     },
     {
-      "id": "category-content-writer",
-      "description": "A person focused on writing content in a notebook at a desk.",
-      "imageUrl": "https://images.unsplash.com/photo-1485988412941-77a35537dae4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjb250ZW50JTIwd3JpdGluZ3xlbnwwfHx8fDE3NzA2ODc2Njl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "content writing"
+      "id": "find-job-1",
+      "description": "People collaborating at a table",
+      "imageUrl": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop",
+      "imageHint": "people collaborating"
     },
     {
-      "id": "category-market-research",
-      "description": "A desk with various charts and graphs for market research.",
-      "imageUrl": "https://images.unsplash.com/photo-1557804506-669a67965ba0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtYXJrZXQlMjByZXNlYXJjaHxlbnwwfHx8fDE3NzA2ODc2Njl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "market research"
+      "id": "find-job-2",
+      "description": "A graph showing upward trend",
+      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+      "imageHint": "graph trend"
     },
     {
-      "id": "category-marketing-sale",
-      "description": "A team collaborating on a marketing strategy in a bright office.",
-      "imageUrl": "https://images.unsplash.com/photo-1672094272561-3d4e3685a3fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxtYXJrZXRpbmclMjBzYWxlc3xlbnwwfHx8fDE3NzA2ODc2NzB8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "marketing sales"
+      "id": "find-job-3",
+      "description": "A card with apply button",
+      "imageUrl": "https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=2070&auto=format&fit=crop",
+      "imageHint": "apply button"
     },
     {
-      "id": "category-customer-help",
-      "description": "A friendly customer support agent with a headset smiling.",
-      "imageUrl": "https://images.unsplash.com/photo-1551434678-e076c223a692?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Y3VzdG9tZXIlMjBzdXBwb3J0fGVufDB8fHx8MTc3MDY2NDM4N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "customer support"
+      "id": "location-paris",
+      "description": "Eiffel Tower in Paris",
+      "imageUrl": "https://images.unsplash.com/photo-1502602898657-3e91760c0341?q=80&w=2070&auto=format&fit=crop",
+      "imageHint": "Paris eiffel"
     },
     {
-      "id": "category-finance",
-      "description": "Financial documents with a calculator and a pen on a desk.",
-      "imageUrl": "https://images.unsplash.com/photo-1511377107391-116a9d5d20b5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxmaW5hbmNlJTIwYWNjb3VudGluZ3xlbnwwfHx8fDE3NzA2ODc2Njl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "finance accounting"
+      "id": "location-london",
+      "description": "Tower Bridge in London",
+      "imageUrl": "https://images.unsplash.com/photo-1529655683826-1c21ef242a58?q=80&w=1974&auto=format&fit=crop",
+      "imageHint": "London bridge"
     },
     {
-      "id": "category-software",
-      "description": "A monitor displaying lines of colorful software code.",
-      "imageUrl": "https://images.unsplash.com/photo-1631624215749-b10b3dd7bca7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzb2Z0d2FyZSUyMGRldmVsb3BtZW50fGVufDB8fHx8MTc3MDY1MjUzMHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "software development"
+      "id": "location-new-york",
+      "description": "Statue of Liberty in New York",
+      "imageUrl": "https://images.unsplash.com/photo-1542317852-33a7788b5481?q=80&w=1974&auto=format&fit=crop",
+      "imageHint": "NewYork liberty"
     },
     {
-      "id": "category-human-resource",
-      "description": "A human resources manager interviewing a candidate.",
-      "imageUrl": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxodW1hbiUyMHJlc291cmNlc3xlbnwwfHx8fDE3NzA1ODk2NTh8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "human resources"
+      "id": "location-holland",
+      "description": "Canals of Amsterdam",
+      "imageUrl": "https://images.unsplash.com/photo-1525625293386-d080b008e14a?q=80&w=1974&auto=format&fit=crop",
+      "imageHint": "Amsterdam canals"
     },
     {
-      "id": "category-management",
-      "description": "A manager leading a team meeting in a modern office.",
-      "imageUrl": "https://images.unsplash.com/photo-1631286434951-caa3dcab4d1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtYW5hZ2VtZW50JTIwdGVhbXxlbnwwfHx8fDE3NzA2ODc2Njl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "management team"
+      "id": "location-copenhagen",
+      "description": "Nyhavn in Copenhagen",
+      "imageUrl": "https://images.unsplash.com/photo-1512470876302-9722238a8a13?q=80&w=1974&auto=format&fit=crop",
+      "imageHint": "Copenhagen Nyhavn"
+    },
+    {
+      "id": "location-berlin",
+      "description": "Brandenburg Gate in Berlin",
+      "imageUrl": "https://images.unsplash.com/photo-1599935372138-0b53571d1872?q=80&w=1974&auto=format&fit=crop",
+      "imageHint": "Berlin gate"
     }
   ]
 }

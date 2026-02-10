@@ -6,14 +6,13 @@ import Logo from './logo';
 import { Button } from '../ui/button';
 
 export default function Footer() {
-
   const navSections = [
     {
       title: 'Resources',
       links: [
         { href: '#', label: 'About Us' },
         { href: '#', label: 'Our Team' },
-        { href: '#', label: 'Products' },
+        { href: '/jobs', label: 'Products' },
         { href: '#', label: 'Contact' },
       ],
     },
@@ -38,7 +37,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="border-t bg-secondary">
+    <footer className="border-t bg-card text-card-foreground">
       <div className="container mx-auto px-4 py-12 md:px-6">
         <div className="grid gap-8 md:grid-cols-12">
           <div className="md:col-span-4 lg:col-span-3">
@@ -47,15 +46,21 @@ export default function Footer() {
               JobBox is the heart of the design community and the best resource to discover and connect with designers and jobs worldwide.
             </p>
             <div className="mt-6 flex space-x-4">
-              <Link href="#" className="text-muted-foreground hover:text-primary">
-                <Facebook />
-              </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary">
-                <Linkedin />
-              </Link>
-              <Link href="#" className="text-muted-foreground hover:text-primary">
-                <Twitter />
-              </Link>
+              <Button variant="ghost" size="icon" asChild>
+                <Link href="#" className="text-muted-foreground hover:text-primary">
+                  <Facebook />
+                </Link>
+              </Button>
+              <Button variant="ghost" size="icon" asChild>
+                <Link href="#" className="text-muted-foreground hover:text-primary">
+                  <Linkedin />
+                </Link>
+              </Button>
+              <Button variant="ghost" size="icon" asChild>
+                <Link href="#" className="text-muted-foreground hover:text-primary">
+                  <Twitter />
+                </Link>
+              </Button>
             </div>
           </div>
           <div className="grid gap-8 md:col-span-8 lg:col-span-6 md:grid-cols-3">
@@ -86,8 +91,12 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-12 border-t pt-6 text-center text-sm text-muted-foreground">
-          &copy; 2024 JobBox. All rights reserved.
+        <div className="mt-12 border-t pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
+          <p>&copy; 2024 JobBox. All rights reserved.</p>
+          <div className='flex gap-4'>
+             <Link href="#" className="hover:text-primary">Terms & Conditions</Link>
+             <Link href="#" className="hover:text-primary">Privacy Policy</Link>
+          </div>
         </div>
       </div>
     </footer>

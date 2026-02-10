@@ -9,9 +9,8 @@ export default function Header() {
     { href: '/', label: 'Home' },
     { href: '/jobs', label: 'Find a Job' },
     { href: '/companies', label: 'Companies' },
-    { href: '#', label: 'Candidates' },
+    { href: '/dashboard', label: 'Candidates' },
     { href: '/blog', label: 'Blog' },
-    { href: '#', label: 'Pages' },
   ];
 
   return (
@@ -32,11 +31,11 @@ export default function Header() {
           ))}
         </nav>
         <div className="hidden items-center gap-4 md:flex">
-          <Button variant="outline" asChild>
+          <Button variant="ghost" asChild>
             <Link href="/login">Login</Link>
           </Button>
           <Button asChild>
-            <Link href="/employer/jobs/new">Post a Job</Link>
+            <Link href="/register">Register</Link>
           </Button>
         </div>
         <Sheet>
@@ -67,7 +66,7 @@ export default function Header() {
                     <Link href="/login">Login</Link>
                 </Button>
                  <Button asChild>
-                    <Link href="/employer/jobs/new">Post a Job</Link>
+                    <Link href="/register">Register</Link>
                 </Button>
               </div>
             </div>

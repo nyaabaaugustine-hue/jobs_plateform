@@ -3,19 +3,25 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {
   ArrowRight,
+  MapPin,
   Search,
   Users,
   Star,
+  Briefcase,
+  DollarSign,
+  BarChart,
+  Target,
+  PenTool,
+  Book,
 } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
-import { DUMMY_JOBS, DUMMY_COMPANIES, DUMMY_BLOG_POSTS, DUMMY_REVIEWS } from '@/lib/data';
-import JobCard from '@/components/job-card';
+import { DUMMY_JOBS, DUMMY_COMPANIES, DUMMY_REVIEWS, DUMMY_BLOG_POSTS, JOB_CATEGORIES, LOCATIONS } from '@/lib/data';
 import {
   Carousel,
   CarouselContent,
@@ -23,52 +29,51 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { formatDistanceToNow } from 'date-fns';
 import BlogPostCard from '@/components/blog-post-card';
 
 
 export default function HomePage() {
   const heroBanner1 = PlaceHolderImages.find((img) => img.id === 'hero-banner-1');
   const heroBanner2 = PlaceHolderImages.find((img) => img.id === 'hero-banner-2');
-  const jobsByLocationImage = PlaceHolderImages.find((img) => img.id === 'chart-image');
+  const findJobImg1 = PlaceHolderImages.find((img) => img.id === 'find-job-1');
+  const findJobImg2 = PlaceHolderImages.find((img) => img.id === 'find-job-2');
+  const findJobImg3 = PlaceHolderImages.find((img) => img.id === 'find-job-3');
 
   const jobsOfTheDay = DUMMY_JOBS.slice(0, 8);
-
-  const jobCategories = [
-    { name: 'Human Resource', imageId: 'category-human-resource', jobCount: 10 },
-    { name: 'Content Writer', imageId: 'category-content-writer', jobCount: 29 },
-    { name: 'Marketing & Sale', imageId: 'category-marketing-sale', jobCount: 9 },
-    { name: 'Finance', imageId: 'category-finance', jobCount: 9 },
-    { name: 'Management', imageId: 'category-management', jobCount: 6 },
-    { name: 'Market Research', imageId: 'category-market-research', jobCount: 7 },
-    { name: 'Customer Help', imageId: 'category-customer-help', jobCount: 4 },
-    { name: 'Software', imageId: 'category-software', jobCount: 4 },
-  ];
-  
   const topRecruiters = DUMMY_COMPANIES.slice(0, 12);
   const blogPosts = DUMMY_BLOG_POSTS.slice(0, 3);
-  
-  const locations = [
-    { name: 'Paris, France', companies: 3, jobs: 5 },
-    { name: 'London, England', companies: 4, jobs: 3 },
-    { name: 'New York, USA', companies: 3, jobs: 4 },
-    { name: 'New York, Holland', companies: 3, jobs: 5 },
-    { name: 'Copenhagen, Denmark', companies: 4, jobs: 9 },
-    { name: 'Berlin, Germany', companies: 3, jobs: 3 },
-  ];
+  const jobCategories = JOB_CATEGORIES;
 
-  const categoryPairs = [];
-  for (let i = 0; i < jobCategories.length; i += 2) {
-      categoryPairs.push(jobCategories.slice(i, i + 2));
-  }
+  const jobFilters = ['All', 'Retail & Products', 'Content Writer', 'Marketing & Sale', 'Customer Help', 'Finance', 'Human Resource']
 
+  const howItWorks = [
+    {
+      icon: <Book size={32} className="text-primary"/>,
+      title: 'Register an account',
+      description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+    },
+    {
+      icon: <PenTool size={32} className="text-primary"/>,
+      title: 'Specify & search your job',
+      description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+    },
+    {
+      icon: <Target size={32} className="text-primary"/>,
+      title: 'Apply for job',
+      description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
+    },
+  ]
 
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative w-full bg-secondary py-20 md:py-32 lg:py-40">
-          <div className="container mx-auto px-4 md:px-6">
+        <section className="relative w-full bg-secondary py-20 md:py-32 lg:py-40 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent"></div>
+          <div className="container mx-auto px-4 md:px-6 relative">
             <div className="grid gap-8 md:grid-cols-2 md:gap-16">
               <div className="flex flex-col justify-center space-y-6">
                 <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
@@ -102,14 +107,14 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="relative hidden items-center justify-center md:flex">
-                <div className="grid grid-cols-2 gap-4">
+                 <div className="grid grid-cols-2 gap-4">
                   {heroBanner1 && (
                     <Image
                       src={heroBanner1.imageUrl}
                       alt={heroBanner1.description}
-                      width={818}
-                      height={818}
-                      className="rounded-xl object-cover shadow-lg"
+                      width={400}
+                      height={400}
+                      className="rounded-xl object-cover shadow-lg w-full h-auto"
                       data-ai-hint={heroBanner1.imageHint}
                     />
                   )}
@@ -119,9 +124,9 @@ export default function HomePage() {
                     <Image
                       src={heroBanner2.imageUrl}
                       alt={heroBanner2.description}
-                      width={818}
-                      height={818}
-                      className="rounded-xl object-cover shadow-lg"
+                      width={400}
+                      height={400}
+                      className="rounded-xl object-cover shadow-lg w-full h-auto"
                       data-ai-hint={heroBanner2.imageHint}
                     />
                   )}
@@ -140,50 +145,23 @@ export default function HomePage() {
                 Find the job that’s perfect for you. about 800+ new jobs everyday
               </p>
             </div>
-             <Carousel
-              opts={{
-                align: 'start',
-              }}
-              className="w-full"
-            >
-              <CarouselContent>
-                {categoryPairs.map((pair, index) => (
-                    <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/4">
-                        <div className="flex flex-col gap-4">
-                            {pair.map(category => {
-                                const categoryImage = PlaceHolderImages.find((img) => img.id === category.imageId);
-                                return (
-                                    <Link href="/jobs" key={category.name} className="block">
-                                        <Card className="group p-4 flex items-center gap-4 transition-all hover:shadow-lg hover:border-primary">
-                                            {categoryImage ? (
-                                              <Image
-                                                src={categoryImage.imageUrl}
-                                                alt={category.name}
-                                                width={48}
-                                                height={48}
-                                                className="rounded-lg object-cover h-12 w-12"
-                                                data-ai-hint={categoryImage.imageHint}
-                                              />
-                                            ) : (
-                                              <div className="h-12 w-12 rounded-lg bg-muted flex-shrink-0" />
-                                            )}
-                                            <div>
-                                            <h3 className="font-semibold text-base mb-1 group-hover:text-primary transition-colors">{category.name}</h3>
-                                            <p className="text-sm text-muted-foreground">
-                                                {category.jobCount} Jobs Available
-                                            </p>
-                                            </div>
-                                        </Card>
-                                    </Link>
-                                )
-                            })}
-                        </div>
-                    </CarouselItem>
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6">
+                {jobCategories.map(category => (
+                    <Link href="/jobs" key={category.name} className="block">
+                        <Card className="group p-6 text-center flex flex-col items-center gap-4 transition-all hover:shadow-lg hover:border-primary hover:-translate-y-1">
+                            <div className='p-4 bg-primary/10 rounded-full'>
+                                <Briefcase className="h-8 w-8 text-primary" />
+                            </div>
+                            <div>
+                                <h3 className="font-semibold text-lg mb-1 group-hover:text-primary transition-colors">{category.name}</h3>
+                                <p className="text-sm text-muted-foreground">
+                                    {category.jobCount} Jobs Available
+                                </p>
+                            </div>
+                        </Card>
+                    </Link>
                 ))}
-              </CarouselContent>
-              <CarouselPrevious className="absolute -left-4 top-1/2 -translate-y-1/2 hidden h-10 w-10 rounded-full bg-card shadow-md md:flex" />
-              <CarouselNext className="absolute -right-4 top-1/2 -translate-y-1/2 hidden h-10 w-10 rounded-full bg-card shadow-md md:flex" />
-            </Carousel>
+            </div>
           </div>
         </section>
 
@@ -217,20 +195,130 @@ export default function HomePage() {
                 Search and connect with the right candidates faster.
               </p>
             </div>
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-              {jobsOfTheDay.map((job) => (
-                <JobCard key={job.id} job={job} />
-              ))}
+             <Tabs defaultValue="All" className="w-full">
+              <TabsList className="mb-8 justify-center flex-wrap h-auto">
+                {jobFilters.map(filter => <TabsTrigger value={filter} key={filter}>{filter}</TabsTrigger>)}
+              </TabsList>
+              <TabsContent value="All">
+                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                  {jobsOfTheDay.map((job) => {
+                      const companyLogo = PlaceHolderImages.find((img) => img.id === job.company.logo);
+                      return (
+                        <Card key={job.id} className="group flex h-full flex-col transition-all hover:shadow-lg hover:-translate-y-1">
+                          <CardHeader>
+                            {companyLogo && (
+                              <Image
+                                src={companyLogo.imageUrl}
+                                alt={`${job.company.name} logo`}
+                                width={50}
+                                height={50}
+                                className="rounded-md"
+                              />
+                            )}
+                          </CardHeader>
+                          <CardContent className="flex-grow space-y-2">
+                              <Link href={`/jobs/${job.id}`}>
+                                <h3 className="font-bold text-lg group-hover:text-primary transition-colors">{job.title}</h3>
+                              </Link>
+                              <div className="flex items-center text-sm text-muted-foreground gap-4">
+                                <p className="flex items-center gap-1"><Briefcase size={14}/> {job.type}</p>
+                                <p className="flex items-center gap-1"><MapPin size={14}/> {job.company.location}</p>
+                              </div>
+                              <p className="text-sm text-muted-foreground line-clamp-2 pt-2">{job.description}</p>
+                          </CardContent>
+                          <CardFooter className="flex-col items-start gap-4">
+                            <div className="flex flex-wrap gap-2">
+                               {job.skills.slice(0,2).map(skill => <Badge variant="secondary" key={skill}>{skill}</Badge>)}
+                               {job.skills.length > 2 && <Badge variant="outline">+{job.skills.length - 2}</Badge>}
+                            </div>
+                            <div className="flex items-center justify-between w-full">
+                                <p className="font-semibold text-primary">{job.salaryRange}</p>
+                                <Button asChild size="sm">
+                                  <Link href={`/jobs/${job.id}`}>
+                                    Apply Now
+                                  </Link>
+                                </Button>
+                            </div>
+                          </CardFooter>
+                        </Card>
+                      )
+                  })}
+                </div>
+              </TabsContent>
+            </Tabs>
+          </div>
+        </section>
+
+         {/* How it works */}
+        <section className="py-16 md:py-24 bg-secondary">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="mb-10 text-center">
+              <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">How It Works?</h2>
+              <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+                Just 3 easy steps to new opportunities
+              </p>
             </div>
-            <div className="mt-12 text-center">
-              <Button asChild size="lg">
-                <Link href="/jobs">
-                  Browse All Jobs <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {howItWorks.map((step, index) => (
+                <Card key={index} className="p-8 text-center">
+                  <div className="flex justify-center mb-4">{step.icon}</div>
+                  <h3 className="font-headline text-xl font-bold mb-2">{step.title}</h3>
+                  <p className="text-muted-foreground">{step.description}</p>
+                </Card>
+              ))}
             </div>
           </div>
         </section>
+
+        {/* Find the one that's right for you */}
+        <section className="py-16 md:py-24">
+          <div className="container mx-auto px-4 md:px-6">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              <div className='relative'>
+                 {findJobImg1 && (
+                  <Image
+                    src={findJobImg1.imageUrl}
+                    alt={findJobImg1.description}
+                    width={500}
+                    height={500}
+                    className="rounded-lg object-cover"
+                    data-ai-hint={findJobImg1.imageHint}
+                  />
+                )}
+                 {findJobImg2 && (
+                  <Image
+                    src={findJobImg2.imageUrl}
+                    alt={findJobImg2.description}
+                    width={200}
+                    height={200}
+                    className="rounded-lg object-cover absolute -bottom-10 -right-10 shadow-lg border-4 border-background"
+                    data-ai-hint={findJobImg2.imageHint}
+                  />
+                )}
+                 {findJobImg3 && (
+                  <Image
+                    src={findJobImg3.imageUrl}
+                    alt={findJobImg3.description}
+                    width={150}
+                    height={150}
+                    className="rounded-lg object-cover absolute top-10 -left-10 shadow-lg border-4 border-background"
+                    data-ai-hint={findJobImg3.imageHint}
+                  />
+                )}
+              </div>
+              <div className='space-y-4'>
+                <Badge variant="outline">Millions Of Jobs</Badge>
+                <h2 className="font-headline text-4xl font-bold">Find The One That’s Right For You</h2>
+                <p className="text-muted-foreground mt-2">Search all the open positions on the web. Get your own personalized salary estimate. Read reviews on over 600,000 companies worldwide.</p>
+                <div className='flex gap-4 pt-4'>
+                  <Button size="lg">Get Started</Button>
+                  <Button size="lg" variant="outline">Learn More</Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
 
         {/* Top Recruiters Section */}
         <section className="bg-secondary py-16 md:py-24">
@@ -246,8 +334,8 @@ export default function HomePage() {
                 {topRecruiters.map((company) => {
                   const companyLogo = PlaceHolderImages.find((img) => img.id === company.logo);
                   return (
-                    <CarouselItem key={company.id} className="pl-4 md:basis-1/3 lg:basis-1/4">
-                      <Card className="text-center p-4 h-full flex flex-col items-center justify-center">
+                    <CarouselItem key={company.id} className="pl-4 md:basis-1/3 lg:basis-1/6">
+                      <Card className="text-center p-4 h-full flex flex-col items-center justify-center transition-all hover:shadow-lg hover:-translate-y-1">
                         {companyLogo &&
                           <Image
                             src={companyLogo.imageUrl}
@@ -273,13 +361,11 @@ export default function HomePage() {
                   </CarouselItem>
                 )})}
               </CarouselContent>
-              <CarouselPrevious className="absolute -left-4 top-1/2 -translate-y-1/2 hidden h-10 w-10 rounded-full bg-card shadow-md md:flex" />
-              <CarouselNext className="absolute -right-4 top-1/2 -translate-y-1/2 hidden h-10 w-10 rounded-full bg-card shadow-md md:flex" />
             </Carousel>
           </div>
         </section>
         
-        {/* Testimonials */}
+       {/* Testimonials */}
         <section className="py-16 md:py-24">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="mb-10 text-center">
@@ -329,46 +415,40 @@ export default function HomePage() {
         </section>
 
         {/* Jobs by Location Section */}
-        <section className="py-16 md:py-24">
+        <section className="bg-secondary py-16 md:py-24">
           <div className="container mx-auto px-4 md:px-6">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                {jobsByLocationImage && (
-                  <Image
-                    src={jobsByLocationImage.imageUrl}
-                    alt={jobsByLocationImage.description}
-                    width={600}
-                    height={400}
-                    className="rounded-lg object-cover"
-                    data-ai-hint={jobsByLocationImage.imageHint}
-                  />
-                )}
-              </div>
-              <div>
-                <h2 className="font-headline text-3xl font-bold">Jobs by Location</h2>
-                <p className="text-muted-foreground mt-2">Find your favourite jobs and get the benefits of yourself</p>
-                <div className="mt-8 grid grid-cols-2 gap-6">
-                  {locations.map((loc) => (
-                    <Link href="/jobs" key={loc.name}>
-                      <div
-                        className="rounded-lg border bg-card p-4 hover:shadow-md hover:border-primary transition-all"
-                      >
-                        <h3 className="font-semibold">{loc.name}</h3>
-                        <div className="flex gap-4 text-sm text-muted-foreground">
-                          <span>{loc.companies} companies</span>
-                          <span>{loc.jobs} jobs</span>
-                        </div>
+            <div className="mb-10 text-center">
+              <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">Jobs by Location</h2>
+              <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">Find your favourite jobs and get the benefits of yourself</p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {LOCATIONS.map((loc) => {
+                const locationImage = PlaceHolderImages.find((img) => img.id === loc.imageId);
+                return (
+                  <Link href="/jobs" key={loc.name} className="block group relative rounded-lg overflow-hidden">
+                     {locationImage && (
+                        <Image
+                            src={locationImage.imageUrl}
+                            alt={loc.name}
+                            width={600}
+                            height={400}
+                            className="w-full h-full object-cover transition-transform group-hover:scale-105"
+                        />
+                     )}
+                     <div className="absolute inset-0 bg-black/50"></div>
+                     <div className="absolute bottom-6 left-6 text-white">
+                        <h3 className="font-headline text-xl font-bold">{loc.name}</h3>
+                        <p className="text-sm">{loc.jobs} jobs</p>
                       </div>
-                    </Link>
-                  ))}
-                </div>
-              </div>
+                  </Link>
+                )
+              })}
             </div>
           </div>
         </section>
 
         {/* News and Blog Section */}
-        <section className="bg-secondary py-16 md:py-24">
+        <section className="py-16 md:py-24">
           <div className="container mx-auto px-4 md:px-6">
             <div className="mb-10 text-center">
               <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">News and Blog</h2>
@@ -381,19 +461,26 @@ export default function HomePage() {
                     <BlogPostCard key={post.id} post={post} />
                 ))}
             </div>
+             <div className="mt-12 text-center">
+                <Button asChild size="lg">
+                    <Link href="/blog">
+                    View All Articles <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                </Button>
+            </div>
           </div>
         </section>
         
         {/* Newsletter CTA Section */}
-        <section className="py-16 md:py-24">
+        <section className="py-16 md:py-24 bg-primary text-primary-foreground">
           <div className="container mx-auto px-4 md:px-6">
             <div className="text-center max-w-2xl mx-auto">
               <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">
                 New Things Will Always Update Regularly
               </h2>
               <div className="mt-8 flex max-w-md mx-auto">
-                <Input type="email" placeholder="Enter Your Email" className="rounded-r-none focus:z-10" />
-                <Button type="submit" className="rounded-l-none">
+                <Input type="email" placeholder="Enter Your Email" className="rounded-r-none focus:z-10 text-foreground" />
+                <Button type="submit" variant="secondary" className="rounded-l-none">
                   Subscribe
                 </Button>
               </div>
