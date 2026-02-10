@@ -344,21 +344,21 @@
     },
     {
       "id": "location-accra",
-      "description": "Accra skyline",
-      "imageUrl": "https://images.unsplash.com/photo-1609121869485-a1c1a0a5cede?q=80&w=600&h=400&auto=format&fit=crop",
-      "imageHint": "Accra skyline"
+      "description": "Independence Arch in Accra",
+      "imageUrl": "https://images.unsplash.com/photo-1662973978358-2509a25287f3?q=80&w=600&h=400&auto=format&fit=crop",
+      "imageHint": "Accra architecture"
     },
     {
       "id": "location-kumasi",
-      "description": "Kumasi cultural center",
-      "imageUrl": "https://images.unsplash.com/photo-1618233218449-e3a4f6645618?q=80&w=600&h=400&auto=format&fit=crop",
-      "imageHint": "Kumasi center"
+      "description": "Kejetia Market in Kumasi",
+      "imageUrl": "https://images.unsplash.com/photo-1582233342442-8238d3536b08?q=80&w=600&h=400&auto=format&fit=crop",
+      "imageHint": "Kumasi market"
     },
     {
       "id": "location-takoradi",
-      "description": "Takoradi harbour",
-      "imageUrl": "https://images.unsplash.com/photo-1599882296414-727933b24f0c?q=80&w=600&h=400&auto=format&fit=crop",
-      "imageHint": "Takoradi harbour"
+      "description": "Fishing boats in Takoradi",
+      "imageUrl": "https://images.unsplash.com/photo-1605332152029-47e9ed37ba31?q=80&w=600&h=400&auto=format&fit=crop",
+      "imageHint": "Takoradi boats"
     },
     {
       "id": "location-cape-coast",
