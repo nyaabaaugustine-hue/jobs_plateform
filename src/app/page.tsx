@@ -207,10 +207,10 @@ export default function HomePage() {
                         <div className={cn("flex h-12 w-12 items-center justify-center rounded-lg mb-4", category.iconBgColor)}>
                           {IconComponent && <IconComponent className={cn("h-6 w-6", category.color)} />}
                         </div>
-                        <h3 className={cn("font-semibold", category.color)}>
+                        <h3 className="font-semibold text-foreground">
                           {category.name}
                         </h3>
-                        <p className={cn("text-sm opacity-75", category.color)}>
+                        <p className="text-sm text-muted-foreground">
                           {category.jobCount} Jobs Available
                         </p>
                     </Card>
