@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { formatDistanceToNow } from 'date-fns';
-import { Clock } from 'lucide-react';
+import { Clock, Zap } from 'lucide-react';
 
 import type { Job } from '@/lib/types';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -42,26 +42,40 @@ export default function JobCard({ job }: JobCardProps) {
               </Link>
               <p className="text-sm text-muted-foreground">{job.location}</p>
           </div>
+          {job.isUrgent && (
+            <Badge variant="destructive" className="flex shrink-0 items-center gap-1">
+                <Zap size={14} /> Urgent
+            </Badge>
+          )}
       </CardHeader>
       <CardContent className="flex flex-1 flex-col p-0 mt-4">
             <Link href={`/jobs/${job.id}`} className="group">
               <h3 className="font-semibold text-foreground group-hover:text-primary text-xl leading-tight">{job.title}</h3>
             </Link>
-          <div className="mt-2 flex items-center gap-4 text-sm text-muted-foreground">
-             <Badge variant="outline" className="rounded-full">{job.type}</Badge>
-             <div className="flex items-center gap-1">
-                <Clock className="h-4 w-4" />
-                <span>{formatDistanceToNow(new Date(job.postedDate), { addSuffix: true })}</span>
-             </div>
-          </div>
-          
-          <p className="text-sm text-muted-foreground mt-3 line-clamp-3 flex-grow">{job.description}</p>
+            
+            <div className="mt-2 flex items-center flex-wrap gap-2 text-sm text-muted-foreground">
+                <Badge variant="outline">{job.type}</Badge>
+                <Badge variant="outline">{job.experienceLevel}</Badge>
+            </div>
 
+            <p className="text-sm text-muted-foreground mt-3 line-clamp-2 flex-grow">{job.description}</p>
+
+            <div className="mt-4 flex flex-wrap gap-1">
+                {job.skills.slice(0, 4).map(skill => (
+                    <Badge key={skill} variant="secondary">{skill}</Badge>
+                ))}
+            </div>
       </CardContent>
        <CardFooter className="p-0 mt-4 flex items-center justify-between">
-            <div className="text-lg">
-                <span className="font-bold text-primary">{salary}</span>
-                <span className="text-sm text-muted-foreground font-normal">/{period}</span>
+             <div className="flex flex-col text-left">
+                 <div className="text-lg">
+                    <span className="font-bold text-primary">{salary}</span>
+                    <span className="text-sm text-muted-foreground font-normal">/{period}</span>
+                </div>
+                <div className="flex items-center gap-1 text-xs text-muted-foreground">
+                    <Clock className="h-3 w-3" />
+                    <span>{formatDistanceToNow(new Date(job.postedDate), { addSuffix: true })}</span>
+                </div>
             </div>
             <Button asChild className="rounded-lg transform transition-transform hover:scale-105">
                 <Link href={`/jobs/${job.id}`}>
