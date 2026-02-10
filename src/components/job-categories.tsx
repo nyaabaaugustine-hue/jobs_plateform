@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function JobCategories() {
   return (
-    <section className="py-16 md:py-24 bg-secondary">
+    <section className="py-12 md:py-16 bg-background">
       <div className="container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline">
@@ -19,17 +19,17 @@ export default function JobCategories() {
             <Link
               href="#"
               key={category.name}
-              className="group rounded-xl border bg-card p-4 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-primary"
+              className="group rounded-xl border bg-card p-3 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-primary"
             >
               <div
                 className={cn(
-                  'mx-auto flex h-12 w-12 items-center justify-center rounded-lg',
+                  'mx-auto flex h-10 w-10 items-center justify-center rounded-lg',
                   category.iconBgColor
                 )}
               >
-                <category.icon className={cn('h-6 w-6', category.color)} />
+                <category.icon className={cn('h-5 w-5', category.color)} />
               </div>
-              <h3 className="mt-3 font-semibold text-foreground group-hover:text-primary text-base">{category.name}</h3>
+              <h3 className="mt-2 font-semibold text-foreground group-hover:text-primary text-base">{category.name}</h3>
               <p className="text-sm text-muted-foreground mt-1">{category.jobCount} Jobs Available</p>
             </Link>
           ))}
