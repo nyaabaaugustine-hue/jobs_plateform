@@ -2,8 +2,8 @@
   "placeholderImages": [
     {
       "id": "hero-main",
-      "description": "A person holding a coffee cup, working on a laptop with a business presentation.",
-      "imageUrl": "https://images.unsplash.com/photo-1556761175-b413da4b248d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwZXJzb24lMjBsYXB0b3AlMjBjb2ZmZWV8ZW58MHx8fHwxNzcxNzMzMDUyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "A person works on a laptop showing the Chapel Hill website. [NOTE: To show the correct branded image, please provide a public URL for it.]",
+      "imageUrl": "https://placehold.co/550x550/F8FAFC/0F172A?text=Branded+Image+Needed",
       "imageHint": "person laptop"
     },
     {
