@@ -20,6 +20,7 @@ export type Job = {
   postedDate: string;
   isUrgent: boolean;
   skills: string[];
+  category?: string;
 };
 
 export type User = {

@@ -1,11 +1,21 @@
-import { DUMMY_JOBS } from '@/lib/data';
+'use client';
+
+import { useState } from 'react';
+import { DUMMY_JOBS, JOB_CATEGORIES } from '@/lib/data';
 import JobCard from './job-card';
 import { Button } from './ui/button';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 export default function FeaturedJobs() {
-  const featuredJobs = DUMMY_JOBS.slice(0, 4);
+  const [selectedCategory, setSelectedCategory] = useState('All');
+
+  const categories = ['All', ...JOB_CATEGORIES.map((c) => c.name)];
+
+  const featuredJobs = DUMMY_JOBS.filter(job => {
+    if (selectedCategory === 'All') return true;
+    return job.category === selectedCategory;
+  }).slice(0, 6);
 
   return (
     <section className="py-16 md:py-24 bg-background">
@@ -16,11 +26,30 @@ export default function FeaturedJobs() {
             Get the most exciting jobs from all around the world and grow your career.
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+
+        <div className="mb-8 flex justify-center flex-wrap gap-2">
+            {categories.map(category => (
+                <Button 
+                    key={category}
+                    variant={selectedCategory === category ? "default" : "outline"}
+                    onClick={() => setSelectedCategory(category)}
+                    className="rounded-full"
+                >
+                    {category}
+                </Button>
+            ))}
+        </div>
+
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {featuredJobs.map((job) => (
             <JobCard key={job.id} job={job} />
           ))}
         </div>
+        
+        {featuredJobs.length === 0 && (
+            <p className="text-center text-muted-foreground mt-8">No jobs found for this category.</p>
+        )}
+
         <div className="mt-10 text-center">
           <Button asChild variant="outline" size="lg">
             <Link href="/jobs">

@@ -1,5 +1,5 @@
 import type { Job, Company, Review, Application, Applicant, User, BlogPost } from './types';
-import { Briefcase, Code, Headset, Landmark, Megaphone, Search, Users } from 'lucide-react';
+import { Briefcase, Code, Headset, Landmark, Megaphone, PenTool, Search, Users } from 'lucide-react';
 import type { LucideProps } from 'lucide-react';
 import React from 'react';
 
@@ -59,6 +59,7 @@ export const DUMMY_JOBS: Job[] = [
     postedDate: '2024-05-10',
     isUrgent: true,
     skills: ['React', 'TypeScript', 'Node.js', 'GraphQL'],
+    category: 'Software',
   },
   {
     id: '2',
@@ -72,6 +73,7 @@ export const DUMMY_JOBS: Job[] = [
     postedDate: '2024-05-11',
     isUrgent: false,
     skills: ['React', 'Next.js', 'TypeScript'],
+    category: 'Software',
   },
   {
     id: '3',
@@ -86,6 +88,7 @@ export const DUMMY_JOBS: Job[] = [
     postedDate: '2024-05-12',
     isUrgent: false,
     skills: ['React', 'Redux', 'TypeScript', 'Jest'],
+    category: 'Software',
   },
   {
     id: '4',
@@ -99,6 +102,7 @@ export const DUMMY_JOBS: Job[] = [
     postedDate: '2024-05-13',
     isUrgent: true,
     skills: ['React Native', 'iOS', 'Android'],
+    category: 'Software',
   },
   {
     id: '5',
@@ -112,6 +116,7 @@ export const DUMMY_JOBS: Job[] = [
     postedDate: '2024-05-18',
     isUrgent: false,
     skills: ['React', 'JavaScript', 'CSS'],
+    category: 'Software',
   },
   {
     id: '6',
@@ -126,6 +131,7 @@ export const DUMMY_JOBS: Job[] = [
     postedDate: '2024-05-17',
     isUrgent: false,
     skills: ['React', 'Node.js', 'PostgreSQL', 'AWS'],
+    category: 'Software',
   },
   {
     id: '7',
@@ -139,6 +145,7 @@ export const DUMMY_JOBS: Job[] = [
     postedDate: '2024-05-19',
     isUrgent: true,
     skills: ['Figma', 'Sketch', 'Adobe XD'],
+    category: 'Design',
   },
   {
     id: '8',
@@ -152,6 +159,7 @@ export const DUMMY_JOBS: Job[] = [
     postedDate: '2024-05-15',
     isUrgent: false,
     skills: ['Shopify', 'Liquid', 'React', 'GraphQL'],
+    category: 'Software',
   },
   {
     id: '9',
@@ -165,6 +173,7 @@ export const DUMMY_JOBS: Job[] = [
     postedDate: '2024-05-16',
     isUrgent: false,
     skills: ['Java', 'Python', 'AWS', 'React'],
+    category: 'Software',
   },
   {
     id: '10',
@@ -178,6 +187,7 @@ export const DUMMY_JOBS: Job[] = [
     postedDate: '2024-05-15',
     isUrgent: false,
     skills: ['HTML', 'CSS', 'JavaScript', 'React'],
+    category: 'Software',
   },
   {
     id: '11',
@@ -191,6 +201,7 @@ export const DUMMY_JOBS: Job[] = [
     postedDate: '2024-05-14',
     isUrgent: false,
     skills: ['Node.js', 'Express', 'MongoDB'],
+    category: 'Software',
   },
   {
     id: '12',
@@ -204,6 +215,7 @@ export const DUMMY_JOBS: Job[] = [
     postedDate: '2024-05-13',
     isUrgent: true,
     skills: ['React', 'Python', 'Django', 'GIS'],
+    category: 'Management',
   },
    {
     id: '13',
@@ -217,6 +229,7 @@ export const DUMMY_JOBS: Job[] = [
     postedDate: '2024-05-19',
     isUrgent: false,
     skills: ['AWS', 'Azure', 'GCP', 'Terraform'],
+    category: 'Software',
   },
   {
     id: '14',
@@ -230,6 +243,7 @@ export const DUMMY_JOBS: Job[] = [
     postedDate: '2024-05-18',
     isUrgent: false,
     skills: ['SEO', 'SEM', 'Google Analytics', 'Content Marketing'],
+    category: 'Marketing & Sale',
   },
   {
     id: '15',
@@ -243,6 +257,7 @@ export const DUMMY_JOBS: Job[] = [
     postedDate: '2024-05-17',
     isUrgent: true,
     skills: ['C++', 'Embedded C', 'CAN', 'AUTOSAR'],
+    category: 'Software',
   },
   {
     id: '16',
@@ -256,6 +271,7 @@ export const DUMMY_JOBS: Job[] = [
     postedDate: '2024-05-16',
     isUrgent: false,
     skills: ['Unity', 'C#', '3D Modeling'],
+    category: 'Software',
   },
   {
     id: '17',
@@ -282,6 +298,7 @@ export const DUMMY_JOBS: Job[] = [
     postedDate: '2024-05-14',
     isUrgent: true,
     skills: ['Financial Modeling', 'Due Diligence', 'Market Research'],
+    category: 'Finance',
   },
   {
     id: '19',
@@ -295,6 +312,7 @@ export const DUMMY_JOBS: Job[] = [
     postedDate: '2024-05-13',
     isUrgent: false,
     skills: ['Swift', 'Objective-C', 'Xcode', 'CoreData'],
+    category: 'Software',
   },
   {
     id: '20',
@@ -308,6 +326,7 @@ export const DUMMY_JOBS: Job[] = [
     postedDate: '2024-05-12',
     isUrgent: false,
     skills: ['ROS', 'C++', 'Python', 'SLAM'],
+    category: 'Software',
   },
   {
     id: '21',
@@ -321,6 +340,7 @@ export const DUMMY_JOBS: Job[] = [
     postedDate: '2024-05-11',
     isUrgent: false,
     skills: ['AutoCAD', 'Revit', 'SketchUp', 'BIM'],
+    category: 'Design',
   },
   {
     id: '22',
@@ -334,6 +354,7 @@ export const DUMMY_JOBS: Job[] = [
     postedDate: '2024-05-10',
     isUrgent: false,
     skills: ['Retail Management', 'Sales', 'Customer Service', 'Inventory Control'],
+    category: 'Management',
   },
   {
     id: '23',
@@ -347,6 +368,7 @@ export const DUMMY_JOBS: Job[] = [
     postedDate: '2024-05-09',
     isUrgent: false,
     skills: ['CFP', 'Series 7', 'Investment Management', 'Retirement Planning'],
+    category: 'Finance',
   },
   {
     id: '24',
@@ -360,6 +382,7 @@ export const DUMMY_JOBS: Job[] = [
     postedDate: '2024-05-08',
     isUrgent: false,
     skills: ['Luxury Travel', 'Sales', 'GDS', 'Customer Service'],
+    category: 'Customer Help',
   },
 ];
 
@@ -543,6 +566,7 @@ export const JOB_CATEGORIES = [
     { name: 'Software', jobCount: 4, icon: Code, color: 'text-cyan-800', iconBgColor: 'bg-cyan-100' },
     { name: 'Human Resource', jobCount: 10, icon: Users, color: 'text-fuchsia-800', iconBgColor: 'bg-fuchsia-100' },
     { name: 'Management', jobCount: 6, icon: Briefcase, color: 'text-indigo-800', iconBgColor: 'bg-indigo-100' },
+    { name: 'Design', jobCount: 5, icon: PenTool, color: 'text-pink-800', iconBgColor: 'bg-pink-100' },
   ];
 
 export const LOCATIONS = [
