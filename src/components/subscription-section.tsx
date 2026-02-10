@@ -71,8 +71,11 @@ export default function SubscriptionSection() {
 
           <div className="relative z-10 text-center">
             <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-accent-foreground">
-              New things will always be updated regularly.
+              Get Job Alerts
             </h2>
+             <p className="mt-4 max-w-2xl mx-auto text-lg text-accent-foreground/80">
+              Subscribe to our newsletter to receive the latest job postings.
+            </p>
             <form className="mt-8 max-w-xl mx-auto flex items-center gap-2 bg-card p-2 rounded-xl">
                 <Button type="submit" size="lg" className="rounded-lg bg-primary text-primary-foreground font-semibold px-6">
                     Subscribe
