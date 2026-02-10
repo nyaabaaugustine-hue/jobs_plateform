@@ -517,14 +517,14 @@ export const DUMMY_BLOG_POSTS: BlogPost[] = [
 ];
 
 export const JOB_CATEGORIES = [
-    { name: 'Human Resource', jobCount: 10 },
-    { name: 'Content Writer', jobCount: 29 },
-    { name: 'Marketing & Sale', jobCount: 9 },
-    { name: 'Finance', jobCount: 9 },
-    { name: 'Management', jobCount: 6 },
-    { name: 'Market Research', jobCount: 7 },
-    { name: 'Customer Help', jobCount: 4 },
-    { name: 'Software', jobCount: 4 },
+    { name: 'Human Resource', jobCount: 10, icon: 'https://placehold.co/32x32/E0F7FA/29ABE2?text=HR' },
+    { name: 'Content Writer', jobCount: 29, icon: 'https://placehold.co/32x32/E0F7FA/29ABE2?text=CW' },
+    { name: 'Marketing & Sale', jobCount: 9, icon: 'https://placehold.co/32x32/E0F7FA/29ABE2?text=MS' },
+    { name: 'Finance', jobCount: 9, icon: 'https://placehold.co/32x32/E0F7FA/29ABE2?text=F' },
+    { name: 'Management', jobCount: 6, icon: 'https://placehold.co/32x32/E0F7FA/29ABE2?text=M' },
+    { name: 'Market Research', jobCount: 7, icon: 'https://placehold.co/32x32/E0F7FA/29ABE2?text=MR' },
+    { name: 'Customer Help', jobCount: 4, icon: 'https://placehold.co/32x32/E0F7FA/29ABE2?text=CH' },
+    { name: 'Software', jobCount: 4, icon: 'https://placehold.co/32x32/E0F7FA/29ABE2?text=S' },
   ];
 
 export const LOCATIONS = [
