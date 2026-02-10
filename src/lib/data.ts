@@ -1,5 +1,5 @@
 import type { Job, Company, Review, Application, Applicant, User, BlogPost } from './types';
-import { Briefcase, Code, Headset, Landmark, Megaphone, PenTool, Search, Users } from 'lucide-react';
+import { Briefcase, Code, Headset, Landmark, Megaphone, PenTool, Search, Users, BookOpen } from 'lucide-react';
 import type { LucideProps } from 'lucide-react';
 import React from 'react';
 
@@ -567,6 +567,7 @@ export const JOB_CATEGORIES = [
     { name: 'Human Resource', jobCount: 10, icon: Users, color: 'text-fuchsia-800', iconBgColor: 'bg-fuchsia-100' },
     { name: 'Management', jobCount: 6, icon: Briefcase, color: 'text-indigo-800', iconBgColor: 'bg-indigo-100' },
     { name: 'Design', jobCount: 5, icon: PenTool, color: 'text-pink-800', iconBgColor: 'bg-pink-100' },
+    { name: 'Education', jobCount: 12, icon: BookOpen, color: 'text-orange-800', iconBgColor: 'bg-orange-100' },
   ];
 
 export const LOCATIONS = [
