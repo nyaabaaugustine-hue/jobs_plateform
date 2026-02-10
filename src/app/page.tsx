@@ -89,7 +89,7 @@ export default function HomePage() {
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="w-full bg-gradient-to-b from-indigo-50 to-slate-50 dark:from-slate-900/50 dark:to-slate-900 py-16 md:py-24">
+        <section className="w-full bg-gradient-to-b from-indigo-50 to-slate-50 dark:from-slate-900/50 dark:to-slate-900 py-16 md:py-24 lg:py-24">
           <div className="container mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 md:grid-cols-2 md:px-6 md:gap-16">
             <div className="flex flex-col justify-center space-y-6">
               <h1 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
@@ -201,16 +201,16 @@ export default function HomePage() {
                 return (
                   <Link href="/jobs" key={category.name} className="group block">
                     <Card className={cn(
-                        "h-full rounded-xl border-transparent p-6 text-left transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg",
+                        "h-full rounded-xl p-6 text-left transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg",
                         category.bgColor
                     )}>
                         <div className={cn("flex h-12 w-12 items-center justify-center rounded-lg mb-4", category.iconBgColor)}>
                           {IconComponent && <IconComponent className={cn("h-6 w-6", category.color)} />}
                         </div>
-                        <h3 className="font-semibold text-foreground">
+                        <h3 className={cn("font-semibold", category.color)}>
                           {category.name}
                         </h3>
-                        <p className="text-sm text-muted-foreground">
+                        <p className={cn("text-sm opacity-75", category.color)}>
                           {category.jobCount} Jobs Available
                         </p>
                     </Card>
