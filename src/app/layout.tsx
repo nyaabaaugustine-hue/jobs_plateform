@@ -6,7 +6,7 @@ import { Toaster } from '@/components/ui/toaster';
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter', weight: ['400', '500', '600', '800'] });
 
 export const metadata: Metadata = {
-  title: 'JobBox',
+  title: 'JobBox - Find Your Next Job',
   description: 'The Easiest Way to Get Your New Job',
 };
 

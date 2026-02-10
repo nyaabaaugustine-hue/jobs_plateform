@@ -6,17 +6,15 @@ import Link from 'next/link';
 import {
   ArrowRight,
   Briefcase,
-  Building,
   CheckCircle,
   MapPin,
   Search,
   Star,
-  Users,
 } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
@@ -57,7 +55,6 @@ export default function HomePage() {
   const jobsOfTheDay = DUMMY_JOBS.slice(0, 6);
   const heroImage = PlaceHolderImages.find(p => p.id === 'hero-banner-2');
   const locationImages = LOCATIONS.map(loc => ({...loc, image: PlaceHolderImages.find(p => p.id === loc.imageId)}));
-
 
   const trustIndicators = [
     { text: '12,430 jobs available' },
@@ -113,10 +110,10 @@ export default function HomePage() {
         </section>
 
         {/* Categories Section */}
-        <section className="py-20 lg:py-24 bg-card">
+        <section className="py-20 lg:py-24 bg-background">
             <div className="container mx-auto max-w-7xl px-6 lg:px-12">
                 <div className="mb-12 text-center">
-                <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+                <h2 className="font-headline text-3xl font-semibold tracking-tight sm:text-4xl">
                     Browse by Category
                 </h2>
                 <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
@@ -185,7 +182,7 @@ export default function HomePage() {
             <div className="container mx-auto max-w-7xl px-6 lg:px-12 text-center">
                 <h2 className="text-4xl font-bold">WE’RE HIRING 🚀</h2>
                 <p className="text-xl mt-2 italic">Let’s Work Together</p>
-                <Button asChild size="lg" variant="secondary" className="mt-8 text-lg">
+                <Button asChild size="lg" variant="secondary" className="mt-8 text-lg text-primary hover:bg-white/90">
                     <Link href="/jobs">Apply</Link>
                 </Button>
             </div>
@@ -242,7 +239,7 @@ export default function HomePage() {
               </p>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
-                {topRecruiters.slice(0,6).map((company) => {
+                {topRecruiters.map((company) => {
                   const companyLogo = PlaceHolderImages.find((img) => img.id === company.logo);
                   return (
                     <Link href={`/companies/${company.id}`} key={company.id} className="group">
@@ -253,7 +250,7 @@ export default function HomePage() {
                             alt={`${company.name} logo`}
                             width={64}
                             height={64}
-                            className="mb-4 rounded-full transition-transform group-hover:scale-110"
+                            className="rounded-full mb-4 transition-transform group-hover:scale-110"
                           />
                         }
                         
@@ -378,7 +375,7 @@ export default function HomePage() {
               </h2>
               <div className="mt-8 flex max-w-md mx-auto">
                 <Input type="email" placeholder="Enter Your Email" className="rounded-r-none focus:z-10 text-foreground" />
-                <Button type="submit" variant="secondary" className="rounded-l-none">
+                <Button type="submit" variant="secondary" className="rounded-l-none text-primary hover:bg-secondary/90">
                   Subscribe
                 </Button>
               </div>

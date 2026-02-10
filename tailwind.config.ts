@@ -21,7 +21,7 @@ export default {
     extend: {
       fontFamily: {
         body: ['var(--font-inter)', ...fontFamily.sans],
-        headline: ['var(--font-space-grotesk)', ...fontFamily.sans],
+        headline: ['var(--font-inter)', ...fontFamily.sans],
       },
       colors: {
         yellow: colors.yellow,

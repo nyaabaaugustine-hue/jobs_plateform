@@ -14,7 +14,7 @@ export default function JobCard({ job }: JobCardProps) {
   const companyLogo = PlaceHolderImages.find((img) => img.id === job.company.logo);
 
   return (
-    <Card className="flex h-full flex-col p-6 rounded-lg shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+    <Card className="flex h-full flex-col p-6 rounded-2xl shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border">
       <CardContent className="flex flex-1 flex-col p-0">
           <div className="flex items-start gap-4">
               {companyLogo && (
@@ -39,9 +39,9 @@ export default function JobCard({ job }: JobCardProps) {
           <p className="text-sm text-muted-foreground mt-3 line-clamp-2 flex-grow">{job.description}</p>
 
           <div className="my-4 flex flex-wrap items-center gap-2">
-            <Badge variant="outline" className="bg-blue-100 text-blue-800 border-transparent">{job.location}</Badge>
-            <Badge variant="outline" className="bg-green-100 text-green-800 border-transparent">{job.type}</Badge>
-            <Badge variant="outline" className="bg-yellow-100 text-yellow-800 border-transparent">{job.experienceLevel}</Badge>
+            <Badge variant="outline" className="bg-primary/10 text-primary border-transparent rounded-full">{job.location}</Badge>
+            <Badge variant="outline" className="bg-primary/10 text-primary border-transparent rounded-full">{job.type}</Badge>
+            <Badge variant="outline" className="bg-primary/10 text-primary border-transparent rounded-full">{job.experienceLevel}</Badge>
           </div>
 
           <div className="flex items-center justify-between mt-auto">
@@ -49,7 +49,7 @@ export default function JobCard({ job }: JobCardProps) {
                 <p className="font-bold text-lg text-primary">{job.salaryRange}</p>
                 <p className="text-xs text-muted-foreground">per year</p>
               </div>
-              <Button asChild className="transform transition-transform hover:scale-105">
+              <Button asChild className="rounded-lg transform transition-transform hover:scale-105">
                   <Link href={`/jobs/${job.id}`}>
                     Apply Now
                   </Link>

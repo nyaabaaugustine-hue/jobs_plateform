@@ -14,7 +14,6 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
   const postImage = PlaceHolderImages.find((img) => img.id === post.image);
   const authorAvatar = PlaceHolderImages.find((img) => img.id === post.author.avatar);
 
-  // Simplified mapping for tags
   const getTag = (id: string) => {
     if (id === '1' || id === '3') return "Career Tips";
     if (id === '2' || id === '5') return "Tech Trends";
@@ -22,7 +21,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
   }
 
   return (
-    <Card className="overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+    <Card className="overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
         <Link href={`/blog/${post.slug}`} className="block overflow-hidden">
           {postImage && (
               <div className="relative">
@@ -34,12 +33,12 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
                     className="w-full object-cover aspect-[3/2] transition-transform duration-300 group-hover:scale-105"
                     data-ai-hint={postImage.imageHint}
                 />
-                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
+                 <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors" />
                  <div className="absolute top-4 left-4">
                     <Badge>{getTag(post.id)}</Badge>
                  </div>
                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span className="text-white font-semibold">Read More</span>
+                    <span className="text-white font-semibold border-2 border-white rounded-full px-4 py-2">Read More</span>
                 </div>
               </div>
           )}

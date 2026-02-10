@@ -8,44 +8,44 @@ import { Button } from '../ui/button';
 export default function Footer() {
   const navSections = [
     {
-      title: 'Resources',
+      title: 'For Candidates',
       links: [
-        { href: '#', label: 'About Us' },
-        { href: '#', label: 'Our Team' },
-        { href: '/jobs', label: 'Products' },
-        { href: '#', label: 'Contact' },
+        { href: '/jobs', label: 'Browse Jobs' },
+        { href: '/dashboard', label: 'Candidate Dashboard' },
+        { href: '/dashboard/profile', label: 'Job Alerts' },
+        { href: '/dashboard/applications', label: 'My Applications' },
+      ],
+    },
+    {
+      title: 'For Employers',
+      links: [
+        { href: '/employer', label: 'Employer Dashboard' },
+        { href: '/employer/jobs/new', label: 'Post a Job' },
+        { href: '/employer/applicants', label: 'Browse Candidates' },
+        { href: '#', label: 'Pricing' },
       ],
     },
     {
       title: 'Community',
       links: [
-        { href: '#', label: 'Feature' },
-        { href: '#', label: 'Pricing' },
-        { href: '#', label: 'Credit' },
-        { href: '#', label: 'FAQ' },
-      ],
-    },
-    {
-      title: 'Quick links',
-      links: [
-        { href: '#', label: 'iOS' },
-        { href: '#', label: 'Android' },
-        { href: '#', label: 'Microsoft' },
-        { href: '#', label: 'Desktop' },
+        { href: '/blog', label: 'Blog' },
+        { href: '#', label: 'Help Center' },
+        { href: '#', label: 'Guidelines' },
+        { href: '#', label: 'Careers' },
       ],
     },
   ];
 
   return (
     <footer className="border-t bg-card text-card-foreground">
-      <div className="container mx-auto px-4 py-12 md:px-6">
-        <div className="grid gap-8 md:grid-cols-12">
-          <div className="md:col-span-4 lg:col-span-3">
+      <div className="container mx-auto px-4 py-16 md:px-6">
+        <div className="grid gap-12 md:grid-cols-12">
+          <div className="md:col-span-12 lg:col-span-4">
             <Logo />
             <p className="mt-4 text-sm text-muted-foreground">
               JobBox is the heart of the design community and the best resource to discover and connect with designers and jobs worldwide.
             </p>
-            <div className="mt-6 flex space-x-4">
+            <div className="mt-6 flex space-x-2">
               <Button variant="ghost" size="icon" asChild>
                 <Link href="#" className="text-muted-foreground hover:text-primary">
                   <Facebook />
@@ -63,7 +63,7 @@ export default function Footer() {
               </Button>
             </div>
           </div>
-          <div className="grid gap-8 md:col-span-8 lg:col-span-6 md:grid-cols-3">
+          <div className="grid gap-8 md:col-span-12 lg:col-span-8 md:grid-cols-3">
             {navSections.map((section) => (
               <div key={section.title}>
                 <h3 className="font-headline font-semibold text-foreground">{section.title}</h3>
@@ -82,16 +82,8 @@ export default function Footer() {
               </div>
             ))}
           </div>
-          <div className="md:col-span-12 lg:col-span-3">
-            <h3 className="font-headline font-semibold text-foreground">Download App</h3>
-            <p className="mt-4 text-sm text-muted-foreground">Get the app for a better experience.</p>
-            <div className="mt-4 flex flex-col space-y-2">
-                <Button variant="outline">App Store</Button>
-                <Button variant="outline">Google Play</Button>
-            </div>
-          </div>
         </div>
-        <div className="mt-12 border-t pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
+        <div className="mt-12 border-t pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
           <p>&copy; 2024 JobBox. All rights reserved.</p>
           <div className='flex gap-4'>
              <Link href="#" className="hover:text-primary">Terms & Conditions</Link>
