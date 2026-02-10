@@ -31,35 +31,46 @@ export default function HomePage() {
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="w-full py-20 lg:py-24 bg-secondary bg-hero-glow">
-          <div className="container mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 lg:grid-cols-2 lg:gap-16">
-            <div className="flex flex-col justify-center space-y-6 lg:order-1 order-2">
-              <h1 className="text-5xl font-extrabold tracking-tight text-foreground sm:text-6xl !leading-tight font-headline">
+        <section className="relative w-full py-20 lg:py-32 flex items-center justify-center text-center">
+          {heroImage && (
+            <Image
+              src={heroImage.imageUrl}
+              alt={heroImage.description}
+              fill
+              className="object-cover z-0"
+              data-ai-hint={heroImage.imageHint}
+              priority
+            />
+          )}
+          <div className="absolute inset-0 bg-black/60 z-10" />
+          <div className="relative z-20 container mx-auto px-6 max-w-4xl">
+            <div className="flex flex-col justify-center space-y-6">
+              <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-6xl !leading-tight font-headline">
                 Find Work That Moves Your Career Forward
               </h1>
-              <p className="max-w-xl text-lg text-muted-foreground">
+              <p className="max-w-2xl mx-auto text-lg text-gray-200">
                 The Easiest Way to Get Your New Job. Each month, more than 3 million job seekers turn
                 to our website in their search for work.
               </p>
-              <div className="rounded-2xl bg-card p-4 shadow-lg border">
+              <div className="rounded-2xl bg-white/10 backdrop-blur-sm p-4 shadow-lg border border-white/20">
                 <form className="flex items-center flex-col sm:flex-row gap-4">
                   <div className="flex w-full items-center">
-                    <Briefcase className="h-5 w-5 text-muted-foreground mx-3" />
+                    <Briefcase className="h-5 w-5 text-gray-300 mx-3" />
                     <Input
                       id="job-title"
                       type="search"
                       placeholder="Job title, keyword"
-                      className="border-none focus-visible:ring-0 text-base h-12"
+                      className="border-none focus-visible:ring-0 text-base h-12 bg-transparent text-white placeholder:text-gray-300"
                     />
                   </div>
-                  <Separator orientation="vertical" className="h-8 hidden sm:block" />
+                  <Separator orientation="vertical" className="h-8 hidden sm:block bg-white/20" />
                   <div className="flex w-full items-center">
-                    <MapPin className="h-5 w-5 text-muted-foreground mx-3" />
+                    <MapPin className="h-5 w-5 text-gray-300 mx-3" />
                     <Input
                       id="location"
                       type="search"
                       placeholder="City or zip code"
-                      className="border-none focus-visible:ring-0 text-base h-12"
+                      className="border-none focus-visible:ring-0 text-base h-12 bg-transparent text-white placeholder:text-gray-300"
                     />
                   </div>
                   <Button
@@ -71,28 +82,14 @@ export default function HomePage() {
                   </Button>
                 </form>
               </div>
-              <div className="flex items-center gap-6 pt-4 flex-wrap">
+              <div className="flex items-center gap-6 pt-4 flex-wrap justify-center">
                 {trustIndicators.map((item, index) => (
-                  <div key={index} className="flex items-center gap-2 text-sm text-muted-foreground">
+                  <div key={index} className="flex items-center gap-2 text-sm text-gray-200">
                     <CheckCircle className="h-4 w-4 text-primary" />
                     <span>{item.text}</span>
                   </div>
                 ))}
               </div>
-            </div>
-
-            <div className="relative flex items-center justify-center lg:order-2 order-1">
-              {heroImage && (
-                <Image
-                  src={heroImage.imageUrl}
-                  alt={heroImage.description}
-                  width={550}
-                  height={550}
-                  className="rounded-lg shadow-2xl object-cover"
-                  data-ai-hint={heroImage.imageHint}
-                  priority
-                />
-              )}
             </div>
           </div>
         </section>
