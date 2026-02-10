@@ -56,6 +56,7 @@ export default function JobCard({ job }: JobCardProps) {
             <div className="mt-2 flex items-center flex-wrap gap-2 text-sm text-muted-foreground">
                 <Badge variant="outline">{job.type}</Badge>
                 <Badge variant="outline">{job.experienceLevel}</Badge>
+                {job.location.toLowerCase() === 'remote' && <Badge variant="secondary">Remote</Badge>}
             </div>
 
             <p className="text-sm text-muted-foreground mt-3 line-clamp-2 flex-grow">{job.description}</p>
