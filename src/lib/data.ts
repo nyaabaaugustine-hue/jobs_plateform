@@ -517,14 +517,14 @@ export const DUMMY_BLOG_POSTS: BlogPost[] = [
 ];
 
 export const JOB_CATEGORIES = [
-    { name: 'Engineering', jobCount: 124, icon: 'Code' },
-    { name: 'Design', jobCount: 88, icon: 'Palette' },
-    { name: 'Product', jobCount: 56, icon: 'Package' },
-    { name: 'Marketing', jobCount: 72, icon: 'Megaphone' },
-    { name: 'Finance', jobCount: 45, icon: 'Landmark' },
-    { name: 'Sales', jobCount: 95, icon: 'TrendingUp' },
-    { name: 'Human Resources', jobCount: 32, icon: 'Users' },
-    { name: 'Customer Support', jobCount: 64, icon: 'Headset' },
+    { name: 'Engineering', jobCount: 124, icon: 'Code', color: 'text-sky-800', bgColor: 'bg-sky-100', iconBgColor: 'bg-sky-200' },
+    { name: 'Design', jobCount: 88, icon: 'Palette', color: 'text-violet-800', bgColor: 'bg-violet-100', iconBgColor: 'bg-violet-200' },
+    { name: 'Product', jobCount: 56, icon: 'Package', color: 'text-amber-800', bgColor: 'bg-amber-100', iconBgColor: 'bg-amber-200' },
+    { name: 'Marketing', jobCount: 72, icon: 'Megaphone', color: 'text-rose-800', bgColor: 'bg-rose-100', iconBgColor: 'bg-rose-200' },
+    { name: 'Finance', jobCount: 45, icon: 'Landmark', color: 'text-emerald-800', bgColor: 'bg-emerald-100', iconBgColor: 'bg-emerald-200' },
+    { name: 'Sales', jobCount: 95, icon: 'TrendingUp', color: 'text-cyan-800', bgColor: 'bg-cyan-100', iconBgColor: 'bg-cyan-200' },
+    { name: 'Human Resources', jobCount: 32, icon: 'Users', color: 'text-fuchsia-800', bgColor: 'bg-fuchsia-100', iconBgColor: 'bg-fuchsia-200' },
+    { name: 'Customer Support', jobCount: 64, icon: 'Headset', color: 'text-indigo-800', bgColor: 'bg-indigo-100', iconBgColor: 'bg-indigo-200' },
   ];
 
 export const LOCATIONS = [

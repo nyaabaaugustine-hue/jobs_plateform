@@ -40,6 +40,7 @@ import BlogPostCard from '@/components/blog-post-card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Switch } from '@/components/ui/switch';
 import { Label } from '@/components/ui/label';
+import { cn } from '@/lib/utils';
 
 
 export default function HomePage() {
@@ -199,20 +200,19 @@ export default function HomePage() {
                 const IconComponent = iconMap[category.icon];
                 return (
                   <Link href="/jobs" key={category.name} className="group block">
-                    <Card className="h-full rounded-xl border border-slate-200 bg-white transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg hover:border-primary dark:bg-slate-950 dark:border-slate-800">
-                      <CardContent className="flex items-center gap-4 p-4">
-                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                          {IconComponent && <IconComponent className="h-8 w-8 text-primary" />}
+                    <Card className={cn(
+                        "h-full rounded-xl border-transparent p-6 text-left transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg",
+                        category.bgColor
+                    )}>
+                        <div className={cn("flex h-12 w-12 items-center justify-center rounded-lg mb-4", category.iconBgColor)}>
+                          {IconComponent && <IconComponent className={cn("h-6 w-6", category.color)} />}
                         </div>
-                        <div>
-                          <h3 className="font-semibold text-slate-900 transition-colors group-hover:text-primary dark:text-slate-50">
-                            {category.name}
-                          </h3>
-                          <p className="text-sm text-slate-500 dark:text-slate-400">
-                            {category.jobCount} Jobs Available
-                          </p>
-                        </div>
-                      </CardContent>
+                        <h3 className={cn("font-semibold", category.color)}>
+                          {category.name}
+                        </h3>
+                        <p className={cn("text-sm opacity-75", category.color)}>
+                          {category.jobCount} Jobs Available
+                        </p>
                     </Card>
                   </Link>
                 );
