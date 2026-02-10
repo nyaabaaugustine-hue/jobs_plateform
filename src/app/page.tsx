@@ -37,7 +37,7 @@ export default function HomePage() {
               src={heroImage.imageUrl}
               alt={heroImage.description}
               fill
-              className="object-cover z-0"
+              className="object-contain z-0"
               data-ai-hint={heroImage.imageHint}
               priority
             />
