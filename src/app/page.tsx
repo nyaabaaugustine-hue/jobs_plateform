@@ -5,14 +5,11 @@ import {
   ArrowRight,
   MapPin,
   Search,
-  Users,
   Star,
   Briefcase,
-  DollarSign,
-  BarChart,
-  Target,
-  PenTool,
   Book,
+  PenTool,
+  Target,
 } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Badge } from '@/components/ui/badge';
@@ -32,7 +29,9 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { formatDistanceToNow } from 'date-fns';
 import BlogPostCard from '@/components/blog-post-card';
-import { HeroSlider } from '@/components/hero-slider';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Switch } from '@/components/ui/switch';
+import { Label } from '@/components/ui/label';
 
 
 export default function HomePage() {
@@ -70,43 +69,96 @@ export default function HomePage() {
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative w-full bg-secondary py-12 md:py-20 lg:py-24 overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-b from-primary/10 to-transparent"></div>
-          <div className="container mx-auto px-4 md:px-6 relative">
-            <div className="grid gap-8 md:grid-cols-2 md:gap-16">
-              <div className="flex flex-col justify-center space-y-6">
-                <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-                  The Easiest Way to Get Your New Job
-                </h1>
-                <p className="max-w-xl text-lg text-muted-foreground">
-                  Each month, more than 3 million job seekers turn to website in their search for work, making over
-                  140,000 applications every single day.
-                </p>
-                <div className="rounded-lg bg-card p-4 shadow-md">
-                  <form className="grid gap-4 sm:grid-cols-[1fr_1fr_auto]">
+        <section className="w-full bg-gradient-to-b from-indigo-50 to-slate-50 py-24">
+          <div className="container mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 md:grid-cols-2">
+            <div className="flex flex-col justify-center space-y-6">
+              <h1 className="font-headline text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+                Find Work That Moves Your Career Forward
+              </h1>
+              <p className="max-w-xl text-lg text-slate-600">
+                Clear, calm, no fluff.
+              </p>
+              <div className="rounded-xl bg-white p-6 shadow-lg">
+                <form className="space-y-4">
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     <div className="relative">
-                      <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-                      <Input type="search" placeholder="Job title, keyword..." className="w-full pl-10" />
+                      <Label htmlFor="job-title" className="sr-only">Job title</Label>
+                      <Search className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
+                      <Input id="job-title" type="search" placeholder="Job title, keyword..." className="w-full pl-10" />
                     </div>
                     <div className="relative">
-                      <Users className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-                      <Input type="search" placeholder="City, state, or zip code" className="w-full pl-10" />
+                      <Label htmlFor="location" className="sr-only">Location</Label>
+                      <MapPin className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
+                      <Input id="location" type="search" placeholder="City, state, or zip code" className="w-full pl-10" />
                     </div>
-                    <Button type="submit" className="w-full">
-                      Find Jobs
-                    </Button>
-                  </form>
-                </div>
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-sm font-medium text-muted-foreground">Popular Searches:</span>
-                  <Badge variant="outline">Design</Badge>
-                  <Badge variant="outline">Development</Badge>
-                  <Badge variant="outline">Manager</Badge>
-                  <Badge variant="outline">Senior</Badge>
-                </div>
+                  </div>
+                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                      <div className="relative">
+                        <Label htmlFor="experience" className="sr-only">Experience</Label>
+                        <Briefcase className="absolute left-3 top-1/2 z-10 h-5 w-5 -translate-y-1/2 text-slate-400" />
+                        <Select>
+                          <SelectTrigger className="w-full pl-10">
+                            <SelectValue placeholder="Experience Level" />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="entry">Entry-level</SelectItem>
+                            <SelectItem value="mid">Mid-level</SelectItem>
+                            <SelectItem value="senior">Senior-level</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <div className="flex items-center justify-center space-x-2 rounded-lg border bg-white px-3">
+                        <Label htmlFor="remote-only">Remote Only</Label>
+                        <Switch id="remote-only" />
+                      </div>
+                    </div>
+                  <Button type="submit" className="w-full" size="lg">
+                    Find Jobs
+                  </Button>
+                </form>
               </div>
-              <div className="relative hidden items-center justify-center md:flex">
-                <HeroSlider />
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-sm font-medium text-slate-500">Popular Searches:</span>
+                <Badge variant="outline">Design</Badge>
+                <Badge variant="outline">Development</Badge>
+                <Badge variant="outline">Manager</Badge>
+                <Badge variant="outline">Senior</Badge>
+              </div>
+            </div>
+
+            <div className="relative hidden items-center justify-center md:flex">
+              <div className="grid grid-cols-2 gap-4">
+                {findJobImg1 && (
+                  <Image
+                    src={findJobImg1.imageUrl}
+                    alt={findJobImg1.description}
+                    width={300}
+                    height={400}
+                    className="col-span-1 row-span-2 h-full rounded-xl object-cover"
+                    data-ai-hint={findJobImg1.imageHint}
+                    priority
+                  />
+                )}
+                {findJobImg2 && (
+                  <Image
+                    src={findJobImg2.imageUrl}
+                    alt={findJobImg2.description}
+                    width={300}
+                    height={190}
+                    className="h-full w-full rounded-xl object-cover"
+                    data-ai-hint={findJobImg2.imageHint}
+                  />
+                )}
+                {findJobImg3 && (
+                  <Image
+                    src={findJobImg3.imageUrl}
+                    alt={findJobImg3.description}
+                    width={300}
+                    height={190}
+                    className="h-full w-full rounded-xl object-cover"
+                    data-ai-hint={findJobImg3.imageHint}
+                  />
+                )}
               </div>
             </div>
           </div>
@@ -129,7 +181,7 @@ export default function HomePage() {
                       <Link href="/jobs" className="block">
                           <Card className="group flex h-24 items-center gap-4 p-4 transition-all hover:shadow-lg hover:border-primary hover:-translate-y-1">
                                <div className='p-2 bg-primary/10 rounded-lg'>
-                                  <Image src={category.icon} alt={category.name} width={32} height={32} className="h-8 w-8 text-primary" />
+                                  <Image src={category.icon} alt={category.name} width={32} height={32} className="h-8 w-8 text-primary" unoptimized/>
                               </div>
                               <div>
                                   <h3 className="font-semibold text-md mb-1 group-hover:text-primary transition-colors">{category.name}</h3>
@@ -143,7 +195,7 @@ export default function HomePage() {
                          <Link href="/jobs" className="block">
                             <Card className="group flex h-24 items-center gap-4 p-4 transition-all hover:shadow-lg hover:border-primary hover:-translate-y-1">
                                 <div className='p-2 bg-primary/10 rounded-lg'>
-                                    <Image src={jobCategories[index + 8].icon} alt={jobCategories[index + 8].name} width={32} height={32} className="h-8 w-8 text-primary" />
+                                    <Image src={jobCategories[index + 8].icon} alt={jobCategories[index + 8].name} width={32} height={32} className="h-8 w-8 text-primary" unoptimized/>
                                 </div>
                                 <div>
                                     <h3 className="font-semibold text-md mb-1 group-hover:text-primary transition-colors">{jobCategories[index + 8].name}</h3>
