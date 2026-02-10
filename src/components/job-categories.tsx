@@ -1,5 +1,6 @@
 'use client';
 
+import * as React from 'react';
 import {
   Carousel,
   CarouselContent,
@@ -7,6 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
+import Autoplay from "embla-carousel-autoplay";
 import { JOB_CATEGORIES } from '@/lib/data';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
@@ -17,6 +19,10 @@ export default function JobCategories() {
     for (let i = 0; i < JOB_CATEGORIES.length; i += 2) {
         categoryGroups.push(JOB_CATEGORIES.slice(i, i + 2));
     }
+
+    const plugin = React.useRef(
+        Autoplay({ delay: 3000, stopOnInteraction: true })
+    );
 
   return (
     <section className="bg-secondary py-16 md:py-24">
@@ -33,7 +39,11 @@ export default function JobCategories() {
           <Carousel
             opts={{
               align: "start",
+              loop: true,
             }}
+            plugins={[plugin.current]}
+            onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.reset}
             className="w-full"
           >
             <CarouselContent className="-ml-4">
