@@ -8,13 +8,26 @@ import { MapPin } from 'lucide-react';
 
 export default function TopCompanies() {
   const topCompanies = DUMMY_COMPANIES.slice(0, 10);
+  const bgImage = PlaceHolderImages.find((img) => img.id === 'top-companies-bg');
 
   return (
-    <section className="py-16 md:py-24 bg-secondary">
-      <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+    <section className="relative py-16 md:py-24">
+      {bgImage && (
+        <>
+          <Image
+            src={bgImage.imageUrl}
+            alt={bgImage.description}
+            fill
+            className="object-cover z-0"
+            data-ai-hint={bgImage.imageHint}
+          />
+          <div className="absolute inset-0 bg-black/70 z-10" />
+        </>
+      )}
+      <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-12 text-center">
-          <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">Top Companies Hiring</h2>
-          <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+          <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-white">Top Companies Hiring</h2>
+          <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-200">
             Discover your next career step: freelancing or training
           </p>
         </div>
@@ -23,7 +36,7 @@ export default function TopCompanies() {
             const companyLogo = PlaceHolderImages.find((img) => img.id === company.logo);
             return (
               <Link key={company.id} href={`/companies/${company.id}`} className="block group">
-                <Card className="h-full p-4 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <Card className="h-full p-4 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl bg-background/80 backdrop-blur-sm">
                   {companyLogo && (
                     <div className="flex justify-center mb-3">
                         <Image
