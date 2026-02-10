@@ -32,10 +32,12 @@ import {
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { formatDistanceToNow } from 'date-fns';
 import BlogPostCard from '@/components/blog-post-card';
-import { HeroSlider } from '@/components/hero-slider';
 
 
 export default function HomePage() {
+  const heroImage1 = PlaceHolderImages.find((img) => img.id === 'hero-banner-1');
+  const heroImage2 = PlaceHolderImages.find((img) => img.id === 'hero-banner-2');
+  const heroImage3 = PlaceHolderImages.find((img) => img.id === 'hero-banner-3');
   const findJobImg1 = PlaceHolderImages.find((img) => img.id === 'find-job-1');
   const findJobImg2 = PlaceHolderImages.find((img) => img.id === 'find-job-2');
   const findJobImg3 = PlaceHolderImages.find((img) => img.id === 'find-job-3');
@@ -106,7 +108,37 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="relative hidden items-center justify-center md:flex">
-                <HeroSlider />
+                {heroImage1 && (
+                  <Image
+                    src={heroImage1.imageUrl}
+                    alt={heroImage1.description}
+                    width={450}
+                    height={450}
+                    className="rounded-lg object-cover shadow-xl aspect-square"
+                    data-ai-hint={heroImage1.imageHint}
+                    priority
+                  />
+                )}
+                {heroImage2 && (
+                  <Image
+                    src={heroImage2.imageUrl}
+                    alt={heroImage2.description}
+                    width={200}
+                    height={200}
+                    className="absolute -bottom-16 -left-16 rounded-lg border-8 border-background object-cover shadow-xl"
+                    data-ai-hint={heroImage2.imageHint}
+                  />
+                )}
+                 {heroImage3 && (
+                  <Image
+                    src={heroImage3.imageUrl}
+                    alt={heroImage3.description}
+                    width={150}
+                    height={150}
+                    className="absolute -top-16 -right-16 rounded-full border-8 border-background object-cover shadow-xl"
+                    data-ai-hint={heroImage3.imageHint}
+                  />
+                )}
               </div>
             </div>
           </div>

@@ -1,3 +1,4 @@
+
 'use client';
 
 import * as React from 'react';
@@ -9,21 +10,16 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
-import Autoplay from 'embla-carousel-autoplay';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export function HeroSlider() {
-  const plugin = React.useRef(Autoplay({ delay: 3000, stopOnInteraction: false }));
   const heroBanners = PlaceHolderImages.filter(
     (img) => img.id.startsWith('hero-banner-')
   );
 
   return (
     <Carousel
-      plugins={[plugin.current]}
       className="w-full max-w-lg"
-      onMouseEnter={plugin.current.stop}
-      onMouseLeave={plugin.current.reset}
     >
       <CarouselContent>
         {heroBanners.map((banner, index) => (

@@ -296,21 +296,21 @@
     },
     {
       "id": "hero-banner-1",
-      "description": "A person working on a laptop in a bright, modern workspace.",
-      "imageUrl": "https://images.unsplash.com/photo-1498798889915-6df5b870505b?q=80&w=2070&auto=format&fit=crop",
-      "imageHint": "workspace laptop"
+      "description": "A developer coding on a laptop in a clean workspace.",
+      "imageUrl": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=2070&auto=format&fit=crop",
+      "imageHint": "developer coding"
     },
     {
       "id": "hero-banner-2",
-      "description": "A diverse group of professionals collaborating in a meeting.",
-      "imageUrl": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop",
-      "imageHint": "team collaboration"
+      "description": "A diverse team collaborating around a table with laptops.",
+      "imageUrl": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop",
+      "imageHint": "teamwork office"
     },
     {
       "id": "hero-banner-3",
-      "description": "A smiling person during a job interview.",
-      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop",
-      "imageHint": "job interview"
+      "description": "Portrait of a smiling person.",
+      "imageUrl": "https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=1972&auto=format&fit=crop",
+      "imageHint": "person smiling"
     },
     {
       "id": "chart-image",
