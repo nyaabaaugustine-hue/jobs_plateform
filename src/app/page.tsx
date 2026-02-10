@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import {
@@ -151,28 +152,30 @@ export default function HomePage() {
               <CarouselContent>
                 {categorySlides.map((slide, index) => (
                   <CarouselItem key={index}>
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-1">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 p-1">
                       {slide.map((category, catIndex) => {
                          const categoryImage = PlaceHolderImages.find((img) => img.id === category.imageId);
                          return(
                           <Link href="/jobs" key={`${category.name}-${index}-${catIndex}`} className="block">
-                            <Card className="group p-3 flex flex-col items-center justify-center text-center transition-all hover:shadow-lg hover:border-primary">
-                              {categoryImage ? (
+                            <Card className="group p-4 flex items-center gap-4 transition-all hover:shadow-lg hover:border-primary">
+                                {categoryImage ? (
                                 <Image
-                                  src={categoryImage.imageUrl}
-                                  alt={category.name}
-                                  width={40}
-                                  height={40}
-                                  className="mb-2 h-10 w-10 rounded-lg object-cover"
-                                  data-ai-hint={categoryImage.imageHint}
+                                    src={categoryImage.imageUrl}
+                                    alt={category.name}
+                                    width={48}
+                                    height={48}
+                                    className="h-12 w-12 rounded-lg object-cover flex-shrink-0"
+                                    data-ai-hint={categoryImage.imageHint}
                                 />
-                              ) : (
-                                <div className="mb-2 h-10 w-10 rounded-lg bg-muted" />
-                              )}
-                              <h3 className="font-semibold text-base mb-1 group-hover:text-primary transition-colors">{category.name}</h3>
-                              <p className="text-sm text-muted-foreground">
-                                {category.jobCount} Jobs Available
-                              </p>
+                                ) : (
+                                <div className="h-12 w-12 rounded-lg bg-muted flex-shrink-0" />
+                                )}
+                                <div>
+                                <h3 className="font-semibold text-base mb-1 group-hover:text-primary transition-colors">{category.name}</h3>
+                                <p className="text-sm text-muted-foreground">
+                                    {category.jobCount} Jobs Available
+                                </p>
+                                </div>
                             </Card>
                           </Link>
                          )
