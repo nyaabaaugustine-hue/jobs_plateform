@@ -1,9 +1,13 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter', weight: ['400', '500', '600', '800'] });
+const poppins = Poppins({ 
+  subsets: ['latin'], 
+  variable: '--font-poppins', 
+  weight: ['400', '500', '600', '700', '800'] 
+});
 
 export const metadata: Metadata = {
   title: 'JobBox - Find Your Next Job',
@@ -17,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.variable} font-body antialiased`} suppressHydrationWarning>
+      <body className={`${poppins.variable} font-body antialiased`} suppressHydrationWarning>
         {children}
         <Toaster />
       </body>
