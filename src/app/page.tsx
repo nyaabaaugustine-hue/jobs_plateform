@@ -165,54 +165,36 @@ export default function HomePage() {
         </section>
 
         {/* Categories Section */}
-        <section className="py-16 md:py-24">
+        <section className="bg-background py-24">
           <div className="container mx-auto px-4 md:px-6">
             <div className="mb-10 text-center">
-              <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">Browse by category</h2>
+              <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">Browse by Category</h2>
               <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
                 Find the job that’s perfect for you. about 800+ new jobs everyday
               </p>
             </div>
-             <Carousel className="w-full">
-              <CarouselContent className="-ml-4">
-                {jobCategories.map((category, index) => (
-                  <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/4">
-                    <div className="grid h-full grid-rows-2 gap-4">
-                      <Link href="/jobs" className="block">
-                          <Card className="group flex h-24 items-center gap-4 p-4 transition-all hover:shadow-lg hover:border-primary hover:-translate-y-1">
-                               <div className='p-2 bg-primary/10 rounded-lg'>
-                                  <Image src={category.icon} alt={category.name} width={32} height={32} className="h-8 w-8 text-primary" unoptimized/>
-                              </div>
-                              <div>
-                                  <h3 className="font-semibold text-md mb-1 group-hover:text-primary transition-colors">{category.name}</h3>
-                                  <p className="text-sm text-muted-foreground">
-                                      {category.jobCount} Jobs Available
-                                  </p>
-                              </div>
-                          </Card>
-                      </Link>
-                      {jobCategories[index + 8] && (
-                         <Link href="/jobs" className="block">
-                            <Card className="group flex h-24 items-center gap-4 p-4 transition-all hover:shadow-lg hover:border-primary hover:-translate-y-1">
-                                <div className='p-2 bg-primary/10 rounded-lg'>
-                                    <Image src={jobCategories[index + 8].icon} alt={jobCategories[index + 8].name} width={32} height={32} className="h-8 w-8 text-primary" unoptimized/>
-                                </div>
-                                <div>
-                                    <h3 className="font-semibold text-md mb-1 group-hover:text-primary transition-colors">{jobCategories[index + 8].name}</h3>
-                                    <p className="text-sm text-muted-foreground">
-                                        {jobCategories[index + 8].jobCount} Jobs Available
-                                    </p>
-                                </div>
-                            </Card>
-                        </Link>
-                      )}
-                    </div>
-                  </CarouselItem>
-                )).slice(0, 8)}
-              </CarouselContent>
-              <CarouselPrevious className="absolute -left-4 top-1/2 -translate-y-1/2 hidden h-10 w-10 rounded-full bg-card shadow-md md:flex"/>
-              <CarouselNext className="absolute -right-4 top-1/2 -translate-y-1/2 hidden h-10 w-10 rounded-full bg-card shadow-md md:flex"/>
-            </Carousel>
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                {jobCategories.map((category) => (
+                  <Link href="/jobs" key={category.name} className="block">
+                    <Card className="group p-6 text-center transition-all hover:shadow-lg hover:-translate-y-1 rounded-xl">
+                      <div className="mb-4 flex justify-center">
+                        <div className="rounded-lg bg-primary/10 p-3">
+                          <Image 
+                            src={category.icon} 
+                            alt={category.name} 
+                            width={32} 
+                            height={32} 
+                            className="h-8 w-8" 
+                            unoptimized
+                          />
+                        </div>
+                      </div>
+                      <h3 className="font-semibold text-lg mb-1 group-hover:text-primary transition-colors">{category.name}</h3>
+                      <p className="text-sm text-muted-foreground">{category.jobCount} Jobs Available</p>
+                    </Card>
+                  </Link>
+                ))}
+            </div>
           </div>
         </section>
 
