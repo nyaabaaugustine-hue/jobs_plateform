@@ -54,16 +54,16 @@ export default function JobCategories() {
                        <Link
                         href="#"
                         key={category.name}
-                        className="group rounded-lg border bg-card p-4 flex items-center gap-4 text-left transition-all duration-300 hover:bg-primary/10 hover:border-primary hover:-translate-y-1 hover:shadow-md"
+                        className="group rounded-lg border bg-card p-6 flex items-center gap-4 text-left transition-all duration-300 hover:bg-primary/10 hover:border-primary hover:-translate-y-1 hover:shadow-md"
                       >
-                        <div className={cn('h-10 w-10 flex items-center justify-center rounded-md shrink-0', category.iconBgColor)}>
-                          <category.icon className={cn('h-6 w-6', category.color)} />
+                        <div className={cn('h-12 w-12 flex items-center justify-center rounded-md shrink-0', category.iconBgColor)}>
+                          <category.icon className={cn('h-7 w-7', category.color)} />
                         </div>
                         <div>
-                          <h3 className="font-semibold text-foreground text-base group-hover:text-primary leading-tight">
+                          <h3 className="font-semibold text-foreground text-lg group-hover:text-primary leading-tight">
                             {category.name}
                           </h3>
-                          <p className="text-sm text-muted-foreground">{category.jobCount}</p>
+                          <p className="text-sm text-muted-foreground">{category.jobCount.replace('Available', '')}</p>
                         </div>
                       </Link>
                     ))}
@@ -71,8 +71,8 @@ export default function JobCategories() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 hidden md:flex" />
-            <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 hidden md:flex" />
+            <CarouselPrevious className="hidden md:flex" />
+            <CarouselNext className="hidden md:flex" />
           </Carousel>
         </div>
       </div>
