@@ -15,13 +15,11 @@ import {
   SidebarInset,
 } from '@/components/ui/sidebar';
 import Logo from '@/components/shared/logo';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const userAvatar = PlaceHolderImages.find((img) => img.id === 'avatar-1');
 
   return (
     <SidebarProvider>
@@ -69,7 +67,6 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           <SidebarFooter>
              <div className="flex items-center gap-3">
               <Avatar className="h-10 w-10">
-                {userAvatar && <AvatarImage src={userAvatar.imageUrl} alt="User Avatar" />}
                 <AvatarFallback>JD</AvatarFallback>
               </Avatar>
               <div className="flex-1">
