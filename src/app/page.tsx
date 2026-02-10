@@ -75,7 +75,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="relative hidden items-center justify-center lg:flex">
+            <div className="relative flex items-center justify-center">
               {heroImage && (
                 <Image
                   src={heroImage.imageUrl}
