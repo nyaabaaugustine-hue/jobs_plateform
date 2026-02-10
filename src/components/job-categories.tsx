@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function JobCategories() {
   return (
-    <section className="py-8 bg-secondary">
+    <section className="py-3 bg-background">
       <div className="container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline">
@@ -14,7 +14,7 @@ export default function JobCategories() {
             Find the job that’s perfect for you. about 800+ new jobs everyday.
           </p>
         </div>
-        <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {JOB_CATEGORIES.map((category) => (
             <Link
               href="#"
