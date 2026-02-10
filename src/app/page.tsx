@@ -5,27 +5,18 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {
   ArrowRight,
+  Briefcase,
+  Building,
+  CheckCircle,
   MapPin,
   Search,
   Star,
-  Briefcase,
-  Book,
-  PenTool,
-  Target,
-  Code,
-  Palette,
-  Package,
-  Megaphone,
-  Landmark,
-  TrendingUp,
   Users,
-  Headset,
-  CheckCircle,
 } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
@@ -41,41 +32,32 @@ import BlogPostCard from '@/components/blog-post-card';
 import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
 import JobCard from '@/components/job-card';
-import { HeroSlider } from '@/components/hero-slider';
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from 'recharts';
+
+const chartData = [
+  { name: 'Jan', jobs: 4000 },
+  { name: 'Feb', jobs: 3000 },
+  { name: 'Mar', jobs: 5000 },
+  { name: 'Apr', jobs: 4500 },
+  { name: 'May', jobs: 6000 },
+  { name: 'Jun', jobs: 7500 },
+];
 
 export default function HomePage() {
   const topRecruiters = DUMMY_COMPANIES.slice(0, 12);
   const blogPosts = DUMMY_BLOG_POSTS.slice(0, 3);
   const jobsOfTheDay = DUMMY_JOBS.slice(0, 6);
+  const heroImage = PlaceHolderImages.find(p => p.id === 'hero-banner-2');
+  const locationImages = LOCATIONS.map(loc => ({...loc, image: PlaceHolderImages.find(p => p.id === loc.imageId)}));
 
-  const howItWorks = [
-    {
-      icon: <Book size={32} className="text-primary"/>,
-      title: 'Register an account',
-      description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
-    },
-    {
-      icon: <PenTool size={32} className="text-primary"/>,
-      title: 'Specify & search your job',
-      description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
-    },
-    {
-      icon: <Target size={32} className="text-primary"/>,
-      title: 'Apply for job',
-      description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
-    },
-  ];
-
-  const iconMap: { [key: string]: React.ElementType } = {
-    Code: Code,
-    Palette: Palette,
-    Package: Package,
-    Megaphone: Megaphone,
-    Landmark: Landmark,
-    TrendingUp: TrendingUp,
-    Users: Users,
-    Headset: Headset,
-  };
 
   const trustIndicators = [
     { text: '12,430 jobs available' },
@@ -84,35 +66,35 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-background">
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative w-full py-20 lg:py-24">
+        <section className="relative w-full py-20 lg:py-24 bg-secondary">
           <div className="absolute inset-0 bg-hero-glow -z-10"></div>
-          <div className="container mx-auto grid max-w-screen-xl grid-cols-1 gap-12 px-6 lg:grid-cols-2 lg:px-12 lg:gap-16">
+          <div className="container mx-auto grid max-w-7xl grid-cols-1 gap-12 px-6 lg:grid-cols-2 lg:px-12 lg:gap-16">
             <div className="flex flex-col justify-center space-y-6">
-              <h1 className="font-body text-5xl font-extrabold tracking-tight sm:text-6xl !leading-tight">
+              <h1 className="text-5xl font-extrabold tracking-tight sm:text-6xl !leading-tight">
                 Find Work That Moves Your Career Forward
               </h1>
               <p className="max-w-xl text-lg text-muted-foreground">
-                Clear, calm, no fluff.
+                The Easiest Way to Get Your New Job. Each month, more than 3 million job seekers turn to our website in their search for work.
               </p>
-              <div className="rounded-2xl bg-background p-4 shadow-xl border border-border/50">
-                <form className="flex items-center h-[72px]">
-                  <div className="flex flex-1 items-center h-full">
+               <div className="rounded-2xl bg-card p-4 shadow-xl border border-border/50">
+                <form className="flex items-center h-auto sm:h-[72px] flex-col sm:flex-row gap-4">
+                  <div className="flex flex-1 items-center h-full w-full">
                     <Search className="h-5 w-5 text-muted-foreground mx-4" />
                     <Input id="job-title" type="search" placeholder="Job title, keyword..." className="border-none focus-visible:ring-0 h-full text-base" />
-                    <Separator orientation="vertical" className="h-8" />
-                     <MapPin className="h-5 w-5 text-muted-foreground mx-4" />
-                    <Input id="location" type="search" placeholder="City or zip code" className="border-none focus-visible:ring-0 h-full text-base" />
+                    <Separator orientation="vertical" className="h-8 hidden sm:block" />
+                     <MapPin className="h-5 w-5 text-muted-foreground mx-4 hidden sm:block" />
+                    <Input id="location" type="search" placeholder="City or zip code" className="border-none focus-visible:ring-0 h-full text-base hidden sm:block" />
                   </div>
-                  <Button type="submit" className="bg-accent-gradient rounded-xl h-[52px] px-6 font-semibold text-base hover:scale-105 transition-transform">
+                  <Button type="submit" className="bg-accent-gradient rounded-xl h-[52px] px-6 font-semibold text-base hover:scale-105 transition-transform w-full sm:w-auto">
                     Find Jobs
                   </Button>
                 </form>
               </div>
-              <div className="flex items-center gap-6 pt-4">
+              <div className="flex items-center gap-6 pt-4 flex-wrap">
                 {trustIndicators.map((item, index) => (
                   <div key={index} className="flex items-center gap-2 text-sm text-muted-foreground">
                     <CheckCircle className="h-4 w-4 text-green-500" />
@@ -123,16 +105,18 @@ export default function HomePage() {
             </div>
 
             <div className="relative hidden items-center justify-center lg:flex">
-                <HeroSlider />
+              {heroImage && 
+                <Image src={heroImage.imageUrl} alt={heroImage.description} width={500} height={500} className="rounded-2xl shadow-2xl object-cover" data-ai-hint={heroImage.imageHint} priority />
+              }
             </div>
           </div>
         </section>
 
         {/* Categories Section */}
-        <section className="py-20 lg:py-24 bg-secondary">
-            <div className="container mx-auto max-w-screen-xl px-6 lg:px-12">
+        <section className="py-20 lg:py-24 bg-card">
+            <div className="container mx-auto max-w-7xl px-6 lg:px-12">
                 <div className="mb-12 text-center">
-                <h2 className="font-headline text-3xl font-semibold tracking-tight sm:text-4xl">
+                <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">
                     Browse by Category
                 </h2>
                 <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
@@ -141,13 +125,12 @@ export default function HomePage() {
                 </div>
                 <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-8">
                 {JOB_CATEGORIES.map((category) => {
-                    const IconComponent = iconMap[category.icon];
                     return (
                     <Link href="/jobs" key={category.name} className="group block">
                         <div
                         className={cn(
-                            'h-full rounded-xl p-4 text-center transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg',
-                            category.bgColor
+                            'h-full rounded-xl p-4 text-center transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg border',
+                            category.bgColor,
                         )}
                         >
                         <div
@@ -156,7 +139,7 @@ export default function HomePage() {
                             category.iconBgColor
                             )}
                         >
-                            {IconComponent && <IconComponent className={cn('h-6 w-6', category.color)} />}
+                           <category.icon className={cn('h-6 w-6', category.color)} />
                         </div>
                         <h3 className={cn('font-semibold text-sm', category.color)}>{category.name}</h3>
                         </div>
@@ -168,10 +151,10 @@ export default function HomePage() {
         </section>
         
         {/* Jobs of the day Section */}
-        <section className="py-20 lg:py-24 bg-background">
-          <div className="container mx-auto max-w-screen-xl px-6 lg:px-12">
+        <section className="py-20 lg:py-24 bg-secondary">
+          <div className="container mx-auto max-w-7xl px-6 lg:px-12">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl font-headline">Jobs of the Day</h2>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">Jobs of the Day</h2>
               <p className="mt-4 text-lg text-muted-foreground">Search and connect with the right candidates faster.</p>
               <div className="mt-8 flex justify-center gap-2">
                 <Button variant="default" size="sm" className="rounded-full bg-primary/10 text-primary hover:bg-primary/20">All</Button>
@@ -197,86 +180,133 @@ export default function HomePage() {
           </div>
         </section>
 
-         {/* How it works */}
-        <section className="py-20 lg:py-24 bg-secondary">
-          <div className="container mx-auto max-w-screen-xl px-6 lg:px-12">
-            <div className="mb-12 text-center">
-              <h2 className="font-headline text-3xl font-semibold tracking-tight sm:text-4xl">How It Works?</h2>
-              <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-                Just 3 easy steps to new opportunities
-              </p>
+        {/* Hiring Banner */}
+        <section className="py-20 lg:py-24 bg-hiring-gradient text-white">
+            <div className="container mx-auto max-w-7xl px-6 lg:px-12 text-center">
+                <h2 className="text-4xl font-bold">WE’RE HIRING 🚀</h2>
+                <p className="text-xl mt-2 italic">Let’s Work Together</p>
+                <Button asChild size="lg" variant="secondary" className="mt-8 text-lg">
+                    <Link href="/jobs">Apply</Link>
+                </Button>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {howItWorks.map((step, index) => (
-                <Card key={index} className="p-6 md:p-8 text-center bg-background shadow-sm border-border/80">
-                  <div className="flex justify-center mb-4">{step.icon}</div>
-                  <h3 className="font-headline text-xl font-semibold mb-2">{step.title}</h3>
-                  <p className="text-muted-foreground">{step.description}</p>
-                </Card>
-              ))}
+        </section>
+
+        {/* Millions of Jobs Section */}
+        <section className="py-20 lg:py-24 bg-card">
+            <div className="container mx-auto max-w-7xl px-6 lg:px-12 grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 className="text-3xl sm:text-4xl font-bold">Millions of Jobs. Find the one that’s right for you.</h2>
+                    <p className="mt-4 text-muted-foreground text-lg">Search all the open positions on the web. Get your own personalized salary estimate. Read reviews on over 600,000 companies worldwide.</p>
+                    <div className="mt-6 space-y-4">
+                        <div className="flex items-center gap-3">
+                            <CheckCircle className="text-primary h-6 w-6"/>
+                            <span className="font-medium">Bring to the table win-win survival</span>
+                        </div>
+                         <div className="flex items-center gap-3">
+                            <CheckCircle className="text-primary h-6 w-6"/>
+                            <span className="font-medium">Capitalize on low hanging fruit to identify</span>
+                        </div>
+                         <div className="flex items-center gap-3">
+                            <CheckCircle className="text-primary h-6 w-6"/>
+                            <span className="font-medium">But I must explain to you how all this mistaken idea</span>
+                        </div>
+                    </div>
+                     <Button asChild size="lg" className="mt-8">
+                        <Link href="/jobs">
+                        Search Jobs <ArrowRight className="ml-2 h-4 w-4" />
+                        </Link>
+                    </Button>
+                </div>
+                <div className="h-80 w-full">
+                    <ResponsiveContainer width="100%" height="100%">
+                        <LineChart data={chartData}>
+                            <CartesianGrid strokeDasharray="3 3" vertical={false}/>
+                            <XAxis dataKey="name" axisLine={false} tickLine={false} />
+                            <YAxis axisLine={false} tickLine={false} tickFormatter={(value) => `${value/1000}k`}/>
+                            <Tooltip />
+                            <Line type="monotone" dataKey="jobs" stroke="hsl(var(--primary))" strokeWidth={2} dot={{ r: 4, fill: 'hsl(var(--primary))' }} activeDot={{ r: 8 }} />
+                        </LineChart>
+                    </ResponsiveContainer>
+                    <p className="text-center text-muted-foreground mt-2 text-sm">15% ↑ jobs this month</p>
+                </div>
             </div>
-          </div>
         </section>
 
         {/* Top Recruiters Section */}
-        <section className="bg-background py-20 lg:py-24">
-          <div className="container mx-auto max-w-screen-xl px-6 lg:px-12">
+        <section className="bg-secondary py-20 lg:py-24">
+          <div className="container mx-auto max-w-7xl px-6 lg:px-12">
             <div className="mb-12 text-center">
-              <h2 className="font-headline text-3xl font-semibold tracking-tight sm:text-4xl">Top Recruiters</h2>
+              <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Top Recruiters</h2>
               <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
                 Discover your next career move, freelance gig, or internship
               </p>
             </div>
-            <Carousel opts={{ align: 'start', loop: true }} className="w-full">
-              <CarouselContent className="-ml-4">
-                {topRecruiters.map((company) => {
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8">
+                {topRecruiters.slice(0,6).map((company) => {
                   const companyLogo = PlaceHolderImages.find((img) => img.id === company.logo);
                   return (
-                    <CarouselItem key={company.id} className="pl-4 md:basis-1/3 lg:basis-1/6">
-                      <Card className="text-center p-4 h-full flex flex-col items-center justify-center transition-all hover:shadow-lg hover:-translate-y-1">
+                    <Link href={`/companies/${company.id}`} key={company.id} className="group">
+                        <Card className="text-center p-4 h-full flex flex-col items-center justify-center transition-all hover:shadow-lg hover:-translate-y-1">
                         {companyLogo &&
                           <Image
                             src={companyLogo.imageUrl}
                             alt={`${company.name} logo`}
                             width={64}
                             height={64}
-                            className="mb-4 rounded-full"
+                            className="mb-4 rounded-full transition-transform group-hover:scale-110"
                           />
                         }
-                        <Link href={`/companies/${company.id}`}>
-                          <h3 className="font-semibold hover:text-primary">{company.name}</h3>
-                        </Link>
+                        
+                          <h3 className="font-semibold group-hover:text-primary">{company.name}</h3>
+                       
                        <div className="flex justify-center items-center my-2">
                           {[...Array(5)].map((_, i) => (
-                              <Star key={i} className={`h-4 w-4 ${i < company.rating ? 'text-yellow-400 fill-yellow-400' : 'text-muted-foreground'}`} />
+                              <Star key={i} className={`h-4 w-4 ${i < company.rating ? 'text-yellow-400 fill-yellow-400' : 'text-muted-foreground/50'}`} />
                           ))}
                        </div>
-                      <p className="text-sm text-muted-foreground">{company.location}</p>
-                      <Button variant="outline" size="sm" asChild className="mt-2">
-                          <Link href={`/companies/${company.id}`}>{company.activeJobs} Jobs</Link>
-                      </Button>
+                      <p className="text-sm text-muted-foreground">{company.activeJobs > 0 ? `${company.activeJobs} Open Roles ✨` : 'Hiring Soon'}</p>
                     </Card>
-                  </CarouselItem>
-                )})}
-              </CarouselContent>
-            </Carousel>
+                    </Link>
+                  )})}
+              </div>
           </div>
         </section>
         
-       {/* Testimonials */}
-        <section className="py-20 lg:py-24 bg-secondary">
-            <div className="container mx-auto max-w-screen-xl px-6 lg:px-12">
+        {/* Jobs by Location */}
+        <section className="py-20 lg:py-24 bg-card">
+            <div className="container mx-auto max-w-7xl px-6 lg:px-12">
                 <div className="mb-12 text-center">
-                    <h2 className="font-headline text-3xl font-semibold tracking-tight sm:text-4xl">What Our Customers Say</h2>
+                    <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">Jobs by Location</h2>
+                    <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">Find your next career in your favorite city.</p>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    {locationImages.map(loc => (
+                        <Link href="/jobs" key={loc.name} className="relative rounded-lg overflow-hidden group h-64">
+                            {loc.image && 
+                                <Image src={loc.image.imageUrl} alt={loc.name} fill className="object-cover transition-transform duration-300 group-hover:scale-105" data-ai-hint={loc.image.imageHint}/>
+                            }
+                            <div className="absolute inset-0 bg-black/50 group-hover:bg-black/60 transition-colors"></div>
+                            <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-4">
+                                <h3 className="text-2xl font-bold">{loc.name}</h3>
+                                <Badge variant="secondary" className="mt-2 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">{loc.jobs} Jobs</Badge>
+                            </div>
+                        </Link>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        {/* Testimonials */}
+        <section className="py-20 lg:py-24 bg-secondary">
+            <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+                <div className="mb-12 text-center">
+                    <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">What Our Customers Say</h2>
                     <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
                         Hear from satisfied job seekers and recruiters who found success with JobBox.
                     </p>
                 </div>
                 <Carousel
-                    opts={{
-                        align: "start",
-                        loop: true,
-                    }}
+                    opts={{ align: "start", loop: true, }}
                     className="w-full"
                 >
                     <CarouselContent>
@@ -284,11 +314,11 @@ export default function HomePage() {
                           const userAvatar = PlaceHolderImages.find(img => img.id === review.user.avatar);
                           return (
                             <CarouselItem key={review.id} className="md:basis-1/2 lg:basis-1/3">
-                                <Card className="h-full flex flex-col bg-background">
+                                <Card className="h-full flex flex-col bg-card">
                                     <CardContent className="flex-grow p-6">
                                         <div className="flex items-center mb-4">
                                             {[...Array(5)].map((_, i) => (
-                                                <Star key={i} className={`h-5 w-5 ${i < review.rating ? 'text-yellow-400 fill-yellow-400' : 'text-muted-foreground'}`} />
+                                                <Star key={i} className={`h-5 w-5 ${i < review.rating ? 'text-yellow-400 fill-yellow-400' : 'text-muted-foreground/30'}`} />
                                             ))}
                                         </div>
                                         <p className="text-muted-foreground">"{review.comment}"</p>
@@ -316,10 +346,10 @@ export default function HomePage() {
         </section>
 
         {/* News and Blog Section */}
-        <section className="py-20 lg:py-24">
-          <div className="container mx-auto max-w-screen-xl px-6 lg:px-12">
+        <section className="py-20 lg:py-24 bg-card">
+          <div className="container mx-auto max-w-7xl px-6 lg:px-12">
             <div className="mb-12 text-center">
-              <h2 className="font-headline text-3xl font-semibold tracking-tight sm:text-4xl">News and Blog</h2>
+              <h2 className="text-3xl font-semibold tracking-tight sm:text-4xl">News and Blog</h2>
               <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
                 Get the latest news, updates and tips
               </p>
@@ -341,9 +371,9 @@ export default function HomePage() {
         
         {/* Newsletter CTA Section */}
         <section className="py-20 lg:py-24 bg-primary text-primary-foreground">
-          <div className="container mx-auto px-6 lg:px-12">
+          <div className="container mx-auto max-w-7xl px-6 lg:px-12">
             <div className="text-center max-w-2xl mx-auto">
-              <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
                 New Things Will Always Update Regularly
               </h2>
               <div className="mt-8 flex max-w-md mx-auto">

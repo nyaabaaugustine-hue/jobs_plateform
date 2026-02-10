@@ -1,4 +1,4 @@
-import { School } from 'lucide-react';
+import { Briefcase } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 type LogoProps = {
@@ -9,9 +9,9 @@ type LogoProps = {
 export default function Logo({ className, iconOnly = false }: LogoProps) {
   return (
     <div className={cn('flex items-center gap-2', className)}>
-      <School className="h-7 w-7 text-primary" />
+      <Briefcase className="h-7 w-7 text-primary" />
       {!iconOnly && (
-        <span className="font-headline text-2xl font-extrabold text-foreground">Chapel Hill</span>
+        <span className="text-2xl font-extrabold text-foreground">JobBox</span>
       )}
     </div>
   );

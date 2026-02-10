@@ -4,39 +4,39 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 222 47% 11%;
+    --background: 210 17% 98%; /* #f8f9fa */
+    --foreground: 222 47% 11%; /* #0f172a */
     --card: 0 0% 100%;
     --card-foreground: 222 47% 11%;
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
-    --primary: 243 76% 58%;
+    --primary: 230 84% 60%; /* #4361ee */
     --primary-foreground: 0 0% 100%;
-    --secondary: 210 40% 96.1%;
+    --secondary: 210 14% 93%; /* #e9ecef */
     --secondary-foreground: 222 47% 11%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215 20% 65%;
-    --accent: 210 40% 96.1%;
+    --muted: 210 14% 93%;
+    --muted-foreground: 215 20% 65%; /* #64748b */
+    --accent: 193 86% 62%; /* #4cc9f0 */
     --accent-foreground: 222 47% 11%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
-    --ring: 243 76% 58%;
+    --border: 215 28% 90%; /* #e2e8f0 */
+    --input: 215 28% 90%;
+    --ring: 230 84% 60%;
     --radius: 0.5rem;
-    --chart-1: 197 71% 52%;
-    --chart-2: 175 71% 52%;
+    --chart-1: 230 84% 60%;
+    --chart-2: 193 86% 62%;
     --chart-3: 210 60% 60%;
     --chart-4: 250 60% 60%;
     --chart-5: 280 60% 60%;
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 222 47% 11%;
-    --sidebar-primary: 243 76% 58%;
+    --sidebar-primary: 230 84% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 210 40% 96.1%;
     --sidebar-accent-foreground: 222 47% 11%;
     --sidebar-border: 214.3 31.8% 91.4%;
-    --sidebar-ring: 243 76% 58%;
+    --sidebar-ring: 230 84% 60%;
   }
 }
 
@@ -52,10 +52,13 @@
 
 @layer utilities {
   .bg-accent-gradient {
-    background-image: linear-gradient(to right, #6366F1, #8B5CF6);
+    background-image: linear-gradient(to right, #6366f1, #8b5cf6);
   }
   .bg-hero-glow {
     background-image: radial-gradient(circle at 20% 30%, rgba(99,102,241,0.1), transparent 40%),
     radial-gradient(circle at 80% 70%, rgba(139,92,246,0.1), transparent 40%);
+  }
+  .bg-hiring-gradient {
+    background-image: linear-gradient(120deg, #4cc9f0 0%, #4895ef 100%);
   }
 }
