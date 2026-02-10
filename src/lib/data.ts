@@ -1,5 +1,5 @@
 import type { Job, Company, Review, Application, Applicant, User, BlogPost } from './types';
-import { Code, Palette, Package, Megaphone, Landmark, TrendingUp, Users, Headset } from 'lucide-react';
+import { Briefcase, Code, FilePenLine, Headset, Landmark, Megaphone, Search, Users } from 'lucide-react';
 
 export const DUMMY_COMPANIES: Company[] = [
   { id: '1', name: 'Innovate Inc.', logo: 'company-logo-1', industry: 'Tech', activeJobs: 5, rating: 5, location: 'New York, US' },
@@ -518,14 +518,14 @@ export const DUMMY_BLOG_POSTS: BlogPost[] = [
 ];
 
 export const JOB_CATEGORIES = [
-    { name: 'Engineering', jobCount: 124, icon: Code, color: 'text-sky-800', bgColor: 'bg-sky-100', iconBgColor: 'bg-sky-200' },
-    { name: 'Design', jobCount: 88, icon: Palette, color: 'text-violet-800', bgColor: 'bg-violet-100', iconBgColor: 'bg-violet-200' },
-    { name: 'Product', jobCount: 56, icon: Package, color: 'text-amber-800', bgColor: 'bg-amber-100', iconBgColor: 'bg-amber-200' },
-    { name: 'Marketing', jobCount: 72, icon: Megaphone, color: 'text-rose-800', bgColor: 'bg-rose-100', iconBgColor: 'bg-rose-200' },
-    { name: 'Finance', jobCount: 45, icon: Landmark, color: 'text-emerald-800', bgColor: 'bg-emerald-100', iconBgColor: 'bg-emerald-200' },
-    { name: 'Sales', jobCount: 95, icon: TrendingUp, color: 'text-cyan-800', bgColor: 'bg-cyan-100', iconBgColor: 'bg-cyan-200' },
-    { name: 'Human Resources', jobCount: 32, icon: Users, color: 'text-fuchsia-800', bgColor: 'bg-fuchsia-100', iconBgColor: 'bg-fuchsia-200' },
-    { name: 'Customer Support', jobCount: 64, icon: Headset, color: 'text-indigo-800', bgColor: 'bg-indigo-100', iconBgColor: 'bg-indigo-200' },
+    { name: 'Content Writer', jobCount: 29, icon: FilePenLine, color: 'text-sky-800', iconBgColor: 'bg-sky-100' },
+    { name: 'Market Research', jobCount: 7, icon: Search, color: 'text-violet-800', iconBgColor: 'bg-violet-100' },
+    { name: 'Marketing & Sale', jobCount: 9, icon: Megaphone, color: 'text-amber-800', iconBgColor: 'bg-amber-100' },
+    { name: 'Customer Help', jobCount: 4, icon: Headset, color: 'text-rose-800', iconBgColor: 'bg-rose-100' },
+    { name: 'Finance', jobCount: 9, icon: Landmark, color: 'text-emerald-800', iconBgColor: 'bg-emerald-100' },
+    { name: 'Software', jobCount: 4, icon: Code, color: 'text-cyan-800', iconBgColor: 'bg-cyan-100' },
+    { name: 'Human Resource', jobCount: 10, icon: Users, color: 'text-fuchsia-800', iconBgColor: 'bg-fuchsia-100' },
+    { name: 'Management', jobCount: 6, icon: Briefcase, color: 'text-indigo-800', iconBgColor: 'bg-indigo-100' },
   ];
 
 export const LOCATIONS = [
