@@ -14,6 +14,7 @@ import FeaturedJobs from '@/components/featured-jobs';
 import HiringSection from '@/components/hiring-section';
 import TopCompanies from '@/components/top-companies';
 import JobsByLocation from '@/components/jobs-by-location';
+import LatestNews from '@/components/latest-news';
 
 export default function HomePage() {
   const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
@@ -72,7 +73,7 @@ export default function HomePage() {
               <div className="flex items-center gap-6 pt-4 flex-wrap">
                 {trustIndicators.map((item, index) => (
                   <div key={index} className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <CheckCircle className="h-4 w-4 text-green-500" />
+                    <CheckCircle className="h-4 w-4 text-primary" />
                     <span>{item.text}</span>
                   </div>
                 ))}
@@ -104,6 +105,8 @@ export default function HomePage() {
         <TopCompanies />
 
         <JobsByLocation />
+
+        <LatestNews />
       </main>
       <Footer />
     </div>

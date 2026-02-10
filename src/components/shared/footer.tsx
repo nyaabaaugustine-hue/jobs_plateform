@@ -28,7 +28,7 @@ export default function Footer() {
     {
       title: 'Community',
       links: [
-        { href: '/blog', label: 'Blog' },
+        { href: '/blog', label: 'News & Blog' },
         { href: '#', label: 'Help Center' },
         { href: '#', label: 'Guidelines' },
         { href: '#', label: 'Careers' },

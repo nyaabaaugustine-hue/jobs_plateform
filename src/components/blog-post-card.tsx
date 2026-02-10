@@ -2,9 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { BlogPost } from '@/lib/types';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
+import { format } from 'date-fns';
 
 type BlogPostCardProps = {
   post: BlogPost;
@@ -14,14 +15,8 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
   const postImage = PlaceHolderImages.find((img) => img.id === post.image);
   const authorAvatar = PlaceHolderImages.find((img) => img.id === post.author.avatar);
 
-  const getTag = (id: string) => {
-    if (id === '1' || id === '3') return "Career Tips";
-    if (id === '2' || id === '5') return "Tech Trends";
-    return "Interview Prep";
-  }
-
   return (
-    <Card className="overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group">
+    <Card className="overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group flex flex-col">
         <Link href={`/blog/${post.slug}`} className="block overflow-hidden">
           {postImage && (
               <div className="relative">
@@ -33,32 +28,30 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
                     className="w-full object-cover aspect-[3/2] transition-transform duration-300 group-hover:scale-105"
                     data-ai-hint={postImage.imageHint}
                 />
-                 <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors" />
-                 <div className="absolute top-4 left-4">
-                    <Badge>{getTag(post.id)}</Badge>
+                 <div className="absolute top-4 left-4 flex gap-2">
+                    <Badge variant="secondary">It happened</Badge>
+                    <Badge variant="secondary">new</Badge>
                  </div>
-                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span className="text-white font-semibold border-2 border-white rounded-full px-4 py-2">Read More</span>
-                </div>
               </div>
           )}
         </Link>
-      <CardHeader>
+      <CardContent className="p-6 flex flex-col flex-grow bg-card">
         <Link href={`/blog/${post.slug}`}>
-          <h3 className="font-headline text-xl font-bold hover:text-primary transition-colors">{post.title}</h3>
+          <h3 className="font-headline text-lg font-bold hover:text-primary transition-colors">{post.title}</h3>
         </Link>
-      </CardHeader>
-      <CardContent>
-        <p className="text-muted-foreground line-clamp-2">{post.excerpt}</p>
-        <div className="mt-4 flex items-center gap-3">
-          <Avatar className="h-10 w-10">
-            {authorAvatar && <AvatarImage src={authorAvatar.imageUrl} alt={post.author.name} />}
-            <AvatarFallback>{post.author.name.charAt(0)}</AvatarFallback>
-          </Avatar>
-          <div>
-            <p className="font-semibold text-sm">{post.author.name}</p>
+        <p className="text-muted-foreground line-clamp-3 text-sm mt-2 flex-grow">{post.excerpt}</p>
+        <div className="mt-4 pt-4 border-t flex items-center justify-between">
             <p className="text-xs text-muted-foreground">12 min read</p>
-          </div>
+           <div className="flex items-center gap-3 text-right">
+             <div>
+                <p className="font-semibold text-xs">{post.author.name}</p>
+                <p className="text-xs text-muted-foreground">{format(new Date(post.date), "MMMM dd, yyyy")}</p>
+              </div>
+              <Avatar className="h-8 w-8">
+                {authorAvatar && <AvatarImage src={authorAvatar.imageUrl} alt={post.author.name} />}
+                <AvatarFallback>{post.author.name.charAt(0)}</AvatarFallback>
+              </Avatar>
+            </div>
         </div>
       </CardContent>
     </Card>
