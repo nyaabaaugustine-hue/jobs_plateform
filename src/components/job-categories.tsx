@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function JobCategories() {
   return (
-    <section className="py-16 md:py-24 bg-background">
+    <section className="py-8 md:py-16 bg-background">
       <div className="container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="text-center">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl font-headline">
@@ -23,11 +23,11 @@ export default function JobCategories() {
             >
               <div
                 className={cn(
-                  'mx-auto flex h-16 w-16 items-center justify-center rounded-lg',
+                  'mx-auto flex h-12 w-12 items-center justify-center rounded-lg',
                   category.iconBgColor
                 )}
               >
-                <category.icon className={cn('h-8 w-8', category.color)} />
+                <category.icon className={cn('h-6 w-6', category.color)} />
               </div>
               <h3 className="mt-4 font-semibold text-foreground group-hover:text-primary">{category.name}</h3>
               <p className="mt-1 text-sm text-muted-foreground">{category.jobCount} Jobs Available</p>
