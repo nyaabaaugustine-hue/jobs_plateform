@@ -461,6 +461,24 @@
       "description": "SSL Secure badge",
       "imageUrl": "https://placehold.co/120x40/22c55e/ffffff?text=Secure+SSL",
       "imageHint": "secure ssl"
+    },
+    {
+      "id": "pricing-basic",
+      "description": "Small team collaborating in a bright, modern startup office.",
+      "imageUrl": "https://images.unsplash.com/photo-1572025442646-866d16c84a54?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzdGFydHVwJTIwb2ZmaWNlfGVufDB8fHx8MTc3MDc2NTU5N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "startup office"
+    },
+    {
+      "id": "pricing-pro",
+      "description": "A professional team in a conference room discussing a project on a large screen.",
+      "imageUrl": "https://images.unsplash.com/photo-1688380692117-63178554d76d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxidXNpbmVzcyUyMG1lZXRpbmd8ZW58MHx8fHwxNzcwNzUxNDI0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "business meeting"
+    },
+    {
+      "id": "pricing-enterprise",
+      "description": "A bustling, large open-plan office of a major corporation.",
+      "imageUrl": "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb3Jwb3JhdGUlMjBvZmZpY2V8ZW58MHx8fHwxNzcwODE5Mzg4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "corporate office"
     }
   ]
 }
