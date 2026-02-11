@@ -31,13 +31,13 @@ export default function HomePage() {
       <Header />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative w-full py-20 lg:py-32 flex items-center justify-center text-center">
+        <section className="relative w-full py-20 lg:py-32 flex items-center justify-center text-center bg-hero-glow">
           {heroImage && (
             <Image
               src={heroImage.imageUrl}
               alt={heroImage.description}
               fill
-              className="object-contain z-0"
+              className="object-cover z-0"
               data-ai-hint={heroImage.imageHint}
               priority
             />

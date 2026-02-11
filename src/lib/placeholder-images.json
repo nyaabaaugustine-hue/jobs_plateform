@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "hero-main",
-      "description": "Abstract background graphic for Chapel Hill Managers",
-      "imageUrl": "https://images.unsplash.com/photo-1658604663578-04634f4cb897?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhYnN0cmFjdCUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzcwNzQ5Mzk2fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "abstract background"
+      "description": "A diverse business team in a meeting",
+      "imageUrl": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx0ZWFtJTIwY29sbGFib3JhdGlvbnxlbnwwfHx8fDE3NzA3MDg4NTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "team collaboration"
     },
     {
       "id": "company-logo-1",
@@ -363,25 +363,25 @@
     {
       "id": "location-takoradi",
       "description": "Fishing boats in Takoradi",
-      "imageUrl": "https://picsum.photos/seed/location-takoradi/600/400",
+      "imageUrl": "https://images.unsplash.com/photo-1620734885969-a3c21e9f34c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8R2hhbmFpYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA3NzQ2Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Takoradi harbour"
     },
     {
       "id": "location-cape-coast",
       "description": "Cape Coast castle",
-      "imageUrl": "https://picsum.photos/seed/location-cape-coast/600/400",
+      "imageUrl": "https://images.unsplash.com/photo-1594085430910-de1c1d48241a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxHaGFuYWlhbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MDc3NDYyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "CapeCoast castle"
     },
     {
       "id": "location-tamale",
       "description": "Tamale mosque",
-      "imageUrl": "https://picsum.photos/seed/location-tamale/600/400",
+      "imageUrl": "https://images.unsplash.com/photo-1673447067622-bbc8a34e2c56?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxHaGFuYWlhbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MDc3NDYyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Tamale mosque"
     },
     {
       "id": "location-tema",
       "description": "Tema port",
-      "imageUrl": "https://picsum.photos/seed/location-tema/600/400",
+      "imageUrl": "https://images.unsplash.com/photo-1680531854944-2917979cee21?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxHaGFuYWlhbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MDc3NDYyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Tema port"
     },
     {

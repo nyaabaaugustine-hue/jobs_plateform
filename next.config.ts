@@ -34,12 +34,6 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
-      {
-        protocol: 'https',
-        hostname: 'chapelhillmanagers.com',
-        port: '',
-        pathname: '/**',
-      },
     ],
   },
 };
