@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { BarChart, Briefcase, Building, MessageSquare, PlusCircle, Settings, Users, Home, LogOut } from 'lucide-react';
+import { BarChart, Briefcase, Building, MessageSquare, PlusCircle, Settings, Users, Home, LogOut, Search } from 'lucide-react';
 import {
   SidebarProvider,
   Sidebar,
@@ -32,6 +32,7 @@ export default function EmployerLayout({ children }: { children: React.ReactNode
         { href: '/employer', label: 'Overview', icon: <Home /> },
         { href: '/employer/jobs', label: 'Jobs', icon: <Briefcase /> },
         { href: '/employer/applicants', label: 'Applicants', icon: <Users /> },
+        { href: '/browse-candidates', label: 'Browse Candidates', icon: <Search /> },
         { href: '/employer/analytics', label: 'Analytics', icon: <BarChart /> },
       ]
     },
