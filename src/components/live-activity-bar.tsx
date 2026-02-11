@@ -9,7 +9,7 @@ const activityItems = [
 
 export default function LiveActivityBar() {
   return (
-    <div className="relative w-full overflow-hidden bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-700">
+    <div className="sticky top-[80px] z-40 w-full overflow-hidden bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-700">
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-blue-600 to-transparent" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-purple-700 to-transparent" />
 
