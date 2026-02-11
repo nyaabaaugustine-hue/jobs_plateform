@@ -7,7 +7,9 @@ import { notFound } from 'next/navigation';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
-import { CalendarDays, UserCircle } from 'lucide-react';
+import { CalendarDays, Clock } from 'lucide-react';
+import RelatedPosts from '@/components/related-posts';
+import SocialShareButtons from '@/components/shared/social-share-buttons';
 
 export default function BlogPostPage({ params: { slug } }: { params: { slug: string } }) {
   const post = DUMMY_BLOG_POSTS.find((p) => p.slug === slug);
@@ -37,6 +39,8 @@ export default function BlogPostPage({ params: { slug } }: { params: { slug: str
   `;
   
   post.content = fullContent;
+  
+  const tags = ['React', 'Web Development', 'Career', 'Interview Tips'];
 
   return (
     <div className="flex min-h-screen flex-col bg-background bg-hero-glow">
@@ -44,6 +48,11 @@ export default function BlogPostPage({ params: { slug } }: { params: { slug: str
       <main className="flex-1 py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
            <header className="mb-8 text-center">
+              <div className="flex justify-center gap-2 mb-4">
+                {tags.map(tag => (
+                  <Badge key={tag} variant="secondary" className="bg-primary/10 text-primary">{tag}</Badge>
+                ))}
+              </div>
               <h1 className="font-headline text-4xl md:text-5xl font-bold mt-4">{post.title}</h1>
               <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">{post.excerpt}</p>
             </header>
@@ -85,10 +94,20 @@ export default function BlogPostPage({ params: { slug } }: { params: { slug: str
                                 <span>Published on {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
                             </div>
                             <div className="flex items-center gap-2">
-                                <UserCircle className="h-4 w-4" />
+                                <Clock className="h-4 w-4" />
                                 <span>12 min read</span>
                             </div>
                         </div>
+                    </CardContent>
+                </Card>
+                 <Card>
+                    <CardContent className="p-6">
+                        <SocialShareButtons title={post.title} />
+                    </CardContent>
+                </Card>
+                <Card>
+                     <CardContent className="p-6">
+                        <RelatedPosts currentPostId={post.id} />
                     </CardContent>
                 </Card>
             </aside>
