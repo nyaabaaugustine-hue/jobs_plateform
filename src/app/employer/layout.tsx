@@ -45,7 +45,7 @@ export default function EmployerLayout({ children }: { children: React.ReactNode
      {
       group: 'Account',
       items: [
-        { href: '/employer/settings?tab=profile', label: 'Company Profile', icon: <Building /> },
+        { href: '/employer/company-profile', label: 'Company Profile', icon: <Building /> },
         { href: '/employer/settings?tab=team', label: 'Team Members', icon: <Users /> },
         { href: '/employer/settings?tab=billing', label: 'Billing', icon: <CreditCard /> },
         { href: '/employer/settings?tab=notifications', label: 'Notifications', icon: <Bell /> },
