@@ -12,7 +12,7 @@ export default function Footer() {
       links: [
         { href: '/jobs', label: 'Browse Jobs' },
         { href: '/dashboard', label: 'Candidate Dashboard' },
-        { href: '/dashboard/profile', label: 'Job Alerts' },
+        { href: '/dashboard/settings', label: 'Job Alerts' },
         { href: '/dashboard/applications', label: 'My Applications' },
       ],
     },
@@ -30,8 +30,8 @@ export default function Footer() {
       links: [
         { href: '/blog', label: 'News & Blog' },
         { href: '/contacts', label: 'Contact Us' },
-        { href: '#', label: 'Guidelines' },
-        { href: '#', label: 'Careers' },
+        { href: '/guidelines', label: 'Guidelines' },
+        { href: '/careers', label: 'Careers' },
       ],
     },
   ];
