@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { ArrowRight } from 'lucide-react';
+import EmployerAnalytics from '@/components/employer-analytics';
 
 export default function EmployerDashboard() {
   const recentApplicants = DUMMY_APPLICANTS.slice(0, 5);
@@ -60,6 +61,8 @@ export default function EmployerDashboard() {
           </CardContent>
         </Card>
       </div>
+
+      <EmployerAnalytics />
 
       <Card>
         <CardHeader className="flex flex-row items-center justify-between">
