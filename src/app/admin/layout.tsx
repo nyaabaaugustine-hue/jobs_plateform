@@ -2,7 +2,20 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { BarChart, Briefcase, Wallet, Home, Shield, Users } from 'lucide-react';
+import {
+  BarChart,
+  Briefcase,
+  Building,
+  FileCode,
+  Home,
+  LifeBuoy,
+  LogOut,
+  Bell,
+  Settings,
+  Shield,
+  Users,
+  Wallet,
+} from 'lucide-react';
 import {
   SidebarProvider,
   Sidebar,
@@ -13,14 +26,47 @@ import {
   SidebarMenuButton,
   SidebarFooter,
   SidebarInset,
+  SidebarGroup,
+  SidebarGroupLabel,
+  SidebarSeparator
 } from '@/components/ui/sidebar';
 import Logo from '@/components/shared/logo';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Button } from '@/components/ui/button';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const adminAvatar = PlaceHolderImages.find((img) => img.id === 'avatar-2');
+
+  const menuItems = [
+    {
+      group: 'Dashboard',
+      items: [
+        { href: '/admin', label: 'Overview', icon: <Home /> },
+        { href: '/admin/analytics', label: 'Analytics', icon: <BarChart /> },
+      ],
+    },
+    {
+      group: 'Management',
+      items: [
+        { href: '/admin/moderation', label: 'Moderation', icon: <Shield /> },
+        { href: '/admin/users', label: 'Users', icon: <Users /> },
+        { href: '/admin/jobs', label: 'Jobs', icon: <Briefcase /> },
+        { href: '/admin/companies', label: 'Companies', icon: <Building /> },
+        { href: '/admin/financials', label: 'Financials', icon: <Wallet /> },
+      ],
+    },
+    {
+        group: 'Platform',
+        items: [
+            { href: '/admin/settings', label: 'Settings', icon: <Settings /> },
+            { href: '/admin/notifications', label: 'Notifications', icon: <Bell /> },
+            { href: '/admin/support', label: 'Support', icon: <LifeBuoy /> },
+            { href: '/admin/api-status', label: 'API Status', icon: <FileCode /> },
+        ]
+    }
+  ];
 
   return (
     <SidebarProvider>
@@ -31,56 +77,24 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </SidebarHeader>
           <SidebarContent>
             <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname === '/admin'}>
-                  <Link href="/admin">
-                    <Home />
-                    <span>Overview</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname === '/admin/moderation'}>
-                  <Link href="/admin/moderation">
-                    <Shield />
-                    <span>Job Moderation</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-               <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname === '/admin/users'}>
-                  <Link href="/admin/users">
-                    <Users />
-                    <span>User Management</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname === '/admin/jobs'}>
-                  <Link href="/admin/jobs">
-                    <Briefcase />
-                    <span>Job Listings</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-               <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname === '/admin/financials'}>
-                  <Link href="/admin/financials">
-                    <Wallet />
-                    <span>Financials</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname === '/admin/analytics'}>
-                  <Link href="/admin/analytics">
-                    <BarChart />
-                    <span>Analytics</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
+              {menuItems.map((group) => (
+                <SidebarGroup key={group.group}>
+                  <SidebarGroupLabel>{group.group}</SidebarGroupLabel>
+                  {group.items.map((item) => (
+                    <SidebarMenuItem key={item.label}>
+                      <SidebarMenuButton asChild isActive={pathname === item.href || (item.href !== '/admin' && pathname.startsWith(item.href))}>
+                        <Link href={item.href}>
+                          {item.icon}
+                          <span>{item.label}</span>
+                        </Link>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  ))}
+                </SidebarGroup>
+              ))}
             </SidebarMenu>
           </SidebarContent>
+          <SidebarSeparator />
           <SidebarFooter>
              <div className="flex items-center gap-3">
               <Avatar className="h-10 w-10">
@@ -91,6 +105,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 <p className="text-sm font-semibold">Admin User</p>
                 <p className="text-xs text-muted-foreground">Administrator</p>
               </div>
+              <Button variant="ghost" size="icon" asChild>
+                <Link href="/login">
+                  <LogOut />
+                </Link>
+              </Button>
             </div>
           </SidebarFooter>
         </Sidebar>
