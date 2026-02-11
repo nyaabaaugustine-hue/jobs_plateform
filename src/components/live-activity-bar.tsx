@@ -16,9 +16,9 @@ export default function LiveActivityBar() {
       <div className="flex animate-marquee-rtl whitespace-nowrap">
         {/* Render items twice for seamless loop */}
         {[...activityItems, ...activityItems].map((item, index) => (
-          <div key={index} className="flex shrink-0 items-center gap-4 py-5 px-10 text-white">
-            <div className="rounded-xl bg-white/10 p-3">
-              <item.icon className="h-7 w-7" />
+          <div key={index} className="flex shrink-0 items-center gap-4 py-4 px-10 text-white">
+            <div className="rounded-xl bg-white/10 p-2">
+              <item.icon className="h-6 w-6" />
             </div>
             <div>
               <p className="text-xl font-bold">{item.metric}</p>
