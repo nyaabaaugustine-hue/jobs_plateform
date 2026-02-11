@@ -30,8 +30,8 @@ const JobList = ({ jobs, selectedJob, onSelectJob, title }: JobListProps) => (
               key={job.id}
               onClick={() => onSelectJob(job)}
               className={cn(
-                "w-full text-left p-3 rounded-lg hover:bg-secondary transition-colors",
-                selectedJob?.id === job.id && "bg-secondary"
+                "w-full text-left p-3 rounded-lg hover:bg-muted transition-colors border-l-4 border-transparent",
+                selectedJob?.id === job.id && "bg-primary/10 border-primary"
               )}
             >
               <p className="font-semibold truncate">{job.title}</p>
