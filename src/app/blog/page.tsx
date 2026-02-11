@@ -2,19 +2,18 @@ import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { DUMMY_BLOG_POSTS } from '@/lib/data';
 import BlogPostCard from '@/components/blog-post-card';
+import PageHero from '@/components/shared/page-hero';
 
 export default function BlogPage() {
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-background">
       <Header />
-      <main className="flex-1 bg-background bg-hero-glow py-16 md:py-24">
+      <PageHero
+        title="Our News and Stories"
+        subtitle="Explore articles, tips, and insights to help you grow your career and stay ahead."
+      />
+      <main className="flex-1 py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="mb-10 text-center">
-            <h1 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">Our News and Stories</h1>
-            <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-              Explore articles, tips, and insights to help you grow your career and stay ahead.
-            </p>
-          </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {DUMMY_BLOG_POSTS.map((post) => (
               <BlogPostCard key={post.id} post={post} />

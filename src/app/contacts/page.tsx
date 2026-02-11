@@ -6,20 +6,18 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Mail, Phone, MapPin } from "lucide-react"
+import PageHero from '@/components/shared/page-hero';
 
 export default function ContactsPage() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen bg-background">
       <Header />
-      <main className="flex-1 bg-background bg-hero-glow py-16 md:py-24">
+      <PageHero
+        title="Contact Us"
+        subtitle="We'd love to hear from you. Fill out the form below or use our contact details."
+      />
+      <main className="flex-1 py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
-          <div className="mb-12 text-center">
-            <h1 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">Contact Us</h1>
-            <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-              We'd love to hear from you. Fill out the form below or use our contact details.
-            </p>
-          </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
             <Card className="shadow-lg">
               <CardHeader>

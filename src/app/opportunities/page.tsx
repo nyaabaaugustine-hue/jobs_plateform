@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { DUMMY_OPPORTUNITIES, DUMMY_JOBS } from '@/lib/data';
 import Link from 'next/link';
 import JobCard from '@/components/job-card';
+import PageHero from '@/components/shared/page-hero';
 
 export default function OpportunitiesPage() {
   const opportunityJobs = DUMMY_JOBS.filter(
@@ -12,14 +13,14 @@ export default function OpportunitiesPage() {
   );
 
   return (
-    <div className="flex min-h-screen flex-col bg-background bg-hero-glow">
+    <div className="flex min-h-screen flex-col bg-background">
       <Header />
+      <PageHero
+        title="Kickstart Your Career"
+        subtitle="Explore volunteer and attachment opportunities designed for students to gain hands-on experience and make a difference."
+      />
       <main className="flex-1 py-16 md:py-24">
         <div className="container mx-auto max-w-7xl px-6 lg:px-12">
-          <SectionHeader
-            title="Kickstart Your Career"
-            subtitle="Explore volunteer and attachment opportunities designed for students to gain hands-on experience and make a difference."
-          />
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {DUMMY_OPPORTUNITIES.map((opportunity, index) => (
               <Link key={index} href={opportunity.link} className="block group">
