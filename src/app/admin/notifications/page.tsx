@@ -54,10 +54,11 @@ export default function AdminNotificationsPage() {
                 <CardContent className="divide-y divide-border">
                    {notificationSettings.map((setting) => {
                        const colors = colorClasses[setting.color as keyof typeof colorClasses] || colorClasses.blue;
+                       const Icon = setting.icon;
                        return (
                            <div key={setting.id} className="py-4 flex items-center gap-4">
                                <div className={cn("flex h-10 w-10 shrink-0 items-center justify-center rounded-lg", colors.bg)}>
-                                   <setting.icon className={cn("h-5 w-5", colors.text)} />
+                                   <Icon className={cn("h-5 w-5", colors.text)} />
                                </div>
                                <div className="flex-1">
                                    <Label htmlFor={setting.id} className="font-semibold">{setting.title}</Label>
@@ -88,10 +89,11 @@ export default function AdminNotificationsPage() {
                                 <div className="space-y-8">
                                     {recentNotifications.map((notification) => {
                                         const colors = colorClasses[notification.color as keyof typeof colorClasses] || colorClasses.blue;
+                                        const Icon = notification.icon;
                                         return (
                                             <div key={notification.id} className="flex items-start gap-4 relative">
                                                 <div className={cn("flex h-8 w-8 items-center justify-center rounded-full z-10 ring-4 ring-background", colors.bg)}>
-                                                    {React.createElement(notification.icon, { className: cn("h-4 w-4", colors.text) })}
+                                                    <Icon className={cn("h-4 w-4", colors.text)} />
                                                 </div>
                                                 <div className="flex-1 pt-1">
                                                     <p className="text-sm font-medium">{notification.text}</p>

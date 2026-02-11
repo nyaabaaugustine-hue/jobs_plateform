@@ -8,11 +8,11 @@ import { cn } from '@/lib/utils';
 import { DUMMY_USERS, DUMMY_JOBS } from '@/lib/data';
 
 const activities = [
-  { icon: <FileText />, text: `You applied for "${DUMMY_JOBS[0].title}"`, time: '2 minutes ago', color: 'blue' },
-  { icon: <Eye />, text: `Innovate Inc. viewed your profile`, time: '1 hour ago', color: 'green' },
-  { icon: <Bookmark />, text: `You saved the job "${DUMMY_JOBS[4].title}"`, time: '3 hours ago', color: 'purple' },
-  { icon: <MessageSquare />, text: `New message from QuantumLeap HR`, time: '5 hours ago', color: 'yellow' },
-  { icon: <FileText />, text: `You applied for "${DUMMY_JOBS[2].title}"`, time: '1 day ago', color: 'blue' },
+  { icon: FileText, text: `You applied for "${DUMMY_JOBS[0].title}"`, time: '2 minutes ago', color: 'blue' },
+  { icon: Eye, text: `Innovate Inc. viewed your profile`, time: '1 hour ago', color: 'green' },
+  { icon: Bookmark, text: `You saved the job "${DUMMY_JOBS[4].title}"`, time: '3 hours ago', color: 'purple' },
+  { icon: MessageSquare, text: `New message from QuantumLeap HR`, time: '5 hours ago', color: 'yellow' },
+  { icon: FileText, text: `You applied for "${DUMMY_JOBS[2].title}"`, time: '1 day ago', color: 'blue' },
 ];
 
 const colorClasses = {
@@ -37,10 +37,11 @@ export default function ActivityFeed() {
               <div className="space-y-8">
                 {activities.map((activity, index) => {
                   const colors = colorClasses[activity.color as keyof typeof colorClasses] || colorClasses.blue;
+                  const Icon = activity.icon;
                   return (
                     <div key={index} className="flex items-start gap-4 relative">
                       <div className={cn("flex h-8 w-8 items-center justify-center rounded-full z-10 ring-4 ring-background", colors.bg)}>
-                        {React.cloneElement(activity.icon, { className: cn("h-4 w-4", colors.text) })}
+                        <Icon className={cn("h-4 w-4", colors.text)} />
                       </div>
                       <div className="flex-1 pt-1">
                         <p className="text-sm">{activity.text}</p>
