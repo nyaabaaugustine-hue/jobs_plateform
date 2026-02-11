@@ -6,6 +6,7 @@ import { DUMMY_OPPORTUNITIES, DUMMY_JOBS } from '@/lib/data';
 import Link from 'next/link';
 import JobCard from '@/components/job-card';
 import PageHero from '@/components/shared/page-hero';
+import { cn } from '@/lib/utils';
 
 export default function OpportunitiesPage() {
   const opportunityJobs = DUMMY_JOBS.filter(
@@ -26,8 +27,8 @@ export default function OpportunitiesPage() {
               <Link key={index} href={opportunity.link} className="block group">
                 <Card className="text-center h-full hover:shadow-xl hover:-translate-y-1 transition-transform duration-300">
                   <CardHeader className="items-center">
-                    <div className={`flex h-16 w-16 items-center justify-center rounded-full ${opportunity.iconBg}`}>
-                      <opportunity.icon className={`h-8 w-8 ${opportunity.iconColor}`} />
+                    <div className={cn("flex h-16 w-16 items-center justify-center rounded-full", opportunity.iconBg)}>
+                      <opportunity.icon className={cn("h-8 w-8", opportunity.iconColor)} />
                     </div>
                   </CardHeader>
                   <CardContent>

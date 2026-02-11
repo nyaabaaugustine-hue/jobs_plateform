@@ -3,6 +3,7 @@ import SectionHeader from './shared/section-header';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { cn } from '@/lib/utils';
 
 const features = [
   {
@@ -55,8 +56,8 @@ export default function WhyChooseUs() {
           {features.map((feature, index) => (
             <Card key={index} className="text-center bg-card/80 backdrop-blur-sm border-white/20">
               <CardHeader className="items-center">
-                <div className={`flex h-16 w-16 items-center justify-center rounded-full ${feature.iconBg}`}>
-                  <feature.icon className={`h-8 w-8 ${feature.iconColor}`} />
+                <div className={cn("flex h-16 w-16 items-center justify-center rounded-full", feature.iconBg)}>
+                  <feature.icon className={cn("h-8 w-8", feature.iconColor)} />
                 </div>
               </CardHeader>
               <CardContent>

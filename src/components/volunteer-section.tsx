@@ -3,6 +3,7 @@ import SectionHeader from './shared/section-header';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import Link from 'next/link';
+import { cn } from '@/lib/utils';
 
 const opportunities = [
   {
@@ -40,8 +41,8 @@ export default function VolunteerSection() {
           {opportunities.map((opportunity, index) => (
             <Card key={index} className="text-center">
               <CardHeader className="items-center">
-                <div className={`flex h-16 w-16 items-center justify-center rounded-full ${opportunity.iconBg}`}>
-                  <opportunity.icon className={`h-8 w-8 ${opportunity.iconColor}`} />
+                <div className={cn("flex h-16 w-16 items-center justify-center rounded-full", opportunity.iconBg)}>
+                  <opportunity.icon className={cn("h-8 w-8", opportunity.iconColor)} />
                 </div>
               </CardHeader>
               <CardContent>
