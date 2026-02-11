@@ -19,6 +19,8 @@ import Testimonials from '@/components/testimonials';
 import { Suspense } from 'react';
 import VolunteerSection from '@/components/volunteer-section';
 import HeroSearchForm from '@/components/hero-search-form';
+import SectionHeader from '@/components/shared/section-header';
+import PricingGrid from '@/components/pricing-grid';
 
 export default function HomePage() {
   const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
@@ -82,6 +84,14 @@ export default function HomePage() {
 
         <HiringSection />
         
+        <section className="py-16 md:py-24 bg-secondary/50">
+          <SectionHeader
+            title="Flexible Pricing for Every Team"
+            subtitle="Choose the plan that's right for you. Get started for free or unlock powerful features with our Pro plan."
+          />
+          <PricingGrid />
+        </section>
+
         <Testimonials />
 
         <LatestNews />
