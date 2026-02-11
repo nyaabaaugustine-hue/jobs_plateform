@@ -14,7 +14,7 @@ export default function JobSeekerDashboard() {
   const interviewsScheduled = DUMMY_APPLICATIONS.filter((a) => a.status === 'Interview').length;
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div>
             <h1 className="font-headline text-3xl font-bold">Welcome Back, John!</h1>
@@ -55,18 +55,13 @@ export default function JobSeekerDashboard() {
         />
       </div>
 
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
-        {/* Main Content */}
-        <div className="lg:col-span-8 space-y-6">
-            <ApplicationStatusTracker />
-            <JobRecommendations />
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div className="lg:col-span-3">
+          <ApplicationStatusTracker />
         </div>
-
-        {/* Sidebar Content */}
-        <div className="lg:col-span-4 space-y-6">
-            <ProfileCompletion />
-            <SavedJobsSummary />
-        </div>
+        <ProfileCompletion />
+        <JobRecommendations />
+        <SavedJobsSummary />
       </div>
     </div>
   );

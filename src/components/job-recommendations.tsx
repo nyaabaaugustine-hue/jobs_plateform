@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -78,38 +79,38 @@ export default function JobRecommendations() {
   }
 
   return (
-    <Card className="bg-secondary/50">
+    <Card className="bg-secondary/50 h-full">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <Lightbulb className="text-primary" />
           <span>Jobs You Might Like</span>
         </CardTitle>
-        <CardDescription>Based on your profile, here are some AI-powered suggestions.</CardDescription>
+        <CardDescription>AI-powered suggestions.</CardDescription>
       </CardHeader>
-      <CardContent className="grid gap-6 md:grid-cols-2">
+      <CardContent className="grid gap-4">
         <div>
-          <h3 className="font-semibold mb-2">Recommended Job Titles</h3>
+          <h3 className="font-semibold mb-2 text-sm">Recommended Job Titles</h3>
           <div className="flex flex-wrap gap-2">
-            {recommendations.recommendedJobs.map((job, index) => (
+            {recommendations.recommendedJobs.slice(0, 3).map((job, index) => (
               <Badge key={index} variant="default">{job}</Badge>
             ))}
           </div>
         </div>
         <div>
-          <h3 className="font-semibold mb-2">Skill Gap Suggestions</h3>
+          <h3 className="font-semibold mb-2 text-sm">Skill Gap Suggestions</h3>
           <div className="flex flex-wrap gap-2">
-            {recommendations.skillGapSuggestions?.map((skill, index) => (
+            {recommendations.skillGapSuggestions?.slice(0, 3).map((skill, index) => (
               <Badge key={index} variant="outline">{skill}</Badge>
             ))}
           </div>
         </div>
         {recommendations.resumeMatchingScore && (
-          <div className="md:col-span-2">
-            <h3 className="font-semibold mb-2">Resume Matching Score</h3>
+          <div>
+            <h3 className="font-semibold mb-2 text-sm">Resume Matching Score</h3>
             <div className="space-y-2">
                <div className="flex justify-between">
-                <p className="font-medium text-sm text-muted-foreground">Match for recommended roles</p>
-                <p className="font-medium text-primary">{recommendations.resumeMatchingScore}%</p>
+                <p className="font-medium text-xs text-muted-foreground">Match for recommended roles</p>
+                <p className="font-medium text-sm text-primary">{recommendations.resumeMatchingScore}%</p>
               </div>
               <Progress value={recommendations.resumeMatchingScore} />
             </div>

@@ -41,7 +41,7 @@ export default function ApplicationStatusTracker() {
             </Button>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
           {statuses.map(status => {
             const count = statusCounts[status] || 0;
             if (count === 0) return null;
@@ -49,13 +49,12 @@ export default function ApplicationStatusTracker() {
             const config = statusConfig[status];
             
             return (
-              <div key={status} className={cn('p-4 rounded-lg', config.color)}>
-                <div className="flex items-center gap-3 mb-1">
-                  {React.cloneElement(config.icon as React.ReactElement, { className: "h-5 w-5" })}
-                  <p className="text-sm font-medium text-foreground/80">{status}</p>
+              <div key={status} className={cn('p-3 rounded-lg', config.color)}>
+                <div className="flex items-center gap-2 mb-1">
+                  {React.cloneElement(config.icon as React.ReactElement, { className: "h-4 w-4" })}
+                  <p className="text-xs font-medium text-foreground/80">{status}</p>
                 </div>
-                <p className="text-2xl font-bold text-foreground">{count}</p>
-                <p className="text-xs text-muted-foreground">{count === 1 ? 'Application' : 'Applications'}</p>
+                <p className="text-xl font-bold text-foreground">{count}</p>
               </div>
             )
           })}
