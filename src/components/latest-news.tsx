@@ -1,13 +1,30 @@
-import { DUMMY_BLOG_POSTS } from '@/lib/data';
+'use client';
+
+import { useCollection, useFirebase, useMemoFirebase } from '@/firebase';
+import { collection, query, where, orderBy, limit } from 'firebase/firestore';
+import type { BlogPost } from '@/lib/types';
 import BlogPostCard from './blog-post-card';
 import { Button } from './ui/button';
 import Link from 'next/link';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Skeleton } from './ui/skeleton';
 
 export default function LatestNews() {
-  const latestPosts = DUMMY_BLOG_POSTS.slice(0, 3);
+  const { firestore } = useFirebase();
   const bgImage = PlaceHolderImages.find((p) => p.id === 'latest-news-bg');
+
+  const postsQuery = useMemoFirebase(() => {
+    if (!firestore) return null;
+    return query(
+      collection(firestore, 'blogPosts'), 
+      where('isPublished', '==', true), 
+      orderBy('publishedDate', 'desc'), 
+      limit(3)
+    );
+  }, [firestore]);
+
+  const { data: latestPosts, isLoading } = useCollection<BlogPost>(postsQuery);
 
   return (
     <section className="relative py-16 md:py-24">
@@ -31,9 +48,26 @@ export default function LatestNews() {
           </p>
         </div>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {latestPosts.map((post) => (
-            <BlogPostCard key={post.id} post={post} />
-          ))}
+          {isLoading ? (
+            Array.from({ length: 3 }).map((_, i) => (
+              <Card key={i}>
+                <Skeleton className="w-full aspect-[3/2]" />
+                <CardContent className="p-6 space-y-4">
+                  <Skeleton className="h-5 w-3/4" />
+                  <Skeleton className="h-4 w-full" />
+                  <Skeleton className="h-4 w-2/3" />
+                   <div className="mt-4 pt-4 border-t flex items-center justify-between">
+                     <Skeleton className="h-4 w-16" />
+                     <Skeleton className="h-10 w-10 rounded-full" />
+                   </div>
+                </CardContent>
+              </Card>
+            ))
+          ) : (
+            latestPosts?.map((post) => (
+              <BlogPostCard key={post.id} post={post} />
+            ))
+          )}
         </div>
         <div className="mt-12 text-center">
             <Button asChild size="lg" variant="secondary">

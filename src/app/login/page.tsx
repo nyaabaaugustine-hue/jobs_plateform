@@ -13,9 +13,8 @@ import { PlaceHolderImages } from "@/lib/placeholder-images"
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useFirebase } from '@/firebase';
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useToast } from '@/hooks/use-toast';
-import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 
 export default function LoginPage() {
     const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
@@ -23,15 +22,19 @@ export default function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
-    const [isDemoLoading, setIsDemoLoading] = useState<string | null>(null);
 
-    const { auth, firestore } = useFirebase();
+    const { auth } = useFirebase();
     const router = useRouter();
     const { toast } = useToast();
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsLoading(true);
+        if (!auth) {
+            toast({ title: 'Error', description: 'Authentication service not available.', variant: 'destructive' });
+            setIsLoading(false);
+            return;
+        }
         try {
             await signInWithEmailAndPassword(auth, email, password);
             toast({
@@ -39,7 +42,7 @@ export default function LoginPage() {
                 description: 'Welcome back!',
                 variant: 'vibrant',
             });
-            router.push('/');
+            router.push('/'); // Redirect to a role-based dashboard will be handled by the header
         } catch (error: any) {
             console.error('Login error:', error);
             toast({
@@ -51,82 +54,6 @@ export default function LoginPage() {
             setIsLoading(false);
         }
     };
-
-    const handleDemoLogin = async (role: 'jobSeeker' | 'employer' | 'admin') => {
-        let demoEmail = '';
-        const demoPassword = 'password';
-
-        if (role === 'jobSeeker') demoEmail = 'seeker@chapelhill.ltd';
-        if (role === 'employer') demoEmail = 'employer@chapelhill.ltd';
-        if (role === 'admin') demoEmail = 'admin@chapelhill.ltd';
-        
-        setIsDemoLoading(role);
-        try {
-            await signInWithEmailAndPassword(auth, demoEmail, demoPassword);
-            toast({
-                title: 'Login Successful',
-                description: `Logged in as ${role}.`,
-                variant: 'vibrant',
-            });
-            
-            if (role === 'admin') router.push('/admin');
-            else if (role === 'employer') router.push('/employer');
-            else router.push('/dashboard');
-
-        } catch (error: any) {
-             if (error.code === 'auth/user-not-found' || error.code === 'auth/invalid-credential') {
-                try {
-                    const userCredential = await createUserWithEmailAndPassword(auth, demoEmail, demoPassword);
-                    const user = userCredential.user;
-
-                    // Create user profile document
-                    await setDoc(doc(firestore, 'users', user.uid), {
-                        id: user.uid,
-                        email: demoEmail,
-                        firstName: role.charAt(0).toUpperCase() + role.slice(1),
-                        lastName: 'User',
-                        role: role,
-                        createdAt: serverTimestamp(),
-                        updatedAt: serverTimestamp(),
-                    });
-
-                    // If admin, create role document for security rules
-                    if (role === 'admin') {
-                        await setDoc(doc(firestore, 'roles_admin', user.uid), {
-                            userId: user.uid,
-                            permissions: ['all'],
-                            createdAt: serverTimestamp(),
-                        });
-                    }
-                    
-                    toast({
-                        title: 'Demo Account Created',
-                        description: 'Logging you in...',
-                    });
-                    
-                    if (role === 'admin') router.push('/admin');
-                    else if (role === 'employer') router.push('/employer');
-                    else router.push('/dashboard');
-
-                } catch (createError: any) {
-                    toast({
-                        title: 'Demo Login Failed',
-                        description: createError.message || 'Could not create demo user.',
-                        variant: 'destructive',
-                    });
-                }
-            } else {
-                 toast({
-                    title: 'Login Failed',
-                    description: error.message || 'An unexpected error occurred.',
-                    variant: 'destructive',
-                });
-            }
-        } finally {
-            setIsDemoLoading(null);
-        }
-    };
-
 
   return (
      <div className="flex flex-col min-h-screen bg-background">
@@ -189,38 +116,6 @@ export default function LoginPage() {
                     </Button>
                     </div>
                 </form>
-                
-                <Separator className="my-6" />
-
-                <Card className="border-dashed bg-secondary/50">
-                <CardHeader>
-                    <CardTitle className="text-lg text-center">Demo Accounts</CardTitle>
-                    <CardDescription className="text-center">Click a button to log in.</CardDescription>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                    <div className="text-sm">
-                    <p className="font-bold text-center">Job Seeker</p>
-                    <p className="text-muted-foreground text-xs text-center">Email: seeker@chapelhill.ltd | Pass: password</p>
-                    <Button variant="secondary" className="w-full mt-2" onClick={() => handleDemoLogin('jobSeeker')} disabled={!!isDemoLoading}>
-                        {isDemoLoading === 'jobSeeker' ? 'Logging in...' : 'Login as Job Seeker'}
-                    </Button>
-                    </div>
-                    <div className="text-sm">
-                    <p className="font-bold text-center">Employer</p>
-                    <p className="text-muted-foreground text-xs text-center">Email: employer@chapelhill.ltd | Pass: password</p>
-                    <Button variant="secondary" className="w-full mt-2" onClick={() => handleDemoLogin('employer')} disabled={!!isDemoLoading}>
-                         {isDemoLoading === 'employer' ? 'Logging in...' : 'Login as Employer'}
-                    </Button>
-                    </div>
-                    <div className="text-sm">
-                    <p className="font-bold text-center">Admin</p>
-                    <p className="text-muted-foreground text-xs text-center">Email: admin@chapelhill.ltd | Pass: password</p>
-                    <Button variant="secondary" className="w-full mt-2" onClick={() => handleDemoLogin('admin')} disabled={!!isDemoLoading}>
-                         {isDemoLoading === 'admin' ? 'Logging in...' : 'Login as Admin'}
-                    </Button>
-                    </div>
-                </CardContent>
-                </Card>
 
                 <div className="mt-6 text-center text-sm">
                 Don&apos;t have an account?{" "}

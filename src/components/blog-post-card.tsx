@@ -1,32 +1,31 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { BlogPost } from '@/lib/types';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Badge } from '@/components/ui/badge';
 import { format } from 'date-fns';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 type BlogPostCardProps = {
   post: BlogPost;
 };
 
 export default function BlogPostCard({ post }: BlogPostCardProps) {
-  const postImage = PlaceHolderImages.find((img) => img.id === post.image);
-  const authorAvatar = PlaceHolderImages.find((img) => img.id === post.author.avatar);
+  // We'll use a placeholder for author avatar for now
+  const authorAvatar = PlaceHolderImages.find((img) => img.id === 'avatar-1');
 
   return (
     <Card className="overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group flex flex-col">
         <Link href={`/blog/${post.slug}`} className="block overflow-hidden">
-          {postImage && (
+          {post.imageUrl && (
               <div className="relative">
                 <Image
-                    src={postImage.imageUrl}
+                    src={post.imageUrl}
                     alt={post.title}
                     width={600}
                     height={400}
                     className="w-full object-cover aspect-[3/2] transition-transform duration-300 group-hover:scale-105"
-                    data-ai-hint={postImage.imageHint}
+                    data-ai-hint={post.imageHint}
                 />
               </div>
           )}
@@ -40,12 +39,12 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
             <p className="text-xs text-muted-foreground">12 min read</p>
            <div className="flex items-center gap-3 text-right">
              <div>
-                <p className="font-semibold text-xs">{post.author.name}</p>
-                <p className="text-xs text-muted-foreground">{format(new Date(post.date), "MMMM dd, yyyy")}</p>
+                <p className="font-semibold text-xs">{post.authorName}</p>
+                <p className="text-xs text-muted-foreground">{format(new Date(post.publishedDate), "MMMM dd, yyyy")}</p>
               </div>
               <Avatar className="h-8 w-8">
-                {authorAvatar && <AvatarImage src={authorAvatar.imageUrl} alt={post.author.name} />}
-                <AvatarFallback>{post.author.name.charAt(0)}</AvatarFallback>
+                {authorAvatar && <AvatarImage src={authorAvatar.imageUrl} alt={post.authorName} />}
+                <AvatarFallback>{post.authorName?.charAt(0)}</AvatarFallback>
               </Avatar>
             </div>
         </div>

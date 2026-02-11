@@ -1,34 +1,46 @@
+
+import type { FieldValue } from 'firebase/firestore';
+
 export type Company = {
   id: string;
   name: string;
   logo: string;
   industry: string;
-  activeJobs: number;
-  rating: number;
   location: string;
+  description: string;
+  website: string;
+  employerId: string;
+  // Non-schema fields
+  activeJobs?: number;
+  rating?: number;
 };
 
 export type Job = {
   id:string;
   title: string;
-  company: Company;
   description: string;
+  companyId: string;
+  companyName: string;
+  companyLogo: string;
   location: string;
   type: 'Full-time' | 'Part-time' | 'Contract' | 'Internship' | 'Volunteer';
   experienceLevel: 'Entry' | 'Mid-level' | 'Senior';
   salaryRange: string;
-  postedDate: string;
-  isUrgent: boolean;
   skills: string[];
+  isUrgent: boolean;
+  postedDate: FieldValue | string;
+  employerId: string;
   category?: string;
 };
 
 export type User = {
   id: string;
-  name: string;
+  name: string; // This might be split into firstName/lastName in your Firestore doc
+  firstName?: string;
+  lastName?: string;
   email: string;
-  avatar: string;
-  role: string;
+  avatar: string; // URL to avatar image
+  role: 'jobSeeker' | 'employer' | 'admin';
 };
 
 export type Review = {
@@ -40,11 +52,19 @@ export type Review = {
 
 export type Application = {
   id: string;
-  job: Job;
-  user: User;
+  jobId: string;
+  jobTitle: string;
+  companyId: string;
+  companyName: string;
+  applicantId: string;
+  applicantName: string;
+  employerId: string;
   status: 'Applied' | 'Screening' | 'Interview' | 'Offer' | 'Hired' | 'Rejected';
-  appliedDate: string;
+  appliedDate: FieldValue | string;
   coverLetter?: string;
+  // These are for denormalization on the user's application record
+  job?: Job; 
+  user?: User;
 };
 
 export type Applicant = {
@@ -63,10 +83,12 @@ export type BlogPost = {
   id: string;
   slug: string;
   title: string;
-  author: User;
-  date: string;
-  image: string; // image id from placeholder-images
-  excerpt: string;
   content: string;
-  status: 'Published' | 'Draft';
+  excerpt: string;
+  imageUrl: string;
+  imageHint: string;
+  authorName: string;
+  authorId: string;
+  publishedDate: FieldValue | string;
+  isPublished: boolean;
 };

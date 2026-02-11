@@ -1,128 +1,131 @@
 {
   "entities": {
     "User": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
       "title": "User",
       "type": "object",
       "description": "Represents a user of the Chapel Hill Ltd platform.",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Unique identifier for the User entity."
-        },
-        "email": {
-          "type": "string",
-          "description": "User's email address.",
-          "format": "email"
-        },
-        "firstName": {
-          "type": "string",
-          "description": "User's first name."
-        },
-        "lastName": {
-          "type": "string",
-          "description": "User's last name."
-        },
-        "role": {
-          "type": "string",
-          "description": "The role of the user in the system (e.g., jobSeeker, employer, admin)."
-        },
-        "createdAt": {
-          "type": "string",
-          "description": "Timestamp indicating when the user account was created.",
-          "format": "date-time"
-        },
-        "updatedAt": {
-          "type": "string",
-          "description": "Timestamp indicating when the user account was last updated.",
-          "format": "date-time"
-        }
+        "email": { "type": "string", "description": "User's email address.", "format": "email" },
+        "firstName": { "type": "string", "description": "User's first name." },
+        "lastName": { "type": "string", "description": "User's last name." },
+        "role": { "type": "string", "description": "The role of the user.", "enum": ["jobSeeker", "employer", "admin"] },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
       },
-      "required": [
-        "id",
-        "email",
-        "firstName",
-        "lastName",
-        "role",
-        "createdAt",
-        "updatedAt"
-      ]
+      "required": ["email", "firstName", "lastName", "role", "createdAt"]
     },
     "Admin": {
-      "$schema": "http://json-schema.org/draft-07/schema#",
       "title": "Admin",
       "type": "object",
-      "description": "Represents an administrator account for managing the platform.",
+      "description": "Represents an administrator account.",
       "properties": {
-        "id": {
-          "type": "string",
-          "description": "Unique identifier for the Admin entity."
-        },
-        "userId": {
-          "type": "string",
-          "description": "Reference to User. (Relationship: Admin 1:1 User)"
-        },
-        "permissions": {
-          "type": "array",
-          "description": "List of permissions granted to the administrator.",
-          "items": {
-            "type": "string"
-          }
-        },
-        "lastLogin": {
-          "type": "string",
-          "description": "Timestamp of the admin's last login.",
-          "format": "date-time"
-        }
+        "userId": { "type": "string" },
+        "permissions": { "type": "array", "items": { "type": "string" } }
       },
-      "required": [
-        "id",
-        "userId",
-        "permissions"
-      ]
+      "required": ["userId", "permissions"]
+    },
+    "Company": {
+      "title": "Company",
+      "type": "object",
+      "description": "Represents a company profile.",
+      "properties": {
+        "name": { "type": "string" },
+        "logo": { "type": "string" },
+        "industry": { "type": "string" },
+        "location": { "type": "string" },
+        "description": { "type": "string" },
+        "website": { "type": "string" },
+        "employerId": { "type": "string", "description": "The UID of the employer who owns this company." }
+      },
+      "required": ["name", "industry", "location", "employerId"]
+    },
+    "Job": {
+      "title": "Job",
+      "type": "object",
+      "description": "Represents a job posting.",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "companyId": { "type": "string" },
+        "companyName": { "type": "string" },
+        "companyLogo": { "type": "string" },
+        "location": { "type": "string" },
+        "type": { "type": "string", "enum": ["Full-time", "Part-time", "Contract", "Internship", "Volunteer"] },
+        "experienceLevel": { "type": "string", "enum": ["Entry", "Mid-level", "Senior"] },
+        "salaryRange": { "type": "string" },
+        "skills": { "type": "array", "items": { "type": "string" } },
+        "isUrgent": { "type": "boolean" },
+        "postedDate": { "type": "string", "format": "date-time" },
+        "employerId": { "type": "string" }
+      },
+      "required": ["title", "description", "companyId", "companyName", "location", "type", "experienceLevel", "postedDate", "employerId"]
+    },
+    "BlogPost": {
+        "title": "Blog Post",
+        "type": "object",
+        "description": "Represents a blog article.",
+        "properties": {
+            "slug": { "type": "string" },
+            "title": { "type": "string" },
+            "content": { "type": "string" },
+            "excerpt": { "type": "string" },
+            "imageUrl": { "type": "string" },
+            "imageHint": { "type": "string" },
+            "authorName": { "type": "string" },
+            "authorId": { "type": "string" },
+            "publishedDate": { "type": "string", "format": "date-time" },
+            "isPublished": { "type": "boolean" }
+        },
+        "required": ["slug", "title", "content", "authorId", "authorName", "publishedDate", "isPublished"]
+    },
+    "Application": {
+        "title": "Application",
+        "type": "object",
+        "description": "Represents a job application from a user.",
+        "properties": {
+            "jobId": { "type": "string" },
+            "jobTitle": { "type": "string" },
+            "companyId": { "type": "string" },
+            "companyName": { "type": "string" },
+            "applicantId": { "type": "string" },
+            "applicantName": { "type": "string" },
+            "employerId": { "type": "string" },
+            "status": { "type": "string", "enum": ["Applied", "Screening", "Interview", "Offer", "Hired", "Rejected"] },
+            "appliedDate": { "type": "string", "format": "date-time" },
+            "coverLetter": { "type": "string" }
+        },
+        "required": ["jobId", "companyId", "applicantId", "employerId", "status", "appliedDate"]
     }
   },
   "auth": {
-    "providers": [
-      "password",
-      "anonymous"
-    ]
+    "providers": ["password", "anonymous"]
   },
   "firestore": {
     "structure": [
       {
         "path": "/users/{userId}",
-        "definition": {
-          "entityName": "User",
-          "schema": {
-            "$ref": "#/backend/entities/User"
-          },
-          "description": "Stores user profiles. Uses path-based ownership for data access. The `userId` parameter corresponds to the Firebase Auth UID.",
-          "params": [
-            {
-              "name": "userId",
-              "description": "The unique identifier of the user, matching the Firebase Auth UID."
-            }
-          ]
-        }
+        "definition": { "schema": { "$ref": "#/entities/User" }, "description": "Stores user profiles." }
       },
       {
         "path": "/roles_admin/{userId}",
-        "definition": {
-          "entityName": "Admin",
-          "schema": {
-            "$ref": "#/backend/entities/Admin"
-          },
-          "description": "Determines admin status. The existence of a document in this collection grants admin privileges to the corresponding user. This existence is checked in the Firestore rules, rather than retrieving and validating the content of the `Admin` document.",
-          "params": [
-            {
-              "name": "userId",
-              "description": "The unique identifier of the user, matching the Firebase Auth UID. If a document exists for a given `userId`, that user is an admin."
-            }
-          ]
-        }
+        "definition": { "schema": { "$ref": "#/entities/Admin" }, "description": "Determines admin status by document existence." }
+      },
+      {
+        "path": "/companies/{companyId}",
+        "definition": { "schema": { "$ref": "#/entities/Company" }, "description": "Stores company profiles." }
+      },
+      {
+        "path": "/jobs/{jobId}",
+        "definition": { "schema": { "$ref": "#/entities/Job" }, "description": "Stores all job postings." }
+      },
+      {
+        "path": "/blogPosts/{postId}",
+        "definition": { "schema": { "$ref": "#/entities/BlogPost" }, "description": "Stores blog posts." }
+      },
+      {
+        "path": "/applications/{applicationId}",
+        "definition": { "schema": { "$ref": "#/entities/Application" }, "description": "Stores all job applications for query by employers and applicants." }
       }
-    ],
-    "reasoning": "The Firestore structure is designed to provide a secure, scalable, and debuggable solution for the Chapel Hill Ltd application, adhering to the principles of Authorization Independence, Clarity of Intent, DBAC, and QAPs. Authorization Independence is achieved through denormalization, where relevant authorization data (e.g., admin status) is copied into documents requiring access control. Structural Segregation is applied by separating user data and admin roles into distinct collections with homogeneous security postures. Access Modeling relies on path-based ownership for user-related data and existence checks for global admin roles. The structure is designed to ensure data clarity and predictability, using explicit state modeling and consistent naming conventions.\n\nSpecifically, the `users` collection stores user profiles. The `roles_admin` collection determines admin status based on document existence.  This design supports QAPs by enabling secure list operations. Admin status is determined by the existence of a document in `/roles_admin/{userId}`, enabling secure listing of all users.\n\nThis structure avoids hierarchical authorization dependencies (`get()` calls in rules), ensuring atomic operations and simplifying debugging. All authorization relies solely on `request.auth.uid` and database existence checks."
+    ]
   }
 }
