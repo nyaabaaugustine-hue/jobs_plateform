@@ -23,6 +23,18 @@ import { cn } from '@/lib/utils';
 import { format } from 'date-fns';
 import Image from 'next/image';
 import { Separator } from '@/components/ui/separator';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogFooter,
+  DialogClose,
+} from '@/components/ui/dialog';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
 
 export default function AdminBlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>(DUMMY_BLOG_POSTS);
@@ -54,10 +66,42 @@ export default function AdminBlogPage() {
           <h1 className="font-headline text-3xl font-bold">Blog Management</h1>
           <p className="text-muted-foreground">Manage all blog posts on the platform.</p>
         </div>
-        <Button>
-            <PlusCircle className="mr-2 h-4 w-4" />
-            Create New Post
-        </Button>
+        <Dialog>
+          <DialogTrigger asChild>
+            <Button>
+              <PlusCircle className="mr-2 h-4 w-4" />
+              Create New Post
+            </Button>
+          </DialogTrigger>
+          <DialogContent className="sm:max-w-2xl">
+            <DialogHeader>
+              <DialogTitle>Create New Blog Post</DialogTitle>
+              <DialogDescription>
+                Fill in the details below to create a new draft.
+              </DialogDescription>
+            </DialogHeader>
+            <div className="grid gap-4 py-4">
+              <div className="space-y-2">
+                <Label htmlFor="title">Post Title</Label>
+                <Input id="title" placeholder="How to Ace Your Next Interview" />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="excerpt">Excerpt</Label>
+                <Textarea id="excerpt" placeholder="A short summary of the post..." rows={3} />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="content">Content</Label>
+                <Textarea id="content" placeholder="Write your blog post here..." rows={10} />
+              </div>
+            </div>
+            <DialogFooter>
+              <DialogClose asChild>
+                <Button type="button" variant="outline">Cancel</Button>
+              </DialogClose>
+              <Button type="submit">Save Draft</Button>
+            </DialogFooter>
+          </DialogContent>
+        </Dialog>
       </div>
 
       <Card>
