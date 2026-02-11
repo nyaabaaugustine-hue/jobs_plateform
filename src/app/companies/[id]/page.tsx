@@ -10,8 +10,13 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
 
-export default function CompanyDetailPage({ params }: { params: { id: string } }) {
-  const company = DUMMY_COMPANIES.find((c) => c.id === params.id);
+type Props = {
+  params: Promise<{ id: string; }>;
+};
+
+export default async function CompanyDetailPage({ params }: Props) {
+  const { id } = await params;
+  const company = DUMMY_COMPANIES.find((c) => c.id === id);
 
   if (!company) {
     notFound();
