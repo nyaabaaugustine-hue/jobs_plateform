@@ -44,6 +44,7 @@ export type Application = {
   user: User;
   status: 'Applied' | 'Screening' | 'Interview' | 'Offer' | 'Hired' | 'Rejected';
   appliedDate: string;
+  coverLetter?: string;
 };
 
 export type Applicant = {
@@ -55,6 +56,7 @@ export type Applicant = {
   skillMatch: number;
   experience: number; // years
   status: 'New' | 'Reviewed' | 'Shortlisted' | 'Interview' | 'Offer' | 'Hired' | 'Rejected';
+  coverLetter?: string;
 };
 
 export type BlogPost = {

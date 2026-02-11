@@ -16,6 +16,18 @@ import { Separator } from '@/components/ui/separator';
 import { formatDistanceToNow } from 'date-fns';
 import { useToast } from '@/hooks/use-toast';
 import type { Application, Applicant, User } from '@/lib/types';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+  DialogClose,
+} from "@/components/ui/dialog";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 
 
 export default function JobDetailPage() {
@@ -26,6 +38,8 @@ export default function JobDetailPage() {
   const [isApplied, setIsApplied] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [postedAt, setPostedAt] = useState('');
+  const [coverLetter, setCoverLetter] = useState('');
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   const job = DUMMY_JOBS.find((j) => j.id === id);
 
@@ -62,6 +76,7 @@ export default function JobDetailPage() {
         user: currentUser,
         status: 'Applied',
         appliedDate: new Date().toISOString(),
+        coverLetter: coverLetter,
     };
     
     // Create new applicant record for employer dashboard
@@ -74,6 +89,7 @@ export default function JobDetailPage() {
         skillMatch: Math.floor(Math.random() * (98 - 75 + 1)) + 75, // Random score
         experience: 5, // Dummy experience
         status: 'New',
+        coverLetter: coverLetter,
     };
 
     try {
@@ -93,6 +109,8 @@ export default function JobDetailPage() {
     }
 
     setIsApplied(true);
+    setIsDialogOpen(false);
+    setCoverLetter('');
     toast({
         title: "Application Submitted!",
         description: `You have successfully applied for the ${job.title} position.`,
@@ -208,9 +226,41 @@ export default function JobDetailPage() {
                         <CardTitle>Apply Now</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <Button onClick={handleApply} disabled={isApplied || isLoading} className="w-full bg-accent-gradient" size="lg">
-                            {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : isApplied ? 'Applied' : 'Apply Now'}
-                        </Button>
+                        <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                            <DialogTrigger asChild>
+                                <Button disabled={isApplied || isLoading} className="w-full bg-accent-gradient" size="lg">
+                                    {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : isApplied ? 'Applied' : 'Apply Now'}
+                                </Button>
+                            </DialogTrigger>
+                            <DialogContent className="sm:max-w-lg">
+                                <DialogHeader>
+                                    <DialogTitle>Apply to {job.title}</DialogTitle>
+                                    <DialogDescription>
+                                        Your profile will be submitted to {job.company.name}. You can add an optional cover letter below.
+                                    </DialogDescription>
+                                </DialogHeader>
+                                <div className="grid gap-4 py-4">
+                                    <div className="grid w-full gap-2">
+                                        <Label htmlFor="cover-letter">Cover Letter (Optional)</Label>
+                                        <Textarea
+                                            id="cover-letter"
+                                            placeholder="Briefly explain why you're a great fit for this role..."
+                                            rows={8}
+                                            value={coverLetter}
+                                            onChange={(e) => setCoverLetter(e.target.value)}
+                                        />
+                                    </div>
+                                </div>
+                                <DialogFooter>
+                                    <DialogClose asChild>
+                                        <Button type="button" variant="outline">
+                                            Cancel
+                                        </Button>
+                                    </DialogClose>
+                                    <Button type="button" onClick={handleApply}>Submit Application</Button>
+                                </DialogFooter>
+                            </DialogContent>
+                        </Dialog>
                         <p className="text-xs text-center text-muted-foreground mt-2">Your profile will be shared with {job.company.name}.</p>
                     </CardContent>
                 </Card>
