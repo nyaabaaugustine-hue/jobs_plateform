@@ -36,7 +36,7 @@ export default function HiringSection() {
                 <Link href="/employer/jobs/new">Post a Job</Link>
               </Button>
                <Button asChild size="lg" variant="outline">
-                <Link href="#">View Pricing</Link>
+                <Link href="/pricing">View Pricing</Link>
               </Button>
             </div>
           </div>

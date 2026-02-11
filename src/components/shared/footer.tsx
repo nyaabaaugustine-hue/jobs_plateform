@@ -22,7 +22,7 @@ export default function Footer() {
         { href: '/employer', label: 'Employer Dashboard' },
         { href: '/employer/jobs/new', label: 'Post a Job' },
         { href: '/employer/applicants', label: 'Browse Candidates' },
-        { href: '#', label: 'Pricing' },
+        { href: '/pricing', label: 'Pricing' },
       ],
     },
     {
