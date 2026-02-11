@@ -95,13 +95,23 @@ export const DUMMY_APPLICANTS: Applicant[] = DUMMY_USERS.slice(0, 20).map((user,
     };
 });
 
-export const DUMMY_APPLICATIONS: Application[] = DUMMY_APPLICANTS.map((applicant, i) => ({
-  id: `app-${i + 1}`,
-  job: DUMMY_JOBS.find(j => j.id === applicant.jobId)!,
-  user: DUMMY_USERS.find(u => u.email === applicant.email)!,
-  status: applicant.status,
-  appliedDate: new Date(new Date('2024-07-01').getTime() + i * 24 * 60 * 60 * 1000).toISOString(),
-}));
+export const DUMMY_APPLICATIONS: Application[] = DUMMY_APPLICANTS.map((applicant, i) => {
+    const job = DUMMY_JOBS.find(j => j.id === applicant.jobId);
+    const user = DUMMY_USERS.find(u => u.email === applicant.email);
+
+    if (!job || !user) {
+        return null;
+    }
+
+    return {
+        id: `app-${i + 1}`,
+        job: job,
+        user: user,
+        status: applicant.status,
+        appliedDate: new Date(new Date('2024-07-01').getTime() + i * 24 * 60 * 60 * 1000).toISOString(),
+    };
+}).filter((app): app is Application => app !== null);
+
 
 export const DUMMY_REVIEWS: Review[] = DUMMY_USERS.slice(0, 6).map((user, i) => {
     const ratings = [5, 5, 4, 5, 4, 5];
