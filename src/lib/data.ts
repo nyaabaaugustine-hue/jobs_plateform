@@ -66,7 +66,7 @@ export const DUMMY_JOBS: Job[] = Array.from({ length: 20 }, (_, i) => {
     const experienceLevels: Job['experienceLevel'][] = ['Entry', 'Mid-level', 'Senior'];
     return {
         id: `job-${i + 1}`,
-        title: `${experienceLevels[i%3]} ${category.slice(0,-1)}`,
+        title: `${experienceLevels[i%3]} ${category}`,
         description: 'We are looking for a talented individual to join our team. This role involves developing and maintaining our core products, collaborating with cross-functional teams to deliver high-quality solutions.',
         company: company,
         location: ['Accra', 'Kumasi', 'Remote'][i % 3],

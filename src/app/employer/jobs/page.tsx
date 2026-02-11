@@ -14,7 +14,7 @@ import {
   DropdownMenuSeparator
 } from '@/components/ui/dropdown-menu';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { MoreHorizontal, PlusCircle, Users, MapPin, Clock } from 'lucide-react';
+import { MoreHorizontal, PlusCircle } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import Link from 'next/link';
 import { formatDistanceToNow } from 'date-fns';
@@ -44,7 +44,7 @@ const JobTableRow = ({ job }: { job: Job }) => {
       return (
           <TableRow>
               <TableCell colSpan={5} className="p-2">
-                  <Skeleton className="h-8 w-full" />
+                  <Skeleton className="h-12 w-full" />
               </TableCell>
           </TableRow>
       );
@@ -96,54 +96,54 @@ export default function EmployerJobsPage() {
   );
 
   return (
-    <Card>
-      <CardHeader>
-        <div className="flex flex-col md:flex-row gap-4 justify-between items-start md:items-center">
-          <div>
-            <CardTitle className="font-headline text-3xl font-bold">My Job Listings</CardTitle>
-            <CardDescription className="mt-1">Manage all jobs you have posted.</CardDescription>
-          </div>
-          <div className="flex w-full md:w-auto items-center gap-2">
-            <Input 
-              placeholder="Search by job title..." 
-              className="w-full md:w-64" 
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            <Button asChild className="bg-accent-gradient">
-              <Link href="/employer/jobs/new">
-                <PlusCircle className="mr-2 h-4 w-4" />
-                Post Job
-              </Link>
-            </Button>
-          </div>
+     <div className="space-y-8">
+        <div>
+            <h1 className="font-headline text-3xl font-bold">My Job Listings</h1>
+            <p className="text-muted-foreground">Manage all jobs you have posted.</p>
         </div>
-      </CardHeader>
-      <CardContent>
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="w-[40%]">Job Title</TableHead>
-              <TableHead>Status</TableHead>
-              <TableHead className="text-center">Applicants</TableHead>
-              <TableHead>Posted</TableHead>
-              <TableHead className="text-right">Actions</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {filteredJobs.map((job) => (
-              <JobTableRow key={job.id} job={job} />
-            ))}
-            {filteredJobs.length === 0 && (
-              <TableRow>
-                <TableCell colSpan={5} className="h-24 text-center">
-                  No jobs found.
-                </TableCell>
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
-      </CardContent>
-    </Card>
+        <Card>
+            <CardHeader>
+                <div className="flex flex-col md:flex-row gap-4 justify-between items-center">
+                    <Input 
+                        placeholder="Search by job title..." 
+                        className="w-full md:max-w-sm"
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                    />
+                    <Button asChild className="w-full md:w-auto bg-accent-gradient">
+                        <Link href="/employer/jobs/new">
+                            <PlusCircle className="mr-2 h-4 w-4" />
+                            Post Job
+                        </Link>
+                    </Button>
+                </div>
+            </CardHeader>
+            <CardContent>
+                <Table>
+                <TableHeader>
+                    <TableRow>
+                    <TableHead className="w-[40%]">Job Title</TableHead>
+                    <TableHead>Status</TableHead>
+                    <TableHead className="text-center">Applicants</TableHead>
+                    <TableHead>Posted</TableHead>
+                    <TableHead className="text-right">Actions</TableHead>
+                    </TableRow>
+                </TableHeader>
+                <TableBody>
+                    {filteredJobs.map((job) => (
+                    <JobTableRow key={job.id} job={job} />
+                    ))}
+                    {filteredJobs.length === 0 && (
+                    <TableRow>
+                        <TableCell colSpan={5} className="h-24 text-center">
+                        No jobs found.
+                        </TableCell>
+                    </TableRow>
+                    )}
+                </TableBody>
+                </Table>
+            </CardContent>
+        </Card>
+    </div>
   );
 }
