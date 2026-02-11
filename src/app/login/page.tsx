@@ -5,31 +5,17 @@ import { Label } from "@/components/ui/label"
 import Header from "@/components/shared/header"
 import Footer from "@/components/shared/footer"
 import Link from "next/link"
-import Image from "next/image"
-import { PlaceHolderImages } from "@/lib/placeholder-images"
 
 export default function LoginPage() {
-  const bgImage = PlaceHolderImages.find((p) => p.id === 'find-job-1');
-
   return (
-     <div className="flex flex-col min-h-screen">
+     <div className="flex flex-col min-h-screen bg-secondary">
       <Header />
-      <main className="flex-1 flex items-center justify-center relative">
-        {bgImage && (
-            <Image
-              src={bgImage.imageUrl}
-              alt={bgImage.description}
-              fill
-              className="object-cover z-0"
-              data-ai-hint={bgImage.imageHint}
-            />
-        )}
-        <div className="absolute inset-0 bg-black/50 z-10" />
-        <Card className="mx-auto max-w-sm z-20">
-          <CardHeader>
-            <CardTitle className="text-2xl">Login</CardTitle>
+      <main className="flex-1 flex items-center justify-center p-4">
+        <Card className="w-full max-w-sm shadow-lg">
+          <CardHeader className="text-center">
+            <CardTitle className="text-2xl">Welcome Back</CardTitle>
             <CardDescription>
-              Enter your email below to login to your account
+              Sign in to access your account
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -46,22 +32,30 @@ export default function LoginPage() {
               <div className="grid gap-2">
                 <div className="flex items-center">
                   <Label htmlFor="password">Password</Label>
-                  <Link href="#" className="ml-auto inline-block text-sm underline">
+                  <Link href="#" className="ml-auto inline-block text-sm text-primary hover:underline">
                     Forgot your password?
                   </Link>
                 </div>
                 <Input id="password" type="password" required />
               </div>
-              <Button type="submit" className="w-full rounded-lg">
+              <Button type="submit" className="w-full bg-accent-gradient">
                 Login
               </Button>
-              <Button variant="outline" className="w-full rounded-lg">
+              <div className="relative my-2">
+                <div className="absolute inset-0 flex items-center">
+                    <span className="w-full border-t" />
+                </div>
+                <div className="relative flex justify-center text-xs uppercase">
+                    <span className="bg-card px-2 text-muted-foreground">Or continue with</span>
+                </div>
+              </div>
+              <Button variant="outline" className="w-full">
                 Login with Google
               </Button>
             </div>
             <div className="mt-4 text-center text-sm">
               Don&apos;t have an account?{" "}
-              <Link href="/register" className="underline">
+              <Link href="/register" className="font-semibold text-primary hover:underline">
                 Sign Up
               </Link>
             </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { DUMMY_APPLICANTS, DUMMY_JOBS } from '@/lib/data';
 import type { Applicant } from '@/lib/types';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -22,18 +22,41 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 type ApplicantStatus = 'New' | 'Reviewed' | 'Shortlisted' | 'Interview' | 'Offer' | 'Hired' | 'Rejected';
 
 export default function ApplicantsPage() {
-  const [applicants, setApplicants] = useState<Applicant[]>(DUMMY_APPLICANTS);
+  const [allApplicants, setAllApplicants] = useState<Applicant[]>(DUMMY_APPLICANTS);
   const [searchTerm, setSearchTerm] = useState('');
   const [jobFilter, setJobFilter] = useState('all');
   const [statusFilter, setStatusFilter] = useState('all');
 
+  useEffect(() => {
+    let storedApplicants: Applicant[] = [];
+    try {
+      const storedData = localStorage.getItem('job-applicants-data');
+      if (storedData) {
+        storedApplicants = JSON.parse(storedData);
+      }
+    } catch (error) {
+      console.error("Failed to parse applicants from localStorage", error);
+    }
+    
+    const combinedApplicants = [...DUMMY_APPLICANTS];
+    if (storedApplicants.length > 0) {
+        storedApplicants.forEach(storedApp => {
+            if (!combinedApplicants.find(a => a.id === storedApp.id)) {
+                combinedApplicants.push(storedApp);
+            }
+        });
+    }
+    setAllApplicants(combinedApplicants);
+  }, []);
+
   const handleStatusChange = (applicantId: string, newStatus: ApplicantStatus) => {
-    setApplicants(applicants.map(app => 
+    setAllApplicants(allApplicants.map(app => 
       app.id === applicantId ? { ...app, status: newStatus } : app
     ));
+    // In a real app, you'd also save this change to your backend/localStorage
   };
 
-  const filteredApplicants = applicants
+  const filteredApplicants = allApplicants
     .filter(applicant => 
       applicant.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       applicant.email.toLowerCase().includes(searchTerm.toLowerCase())
@@ -106,7 +129,7 @@ export default function ApplicantsPage() {
                       <div className="flex items-center gap-3">
                         <Avatar>
                           {avatar && <AvatarImage src={avatar.imageUrl} />}
-                          <AvatarFallback>{applicant.name.charAt(0)}</AvatarFallback>
+                          <AvatarFallback>{applicant.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                         </Avatar>
                         <div>
                           <p className="font-medium">{applicant.name}</p>
@@ -155,6 +178,13 @@ export default function ApplicantsPage() {
                   </TableRow>
                 );
               })}
+               {filteredApplicants.length === 0 && (
+                <TableRow>
+                  <TableCell colSpan={6} className="h-24 text-center">
+                    No applicants found.
+                  </TableCell>
+                </TableRow>
+              )}
             </TableBody>
           </Table>
         </CardContent>

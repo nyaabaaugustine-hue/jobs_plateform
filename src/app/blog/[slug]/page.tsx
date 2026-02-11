@@ -6,6 +6,8 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { notFound } from 'next/navigation';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
+import { Card, CardContent } from '@/components/ui/card';
+import { CalendarDays, UserCircle } from 'lucide-react';
 
 export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const post = DUMMY_BLOG_POSTS.find((p) => p.slug === params.slug);
@@ -37,43 +39,60 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   post.content = fullContent;
 
   return (
-    <div className="flex min-h-screen flex-col">
+    <div className="flex min-h-screen flex-col bg-secondary">
       <Header />
-      <main className="flex-1 py-12 md:py-16">
+      <main className="flex-1 py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
-          <article className="max-w-4xl mx-auto">
-            <header className="mb-8 text-center">
+           <header className="mb-8 text-center">
               <h1 className="font-headline text-4xl md:text-5xl font-bold mt-4">{post.title}</h1>
-              <div className="mt-6 flex items-center justify-center gap-3">
-                <Avatar className="h-12 w-12">
-                  {authorAvatar && <AvatarImage src={authorAvatar.imageUrl} alt={post.author.name} />}
-                  <AvatarFallback>{post.author.name.charAt(0)}</AvatarFallback>
-                </Avatar>
-                <div>
-                  <p className="font-semibold">{post.author.name}</p>
-                  <p className="text-sm text-muted-foreground">{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
-                </div>
-              </div>
+              <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">{post.excerpt}</p>
             </header>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+            <article className="lg:col-span-2">
+                {postImage && (
+                <Image
+                    src={postImage.imageUrl}
+                    alt={post.title}
+                    width={1200}
+                    height={600}
+                    className="w-full object-cover rounded-lg aspect-video mb-8 shadow-lg"
+                    data-ai-hint={postImage.imageHint}
+                    priority
+                />
+                )}
+                <div 
+                    className="prose prose-lg dark:prose-invert max-w-none mx-auto"
+                    dangerouslySetInnerHTML={{ __html: post.content }}
+                />
+            </article>
 
-            {postImage && (
-              <Image
-                src={postImage.imageUrl}
-                alt={post.title}
-                width={1200}
-                height={600}
-                className="w-full object-cover rounded-lg aspect-video mb-8"
-                data-ai-hint={postImage.imageHint}
-                priority
-              />
-            )}
-
-            <div 
-                className="prose prose-lg dark:prose-invert max-w-none mx-auto"
-                dangerouslySetInnerHTML={{ __html: post.content }}
-            />
-            
-          </article>
+            <aside className="lg:sticky lg:top-24 self-start space-y-6">
+                <Card>
+                    <CardContent className="p-6">
+                        <div className="flex items-center gap-4">
+                            <Avatar className="h-16 w-16">
+                            {authorAvatar && <AvatarImage src={authorAvatar.imageUrl} alt={post.author.name} />}
+                            <AvatarFallback>{post.author.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                            </Avatar>
+                            <div>
+                                <p className="font-bold text-lg">{post.author.name}</p>
+                                <p className="text-sm text-muted-foreground">{post.author.role}</p>
+                            </div>
+                        </div>
+                        <div className="mt-4 space-y-2 text-sm text-muted-foreground">
+                            <div className="flex items-center gap-2">
+                                <CalendarDays className="h-4 w-4"/>
+                                <span>Published on {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <UserCircle className="h-4 w-4" />
+                                <span>12 min read</span>
+                            </div>
+                        </div>
+                    </CardContent>
+                </Card>
+            </aside>
+          </div>
         </div>
       </main>
       <Footer />

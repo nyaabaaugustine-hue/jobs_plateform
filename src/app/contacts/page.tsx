@@ -21,7 +21,7 @@ export default function ContactsPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-            <Card>
+            <Card className="shadow-lg">
               <CardHeader>
                 <CardTitle>Send a Message</CardTitle>
                 <CardDescription>Our team will get back to you within 24 hours.</CardDescription>

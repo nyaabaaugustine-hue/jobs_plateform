@@ -1,19 +1,97 @@
+'use client';
+
+import React, { useState, useEffect } from 'react';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
-import { DUMMY_JOBS } from '@/lib/data';
+import { DUMMY_JOBS, DUMMY_USERS } from '@/lib/data';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { notFound } from 'next/navigation';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Briefcase, Clock, Wallet, MapPin, Zap } from 'lucide-react';
+import { Briefcase, Clock, Wallet, MapPin, Zap, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { Separator } from '@/components/ui/separator';
 import { formatDistanceToNow } from 'date-fns';
+import { useToast } from '@/hooks/use-toast';
+import type { Application, Applicant, User } from '@/lib/types';
+
 
 export default function JobDetailPage({ params }: { params: { id: string } }) {
+  const { toast } = useToast();
+  const [isApplied, setIsApplied] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
   const job = DUMMY_JOBS.find((j) => j.id === params.id);
+
+  const currentUser: User = { 
+    id: 'user-john-doe',
+    name: 'John Doe',
+    email: 'john.doe@email.com',
+    avatar: 'avatar-13',
+    role: 'Senior React Developer'
+  };
+
+  useEffect(() => {
+    if (!job) return;
+    try {
+      const applications: Application[] = JSON.parse(localStorage.getItem('job-applications') || '[]');
+      const hasApplied = applications.some(app => app.job.id === job.id && app.user.id === currentUser.id);
+      setIsApplied(hasApplied);
+    } catch (error) {
+      console.error("Failed to parse applications from localStorage", error);
+    }
+    setIsLoading(false);
+  }, [job, currentUser.id]);
+
+  const handleApply = () => {
+    if (!job) return;
+
+    // Create new application for candidate dashboard
+    const newApplication: Application = {
+        id: `app-${Date.now()}`,
+        job: job,
+        user: currentUser,
+        status: 'Applied',
+        appliedDate: new Date().toISOString(),
+    };
+    
+    // Create new applicant record for employer dashboard
+    const newApplicant: Applicant = {
+        id: `applicant-${Date.now()}`,
+        name: currentUser.name,
+        email: currentUser.email,
+        avatar: currentUser.avatar,
+        jobId: job.id,
+        skillMatch: Math.floor(Math.random() * (98 - 75 + 1)) + 75, // Random score
+        experience: 5, // Dummy experience
+        status: 'New',
+    };
+
+    try {
+        const applications: Application[] = JSON.parse(localStorage.getItem('job-applications') || '[]');
+        localStorage.setItem('job-applications', JSON.stringify([...applications, newApplication]));
+        
+        const applicants: Applicant[] = JSON.parse(localStorage.getItem('job-applicants-data') || '[]');
+        localStorage.setItem('job-applicants-data', JSON.stringify([...applicants, newApplicant]));
+    } catch(error) {
+        console.error("Failed to save application to localStorage", error);
+        toast({
+            title: "Application Failed",
+            description: "Could not save your application. Please try again.",
+            variant: 'destructive',
+        });
+        return;
+    }
+
+    setIsApplied(true);
+    toast({
+        title: "Application Submitted!",
+        description: `You have successfully applied for the ${job.title} position.`,
+        variant: 'vibrant',
+    });
+  };
 
   if (!job) {
     notFound();
@@ -32,13 +110,15 @@ export default function JobDetailPage({ params }: { params: { id: string } }) {
                 <CardHeader>
                   <div className="flex items-start gap-4">
                     {companyLogo && (
-                        <Image
-                            src={companyLogo.imageUrl}
-                            alt={`${job.company.name} logo`}
-                            width={80}
-                            height={80}
-                            className="rounded-lg border bg-background"
-                        />
+                        <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-lg bg-background p-2 border shadow-sm">
+                            <Image
+                                src={companyLogo.imageUrl}
+                                alt={`${job.company.name} logo`}
+                                width={64}
+                                height={64}
+                                className="h-full w-full object-contain"
+                            />
+                        </div>
                     )}
                     <div className="flex-1">
                       <div className="flex items-center justify-between">
@@ -96,7 +176,7 @@ export default function JobDetailPage({ params }: { params: { id: string } }) {
                 </CardContent>
               </Card>
             </div>
-            <div className="space-y-6">
+            <div className="space-y-6 lg:sticky lg:top-24 self-start">
                 <Card>
                     <CardHeader>
                         <CardTitle>Job Overview</CardTitle>
@@ -121,8 +201,10 @@ export default function JobDetailPage({ params }: { params: { id: string } }) {
                         <CardTitle>Apply Now</CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <Button className="w-full" size="lg">Apply on Company Site</Button>
-                        <p className="text-xs text-center text-muted-foreground mt-2">You will be redirected to the company's website.</p>
+                        <Button onClick={handleApply} disabled={isApplied || isLoading} className="w-full bg-accent-gradient" size="lg">
+                            {isLoading ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : isApplied ? 'Applied' : 'Apply Now'}
+                        </Button>
+                        <p className="text-xs text-center text-muted-foreground mt-2">Your profile will be shared with {job.company.name}.</p>
                     </CardContent>
                 </Card>
             </div>
