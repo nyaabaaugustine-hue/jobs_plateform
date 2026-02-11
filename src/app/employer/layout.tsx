@@ -25,7 +25,7 @@ export default function EmployerLayout({ children }: { children: React.ReactNode
 
   return (
     <SidebarProvider>
-      <div className="flex min-h-screen bg-secondary">
+      <div className="flex min-h-screen bg-background">
         <Sidebar>
           <SidebarHeader>
              <Button variant="default" className="w-full" asChild>

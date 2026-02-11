@@ -5,7 +5,7 @@ import CompanyCard from '@/components/company-card';
 
 export default function CompaniesPage() {
   return (
-    <div className="flex min-h-screen flex-col bg-secondary">
+    <div className="flex min-h-screen flex-col bg-background bg-hero-glow">
       <Header />
       <main className="flex-1 py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">

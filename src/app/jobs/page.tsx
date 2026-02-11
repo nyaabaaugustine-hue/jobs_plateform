@@ -8,7 +8,7 @@ import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTr
 
 export default function JobSearchPage() {
   return (
-    <div className="flex min-h-screen w-full flex-col bg-secondary">
+    <div className="flex min-h-screen w-full flex-col bg-background">
       <Header />
       <main className="flex flex-1">
         <aside className="hidden w-80 border-r bg-background p-4 lg:block">

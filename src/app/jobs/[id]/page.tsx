@@ -107,7 +107,7 @@ export default function JobDetailPage() {
   const companyLogo = PlaceHolderImages.find((img) => img.id === job.company.logo);
 
   return (
-    <div className="flex min-h-screen flex-col bg-secondary">
+    <div className="flex min-h-screen flex-col bg-background bg-hero-glow">
       <Header />
       <main className="flex-1 py-12 md:py-16">
         <div className="container mx-auto px-4 md:px-6">

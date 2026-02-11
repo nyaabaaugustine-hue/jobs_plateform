@@ -23,7 +23,7 @@ export default function CompanyDetailPage({ params: { id } }: { params: { id: st
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
-      <main className="flex-1 bg-secondary py-16 md:py-24">
+      <main className="flex-1 bg-background bg-hero-glow py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
           <Card className="mb-8 overflow-hidden shadow-lg">
             <div className="relative h-48 bg-muted">

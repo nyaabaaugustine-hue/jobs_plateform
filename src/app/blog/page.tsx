@@ -7,7 +7,7 @@ export default function BlogPage() {
   return (
     <div className="flex min-h-screen flex-col">
       <Header />
-      <main className="flex-1 bg-secondary py-16 md:py-24">
+      <main className="flex-1 bg-background bg-hero-glow py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="mb-10 text-center">
             <h1 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">Our News and Stories</h1>

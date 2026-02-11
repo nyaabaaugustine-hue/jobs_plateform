@@ -24,7 +24,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   return (
     <SidebarProvider>
-      <div className="flex min-h-screen bg-secondary">
+      <div className="flex min-h-screen bg-background">
         <Sidebar>
           <SidebarHeader>
             <Logo />
