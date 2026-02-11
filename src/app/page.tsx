@@ -48,13 +48,13 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-black/60 z-10" />
           <div className="relative z-20 container mx-auto px-6 max-w-4xl">
             <div className="flex flex-col justify-center space-y-6">
-              <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-6xl !leading-tight font-headline">
-                Ghana’s AI-Powered Hiring Platform
+              <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-6xl !leading-tight font-headline animate-in fade-in-20 slide-in-from-bottom-8 duration-700">
+                Find Your Next Job, Faster.
               </h1>
-              <p className="max-w-3xl mx-auto text-lg text-gray-200">
-                Leverage AI-powered matching, verified employers, and transparent salaries to accelerate your career.
+              <p className="max-w-3xl mx-auto text-lg text-gray-200 animate-in fade-in-30 slide-in-from-bottom-10 duration-700 delay-200">
+                Discover thousands of opportunities with top Ghanaian companies. Your career advancement starts here.
               </p>
-              <div className="rounded-2xl bg-white/10 backdrop-blur-sm p-4 shadow-lg border border-white/20">
+              <div className="rounded-2xl bg-white/10 backdrop-blur-sm p-4 shadow-lg border border-white/20 animate-in fade-in-30 slide-in-from-bottom-12 duration-700 delay-400">
                 <form className="flex items-center flex-col sm:flex-row gap-4">
                   <div className="flex w-full items-center">
                     <Briefcase className="h-5 w-5 text-gray-300 mx-3" />
@@ -84,7 +84,7 @@ export default function HomePage() {
                   </Button>
                 </form>
               </div>
-              <div className="flex items-center gap-6 pt-4 flex-wrap justify-center">
+              <div className="flex items-center gap-6 pt-4 flex-wrap justify-center animate-in fade-in-30 slide-in-from-bottom-14 duration-700 delay-600">
                 {trustIndicators.map((item, index) => (
                   <div key={index} className="flex items-center gap-2 text-sm text-gray-200">
                     <CheckCircle className="h-4 w-4 text-primary" />
