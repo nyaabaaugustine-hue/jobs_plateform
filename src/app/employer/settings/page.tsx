@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -15,6 +16,9 @@ import { DUMMY_USERS } from '@/lib/data';
 const teamMembers = DUMMY_USERS.slice(1, 4).map(u => ({ ...u, role: 'Hiring Manager' }));
 
 export default function EmployerSettingsPage() {
+  const searchParams = useSearchParams();
+  const tab = searchParams.get('tab') || 'profile';
+
   return (
     <div className="space-y-8">
       <div>
@@ -22,7 +26,7 @@ export default function EmployerSettingsPage() {
         <p className="text-muted-foreground">Manage your employer account and notification preferences.</p>
       </div>
 
-       <Tabs defaultValue="profile" className="space-y-6">
+       <Tabs value={tab} defaultValue={tab} className="space-y-6">
         <TabsList>
             <TabsTrigger value="profile"><Building className="mr-2"/> Company Profile</TabsTrigger>
             <TabsTrigger value="team"><Users className="mr-2"/> Team</TabsTrigger>

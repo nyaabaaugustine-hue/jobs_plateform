@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { BarChart, Briefcase, Building, MessageSquare, PlusCircle, Settings, Users, Home, LogOut, Search } from 'lucide-react';
+import { BarChart, Briefcase, Building, MessageSquare, PlusCircle, Settings, Users, Home, LogOut, Search, CreditCard, Bell } from 'lucide-react';
 import {
   SidebarProvider,
   Sidebar,
@@ -46,7 +46,10 @@ export default function EmployerLayout({ children }: { children: React.ReactNode
       group: 'Account',
       items: [
         { href: '/employer/company-profile', label: 'Company Profile', icon: <Building /> },
-        { href: '/employer/settings', label: 'Settings', icon: <Settings /> },
+        { href: '/employer/settings?tab=team', label: 'Team Members', icon: <Users /> },
+        { href: '/employer/settings?tab=billing', label: 'Billing', icon: <CreditCard /> },
+        { href: '/employer/settings?tab=notifications', label: 'Notifications', icon: <Bell /> },
+        { href: '/employer/settings', label: 'General Settings', icon: <Settings /> },
       ]
     },
   ];
@@ -65,16 +68,20 @@ export default function EmployerLayout({ children }: { children: React.ReactNode
               {menuItems.map((group) => (
                 <SidebarGroup key={group.group}>
                   <SidebarGroupLabel>{group.group}</SidebarGroupLabel>
-                  {group.items.map((item) => (
+                  {group.items.map((item) => {
+                     const isSettingsActive = pathname === '/employer/settings' && item.href.startsWith('/employer/settings');
+                     const isGeneralActive = pathname === item.href || (item.href !== '/employer' && pathname.startsWith(item.href));
+                    return (
                      <SidebarMenuItem key={item.label}>
-                      <SidebarMenuButton asChild isActive={pathname === item.href || (item.href !== '/employer' && pathname.startsWith(item.href))}>
+                      <SidebarMenuButton asChild isActive={isSettingsActive || isGeneralActive}>
                         <Link href={item.href}>
                           {item.icon}
                           <span>{item.label}</span>
                         </Link>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
-                  ))}
+                    )
+                  })}
                 </SidebarGroup>
               ))}
             </SidebarMenu>
