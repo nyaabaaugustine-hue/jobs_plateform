@@ -10,13 +10,13 @@ import type { Application } from '@/lib/types';
 import React from 'react';
 import { cn } from '@/lib/utils';
 
-const statusConfig: Record<Application['status'], { icon: React.ReactElement, color: string }> = {
-    Applied: { icon: <FileText />, color: 'bg-blue-500/10 text-blue-500' },
-    Screening: { icon: <Eye />, color: 'bg-yellow-500/10 text-yellow-600' },
-    Interview: { icon: <MessageSquare />, color: 'bg-purple-500/10 text-purple-500' },
-    Offer: { icon: <Award />, color: 'bg-orange-500/10 text-orange-500' },
-    Hired: { icon: <CheckCircle />, color: 'bg-emerald-500/10 text-emerald-600' },
-    Rejected: { icon: <XCircle />, color: 'bg-destructive/10 text-destructive' },
+const statusConfig: Record<Application['status'], { icon: React.ReactNode, color: string }> = {
+    Applied: { icon: <FileText className="h-4 w-4" />, color: 'bg-blue-500/10 text-blue-500' },
+    Screening: { icon: <Eye className="h-4 w-4" />, color: 'bg-yellow-500/10 text-yellow-600' },
+    Interview: { icon: <MessageSquare className="h-4 w-4" />, color: 'bg-purple-500/10 text-purple-500' },
+    Offer: { icon: <Award className="h-4 w-4" />, color: 'bg-orange-500/10 text-orange-500' },
+    Hired: { icon: <CheckCircle className="h-4 w-4" />, color: 'bg-emerald-500/10 text-emerald-600' },
+    Rejected: { icon: <XCircle className="h-4 w-4" />, color: 'bg-destructive/10 text-destructive' },
 };
 
 
@@ -50,7 +50,7 @@ export default function ApplicationStatusTracker() {
             return (
               <div key={status} className={cn('p-3 rounded-lg', config.color)}>
                 <div className="flex items-center gap-2 mb-1">
-                  {React.cloneElement(config.icon, { className: "h-4 w-4" })}
+                  {config.icon}
                   <p className="text-xs font-medium text-foreground/80">{status}</p>
                 </div>
                 <p className="text-xl font-bold text-foreground">{count}</p>
