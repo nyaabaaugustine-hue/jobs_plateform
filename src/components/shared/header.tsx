@@ -11,6 +11,7 @@ export default function Header() {
     { href: '/companies', label: 'Companies' },
     { href: '/dashboard', label: 'Candidates' },
     { href: '/blog', label: 'Blog' },
+    { href: '/contacts', label: 'Contacts' },
   ];
 
   return (

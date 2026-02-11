@@ -29,7 +29,7 @@ export default function Footer() {
       title: 'Community',
       links: [
         { href: '/blog', label: 'News & Blog' },
-        { href: '#', label: 'Help Center' },
+        { href: '/contacts', label: 'Contact Us' },
         { href: '#', label: 'Guidelines' },
         { href: '#', label: 'Careers' },
       ],
