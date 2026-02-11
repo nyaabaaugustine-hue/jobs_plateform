@@ -1,7 +1,10 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { formatDistanceToNow } from 'date-fns';
 import { Clock, MapPin, Briefcase, Zap, Wallet, BarChart } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 import type { Job } from '@/lib/types';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -20,7 +23,15 @@ export default function JobCard({ job }: JobCardProps) {
   const isHourly = job.salaryRange.includes('/hr');
   const salary = isHourly ? job.salaryRange.replace('/hr', '') : job.salaryRange;
   const period = isHourly ? 'Hourly' : 'yearly';
-  const matchScore = Math.floor(Math.random() * (98 - 75 + 1)) + 75;
+  
+  const [matchScore, setMatchScore] = useState<number | null>(null);
+  const [postedAt, setPostedAt] = useState('');
+
+  useEffect(() => {
+    // Generate random score and formatted date on the client after mount to prevent hydration errors
+    setMatchScore(Math.floor(Math.random() * (98 - 75 + 1)) + 75);
+    setPostedAt(formatDistanceToNow(new Date(job.postedDate), { addSuffix: true }));
+  }, [job.postedDate]);
 
   return (
     <Card className="flex h-full flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
@@ -62,9 +73,11 @@ export default function JobCard({ job }: JobCardProps) {
       </CardHeader>
       <CardContent className="flex-grow p-4 space-y-4">
          <div className="flex flex-wrap gap-2 text-sm">
-          <Badge variant="secondary" className="flex items-center gap-1.5 bg-blue-100 text-blue-800 border-blue-200">
-            <BarChart className="h-3 w-3" /> {matchScore}% Match
-          </Badge>
+          {matchScore !== null && (
+            <Badge variant="secondary" className="flex items-center gap-1.5 bg-blue-100 text-blue-800 border-blue-200">
+              <BarChart className="h-3 w-3" /> {matchScore}% Match
+            </Badge>
+          )}
           <Badge variant="outline" className="flex items-center gap-1">
             <Briefcase className="h-3 w-3" /> {job.type}
           </Badge>
@@ -92,7 +105,7 @@ export default function JobCard({ job }: JobCardProps) {
           </div>
           <div className="flex items-center gap-1 text-xs text-muted-foreground mt-1">
             <Clock className="h-3 w-3" />
-            <span>{formatDistanceToNow(new Date(job.postedDate), { addSuffix: true })}</span>
+            {postedAt && <span>{postedAt}</span>}
           </div>
         </div>
         <Button asChild className="rounded-lg bg-accent-gradient text-primary-foreground font-semibold shadow-lg transform transition-transform hover:scale-105">
