@@ -21,6 +21,7 @@ import VolunteerSection from '@/components/volunteer-section';
 import HeroSearchForm from '@/components/hero-search-form';
 import SectionHeader from '@/components/shared/section-header';
 import PricingGrid from '@/components/pricing-grid';
+import JobsByLocation from '@/components/jobs-by-location';
 
 export default function HomePage() {
   const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
@@ -95,6 +96,8 @@ export default function HomePage() {
         <Testimonials />
 
         <LatestNews />
+
+        <JobsByLocation />
 
         <SubscriptionSection />
       </main>
