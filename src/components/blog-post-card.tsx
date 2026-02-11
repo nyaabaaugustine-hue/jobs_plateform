@@ -11,21 +11,21 @@ type BlogPostCardProps = {
 };
 
 export default function BlogPostCard({ post }: BlogPostCardProps) {
-  // We'll use a placeholder for author avatar for now
-  const authorAvatar = PlaceHolderImages.find((img) => img.id === 'avatar-1');
+  const postImage = PlaceHolderImages.find((img) => img.id === post.image);
+  const authorAvatar = PlaceHolderImages.find((img) => img.id === post.author.avatar);
 
   return (
     <Card className="overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group flex flex-col">
         <Link href={`/blog/${post.slug}`} className="block overflow-hidden">
-          {post.imageUrl && (
+          {postImage && (
               <div className="relative">
                 <Image
-                    src={post.imageUrl}
+                    src={postImage.imageUrl}
                     alt={post.title}
                     width={600}
                     height={400}
                     className="w-full object-cover aspect-[3/2] transition-transform duration-300 group-hover:scale-105"
-                    data-ai-hint={post.imageHint}
+                    data-ai-hint={postImage.imageHint}
                 />
               </div>
           )}
@@ -39,12 +39,12 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
             <p className="text-xs text-muted-foreground">12 min read</p>
            <div className="flex items-center gap-3 text-right">
              <div>
-                <p className="font-semibold text-xs">{post.authorName}</p>
-                <p className="text-xs text-muted-foreground">{format(new Date(post.publishedDate), "MMMM dd, yyyy")}</p>
+                <p className="font-semibold text-xs">{post.author.name}</p>
+                <p className="text-xs text-muted-foreground">{format(new Date(post.date), "MMMM dd, yyyy")}</p>
               </div>
               <Avatar className="h-8 w-8">
-                {authorAvatar && <AvatarImage src={authorAvatar.imageUrl} alt={post.authorName} />}
-                <AvatarFallback>{post.authorName?.charAt(0)}</AvatarFallback>
+                {authorAvatar && <AvatarImage src={authorAvatar.imageUrl} alt={post.author.name} />}
+                <AvatarFallback>{post.author.name?.charAt(0)}</AvatarFallback>
               </Avatar>
             </div>
         </div>

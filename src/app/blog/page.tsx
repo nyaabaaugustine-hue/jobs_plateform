@@ -3,25 +3,23 @@ import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import BlogPostCard from '@/components/blog-post-card';
 import PageHero from '@/components/shared/page-hero';
-import { useCollection, useFirebase, useMemoFirebase } from '@/firebase';
-import { collection, query, where, orderBy } from 'firebase/firestore';
+import { DUMMY_BLOG_POSTS } from '@/lib/data';
 import type { BlogPost } from '@/lib/types';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Card, CardContent } from '@/components/ui/card';
+import { useEffect, useState } from 'react';
 
 export default function BlogPage() {
-  const { firestore } = useFirebase();
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const postsQuery = useMemoFirebase(() => {
-    if (!firestore) return null;
-    return query(
-      collection(firestore, 'blogPosts'), 
-      where('isPublished', '==', true), 
-      orderBy('publishedDate', 'desc')
-    );
-  }, [firestore]);
-
-  const { data: posts, isLoading } = useCollection<BlogPost>(postsQuery);
+  useEffect(() => {
+    // Simulate loading
+    setTimeout(() => {
+        setPosts(DUMMY_BLOG_POSTS.filter(p => p.status === 'Published'));
+        setIsLoading(false);
+    }, 500);
+  }, []);
 
   return (
     <div className="flex min-h-screen flex-col bg-background">

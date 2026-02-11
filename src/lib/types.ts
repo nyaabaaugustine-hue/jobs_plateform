@@ -1,6 +1,4 @@
 
-import type { FieldValue } from 'firebase/firestore';
-
 export type Company = {
   id: string;
   name: string;
@@ -15,32 +13,30 @@ export type Company = {
   rating?: number;
 };
 
+export type User = {
+  id: string;
+  name: string;
+  firstName?: string;
+  lastName?: string;
+  email: string;
+  avatar: string; // URL to avatar image
+  role: string;
+};
+
 export type Job = {
   id:string;
   title: string;
   description: string;
-  companyId: string;
-  companyName: string;
-  companyLogo: string;
+  company: Company;
   location: string;
   type: 'Full-time' | 'Part-time' | 'Contract' | 'Internship' | 'Volunteer';
   experienceLevel: 'Entry' | 'Mid-level' | 'Senior';
   salaryRange: string;
   skills: string[];
   isUrgent: boolean;
-  postedDate: FieldValue | string;
-  employerId: string;
+  postedDate: string;
+  employerId?: string;
   category?: string;
-};
-
-export type User = {
-  id: string;
-  name: string; // This might be split into firstName/lastName in your Firestore doc
-  firstName?: string;
-  lastName?: string;
-  email: string;
-  avatar: string; // URL to avatar image
-  role: 'jobSeeker' | 'employer' | 'admin';
 };
 
 export type Review = {
@@ -52,19 +48,11 @@ export type Review = {
 
 export type Application = {
   id: string;
-  jobId: string;
-  jobTitle: string;
-  companyId: string;
-  companyName: string;
-  applicantId: string;
-  applicantName: string;
-  employerId: string;
+  job: Job;
+  user: User;
   status: 'Applied' | 'Screening' | 'Interview' | 'Offer' | 'Hired' | 'Rejected';
-  appliedDate: FieldValue | string;
+  appliedDate: string;
   coverLetter?: string;
-  // These are for denormalization on the user's application record
-  job?: Job; 
-  user?: User;
 };
 
 export type Applicant = {
@@ -85,10 +73,12 @@ export type BlogPost = {
   title: string;
   content: string;
   excerpt: string;
-  imageUrl: string;
-  imageHint: string;
-  authorName: string;
-  authorId: string;
-  publishedDate: FieldValue | string;
-  isPublished: boolean;
+  image: string;
+  date: string;
+  author: User;
+  status: 'Published' | 'Draft';
+  
+  // Fields for firestore that we are not using with demo data
+  imageUrl?: string;
+  imageHint?: string;
 };

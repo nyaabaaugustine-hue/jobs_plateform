@@ -1,7 +1,6 @@
 'use client';
 
-import { useCollection, useFirebase, useMemoFirebase } from '@/firebase';
-import { collection, query, where, orderBy, limit } from 'firebase/firestore';
+import { DUMMY_BLOG_POSTS } from '@/lib/data';
 import type { BlogPost } from '@/lib/types';
 import BlogPostCard from './blog-post-card';
 import { Button } from './ui/button';
@@ -10,22 +9,20 @@ import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Skeleton } from './ui/skeleton';
 import { Card, CardContent } from './ui/card';
+import { useEffect, useState } from 'react';
 
 export default function LatestNews() {
-  const { firestore } = useFirebase();
   const bgImage = PlaceHolderImages.find((p) => p.id === 'latest-news-bg');
-
-  const postsQuery = useMemoFirebase(() => {
-    if (!firestore) return null;
-    return query(
-      collection(firestore, 'blogPosts'), 
-      where('isPublished', '==', true), 
-      orderBy('publishedDate', 'desc'), 
-      limit(3)
-    );
-  }, [firestore]);
-
-  const { data: latestPosts, isLoading } = useCollection<BlogPost>(postsQuery);
+  const [latestPosts, setLatestPosts] = useState<BlogPost[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  
+  useEffect(() => {
+    // Simulate loading
+    setTimeout(() => {
+        setLatestPosts(DUMMY_BLOG_POSTS.filter(p => p.status === 'Published').slice(0, 3));
+        setIsLoading(false);
+    }, 500);
+  }, []);
 
   return (
     <section className="relative py-16 md:py-24">
