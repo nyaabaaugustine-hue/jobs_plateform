@@ -47,6 +47,31 @@ export default function LoginPage() {
         }, 1000);
     };
 
+    const handleOneClickLogin = (role: 'jobSeeker' | 'employer' | 'admin') => {
+        setIsLoading(true);
+        let destination = '/dashboard';
+        let roleName = 'Job Seeker';
+
+        if (role === 'employer') {
+            destination = '/employer';
+            roleName = 'Employer';
+        } else if (role === 'admin') {
+            destination = '/admin';
+            roleName = 'Admin';
+        }
+
+        toast({
+            title: `Logged in as ${roleName}`,
+            description: 'Redirecting to your dashboard...',
+            variant: 'vibrant',
+        });
+
+        setTimeout(() => {
+            router.push(destination);
+            setIsLoading(false);
+        }, 1000);
+    };
+
   return (
      <div className="flex flex-col min-h-screen bg-background">
       <Header />
@@ -66,9 +91,7 @@ export default function LoginPage() {
             <CardHeader className="text-center">
                 <CardTitle className="text-2xl">Welcome Back</CardTitle>
                 <CardDescription>
-                  Sign in to access your dashboard. For demo purposes, you can use: 
-                  <br/>
-                  <code className="font-mono text-xs bg-muted p-1 rounded">jobseeker@example.com</code> or <code className="font-mono text-xs bg-muted p-1 rounded">employer@example.com</code>
+                  Sign in to access your dashboard. Use the form below or the one-click login buttons for demo purposes.
                 </CardDescription>
             </CardHeader>
             <CardContent>
@@ -97,19 +120,44 @@ export default function LoginPage() {
                     <Button type="submit" className="w-full bg-accent-gradient" disabled={isLoading}>
                         {isLoading ? 'Logging in...' : 'Login'}
                     </Button>
-                    <div className="relative my-2">
-                        <div className="absolute inset-0 flex items-center">
-                            <span className="w-full border-t" />
-                        </div>
-                        <div className="relative flex justify-center text-xs uppercase">
-                            <span className="bg-card px-2 text-muted-foreground">Or continue with</span>
-                        </div>
-                    </div>
-                    <Button variant="outline" className="w-full">
-                        Login with Google
-                    </Button>
                     </div>
                 </form>
+
+                 <div className="relative my-4">
+                    <div className="absolute inset-0 flex items-center">
+                        <span className="w-full border-t" />
+                    </div>
+                    <div className="relative flex justify-center text-xs uppercase">
+                        <span className="bg-card px-2 text-muted-foreground">Or use one-click login</span>
+                    </div>
+                </div>
+
+                <div className="space-y-2 text-center">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                        <Button variant="outline" onClick={() => handleOneClickLogin('jobSeeker')} disabled={isLoading}>
+                            Job Seeker
+                        </Button>
+                        <Button variant="outline" onClick={() => handleOneClickLogin('employer')} disabled={isLoading}>
+                            Employer
+                        </Button>
+                        <Button variant="outline" onClick={() => handleOneClickLogin('admin')} disabled={isLoading}>
+                            Admin
+                        </Button>
+                    </div>
+                </div>
+
+                <div className="relative my-4">
+                    <div className="absolute inset-0 flex items-center">
+                        <span className="w-full border-t" />
+                    </div>
+                    <div className="relative flex justify-center text-xs uppercase">
+                        <span className="bg-card px-2 text-muted-foreground">Or continue with</span>
+                    </div>
+                </div>
+                
+                <Button variant="outline" className="w-full" disabled={isLoading}>
+                    Login with Google
+                </Button>
 
                 <div className="mt-6 text-center text-sm">
                 Don&apos;t have an account?{" "}
