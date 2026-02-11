@@ -191,7 +191,7 @@ export default function AdminCompaniesPage() {
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-muted-foreground">Rating</span>
-                  <span className="font-semibold">{company.rating} / 5.0</span>
+                  <span className="font-semibold">{company.rating ?? 0} / 5.0</span>
                 </div>
               </CardContent>
               <CardFooter className="pt-3 border-t">

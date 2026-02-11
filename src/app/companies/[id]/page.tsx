@@ -149,7 +149,7 @@ export default async function CompanyDetailPage({ params }: Props) {
                          <Separator />
                          <div className="flex justify-between">
                             <span className="text-muted-foreground">Rating</span>
-                            <span className="font-medium">{company.rating} / 5.0</span>
+                            <span className="font-medium">{company.rating ?? 0} / 5.0</span>
                          </div>
                          <Separator />
                          <div className="flex justify-between">

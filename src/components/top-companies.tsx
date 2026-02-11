@@ -53,7 +53,7 @@ export default function TopCompanies() {
                   )}
                   <h3 className="font-semibold text-base leading-tight truncate transition-colors group-hover:text-primary">{company.name}</h3>
                   <div className="flex justify-center mt-1">
-                    <StarRating rating={company.rating} />
+                    <StarRating rating={company.rating ?? 0} />
                   </div>
                   <div className="text-xs text-muted-foreground mt-2 flex items-center justify-center gap-1 truncate">
                     <MapPin className="h-3 w-3 shrink-0" />
