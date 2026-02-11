@@ -18,6 +18,11 @@ export default function CompanyDetailPage({ params: { id } }: { params: { id: st
   }
 
   const companyJobs = DUMMY_JOBS.filter((job) => job.company.id === company.id);
+  const companyJobIds = companyJobs.map(job => job.id);
+  const companyHires = DUMMY_APPLICANTS.filter(applicant => 
+    applicant.status === 'Hired' && companyJobIds.includes(applicant.jobId)
+  ).length;
+
   const companyLogo = PlaceHolderImages.find((img) => img.id === company.logo);
   const companyBanner = PlaceHolderImages.find((img) => img.id === 'hiring-main');
 
@@ -140,6 +145,11 @@ export default function CompanyDetailPage({ params: { id } }: { params: { id: st
                          <div className="flex justify-between">
                             <span className="text-muted-foreground">Rating</span>
                             <span className="font-medium">{company.rating} / 5.0</span>
+                         </div>
+                         <Separator />
+                         <div className="flex justify-between">
+                            <span className="text-muted-foreground">Hired with us</span>
+                            <span className="font-medium">{companyHires} {companyHires === 1 ? 'candidate' : 'candidates'}</span>
                          </div>
                     </CardContent>
                 </Card>
