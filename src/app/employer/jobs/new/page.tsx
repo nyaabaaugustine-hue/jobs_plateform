@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
@@ -16,19 +16,21 @@ export default function NewJobPage() {
         <p className="text-muted-foreground">Fill out the details below to find your next great hire.</p>
       </div>
 
-      <Card>
-        <Tabs defaultValue="details" className="w-full">
-          <CardHeader>
-            <TabsList className="grid w-full grid-cols-3">
-              <TabsTrigger value="details"><FileText className="mr-2" />Job Details</TabsTrigger>
-              <TabsTrigger value="description"><ListChecks className="mr-2" />Description</TabsTrigger>
-              <TabsTrigger value="screening"><MessageSquareQuote className="mr-2" />Screening</TabsTrigger>
-            </TabsList>
-          </CardHeader>
-          <TabsContent value="details">
-            <CardContent className="space-y-6">
-              <CardDescription>Provide the core information about the job opening.</CardDescription>
-              <div className="space-y-2 pt-4">
+      <Tabs defaultValue="details" className="w-full">
+        <TabsList className="grid w-full grid-cols-1 md:grid-cols-3 h-auto">
+          <TabsTrigger value="details"><FileText className="mr-2" />Job Details</TabsTrigger>
+          <TabsTrigger value="description"><ListChecks className="mr-2" />Description & Skills</TabsTrigger>
+          <TabsTrigger value="screening"><MessageSquareQuote className="mr-2" />Screening Questions</TabsTrigger>
+        </TabsList>
+        
+        <TabsContent value="details">
+          <Card>
+            <CardHeader>
+              <CardTitle>Core Information</CardTitle>
+              <CardDescription>Provide the fundamental details about the job opening to attract the right candidates.</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6 pt-6">
+              <div className="space-y-2">
                 <Label htmlFor="job-title">Job Title</Label>
                 <Input id="job-title" placeholder="e.g., Senior React Developer" />
               </div>
@@ -48,7 +50,7 @@ export default function NewJobPage() {
                       <SelectItem value="part-time">Part-time</SelectItem>
                       <SelectItem value="contract">Contract</SelectItem>
                       <SelectItem value="internship">Internship</SelectItem>
-                      <SelectItem value="volunteer">Volunteer</SelectItem>
+                       <SelectItem value="volunteer">Volunteer</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -73,42 +75,60 @@ export default function NewJobPage() {
                 </div>
               </div>
             </CardContent>
-          </TabsContent>
-          <TabsContent value="description">
-            <CardContent className="space-y-6">
-              <CardDescription>Be detailed to attract the right candidates.</CardDescription>
-              <div className="space-y-2 pt-4">
-                <Label htmlFor="description">Job Description</Label>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="description">
+           <Card>
+            <CardHeader>
+                <CardTitle>Job Description</CardTitle>
+                <CardDescription>Be detailed and clear to attract the best talent for the role.</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6 pt-6">
+              <div className="space-y-2">
+                <Label htmlFor="description">Full Job Description</Label>
                 <Textarea id="description" placeholder="Describe the role, responsibilities, and qualifications..." rows={10} />
               </div>
               <div className="space-y-2">
                 <Label htmlFor="skills">Required Skills</Label>
                 <Input id="skills" placeholder="e.g., React, TypeScript, Next.js (comma-separated)" />
+                 <p className="text-xs text-muted-foreground">Separate skills with a comma.</p>
               </div>
             </CardContent>
-          </TabsContent>
-          <TabsContent value="screening">
-            <CardContent className="space-y-4">
-              <CardDescription>Add questions to help filter applicants.</CardDescription>
-              <div className="pt-4 space-y-4">
-                <div className="flex items-center gap-4 p-4 border rounded-lg">
-                  <Label htmlFor="question1" className="flex-1">What is your expected salary?</Label>
-                  <Checkbox id="question1" checked/>
+          </Card>
+        </TabsContent>
+        
+        <TabsContent value="screening">
+           <Card>
+            <CardHeader>
+                <CardTitle>Screening Questions</CardTitle>
+                <CardDescription>Add questions to help you filter and qualify applicants automatically.</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4 pt-6">
+              <div className="flex items-center gap-4 p-4 border rounded-lg bg-secondary/50">
+                <div className="flex-1 space-y-1">
+                    <Label htmlFor="question1">What is your expected salary?</Label>
+                    <p className="text-xs text-muted-foreground">Helps filter candidates based on budget.</p>
                 </div>
-                <div className="flex items-center gap-4 p-4 border rounded-lg">
-                  <Label htmlFor="question2" className="flex-1">Are you authorized to work in the specified location?</Label>
-                  <Checkbox id="question2" checked/>
-                </div>
-                <Button variant="outline"><PlusCircle className="mr-2 h-4 w-4" /> Add Custom Question</Button>
+                <Checkbox id="question1" checked/>
               </div>
+              <div className="flex items-center gap-4 p-4 border rounded-lg bg-secondary/50">
+                 <div className="flex-1 space-y-1">
+                    <Label htmlFor="question2">Are you authorized to work in the specified location?</Label>
+                    <p className="text-xs text-muted-foreground">Important for legal and logistical reasons.</p>
+                </div>
+                <Checkbox id="question2" checked/>
+              </div>
+              <Button variant="outline"><PlusCircle className="mr-2 h-4 w-4" /> Add Custom Question</Button>
             </CardContent>
-          </TabsContent>
-        </Tabs>
-        <CardFooter className="justify-end gap-4 border-t pt-6">
-          <Button variant="outline"><Eye className="mr-2 h-4 w-4" /> Preview</Button>
-          <Button size="lg"><Save className="mr-2 h-4 w-4" /> Save & Publish</Button>
-        </CardFooter>
-      </Card>
+          </Card>
+        </TabsContent>
+      </Tabs>
+      
+       <div className="flex justify-end gap-4 pt-4">
+          <Button variant="outline" size="lg"><Eye className="mr-2 h-4 w-4" /> Preview</Button>
+          <Button size="lg" className="bg-accent-gradient"><Save className="mr-2 h-4 w-4" /> Save & Publish</Button>
+      </div>
     </div>
   )
 }
