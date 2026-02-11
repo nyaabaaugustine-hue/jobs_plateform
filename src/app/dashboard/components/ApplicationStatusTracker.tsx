@@ -1,4 +1,3 @@
-
 'use client';
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
@@ -11,7 +10,7 @@ import type { Application } from '@/lib/types';
 import React from 'react';
 import { cn } from '@/lib/utils';
 
-const statusConfig: Record<Application['status'], { icon: React.ReactNode, color: string }> = {
+const statusConfig: Record<Application['status'], { icon: React.ReactElement, color: string }> = {
     Applied: { icon: <FileText />, color: 'bg-blue-500/10 text-blue-500' },
     Screening: { icon: <Eye />, color: 'bg-yellow-500/10 text-yellow-600' },
     Interview: { icon: <MessageSquare />, color: 'bg-purple-500/10 text-purple-500' },
@@ -51,7 +50,7 @@ export default function ApplicationStatusTracker() {
             return (
               <div key={status} className={cn('p-3 rounded-lg', config.color)}>
                 <div className="flex items-center gap-2 mb-1">
-                  {React.cloneElement(config.icon as React.ReactElement, { className: "h-4 w-4" })}
+                  {React.cloneElement(config.icon, { className: "h-4 w-4" })}
                   <p className="text-xs font-medium text-foreground/80">{status}</p>
                 </div>
                 <p className="text-xl font-bold text-foreground">{count}</p>
