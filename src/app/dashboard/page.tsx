@@ -55,13 +55,15 @@ export default function JobSeekerDashboard() {
         />
       </div>
 
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-        <div className="lg:col-span-3">
-          <ApplicationStatusTracker />
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
+        <div className="lg:col-span-7 space-y-6">
+            <ApplicationStatusTracker />
+            <JobRecommendations />
         </div>
-        <ProfileCompletion />
-        <JobRecommendations />
-        <SavedJobsSummary />
+        <div className="lg:col-span-5 space-y-6">
+            <ProfileCompletion />
+            <SavedJobsSummary />
+        </div>
       </div>
     </div>
   );
