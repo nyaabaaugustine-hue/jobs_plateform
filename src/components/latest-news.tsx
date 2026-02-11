@@ -9,6 +9,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Skeleton } from './ui/skeleton';
+import { Card, CardContent } from './ui/card';
 
 export default function LatestNews() {
   const { firestore } = useFirebase();
