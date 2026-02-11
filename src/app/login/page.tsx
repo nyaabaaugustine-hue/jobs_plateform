@@ -79,6 +79,7 @@ export default function LoginPage() {
                     const userCredential = await createUserWithEmailAndPassword(auth, demoEmail, demoPassword);
                     const user = userCredential.user;
 
+                    // Create user profile document
                     await setDoc(doc(firestore, 'users', user.uid), {
                         id: user.uid,
                         email: demoEmail,
@@ -88,6 +89,15 @@ export default function LoginPage() {
                         createdAt: serverTimestamp(),
                         updatedAt: serverTimestamp(),
                     });
+
+                    // If admin, create role document for security rules
+                    if (role === 'admin') {
+                        await setDoc(doc(firestore, 'roles_admin', user.uid), {
+                            userId: user.uid,
+                            permissions: ['all'],
+                            createdAt: serverTimestamp(),
+                        });
+                    }
                     
                     toast({
                         title: 'Demo Account Created',

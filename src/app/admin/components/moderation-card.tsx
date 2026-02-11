@@ -51,7 +51,7 @@ export default function ModerationCard({ job, aiFlagged = false }: ModerationCar
         )}
         
         {moderationResult && (
-          <Alert variant={moderationResult.isSpam ? 'destructive' : 'default'}>
+          <Alert variant={moderationResult.isSpam ? 'destructive' : 'vibrant'}>
              {moderationResult.isSpam ? <Shield className="h-4 w-4" /> : <CheckCircle className="h-4 w-4" />}
             <AlertTitle>{moderationResult.isSpam ? 'AI Warning: Potential Spam' : 'AI Analysis: Looks Safe'}</AlertTitle>
             <AlertDescription>
