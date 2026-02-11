@@ -13,7 +13,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator
 } from '@/components/ui/dropdown-menu';
-import { MoreHorizontal, PlusCircle } from 'lucide-react';
+import { MoreHorizontal, PlusCircle, Upload } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import Link from 'next/link';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -68,14 +68,21 @@ export default function AdminBlogPage() {
         </div>
         <Dialog>
           <DialogTrigger asChild>
-            <Button>
+             <Button className="bg-accent-gradient">
               <PlusCircle className="mr-2 h-4 w-4" />
               Create New Post
             </Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-2xl">
             <DialogHeader>
-              <DialogTitle>Create New Blog Post</DialogTitle>
+              <DialogTitle>
+                 <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <PlusCircle className="h-5 w-5 text-primary" />
+                  </div>
+                  <span>Create New Blog Post</span>
+                </div>
+              </DialogTitle>
               <DialogDescription>
                 Fill in the details below to create a new draft.
               </DialogDescription>
@@ -90,6 +97,18 @@ export default function AdminBlogPage() {
                 <Textarea id="excerpt" placeholder="A short summary of the post..." rows={3} />
               </div>
               <div className="space-y-2">
+                <Label htmlFor="feature-image">Feature Image</Label>
+                <div className="flex flex-col items-center justify-center w-full p-6 border-2 border-dashed rounded-lg">
+                    <Upload className="w-8 h-8 text-muted-foreground" />
+                    <p className="mt-2 text-sm text-muted-foreground">Drag & drop or</p>
+                    <Button variant="link" className="p-0 h-auto">click to upload</Button>
+                </div>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="tags">Tags</Label>
+                <Input id="tags" placeholder="e.g., React, Career, Interview (comma-separated)" />
+              </div>
+              <div className="space-y-2">
                 <Label htmlFor="content">Content</Label>
                 <Textarea id="content" placeholder="Write your blog post here..." rows={10} />
               </div>
@@ -98,7 +117,7 @@ export default function AdminBlogPage() {
               <DialogClose asChild>
                 <Button type="button" variant="outline">Cancel</Button>
               </DialogClose>
-              <Button type="submit">Save Draft</Button>
+              <Button type="submit" className="bg-accent-gradient">Save Draft</Button>
             </DialogFooter>
           </DialogContent>
         </Dialog>

@@ -14,7 +14,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator
 } from '@/components/ui/dropdown-menu';
-import { MoreHorizontal, PlusCircle } from 'lucide-react';
+import { MoreHorizontal, PlusCircle, Upload } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -67,14 +67,21 @@ export default function AdminCompaniesPage() {
         </div>
         <Dialog>
           <DialogTrigger asChild>
-            <Button>
+            <Button className="bg-accent-gradient">
               <PlusCircle className="mr-2 h-4 w-4" />
               Add New Company
             </Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-lg">
             <DialogHeader>
-              <DialogTitle>Add New Company</DialogTitle>
+              <DialogTitle>
+                 <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <PlusCircle className="h-5 w-5 text-primary" />
+                  </div>
+                  <span>Add New Company</span>
+                </div>
+              </DialogTitle>
               <DialogDescription>
                 Fill in the details below to add a new company to the platform.
               </DialogDescription>
@@ -83,6 +90,14 @@ export default function AdminCompaniesPage() {
               <div className="space-y-2">
                 <Label htmlFor="name">Company Name</Label>
                 <Input id="name" placeholder="Innovate Inc." />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="logo">Company Logo</Label>
+                <div className="flex flex-col items-center justify-center w-full p-6 border-2 border-dashed rounded-lg">
+                    <Upload className="w-8 h-8 text-muted-foreground" />
+                    <p className="mt-2 text-sm text-muted-foreground">Drag & drop or</p>
+                    <Button variant="link" className="p-0 h-auto">click to upload</Button>
+                </div>
               </div>
               <div className="space-y-2">
                 <Label htmlFor="industry">Industry</Label>
@@ -97,7 +112,7 @@ export default function AdminCompaniesPage() {
               <DialogClose asChild>
                 <Button type="button" variant="outline">Cancel</Button>
               </DialogClose>
-              <Button type="submit">Add Company</Button>
+              <Button type="submit" className="bg-accent-gradient">Add Company</Button>
             </DialogFooter>
           </DialogContent>
         </Dialog>
