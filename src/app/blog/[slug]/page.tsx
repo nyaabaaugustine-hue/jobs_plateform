@@ -11,15 +11,19 @@ import { CalendarDays, Clock } from 'lucide-react';
 import RelatedPosts from '@/components/related-posts';
 import SocialShareButtons from '@/components/shared/social-share-buttons';
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = DUMMY_BLOG_POSTS.find((p) => p.slug === params.slug);
+type PageProps = {
+  params: { slug: string };
+};
 
-  if (!post) {
+export default function BlogPostPage({ params }: PageProps) {
+  const postData = DUMMY_BLOG_POSTS.find((p) => p.slug === params.slug);
+
+  if (!postData) {
     notFound();
   }
   
-  const postImage = PlaceHolderImages.find((img) => img.id === post.image);
-  const authorAvatar = PlaceHolderImages.find((img) => img.id === post.author.avatar);
+  const postImage = PlaceHolderImages.find((img) => img.id === postData.image);
+  const authorAvatar = PlaceHolderImages.find((img) => img.id === postData.author.avatar);
 
   const fullContent = `
     <p>Finding the right developer job or the perfect candidate can feel like searching for a needle in a haystack. The tech industry is booming, but with so many opportunities and applicants, it's easy to get lost. That's where JobBox comes in. We're dedicated to simplifying the job search and hiring process for the React ecosystem.</p>
@@ -38,7 +42,7 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     <p>Thank you for joining us on this journey. We are excited to see the connections you will make and the amazing products you will build.</p>
   `;
   
-  post.content = fullContent;
+  const post = { ...postData, content: fullContent };
   
   const tags = ['React', 'Web Development', 'Career', 'Interview Tips'];
 
