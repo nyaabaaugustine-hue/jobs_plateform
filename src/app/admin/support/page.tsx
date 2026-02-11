@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -81,11 +81,30 @@ const DUMMY_TICKETS: SupportTicket[] = [
     status: 'Resolved',
     priority: 'Low',
     messages: [
-      { from: 'user', text: 'I can\'t find the option to delete my account.', date: '2024-07-27T18:00:00Z' },
+      { from: 'user', text: 'I can\'\'\'t find the option to delete my account.', date: '2024-07-27T18:00:00Z' },
       { from: 'admin', text: 'Hi Esi, you can find the option to delete your account in your dashboard under Settings > Danger Zone. Let us know if you need further assistance.', date: '2024-07-27T18:10:00Z' },
     ]
   }
 ];
+
+const TicketTimestamp = ({ date }: { date: string }) => {
+    const [timestamp, setTimestamp] = useState('');
+    useEffect(() => {
+        setTimestamp(formatDistanceToNow(new Date(date), { addSuffix: true }));
+    }, [date]);
+    if (!timestamp) return <p className="text-xs text-muted-foreground shrink-0">&nbsp;</p>;
+    return <p className="text-xs text-muted-foreground shrink-0">{timestamp}</p>;
+};
+
+const MessageTimestamp = ({ date }: { date: string }) => {
+    const [timestamp, setTimestamp] = useState('');
+    useEffect(() => {
+        setTimestamp(new Date(date).toLocaleString());
+    }, [date]);
+    if (!timestamp) return <p className="text-xs opacity-70">&nbsp;</p>;
+    return <p className="text-xs opacity-70">{timestamp}</p>;
+};
+
 
 export default function AdminSupportPage() {
     const [tickets, setTickets] = useState<SupportTicket[]>(DUMMY_TICKETS);
@@ -141,7 +160,7 @@ export default function AdminSupportPage() {
                             >
                                 <div className="flex justify-between items-start">
                                     <p className="font-semibold truncate flex-1 pr-4">{ticket.subject}</p>
-                                    <p className="text-xs text-muted-foreground shrink-0">{formatDistanceToNow(new Date(ticket.date), { addSuffix: true })}</p>
+                                    <TicketTimestamp date={ticket.date} />
                                 </div>
                                 <p className="text-sm text-muted-foreground truncate">{ticket.user.name}</p>
                                 <div className="flex gap-2 mt-1">
@@ -196,7 +215,7 @@ export default function AdminSupportPage() {
                                             <div className={cn("flex-1 rounded-lg border p-4 max-w-lg", isAdmin ? "bg-primary text-primary-foreground" : "bg-card")}>
                                                 <div className="flex justify-between items-center mb-2">
                                                     <p className="font-semibold">{isAdmin ? 'Admin Support' : selectedTicket.user.name}</p>
-                                                    <p className="text-xs opacity-70">{new Date(msg.date).toLocaleString()}</p>
+                                                    <MessageTimestamp date={msg.date} />
                                                 </div>
                                                 <p className="text-sm whitespace-pre-wrap">{msg.text}</p>
                                             </div>
