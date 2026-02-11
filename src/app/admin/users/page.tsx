@@ -16,7 +16,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator
 } from '@/components/ui/dropdown-menu';
-import { MoreHorizontal, PlusCircle, User as UserIcon } from 'lucide-react';
+import { MoreHorizontal, PlusCircle, User as UserIcon, Upload } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
@@ -76,14 +76,21 @@ export default function AdminUsersPage() {
         </div>
          <Dialog>
           <DialogTrigger asChild>
-            <Button>
+            <Button className="bg-accent-gradient">
               <PlusCircle className="mr-2 h-4 w-4" />
               Add New User
             </Button>
           </DialogTrigger>
           <DialogContent className="sm:max-w-lg">
             <DialogHeader>
-              <DialogTitle>Add New User</DialogTitle>
+              <DialogTitle>
+                 <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <PlusCircle className="h-5 w-5 text-primary" />
+                  </div>
+                  <span>Add New User</span>
+                </div>
+              </DialogTitle>
               <DialogDescription>
                 Fill in the details below to create a new user account.
               </DialogDescription>
@@ -97,6 +104,14 @@ export default function AdminUsersPage() {
                 <div className="space-y-2">
                   <Label htmlFor="lastName">Last Name</Label>
                   <Input id="lastName" placeholder="Doe" />
+                </div>
+              </div>
+               <div className="space-y-2">
+                <Label htmlFor="avatar">Profile Picture</Label>
+                <div className="flex flex-col items-center justify-center w-full p-6 border-2 border-dashed rounded-lg">
+                    <Upload className="w-8 h-8 text-muted-foreground" />
+                    <p className="mt-2 text-sm text-muted-foreground">Drag & drop or</p>
+                    <Button variant="link" className="p-0 h-auto">click to upload</Button>
                 </div>
               </div>
               <div className="space-y-2">
@@ -125,7 +140,7 @@ export default function AdminUsersPage() {
               <DialogClose asChild>
                 <Button type="button" variant="outline">Cancel</Button>
               </DialogClose>
-              <Button type="submit">Create User</Button>
+              <Button type="submit" className="bg-accent-gradient">Create User</Button>
             </DialogFooter>
           </DialogContent>
         </Dialog>
