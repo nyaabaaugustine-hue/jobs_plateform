@@ -3,7 +3,13 @@
 import { DUMMY_JOBS, DUMMY_COMPANIES, DUMMY_APPLICANTS } from '@/lib/data';
 import { Briefcase, Building, CheckCircle } from 'lucide-react';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import Autoplay from "embla-carousel-autoplay";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from '@/components/ui/carousel';
 
 type TickerMessage = {
   icon: React.ReactNode;
@@ -12,6 +18,9 @@ type TickerMessage = {
 
 export default function HiringTicker() {
   const [tickerMessages, setTickerMessages] = useState<TickerMessage[]>([]);
+  const plugin = React.useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: true, stopOnMouseEnter: true })
+  )
 
   useEffect(() => {
     // This effect should only run on the client side
@@ -70,21 +79,27 @@ export default function HiringTicker() {
     return null;
   }
 
-  // Duplicate the messages to create a seamless loop
-  const duplicatedMessages = [...tickerMessages, ...tickerMessages, ...tickerMessages, ...tickerMessages];
-
   return (
     <div className="bg-secondary border-y">
-      <div className="relative flex overflow-x-hidden group">
-        <div className="flex animate-marquee group-hover:paused whitespace-nowrap py-3">
-          {duplicatedMessages.map((message, index) => (
-            <div key={index} className="flex items-center mx-8 text-sm text-muted-foreground shrink-0">
-              <div className="mr-3 shrink-0">{message.icon}</div>
-              <p>{message.text}</p>
-            </div>
+      <Carousel
+        plugins={[plugin.current]}
+        opts={{
+            loop: true,
+            align: 'start',
+        }}
+        className="w-full"
+      >
+        <CarouselContent>
+          {tickerMessages.map((message, index) => (
+            <CarouselItem key={index}>
+              <div className="flex items-center justify-center py-3 text-sm text-muted-foreground">
+                <div className="mr-3 shrink-0">{message.icon}</div>
+                <p>{message.text}</p>
+              </div>
+            </CarouselItem>
           ))}
-        </div>
-      </div>
+        </CarouselContent>
+      </Carousel>
     </div>
   );
 }
