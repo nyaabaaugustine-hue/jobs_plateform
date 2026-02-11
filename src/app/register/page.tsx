@@ -11,9 +11,6 @@ import Image from "next/image"
 import { PlaceHolderImages } from "@/lib/placeholder-images"
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useFirebase } from '@/firebase';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { useToast } from '@/hooks/use-toast';
 
 export default function RegisterPage() {
@@ -24,7 +21,6 @@ export default function RegisterPage() {
     const [lastName, setLastName] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     
-    const { auth, firestore } = useFirebase();
     const router = useRouter();
     const { toast } = useToast();
 
@@ -39,36 +35,18 @@ export default function RegisterPage() {
             return;
         }
         setIsLoading(true);
-        try {
-            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-            const user = userCredential.user;
 
-            await setDoc(doc(firestore, 'users', user.uid), {
-                id: user.uid,
-                email: user.email,
-                firstName: firstName,
-                lastName: lastName,
-                role: 'jobSeeker',
-                createdAt: serverTimestamp(),
-                updatedAt: serverTimestamp(),
-            });
-
-            toast({
-                title: 'Account Created!',
-                description: 'You have been successfully registered.',
-                variant: 'vibrant',
-            });
+        toast({
+            title: 'Account Created!',
+            description: "You've been successfully registered. Redirecting...",
+            variant: 'vibrant',
+        });
+        
+        // Simulate network delay and redirect to the default dashboard
+        setTimeout(() => {
             router.push('/dashboard');
-        } catch (error: any) {
-            console.error('Registration error:', error);
-            toast({
-                title: 'Registration Failed',
-                description: error.message || 'An unexpected error occurred.',
-                variant: 'destructive',
-            });
-        } finally {
             setIsLoading(false);
-        }
+        }, 1000);
     };
 
   return (

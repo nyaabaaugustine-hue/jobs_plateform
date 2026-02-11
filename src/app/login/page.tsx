@@ -12,47 +12,41 @@ import Image from "next/image"
 import { PlaceHolderImages } from "@/lib/placeholder-images"
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useFirebase } from '@/firebase';
-import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useToast } from '@/hooks/use-toast';
 
 export default function LoginPage() {
     const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('jobseeker@example.com');
+    const [password, setPassword] = useState('password');
     const [isLoading, setIsLoading] = useState(false);
 
-    const { auth } = useFirebase();
     const router = useRouter();
     const { toast } = useToast();
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         setIsLoading(true);
-        if (!auth) {
-            toast({ title: 'Error', description: 'Authentication service not available.', variant: 'destructive' });
-            setIsLoading(false);
-            return;
+
+        // Demo logic: redirect based on email
+        let destination = '/dashboard'; // Default to job seeker
+        if (email.toLowerCase().includes('admin')) {
+            destination = '/admin';
+        } else if (email.toLowerCase().includes('employer')) {
+            destination = '/employer';
         }
-        try {
-            await signInWithEmailAndPassword(auth, email, password);
-            toast({
-                title: 'Login Successful',
-                description: 'Welcome back!',
-                variant: 'vibrant',
-            });
-            router.push('/'); // Redirect to a role-based dashboard will be handled by the header
-        } catch (error: any) {
-            console.error('Login error:', error);
-            toast({
-                title: 'Login Failed',
-                description: error.message || 'Invalid credentials. Please try again.',
-                variant: 'destructive',
-            });
-        } finally {
+
+        toast({
+            title: 'Login Successful',
+            description: 'Redirecting to your dashboard...',
+            variant: 'vibrant',
+        });
+        
+        // Simulate network delay for demo
+        setTimeout(() => {
+            router.push(destination);
             setIsLoading(false);
-        }
+        }, 1000);
     };
 
   return (
@@ -74,7 +68,9 @@ export default function LoginPage() {
             <CardHeader className="text-center">
                 <CardTitle className="text-2xl">Welcome Back</CardTitle>
                 <CardDescription>
-                Sign in to access your account
+                  Sign in to access your dashboard. For demo purposes, you can use: 
+                  <br/>
+                  <code className="font-mono text-xs bg-muted p-1 rounded">employer@example.com</code> or <code className="font-mono text-xs bg-muted p-1 rounded">admin@example.com</code>
                 </CardDescription>
             </CardHeader>
             <CardContent>

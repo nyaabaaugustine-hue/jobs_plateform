@@ -13,34 +13,14 @@ import {
   SheetTrigger,
   SheetFooter,
 } from '@/components/ui/sheet';
-import { useUser, useFirebase, useDoc, useMemoFirebase } from '@/firebase';
-import { signOut } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
-import { doc } from 'firebase/firestore';
-import { Skeleton } from '@/components/ui/skeleton';
-
-type UserProfile = {
-  role: 'admin' | 'employer' | 'jobSeeker';
-};
 
 export default function Header() {
-  const { auth, firestore, isUserLoading } = useFirebase();
-  const { user } = useUser();
   const router = useRouter();
 
-  const userDocRef = useMemoFirebase(() => {
-    if (!user || !firestore) return null;
-    return doc(firestore, 'users', user.uid);
-  }, [firestore, user]);
-
-  const { data: userProfile, isLoading: isProfileLoading } = useDoc<UserProfile>(userDocRef);
-
-  const handleLogout = async () => {
-    if (auth) {
-      await signOut(auth);
-      router.push('/login');
-    }
-  };
+  // For demo purposes, we will assume the user is always logged out on public pages.
+  // The dashboard layouts will handle their own "logged in" state.
+  const user = null; 
 
   const navLinks = [
     { href: '/', label: 'Home' },
@@ -52,41 +32,7 @@ export default function Header() {
     { href: '/contacts', label: 'Contacts' },
   ];
   
-  const getDashboardLink = () => {
-    if (!userProfile) return '/login';
-    const role = userProfile.role.toLowerCase();
-    if (role === 'admin') return '/admin';
-    if (role === 'employer') return '/employer';
-    return '/dashboard';
-  }
-
   const renderAuthButtons = () => {
-    if (isUserLoading || (user && isProfileLoading)) {
-      return (
-        <div className="hidden items-center gap-2 md:flex">
-          <Skeleton className="h-10 w-32" />
-          <Skeleton className="h-10 w-24" />
-        </div>
-      );
-    }
-
-    if (user && userProfile) {
-      return (
-        <div className="hidden items-center gap-2 md:flex">
-          <Button variant="outline" asChild>
-            <Link href={getDashboardLink()}>
-              <LayoutDashboard className="mr-2 h-4 w-4" />
-              Dashboard
-            </Link>
-          </Button>
-          <Button variant="ghost" onClick={handleLogout}>
-            <LogOut className="mr-2 h-4 w-4" />
-            Logout
-          </Button>
-        </div>
-      );
-    }
-
     return (
       <div className="hidden items-center gap-2 md:flex">
         <Button variant="ghost" asChild>
@@ -103,32 +49,6 @@ export default function Header() {
   };
   
    const renderMobileAuthButtons = () => {
-    if (isUserLoading || (user && isProfileLoading)) {
-      return (
-        <div className="grid w-full grid-cols-2 gap-4">
-          <Skeleton className="h-12 w-full" />
-          <Skeleton className="h-12 w-full" />
-        </div>
-      );
-    }
-
-    if (user && userProfile) {
-      return (
-        <div className="grid w-full grid-cols-2 gap-4">
-           <Button asChild size="lg" variant="outline">
-            <Link href={getDashboardLink()}>Dashboard</Link>
-          </Button>
-          <Button
-            size="lg"
-            variant="ghost"
-            onClick={handleLogout}
-          >
-            Logout
-          </Button>
-        </div>
-      );
-    }
-
     return (
       <div className="grid w-full grid-cols-2 gap-4">
         <Button variant="outline" asChild size="lg">
@@ -164,7 +84,7 @@ export default function Header() {
             ))}
           </nav>
         </div>
-        {auth && renderAuthButtons()}
+        {renderAuthButtons()}
         <Sheet>
           <SheetTrigger asChild>
             <Button variant="outline" size="icon" className="md:hidden">
@@ -192,7 +112,7 @@ export default function Header() {
               ))}
             </nav>
             <SheetFooter className="mt-auto border-t bg-background/30 p-4">
-              {auth && renderMobileAuthButtons()}
+              {renderMobileAuthButtons()}
             </SheetFooter>
           </SheetContent>
         </Sheet>
