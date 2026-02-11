@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label"
 import Header from "@/components/shared/header"
 import Footer from "@/components/shared/footer"
 import Link from "next/link"
+import { Separator } from "@/components/ui/separator"
 
 export default function LoginPage() {
   return (
@@ -53,6 +54,23 @@ export default function LoginPage() {
                 Login with Google
               </Button>
             </div>
+            
+            <Separator className="my-4" />
+            <div className="space-y-2 text-center">
+                <p className="text-sm font-medium text-muted-foreground">For demo purposes</p>
+                <div className="flex flex-col gap-2">
+                    <Button asChild variant="secondary">
+                        <Link href="/dashboard">Login as Job Seeker</Link>
+                    </Button>
+                     <Button asChild variant="secondary">
+                        <Link href="/employer">Login as Employer</Link>
+                    </Button>
+                     <Button asChild variant="secondary">
+                        <Link href="/admin">Login as Admin</Link>
+                    </Button>
+                </div>
+            </div>
+
             <div className="mt-4 text-center text-sm">
               Don&apos;t have an account?{" "}
               <Link href="/register" className="font-semibold text-primary hover:underline">
