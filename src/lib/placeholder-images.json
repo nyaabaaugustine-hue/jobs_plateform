@@ -437,6 +437,30 @@
       "description": "A person of color reading news on a digital tablet.",
       "imageUrl": "https://images.unsplash.com/photo-1652979775179-d81a2e9748c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxuZXdzJTIwcmVhZGluZ3xlbnwwfHx8fDE3NzA3NzQ2Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "news reading"
+    },
+    {
+      "id": "paystack-logo",
+      "description": "Paystack logo",
+      "imageUrl": "https://placehold.co/100x25/000000/FFFFFF?text=Paystack",
+      "imageHint": "Paystack logo"
+    },
+    {
+      "id": "visa-logo",
+      "description": "Visa logo",
+      "imageUrl": "https://placehold.co/50x25/1A1F71/FFFFFF?text=VISA",
+      "imageHint": "Visa logo"
+    },
+    {
+      "id": "mastercard-logo",
+      "description": "Mastercard logo",
+      "imageUrl": "https://placehold.co/50x25/EB001B/FFFFFF?text=MC",
+      "imageHint": "Mastercard logo"
+    },
+    {
+      "id": "ssl-badge",
+      "description": "SSL Secure badge",
+      "imageUrl": "https://placehold.co/120x40/22c55e/ffffff?text=Secure+SSL",
+      "imageHint": "secure ssl"
     }
   ]
 }
