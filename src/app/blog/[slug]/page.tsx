@@ -17,7 +17,7 @@ interface PageProps {
   searchParams: { [key: string]: string | string[] | undefined };
 }
 
-export default function BlogPostPage({ params }: PageProps) {
+export default function BlogPostPage({ params, searchParams }: PageProps) {
   const postData = DUMMY_BLOG_POSTS.find((p) => p.slug === params.slug);
 
   if (!postData) {
