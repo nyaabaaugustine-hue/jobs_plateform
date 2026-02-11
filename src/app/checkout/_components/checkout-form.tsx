@@ -22,33 +22,46 @@ export default function CheckoutForm() {
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const planId = searchParams.get('plan');
-  const billingCycle = searchParams.get('billing') as 'monthly' | 'yearly' | null;
-
-  const selectedTier = tiers.find(t => t.id === planId);
+  // State to hold values derived from client-side searchParams
+  const [selectedTier, setSelectedTier] = useState<(typeof tiers)[0] | undefined>();
+  const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly' | null>(null);
+  const [price, setPrice] = useState(0);
+  const [tax, setTax] = useState(0);
+  const [total, setTotal] = useState(0);
 
   const paystackLogo = PlaceHolderImages.find(p => p.id === 'paystack-logo');
   const visaLogo = PlaceHolderImages.find(p => p.id === 'visa-logo');
   const mastercardLogo = PlaceHolderImages.find(p => p.id === 'mastercard-logo');
   const sslBadge = PlaceHolderImages.find(p => p.id === 'ssl-badge');
 
-
   useEffect(() => {
-    if (!selectedTier || !billingCycle) {
-      router.push('/pricing');
-    }
-  }, [selectedTier, billingCycle, router]);
+    const planId = searchParams.get('plan');
+    const billing = searchParams.get('billing') as 'monthly' | 'yearly' | null;
+    const tier = tiers.find(t => t.id === planId);
 
-  const getPrice = () => {
-    if (!selectedTier || !billingCycle || typeof selectedTier.price.monthly !== 'number' || typeof selectedTier.price.yearly !== 'number') {
-      return 0;
+    if (!tier || !billing) {
+      router.push('/pricing');
+      return;
     }
-    return billingCycle === 'yearly' ? selectedTier.price.yearly : selectedTier.price.monthly;
-  };
-  
-  const price = getPrice();
-  const tax = price > 0 ? price * 0.1 : 0;
-  const total = price + tax;
+    
+    setSelectedTier(tier);
+    setBillingCycle(billing);
+
+    const getPrice = () => {
+      if (typeof tier.price.monthly !== 'number' || typeof tier.price.yearly !== 'number') {
+        return 0;
+      }
+      return billing === 'yearly' ? tier.price.yearly : tier.price.monthly;
+    };
+
+    const currentPrice = getPrice();
+    const currentTax = currentPrice > 0 ? currentPrice * 0.1 : 0;
+    const currentTotal = currentPrice + currentTax;
+
+    setPrice(currentPrice);
+    setTax(currentTax);
+    setTotal(currentTotal);
+  }, [searchParams, router]);
   
   const handlePayment = (e: React.FormEvent) => {
       e.preventDefault();
