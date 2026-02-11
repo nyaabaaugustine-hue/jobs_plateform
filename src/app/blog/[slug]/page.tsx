@@ -11,8 +11,8 @@ import { CalendarDays, Clock } from 'lucide-react';
 import RelatedPosts from '@/components/related-posts';
 import SocialShareButtons from '@/components/shared/social-share-buttons';
 
-export default function BlogPostPage({ params: { slug } }: { params: { slug: string } }) {
-  const post = DUMMY_BLOG_POSTS.find((p) => p.slug === slug);
+export default function BlogPostPage({ params }: { params: { slug: string } }) {
+  const post = DUMMY_BLOG_POSTS.find((p) => p.slug === params.slug);
 
   if (!post) {
     notFound();
