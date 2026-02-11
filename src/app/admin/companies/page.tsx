@@ -14,7 +14,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator
 } from '@/components/ui/dropdown-menu';
-import { MoreHorizontal, PlusCircle, Upload } from 'lucide-react';
+import { MoreHorizontal, PlusCircle, Upload, Loader2 } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -43,6 +43,19 @@ export default function AdminCompaniesPage() {
 
   const [companies, setCompanies] = useState<CompanyWithStatus[]>(companiesWithStatus);
   const [searchTerm, setSearchTerm] = useState('');
+  const [isUploading, setIsUploading] = useState(false);
+  const [uploadedImageUrl, setUploadedImageUrl] = useState<string | null>(null);
+
+  const handleImageUpload = () => {
+      setIsUploading(true);
+      setTimeout(() => {
+          const randomImage = PlaceHolderImages.find(p => p.id === `company-logo-${Math.floor(Math.random() * 24) + 1}`);
+          if(randomImage) {
+              setUploadedImageUrl(randomImage.imageUrl);
+          }
+          setIsUploading(false);
+      }, 1500);
+  };
 
   const filteredCompanies = companies
     .filter(company => company.name.toLowerCase().includes(searchTerm.toLowerCase()));
@@ -93,10 +106,23 @@ export default function AdminCompaniesPage() {
               </div>
               <div className="space-y-2">
                 <Label htmlFor="logo">Company Logo</Label>
-                <div className="flex flex-col items-center justify-center w-full p-6 border-2 border-dashed rounded-lg">
-                    <Upload className="w-8 h-8 text-muted-foreground" />
-                    <p className="mt-2 text-sm text-muted-foreground">Drag & drop or</p>
-                    <Button variant="link" className="p-0 h-auto">click to upload</Button>
+                 <div className="flex flex-col items-center justify-center w-full p-6 border-2 border-dashed rounded-lg">
+                    {isUploading ? (
+                        <Loader2 className="w-8 h-8 text-muted-foreground animate-spin" />
+                    ) : uploadedImageUrl ? (
+                        <Image src={uploadedImageUrl} alt="Uploaded preview" width={60} height={60} className="rounded-md object-cover" />
+                    ) : (
+                        <Upload className="w-8 h-8 text-muted-foreground" />
+                    )}
+                    <p className="mt-2 text-sm text-muted-foreground">
+                        {isUploading ? 'Uploading...' : uploadedImageUrl ? 'Logo selected. ' : 'Drag & drop or '}
+                        {!uploadedImageUrl && !isUploading && (
+                            <Button variant="link" className="p-0 h-auto" onClick={handleImageUpload}>click to upload</Button>
+                        )}
+                        {uploadedImageUrl && !isUploading && (
+                            <Button variant="link" className="p-0 h-auto text-destructive" onClick={() => setUploadedImageUrl(null)}>Remove</Button>
+                        )}
+                    </p>
                 </div>
               </div>
               <div className="space-y-2">

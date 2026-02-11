@@ -13,7 +13,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator
 } from '@/components/ui/dropdown-menu';
-import { MoreHorizontal, PlusCircle, Upload } from 'lucide-react';
+import { MoreHorizontal, PlusCircle, Upload, Loader2 } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import Link from 'next/link';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -40,6 +40,20 @@ export default function AdminBlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>(DUMMY_BLOG_POSTS);
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
+  const [isUploading, setIsUploading] = useState(false);
+  const [uploadedImageUrl, setUploadedImageUrl] = useState<string | null>(null);
+
+  const handleImageUpload = () => {
+      setIsUploading(true);
+      setTimeout(() => {
+          const randomImage = PlaceHolderImages.find(p => p.id === `blog-post-${Math.floor(Math.random() * 6) + 1}`);
+          if(randomImage) {
+              setUploadedImageUrl(randomImage.imageUrl);
+          }
+          setIsUploading(false);
+      }, 1500);
+  };
+
 
   const filteredPosts = posts
     .filter(post => 
@@ -98,10 +112,23 @@ export default function AdminBlogPage() {
               </div>
               <div className="space-y-2">
                 <Label htmlFor="feature-image">Feature Image</Label>
-                <div className="flex flex-col items-center justify-center w-full p-6 border-2 border-dashed rounded-lg">
-                    <Upload className="w-8 h-8 text-muted-foreground" />
-                    <p className="mt-2 text-sm text-muted-foreground">Drag & drop or</p>
-                    <Button variant="link" className="p-0 h-auto">click to upload</Button>
+                 <div className="flex flex-col items-center justify-center w-full p-6 border-2 border-dashed rounded-lg">
+                    {isUploading ? (
+                        <Loader2 className="w-8 h-8 text-muted-foreground animate-spin" />
+                    ) : uploadedImageUrl ? (
+                        <Image src={uploadedImageUrl} alt="Uploaded preview" width={100} height={60} className="rounded-md object-cover" />
+                    ) : (
+                        <Upload className="w-8 h-8 text-muted-foreground" />
+                    )}
+                    <p className="mt-2 text-sm text-muted-foreground">
+                        {isUploading ? 'Uploading...' : uploadedImageUrl ? 'Image selected. ' : 'Drag & drop or '}
+                        {!uploadedImageUrl && !isUploading && (
+                            <Button variant="link" className="p-0 h-auto" onClick={handleImageUpload}>click to upload</Button>
+                        )}
+                        {uploadedImageUrl && !isUploading && (
+                            <Button variant="link" className="p-0 h-auto text-destructive" onClick={() => setUploadedImageUrl(null)}>Remove</Button>
+                        )}
+                    </p>
                 </div>
               </div>
               <div className="space-y-2">

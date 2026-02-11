@@ -7,13 +7,18 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
-import { Upload, PlusCircle, Linkedin, Trash2, Save, X, UserCircle, Briefcase, GraduationCap, Wand2, FileText } from "lucide-react"
+import { Upload, PlusCircle, Linkedin, Trash2, Save, X, UserCircle, Briefcase, GraduationCap, Wand2, FileText, Loader2 } from "lucide-react"
+import { useToast } from '@/hooks/use-toast';
+import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
+
 
 // Mock data types for state
 type Experience = { id: number; title: string; company: string; period: string; description: string; };
 type Education = { id: number; institution: string; degree: string; period: string; };
 
 export default function ProfilePage() {
+  const { toast } = useToast();
   const [fullName, setFullName] = useState('John Doe');
   const [headline, setHeadline] = useState('Senior React Developer at Innovate Inc.');
   const [summary, setSummary] = useState('Experienced React developer with 5 years in frontend development, specializing in TypeScript, Next.js, and state management with Redux. Proven ability to lead small teams and deliver high-quality web applications.');
@@ -28,6 +33,24 @@ export default function ProfilePage() {
   const [educations, setEducations] = useState<Education[]>([
     { id: 1, institution: 'University of Technology', degree: 'Bachelor of Science, Computer Science', period: '2014 - 2018' }
   ]);
+
+  const [isUploadingResume, setIsUploadingResume] = useState(false);
+  const [resumeFileName, setResumeFileName] = useState('my_resume_final.pdf');
+  const resumePreviewUrl = PlaceHolderImages.find(p => p.id === 'resume-doc')?.imageUrl;
+
+  const handleResumeUpload = () => {
+    setIsUploadingResume(true);
+    setTimeout(() => {
+        const newFileName = `john_doe_resume_${new Date().getFullYear()}.pdf`;
+        setResumeFileName(newFileName);
+        setIsUploadingResume(false);
+        toast({
+            title: "Resume Uploaded",
+            description: `${newFileName} has been saved to your profile.`,
+            variant: "vibrant"
+        });
+    }, 1500);
+  };
 
   const handleAddSkill = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter' && skillInput.trim() !== '' && !skills.includes(skillInput.trim())) {
@@ -49,7 +72,11 @@ export default function ProfilePage() {
       experiences,
       educations,
     });
-    // Here you would typically call an API to save the data
+    toast({
+        title: "Profile Saved!",
+        description: "Your changes have been successfully saved.",
+        variant: "vibrant"
+    });
   };
 
   return (
@@ -168,12 +195,21 @@ export default function ProfilePage() {
                     <CardTitle className="flex items-center gap-2"><FileText /> Resume</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
+                  {resumePreviewUrl && !isUploadingResume && (
+                    <div className="flex justify-center border rounded-lg p-2 bg-secondary/30">
+                        <Image src={resumePreviewUrl} alt="Resume Preview" width={200} height={283} className="rounded-md" />
+                    </div>
+                  )}
                   <div className="flex flex-col items-center justify-center w-full p-6 border-2 border-dashed rounded-lg">
-                    <Upload className="w-8 h-8 text-muted-foreground" />
+                    {isUploadingResume ? (
+                      <Loader2 className="w-8 h-8 text-muted-foreground animate-spin" />
+                    ): (
+                      <Upload className="w-8 h-8 text-muted-foreground" />
+                    )}
                     <p className="mt-2 text-sm text-muted-foreground">Drag & drop or</p>
-                    <Button variant="link" className="p-0 h-auto">click to upload</Button>
+                    <Button variant="link" className="p-0 h-auto" onClick={handleResumeUpload} disabled={isUploadingResume}>click to upload</Button>
                   </div>
-                  <p className="text-sm text-muted-foreground text-center">Current: my_resume_final.pdf</p>
+                  <p className="text-sm text-muted-foreground text-center">Current: {resumeFileName}</p>
                 </CardContent>
             </Card>
             <Card>

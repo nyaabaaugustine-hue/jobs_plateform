@@ -16,7 +16,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator
 } from '@/components/ui/dropdown-menu';
-import { MoreHorizontal, PlusCircle, User as UserIcon, Upload } from 'lucide-react';
+import { MoreHorizontal, PlusCircle, User as UserIcon, Upload, Loader2 } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
@@ -31,11 +31,26 @@ import {
   DialogClose,
 } from '@/components/ui/dialog';
 import { Label } from '@/components/ui/label';
+import Image from 'next/image';
 
 export default function AdminUsersPage() {
   const [users, setUsers] = useState<User[]>(DUMMY_USERS);
   const [searchTerm, setSearchTerm] = useState('');
   const [roleFilter, setRoleFilter] = useState('all');
+  const [isUploading, setIsUploading] = useState(false);
+  const [uploadedImageUrl, setUploadedImageUrl] = useState<string | null>(null);
+
+  const handleImageUpload = () => {
+      setIsUploading(true);
+      setTimeout(() => {
+          const randomImage = PlaceHolderImages.find(p => p.id === `avatar-${Math.floor(Math.random() * 24) + 1}`);
+          if(randomImage) {
+              setUploadedImageUrl(randomImage.imageUrl);
+          }
+          setIsUploading(false);
+      }, 1500);
+  };
+
 
   const filteredUsers = users
     .filter(user => 
@@ -109,9 +124,22 @@ export default function AdminUsersPage() {
                <div className="space-y-2">
                 <Label htmlFor="avatar">Profile Picture</Label>
                 <div className="flex flex-col items-center justify-center w-full p-6 border-2 border-dashed rounded-lg">
-                    <Upload className="w-8 h-8 text-muted-foreground" />
-                    <p className="mt-2 text-sm text-muted-foreground">Drag & drop or</p>
-                    <Button variant="link" className="p-0 h-auto">click to upload</Button>
+                    {isUploading ? (
+                        <Loader2 className="w-8 h-8 text-muted-foreground animate-spin" />
+                    ) : uploadedImageUrl ? (
+                        <Image src={uploadedImageUrl} alt="Uploaded preview" width={60} height={60} className="rounded-full object-cover" />
+                    ) : (
+                        <Upload className="w-8 h-8 text-muted-foreground" />
+                    )}
+                    <p className="mt-2 text-sm text-muted-foreground">
+                        {isUploading ? 'Uploading...' : uploadedImageUrl ? 'Avatar selected. ' : 'Drag & drop or '}
+                        {!uploadedImageUrl && !isUploading && (
+                            <Button variant="link" className="p-0 h-auto" onClick={handleImageUpload}>click to upload</Button>
+                        )}
+                        {uploadedImageUrl && !isUploading && (
+                            <Button variant="link" className="p-0 h-auto text-destructive" onClick={() => setUploadedImageUrl(null)}>Remove</Button>
+                        )}
+                    </p>
                 </div>
               </div>
               <div className="space-y-2">

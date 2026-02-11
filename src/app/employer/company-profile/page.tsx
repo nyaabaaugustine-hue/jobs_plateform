@@ -1,14 +1,47 @@
+'use client';
+
+import { useState } from 'react';
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { Upload, Save } from "lucide-react"
+import { Upload, Save, Loader2 } from "lucide-react"
 import Image from "next/image"
 import { PlaceHolderImages } from "@/lib/placeholder-images"
+import { useToast } from '@/hooks/use-toast';
+
 
 export default function CompanyProfilePage() {
-    const companyLogo = PlaceHolderImages.find((img) => img.id === 'company-logo-1');
+    const { toast } = useToast();
+    const [logoUrl, setLogoUrl] = useState(PlaceHolderImages.find((img) => img.id === 'company-logo-1')?.imageUrl);
+    const [isUploading, setIsUploading] = useState(false);
+
+    const handleLogoUpload = () => {
+        setIsUploading(true);
+        setTimeout(() => {
+            const currentLogoIndex = PlaceHolderImages.findIndex(p => p.imageUrl === logoUrl && p.id.startsWith('company-logo-'));
+            const nextLogoIndex = (currentLogoIndex + 1) % 24; // Assuming 24 company logos
+            const nextLogo = PlaceHolderImages.find(p => p.id === `company-logo-${nextLogoIndex + 1}`);
+            if (nextLogo) {
+                setLogoUrl(nextLogo.imageUrl);
+            }
+            setIsUploading(false);
+            toast({
+                title: "Logo Updated",
+                description: "Your new company logo has been uploaded.",
+                variant: 'vibrant'
+            });
+        }, 1500);
+    };
+
+    const handleSaveChanges = () => {
+      toast({
+        title: "Changes Saved",
+        description: "Your company profile has been updated.",
+        variant: "vibrant",
+      });
+    }
 
   return (
     <div className="space-y-8">
@@ -46,19 +79,23 @@ export default function CompanyProfilePage() {
                     <CardTitle>Company Logo</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                    {companyLogo && (
+                    {logoUrl && (
                         <div className="flex justify-center">
-                            <Image src={companyLogo.imageUrl} alt="Company Logo" width={128} height={128} className="rounded-lg border p-2" />
+                            <Image src={logoUrl} alt="Company Logo" width={128} height={128} className="rounded-lg border p-2" />
                         </div>
                     )}
                   <div className="flex flex-col items-center justify-center w-full p-6 border-2 border-dashed rounded-lg">
-                    <Upload className="w-8 h-8 text-muted-foreground" />
+                    {isUploading ? (
+                      <Loader2 className="w-8 h-8 text-muted-foreground animate-spin" />
+                    ) : (
+                      <Upload className="w-8 h-8 text-muted-foreground" />
+                    )}
                     <p className="mt-2 text-sm text-muted-foreground">Drag & drop or</p>
-                    <Button variant="link" className="p-0 h-auto">click to upload</Button>
+                    <Button variant="link" className="p-0 h-auto" onClick={handleLogoUpload} disabled={isUploading}>click to upload</Button>
                   </div>
                 </CardContent>
             </Card>
-             <Button size="lg" className="w-full">
+             <Button size="lg" className="w-full" onClick={handleSaveChanges}>
                 <Save className="mr-2 h-4 w-4" /> Save Changes
             </Button>
         </div>
