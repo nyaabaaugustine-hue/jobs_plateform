@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { DUMMY_USERS } from "@/lib/data";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { SendHorizonal, Search, Inbox, Archive, ChevronsRight } from "lucide-react";
+import { SendHorizonal, Search, Inbox, Archive, ChevronsRight, MessageCircleQuestion } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
@@ -113,16 +113,16 @@ export default function AdminSupportPage() {
 
     return (
         <div className="h-full flex flex-col space-y-8">
-            <div>
+            <div className="flex items-center justify-between">
                 <h1 className="font-headline text-3xl font-bold">Support Center</h1>
                 <p className="text-muted-foreground">Manage and respond to user support tickets.</p>
             </div>
             <Card className="flex-1 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 min-h-[700px] overflow-hidden">
-                <div className="col-span-1 border-r flex flex-col">
+                <div className="col-span-1 border-r flex flex-col bg-secondary/50">
                     <div className="p-4 border-b space-y-4">
                         <div className="relative">
                             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                            <Input placeholder="Search tickets..." className="pl-9" />
+                            <Input placeholder="Search tickets..." className="pl-9 bg-background" />
                         </div>
                         <div className="flex gap-2">
                             <Button variant="secondary" className="flex-1 justify-start gap-2"><Inbox className="h-4 w-4" /> Inbox ({tickets.filter(t => t.status !== 'Resolved').length})</Button>
@@ -135,18 +135,18 @@ export default function AdminSupportPage() {
                                 key={ticket.id}
                                 onClick={() => setSelectedTicket(ticket)}
                                 className={cn(
-                                    "w-full text-left p-4 border-b flex flex-col gap-2 hover:bg-secondary transition-colors",
+                                    "w-full text-left p-4 border-b flex flex-col gap-2 hover:bg-muted transition-colors",
                                     selectedTicket?.id === ticket.id && "bg-primary/10 border-l-4 border-primary"
                                 )}
                             >
-                                <div className="flex justify-between items-center">
+                                <div className="flex justify-between items-start">
                                     <p className="font-semibold truncate flex-1 pr-4">{ticket.subject}</p>
                                     <p className="text-xs text-muted-foreground shrink-0">{formatDistanceToNow(new Date(ticket.date), { addSuffix: true })}</p>
                                 </div>
                                 <p className="text-sm text-muted-foreground truncate">{ticket.user.name}</p>
                                 <div className="flex gap-2 mt-1">
-                                    <Badge variant="outline" className={cn("text-xs", getStatusBadgeClass(ticket.status))}>{ticket.status}</Badge>
-                                    <Badge variant="outline" className={cn("text-xs", getPriorityBadgeClass(ticket.priority))}>{ticket.priority}</Badge>
+                                    <Badge variant="outline" className={cn("text-xs font-medium", getStatusBadgeClass(ticket.status))}>{ticket.status}</Badge>
+                                    <Badge variant="outline" className={cn("text-xs font-medium", getPriorityBadgeClass(ticket.priority))}>{ticket.priority}</Badge>
                                 </div>
                             </button>
                         ))}
@@ -155,29 +155,33 @@ export default function AdminSupportPage() {
                 <div className="col-span-1 md:col-span-2 lg:col-span-3 flex flex-col">
                     {selectedTicket ? (
                         <>
-                        <div className="p-4 border-b">
-                            <h2 className="text-xl font-bold">{selectedTicket.subject}</h2>
-                            <div className="flex items-center gap-4 text-sm mt-2">
-                                <div className="flex items-center gap-2">
-                                    <Avatar className="h-6 w-6">
-                                        {PlaceHolderImages.find(p => p.id === selectedTicket.user.avatar) && <AvatarImage src={PlaceHolderImages.find(p => p.id === selectedTicket.user.avatar)?.imageUrl} alt={selectedTicket.user.name} />}
-                                        <AvatarFallback>{selectedTicket.user.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
-                                    </Avatar>
-                                    <span>{selectedTicket.user.name}</span>
+                        <div className="p-4 border-b flex items-center justify-between">
+                            <div>
+                                <h2 className="text-xl font-bold">{selectedTicket.subject}</h2>
+                                <div className="flex items-center gap-4 text-sm mt-2">
+                                    <div className="flex items-center gap-2">
+                                        <Avatar className="h-6 w-6">
+                                            {PlaceHolderImages.find(p => p.id === selectedTicket.user.avatar) && <AvatarImage src={PlaceHolderImages.find(p => p.id === selectedTicket.user.avatar)?.imageUrl} alt={selectedTicket.user.name} />}
+                                            <AvatarFallback>{selectedTicket.user.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                                        </Avatar>
+                                        <span>{selectedTicket.user.name}</span>
+                                    </div>
+                                    <Separator orientation="vertical" className="h-4"/>
+                                    <Badge variant="outline" className={cn("text-xs", getStatusBadgeClass(selectedTicket.status))}>{selectedTicket.status}</Badge>
+                                    <Badge variant="outline" className={cn("text-xs", getPriorityBadgeClass(selectedTicket.priority))}>{selectedTicket.priority}</Badge>
                                 </div>
-                                <Separator orientation="vertical" className="h-4"/>
-                                <Badge variant="outline" className={cn("text-xs", getStatusBadgeClass(selectedTicket.status))}>{selectedTicket.status}</Badge>
-                                <Badge variant="outline" className={cn("text-xs", getPriorityBadgeClass(selectedTicket.priority))}>{selectedTicket.priority}</Badge>
                             </div>
+                            <Button variant="ghost">View User Profile</Button>
                         </div>
                         <ScrollArea className="flex-1 p-6 bg-secondary/30">
                             <div className="space-y-6">
                                 {selectedTicket.messages.map((msg, index) => {
                                     const userAvatar = PlaceHolderImages.find(p => p.id === selectedTicket.user.avatar);
+                                    const isAdmin = msg.from === 'admin';
                                     return (
-                                        <div key={index} className="flex gap-4 items-start">
+                                        <div key={index} className={cn("flex gap-4 items-start", isAdmin ? 'flex-row-reverse' : 'flex-row')}>
                                             <Avatar className="h-10 w-10 border">
-                                                {msg.from === 'admin' ? (
+                                                {isAdmin ? (
                                                     <>
                                                         {adminAvatar && <AvatarImage src={adminAvatar.imageUrl} alt="Admin" />}
                                                         <AvatarFallback>A</AvatarFallback>
@@ -189,12 +193,12 @@ export default function AdminSupportPage() {
                                                     </>
                                                 )}
                                             </Avatar>
-                                            <div className="flex-1 rounded-lg border bg-card p-4">
+                                            <div className={cn("flex-1 rounded-lg border p-4 max-w-lg", isAdmin ? "bg-primary text-primary-foreground" : "bg-card")}>
                                                 <div className="flex justify-between items-center mb-2">
-                                                    <p className="font-semibold">{msg.from === 'admin' ? 'Admin Support' : selectedTicket.user.name}</p>
-                                                    <p className="text-xs text-muted-foreground">{formatDistanceToNow(new Date(msg.date), { addSuffix: true })}</p>
+                                                    <p className="font-semibold">{isAdmin ? 'Admin Support' : selectedTicket.user.name}</p>
+                                                    <p className="text-xs opacity-70">{formatDistanceToNow(new Date(msg.date), { addSuffix: true })}</p>
                                                 </div>
-                                                <p className="text-muted-foreground text-sm whitespace-pre-wrap">{msg.text}</p>
+                                                <p className="text-sm whitespace-pre-wrap">{msg.text}</p>
                                             </div>
                                         </div>
                                     )
@@ -206,17 +210,21 @@ export default function AdminSupportPage() {
                              <div className="flex justify-between items-center">
                                  <div className="flex gap-2">
                                      <Button variant="outline"> <ChevronsRight className="mr-2 h-4 w-4"/> Set as In Progress</Button>
-                                     <Button variant="outline" className="bg-green-500/10 text-green-700"> <Archive className="mr-2 h-4 w-4"/> Mark as Resolved</Button>
+                                     <Button variant="outline" className="text-green-600 border-green-600/20 hover:bg-green-500/10 hover:text-green-700"> <Archive className="mr-2 h-4 w-4"/> Mark as Resolved</Button>
                                  </div>
-                                <Button>
+                                <Button className="bg-accent-gradient">
                                     <SendHorizonal className="mr-2 h-4 w-4" /> Send Reply
                                 </Button>
                              </div>
                         </div>
                         </>
                     ) : (
-                        <div className="flex flex-1 items-center justify-center text-muted-foreground">
-                            <p>Select a ticket to view details.</p>
+                        <div className="flex flex-1 items-center justify-center text-muted-foreground bg-secondary/30">
+                           <div className="text-center">
+                               <MessageCircleQuestion className="h-16 w-16 mx-auto text-muted-foreground/50" />
+                               <h3 className="mt-4 text-lg font-semibold">No Ticket Selected</h3>
+                               <p className="mt-1 text-sm">Please select a ticket from the list to view the conversation.</p>
+                           </div>
                         </div>
                     )}
                 </div>
