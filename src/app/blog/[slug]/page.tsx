@@ -11,8 +11,15 @@ import { CalendarDays, Clock } from 'lucide-react';
 import RelatedPosts from '@/components/related-posts';
 import SocialShareButtons from '@/components/shared/social-share-buttons';
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const postData = DUMMY_BLOG_POSTS.find((p) => p.slug === params.slug);
+type Props = {
+  params: Promise<{
+    slug: string;
+  }>;
+};
+
+export default async function BlogPostPage({ params }: Props) {
+  const { slug } = await params;
+  const postData = DUMMY_BLOG_POSTS.find((p) => p.slug === slug);
 
   if (!postData) {
     notFound();
