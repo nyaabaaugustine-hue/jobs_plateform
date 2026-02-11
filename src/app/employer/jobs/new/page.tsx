@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Checkbox } from "@/components/ui/checkbox"
-import { Eye, PlusCircle, Save, FileText, ListChecks, MessageSquareQuestion } from "lucide-react"
+import { Eye, PlusCircle, Save, FileText, ListChecks, MessageSquareQuote } from "lucide-react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 
 export default function NewJobPage() {
@@ -22,7 +22,7 @@ export default function NewJobPage() {
             <TabsList className="grid w-full grid-cols-3">
               <TabsTrigger value="details"><FileText className="mr-2" />Job Details</TabsTrigger>
               <TabsTrigger value="description"><ListChecks className="mr-2" />Description</TabsTrigger>
-              <TabsTrigger value="screening"><MessageSquareQuestion className="mr-2" />Screening</TabsTrigger>
+              <TabsTrigger value="screening"><MessageSquareQuote className="mr-2" />Screening</TabsTrigger>
             </TabsList>
           </CardHeader>
           <TabsContent value="details">
