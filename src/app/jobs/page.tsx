@@ -4,7 +4,7 @@ import Header from '@/components/shared/header';
 import { DUMMY_JOBS } from '@/lib/data';
 import { SlidersHorizontal } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 
 export default function JobSearchPage() {
   return (
@@ -25,10 +25,19 @@ export default function JobSearchPage() {
                 <SheetTrigger asChild>
                   <Button variant="outline" size="icon">
                     <SlidersHorizontal className="h-4 w-4" />
+                    <span className="sr-only">Open job filters</span>
                   </Button>
                 </SheetTrigger>
                 <SheetContent side="left" className="w-80">
-                  <JobFilters />
+                  <SheetHeader>
+                    <SheetTitle>Job Filters</SheetTitle>
+                    <SheetDescription>
+                      Refine your search to find the perfect job.
+                    </SheetDescription>
+                  </SheetHeader>
+                  <div className="py-4">
+                    <JobFilters />
+                  </div>
                 </SheetContent>
               </Sheet>
             </div>
