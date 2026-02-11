@@ -1,10 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { DUMMY_JOBS } from '@/lib/data';
+import { DUMMY_JOBS, DUMMY_APPLICANTS } from '@/lib/data';
 import type { Job } from '@/lib/types';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import {
   DropdownMenu,
@@ -16,6 +17,7 @@ import {
 import { MoreHorizontal, PlusCircle } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import Link from 'next/link';
+import { formatDistanceToNow } from 'date-fns';
 
 export default function AdminJobsPage() {
   const [jobs, setJobs] = useState<Job[]>(DUMMY_JOBS);
@@ -26,6 +28,15 @@ export default function AdminJobsPage() {
       job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       job.company.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
+
+  const getApplicantCount = (jobId: string) => {
+    return DUMMY_APPLICANTS.filter(app => app.jobId === jobId).length;
+  }
+
+  const getJobStatus = (postedDate: string) => {
+      const daysSincePosted = (new Date().getTime() - new Date(postedDate).getTime()) / (1000 * 3600 * 24);
+      return daysSincePosted > 30 ? 'Expired' : 'Active';
+  }
 
   return (
     <div className="space-y-8">
@@ -57,20 +68,30 @@ export default function AdminJobsPage() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Job Title</TableHead>
-                <TableHead>Company</TableHead>
-                <TableHead>Location</TableHead>
+                <TableHead>Job</TableHead>
+                <TableHead>Applicants</TableHead>
+                <TableHead>Status</TableHead>
                 <TableHead>Date Posted</TableHead>
                 <TableHead><span className="sr-only">Actions</span></TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {filteredJobs.map((job) => (
+              {filteredJobs.map((job) => {
+                const applicantCount = getApplicantCount(job.id);
+                const status = getJobStatus(job.postedDate);
+                return (
                   <TableRow key={job.id}>
-                    <TableCell className="font-medium">{job.title}</TableCell>
-                    <TableCell>{job.company.name}</TableCell>
-                    <TableCell>{job.location}</TableCell>
-                    <TableCell>{new Date(job.postedDate).toLocaleDateString()}</TableCell>
+                    <TableCell>
+                        <div className="font-medium">{job.title}</div>
+                        <div className="text-sm text-muted-foreground">{job.company.name} • {job.location}</div>
+                    </TableCell>
+                     <TableCell>
+                        {applicantCount} applicant(s)
+                    </TableCell>
+                    <TableCell>
+                        <Badge variant={status === 'Active' ? 'default' : 'secondary'}>{status}</Badge>
+                    </TableCell>
+                    <TableCell>{formatDistanceToNow(new Date(job.postedDate), { addSuffix: true })}</TableCell>
                     <TableCell className="text-right">
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>
@@ -88,7 +109,8 @@ export default function AdminJobsPage() {
                       </DropdownMenu>
                     </TableCell>
                   </TableRow>
-                ))}
+                );
+              })}
                {filteredJobs.length === 0 && (
                 <TableRow>
                   <TableCell colSpan={5} className="h-24 text-center">
