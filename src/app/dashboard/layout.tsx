@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Briefcase, FileText, Home, UserCircle, Settings } from 'lucide-react';
+import { Briefcase, Building, FileText, Home, UserCircle, Settings, LogOut } from 'lucide-react';
 import {
   SidebarProvider,
   Sidebar,
@@ -13,6 +13,8 @@ import {
   SidebarMenuButton,
   SidebarFooter,
   SidebarInset,
+  SidebarGroup,
+  SidebarGroupLabel,
 } from '@/components/ui/sidebar';
 import Logo from '@/components/shared/logo';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
@@ -20,6 +22,24 @@ import { Button } from '@/components/ui/button';
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+
+  const menuItems = [
+    {
+      group: 'Main',
+      items: [
+        { href: '/dashboard', label: 'Overview', icon: <Home /> },
+        { href: '/dashboard/profile', label: 'My Profile', icon: <UserCircle /> },
+        { href: '/dashboard/applications', label: 'My Applications', icon: <FileText /> },
+      ]
+    },
+    {
+      group: 'Explore',
+      items: [
+        { href: '/jobs', label: 'Find Jobs', icon: <Briefcase /> },
+        { href: '/companies', label: 'Companies', icon: <Building /> },
+      ]
+    },
+  ];
 
   return (
     <SidebarProvider>
@@ -30,38 +50,32 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
           </SidebarHeader>
           <SidebarContent>
             <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname === '/dashboard'}>
-                  <Link href="/dashboard">
-                    <Home />
-                    <span>Overview</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname === '/dashboard/profile'}>
-                  <Link href="/dashboard/profile">
-                    <UserCircle />
-                    <span>My Profile</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname === '/dashboard/applications'}>
-                  <Link href="/dashboard/applications">
-                    <FileText />
-                    <span>My Applications</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/jobs')}>
-                  <Link href="/jobs">
-                    <Briefcase />
-                    <span>Find Jobs</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
+              {menuItems.map((group) => (
+                <SidebarGroup key={group.group}>
+                  <SidebarGroupLabel>{group.group}</SidebarGroupLabel>
+                  {group.items.map((item) => (
+                     <SidebarMenuItem key={item.label}>
+                      <SidebarMenuButton asChild isActive={pathname === item.href || (item.href !== '/dashboard' && pathname.startsWith(item.href))}>
+                        <Link href={item.href}>
+                          {item.icon}
+                          <span>{item.label}</span>
+                        </Link>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  ))}
+                </SidebarGroup>
+              ))}
+               <SidebarGroup>
+                  <SidebarGroupLabel>Account</SidebarGroupLabel>
+                   <SidebarMenuItem>
+                      <SidebarMenuButton asChild isActive={pathname === '/dashboard/settings'}>
+                        <Link href="/dashboard/settings">
+                          <Settings />
+                          <span>Settings</span>
+                        </Link>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+               </SidebarGroup>
             </SidebarMenu>
           </SidebarContent>
           <SidebarFooter>
@@ -73,14 +87,16 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
                 <p className="text-sm font-semibold">John Doe</p>
                 <p className="text-xs text-muted-foreground">john.doe@email.com</p>
               </div>
-              <Button variant="ghost" size="icon">
-                <Settings className="h-5 w-5" />
+              <Button variant="ghost" size="icon" asChild>
+                <Link href="/login">
+                  <LogOut className="h-5 w-5" />
+                </Link>
               </Button>
             </div>
           </SidebarFooter>
         </Sidebar>
         <SidebarInset>
-            <main className="flex-1 p-4 sm:p-6 lg:p-8">
+            <main className="flex-1 p-4 sm:p-6 lg:p-8 bg-secondary/50">
                 {children}
             </main>
         </SidebarInset>

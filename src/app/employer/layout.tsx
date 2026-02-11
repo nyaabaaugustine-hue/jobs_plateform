@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { BarChart, Briefcase, Building, FileText, Home, MessageSquare, PlusCircle, Settings, Users } from 'lucide-react';
+import { BarChart, Briefcase, Building, MessageSquare, PlusCircle, Settings, Users, Home, LogOut } from 'lucide-react';
 import {
   SidebarProvider,
   Sidebar,
@@ -13,6 +13,8 @@ import {
   SidebarMenuButton,
   SidebarFooter,
   SidebarInset,
+  SidebarGroup,
+  SidebarGroupLabel,
 } from '@/components/ui/sidebar';
 import Logo from '@/components/shared/logo';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -22,6 +24,31 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 export default function EmployerLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const companyLogo = PlaceHolderImages.find((img) => img.id === 'company-logo-1');
+  
+  const menuItems = [
+    {
+      group: 'Hiring',
+      items: [
+        { href: '/employer', label: 'Overview', icon: <Home /> },
+        { href: '/employer/jobs', label: 'Jobs', icon: <Briefcase /> },
+        { href: '/employer/applicants', label: 'Applicants', icon: <Users /> },
+        { href: '/employer/analytics', label: 'Analytics', icon: <BarChart /> },
+      ]
+    },
+    {
+      group: 'Communication',
+      items: [
+        { href: '/employer/messages', label: 'Messages', icon: <MessageSquare /> },
+      ]
+    },
+     {
+      group: 'Account',
+      items: [
+        { href: '/employer/company-profile', label: 'Company Profile', icon: <Building /> },
+        { href: '/employer/settings', label: 'Settings', icon: <Settings /> },
+      ]
+    },
+  ];
 
   return (
     <SidebarProvider>
@@ -34,54 +61,21 @@ export default function EmployerLayout({ children }: { children: React.ReactNode
           </SidebarHeader>
           <SidebarContent>
             <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname === '/employer'}>
-                  <Link href="/employer">
-                    <Home />
-                    <span>Overview</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/employer/jobs')}>
-                  <Link href="/employer/jobs">
-                    <Briefcase />
-                    <span>Jobs</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-               <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/employer/applicants')}>
-                  <Link href="/employer/applicants">
-                    <Users />
-                    <span>Applicants</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/employer/messages')}>
-                  <Link href="/employer/messages">
-                    <MessageSquare />
-                    <span>Messages</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-               <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/employer/analytics')}>
-                  <Link href="/employer/analytics">
-                    <BarChart />
-                    <span>Analytics</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname.startsWith('/employer/company-profile')}>
-                  <Link href="/employer/company-profile">
-                    <Building />
-                    <span>Company Profile</span>
-                  </Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
+              {menuItems.map((group) => (
+                <SidebarGroup key={group.group}>
+                  <SidebarGroupLabel>{group.group}</SidebarGroupLabel>
+                  {group.items.map((item) => (
+                     <SidebarMenuItem key={item.label}>
+                      <SidebarMenuButton asChild isActive={pathname === item.href || (item.href !== '/employer' && pathname.startsWith(item.href))}>
+                        <Link href={item.href}>
+                          {item.icon}
+                          <span>{item.label}</span>
+                        </Link>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  ))}
+                </SidebarGroup>
+              ))}
             </SidebarMenu>
           </SidebarContent>
           <SidebarFooter>
@@ -94,14 +88,16 @@ export default function EmployerLayout({ children }: { children: React.ReactNode
                 <p className="text-sm font-semibold">Innovate Inc.</p>
                 <p className="text-xs text-muted-foreground">Employer Account</p>
               </div>
-              <Button variant="ghost" size="icon">
-                <Settings className="h-5 w-5" />
+              <Button variant="ghost" size="icon" asChild>
+                <Link href="/login">
+                    <LogOut className="h-5 w-5" />
+                </Link>
               </Button>
             </div>
           </SidebarFooter>
         </Sidebar>
         <SidebarInset>
-             <main className="flex-1 p-4 sm:p-6 lg:p-8">
+             <main className="flex-1 p-4 sm:p-6 lg:p-8 bg-secondary/50">
                 {children}
             </main>
         </SidebarInset>
