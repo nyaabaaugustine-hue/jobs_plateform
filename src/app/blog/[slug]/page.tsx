@@ -10,9 +10,14 @@ import { Card, CardContent } from '@/components/ui/card';
 import { CalendarDays, Clock } from 'lucide-react';
 import RelatedPosts from '@/components/related-posts';
 import SocialShareButtons from '@/components/shared/social-share-buttons';
-import type { BlogPost } from '@/lib/types';
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
+// Define the expected props for the page, including params and searchParams.
+interface PageProps {
+  params: { slug: string };
+  searchParams: { [key: string]: string | string[] | undefined };
+}
+
+export default function BlogPostPage({ params }: PageProps) {
   const postData = DUMMY_BLOG_POSTS.find((p) => p.slug === params.slug);
 
   if (!postData) {
@@ -39,7 +44,11 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
     <p>Thank you for joining us on this journey. We are excited to see the connections you will make and the amazing products you will build.</p>
   `;
   
-  const post: BlogPost & { content: string } = { ...postData, content: fullContent };
+  // Create a new post object for rendering, safely combining original data with new content.
+  const post = { 
+    ...postData, 
+    content: fullContent 
+  };
   
   const tags = ['React', 'Web Development', 'Career', 'Interview Tips'];
 
