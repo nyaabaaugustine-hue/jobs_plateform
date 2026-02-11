@@ -25,18 +25,23 @@ export default function ActivityFeed() {
       </CardHeader>
       <CardContent className="flex-1 p-0">
         <ScrollArea className="h-[400px]">
-          <div className="space-y-6 p-6">
-            {activities.map((activity, index) => (
-              <div key={index} className="flex items-start gap-4">
-                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary">
-                  {activity.icon}
-                </div>
-                <div className="flex-1">
-                  <p className="text-sm">{activity.text}</p>
-                  <p className="text-xs text-muted-foreground">{activity.time}</p>
-                </div>
+          <div className="p-6">
+            <div className="relative">
+              <div className="absolute left-4 top-1 h-full w-px bg-border"></div>
+              <div className="space-y-8">
+                {activities.map((activity, index) => (
+                  <div key={index} className="flex items-start gap-4 relative">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-secondary z-10 ring-4 ring-background">
+                      {activity.icon}
+                    </div>
+                    <div className="flex-1 pt-1">
+                      <p className="text-sm">{activity.text}</p>
+                      <p className="text-xs text-muted-foreground">{activity.time}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </ScrollArea>
       </CardContent>

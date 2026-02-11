@@ -62,6 +62,8 @@ export default function AdminDashboard() {
         />
       </div>
 
+      <SystemHealth />
+
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
         {/* Main Chart */}
         <div className="lg:col-span-8">
@@ -97,8 +99,6 @@ export default function AdminDashboard() {
             <LocationBreakdown />
         </div>
       </div>
-
-      <SystemHealth />
 
     </div>
   );

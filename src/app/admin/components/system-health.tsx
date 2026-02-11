@@ -3,6 +3,8 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Server, Zap, Database, HardDrive } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
+import SectionHeader from '@/components/shared/section-header';
+import { cn } from '@/lib/utils';
 
 const metrics = [
   { name: 'API Response Time', value: '85ms', status: 'Operational', icon: <Zap /> },
@@ -24,25 +26,27 @@ export default function SystemHealth() {
   };
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>System Health & Performance</CardTitle>
-        <CardDescription>Live metrics for platform infrastructure.</CardDescription>
-      </CardHeader>
-      <CardContent className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        {metrics.map((metric) => (
-          <div key={metric.name} className="p-4 bg-secondary rounded-lg flex items-center justify-between">
-            <div className="flex items-center gap-4">
-               <div className="text-muted-foreground">{metric.icon}</div>
-                <div>
-                    <p className="text-sm text-muted-foreground">{metric.name}</p>
-                    <p className="text-xl font-bold">{metric.value}</p>
-                </div>
-            </div>
-            <Badge variant="outline" className={getStatusColor(metric.status)}>{metric.status}</Badge>
-          </div>
-        ))}
-      </CardContent>
-    </Card>
+    <div>
+        <SectionHeader 
+            title="System Health & Performance"
+            subtitle="Live metrics for platform infrastructure."
+            isCentered={false}
+            className="mb-6"
+        />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {metrics.map((metric) => (
+            <Card key={metric.name}>
+                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                    <CardTitle className="text-sm font-medium">{metric.name}</CardTitle>
+                    <div className="text-muted-foreground">{metric.icon}</div>
+                </CardHeader>
+                <CardContent>
+                    <p className="text-2xl font-bold">{metric.value}</p>
+                    <Badge variant="outline" className={cn("mt-2 text-xs", getStatusColor(metric.status))}>{metric.status}</Badge>
+                </CardContent>
+            </Card>
+            ))}
+        </div>
+    </div>
   );
 }
