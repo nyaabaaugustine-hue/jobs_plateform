@@ -23,15 +23,15 @@ const JobList = ({ jobs, selectedJob, onSelectJob, title }: JobListProps) => (
       <CardTitle>{title} ({jobs.length})</CardTitle>
     </CardHeader>
     <CardContent className="p-0">
-      <ScrollArea className="h-[600px]">
+      <ScrollArea className="h-[676px]">
         <div className="space-y-1 p-2">
           {jobs.map(job => (
             <button
               key={job.id}
               onClick={() => onSelectJob(job)}
               className={cn(
-                "w-full text-left p-3 rounded-lg hover:bg-muted transition-colors border-l-4 border-transparent",
-                selectedJob?.id === job.id && "bg-primary/10 border-primary"
+                "w-full text-left p-3 rounded-lg hover:bg-muted transition-colors border-l-4",
+                selectedJob?.id === job.id ? "bg-primary/10 border-primary" : "border-transparent"
               )}
             >
               <p className="font-semibold truncate">{job.title}</p>
@@ -69,10 +69,10 @@ export default function ModerationPage() {
       
       <Tabs defaultValue="pending" className="space-y-6">
         <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 h-auto">
-            <TabsTrigger value="pending"><ShieldQuestion className="mr-2"/> Pending Review</TabsTrigger>
-            <TabsTrigger value="flagged"><FileSearch className="mr-2"/> AI Flagged</TabsTrigger>
-            <TabsTrigger value="approved"><ShieldCheck className="mr-2"/> Approved</TabsTrigger>
-            <TabsTrigger value="rejected"><ShieldX className="mr-2"/> Rejected</TabsTrigger>
+            <TabsTrigger value="pending"><ShieldQuestion className="mr-2 text-primary"/> Pending Review</TabsTrigger>
+            <TabsTrigger value="flagged"><FileSearch className="mr-2 text-chart-3"/> AI Flagged</TabsTrigger>
+            <TabsTrigger value="approved"><ShieldCheck className="mr-2 text-accent"/> Approved</TabsTrigger>
+            <TabsTrigger value="rejected"><ShieldX className="mr-2 text-destructive"/> Rejected</TabsTrigger>
         </TabsList>
         
         <TabsContent value="pending">
@@ -84,7 +84,7 @@ export default function ModerationPage() {
                     {selectedPendingJob ? (
                          <ModerationCard key={selectedPendingJob.id} job={selectedPendingJob} />
                     ) : (
-                        <Card className="h-full flex items-center justify-center min-h-[600px]">
+                        <Card className="h-full flex items-center justify-center min-h-[676px]">
                             <p className="text-muted-foreground">Select a job to review.</p>
                         </Card>
                     )}
@@ -100,7 +100,7 @@ export default function ModerationPage() {
                     {selectedFlaggedJob ? (
                         <ModerationCard key={selectedFlaggedJob.id} job={selectedFlaggedJob} aiFlagged />
                     ) : (
-                         <Card className="h-full flex items-center justify-center min-h-[600px]">
+                         <Card className="h-full flex items-center justify-center min-h-[676px]">
                             <p className="text-muted-foreground">No flagged jobs to review.</p>
                         </Card>
                     )}
@@ -116,7 +116,7 @@ export default function ModerationPage() {
                     {selectedApprovedJob ? (
                         <ModerationCard key={selectedApprovedJob.id} job={selectedApprovedJob} />
                     ) : (
-                         <Card className="h-full flex items-center justify-center min-h-[600px]">
+                         <Card className="h-full flex items-center justify-center min-h-[676px]">
                             <p className="text-muted-foreground">No approved jobs to display.</p>
                         </Card>
                     )}
@@ -132,7 +132,7 @@ export default function ModerationPage() {
                      {selectedRejectedJob ? (
                         <ModerationCard key={selectedRejectedJob.id} job={selectedRejectedJob} />
                     ) : (
-                         <Card className="h-full flex items-center justify-center min-h-[600px]">
+                         <Card className="h-full flex items-center justify-center min-h-[676px]">
                             <p className="text-muted-foreground">No rejected jobs to display.</p>
                         </Card>
                     )}
