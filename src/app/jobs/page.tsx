@@ -1,9 +1,6 @@
 'use client';
 
-import { useMemo } from 'react';
-import { collection, query, orderBy } from 'firebase/firestore';
-import { useFirestore, useCollection, useMemoFirebase } from '@/firebase';
-
+import { useState, useEffect } from 'react';
 import JobCard from '@/components/job-card';
 import JobFilters from '@/components/job-filters';
 import Header from '@/components/shared/header';
@@ -13,10 +10,10 @@ import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTr
 import PageHero from '@/components/shared/page-hero';
 import Footer from '@/components/shared/footer';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Card, CardContent, CardHeader, CardFooter } from '@/components/ui/card';
+import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import type { Job } from '@/lib/types';
-
+import { DUMMY_JOBS } from '@/lib/data';
 
 const JobCardSkeleton = () => (
     <Card className="flex h-full flex-col overflow-hidden">
@@ -57,40 +54,19 @@ const JobCardSkeleton = () => (
     </Card>
 );
 
-type JobDocument = Omit<Job, 'company'> & {
-  companyId: string;
-  companyName: string;
-  companyLogo: string;
-};
-
 export default function JobSearchPage() {
-  const firestore = useFirestore();
+  const [jobs, setJobs] = useState<Job[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const jobsQuery = useMemoFirebase(() => {
-    return query(collection(firestore, 'jobs'), orderBy('postedDate', 'desc'));
-  }, [firestore]);
-
-  const { data: jobDocs, isLoading, error } = useCollection<JobDocument>(jobsQuery);
+  useEffect(() => {
+    // Simulate loading demo data
+    setTimeout(() => {
+      setJobs(DUMMY_JOBS);
+      setIsLoading(false);
+    }, 1000);
+  }, []);
   
-  const jobs: Job[] | undefined = useMemo(() => 
-    jobDocs?.map(doc => ({
-        ...doc,
-        company: {
-            id: doc.companyId,
-            name: doc.companyName,
-            logo: doc.companyLogo,
-            // The following fields are not available in the flattened 'jobs' collection
-            // but are part of the 'Company' type. They are not used by JobCard, so empty strings are safe.
-            industry: '',
-            location: doc.location, // location is on the job doc
-            description: '',
-            website: '',
-            employerId: doc.employerId || ''
-        }
-    }))
-  , [jobDocs]);
-
-  const jobCount = jobs?.length ?? 0;
+  const jobCount = jobs.length;
 
   return (
     <div className="flex min-h-screen w-full flex-col bg-background">
@@ -142,17 +118,12 @@ export default function JobSearchPage() {
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
              {isLoading ? (
               Array.from({ length: 9 }).map((_, i) => <JobCardSkeleton key={i} />)
-            ) : error ? (
-                <div className="md:col-span-2 xl:col-span-3 text-center text-destructive p-8 bg-destructive/10 rounded-lg">
-                    <p className="font-bold">An error occurred while loading jobs.</p>
-                    <p className="text-sm">{error.message}</p>
-                </div>
             ) : (
               jobs?.map((job) => (
                 <JobCard key={job.id} job={job} />
               ))
             )}
-            {!isLoading && !error && jobs?.length === 0 && (
+            {!isLoading && jobs?.length === 0 && (
                 <div className="md:col-span-2 xl:col-span-3 text-center text-muted-foreground p-8 bg-secondary rounded-lg">
                     <p>No jobs found.</p>
                 </div>
