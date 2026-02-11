@@ -25,9 +25,9 @@ export default function LatestNews() {
       )}
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-12 text-center">
-          <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-white">News and Blog</h2>
+          <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-white">Our News and Stories</h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-gray-200">
-            Get the latest news, updates, and tips.
+            Explore articles, tips, and insights to help you grow your career and stay ahead.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
