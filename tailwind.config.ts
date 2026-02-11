@@ -20,7 +20,7 @@ export default {
     extend: {
       fontFamily: {
         body: ['var(--font-inter)', ...fontFamily.sans],
-        headline: ['var(--font-poppins)', ...fontFamily.sans],
+        headline: ['var(--font-space-grotesk)', ...fontFamily.sans],
       },
       colors: {
         background: 'hsl(var(--background))',

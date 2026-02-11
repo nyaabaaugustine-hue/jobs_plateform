@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Poppins } from 'next/font/google';
+import { Inter, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import HiredNotification from '@/components/hired-notification';
@@ -9,14 +9,14 @@ const inter = Inter({
   variable: '--font-inter', 
 });
 
-const poppins = Poppins({
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
-  variable: '--font-poppins',
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
+  variable: '--font-space-grotesk',
+  weight: ['300', '400', '500', '600', '700']
 });
 
 export const metadata: Metadata = {
-  title: 'Chapel Hill - Find Your Next Job',
+  title: 'ReactHire - Find Your Next Job',
   description: 'The Easiest Way to Get Your New Job',
 };
 
@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.variable} ${poppins.variable} font-body antialiased`} suppressHydrationWarning>
+      <body className={`${inter.variable} ${spaceGrotesk.variable} font-body antialiased`} suppressHydrationWarning>
         {children}
         <Toaster />
         <HiredNotification />
