@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { Briefcase, CheckCircle, MapPin } from 'lucide-react';
@@ -18,30 +16,18 @@ import SubscriptionSection from '@/components/subscription-section';
 import LiveActivityBar from '@/components/live-activity-bar';
 import WhyChooseUs from '@/components/why-choose-us';
 import Testimonials from '@/components/testimonials';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { Suspense } from 'react';
 import VolunteerSection from '@/components/volunteer-section';
+import HeroSearchForm from '@/components/hero-search-form';
 
 export default function HomePage() {
   const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const [jobTitle, setJobTitle] = useState(searchParams.get('q') || '');
-  const [location, setLocation] = useState(searchParams.get('loc') || '');
 
   const trustIndicators = [
     { text: '12,430+ jobs available' },
     { text: '4,500+ companies verified' },
     { text: '98% candidate satisfaction' },
   ];
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    const query = new URLSearchParams();
-    if (jobTitle) query.set('q', jobTitle);
-    if (location) query.set('loc', location);
-    router.push(`/jobs?${query.toString()}`);
-  };
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
@@ -69,40 +55,9 @@ export default function HomePage() {
               <p className="max-w-3xl mx-auto text-lg text-gray-200 animate-in fade-in-30 slide-in-from-bottom-10 duration-700 delay-200">
                 Leverage AI-powered matching, verified employers, and transparent salaries to accelerate your career.
               </p>
-              <div className="rounded-2xl bg-white/10 backdrop-blur-sm p-4 shadow-lg border border-white/20 animate-in fade-in-30 slide-in-from-bottom-12 duration-700 delay-400">
-                <form onSubmit={handleSearch} className="flex items-center flex-col sm:flex-row gap-4">
-                  <div className="flex w-full items-center">
-                    <Briefcase className="h-5 w-5 text-gray-300 mx-3" />
-                    <Input
-                      id="job-title"
-                      type="search"
-                      placeholder="Job title, keyword"
-                      className="border-none focus-visible:ring-0 text-base h-12 bg-transparent text-white placeholder:text-gray-300"
-                      value={jobTitle}
-                      onChange={(e) => setJobTitle(e.target.value)}
-                    />
-                  </div>
-                  <Separator orientation="vertical" className="h-8 hidden sm:block bg-white/20" />
-                  <div className="flex w-full items-center">
-                    <MapPin className="h-5 w-5 text-gray-300 mx-3" />
-                    <Input
-                      id="location"
-                      type="search"
-                      placeholder="City or zip code"
-                      className="border-none focus-visible:ring-0 text-base h-12 bg-transparent text-white placeholder:text-gray-300"
-                      value={location}
-                      onChange={(e) => setLocation(e.target.value)}
-                    />
-                  </div>
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="font-semibold text-base w-full sm:w-auto h-12 rounded-xl bg-accent-gradient transform transition-transform hover:scale-105"
-                  >
-                    Find Jobs
-                  </Button>
-                </form>
-              </div>
+              <Suspense>
+                <HeroSearchForm />
+              </Suspense>
               <div className="flex items-center gap-6 pt-4 flex-wrap justify-center animate-in fade-in-30 slide-in-from-bottom-14 duration-700 delay-600">
                 {trustIndicators.map((item, index) => (
                   <div key={index} className="flex items-center gap-2 text-sm text-gray-200">
