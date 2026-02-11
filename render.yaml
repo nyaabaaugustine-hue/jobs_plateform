@@ -1,0 +1,18 @@
+# Blueprint for deploying to Render.
+# See https://render.com/docs/blueprint-spec for details.
+
+services:
+  - type: web
+    name: chapel-hill-ltd
+    env: node
+    # Use a free instance type
+    plan: free
+    # Make sure the region supports free instances
+    region: oregon
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: NODE_ENV
+        value: production
