@@ -89,7 +89,7 @@ export default function JobCard({ job }: JobCardProps) {
       </CardContent>
       <CardFooter className="p-4 flex items-end justify-between bg-secondary/50">
         <div className="flex flex-col text-left">
-           <div className="flex items-baseline gap-1 text-primary font-bold text-base">
+           <div className="flex items-baseline gap-1 text-primary font-bold text-base whitespace-nowrap">
             <span>{salary}</span>
             <span className="text-xs text-muted-foreground font-normal">/{period}</span>
           </div>
