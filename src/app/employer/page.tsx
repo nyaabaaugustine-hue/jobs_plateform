@@ -12,7 +12,7 @@ import { ArrowRight, Briefcase, FileText, UserCheck, Users, PlusCircle } from 'l
 import KpiCard from './components/kpi-card';
 import ActivityFeed from './components/activity-feed';
 import ExpiringJobs from './components/expiring-jobs';
-import HiringFunnelChart from './components/hiring-funnel-chart';
+import HiringFunnelChart from '@/app/employer/components/hiring-funnel-chart';
 
 export default function EmployerDashboard() {
   // Assuming this employer is Innovate Inc. for demo purposes
