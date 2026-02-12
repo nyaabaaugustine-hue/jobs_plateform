@@ -86,7 +86,7 @@ export default function PricingGrid() {
         {tiers.map((tier) => {
             return (
             <Card key={tier.name} className={cn(
-                'relative flex flex-col h-full rounded-2xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 overflow-hidden',
+                'relative flex flex-col h-full rounded-2xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2',
                 tier.isPopular ? 'border-2 border-yellow-400 shadow-xl bg-black/50' : 'border border-white/20 bg-card/80 backdrop-blur-sm'
             )}>
                 {tier.isPopular && (
