@@ -12,13 +12,13 @@ import RelatedPosts from '@/components/related-posts';
 import SocialShareButtons from '@/components/shared/social-share-buttons';
 
 type Props = {
-  params: Promise<{
+  params: {
     slug: string;
-  }>;
+  };
 };
 
 export default async function BlogPostPage({ params }: Props) {
-  const { slug } = await params;
+  const { slug } = params;
   const postData = DUMMY_BLOG_POSTS.find((p) => p.slug === slug);
 
   if (!postData) {
