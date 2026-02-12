@@ -124,7 +124,7 @@ export default function JobSearchPage() {
               ))
             )}
             {!isLoading && jobs?.length === 0 && (
-                <div className="md:col-span-2 xl:col-span-3 text-center text-muted-foreground p-8 bg-secondary rounded-lg">
+                <div className="md:col-span-2 xl:grid-cols-3 text-center text-muted-foreground p-8 bg-secondary rounded-lg">
                     <p>No jobs found.</p>
                 </div>
             )}
