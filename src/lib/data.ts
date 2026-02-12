@@ -60,7 +60,7 @@ export const JOB_CATEGORIES = [
   ];
 
 export const DUMMY_JOBS: Job[] = Array.from({ length: 20 }, (_, i) => {
-    const company = DUMMY_COMPANIES[i % DUMMY_COMPANIES.length];
+    const company = DUMMY_COMPANIES[i % 4];
     const category = JOB_CATEGORIES[i % JOB_CATEGORIES.length].name;
     const types: Job['type'][] = ['Full-time', 'Part-time', 'Contract', 'Internship', 'Volunteer'];
     const experienceLevels: Job['experienceLevel'][] = ['Entry', 'Mid-level', 'Senior'];
@@ -95,6 +95,7 @@ export const DUMMY_APPLICANTS: Applicant[] = DUMMY_USERS.slice(0, 20).map((user,
     const experiences = [5, 2, 8, 1, 10, 3, 6, 4, 7, 9, 5, 2, 8, 1, 10, 3, 6, 4, 7, 9];
     return {
         id: `applicant-${i + 1}`,
+        userId: user.id,
         name: user.name,
         email: user.email,
         avatar: user.avatar,

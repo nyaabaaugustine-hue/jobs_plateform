@@ -204,7 +204,7 @@ export default function ApplicantsPage() {
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
                           <DropdownMenuItem asChild>
-                            <Link href={`/candidate-profile/${applicant.id}`}><User className="mr-2" /> View Profile</Link>
+                            <Link href={`/candidate-profile/${applicant.userId}`}><User className="mr-2" /> View Profile</Link>
                           </DropdownMenuItem>
                           <DropdownMenuItem onClick={() => handleAction("Downloading CV...", `Downloading CV for ${applicant.name}`)}>
                             <Download className="mr-2" /> Download CV

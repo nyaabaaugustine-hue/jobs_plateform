@@ -10,7 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox"
 import { Eye, PlusCircle, Save, FileText, ListChecks, MessageSquareQuote, Loader2, ArrowLeft, Trash2 } from "lucide-react"
 import { useToast } from '@/hooks/use-toast';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
   Dialog,
@@ -22,6 +22,7 @@ import {
   DialogFooter,
   DialogClose,
 } from "@/components/ui/dialog";
+import { Skeleton } from '@/components/ui/skeleton';
 
 type ScreeningQuestion = {
   id: number;
@@ -29,10 +30,80 @@ type ScreeningQuestion = {
   description: string;
 };
 
+const NewJobPageSkeleton = () => (
+    <div className="space-y-8">
+      <div className="flex items-center gap-4">
+         <Skeleton className="h-10 w-10 shrink-0 rounded-md" />
+        <div>
+            <Skeleton className="h-8 w-64" />
+            <Skeleton className="h-4 mt-2 w-96" />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+        <div className="lg:col-span-2 space-y-8">
+          <Card>
+            <CardHeader className="flex flex-row items-center gap-3">
+                <Skeleton className="h-6 w-6" />
+                <div className='space-y-1.5'>
+                    <Skeleton className="h-6 w-32" />
+                    <Skeleton className="h-4 w-64" />
+                </div>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="space-y-2"><Skeleton className="h-4 w-24" /><Skeleton className="h-10 w-full" /></div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2"><Skeleton className="h-4 w-24" /><Skeleton className="h-10 w-full" /></div>
+                <div className="space-y-2"><Skeleton className="h-4 w-24" /><Skeleton className="h-10 w-full" /></div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2"><Skeleton className="h-4 w-24" /><Skeleton className="h-10 w-full" /></div>
+                <div className="space-y-2"><Skeleton className="h-4 w-24" /><Skeleton className="h-10 w-full" /></div>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader className="flex flex-row items-center gap-3">
+                <Skeleton className="h-6 w-6" />
+                <div className='space-y-1.5'>
+                    <Skeleton className="h-6 w-48" />
+                    <Skeleton className="h-4 w-72" />
+                </div>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="space-y-2"><Skeleton className="h-4 w-24" /><Skeleton className="h-32 w-full" /></div>
+              <div className="space-y-2"><Skeleton className="h-4 w-24" /><Skeleton className="h-10 w-full" /></div>
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className="lg:col-span-1 space-y-6">
+            <Card>
+                <CardHeader><Skeleton className="h-6 w-48" /></CardHeader>
+                <CardContent className="space-y-4">
+                    <Skeleton className="h-20 w-full" />
+                    <Skeleton className="h-10 w-full" />
+                </CardContent>
+            </Card>
+            <Card>
+                <CardHeader><Skeleton className="h-6 w-24" /></CardHeader>
+                <CardContent className="space-y-2">
+                    <Skeleton className="h-12 w-full" />
+                    <Skeleton className="h-12 w-full" />
+                </CardContent>
+            </Card>
+        </div>
+      </div>
+    </div>
+);
+
+
 export default function NewJobPage() {
   const { toast } = useToast();
   const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   const [questions, setQuestions] = useState<ScreeningQuestion[]>([
     { id: 1, text: 'What is your expected salary?', description: 'Helps filter candidates based on budget.' },
@@ -41,6 +112,10 @@ export default function NewJobPage() {
   const [isQuestionDialogOpen, setIsQuestionDialogOpen] = useState(false);
   const [newQuestionText, setNewQuestionText] = useState('');
   const [newQuestionDescription, setNewQuestionDescription] = useState('');
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const handleAction = (title: string, description?: string) => {
     toast({
@@ -87,6 +162,10 @@ export default function NewJobPage() {
         router.push('/employer/jobs');
     }, 1500);
   };
+  
+  if (!isMounted) {
+    return <NewJobPageSkeleton />;
+  }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-8">

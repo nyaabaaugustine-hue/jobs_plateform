@@ -57,6 +57,7 @@ export type Application = {
 
 export type Applicant = {
   id: string;
+  userId: string;
   name: string;
   email: string;
   avatar: string;
