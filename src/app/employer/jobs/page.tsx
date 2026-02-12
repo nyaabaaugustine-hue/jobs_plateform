@@ -13,7 +13,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator
 } from '@/components/ui/dropdown-menu';
-import { MoreHorizontal, PlusCircle, Users, Clock, BarChart } from 'lucide-react';
+import { MoreHorizontal, PlusCircle, Users, Clock, BarChart, Briefcase, UserPlus } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import Link from 'next/link';
 import { formatDistanceToNow } from 'date-fns';
@@ -21,6 +21,7 @@ import { cn } from '@/lib/utils';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useToast } from '@/hooks/use-toast';
 import { Separator } from '@/components/ui/separator';
+import KpiCard from '@/app/employer/components/kpi-card';
 
 const CardSkeleton = () => (
     <Card>
@@ -121,6 +122,19 @@ export default function EmployerJobsPage() {
   const [jobs, setJobs] = useState<Job[]>(employerJobs);
   const [searchTerm, setSearchTerm] = useState('');
 
+  const employerJobIds = jobs.map(j => j.id);
+  const totalApplicants = DUMMY_APPLICANTS.filter(a => employerJobIds.includes(a.jobId)).length;
+
+  const expiringSoonCount = jobs.filter(job => {
+      // Create new Date objects to avoid mutating original data
+      const posted = new Date(job.postedDate);
+      const expires = new Date(posted.getTime());
+      expires.setDate(posted.getDate() + 30); // Assuming 30-day expiration
+
+      const daysUntilExpiry = (expires.getTime() - new Date().getTime()) / (1000 * 3600 * 24);
+      return daysUntilExpiry > 0 && daysUntilExpiry <= 7;
+  }).length;
+
   const handleDelete = (jobId: string) => {
     setJobs(prev => prev.filter(j => j.id !== jobId));
     toast({
@@ -148,6 +162,32 @@ export default function EmployerJobsPage() {
                 </Link>
             </Button>
         </div>
+
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <KpiCard
+                title="Total Job Listings"
+                value={jobs.length.toString()}
+                icon={<Briefcase />}
+            />
+            <KpiCard
+                title="Total Applicants"
+                value={totalApplicants.toString()}
+                icon={<Users />}
+            />
+            <KpiCard
+                title="New Applicants (7d)"
+                value="23"
+                trend="+5 this week"
+                icon={<UserPlus />}
+            />
+            <KpiCard
+                title="Expiring Soon"
+                value={expiringSoonCount.toString()}
+                trend="Renew to keep active"
+                icon={<Clock />}
+            />
+        </div>
+
         <Card>
             <CardHeader>
                 <div className="flex flex-col md:flex-row gap-4 justify-between items-center">
