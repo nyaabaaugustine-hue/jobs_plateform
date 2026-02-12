@@ -1,5 +1,6 @@
+
 import { Suspense } from 'react';
-import dynamic from 'next/dynamic';
+import SettingsLoader from './components/settings-loader';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 
@@ -22,11 +23,6 @@ const SettingsPageSkeleton = () => (
   </div>
 );
 
-const SettingsTabs = dynamic(() => import('./components/settings-tabs'), {
-  ssr: false,
-  loading: () => <SettingsPageSkeleton />,
-});
-
 export default function EmployerSettingsPage() {
   return (
     <div className="space-y-8">
@@ -35,7 +31,7 @@ export default function EmployerSettingsPage() {
         <p className="text-muted-foreground">Manage your employer account and notification preferences.</p>
       </div>
       <Suspense fallback={<SettingsPageSkeleton />}>
-        <SettingsTabs />
+        <SettingsLoader />
       </Suspense>
     </div>
   );
