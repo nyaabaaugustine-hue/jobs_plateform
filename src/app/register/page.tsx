@@ -49,6 +49,18 @@ export default function RegisterPage() {
         }, 1000);
     };
 
+    const handleSocialSignUp = (provider: string) => {
+        setIsLoading(true);
+        toast({
+            title: `Signing up with ${provider}...`,
+            description: "This feature is for demonstration purposes.",
+        });
+        setTimeout(() => {
+            router.push('/dashboard');
+            setIsLoading(false);
+        }, 1500);
+    };
+
   return (
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
@@ -110,7 +122,7 @@ export default function RegisterPage() {
                                 <span className="bg-card px-2 text-muted-foreground">Or continue with</span>
                             </div>
                         </div>
-                        <Button variant="outline" className="w-full">
+                        <Button variant="outline" className="w-full" onClick={() => handleSocialSignUp('Google')} disabled={isLoading}>
                             Sign up with Google
                         </Button>
                     </div>

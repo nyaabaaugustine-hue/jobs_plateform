@@ -78,6 +78,25 @@ export default function LoginPage() {
         }, 1000);
     };
 
+    const handleSocialLogin = (provider: string) => {
+        setIsLoading(true);
+        toast({
+            title: `Logging in with ${provider}...`,
+            description: "This feature is for demonstration purposes.",
+        });
+        setTimeout(() => {
+            router.push('/dashboard');
+            setIsLoading(false);
+        }, 1500);
+    };
+
+    const handleForgotPassword = () => {
+        toast({
+            title: "Forgot Password",
+            description: "Password reset functionality is not implemented in this demo.",
+        });
+    };
+
   return (
      <div className="flex flex-col min-h-screen bg-background">
       <Header />
@@ -117,7 +136,7 @@ export default function LoginPage() {
                     <div className="grid gap-2">
                         <div className="flex items-center">
                         <Label htmlFor="password">Password</Label>
-                        <Link href="#" className="ml-auto inline-block text-sm text-primary hover:underline">
+                        <Link href="#" onClick={handleForgotPassword} className="ml-auto inline-block text-sm text-primary hover:underline">
                             Forgot your password?
                         </Link>
                         </div>
@@ -161,7 +180,7 @@ export default function LoginPage() {
                     </div>
                 </div>
                 
-                <Button variant="outline" className="w-full" disabled={isLoading}>
+                <Button variant="outline" className="w-full" disabled={isLoading} onClick={() => handleSocialLogin('Google')}>
                     Login with Google
                 </Button>
 

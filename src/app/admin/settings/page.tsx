@@ -24,6 +24,13 @@ export default function AdminSettingsPage() {
     });
   }
 
+  const handleSwitchChange = (feature: string, enabled: boolean) => {
+    toast({
+      title: `${feature} Setting Updated`,
+      description: `${feature} has been ${enabled ? 'enabled' : 'disabled'}.`,
+    });
+  };
+
   return (
     <div className="space-y-8">
       <div>
@@ -64,7 +71,7 @@ export default function AdminSettingsPage() {
                                   <Label htmlFor="maintenance-mode">Maintenance Mode</Label>
                                   <p className="text-xs text-muted-foreground">Temporarily take the site offline for visitors.</p>
                               </div>
-                              <Switch id="maintenance-mode" />
+                              <Switch id="maintenance-mode" onCheckedChange={(checked) => handleSwitchChange('Maintenance Mode', checked)} />
                           </div>
                       </CardContent>
                   </Card>
@@ -87,14 +94,14 @@ export default function AdminSettingsPage() {
                                   <Label htmlFor="require-approval">Require Admin Approval</Label>
                                   <p className="text-xs text-muted-foreground">All new job posts must be approved before going live.</p>
                               </div>
-                              <Switch id="require-approval" defaultChecked />
+                              <Switch id="require-approval" defaultChecked onCheckedChange={(checked) => handleSwitchChange('Require Admin Approval', checked)}/>
                           </div>
                            <div className="flex items-center justify-between rounded-lg border p-4">
                               <div>
                                   <Label htmlFor="enable-ai-flagging">Enable AI-Powered Flagging</Label>
                                   <p className="text-xs text-muted-foreground">Automatically flag suspicious jobs for manual review.</p>
                               </div>
-                              <Switch id="enable-ai-flagging" defaultChecked />
+                              <Switch id="enable-ai-flagging" defaultChecked onCheckedChange={(checked) => handleSwitchChange('Enable AI Flagging', checked)}/>
                           </div>
                       </CardContent>
                   </Card>
@@ -112,14 +119,14 @@ export default function AdminSettingsPage() {
                                   <Label htmlFor="allow-registration">Allow Public Registration</Label>
                                   <p className="text-xs text-muted-foreground">Enable or disable new user sign-ups.</p>
                               </div>
-                              <Switch id="allow-registration" defaultChecked />
+                              <Switch id="allow-registration" defaultChecked onCheckedChange={(checked) => handleSwitchChange('Allow Public Registration', checked)} />
                           </div>
                           <div className="flex items-center justify-between rounded-lg border p-4">
                               <div>
                                   <Label htmlFor="verify-employers">Require Employer Verification</Label>
                                   <p className="text-xs text-muted-foreground">New employer accounts must be verified before they can post jobs.</p>
                               </div>
-                              <Switch id="verify-employers" defaultChecked />
+                              <Switch id="verify-employers" defaultChecked onCheckedChange={(checked) => handleSwitchChange('Require Employer Verification', checked)} />
                           </div>
                       </CardContent>
                   </Card>
@@ -137,7 +144,7 @@ export default function AdminSettingsPage() {
                                   <Label htmlFor="enforce-2fa">Enforce Two-Factor Authentication</Label>
                                   <p className="text-xs text-muted-foreground">Require all admin and employer accounts to use 2FA.</p>
                               </div>
-                              <Switch id="enforce-2fa" />
+                              <Switch id="enforce-2fa" onCheckedChange={(checked) => handleSwitchChange('Two-Factor Authentication', checked)} />
                           </div>
                            <div className="space-y-2">
                               <Label htmlFor="session-timeout">Session Timeout (Minutes)</Label>
