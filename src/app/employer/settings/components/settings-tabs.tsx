@@ -14,13 +14,14 @@ import { Users, CreditCard, Bell, UserPlus, Download, PlusCircle, Save, FileText
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { DUMMY_USERS } from '@/lib/data';
 import { Badge } from '@/components/ui/badge';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { cn } from "@/lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { formatDistanceToNow } from 'date-fns';
 
 const pendingInvites = [
     { email: 'new.hire@example.com', role: 'Hiring Manager', invitedAt: '2 days ago' },
@@ -71,8 +72,22 @@ export default function SettingsTabs() {
   const { toast } = useToast();
 
   const [teamMembers, setTeamMembers] = React.useState(
-    DUMMY_USERS.slice(1, 12).map((u, i) => ({ ...u, role: ['Hiring Manager', 'Recruiter', 'Viewer'][i % 3] }))
+    DUMMY_USERS.slice(1, 12).map((u, i) => ({ 
+        ...u, 
+        role: ['Hiring Manager', 'Recruiter', 'Viewer'][i % 3],
+        lastActive: new Date(Date.now() - (i * 1000 * 60 * 60 * 18 + Math.random() * 1000 * 60 * 60 * 12)).toISOString()
+    }))
   );
+
+  const LastActiveTimestamp = ({ date }: { date: string }) => {
+    const [timestamp, setTimestamp] = useState('');
+    useEffect(() => {
+        setTimestamp(formatDistanceToNow(new Date(date), { addSuffix: true }));
+    }, [date]);
+
+    if (!timestamp) return <p className="text-muted-foreground">&nbsp;</p>;
+    return <p className="text-muted-foreground">{timestamp}</p>;
+  };
 
   const handleAction = (title: string, description?: string, variant: 'default' | 'destructive' | 'vibrant' = 'vibrant') => {
       toast({ title, description, variant });
@@ -180,7 +195,8 @@ export default function SettingsTabs() {
                     <Table>
                         <TableHeader>
                             <TableRow>
-                                <TableHead className="w-[50%]">Member</TableHead>
+                                <TableHead className="w-[40%]">Member</TableHead>
+                                <TableHead>Last Active</TableHead>
                                 <TableHead>Role</TableHead>
                                 <TableHead className="text-right">Actions</TableHead>
                             </TableRow>
@@ -201,6 +217,9 @@ export default function SettingsTabs() {
                                                     <p className="text-sm text-muted-foreground">{member.email}</p>
                                                 </div>
                                             </div>
+                                        </TableCell>
+                                        <TableCell>
+                                            <LastActiveTimestamp date={(member as any).lastActive} />
                                         </TableCell>
                                         <TableCell>
                                             <Select value={member.role} onValueChange={(newRole) => handleRoleChange(member.id, newRole)}>
