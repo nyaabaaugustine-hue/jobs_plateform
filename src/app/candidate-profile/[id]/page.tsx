@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
-import { DUMMY_USERS } from '@/lib/data';
+import { DUMMY_USERS, DUMMY_APPLICANTS } from '@/lib/data';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { notFound, useParams } from 'next/navigation';
@@ -105,9 +105,22 @@ export default function CandidateProfilePage() {
 
   useEffect(() => {
     setIsLoading(true);
-    const foundUser = DUMMY_USERS.find((u) => u.id === id);
-    setUser(foundUser);
-    setIsLoading(false);
+    let foundUser = DUMMY_USERS.find((u) => u.id === id);
+
+    if (!foundUser) {
+      // The provided ID might be an applicant ID. Let's try to find the user that way.
+      const applicant = DUMMY_APPLICANTS.find(a => a.id === id);
+      if (applicant) {
+        foundUser = DUMMY_USERS.find(u => u.id === applicant.userId);
+      }
+    }
+
+    // A short delay to simulate network loading
+    setTimeout(() => {
+      setUser(foundUser);
+      setIsLoading(false);
+    }, 300);
+
   }, [id]);
 
   const handleAction = (title: string) => {
