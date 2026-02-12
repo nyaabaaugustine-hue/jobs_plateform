@@ -1,3 +1,4 @@
+
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { DUMMY_BLOG_POSTS } from '@/lib/data';
@@ -11,11 +12,7 @@ import { CalendarDays, Clock } from 'lucide-react';
 import RelatedPosts from '@/components/related-posts';
 import SocialShareButtons from '@/components/shared/social-share-buttons';
 
-type Props = {
-  params: { slug: string };
-};
-
-export default function BlogPostPage({ params }: Props) {
+export default function BlogPostPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const postData = DUMMY_BLOG_POSTS.find((p) => p.slug === slug);
 

@@ -32,8 +32,6 @@ const pendingInvites = [
     { email: 'design.lead@company.com', role: 'Hiring Manager', invitedAt: '4 days ago' },
     { email: 'frontend.guru@web.dev', role: 'Recruiter', invitedAt: '6 days ago' },
     { email: 'backend.wiz@server.net', role: 'Viewer', invitedAt: '2 weeks ago' },
-    { email: 'data.analyst@example.com', role: 'Viewer', invitedAt: '1 day ago' },
-    { email: 'marketing.specialist@example.com', role: 'Recruiter', invitedAt: '8 days ago' },
 ];
 
 const transactions = [
@@ -121,7 +119,7 @@ export default function SettingsTabs() {
             <TabsTrigger value="notifications"><Bell className="mr-2"/> Notifications</TabsTrigger>
         </TabsList>
         
-        <TabsContent value="team" className="space-y-8">
+        <TabsContent value="team" className="space-y-8 mt-6">
             <Card>
                 <CardHeader>
                     <CardTitle>Invite New Team Member</CardTitle>
@@ -257,7 +255,7 @@ export default function SettingsTabs() {
             </Card>
         </TabsContent>
 
-        <TabsContent value="billing">
+        <TabsContent value="billing" className="mt-6">
             <Card>
                 <CardHeader>
                     <CardTitle>Billing & Subscription</CardTitle>
@@ -344,7 +342,7 @@ export default function SettingsTabs() {
             </Card>
         </TabsContent>
 
-        <TabsContent value="notifications">
+        <TabsContent value="notifications" className="mt-6">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
             <div className="lg:col-span-2">
               <Card>

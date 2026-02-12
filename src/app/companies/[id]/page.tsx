@@ -1,3 +1,4 @@
+
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { DUMMY_COMPANIES, DUMMY_JOBS, DUMMY_APPLICANTS } from '@/lib/data';
@@ -10,11 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
 
-type Props = {
-  params: { id: string };
-};
-
-export default function CompanyDetailPage({ params }: Props) {
+export default function CompanyDetailPage({ params }: { params: { id: string } }) {
   const { id } = params;
   const company = DUMMY_COMPANIES.find((c) => c.id === id);
 
