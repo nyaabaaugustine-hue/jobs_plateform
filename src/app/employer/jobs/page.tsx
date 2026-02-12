@@ -13,16 +13,39 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator
 } from '@/components/ui/dropdown-menu';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { MoreHorizontal, PlusCircle } from 'lucide-react';
+import { MoreHorizontal, PlusCircle, Users, Clock, BarChart } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import Link from 'next/link';
 import { formatDistanceToNow } from 'date-fns';
 import { cn } from '@/lib/utils';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useToast } from '@/hooks/use-toast';
+import { Separator } from '@/components/ui/separator';
 
-const JobTableRow = ({ job, onDelete }: { job: Job; onDelete: (jobId: string) => void; }) => {
+const CardSkeleton = () => (
+    <Card>
+      <CardHeader>
+        <Skeleton className="h-5 w-3/4" />
+        <Skeleton className="h-4 w-1/2" />
+      </CardHeader>
+      <CardContent className="space-y-4 pt-6">
+        <Separator />
+        <div className="flex justify-between items-center pt-4">
+            <Skeleton className="h-4 w-20" />
+            <Skeleton className="h-4 w-8" />
+        </div>
+         <div className="flex justify-between items-center">
+            <Skeleton className="h-4 w-24" />
+            <Skeleton className="h-4 w-16" />
+        </div>
+      </CardContent>
+      <CardFooter className="border-t pt-4">
+        <Skeleton className="h-10 w-full" />
+      </CardFooter>
+    </Card>
+);
+
+const EmployerJobCard = ({ job, onDelete }: { job: Job; onDelete: (jobId: string) => void; }) => {
   const { toast } = useToast();
   const [status, setStatus] = useState<string | null>(null);
   const [postedAt, setPostedAt] = useState<string | null>(null);
@@ -37,52 +60,56 @@ const JobTableRow = ({ job, onDelete }: { job: Job; onDelete: (jobId: string) =>
     setStatus(getJobStatus(job.postedDate));
     setPostedAt(formatDistanceToNow(new Date(job.postedDate), { addSuffix: true }));
   }, [job.postedDate]);
+  
+  if (status === null || postedAt === null) {
+      return <CardSkeleton />;
+  }
 
   const statusBadgeClass = status === 'Active' 
     ? 'bg-emerald-500/10 text-emerald-600 border-emerald-500/20' 
     : 'bg-destructive/10 text-destructive border-destructive/20';
-    
-  if (status === null || postedAt === null) {
-      return (
-          <TableRow>
-              <TableCell colSpan={5} className="p-2">
-                  <Skeleton className="h-12 w-full" />
-              </TableCell>
-          </TableRow>
-      );
-  }
 
   return (
-     <TableRow>
-        <TableCell>
-            <div className="font-bold hover:text-primary"><Link href={`/jobs/${job.id}`}>{job.title}</Link></div>
-            <div className="text-sm text-muted-foreground">{job.company.name}</div>
-        </TableCell>
-        <TableCell>
+    <Card className="flex flex-col transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+      <CardHeader>
+        <div className="flex justify-between items-start">
+            <div>
+                <CardTitle className="text-lg leading-tight hover:text-primary"><Link href={`/jobs/${job.id}`}>{job.title}</Link></CardTitle>
+                <CardDescription className="pt-1">{job.company.name}</CardDescription>
+            </div>
             <Badge variant="outline" className={cn('font-semibold', statusBadgeClass)}>{status}</Badge>
-        </TableCell>
-        <TableCell className="text-center">
-             <Badge variant="secondary" className="text-base">{applicantCount}</Badge>
-        </TableCell>
-        <TableCell>{postedAt}</TableCell>
-        <TableCell className="text-right">
-             <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" className="h-8 w-8 p-0">
-                    <span className="sr-only">Open menu</span>
-                    <MoreHorizontal className="h-4 w-4" />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end">
-                  <DropdownMenuItem asChild><Link href={`/jobs/${job.id}`}>View Listing</Link></DropdownMenuItem>
-                  <DropdownMenuItem asChild><Link href="/employer/applicants">View Applicants</Link></DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => toast({ title: "Feature not implemented" })}>Edit Job</DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem className="text-destructive" onClick={() => onDelete(job.id)}>Archive Job</DropdownMenuItem>
-                </DropdownMenuContent>
-            </DropdownMenu>
-        </TableCell>
-    </TableRow>
+        </div>
+      </CardHeader>
+      <CardContent className="flex-grow space-y-3 pt-0">
+        <Separator />
+        <div className="flex justify-between items-center text-sm">
+            <span className="text-muted-foreground flex items-center gap-2"><Users className="h-4 w-4" /> Total Applicants</span>
+            <span className="font-semibold">{applicantCount}</span>
+        </div>
+        <div className="flex justify-between items-center text-sm">
+            <span className="text-muted-foreground flex items-center gap-2"><Clock className="h-4 w-4" /> Posted</span>
+            <span className="font-semibold">{postedAt}</span>
+        </div>
+      </CardContent>
+      <CardFooter className="border-t pt-4">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" className="w-full">
+                <MoreHorizontal className="mr-2 h-4 w-4" />
+                Actions
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem asChild><Link href={`/jobs/${job.id}`}>View Listing</Link></DropdownMenuItem>
+              <DropdownMenuItem asChild><Link href="/employer/applicants">View Applicants</Link></DropdownMenuItem>
+              <DropdownMenuItem asChild><Link href="/employer/analytics"><BarChart className="mr-2" /> View Analytics</Link></DropdownMenuItem>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem onClick={() => toast({ title: "Feature not implemented" })}>Edit Job</DropdownMenuItem>
+              <DropdownMenuItem className="text-destructive" onClick={() => onDelete(job.id)}>Archive Job</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+      </CardFooter>
+    </Card>
   );
 };
 
@@ -109,9 +136,17 @@ export default function EmployerJobsPage() {
 
   return (
      <div className="space-y-8">
-        <div>
-            <h1 className="font-headline text-3xl font-bold">My Job Listings</h1>
-            <p className="text-muted-foreground">Manage all jobs you have posted.</p>
+        <div className="flex items-center justify-between">
+            <div>
+                <h1 className="font-headline text-3xl font-bold">My Job Listings</h1>
+                <p className="text-muted-foreground">Manage all jobs you have posted.</p>
+            </div>
+            <Button asChild className="w-full md:w-auto bg-accent-gradient">
+                <Link href="/employer/jobs/new">
+                    <PlusCircle className="mr-2 h-4 w-4" />
+                    Post Job
+                </Link>
+            </Button>
         </div>
         <Card>
             <CardHeader>
@@ -122,40 +157,22 @@ export default function EmployerJobsPage() {
                         value={searchTerm}
                         onChange={(e) => setSearchTerm(e.target.value)}
                     />
-                    <Button asChild className="w-full md:w-auto bg-accent-gradient">
-                        <Link href="/employer/jobs/new">
-                            <PlusCircle className="mr-2 h-4 w-4" />
-                            Post Job
-                        </Link>
-                    </Button>
                 </div>
             </CardHeader>
-            <CardContent>
-                <Table>
-                <TableHeader>
-                    <TableRow>
-                    <TableHead className="w-[40%]">Job Title</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead className="text-center">Applicants</TableHead>
-                    <TableHead>Posted</TableHead>
-                    <TableHead className="text-right">Actions</TableHead>
-                    </TableRow>
-                </TableHeader>
-                <TableBody>
-                    {filteredJobs.map((job) => (
-                    <JobTableRow key={job.id} job={job} onDelete={handleDelete} />
-                    ))}
-                    {filteredJobs.length === 0 && (
-                    <TableRow>
-                        <TableCell colSpan={5} className="h-24 text-center">
-                        No jobs found.
-                        </TableCell>
-                    </TableRow>
-                    )}
-                </TableBody>
-                </Table>
-            </CardContent>
         </Card>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredJobs.map((job) => (
+                <EmployerJobCard key={job.id} job={job} onDelete={handleDelete} />
+            ))}
+            {filteredJobs.length === 0 && (
+                <Card className="md:col-span-2 lg:col-span-3">
+                    <CardContent className="h-48 flex items-center justify-center">
+                        <p className="text-muted-foreground">No jobs found.</p>
+                    </CardContent>
+                </Card>
+            )}
+        </div>
     </div>
   );
 }
