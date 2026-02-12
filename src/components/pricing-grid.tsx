@@ -83,17 +83,12 @@ export default function PricingGrid() {
         </Label>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 items-start">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 items-stretch">
         {tiers.map((tier) => {
             return (
             <Card key={tier.name} className={cn(
-                'relative flex flex-col h-full rounded-2xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 overflow-hidden text-white',
-                {
-                    'bg-rose-700': tier.id === 'basic',
-                    'bg-amber-500': tier.id === 'pro',
-                    'bg-emerald-600': tier.id === 'enterprise',
-                },
-                tier.isPopular ? 'border-2 border-primary shadow-xl' : 'border border-transparent'
+                'relative flex flex-col h-full rounded-2xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 overflow-hidden',
+                tier.isPopular ? 'border-2 border-primary shadow-xl bg-card' : 'border border-border bg-card'
             )}>
                 {tier.isPopular && (
                     <div className="absolute top-0 right-6 -mt-4 bg-accent-gradient text-white px-4 py-1.5 text-sm font-semibold rounded-full shadow-lg z-10">
@@ -101,28 +96,28 @@ export default function PricingGrid() {
                     </div>
                 )}
                 <CardHeader className="text-center pt-10">
-                    <CardTitle className="font-headline text-3xl text-white">{tier.name}</CardTitle>
-                    <CardDescription className="pt-1 text-gray-200">{tier.description}</CardDescription>
+                    <CardTitle className="font-headline text-3xl">{tier.name}</CardTitle>
+                    <CardDescription className="pt-1">{tier.description}</CardDescription>
                 </CardHeader>
                 <CardContent className="flex-grow">
                     <div className="text-center mb-8">
-                    <span className="font-headline text-5xl font-bold text-white">
+                    <span className="font-headline text-5xl font-bold">
                       {typeof tier.price.monthly === 'number' && typeof tier.price.yearly === 'number'
                         ? `GH₵${isYearly ? Math.round(tier.price.yearly / 12) : tier.price.monthly}`
                         : 'Custom'}
                     </span>
-                    <span className="text-gray-200">
+                    <span className="text-muted-foreground">
                         {typeof tier.price.monthly === 'number' ? '/month' : ''}
                     </span>
                     {isYearly && typeof tier.price.yearly === 'number' && tier.price.yearly > 0 && (
-                        <p className="text-sm text-gray-300 mt-1">Billed as GH₵{tier.price.yearly}/year</p>
+                        <p className="text-sm text-muted-foreground mt-1">Billed as GH₵{tier.price.yearly}/year</p>
                     )}
                     </div>
                     <ul className="space-y-4">
                     {tier.features.map((feature) => (
                         <li key={feature} className="flex items-center gap-3">
-                        <CheckCircle className="h-5 w-5 text-white/80" />
-                        <span className="text-gray-100">{feature}</span>
+                        <CheckCircle className="h-5 w-5 text-primary" />
+                        <span>{feature}</span>
                         </li>
                     ))}
                     </ul>
@@ -133,8 +128,9 @@ export default function PricingGrid() {
                     size="lg"
                     className={cn(
                         'w-full font-bold text-lg', 
-                        tier.isPopular ? 'bg-accent-gradient' : 'bg-primary'
+                        tier.isPopular ? 'bg-accent-gradient' : ''
                     )}
+                    variant={tier.isPopular ? 'default' : 'outline'}
                     >
                     <Link href={getCtaLink(tier)}>{tier.cta}</Link>
                     </Button>
