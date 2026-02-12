@@ -11,7 +11,6 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardFooter, CardTitle, CardDescription } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
 
 type JobCardProps = {
   job: Job;
@@ -50,15 +49,16 @@ export default function JobCard({ job }: JobCardProps) {
           </Link>
         )}
         <div className="flex-1">
-          <CardTitle className="text-lg mb-1">
+          <CardTitle className="text-base mb-1">
             <Link href={`/jobs/${job.id}`} className="hover:text-primary leading-tight">
               {job.title}
             </Link>
           </CardTitle>
-          <CardDescription>
-            <Link href={`/companies/${job.company.id}`} className="hover:underline">
+          <CardDescription className="flex flex-col gap-1 text-xs">
+            <Link href={`/companies/${job.company.id}`} className="hover:underline text-sm">
               {job.company.name}
             </Link>
+            <span className="flex items-center gap-1 text-muted-foreground"><MapPin className="h-3 w-3" /> {job.location}</span>
           </CardDescription>
         </div>
          {job.isUrgent && (
@@ -68,17 +68,28 @@ export default function JobCard({ job }: JobCardProps) {
         )}
       </CardHeader>
       <CardContent className="flex-grow p-4 pt-0 space-y-4">
-        <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2"><MapPin className="h-4 w-4 text-primary/70" /> <span>{job.location}</span></div>
-            <div className="flex items-center gap-2"><Briefcase className="h-4 w-4 text-primary/70" /> <span>{job.type}</span></div>
-            <div className="flex items-center gap-2"><BarChart className="h-4 w-4 text-primary/70" /> <span>{job.experienceLevel}</span></div>
-            {matchScore && <div className="flex items-center gap-2 font-medium text-accent"><BarChart className="h-4 w-4 text-accent" /> <span>{matchScore}% Match</span></div>}
+        <div className="flex flex-wrap gap-2">
+            {matchScore && <Badge variant="secondary" className="bg-accent/10 text-accent border-accent/20 font-semibold">{matchScore}% Match</Badge>}
+            <Badge variant="outline">{job.type}</Badge>
+            <Badge variant="outline">{job.experienceLevel}</Badge>
         </div>
-        <p className="text-sm text-muted-foreground line-clamp-2 pt-4 border-t">{job.description}</p>
+        
+        <p className="text-sm text-muted-foreground line-clamp-2">{job.description}</p>
+        
+        {job.skills && job.skills.length > 0 && (
+             <div className="space-y-2 pt-2 border-t">
+                <h4 className="font-semibold text-xs text-muted-foreground">Top Skills</h4>
+                <div className="flex flex-wrap gap-1.5">
+                    {job.skills.map(skill => (
+                        <Badge key={skill} variant="secondary">{skill}</Badge>
+                    ))}
+                </div>
+            </div>
+        )}
       </CardContent>
       <CardFooter className="p-4 flex items-end justify-between bg-secondary/50">
         <div className="flex flex-col text-left">
-           <div className="flex items-baseline gap-1.5 text-primary font-bold text-lg">
+           <div className="flex items-baseline gap-1 text-primary font-bold text-base">
             <span>{salary}</span>
             <span className="text-xs text-muted-foreground font-normal">/{period}</span>
           </div>
