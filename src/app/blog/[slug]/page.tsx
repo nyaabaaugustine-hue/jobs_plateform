@@ -11,13 +11,7 @@ import { CalendarDays, Clock } from 'lucide-react';
 import RelatedPosts from '@/components/related-posts';
 import SocialShareButtons from '@/components/shared/social-share-buttons';
 
-type Props = {
-  params: {
-    slug: string;
-  };
-};
-
-export default async function BlogPostPage({ params }: Props) {
+export default async function BlogPostPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const postData = DUMMY_BLOG_POSTS.find((p) => p.slug === slug);
 
@@ -28,28 +22,7 @@ export default async function BlogPostPage({ params }: Props) {
   const postImage = PlaceHolderImages.find((img) => img.id === postData.image);
   const authorAvatar = PlaceHolderImages.find((img) => img.id === postData.author.avatar);
 
-  const fullContent = `
-    <p>Finding the right developer job or the perfect candidate can feel like searching for a needle in a haystack. The tech industry is booming, but with so many opportunities and applicants, it's easy to get lost. That's where JobBox comes in. We're dedicated to simplifying the job search and hiring process for the React ecosystem.</p>
-    <h3 class="font-headline text-xl font-bold mt-6 mb-2">Why We Built This Platform</h3>
-    <p>Our mission is to create a centralized hub for React developers and employers. We noticed a gap in the market for a job board that is exclusively focused on React and its ecosystem (Next.js, React Native, etc.). By focusing on this niche, we can provide a higher quality experience for both sides of the marketplace.</p>
-    <ul class="list-disc list-inside space-y-2 my-4">
-        <li>For developers: A curated list of high-quality React jobs, reducing noise.</li>
-        <li>For employers: Access to a pool of talented, specialized React developers.</li>
-    </ul>
-    <h3 class="font-headline text-xl font-bold mt-6 mb-2">Key Features</h3>
-    <p>We've packed the platform with features to make your experience as smooth as possible:</p>
-    <blockquote class="border-l-4 border-primary pl-4 italic my-4">
-    "JobBox is more than just a job board; it's a community for React professionals to connect and grow."
-    </blockquote>
-    <p>From advanced job filtering to AI-powered recommendations and a seamless application process, we have thought of everything. Employers can benefit from our applicant tracking system and AI-based candidate matching to find the best fit for their team quickly.</p>
-    <p>Thank you for joining us on this journey. We are excited to see the connections you will make and the amazing products you will build.</p>
-  `;
-  
-  // Create a new post object for rendering, safely combining original data with new content.
-  const post = { 
-    ...postData, 
-    content: fullContent 
-  };
+  const post = postData;
   
   const tags = ['React', 'Web Development', 'Career', 'Interview Tips'];
 

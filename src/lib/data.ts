@@ -181,7 +181,19 @@ export const DUMMY_BLOG_POSTS: BlogPost[] = [
         slug: 'mastering-react-hooks',
         title: 'Mastering React Hooks: A Deep Dive',
         excerpt: 'Learn how to leverage React Hooks to write cleaner, more efficient, and more readable code in your applications.',
-        content: 'Full blog post content goes here...',
+        content: `
+            <p>React Hooks, introduced in React 16.8, revolutionized how we write components. They allow you to use state and other React features without writing a class. This post will take you on a deep dive into the most essential Hooks and how to use them effectively.</p>
+            <h3 class="font-headline text-xl font-bold mt-6 mb-2">The Power of <code>useState</code></h3>
+            <p>The <code>useState</code> Hook is the most fundamental Hook. It lets you add React state to function components. Before Hooks, you would need a class component to manage state. Now, it's as simple as this:</p>
+            <pre><code class="language-javascript">const [count, setCount] = useState(0);</code></pre>
+            <p>Here, <code>count</code> is our state variable, and <code>setCount</code> is the function to update it. We can now use these in our component to display and update a counter.</p>
+            <h3 class="font-headline text-xl font-bold mt-6 mb-2">Handling Side Effects with <code>useEffect</code></h3>
+            <p>The <code>useEffect</code> Hook lets you perform side effects in function components. Data fetching, setting up a subscription, and manually changing the DOM in React components are all examples of side effects. <code>useEffect</code> runs after every render by default, but you can control when it runs.</p>
+            <blockquote class="border-l-4 border-primary pl-4 italic my-4">
+              "Think of <code>useEffect</code> Hook as <code>componentDidMount</code>, <code>componentDidUpdate</code>, and <code>componentWillUnmount</code> combined."
+            </blockquote>
+            <p>By providing a dependency array, you can tell React to only re-run the effect if one of the dependencies has changed. An empty dependency array (<code>[]</code>) means the effect will only run once, after the initial render, mimicking <code>componentDidMount</code>.</p>
+        `,
         image: 'blog-post-2',
         date: '2024-07-15T12:00:00Z',
         author: DUMMY_USERS[0],
@@ -192,7 +204,20 @@ export const DUMMY_BLOG_POSTS: BlogPost[] = [
         slug: 'ace-your-next-tech-interview',
         title: 'How to Ace Your Next Tech Interview',
         excerpt: 'A comprehensive guide on preparing for and succeeding in technical interviews, from coding challenges to system design.',
-        content: 'Full blog post content goes here...',
+        content: `
+            <p>The technical interview is a daunting hurdle for many developers. However, with the right preparation, you can confidently showcase your skills and land your dream job. This guide breaks down the process into manageable steps.</p>
+            <h3 class="font-headline text-xl font-bold mt-6 mb-2">1. Master the Fundamentals</h3>
+            <p>Before diving into complex algorithms, ensure you have a rock-solid understanding of data structures (Arrays, Linked Lists, Trees, Graphs, etc.) and algorithms (Sorting, Searching). This is the foundation upon which everything else is built.</p>
+            <h3 class="font-headline text-xl font-bold mt-6 mb-2">2. Practice, Practice, Practice</h3>
+            <p>Use platforms like LeetCode, HackerRank, or Codewars to solve coding challenges regularly. This will improve your problem-solving speed and familiarity with common patterns.</p>
+            <ul class="list-disc list-inside space-y-2 my-4">
+                <li>Start with easy problems to build confidence.</li>
+                <li>Move to medium and hard problems as you improve.</li>
+                <li>Time yourself to simulate interview conditions.</li>
+            </ul>
+            <h3 class="font-headline text-xl font-bold mt-6 mb-2">3. The Behavioral Interview</h3>
+            <p>Don't neglect the behavioral questions! Prepare to talk about your past projects, challenges you've faced, and how you work in a team. Use the STAR method (Situation, Task, Action, Result) to structure your answers.</p>
+        `,
         image: 'blog-post-1',
         date: '2024-07-10T12:00:00Z',
         author: DUMMY_USERS[1],
@@ -203,7 +228,21 @@ export const DUMMY_BLOG_POSTS: BlogPost[] = [
         slug: 'building-a-strong-developer-portfolio',
         title: 'Building a Strong Developer Portfolio',
         excerpt: 'Your portfolio is your digital resume. Learn the key elements of a portfolio that will impress hiring managers.',
-        content: 'Full blog post content goes here...',
+        content: `
+            <p>A portfolio is often the first thing a recruiter or hiring manager looks at. It's your chance to make a strong first impression. Here’s how to build one that stands out.</p>
+            <h3 class="font-headline text-xl font-bold mt-6 mb-2">Showcase Your Best Work</h3>
+            <p>Quality over quantity. It's better to have 2-3 polished, impressive projects than 10 small, unfinished ones. For each project, include:</p>
+            <ul class="list-disc list-inside space-y-2 my-4">
+                <li>A live demo link.</li>
+                <li>A link to the source code (e.g., on GitHub).</li>
+                <li>A clear description of the project, the technologies used, and your role in it.</li>
+            </ul>
+            <h3 class="font-headline text-xl font-bold mt-6 mb-2">Write a Compelling "About Me" Section</h3>
+            <p>This is your chance to tell your story. What are you passionate about? What are your career goals? Let your personality shine through.</p>
+            <blockquote class="border-l-4 border-primary pl-4 italic my-4">
+              "Your portfolio should not just show what you can do, but also who you are."
+            </blockquote>
+        `,
         image: 'blog-post-3',
         date: '2024-07-05T12:00:00Z',
         author: DUMMY_USERS[2],
@@ -214,7 +253,7 @@ export const DUMMY_BLOG_POSTS: BlogPost[] = [
         slug: 'the-rise-of-serverless',
         title: 'The Rise of Serverless Architecture',
         excerpt: 'Explore the benefits of serverless and how it is changing the way we build and deploy applications.',
-        content: 'Full blog post content goes here...',
+        content: '<p>Serverless computing allows you to build and run applications and services without thinking about servers. It eliminates infrastructure management tasks like server or cluster provisioning, patching, operating system maintenance, and capacity provisioning. While the name is "serverless", servers are still running the code. The term refers to the fact that the tasks associated with infrastructure provisioning and management are invisible to the developer.</p><p>This approach enables developers to focus on their core product instead of worrying about managing and operating servers or runtimes, either in the cloud or on-premises. This reduced overhead lets developers reclaim time and energy that can be spent on developing great products which scale and are reliable.</p>',
         image: 'blog-post-4',
         date: '2024-06-28T12:00:00Z',
         author: DUMMY_USERS[3],
@@ -225,7 +264,7 @@ export const DUMMY_BLOG_POSTS: BlogPost[] = [
         slug: 'state-management-in-react',
         title: 'Choosing the Right State Management Library',
         excerpt: 'Redux, MobX, or Context API? We break down the pros and cons of each to help you decide.',
-        content: 'Full blog post content goes here...',
+        content: '<p>Choosing a state management solution is a critical decision in any React application. While React\'s built-in Context API is powerful for passing data through the component tree without having to pass props down manually at every level, it has limitations for high-frequency updates. For more complex applications, libraries like Redux and MobX offer more robust solutions.</p><p>Redux provides a predictable state container with a strict unidirectional data flow. This makes debugging easier but can lead to boilerplate code. MobX, on the other hand, uses observables to automatically track changes and update the UI, resulting in less code but potentially harder-to-trace updates. The right choice depends on your team\'s familiarity and the specific needs of your project.</p>',
         image: 'blog-post-5',
         date: '2024-06-20T12:00:00Z',
         author: DUMMY_USERS[0],
@@ -236,7 +275,7 @@ export const DUMMY_BLOG_POSTS: BlogPost[] = [
         slug: 'the-future-of-remote-work',
         title: 'The Future of Remote Work: Trends & Predictions',
         excerpt: 'Remote work is here to stay. Discover the trends shaping the future of how we work.',
-        content: 'Full blog post content goes here...',
+        content: '<p>The COVID-19 pandemic accelerated the shift to remote work, and it\'s clear that it\'s not just a temporary trend. Companies are embracing hybrid models, and employees are demanding more flexibility. This shift is driving innovation in collaboration tools, asynchronous communication practices, and how we measure productivity. The future of work is not about where you are, but what you achieve.</p>',
         image: 'blog-post-6',
         date: '2024-06-12T12:00:00Z',
         author: DUMMY_USERS[5],
@@ -247,7 +286,7 @@ export const DUMMY_BLOG_POSTS: BlogPost[] = [
         slug: 'why-i-love-tailwind-css',
         title: 'Why I Fell in Love with Tailwind CSS',
         excerpt: 'A personal journey into the world of utility-first CSS and how it transformed my development workflow.',
-        content: 'Full blog post content goes here...',
+        content: '<p>At first, Tailwind CSS seemed like a chaotic mess of classes in my HTML. But after giving it a real try, I was converted. The utility-first approach means I can build custom designs without ever leaving my HTML. It speeds up development, enforces consistency, and makes responsive design a breeze. No more fighting with custom CSS files or trying to come up with the perfect class name. It\'s just you and your design, built rapidly.</p>',
         image: 'blog-post-7',
         date: '2024-05-30T12:00:00Z',
         author: DUMMY_USERS[6],
