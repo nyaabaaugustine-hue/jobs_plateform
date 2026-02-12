@@ -12,7 +12,7 @@ export default function CompaniesPage() {
         title="Browse Companies"
         subtitle="Find your next opportunity by exploring the best companies."
       />
-      <main className="flex-1 py-16 md:py-24">
+      <main className="flex-1 bg-secondary/30 py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {DUMMY_COMPANIES.map((company) => (
