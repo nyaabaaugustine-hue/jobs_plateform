@@ -1,5 +1,5 @@
 import { Suspense } from 'react';
-import SettingsTabs from './components/settings-tabs';
+import dynamic from 'next/dynamic';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 
@@ -21,6 +21,11 @@ const SettingsPageSkeleton = () => (
       </Card>
   </div>
 );
+
+const SettingsTabs = dynamic(() => import('./components/settings-tabs'), {
+  ssr: false,
+  loading: () => <SettingsPageSkeleton />,
+});
 
 export default function EmployerSettingsPage() {
   return (
