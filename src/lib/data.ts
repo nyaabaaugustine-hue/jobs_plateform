@@ -113,11 +113,36 @@ export const DUMMY_APPLICATIONS: Application[] = DUMMY_APPLICANTS.map((applicant
         return null;
     }
 
+    let applicationStatus: Application['status'];
+    switch (applicant.status) {
+        case 'New':
+            applicationStatus = 'Applied';
+            break;
+        case 'Reviewed':
+        case 'Shortlisted':
+            applicationStatus = 'Screening';
+            break;
+        case 'Interview':
+            applicationStatus = 'Interview';
+            break;
+        case 'Offer':
+            applicationStatus = 'Offer';
+            break;
+        case 'Hired':
+            applicationStatus = 'Hired';
+            break;
+        case 'Rejected':
+            applicationStatus = 'Rejected';
+            break;
+        default:
+            applicationStatus = 'Applied';
+    }
+
     return {
         id: `app-${i + 1}`,
         job: job,
         user: user,
-        status: applicant.status,
+        status: applicationStatus,
         appliedDate: new Date(new Date('2024-07-01').getTime() + i * 24 * 60 * 60 * 1000).toISOString(),
     };
 }).filter((app): app is Application => app !== null);
