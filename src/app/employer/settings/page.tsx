@@ -3,6 +3,8 @@ import SettingsTabs from './components/settings-tabs';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 
+export const dynamic = "force-dynamic";
+
 const SettingsPageSkeleton = () => (
   <div className="space-y-8">
       <Skeleton className="h-10 w-full rounded-md" />
