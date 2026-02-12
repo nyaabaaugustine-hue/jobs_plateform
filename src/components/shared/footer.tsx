@@ -28,11 +28,17 @@ export default function Footer() {
       ],
     },
     {
-      title: 'Company',
+      title: 'Community',
       links: [
         { href: '/blog', label: 'News & Blog' },
-        { href: '/contacts', label: 'Contact Us' },
         { href: '/guidelines', label: 'Guidelines' },
+        { href: '/opportunities', label: 'Opportunities' },
+      ],
+    },
+    {
+      title: 'Company',
+      links: [
+        { href: '/contacts', label: 'Contact Us' },
         { href: '/careers', label: 'Careers' },
       ],
     },
@@ -68,7 +74,7 @@ export default function Footer() {
           </div>
 
           {/* Links */}
-          <div className="lg:col-span-5 grid grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="lg:col-span-6 grid grid-cols-2 md:grid-cols-4 gap-8">
             {navSections.map((section) => (
               <div key={section.title}>
                 <h3 className="font-headline font-semibold text-foreground">{section.title}</h3>
@@ -89,7 +95,7 @@ export default function Footer() {
           </div>
 
           {/* Newsletter */}
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-3">
             <h3 className="font-headline font-semibold text-foreground">Stay Updated</h3>
             <p className="mt-2 text-sm text-muted-foreground">
               Subscribe to our newsletter to get the latest job postings and career tips.

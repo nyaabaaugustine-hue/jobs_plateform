@@ -95,7 +95,6 @@ export default function PricingGrid() {
                 },
                 tier.isPopular ? 'border-2 border-primary shadow-xl' : 'border border-transparent'
             )}>
-              <div className="relative flex flex-col h-full">
                 {tier.isPopular && (
                     <div className="absolute top-0 right-6 -mt-4 bg-accent-gradient text-white px-4 py-1.5 text-sm font-semibold rounded-full shadow-lg z-10">
                         Most Popular
@@ -140,7 +139,6 @@ export default function PricingGrid() {
                     <Link href={getCtaLink(tier)}>{tier.cta}</Link>
                     </Button>
                 </CardFooter>
-              </div>
             </Card>
         )})}
         </div>
