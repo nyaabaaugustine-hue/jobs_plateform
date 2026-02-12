@@ -16,35 +16,27 @@ import type { Job } from '@/lib/types';
 import { DUMMY_JOBS } from '@/lib/data';
 
 const JobCardSkeleton = () => (
-    <Card className="flex h-full flex-col overflow-hidden">
-      <CardHeader className="flex flex-row items-start gap-4 bg-secondary/30 p-4">
-        <Skeleton className="h-16 w-16 shrink-0 rounded-lg" />
+    <Card className="flex h-full flex-col overflow-hidden border-t-4 border-primary/10">
+      <CardHeader className="flex flex-row items-start gap-4 p-4">
+        <Skeleton className="h-16 w-16 shrink-0 rounded-xl border p-2" />
         <div className="flex-1 space-y-2">
             <Skeleton className="h-5 w-3/4" />
             <Skeleton className="h-4 w-1/2" />
-            <Skeleton className="h-3 w-1/3" />
         </div>
       </CardHeader>
-      <CardContent className="flex-grow p-4 space-y-4">
-        <div className="flex flex-wrap gap-2">
-            <Skeleton className="h-5 w-20 rounded-full" />
-            <Skeleton className="h-5 w-24 rounded-full" />
-            <Skeleton className="h-5 w-20 rounded-full" />
+      <CardContent className="flex-grow p-4 pt-0 space-y-4">
+        <div className="grid grid-cols-2 gap-4">
+            <Skeleton className="h-5 w-20" />
+            <Skeleton className="h-5 w-24" />
+            <Skeleton className="h-5 w-20" />
+            <Skeleton className="h-5 w-28" />
         </div>
-        <div className="space-y-2">
+        <div className="space-y-2 pt-4 border-t">
             <Skeleton className="h-4 w-full" />
             <Skeleton className="h-4 w-5/6" />
         </div>
-        <div className="space-y-2">
-            <Skeleton className="h-3 w-1/4" />
-            <div className="flex flex-wrap gap-1">
-                <Skeleton className="h-4 w-16 rounded-full" />
-                <Skeleton className="h-4 w-20 rounded-full" />
-            </div>
-        </div>
       </CardContent>
-      <Separator />
-      <CardFooter className="p-4 flex items-center justify-between bg-secondary/30">
+      <CardFooter className="p-4 flex items-end justify-between bg-secondary/50">
         <div className="space-y-1">
             <Skeleton className="h-6 w-24" />
             <Skeleton className="h-4 w-20" />
@@ -79,12 +71,14 @@ export default function JobSearchPage() {
             : `Browse through ${jobCount} open positions to find your perfect match.`
         }
       />
-      <main className="flex flex-1">
+      <main className="flex flex-1 bg-secondary/30">
         <aside className="hidden w-80 border-r bg-background p-4 lg:block">
-          <JobFilters />
+          <div className="sticky top-24">
+            <JobFilters />
+          </div>
         </aside>
         <div className="flex-1 p-4 lg:p-6">
-          <div className="mb-4 flex items-center justify-between">
+          <div className="mb-6 flex items-center justify-between">
             <div>
               <h1 className="font-headline text-2xl font-bold">All Jobs</h1>
               {isLoading ? (
@@ -115,7 +109,7 @@ export default function JobSearchPage() {
               </Sheet>
             </div>
           </div>
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
              {isLoading ? (
               Array.from({ length: 9 }).map((_, i) => <JobCardSkeleton key={i} />)
             ) : (

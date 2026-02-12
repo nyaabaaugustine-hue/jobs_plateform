@@ -34,11 +34,11 @@ export default function JobCard({ job }: JobCardProps) {
   }, [job.postedDate]);
 
   return (
-    <Card className="flex h-full flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-      <CardHeader className="flex flex-row items-start gap-4 bg-secondary/30 p-4">
+    <Card className="flex h-full flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1.5 border-t-4 border-primary/10 hover:border-primary">
+      <CardHeader className="flex flex-row items-start gap-4 p-4">
         {companyLogo && (
           <Link href={`/companies/${job.company.id}`} className="block">
-            <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-lg bg-background p-2 border shadow-sm">
+            <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-background p-2 border shadow-sm">
               <Image
                 src={companyLogo.imageUrl}
                 alt={`${job.company.name} logo`}
@@ -50,56 +50,35 @@ export default function JobCard({ job }: JobCardProps) {
           </Link>
         )}
         <div className="flex-1">
-          <CardTitle className="text-xl">
-            <Link href={`/jobs/${job.id}`} className="hover:text-primary">
+          <CardTitle className="text-lg mb-1">
+            <Link href={`/jobs/${job.id}`} className="hover:text-primary leading-tight">
               {job.title}
             </Link>
           </CardTitle>
-          <CardDescription className="mt-1">
+          <CardDescription>
             <Link href={`/companies/${job.company.id}`} className="hover:underline">
               {job.company.name}
             </Link>
           </CardDescription>
-          <div className="mt-2 flex items-center gap-2 text-xs text-muted-foreground">
-            <MapPin className="h-3 w-3" />
-            <span>{job.location}</span>
-          </div>
         </div>
-        {job.isUrgent && (
+         {job.isUrgent && (
           <Badge variant="destructive" className="flex shrink-0 items-center gap-1">
             <Zap size={14} /> Urgent
           </Badge>
         )}
       </CardHeader>
-      <CardContent className="flex-grow p-4 space-y-4">
-         <div className="flex flex-wrap gap-2 text-sm">
-          {matchScore !== null && (
-            <Badge variant="secondary" className="flex items-center gap-1.5 bg-blue-100 text-blue-800 border-blue-200">
-              <BarChart className="h-3 w-3" /> {matchScore}% Match
-            </Badge>
-          )}
-          <Badge variant="outline" className="flex items-center gap-1">
-            <Briefcase className="h-3 w-3" /> {job.type}
-          </Badge>
-          <Badge variant="outline">{job.experienceLevel}</Badge>
+      <CardContent className="flex-grow p-4 pt-0 space-y-4">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm text-muted-foreground">
+            <div className="flex items-center gap-2"><MapPin className="h-4 w-4 text-primary/70" /> <span>{job.location}</span></div>
+            <div className="flex items-center gap-2"><Briefcase className="h-4 w-4 text-primary/70" /> <span>{job.type}</span></div>
+            <div className="flex items-center gap-2"><BarChart className="h-4 w-4 text-primary/70" /> <span>{job.experienceLevel}</span></div>
+            {matchScore && <div className="flex items-center gap-2 font-medium text-accent"><BarChart className="h-4 w-4 text-accent" /> <span>{matchScore}% Match</span></div>}
         </div>
-
-        <p className="text-sm text-muted-foreground line-clamp-2">{job.description}</p>
-        
-        <div>
-            <p className="text-xs font-semibold text-muted-foreground mb-2">Top Skills</p>
-             <div className="flex flex-wrap gap-1">
-                {job.skills.slice(0, 4).map(skill => (
-                    <Badge key={skill} variant="secondary">{skill}</Badge>
-                ))}
-            </div>
-        </div>
+        <p className="text-sm text-muted-foreground line-clamp-2 pt-4 border-t">{job.description}</p>
       </CardContent>
-      <Separator />
-      <CardFooter className="p-4 flex items-center justify-between bg-secondary/30">
+      <CardFooter className="p-4 flex items-end justify-between bg-secondary/50">
         <div className="flex flex-col text-left">
-           <div className="flex items-center gap-1.5 text-primary font-bold text-lg">
-            <Wallet className="h-4 w-4" />
+           <div className="flex items-baseline gap-1.5 text-primary font-bold text-lg">
             <span>{salary}</span>
             <span className="text-xs text-muted-foreground font-normal">/{period}</span>
           </div>
