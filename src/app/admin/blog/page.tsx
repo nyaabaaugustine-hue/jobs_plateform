@@ -13,7 +13,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator
 } from '@/components/ui/dropdown-menu';
-import { MoreHorizontal, PlusCircle, Upload, Loader2, Check, X } from 'lucide-react';
+import { MoreHorizontal, PlusCircle, Upload, Loader2, Check, X, Edit } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -42,13 +42,22 @@ export default function AdminBlogPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
   
-  // State for new post dialog
+  // State for new/edit post dialogs
   const [isUploading, setIsUploading] = useState(false);
   const [uploadedImageUrl, setUploadedImageUrl] = useState<string | null>(null);
+  
+  // Create dialog state
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
   const [newPostTitle, setNewPostTitle] = useState('');
   const [newPostExcerpt, setNewPostExcerpt] = useState('');
   const [newPostContent, setNewPostContent] = useState('');
+
+  // Edit dialog state
+  const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
+  const [editingPost, setEditingPost] = useState<BlogPost | null>(null);
+  const [editPostTitle, setEditPostTitle] = useState('');
+  const [editPostExcerpt, setEditPostExcerpt] = useState('');
+  const [editPostContent, setEditPostContent] = useState('');
 
   const handleImageUpload = () => {
       setIsUploading(true);
@@ -89,6 +98,42 @@ export default function AdminBlogPage() {
     });
     setIsCreateDialogOpen(false);
     resetCreateForm();
+  };
+
+  const handleOpenEditDialog = (post: BlogPost) => {
+    setEditingPost(post);
+    setEditPostTitle(post.title);
+    setEditPostExcerpt(post.excerpt);
+    setEditPostContent(post.content);
+    const postImage = PlaceHolderImages.find(p => p.id === post.image);
+    setUploadedImageUrl(postImage?.imageUrl || null);
+    setIsEditDialogOpen(true);
+  };
+
+  const handleUpdatePost = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!editingPost) return;
+
+    const updatedPosts = posts.map(p => 
+      p.id === editingPost.id 
+      ? { 
+          ...p, 
+          title: editPostTitle,
+          excerpt: editPostExcerpt,
+          content: editPostContent,
+          slug: editPostTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-'),
+          image: uploadedImageUrl ? (PlaceHolderImages.find(img => img.imageUrl === uploadedImageUrl)?.id || p.image) : p.image
+        }
+      : p
+    );
+    setPosts(updatedPosts);
+    toast({
+      title: 'Post Updated',
+      description: `The post "${editPostTitle}" has been successfully updated.`,
+      variant: 'vibrant'
+    });
+    setIsEditDialogOpen(false);
+    setEditingPost(null);
   };
 
   const handleStatusChange = (postId: string, newStatus: BlogPost['status']) => {
@@ -137,6 +182,7 @@ export default function AdminBlogPage() {
           <h1 className="font-headline text-3xl font-bold">Blog Management</h1>
           <p className="text-muted-foreground">Manage all blog posts on the platform.</p>
         </div>
+        {/* Create Post Dialog */}
         <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>
           <DialogTrigger asChild>
              <Button className="bg-accent-gradient" onClick={() => setIsCreateDialogOpen(true)}>
@@ -205,6 +251,68 @@ export default function AdminBlogPage() {
         </Dialog>
       </div>
 
+       {/* Edit Post Dialog */}
+        <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
+          <DialogContent className="sm:max-w-2xl">
+            <form onSubmit={handleUpdatePost}>
+              <DialogHeader>
+                <DialogTitle>
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                      <Edit className="h-5 w-5 text-primary" />
+                    </div>
+                    <span>Edit Blog Post</span>
+                  </div>
+                </DialogTitle>
+                <DialogDescription>
+                  Make changes to your post and save them.
+                </DialogDescription>
+              </DialogHeader>
+              <div className="grid gap-4 py-4">
+                <div className="space-y-2">
+                  <Label htmlFor="edit-title">Post Title</Label>
+                  <Input id="edit-title" value={editPostTitle} onChange={e => setEditPostTitle(e.target.value)} required/>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="edit-excerpt">Excerpt</Label>
+                  <Textarea id="edit-excerpt" rows={3} value={editPostExcerpt} onChange={e => setEditPostExcerpt(e.target.value)} required />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="edit-feature-image">Feature Image</Label>
+                  <div className="flex flex-col items-center justify-center w-full p-6 border-2 border-dashed rounded-lg">
+                      {isUploading ? (
+                          <Loader2 className="w-8 h-8 text-muted-foreground animate-spin" />
+                      ) : uploadedImageUrl ? (
+                          <Image src={uploadedImageUrl} alt="Uploaded preview" width={100} height={60} className="rounded-md object-cover" />
+                      ) : (
+                          <Upload className="w-8 h-8 text-muted-foreground" />
+                      )}
+                      <p className="mt-2 text-sm text-muted-foreground">
+                          {isUploading ? 'Uploading...' : uploadedImageUrl ? 'Image selected. ' : 'Drag & drop or '}
+                          {!uploadedImageUrl && !isUploading && (
+                              <Button variant="link" className="p-0 h-auto" onClick={handleImageUpload} type="button">click to upload</Button>
+                          )}
+                          {uploadedImageUrl && !isUploading && (
+                              <Button variant="link" className="p-0 h-auto text-destructive" onClick={() => setUploadedImageUrl(null)} type="button">Remove</Button>
+                          )}
+                      </p>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="edit-content">Content (Markdown supported)</Label>
+                  <Textarea id="edit-content" rows={10} value={editPostContent} onChange={e => setEditPostContent(e.target.value)} required />
+                </div>
+              </div>
+              <DialogFooter>
+                <DialogClose asChild>
+                  <Button type="button" variant="outline" onClick={() => setIsEditDialogOpen(false)}>Cancel</Button>
+                </DialogClose>
+                <Button type="submit" className="bg-accent-gradient">Save Changes</Button>
+              </DialogFooter>
+            </form>
+          </DialogContent>
+        </Dialog>
+
       <Card>
         <CardHeader>
            <div className="flex flex-col md:flex-row gap-4 justify-between items-center">
@@ -272,7 +380,7 @@ export default function AdminBlogPage() {
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
                       <DropdownMenuItem asChild><Link href={`/blog/${post.slug}`}>View Post</Link></DropdownMenuItem>
-                      <DropdownMenuItem onClick={() => toast({ title: "Feature not implemented", description: "This would open an editor for the post." })}>Edit Post</DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => handleOpenEditDialog(post)}>Edit Post</DropdownMenuItem>
                        <DropdownMenuSeparator />
                        {post.status === 'Pending Review' && (
                         <>
