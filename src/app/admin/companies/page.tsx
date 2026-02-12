@@ -14,7 +14,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator
 } from '@/components/ui/dropdown-menu';
-import { MoreHorizontal, PlusCircle, Upload, Loader2 } from 'lucide-react';
+import { MoreHorizontal, PlusCircle, Upload, Loader2, Edit } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -45,13 +45,22 @@ export default function AdminCompaniesPage() {
 
   const [companies, setCompanies] = useState<CompanyWithStatus[]>(companiesWithStatus);
   const [searchTerm, setSearchTerm] = useState('');
+  const [isUploading, setIsUploading] = useState(false);
+  const [uploadedImageUrl, setUploadedImageUrl] = useState<string | null>(null);
   
+  // Create Dialog State
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
   const [newCompanyName, setNewCompanyName] = useState('');
   const [newCompanyIndustry, setNewCompanyIndustry] = useState('');
   const [newCompanyLocation, setNewCompanyLocation] = useState('');
-  const [isUploading, setIsUploading] = useState(false);
-  const [uploadedImageUrl, setUploadedImageUrl] = useState<string | null>(null);
+
+  // Edit Dialog State
+  const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
+  const [editingCompany, setEditingCompany] = useState<CompanyWithStatus | null>(null);
+  const [editCompanyName, setEditCompanyName] = useState('');
+  const [editCompanyIndustry, setEditCompanyIndustry] = useState('');
+  const [editCompanyLocation, setEditCompanyLocation] = useState('');
+
 
   const handleImageUpload = () => {
       setIsUploading(true);
@@ -94,6 +103,41 @@ export default function AdminCompaniesPage() {
     });
     setIsCreateDialogOpen(false);
     resetCreateForm();
+  };
+
+  const handleOpenEditDialog = (company: CompanyWithStatus) => {
+    setEditingCompany(company);
+    setEditCompanyName(company.name);
+    setEditCompanyIndustry(company.industry);
+    setEditCompanyLocation(company.location);
+    const companyLogo = PlaceHolderImages.find(p => p.id === company.logo);
+    setUploadedImageUrl(companyLogo?.imageUrl || null);
+    setIsEditDialogOpen(true);
+  };
+
+  const handleUpdateCompany = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!editingCompany) return;
+
+    const updatedCompanies = companies.map(c => 
+      c.id === editingCompany.id 
+      ? { 
+          ...c, 
+          name: editCompanyName,
+          industry: editCompanyIndustry,
+          location: editCompanyLocation,
+          logo: uploadedImageUrl ? (PlaceHolderImages.find(img => img.imageUrl === uploadedImageUrl)?.id || c.logo) : c.logo
+        }
+      : c
+    );
+    setCompanies(updatedCompanies);
+    toast({
+      title: 'Company Updated',
+      description: `The details for "${editCompanyName}" have been successfully updated.`,
+      variant: 'vibrant'
+    });
+    setIsEditDialogOpen(false);
+    setEditingCompany(null);
   };
 
   const handleVerifyCompany = (companyId: string) => {
@@ -195,6 +239,68 @@ export default function AdminCompaniesPage() {
         </Dialog>
       </div>
 
+       {/* Edit Company Dialog */}
+        <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
+            <DialogContent className="sm:max-w-lg">
+                <form onSubmit={handleUpdateCompany}>
+                    <DialogHeader>
+                        <DialogTitle>
+                            <div className="flex items-center gap-2">
+                                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                                    <Edit className="h-5 w-5 text-primary" />
+                                </div>
+                                <span>Edit Company</span>
+                            </div>
+                        </DialogTitle>
+                        <DialogDescription>
+                            Update the details for {editingCompany?.name}.
+                        </DialogDescription>
+                    </DialogHeader>
+                    <div className="grid gap-4 py-4">
+                        <div className="space-y-2">
+                            <Label htmlFor="edit-name">Company Name</Label>
+                            <Input id="edit-name" value={editCompanyName} onChange={e => setEditCompanyName(e.target.value)} required />
+                        </div>
+                        <div className="space-y-2">
+                            <Label htmlFor="edit-logo">Company Logo</Label>
+                            <div className="flex flex-col items-center justify-center w-full p-6 border-2 border-dashed rounded-lg">
+                                {isUploading ? (
+                                    <Loader2 className="w-8 h-8 text-muted-foreground animate-spin" />
+                                ) : uploadedImageUrl ? (
+                                    <Image src={uploadedImageUrl} alt="Uploaded preview" width={60} height={60} className="rounded-md object-cover" />
+                                ) : (
+                                    <Upload className="w-8 h-8 text-muted-foreground" />
+                                )}
+                                <p className="mt-2 text-sm text-muted-foreground">
+                                    {isUploading ? 'Uploading...' : uploadedImageUrl ? 'Logo selected. ' : 'Drag & drop or '}
+                                    {!uploadedImageUrl && !isUploading && (
+                                        <Button variant="link" className="p-0 h-auto" type="button" onClick={handleImageUpload}>click to upload</Button>
+                                    )}
+                                    {uploadedImageUrl && !isUploading && (
+                                        <Button variant="link" className="p-0 h-auto text-destructive" type="button" onClick={() => setUploadedImageUrl(null)}>Remove</Button>
+                                    )}
+                                </p>
+                            </div>
+                        </div>
+                        <div className="space-y-2">
+                            <Label htmlFor="edit-industry">Industry</Label>
+                            <Input id="edit-industry" value={editCompanyIndustry} onChange={e => setEditCompanyIndustry(e.target.value)} required />
+                        </div>
+                        <div className="space-y-2">
+                            <Label htmlFor="edit-location">Location</Label>
+                            <Input id="edit-location" value={editCompanyLocation} onChange={e => setEditCompanyLocation(e.target.value)} required />
+                        </div>
+                    </div>
+                    <DialogFooter>
+                        <DialogClose asChild>
+                          <Button type="button" variant="outline" onClick={() => setIsEditDialogOpen(false)}>Cancel</Button>
+                        </DialogClose>
+                        <Button type="submit" className="bg-accent-gradient">Save Changes</Button>
+                    </DialogFooter>
+                </form>
+            </DialogContent>
+        </Dialog>
+
       <Card>
         <CardHeader>
            <div className="flex flex-col md:flex-row gap-4 justify-between items-center">
@@ -255,7 +361,7 @@ export default function AdminCompaniesPage() {
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end" className="w-48">
                       <DropdownMenuItem asChild><Link href={`/companies/${company.id}`}>View Profile</Link></DropdownMenuItem>
-                      <DropdownMenuItem onClick={() => toast({ title: "Feature not implemented" })}>Edit Company</DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => handleOpenEditDialog(company)}>Edit Company</DropdownMenuItem>
                        {company.status === 'Pending' && <DropdownMenuItem onClick={() => handleVerifyCompany(company.id)}>Verify Company</DropdownMenuItem>}
                        <DropdownMenuSeparator />
                       <DropdownMenuItem className="text-destructive" onClick={() => handleDeleteCompany(company.id)}>Delete Company</DropdownMenuItem>
