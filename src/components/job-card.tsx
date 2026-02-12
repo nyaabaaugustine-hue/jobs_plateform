@@ -91,7 +91,7 @@ export default function JobCard({ job }: JobCardProps) {
         <div className="flex flex-col text-left">
            <div className="flex items-baseline gap-1 text-primary font-bold text-base whitespace-nowrap">
             <span>{salary}</span>
-            <span className="text-xs text-muted-foreground font-normal">/{period}</span>
+            <span className="text-xs text-foreground font-normal">/{period}</span>
           </div>
           <div className="flex items-center gap-1 text-xs text-muted-foreground mt-1">
             <Clock className="h-3 w-3" />
