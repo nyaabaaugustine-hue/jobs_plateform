@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { DUMMY_USERS, DUMMY_JOBS } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -9,20 +9,11 @@ import { PartyPopper } from 'lucide-react';
 
 export default function HiredNotification() {
   const { toast } = useToast();
-  const [randomUser, setRandomUser] = useState<any>(null);
-  const [randomJob, setRandomJob] = useState<any>(null);
-
-  useEffect(() => {
-    setRandomUser(DUMMY_USERS[Math.floor(Math.random() * DUMMY_USERS.length)]);
-    setRandomJob(DUMMY_JOBS[Math.floor(Math.random() * DUMMY_JOBS.length)]);
-  }, []);
 
   useEffect(() => {
     const showRandomHiredNotification = () => {
       const user = DUMMY_USERS[Math.floor(Math.random() * DUMMY_USERS.length)];
       const job = DUMMY_JOBS[Math.floor(Math.random() * DUMMY_JOBS.length)];
-      setRandomUser(user);
-      setRandomJob(job);
       const userAvatar = PlaceHolderImages.find((img) => img.id === user.avatar);
 
       toast({
@@ -45,11 +36,9 @@ export default function HiredNotification() {
       });
     };
 
-    const initialTimeout = setTimeout(showRandomHiredNotification, 20000);
     const interval = setInterval(showRandomHiredNotification, 20000); 
 
     return () => {
-      clearTimeout(initialTimeout);
       clearInterval(interval);
     };
   }, [toast]);
