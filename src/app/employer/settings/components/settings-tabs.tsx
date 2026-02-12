@@ -28,6 +28,9 @@ const pendingInvites = [
     { email: 'ux.lead@example.com', role: 'Viewer', invitedAt: '1 day ago' },
     { email: 'dev.intern@example.com', role: 'Recruiter', invitedAt: '1 week ago' },
     { email: 'another.dev@example.com', role: 'Viewer', invitedAt: '3 days ago' },
+    { email: 'design.lead@company.com', role: 'Hiring Manager', invitedAt: '4 days ago' },
+    { email: 'frontend.guru@web.dev', role: 'Recruiter', invitedAt: '6 days ago' },
+    { email: 'backend.wiz@server.net', role: 'Viewer', invitedAt: '2 weeks ago' },
 ];
 
 const transactions = [
@@ -68,7 +71,7 @@ export default function SettingsTabs() {
   const { toast } = useToast();
 
   const [teamMembers, setTeamMembers] = React.useState(
-    DUMMY_USERS.slice(1, 8).map((u, i) => ({ ...u, role: ['Hiring Manager', 'Recruiter', 'Viewer'][i % 3] }))
+    DUMMY_USERS.slice(1, 12).map((u, i) => ({ ...u, role: ['Hiring Manager', 'Recruiter', 'Viewer'][i % 3] }))
   );
 
   const handleAction = (title: string, description?: string, variant: 'default' | 'destructive' | 'vibrant' = 'vibrant') => {
