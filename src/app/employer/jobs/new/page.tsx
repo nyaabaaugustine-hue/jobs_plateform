@@ -193,6 +193,7 @@ export default function NewJobPage() {
                           <Button 
                               variant="ghost" 
                               size="icon" 
+                              type="button"
                               className="absolute top-1 right-1 h-6 w-6 opacity-0 group-hover:opacity-100"
                               onClick={() => handleRemoveQuestion(q.id)}
                           >
@@ -232,8 +233,8 @@ export default function NewJobPage() {
                           </div>
                         </div>
                         <DialogFooter>
-                          <DialogClose asChild><Button variant="ghost">Cancel</Button></DialogClose>
-                          <Button onClick={handleAddQuestion}>Add Question</Button>
+                          <DialogClose asChild><Button variant="ghost" type="button">Cancel</Button></DialogClose>
+                          <Button onClick={handleAddQuestion} type="button">Add Question</Button>
                         </DialogFooter>
                       </DialogContent>
                     </Dialog>
