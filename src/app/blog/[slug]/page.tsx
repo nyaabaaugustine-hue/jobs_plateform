@@ -1,4 +1,6 @@
 
+'use client';
+
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { DUMMY_BLOG_POSTS } from '@/lib/data';
