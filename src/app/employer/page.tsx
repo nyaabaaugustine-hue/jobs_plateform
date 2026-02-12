@@ -9,10 +9,10 @@ import { Badge } from '@/components/ui/badge';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { ArrowRight, Briefcase, FileText, UserCheck, Users, PlusCircle } from 'lucide-react';
-import EmployerAnalytics from '@/components/employer-analytics';
 import KpiCard from './components/kpi-card';
 import ActivityFeed from './components/activity-feed';
 import ExpiringJobs from './components/expiring-jobs';
+import HiringFunnelChart from './components/hiring-funnel-chart';
 
 export default function EmployerDashboard() {
   // Assuming this employer is Innovate Inc. for demo purposes
@@ -68,7 +68,7 @@ export default function EmployerDashboard() {
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
         {/* Main Content */}
         <div className="lg:col-span-8 space-y-6">
-            <EmployerAnalytics />
+            <HiringFunnelChart />
             <Card>
                 <CardHeader className="flex flex-row items-center justify-between">
                     <div>
