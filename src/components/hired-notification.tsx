@@ -45,8 +45,8 @@ export default function HiredNotification() {
       });
     };
 
-    const initialTimeout = setTimeout(showRandomHiredNotification, 15000);
-    const interval = setInterval(showRandomHiredNotification, 15000); 
+    const initialTimeout = setTimeout(showRandomHiredNotification, 20000);
+    const interval = setInterval(showRandomHiredNotification, 20000); 
 
     return () => {
       clearTimeout(initialTimeout);
