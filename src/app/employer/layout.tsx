@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -125,7 +126,7 @@ export default function EmployerLayout({ children }: { children: React.ReactNode
                   <SidebarGroupLabel>{group.group}</SidebarGroupLabel>
                   {group.items.map((item) => {
                      const isSettingsActive = pathname === '/employer/settings' && item.href.startsWith('/employer/settings');
-                     const isGeneralActive = pathname === item.href || (item.href !== '/employer' && pathname.startsWith(item.href));
+                     const isGeneralActive = pathname === item.href || (item.href !== '/employer' && pathname.startsWith(item.href) && !item.href.startsWith('/employer/settings'));
                     return (
                      <SidebarMenuItem key={item.label}>
                       <SidebarMenuButton asChild isActive={isSettingsActive || isGeneralActive}>
