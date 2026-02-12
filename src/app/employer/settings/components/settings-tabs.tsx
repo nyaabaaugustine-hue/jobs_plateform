@@ -135,146 +135,149 @@ export default function SettingsTabs() {
             <TabsTrigger value="notifications"><Bell className="mr-2"/> Notifications</TabsTrigger>
         </TabsList>
         
-        <TabsContent value="team" className="space-y-8 mt-6">
-            <Card>
-                <CardHeader>
-                    <CardTitle className="flex items-center gap-2"><UserPlus /> Invite New Team Member</CardTitle>
-                    <CardDescription>Enter the email address of the person you want to add to your team.</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <div className="flex flex-col sm:flex-row gap-4">
-                        <Input 
-                            type="email" 
-                            placeholder="new.member@example.com" 
-                            className="flex-1" 
-                            value={inviteEmail}
-                            onChange={e => setInviteEmail(e.target.value)}
-                        />
-                        <Select value={inviteRole} onValueChange={setInviteRole}>
-                            <SelectTrigger className="sm:w-[200px]">
-                                <SelectValue placeholder="Select a role" />
-                            </SelectTrigger>
-                            <SelectContent>
-                                <SelectItem value="Hiring Manager">Hiring Manager</SelectItem>
-                                <SelectItem value="Recruiter">Recruiter</SelectItem>
-                                <SelectItem value="Viewer">Viewer</SelectItem>
-                            </SelectContent>
-                        </Select>
-                        <Button onClick={handleSendInvite}><UserPlus className="mr-2" /> Send Invite</Button>
-                    </div>
-                </CardContent>
-            </Card>
-
-             <Card>
-                <CardHeader>
-                    <CardTitle>Pending Invitations</CardTitle>
-                    <CardDescription>These people have been invited but have not yet joined.</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <Table>
-                        <TableHeader>
-                            <TableRow>
-                                <TableHead className="w-[50%]">Email</TableHead>
-                                <TableHead>Role</TableHead>
-                                <TableHead>Invited</TableHead>
-                                <TableHead className="text-right">Actions</TableHead>
-                            </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                            {pendingInvites.map(invite => (
-                                <TableRow key={invite.email}>
-                                    <TableCell className="font-medium">{invite.email}</TableCell>
-                                    <TableCell><Badge variant="secondary">{invite.role}</Badge></TableCell>
-                                    <TableCell className="text-muted-foreground">{invite.invitedAt}</TableCell>
-                                    <TableCell className="text-right">
-                                        <DropdownMenu>
-                                            <DropdownMenuTrigger asChild>
-                                                <Button variant="ghost" className="h-8 w-8 p-0">
-                                                    <span className="sr-only">Open menu</span>
-                                                    <MoreHorizontal className="h-4 w-4" />
-                                                </Button>
-                                            </DropdownMenuTrigger>
-                                            <DropdownMenuContent align="end">
-                                                <DropdownMenuItem onClick={() => handleAction("Resending Invite...")}>Resend Invite</DropdownMenuItem>
-                                                <DropdownMenuSeparator />
-                                                <DropdownMenuItem className="text-destructive" onClick={() => handleAction("Invitation Revoked", `The invitation for ${invite.email} has been revoked.`, 'destructive')}>Revoke Invite</DropdownMenuItem>
-                                            </DropdownMenuContent>
-                                        </DropdownMenu>
-                                    </TableCell>
-                                </TableRow>
-                            ))}
-                        </TableBody>
-                    </Table>
-                </CardContent>
-            </Card>
-
-            <Card>
-                <CardHeader>
-                    <CardTitle>Active Team Members</CardTitle>
-                    <CardDescription>Manage who has access to this employer account.</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <Table>
-                        <TableHeader>
-                            <TableRow>
-                                <TableHead className="w-[40%]">Member</TableHead>
-                                <TableHead>Last Active</TableHead>
-                                <TableHead>Role</TableHead>
-                                <TableHead className="text-right">Actions</TableHead>
-                            </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                            {teamMembers.map(member => {
-                                const avatar = PlaceHolderImages.find((p) => p.id === member.avatar);
-                                return (
-                                    <TableRow key={member.id} className="hover:bg-secondary/50">
-                                        <TableCell>
-                                            <div className="flex items-center gap-4">
-                                                <Avatar className="h-10 w-10">
-                                                    {avatar && <AvatarImage src={avatar.imageUrl} alt={member.name} />}
-                                                    <AvatarFallback>{member.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
-                                                </Avatar>
-                                                <div>
-                                                    <p className="font-semibold">{member.name}</p>
-                                                    <p className="text-sm text-muted-foreground">{member.email}</p>
-                                                </div>
-                                            </div>
-                                        </TableCell>
-                                        <TableCell>
-                                            <LastActiveTimestamp date={(member as any).lastActive} />
-                                        </TableCell>
-                                        <TableCell>
-                                            <Select value={member.role} onValueChange={(newRole) => handleRoleChange(member.id, newRole)}>
-                                                <SelectTrigger className="w-[160px]">
-                                                    <SelectValue placeholder="Select role" />
-                                                </SelectTrigger>
-                                                <SelectContent>
-                                                    <SelectItem value="Hiring Manager">Hiring Manager</SelectItem>
-                                                    <SelectItem value="Recruiter">Recruiter</SelectItem>
-                                                    <SelectItem value="Viewer">Viewer</SelectItem>
-                                                </SelectContent>
-                                            </Select>
-                                        </TableCell>
-                                        <TableCell className="text-right">
-                                            <DropdownMenu>
-                                                <DropdownMenuTrigger asChild>
-                                                    <Button variant="ghost" className="h-8 w-8 p-0">
-                                                        <span className="sr-only">Open menu</span>
-                                                        <MoreHorizontal className="h-4 w-4" />
-                                                    </Button>
-                                                </DropdownMenuTrigger>
-                                                <DropdownMenuContent align="end">
-                                                    <DropdownMenuItem onClick={() => handleAction("Removing Member...", `This will remove ${member.name} from the team.`, 'destructive')}>Remove from Team</DropdownMenuItem>
-                                                </DropdownMenuContent>
-                                            </DropdownMenu>
-                                        </TableCell>
+        <TabsContent value="team" className="mt-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                <div className="lg:col-span-1 flex flex-col gap-8">
+                    <Card>
+                        <CardHeader>
+                            <CardTitle className="flex items-center gap-2"><UserPlus /> Invite New Team Member</CardTitle>
+                            <CardDescription>Enter the email address of the person you want to add to your team.</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="flex flex-col sm:flex-row gap-4">
+                                <Input 
+                                    type="email" 
+                                    placeholder="new.member@example.com" 
+                                    className="flex-1" 
+                                    value={inviteEmail}
+                                    onChange={e => setInviteEmail(e.target.value)}
+                                />
+                                <Select value={inviteRole} onValueChange={setInviteRole}>
+                                    <SelectTrigger className="sm:w-[200px]">
+                                        <SelectValue placeholder="Select a role" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectItem value="Hiring Manager">Hiring Manager</SelectItem>
+                                        <SelectItem value="Recruiter">Recruiter</SelectItem>
+                                        <SelectItem value="Viewer">Viewer</SelectItem>
+                                    </SelectContent>
+                                </Select>
+                            </div>
+                             <Button onClick={handleSendInvite} className="w-full mt-4"><UserPlus className="mr-2" /> Send Invite</Button>
+                        </CardContent>
+                    </Card>
+                     <Card>
+                        <CardHeader>
+                            <CardTitle>Pending Invitations</CardTitle>
+                            <CardDescription>These people have been invited but have not yet joined.</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <Table>
+                                <TableHeader>
+                                    <TableRow>
+                                        <TableHead>Email</TableHead>
+                                        <TableHead className="text-right">Actions</TableHead>
                                     </TableRow>
-                                );
-                            })}
-                        </TableBody>
-                    </Table>
-                </CardContent>
-            </Card>
+                                </TableHeader>
+                                <TableBody>
+                                    {pendingInvites.map(invite => (
+                                        <TableRow key={invite.email}>
+                                            <TableCell>
+                                                <p className="font-medium truncate">{invite.email}</p>
+                                                <p className="text-xs text-muted-foreground">{invite.role} - {invite.invitedAt}</p>
+                                            </TableCell>
+                                            <TableCell className="text-right">
+                                                <DropdownMenu>
+                                                    <DropdownMenuTrigger asChild>
+                                                        <Button variant="ghost" className="h-8 w-8 p-0">
+                                                            <span className="sr-only">Open menu</span>
+                                                            <MoreHorizontal className="h-4 w-4" />
+                                                        </Button>
+                                                    </DropdownMenuTrigger>
+                                                    <DropdownMenuContent align="end">
+                                                        <DropdownMenuItem onClick={() => handleAction("Resending Invite...")}>Resend Invite</DropdownMenuItem>
+                                                        <DropdownMenuSeparator />
+                                                        <DropdownMenuItem className="text-destructive" onClick={() => handleAction("Invitation Revoked", `The invitation for ${invite.email} has been revoked.`, 'destructive')}>Revoke Invite</DropdownMenuItem>
+                                                    </DropdownMenuContent>
+                                                </DropdownMenu>
+                                            </TableCell>
+                                        </TableRow>
+                                    ))}
+                                </TableBody>
+                            </Table>
+                        </CardContent>
+                    </Card>
+                </div>
+                 <div className="lg:col-span-2">
+                    <Card>
+                        <CardHeader>
+                            <CardTitle>Active Team Members</CardTitle>
+                            <CardDescription>Manage who has access to this employer account.</CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <Table>
+                                <TableHeader>
+                                    <TableRow>
+                                        <TableHead className="w-[40%]">Member</TableHead>
+                                        <TableHead>Last Active</TableHead>
+                                        <TableHead>Role</TableHead>
+                                        <TableHead className="text-right">Actions</TableHead>
+                                    </TableRow>
+                                </TableHeader>
+                                <TableBody>
+                                    {teamMembers.map(member => {
+                                        const avatar = PlaceHolderImages.find((p) => p.id === member.avatar);
+                                        return (
+                                            <TableRow key={member.id} className="hover:bg-secondary/50">
+                                                <TableCell>
+                                                    <div className="flex items-center gap-4">
+                                                        <Avatar className="h-10 w-10">
+                                                            {avatar && <AvatarImage src={avatar.imageUrl} alt={member.name} />}
+                                                            <AvatarFallback>{member.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                                                        </Avatar>
+                                                        <div>
+                                                            <p className="font-semibold">{member.name}</p>
+                                                            <p className="text-sm text-muted-foreground">{member.email}</p>
+                                                        </div>
+                                                    </div>
+                                                </TableCell>
+                                                <TableCell>
+                                                    <LastActiveTimestamp date={(member as any).lastActive} />
+                                                </TableCell>
+                                                <TableCell>
+                                                    <Select value={member.role} onValueChange={(newRole) => handleRoleChange(member.id, newRole)}>
+                                                        <SelectTrigger className="w-[160px]">
+                                                            <SelectValue placeholder="Select role" />
+                                                        </SelectTrigger>
+                                                        <SelectContent>
+                                                            <SelectItem value="Hiring Manager">Hiring Manager</SelectItem>
+                                                            <SelectItem value="Recruiter">Recruiter</SelectItem>
+                                                            <SelectItem value="Viewer">Viewer</SelectItem>
+                                                        </SelectContent>
+                                                    </Select>
+                                                </TableCell>
+                                                <TableCell className="text-right">
+                                                    <DropdownMenu>
+                                                        <DropdownMenuTrigger asChild>
+                                                            <Button variant="ghost" className="h-8 w-8 p-0">
+                                                                <span className="sr-only">Open menu</span>
+                                                                <MoreHorizontal className="h-4 w-4" />
+                                                            </Button>
+                                                        </DropdownMenuTrigger>
+                                                        <DropdownMenuContent align="end">
+                                                            <DropdownMenuItem onClick={() => handleAction("Removing Member...", `This will remove ${member.name} from the team.`, 'destructive')}>Remove from Team</DropdownMenuItem>
+                                                        </DropdownMenuContent>
+                                                    </DropdownMenu>
+                                                </TableCell>
+                                            </TableRow>
+                                        );
+                                    })}
+                                </TableBody>
+                            </Table>
+                        </CardContent>
+                    </Card>
+                </div>
+            </div>
         </TabsContent>
 
         <TabsContent value="billing" className="mt-6">
