@@ -1,3 +1,4 @@
+
 'use client';
 
 import { JOB_CATEGORIES } from '@/lib/data';
@@ -44,8 +45,12 @@ export default function JobCategories() {
                   href="#"
                   className="group rounded-xl border border-white/10 bg-white/5 p-4 flex items-center gap-4 text-left transition-all duration-300 hover:bg-white/10 hover:border-primary hover:-translate-y-1 hover:shadow-lg h-full"
                 >
-                  <div className={cn('h-14 w-14 flex items-center justify-center rounded-lg shrink-0', category.iconBgColor)}>
-                    <category.icon className={cn('h-7 w-7', category.color)} />
+                  <div className={cn('h-14 w-14 flex items-center justify-center rounded-lg shrink-0 p-2', category.iconBgColor)}>
+                    {typeof category.icon === 'string' ? (
+                        <Image src={category.icon} alt={category.name} width={40} height={40} className="object-contain" />
+                    ) : (
+                        <category.icon className={cn('h-7 w-7', category.color)} />
+                    )}
                   </div>
                   <div>
                     <h3 className="font-semibold text-white group-hover:text-primary leading-tight">

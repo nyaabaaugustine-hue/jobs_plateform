@@ -1,6 +1,6 @@
 
 import type { Job, Company, Review, Application, Applicant, User, BlogPost } from './types';
-import { Briefcase, Code, Headset, Megaphone, PenTool, Search, Users, BookOpen, Palette, Wallet, BrainCircuit, GitMerge, KanbanSquare, Scale, Stethoscope, Clapperboard, GraduationCap, Handshake, Lightbulb, UserCog, Landmark } from 'lucide-react';
+import { Users, BookOpen, Palette, BrainCircuit, GitMerge, KanbanSquare, Scale, Stethoscope, Clapperboard, GraduationCap, Handshake, Lightbulb } from 'lucide-react';
 
 const ghanaianCompanies = [
     { id: '1', name: "mPharma", industry: "Healthtech", logo: 'company-logo-1' },
@@ -51,14 +51,14 @@ export const DUMMY_USERS: User[] = Array.from({ length: 24 }, (_, i) => {
 });
 
 export const JOB_CATEGORIES = [
-    { name: 'Content Writer', jobCount: '29 Jobs', icon: PenTool, color: 'text-sky-800', iconBgColor: 'bg-sky-100' },
-    { name: 'Market Research', jobCount: '7 Jobs', icon: Search, color: 'text-violet-800', iconBgColor: 'bg-violet-100' },
-    { name: 'Marketing & Sale', jobCount: '9 Jobs', icon: Megaphone, color: 'text-amber-800', iconBgColor: 'bg-amber-100' },
-    { name: 'Customer Help', jobCount: '4 Jobs', icon: Headset, color: 'text-rose-800', iconBgColor: 'bg-rose-100' },
-    { name: 'Finance', jobCount: '9 Jobs', icon: Landmark, color: 'text-emerald-800', iconBgColor: 'bg-emerald-100' },
-    { name: 'Software', jobCount: '4 Jobs', icon: Code, color: 'text-cyan-800', iconBgColor: 'bg-cyan-100' },
-    { name: 'Human Resource', jobCount: '10 Jobs', icon: UserCog, color: 'text-fuchsia-800', iconBgColor: 'bg-fuchsia-100' },
-    { name: 'Management', jobCount: '6 Jobs', icon: Briefcase, color: 'text-indigo-800', iconBgColor: 'bg-indigo-100' },
+    { name: 'Content Writer', jobCount: '29 Jobs', icon: 'https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771015373/content_caurbk.png', color: 'text-sky-800', iconBgColor: 'bg-sky-100' },
+    { name: 'Market Research', jobCount: '7 Jobs', icon: 'https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771015388/research_cmzjlb.png', color: 'text-violet-800', iconBgColor: 'bg-violet-100' },
+    { name: 'Marketing & Sale', jobCount: '9 Jobs', icon: 'https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771015387/marketing_bcsgf7.png', color: 'text-amber-800', iconBgColor: 'bg-amber-100' },
+    { name: 'Customer Help', jobCount: '4 Jobs', icon: 'https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771015374/customer_respcf.png', color: 'text-rose-800', iconBgColor: 'bg-rose-100' },
+    { name: 'Finance', jobCount: '9 Jobs', icon: 'https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771015374/finance_qznfzg.png', color: 'text-emerald-800', iconBgColor: 'bg-emerald-100' },
+    { name: 'Software', jobCount: '4 Jobs', icon: 'https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771015383/lightning_j3bwjz.png', color: 'text-cyan-800', iconBgColor: 'bg-cyan-100' },
+    { name: 'Human Resource', jobCount: '10 Jobs', icon: 'https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771015374/human_fyw51x.png', color: 'text-fuchsia-800', iconBgColor: 'bg-fuchsia-100' },
+    { name: 'Management', jobCount: '6 Jobs', icon: 'https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771015384/management_rzmraf.png', color: 'text-indigo-800', iconBgColor: 'bg-indigo-100' },
     { name: 'Design', jobCount: '5 Jobs', icon: Palette, color: 'text-pink-800', iconBgColor: 'bg-pink-100' },
     { name: 'Education', jobCount: '12 Jobs', icon: BookOpen, color: 'text-orange-800', iconBgColor: 'bg-orange-100' },
     { name: 'Data Science', jobCount: '8 Jobs', icon: BrainCircuit, color: 'text-blue-800', iconBgColor: 'bg-blue-100' },
