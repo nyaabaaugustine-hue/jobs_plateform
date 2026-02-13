@@ -7,45 +7,33 @@ const ghanaianCompanies = [
     { name: "Hubtel", industry: "Fintech" },
     { name: "MTN Ghana", industry: "Telecommunications" },
     { name: "GCB Bank", industry: "Banking" },
-    { name: "Stanbic Bank", industry: "Banking" },
+    { name: "Stanbic Bank Ghana", industry: "Banking" },
     { name: "GOIL", industry: "Oil & Gas" },
     { name: "Vodafone Ghana", industry: "Telecommunications" },
     { name: "Ecobank Ghana", industry: "Banking" },
     { name: "KPMG Ghana", industry: "Consulting" },
     { name: "PwC Ghana", industry: "Professional Services" },
     { name: "Ashesi University", industry: "Education" },
-    { name: "Nyaho Medical Centre", industry: "Healthcare" },
-    { name: "Melcom Group", industry: "Retail" },
-    { name: "TotalEnergies Ghana", industry: "Energy" },
-    { name: "CalBank", industry: "Banking" },
-    { name: "AirtelTigo", industry: "Telecommunications" },
-    { name: "Databank Group", industry: "Investment" },
-    { name: "EY Ghana", industry: "Advisory" },
-    { name: "ExpressPay", industry: "Fintech" },
-    { name: "Soronko Academy", industry: "Tech Education" },
-    { name: "Rancard", industry: "Software" },
-    { name: "Benso Oil Palm Plantation", industry: "Agribusiness" },
-    { name: "Koala Shopping Centre", industry: "Retail" },
-    { name: "PALACE", industry: "Retail" }
+    { name: "Nyaho Medical Centre", industry: "Healthcare" }
 ];
 
 
-export const DUMMY_COMPANIES: Company[] = Array.from({ length: 24 }, (_, i) => {
+export const DUMMY_COMPANIES: Company[] = Array.from({ length: 12 }, (_, i) => {
     const companyInfo = ghanaianCompanies[i % ghanaianCompanies.length];
-    const ratings = [4.5, 4.8, 4.2, 4.9, 4.6, 4.7, 4.3, 4.4, 4.8, 4.1, 4.0, 4.9, 4.7, 4.6, 4.2, 4.8, 4.5, 4.9, 4.3, 4.7, 4.1, 4.6, 4.4, 4.8];
-    const jobCounts = [5, 8, 3, 12, 6, 9, 2, 7, 10, 4, 1, 15, 8, 5, 3, 11, 6, 9, 2, 7, 4, 8, 5, 10];
+    const ratings = [4.5, 4.8, 4.2, 4.9, 4.6, 4.7, 4.3, 4.4, 4.8, 4.1, 4.0, 4.9];
+    const jobCounts = [5, 8, 3, 12, 6, 9, 2, 7, 10, 4, 1, 15];
     const companyName = companyInfo.name;
     
-    // Special handling for the first company to be 'Innovate Inc.' for the employer dashboard demo
+    // Special handling for the first company to be 'mPharma' and used for the employer dashboard demo
     if (i === 0) {
         return {
             id: '1',
-            name: 'Innovate Inc.',
+            name: 'mPharma',
             logo: 'company-logo-1',
-            industry: 'Technology',
+            industry: 'Healthtech',
             location: 'Accra, Ghana',
-            description: `A leading tech company in Ghana.`,
-            website: `innovateinc.com.gh`,
+            description: `A leading healthtech company in Ghana.`,
+            website: `mpharma.com`,
             employerId: `employer-1`,
             activeJobs: jobCounts[i],
             rating: ratings[i],
@@ -394,3 +382,5 @@ export const DUMMY_OPPORTUNITIES = [
     filterValue: 'all',
   }
 ];
+
+    

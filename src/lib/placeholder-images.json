@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "hero-main",
-      "description": "Modern office scene with Ghanaian professionals collaborating.",
-      "imageUrl": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxhZnJpY2FuJTIwYnVzaW5lc3MlMjBtZWV0aW5nfGVufDB8fHx8MTc3MTAxNzYyNXww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Ghana office"
+      "description": "Modern office scene with Black professionals collaborating.",
+      "imageUrl": "https://images.unsplash.com/photo-1543269664-56d93c1b41a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+      "imageHint": "Ghanaian professionals collaborating"
     },
     {
       "id": "company-logo-1",
@@ -254,25 +254,25 @@
     },
     {
       "id": "blog-post-2",
-      "description": "Code on a screen",
-      "imageUrl": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb2RlJTIwc2NyZWVufGVufDB8fHx8MTc3MTAxODQyOHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Black developer coding on a screen",
+      "imageUrl": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
       "imageHint": "code screen"
     },
     {
       "id": "blog-post-3",
-      "description": "Diverse Ghanaian team collaborating around a whiteboard.",
-      "imageUrl": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxHaGFuYWlhbiUyMHRlYW18ZW58MHx8fHwxNzcxMDE4NDI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Diverse team of Black professionals collaborating around a whiteboard.",
+      "imageUrl": "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
       "imageHint": "Ghanaian team"
     },
     {
       "id": "blog-post-4",
-      "description": "Serverless architecture diagram",
+      "description": "Abstract technology background",
       "imageUrl": "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzcxMDE4NDI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "architecture diagram"
     },
     {
       "id": "blog-post-5",
-      "description": "State management flow chart",
+      "description": "Abstract technology background",
       "imageUrl": "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzcxMDE4NDI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "state management"
     },
