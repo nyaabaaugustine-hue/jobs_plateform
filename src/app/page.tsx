@@ -26,6 +26,7 @@ const Testimonials = dynamic(() => import('@/components/testimonials'));
 const VolunteerSection = dynamic(() => import('@/components/volunteer-section'));
 const PricingGrid = dynamic(() => import('@/components/pricing-grid'));
 const JobsByLocation = dynamic(() => import('@/components/jobs-by-location'));
+const AISupportWidget = dynamic(() => import('@/components/ai-support-widget'), { ssr: false });
 
 
 export default function HomePage() {
@@ -123,6 +124,7 @@ export default function HomePage() {
 
       </main>
       <Footer />
+      <AISupportWidget />
     </div>
   );
 }
