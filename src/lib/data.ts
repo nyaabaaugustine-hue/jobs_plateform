@@ -2,24 +2,46 @@
 import type { Job, Company, Review, Application, Applicant, User, BlogPost } from './types';
 import { Briefcase, Code, Headset, Megaphone, PenTool, Search, Users, BookOpen, Palette, Wallet, BrainCircuit, GitMerge, KanbanSquare, Scale, Stethoscope, Clapperboard, GraduationCap, Handshake, Lightbulb, UserCog, Landmark } from 'lucide-react';
 
+const ghanaianCompanies = [
+    { name: "mPharma", industry: "Healthtech" },
+    { name: "Hubtel", industry: "Fintech" },
+    { name: "MTN Ghana", industry: "Telecommunications" },
+    { name: "GCB Bank", industry: "Banking" },
+    { name: "Stanbic Bank", industry: "Banking" },
+    { name: "GOIL", industry: "Oil & Gas" },
+    { name: "Vodafone Ghana", industry: "Telecommunications" },
+    { name: "Ecobank Ghana", industry: "Banking" },
+    { name: "KPMG Ghana", industry: "Consulting" },
+    { name: "PwC Ghana", industry: "Professional Services" },
+    { name: "Ashesi University", industry: "Education" },
+    { name: "Nyaho Medical Centre", industry: "Healthcare" },
+    { name: "Melcom Group", industry: "Retail" },
+    { name: "TotalEnergies Ghana", industry: "Energy" },
+    { name: "CalBank", industry: "Banking" },
+    { name: "AirtelTigo", industry: "Telecommunications" },
+    { name: "Databank Group", industry: "Investment" },
+    { name: "EY Ghana", industry: "Advisory" },
+    { name: "ExpressPay", industry: "Fintech" },
+    { name: "Soronko Academy", industry: "Tech Education" },
+    { name: "Rancard", industry: "Software" },
+    { name: "Benso Oil Palm Plantation", industry: "Agribusiness" },
+    { name: "Koala Shopping Centre", industry: "Retail" },
+    { name: "PALACE", industry: "Retail" }
+];
+
+
 export const DUMMY_COMPANIES: Company[] = Array.from({ length: 24 }, (_, i) => {
-    const names = [
-        "Innovate Inc.", "QuantumLeap", "Synergy Corp", "DataDriven", "PixelPerfect", 
-        "HealthFirst", "EcoSolutions", "NextGen Edu", "Zenith Media", "BuildRight", 
-        "AgroPlus", "FinSecure", "TechNova", "GreenScape", "BioGen", "CyberSafe", 
-        "AquaPure", "Solaris", "LogiChain", "Medica", "RoboCorp", "Archinnovate", 
-        "Retail-e", "Fintex"
-    ];
+    const companyInfo = ghanaianCompanies[i % ghanaianCompanies.length];
     const ratings = [4.5, 4.8, 4.2, 4.9, 4.6, 4.7, 4.3, 4.4, 4.8, 4.1, 4.0, 4.9, 4.7, 4.6, 4.2, 4.8, 4.5, 4.9, 4.3, 4.7, 4.1, 4.6, 4.4, 4.8];
     const jobCounts = [5, 8, 3, 12, 6, 9, 2, 7, 10, 4, 1, 15, 8, 5, 3, 11, 6, 9, 2, 7, 4, 8, 5, 10];
     return {
         id: `${i + 1}`,
-        name: names[i] || `Company ${i + 1}`,
+        name: companyInfo.name,
         logo: `company-logo-${i + 1}`,
-        industry: ['Technology', 'Finance', 'Healthcare', 'Marketing', 'Education', 'Retail'][i % 6],
+        industry: companyInfo.industry,
         location: ['Accra, Ghana', 'Kumasi, Ghana', 'Takoradi, Ghana', 'Tema, Ghana'][i % 4],
-        description: 'A leading company in its field.',
-        website: `${names[i]?.toLowerCase().replace(/ /g, '')}.com`,
+        description: `A leading company in ${companyInfo.industry}.`,
+        website: `${companyInfo.name.toLowerCase().replace(/[^a-z0-9]/g, '')}.com.gh`,
         employerId: `employer-${i+1}`,
         activeJobs: jobCounts[i],
         rating: ratings[i],

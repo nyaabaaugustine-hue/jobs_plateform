@@ -2,452 +2,374 @@
   "placeholderImages": [
     {
       "id": "hero-main",
-      "description": "Abstract background graphic",
-      "imageUrl": "https://images.unsplash.com/photo-1721011694126-e25f493b91f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxHaGFuYSUyMG9mZmljZXxlbnwwfHx8fDE3NzA5ODYzNjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Modern office scene with Ghanaian professionals collaborating.",
+      "imageUrl": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxhZnJpY2FuJTIwYnVzaW5lc3MlMjBtZWV0aW5nfGVufDB8fHx8MTc3MTAxNzYyNXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Ghana office"
     },
     {
       "id": "company-logo-1",
-      "description": "Logo for Innovate Inc..",
-      "imageUrl": "https://placehold.co/100x100/000000/FFFFFF?text=I",
+      "imageUrl": "https://placehold.co/100x100/1D4ED8/FFFFFF?text=MP",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-2",
-      "description": "Logo for QuantumLeap.",
-      "imageUrl": "https://placehold.co/100x100/1E40AF/FFFFFF?text=Q",
+      "imageUrl": "https://placehold.co/100x100/7E22CE/FFFFFF?text=H",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-3",
-      "description": "Logo for Synergy Corp.",
-      "imageUrl": "https://placehold.co/100x100/BE123C/FFFFFF?text=S",
+      "imageUrl": "https://placehold.co/100x100/FBBF24/000000?text=MTN",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-4",
-      "description": "Logo for DataDriven.",
-      "imageUrl": "https://placehold.co/100x100/5A3E8A/FFFFFF?text=D",
+      "imageUrl": "https://placehold.co/100x100/166534/FFFFFF?text=GCB",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-5",
-      "description": "Logo for PixelPerfect.",
-      "imageUrl": "https://placehold.co/100x100/047857/FFFFFF?text=P",
+      "imageUrl": "https://placehold.co/100x100/0284C7/FFFFFF?text=SB",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-6",
-      "description": "Logo for HealthFirst.",
-      "imageUrl": "https://placehold.co/100x100/B45309/FFFFFF?text=H",
+      "imageUrl": "https://placehold.co/100x100/F97316/FFFFFF?text=G",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-7",
-      "description": "Logo for EcoSolutions.",
-      "imageUrl": "https://placehold.co/100x100/1D4ED8/FFFFFF?text=E",
+      "imageUrl": "https://placehold.co/100x100/E11D48/FFFFFF?text=V",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-8",
-      "description": "Logo for NextGen Edu.",
-      "imageUrl": "https://placehold.co/100x100/7E22CE/FFFFFF?text=N",
+      "imageUrl": "https://placehold.co/100x100/1D4ED8/FFFFFF?text=E",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-9",
-      "description": "Logo for Zenith Media.",
-      "imageUrl": "https://placehold.co/100x100/000000/FFFFFF?text=Z",
+      "imageUrl": "https://placehold.co/100x100/000000/FFFFFF?text=KPMG",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-10",
-      "description": "Logo for BuildRight.",
-      "imageUrl": "https://placehold.co/100x100/1E40AF/FFFFFF?text=B",
+      "imageUrl": "https://placehold.co/100x100/DC2626/FFFFFF?text=PwC",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-11",
-      "description": "Logo for AgroPlus.",
-      "imageUrl": "https://placehold.co/100x100/BE123C/FFFFFF?text=A",
+      "imageUrl": "https://placehold.co/100x100/16A34A/FFFFFF?text=A",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-12",
-      "description": "Logo for FinSecure.",
-      "imageUrl": "https://placehold.co/100x100/5A3E8A/FFFFFF?text=F",
+      "imageUrl": "https://placehold.co/100x100/C026D3/FFFFFF?text=NMC",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-13",
-      "description": "Logo for TechNova.",
-      "imageUrl": "https://placehold.co/100x100/047857/FFFFFF?text=T",
+      "imageUrl": "https://placehold.co/100x100/EF4444/FFFFFF?text=M",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-14",
-      "description": "Logo for GreenScape.",
-      "imageUrl": "https://placehold.co/100x100/B45309/FFFFFF?text=G",
+      "imageUrl": "https://placehold.co/100x100/F97316/FFFFFF?text=T",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-15",
-      "description": "Logo for BioGen.",
-      "imageUrl": "https://placehold.co/100x100/1D4ED8/FFFFFF?text=B",
+      "imageUrl": "https://placehold.co/100x100/1D4ED8/FFFFFF?text=CB",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-16",
-      "description": "Logo for CyberSafe.",
-      "imageUrl": "https://placehold.co/100x100/7E22CE/FFFFFF?text=C",
+      "imageUrl": "https://placehold.co/100x100/7E22CE/FFFFFF?text=AT",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-17",
-      "description": "Logo for AquaPure.",
-      "imageUrl": "https://placehold.co/100x100/000000/FFFFFF?text=A",
+      "imageUrl": "https://placehold.co/100x100/0284C7/FFFFFF?text=DB",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-18",
-      "description": "Logo for Solaris.",
-      "imageUrl": "https://placehold.co/100x100/1E40AF/FFFFFF?text=S",
+      "imageUrl": "https://placehold.co/100x100/FBBF24/000000?text=EY",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-19",
-      "description": "Logo for LogiChain.",
-      "imageUrl": "https://placehold.co/100x100/BE123C/FFFFFF?text=L",
+      "imageUrl": "https://placehold.co/100x100/EF4444/FFFFFF?text=EP",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-20",
-      "description": "Logo for Medica.",
-      "imageUrl": "https://placehold.co/100x100/5A3E8A/FFFFFF?text=M",
+      "imageUrl": "https://placehold.co/100x100/5A3E8A/FFFFFF?text=SA",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-21",
-      "description": "Logo for RoboCorp.",
       "imageUrl": "https://placehold.co/100x100/047857/FFFFFF?text=R",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-22",
-      "description": "Logo for Archinnovate.",
-      "imageUrl": "https://placehold.co/100x100/B45309/FFFFFF?text=A",
+      "imageUrl": "https://placehold.co/100x100/166534/FFFFFF?text=BOPP",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-23",
-      "description": "Logo for Retail-e.",
-      "imageUrl": "https://placehold.co/100x100/1D4ED8/FFFFFF?text=R",
+      "imageUrl": "https://placehold.co/100x100/DC2626/FFFFFF?text=KSC",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-24",
-      "description": "Logo for Fintex.",
-      "imageUrl": "https://placehold.co/100x100/7E22CE/FFFFFF?text=F",
+      "imageUrl": "https://placehold.co/100x100/000000/FFFFFF?text=P",
       "imageHint": "company logo"
     },
     {
       "id": "avatar-1",
-      "description": "Portrait of a professional.",
-      "imageUrl": "https://images.unsplash.com/photo-1607990283143-e81e7a2c9349?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Portrait of a Ghanaian professional.",
+      "imageUrl": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhZnJpY2FuJTIwcHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcxMDE4MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-2",
-      "description": "Portrait of a professional.",
-      "imageUrl": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Portrait of a Ghanaian professional.",
+      "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxhZnJpY2FuJTIwcHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcxMDE4MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-3",
-      "description": "Portrait of a professional.",
-      "imageUrl": "https://images.unsplash.com/photo-1655249481446-25d575f1c054?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcwODkyMjM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Portrait of a Ghanaian professional.",
+      "imageUrl": "https://images.unsplash.com/photo-1595211877493-41a4e5f236b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxhZnJpY2FuJTIwcHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcxMDE4MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-4",
-      "description": "Portrait of a professional.",
-      "imageUrl": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Portrait of a Ghanaian professional.",
+      "imageUrl": "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhZnJpY2FuJTIwcHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcxMDE4MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-5",
-      "description": "Portrait of a professional.",
-      "imageUrl": "https://images.unsplash.com/photo-1655249481446-25d575f1c054?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcwODkyMjM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Portrait of a Ghanaian professional.",
+      "imageUrl": "https://images.unsplash.com/photo-1607990283143-e81e7a2c9349?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxhZnJpY2FuJTIwcHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcxMDE4MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-6",
-      "description": "Portrait of a professional.",
-      "imageUrl": "https://images.unsplash.com/photo-1607990283143-e81e7a2c9349?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Portrait of a Ghanaian professional.",
+      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhZnJpY2FuJTIwcHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcxMDE4MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-7",
-      "description": "Portrait of a professional.",
-      "imageUrl": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Portrait of a Ghanaian professional.",
+      "imageUrl": "https://images.unsplash.com/photo-1581065178047-8ee15951ede6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhZnJpY2FuJTIwcHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcxMDE4MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-8",
-      "description": "Portrait of a professional.",
-      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Portrait of a Ghanaian professional.",
+      "imageUrl": "https://images.unsplash.com/photo-1655249493799-9cee4fe983bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxhZnJpY2FuJTIwcHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcxMDE4MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-9",
-      "description": "Portrait of a professional.",
-      "imageUrl": "https://images.unsplash.com/photo-1581065178047-8ee15951ede6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Portrait of a Ghanaian professional.",
+      "imageUrl": "https://images.unsplash.com/photo-1655249481446-25d575f1c054?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YWZyaWNhbiUyMHByb2Zlc3Npb25hbCUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MTAxODAzMnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-10",
-      "description": "Portrait of a professional.",
-      "imageUrl": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Portrait of a Ghanaian professional.",
+      "imageUrl": "https://images.unsplash.com/photo-1655249481446-25d575f1c054?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YWZyaWNhbiUyMHByb2Zlc3Npb25hbCUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MTAxODAzMnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-11",
-      "description": "Portrait of a professional.",
-      "imageUrl": "https://images.unsplash.com/photo-1581065178047-8ee15951ede6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Portrait of a Ghanaian professional.",
+      "imageUrl": "https://images.unsplash.com/photo-1607990283143-e81e7a2c9349?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxhZnJpY2FuJTIwcHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcxMDE4MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-12",
-      "description": "Portrait of a professional.",
-      "imageUrl": "https://images.unsplash.com/photo-1607990283143-e81e7a2c9349?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Portrait of a Ghanaian professional.",
+      "imageUrl": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhZnJpY2FuJTIwcHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcxMDE4MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-13",
-      "description": "Portrait of a professional.",
-      "imageUrl": "https://images.unsplash.com/photo-1595211877493-41a4e5f236b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Portrait of a Ghanaian professional.",
+      "imageUrl": "https://images.unsplash.com/photo-1595211877493-41a4e5f236b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxhZnJpY2FuJTIwcHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcxMDE4MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-14",
-      "description": "Portrait of a professional.",
-      "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Portrait of a Ghanaian professional.",
+      "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxhZnJpY2FuJTIwcHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcxMDE4MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-15",
-      "description": "Portrait of a professional.",
-      "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "professional portrait"
-    },
-    {
-      "id": "avatar-16",
-      "description": "Portrait of a professional.",
-      "imageUrl": "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "professional portrait"
-    },
-    {
-      "id": "avatar-17",
-      "description": "Portrait of a professional.",
-      "imageUrl": "https://images.unsplash.com/photo-1655249493799-9cee4fe983bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "professional portrait"
-    },
-    {
-      "id": "avatar-18",
-      "description": "Portrait of a professional.",
-      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "professional portrait"
-    },
-    {
-      "id": "avatar-19",
-      "description": "Portrait of a professional.",
-      "imageUrl": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "professional portrait"
-    },
-    {
-      "id": "avatar-20",
-      "description": "Portrait of a professional.",
-      "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "professional portrait"
-    },
-    {
-      "id": "avatar-21",
-      "description": "Portrait of a professional.",
-      "imageUrl": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "professional portrait"
-    },
-    {
-      "id": "avatar-22",
-      "description": "Portrait of a professional.",
-      "imageUrl": "https://images.unsplash.com/photo-1607990283143-e81e7a2c9349?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "professional portrait"
-    },
-    {
-      "id": "avatar-23",
-      "description": "Portrait of a professional.",
-      "imageUrl": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "professional portrait"
-    },
-    {
-      "id": "avatar-24",
-      "description": "Portrait of a professional.",
-      "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Portrait of a Ghanaian professional.",
+      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhZnJpY2FuJTIwcHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcxMDE4MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "blog-post-1",
       "description": "Two people in an interview setting.",
-      "imageUrl": "https://images.unsplash.com/photo-1686771416317-b964cc4e0002?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxqb2IlMjBpbnRlcnZpZXd8ZW58MHx8fHwxNzcwOTY5MTUwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1573496130407-57329f01f769?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhZnJpY2FuJTIwYnVzaW5lc3MlMjBqb2IlMjBpbnRlcnZpZXd8ZW58MHx8fHwxNzcxMDE4NDI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "job interview"
     },
     {
       "id": "blog-post-2",
       "description": "Code on a screen",
-      "imageUrl": "https://images.unsplash.com/photo-1615494937408-7f4e41bf45d9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjb2RlJTIwc2NyZWVufGVufDB8fHx8MTc3MDk3MTYwMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb2RlJTIwc2NyZWVufGVufDB8fHx8MTc3MTAxODQyOHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "code screen"
     },
     {
       "id": "blog-post-3",
       "description": "Diverse team collaborating around a whiteboard.",
-      "imageUrl": "https://images.unsplash.com/photo-1755705152396-4b719047af56?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxHaGFuYWlhbiUyMHRlYW18ZW58MHx8fHwxNzcwOTg2MzYzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxHaGFuYWlhbiUyMHRlYW18ZW58MHx8fHwxNzcxMDE4NDI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Ghanaian team"
     },
     {
       "id": "blog-post-4",
       "description": "Serverless architecture diagram",
-      "imageUrl": "https://images.unsplash.com/photo-1707733260992-73ff6dbed163?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhcmNoaXRlY3R1cmUlMjBkaWFncmFtfGVufDB8fHx8MTc3MDg3OTk4NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzcxMDE4NDI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "architecture diagram"
     },
     {
       "id": "blog-post-5",
       "description": "State management flow chart",
-      "imageUrl": "https://images.unsplash.com/photo-1759910093306-c849f52c03ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxzdGF0ZSUyMG1hbmFnZW1lbnR8ZW58MHx8fHwxNzcwOTgzNzQzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzcxMDE4NDI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "state management"
     },
     {
       "id": "blog-post-6",
       "description": "Person working remotely at a desk.",
-      "imageUrl": "https://images.unsplash.com/photo-1605565348518-bef3e7d6fed8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxyZW1vdGUlMjB3b3JrfGVufDB8fHx8MTc3MDkwMzk5OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1586281380349-632531db7ed4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhZnJpY2FuJTIwcmVtb3RlJTIwd29ya3xlbnwwfHx8fDE3NzEwMTg0Mjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "remote work"
     },
     {
       "id": "blog-post-7",
       "description": "A person writing career goals in a notebook.",
-      "imageUrl": "https://images.unsplash.com/photo-1762968280286-0bfcc4afd0ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjYXJlZXIlMjBhZHZpY2V8ZW58MHx8fHwxNzcwOTgzNzQzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhZnJpY2FuJTIwcHJvZmVzc2lvbmFsJTIwd3JpdGluZ3xlbnwwfHx8fDE3NzEwMTg0Mjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "career advice"
     },
     {
       "id": "blog-post-8",
       "description": "Modern office interior with plants.",
-      "imageUrl": "https://images.unsplash.com/photo-1559136656-3db4bf6c35f8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxvZmZpY2UlMjBsaWZlfGVufDB8fHx8MTc3MDk4Mzc0M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxvZmZpY2UlMjBsaWZlfGVufDB8fHx8MTc3MTAxODQyOHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "office life"
     },
     {
       "id": "find-job-1",
       "description": "People working and collaborating.",
-      "imageUrl": "https://images.unsplash.com/photo-1725114930682-fab4c3f78a96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxHaGFuYSUyMHByb2Zlc3Npb25hbHN8ZW58MHx8fHwxNzcwOTg2MzYzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxhZnJpY2FuJTIwYnVzaW5lc3MlMjBtZWV0aW5nfGVufDB8fHx8fDE3NzEwMTg0Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Ghana professionals"
     },
     {
       "id": "find-job-2",
       "description": "A graph showing upward trend",
-      "imageUrl": "https://images.unsplash.com/photo-1647365368632-90028b7faa23?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxidXNpbmVzcyUyMGdyYXBofGVufDB8fHx8MTc3MDk4NjM2NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMGdyYXBofGVufDB8fHx8fDE3NzEwMTg0Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "business graph"
     },
     {
       "id": "find-job-3",
       "description": "A card with apply button",
-      "imageUrl": "https://images.unsplash.com/photo-1743234816028-c12cd44f0b02?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhcHBseSUyMGJ1dHRvbnxlbnwwfHx8fDE3NzA5ODM3NDN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzcxMDE4NDI5fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "apply button"
     },
     {
       "id": "location-accra",
       "description": "Independence Arch in Accra",
-      "imageUrl": "https://images.unsplash.com/photo-1730453255648-af776b331035?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxBY2NyYSUyMHNreWxpbmV8ZW58MHx8fHwxNzcwOTgzNzQzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1609312114755-beb4e3b15e49?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxBY2NyYSUyMHNreWxpbmV8ZW58MHx8fHwxNzcxMDE4NDI5fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Accra skyline"
     },
     {
       "id": "location-kumasi",
       "description": "Kejetia Market in Kumasi",
-      "imageUrl": "https://images.unsplash.com/photo-1659817526829-1c570ea3b947?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxLdW1hc2klMjBtYXJrZXR8ZW58MHx8fHwxNzcwOTg2MzYzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1634074967416-dd24d702c93c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxLdW1hc2klMjBjdWx0dXJlfGVufDB8fHx8MTc3MTAxODQyOXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Kumasi market"
     },
     {
       "id": "location-takoradi",
       "description": "Fishing boats in Takoradi",
-      "imageUrl": "https://picsum.photos/seed/takoradi-harbour/600/400",
+      "imageUrl": "https://images.unsplash.com/photo-1618783430342-c651347f8c1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxHaGFuYSUyMGZpc2hpbmclMjBib2F0c3xlbnwwfHx8fDE3NzEwMTg0Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Takoradi harbour"
     },
     {
       "id": "location-cape-coast",
       "description": "Cape Coast castle",
-      "imageUrl": "https://picsum.photos/seed/cape-coast-castle/600/400",
+      "imageUrl": "https://images.unsplash.com/photo-1579003593418-22a4d7c3c43b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxDYXBlJTIwQ29hc3QlMjBjYXN0bGV8ZW58MHx8fHwxNzcxMDE4NDI5fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "CapeCoast castle"
     },
     {
       "id": "location-tamale",
       "description": "Tamale mosque",
-      "imageUrl": "https://picsum.photos/seed/tamale-mosque/600/400",
+      "imageUrl": "https://images.unsplash.com/photo-1619329272333-e187f5d625c2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxUYXJzbWFsZSUyMG1vc3F1ZXxlbnwwfHx8fDE3NzEwMTg0Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Tamale mosque"
     },
     {
       "id": "location-tema",
       "description": "Tema port",
-      "imageUrl": "https://picsum.photos/seed/tema-port/600/400",
+      "imageUrl": "https://images.unsplash.com/photo-1627993356238-d6b38c2925d4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxUZW1hJTIwcG9ydHxlbnwwfHx8fDE3NzEwMTg0Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Tema port"
     },
     {
       "id": "hiring-main",
       "description": "A group of professionals in a meeting.",
-      "imageUrl": "https://images.unsplash.com/photo-1603202662747-00e33e7d1468?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxidXNpbmVzcyUyMG1lZXRpbmd8ZW58MHx8fHwxNzcwODY0OTU5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1613462538814-7d51073ce0ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YnVzaW5lc3MlMjBleGVjdXRpdmVzfGVufDB8fHx8MTc3MTAxODQyOXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "business meeting"
     },
     {
       "id": "subscription-1",
       "description": "Team collaboration meeting",
-      "imageUrl": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx0ZWFtJTIwbWVldGluZ3xlbnwwfHx8fDE3NzA5NzU0OTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHx0ZWFtJTIwbWVldGluZ3xlbnwwfHx8fDE3NzEwMTg0Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "team meeting"
     },
     {
       "id": "subscription-2",
       "description": "Person working at a desk",
-      "imageUrl": "https://images.unsplash.com/photo-1524508762098-fd966ffb6ef9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwZXJzb24lMjB3b3JraW5nfGVufDB8fHx8MTc3MDk3NTk1M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1524508762098-fd966ffb6ef9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxhZnJpY2FuJTIwd29ya2luZ3xlbnwwfHx8fDE3NzEwMTg0Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "person working"
     },
     {
       "id": "subscription-3",
       "description": "Group of students learning",
-      "imageUrl": "https://images.unsplash.com/photo-1520569495996-b5e1219cb625?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzdHVkZW50cyUyMGxlYXJuaW5nfGVufDB8fHx8MTc3MDg3NzQ4Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhZnJpY2FuJTIwc3R1ZGVudHMlMjBsZWFybmluZ3xlbnwwfHx8fDE3NzEwMTg0Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "students learning"
     },
     {
       "id": "subscription-4",
       "description": "Man with beard at a desk",
-      "imageUrl": "https://images.unsplash.com/photo-1623679799634-841494762b38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtYW4lMjBkZXNrfGVufDB8fHx8MTc3MDk4Mzc0M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1623679799634-841494762b38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxhZnJpY2FuJTIwbWFuJTIwZGVza3xlbnwwfHx8fDE3NzEwMTg0Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "man desk"
     },
     {
       "id": "subscription-5",
       "description": "Two people in an office environment",
-      "imageUrl": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxvZmZpY2UlMjBwZW9wbGV8ZW58MHx8fHwxNzcwOTgzNzQzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhZnJpY2FuJTIwYnVzaW5lc3MlMjBwZW9wbGV8ZW58MHx8fHwxNzcxMDE4NDI5fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "office people"
     },
     {
       "id": "category-bg",
       "description": "Modern office setting with people working",
-      "imageUrl": "https://images.unsplash.com/photo-1742476126735-cba186771cf2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxHaGFuYSUyMG9mZmljZXxlbnwwfHx8fDE3NzA5ODYzNjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhZnJpY2FuJTIwb2ZmaWNlJTIwdGVhbXxlbnwwfHx8fDE3NzEwMTg0Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Ghana office"
     },
     {
       "id": "top-companies-bg",
       "description": "A vibrant market scene in Ghana.",
-      "imageUrl": "https://images.unsplash.com/photo-1546388556-40e4b23d8392?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8R2hhbmElMjBtYXJrZXR8ZW58MHx8fHwxNzcwOTgzNzQzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1618925480413-5858d4a0445d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxHaGFuYSUyMG1hcmtldHxlbnwwfHx8fDE3NzEwMTg0Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Ghana market"
     },
     {
       "id": "latest-news-bg",
       "description": "A person reading news on a digital tablet.",
-      "imageUrl": "https://images.unsplash.com/photo-1645626610957-2968656ace38?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxuZXdzJTIwcmVhZGluZ3xlbnwwfHx8fDE3NzA5ODM3NDN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1586953208448-39502e78315c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhZnJpY2FuJTIwcGVyc29uJTIwcmVhZGluZ3xlbnwwfHx8fDE3NzEwMTg0Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "news reading"
     },
     {
@@ -477,19 +399,19 @@
     {
       "id": "pricing-basic",
       "description": "Small team collaborating in a bright, modern startup office.",
-      "imageUrl": "https://images.unsplash.com/photo-1594235048794-fae8583a5af5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzdGFydHVwJTIwb2ZmaWNlfGVufDB8fHx8MTc3MDk4MzI2M3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1552664730-d307ca884978?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxhZnJpY2FuJTIwc3RhcnR1cCUyMG9mZmljZXxlbnwwfHx8fDE3NzEwMTg0Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "startup office"
     },
     {
       "id": "pricing-pro",
       "description": "A professional team in a conference room discussing a project on a large screen.",
-      "imageUrl": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxidXNpbmVzcyUyMG1lZXRpbmd8ZW58MHx8fHwxNzcwODY0OTU5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1543269664-56d93c1b41a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhZnJpY2FuJTIwYnVzaW5lc3MlMjBtZWV0aW5nfGVufDB8fHx8fDE3NzEwMTc2MjV8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "business meeting"
     },
     {
       "id": "pricing-enterprise",
       "description": "A bustling, large open-plan office of a major corporation.",
-      "imageUrl": "https://images.unsplash.com/photo-1549637642-90187f64f420?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb3Jwb3JhdGUlMjBvZmZpY2V8ZW58MHx8fHwxNzcwOTU4MDgzfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxhZnJpY2FuJTIwYnVzaW5lc3MlMjBtZWV0aW5nfGVufDB8fHx8fDE3NzEwMTg0Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "corporate office"
     },
     {
@@ -500,8 +422,8 @@
     },
     {
       "id": "contact-map",
-      "description": "A vibrant, stylized map of a city showing streets and locations.",
-      "imageUrl": "https://images.unsplash.com/photo-1568025848823-86404cd04ad1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxBY2NyYSUyMG1hcHxlbnwwfHx8fDE3NzA5ODYzNjR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "A vibrant, stylized map of Accra.",
+      "imageUrl": "https://images.unsplash.com/photo-1618422159590-c5f21224f8d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxBY2NyYSUyMG1hcHxlbnwwfHx8fDE3NzEwMTg0Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Accra map"
     }
   ]
