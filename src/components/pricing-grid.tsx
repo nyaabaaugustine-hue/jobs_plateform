@@ -57,6 +57,15 @@ export const tiers = [
   },
 ];
 
+const KenteCornerArt = () => (
+    <div className="absolute top-0 right-0 h-24 w-24 opacity-20 dark:opacity-30 pointer-events-none overflow-hidden rounded-tr-2xl">
+        <div className="absolute w-32 h-4 bg-destructive transform rotate-45 -translate-y-8 translate-x-8" />
+        <div className="absolute w-32 h-4 bg-chart-3 transform rotate-45 -translate-y-4 translate-x-8" />
+        <div className="absolute w-32 h-4 bg-accent transform rotate-45 translate-y-0 translate-x-8" />
+    </div>
+);
+
+
 export default function PricingGrid() {
   const [isYearly, setIsYearly] = useState(false);
 
@@ -71,13 +80,13 @@ export default function PricingGrid() {
   return (
     <div className="container mx-auto max-w-7xl px-4 md:px-6">
         <div className="flex justify-center items-center gap-4 mb-12">
-            <span className={cn("font-semibold text-lg", !isYearly ? 'text-yellow-400' : 'text-gray-200')}>Monthly</span>
+            <span className={cn("font-semibold text-lg", !isYearly ? 'text-primary' : 'text-gray-200')}>Monthly</span>
             <Switch
                 id="billing-cycle"
                 checked={isYearly}
                 onCheckedChange={setIsYearly}
             />
-            <span className={cn("font-semibold text-lg", isYearly ? 'text-yellow-400' : 'text-gray-200')}>
+            <span className={cn("font-semibold text-lg", isYearly ? 'text-primary' : 'text-gray-200')}>
                 Annual <span className="text-green-400 font-normal text-base">(Save 20%)</span>
             </span>
         </div>
@@ -86,15 +95,16 @@ export default function PricingGrid() {
         {tiers.map((tier) => {
             return (
             <Card key={tier.name} className={cn(
-                'relative flex flex-col h-full rounded-2xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2',
+                'relative flex flex-col h-full rounded-2xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 overflow-hidden',
                 {
-                  'border-2 border-red-500 shadow-xl bg-black/50': tier.id === 'pro',
+                  'border-2 border-red-500 bg-secondary/50 backdrop-blur-sm': tier.id === 'basic',
+                  'border-2 border-yellow-400 shadow-xl bg-black/50': tier.id === 'pro',
                   'border-2 border-green-500 bg-secondary/50 backdrop-blur-sm': tier.id === 'enterprise',
-                  'border border-white/20 bg-secondary/50 backdrop-blur-sm': tier.id === 'basic',
                 }
             )}>
+                <KenteCornerArt />
                 {tier.isPopular && (
-                    <div className="absolute top-0 right-6 -mt-4 bg-black text-red-500 px-4 py-1.5 text-sm font-semibold rounded-full shadow-lg z-10 flex items-center gap-1.5">
+                    <div className="absolute top-0 right-6 -mt-4 bg-black text-yellow-400 px-4 py-1.5 text-sm font-semibold rounded-full shadow-lg z-10 flex items-center gap-1.5">
                         <Star className="h-4 w-4" fill="currentColor"/> Most Popular
                     </div>
                 )}
@@ -119,7 +129,7 @@ export default function PricingGrid() {
                     <ul className="space-y-4">
                     {tier.features.map((feature) => (
                         <li key={feature} className="flex items-center gap-3">
-                        <CheckCircle className="h-5 w-5 text-yellow-400" />
+                        <CheckCircle className="h-5 w-5 text-primary" />
                         <span className="text-gray-200">{feature}</span>
                         </li>
                     ))}
@@ -131,7 +141,7 @@ export default function PricingGrid() {
                     size="lg"
                     className={cn(
                         'w-full font-bold text-lg', 
-                        tier.isPopular ? 'bg-red-500 hover:bg-red-600 text-white' : 'bg-white/10 hover:bg-white/20 text-white'
+                        tier.isPopular ? 'bg-yellow-500 hover:bg-yellow-600 text-black' : 'bg-white/10 hover:bg-white/20 text-white'
                     )}
                     >
                     <Link href={getCtaLink(tier)}>{tier.cta}</Link>
