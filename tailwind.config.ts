@@ -100,6 +100,10 @@ export default {
           from: { transform: 'translateX(0)' },
           to: { transform: 'translateX(-50%)' },
         },
+        'marquee-ltr': {
+          from: { transform: 'translateX(-50%)' },
+          to: { transform: 'translateX(0)' },
+        },
         'gradient': {
           'to': { 'background-position': '200% center' },
         },
@@ -108,6 +112,7 @@ export default {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'marquee-rtl': 'marquee-rtl 40s linear infinite',
+        'marquee-ltr': 'marquee-ltr 80s linear infinite',
         'gradient': 'gradient 3s linear infinite',
       },
     },
