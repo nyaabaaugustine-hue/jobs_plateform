@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -12,12 +13,12 @@ import { cn } from '@/lib/utils';
 const statusColumns = ['Applied', 'Screening', 'Interview', 'Offer', 'Hired', 'Rejected'] as const;
 
 const statusConfig: Record<Application['status'], { icon: React.ReactNode, textColor: string, bgColor: string, borderColor: string }> = {
-    Applied: { icon: <FileText />, textColor: 'text-blue-600 dark:text-blue-400', bgColor: 'bg-blue-500/5', borderColor: 'border-blue-500/20' },
-    Screening: { icon: <Eye />, textColor: 'text-yellow-600 dark:text-yellow-400', bgColor: 'bg-yellow-500/5', borderColor: 'border-yellow-500/20' },
-    Interview: { icon: <MessageSquare />, textColor: 'text-purple-600 dark:text-purple-400', bgColor: 'bg-purple-500/5', borderColor: 'border-purple-500/20' },
-    Offer: { icon: <Award />, textColor: 'text-orange-600 dark:text-orange-400', bgColor: 'bg-orange-500/5', borderColor: 'border-orange-500/20' },
-    Hired: { icon: <CheckCircle />, textColor: 'text-emerald-600 dark:text-emerald-400', bgColor: 'bg-emerald-500/5', borderColor: 'border-emerald-500/20' },
-    Rejected: { icon: <XCircle />, textColor: 'text-destructive', bgColor: 'bg-destructive/5', borderColor: 'border-destructive/20' },
+    Applied: { icon: <FileText className="h-5 w-5" />, textColor: 'text-blue-600 dark:text-blue-400', bgColor: 'bg-blue-500/5', borderColor: 'border-blue-500/20' },
+    Screening: { icon: <Eye className="h-5 w-5" />, textColor: 'text-yellow-600 dark:text-yellow-400', bgColor: 'bg-yellow-500/5', borderColor: 'border-yellow-500/20' },
+    Interview: { icon: <MessageSquare className="h-5 w-5" />, textColor: 'text-purple-600 dark:text-purple-400', bgColor: 'bg-purple-500/5', borderColor: 'border-purple-500/20' },
+    Offer: { icon: <Award className="h-5 w-5" />, textColor: 'text-orange-600 dark:text-orange-400', bgColor: 'bg-orange-500/5', borderColor: 'border-orange-500/20' },
+    Hired: { icon: <CheckCircle className="h-5 w-5" />, textColor: 'text-emerald-600 dark:text-emerald-400', bgColor: 'bg-emerald-500/5', borderColor: 'border-emerald-500/20' },
+    Rejected: { icon: <XCircle className="h-5 w-5" />, textColor: 'text-destructive', bgColor: 'bg-destructive/5', borderColor: 'border-destructive/20' },
 };
 
 
@@ -90,7 +91,7 @@ export default function ApplicationsPage() {
           return (
             <div key={status} className="w-80 shrink-0">
               <h2 className={cn("font-semibold mb-4 px-1 flex items-center gap-2", config.textColor)}>
-                {React.cloneElement(config.icon as React.ReactElement, { className: 'h-5 w-5' })}
+                {config.icon}
                 {status} ({applicationsByStatus[status].length})
               </h2>
               <div className={cn("space-y-4 p-2 rounded-lg h-full border-t-4", config.bgColor, config.borderColor)}>
