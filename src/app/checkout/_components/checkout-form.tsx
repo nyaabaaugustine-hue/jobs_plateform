@@ -136,7 +136,7 @@ export default function CheckoutForm() {
                 variant: 'vibrant'
             });
         }
-        router.push('/employer');
+        router.push('/dashboard');
       }, 2000);
   }
 
