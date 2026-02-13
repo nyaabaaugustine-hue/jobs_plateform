@@ -35,10 +35,10 @@ export default function FeaturedJobs() {
                     variant="ghost"
                     onClick={() => setSelectedCategory(category)}
                     className={cn(
-                        "rounded-full border border-transparent px-4 py-2 text-sm font-medium transition-all duration-300",
+                        "rounded-full px-4 py-2 text-sm font-medium transition-all duration-300",
                         selectedCategory === category
-                            ? "bg-accent-gradient text-primary-foreground shadow-lg"
-                            : "bg-card text-foreground hover:bg-primary/10 hover:border-primary/20 hover:text-primary hover:shadow-md"
+                            ? "bg-accent-gradient text-primary-foreground shadow-lg ring-2 ring-offset-background ring-offset-2 ring-accent"
+                            : "bg-card text-foreground border border-border/50 hover:bg-primary/10 hover:border-primary/20 hover:text-primary hover:shadow-md"
                     )}
                 >
                     {category}
