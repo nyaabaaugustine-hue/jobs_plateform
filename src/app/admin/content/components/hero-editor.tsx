@@ -67,7 +67,7 @@ export default function HeroEditor() {
             <div className="flex items-center gap-4">
                 {heroImage && <Image src={heroImage.imageUrl} alt="Current hero image" width={120} height={70} className="rounded-md object-cover" />}
                 <Button variant="outline" onClick={handleImageChange} disabled={isUploading} className="flex-1">
-                    {isUploading ? <Loader2 className="mr-2 animate-spin"/> : <ImageIcon className="mr-2" />}
+                    {isUploading ? <Loader2 className="mr-2 h-4 w-4 animate-spin"/> : <ImageIcon className="mr-2 h-4 w-4" />}
                     {isUploading ? 'Changing...' : 'Change Image'}
                 </Button>
             </div>
@@ -75,7 +75,7 @@ export default function HeroEditor() {
         </CardContent>
         <CardFooter>
           <Button onClick={handleSave} disabled={isSaving}>
-            {isSaving ? <Loader2 className="mr-2 animate-spin"/> : <Save className="mr-2" />}
+            {isSaving ? <Loader2 className="mr-2 h-4 w-4 animate-spin"/> : <Save className="mr-2 h-4 w-4" />}
             Save Changes
           </Button>
         </CardFooter>
@@ -84,7 +84,7 @@ export default function HeroEditor() {
       {/* Preview Section */}
       <div>
         <Label className="text-muted-foreground">Live Preview</Label>
-        <div className="mt-2 relative w-full aspect-video rounded-lg overflow-hidden border">
+        <div className="mt-2 relative w-full aspect-[16/10] rounded-lg overflow-hidden border">
            {heroImage && (
             <Image
               src={heroImage.imageUrl}
@@ -95,8 +95,8 @@ export default function HeroEditor() {
           )}
           <div className="absolute inset-0 bg-black/60 z-10" />
           <div className="relative z-20 flex flex-col h-full items-center justify-center text-center p-4">
-            <h1 className="text-2xl font-extrabold text-white !leading-tight font-headline" dangerouslySetInnerHTML={{ __html: title.replace('<span className="text-primary">', '<span style="color:hsl(var(--primary))">') }} />
-            <p className="max-w-md mx-auto text-sm text-gray-200 mt-2">{subtitle}</p>
+            <h1 className="text-4xl font-extrabold text-white !leading-tight font-headline" dangerouslySetInnerHTML={{ __html: title.replace(/class="text-primary"/g, 'style="color:hsl(var(--primary))"') }} />
+            <p className="max-w-md mx-auto text-lg text-gray-200 mt-4">{subtitle}</p>
           </div>
         </div>
       </div>

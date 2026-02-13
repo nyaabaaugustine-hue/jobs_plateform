@@ -20,13 +20,13 @@ export default function AdminContentPage() {
       <Tabs defaultValue="hero" className="space-y-6">
         <TabsList>
           <TabsTrigger value="hero">
-            <Palmtree className="mr-2" /> Hero Section
+            <Palmtree className="mr-2 h-4 w-4" /> Hero Section
           </TabsTrigger>
           <TabsTrigger value="why-choose-us">
-            <LayoutDashboard className="mr-2" /> 'Why Choose Us' Section
+            <LayoutDashboard className="mr-2 h-4 w-4" /> 'Why Choose Us' Section
           </TabsTrigger>
           <TabsTrigger value="hiring-section">
-            <Handshake className="mr-2" /> Hiring Section
+            <Handshake className="mr-2 h-4 w-4" /> Hiring Section
           </TabsTrigger>
         </TabsList>
         <TabsContent value="hero">

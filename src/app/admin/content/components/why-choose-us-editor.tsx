@@ -37,7 +37,13 @@ const initialFeatures = [
   }
 ];
 
-type Feature = typeof initialFeatures[0];
+type Feature = {
+  icon: React.ElementType;
+  title: string;
+  description: string;
+  iconBg: string;
+  iconColor: string;
+};
 
 export default function WhyChooseUsEditor() {
   const { toast } = useToast();
@@ -47,7 +53,7 @@ export default function WhyChooseUsEditor() {
 
   const handleFeatureChange = (index: number, field: 'title' | 'description', value: string) => {
     const newFeatures = [...features];
-    newFeatures[index][field] = value;
+    (newFeatures[index] as any)[field] = value;
     setFeatures(newFeatures);
   };
 
@@ -100,7 +106,7 @@ export default function WhyChooseUsEditor() {
         </CardContent>
         <CardFooter>
           <Button onClick={handleSave} disabled={isSaving}>
-            {isSaving ? <Loader2 className="mr-2 animate-spin"/> : <Save className="mr-2" />}
+            {isSaving ? <Loader2 className="mr-2 h-4 w-4 animate-spin"/> : <Save className="mr-2 h-4 w-4" />}
             Save Changes
           </Button>
         </CardFooter>

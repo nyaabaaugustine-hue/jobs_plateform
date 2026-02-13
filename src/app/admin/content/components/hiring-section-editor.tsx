@@ -99,7 +99,7 @@ export default function HiringSectionEditor() {
             <div className="flex items-center gap-4">
                 {image && <Image src={image.imageUrl} alt="Current hiring section image" width={120} height={70} className="rounded-md object-cover" />}
                 <Button variant="outline" onClick={handleImageChange} disabled={isUploading} className="flex-1">
-                    {isUploading ? <Loader2 className="mr-2 animate-spin"/> : <ImageIcon className="mr-2" />}
+                    {isUploading ? <Loader2 className="mr-2 h-4 w-4 animate-spin"/> : <ImageIcon className="mr-2 h-4 w-4" />}
                     {isUploading ? 'Changing...' : 'Change Image'}
                 </Button>
             </div>
@@ -107,7 +107,7 @@ export default function HiringSectionEditor() {
         </CardContent>
         <CardFooter>
           <Button onClick={handleSave} disabled={isSaving}>
-            {isSaving ? <Loader2 className="mr-2 animate-spin"/> : <Save className="mr-2" />}
+            {isSaving ? <Loader2 className="mr-2 h-4 w-4 animate-spin"/> : <Save className="mr-2 h-4 w-4" />}
             Save Changes
           </Button>
         </CardFooter>
