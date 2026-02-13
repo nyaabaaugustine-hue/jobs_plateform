@@ -16,7 +16,7 @@ import {
   Users,
   Wallet,
   PenSquare,
-  FileEdit,
+  LayoutDashboard,
 } from 'lucide-react';
 import {
   SidebarProvider,
@@ -57,7 +57,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         { href: '/admin/users', label: 'Users', icon: <Users /> },
         { href: '/admin/jobs', label: 'Jobs', icon: <Briefcase /> },
         { href: '/admin/companies', label: 'Companies', icon: <Building /> },
-        { href: '/admin/content', label: 'Content', icon: <FileEdit /> },
+        { href: '/admin/content', label: 'Website Content', icon: <LayoutDashboard /> },
         { href: '/admin/blog', label: 'Blog', icon: <PenSquare /> },
         { href: '/admin/financials', label: 'Financials', icon: <Wallet /> },
       ],
