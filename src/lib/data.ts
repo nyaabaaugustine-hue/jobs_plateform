@@ -34,14 +34,31 @@ export const DUMMY_COMPANIES: Company[] = Array.from({ length: 24 }, (_, i) => {
     const companyInfo = ghanaianCompanies[i % ghanaianCompanies.length];
     const ratings = [4.5, 4.8, 4.2, 4.9, 4.6, 4.7, 4.3, 4.4, 4.8, 4.1, 4.0, 4.9, 4.7, 4.6, 4.2, 4.8, 4.5, 4.9, 4.3, 4.7, 4.1, 4.6, 4.4, 4.8];
     const jobCounts = [5, 8, 3, 12, 6, 9, 2, 7, 10, 4, 1, 15, 8, 5, 3, 11, 6, 9, 2, 7, 4, 8, 5, 10];
+    const companyName = companyInfo.name;
+    // Special handling for Innovate Inc. to match employer dashboard demo
+    if (i === 0) {
+        return {
+            id: '1',
+            name: 'Innovate Inc.',
+            logo: 'company-logo-1',
+            industry: 'Technology',
+            location: 'Accra, Ghana',
+            description: `A leading tech company in Ghana.`,
+            website: `innovateinc.com.gh`,
+            employerId: `employer-1`,
+            activeJobs: jobCounts[i],
+            rating: ratings[i],
+        };
+    }
+
     return {
         id: `${i + 1}`,
-        name: companyInfo.name,
+        name: companyName,
         logo: `company-logo-${i + 1}`,
         industry: companyInfo.industry,
         location: ['Accra, Ghana', 'Kumasi, Ghana', 'Takoradi, Ghana', 'Tema, Ghana'][i % 4],
         description: `A leading company in ${companyInfo.industry}.`,
-        website: `${companyInfo.name.toLowerCase().replace(/[^a-z0-9]/g, '')}.com.gh`,
+        website: `${companyName.toLowerCase().replace(/[^a-z0-9]/g, '')}.com.gh`,
         employerId: `employer-${i+1}`,
         activeJobs: jobCounts[i],
         rating: ratings[i],
@@ -82,7 +99,7 @@ export const JOB_CATEGORIES = [
   ];
 
 export const DUMMY_JOBS: Job[] = Array.from({ length: 20 }, (_, i) => {
-    const company = DUMMY_COMPANIES[i % 4];
+    const company = DUMMY_COMPANIES[i % DUMMY_COMPANIES.length];
     const category = JOB_CATEGORIES[i % JOB_CATEGORIES.length].name;
     const types: Job['type'][] = ['Full-time', 'Part-time', 'Contract', 'Internship', 'Volunteer'];
     const experienceLevels: Job['experienceLevel'][] = ['Entry', 'Mid-level', 'Senior'];

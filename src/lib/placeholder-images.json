@@ -8,121 +8,145 @@
     },
     {
       "id": "company-logo-1",
+      "description": "Logo for mPharma.",
       "imageUrl": "https://placehold.co/100x100/1D4ED8/FFFFFF?text=MP",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-2",
+      "description": "Logo for Hubtel.",
       "imageUrl": "https://placehold.co/100x100/7E22CE/FFFFFF?text=H",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-3",
+      "description": "Logo for MTN Ghana.",
       "imageUrl": "https://placehold.co/100x100/FBBF24/000000?text=MTN",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-4",
+      "description": "Logo for GCB Bank.",
       "imageUrl": "https://placehold.co/100x100/166534/FFFFFF?text=GCB",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-5",
+      "description": "Logo for Stanbic Bank.",
       "imageUrl": "https://placehold.co/100x100/0284C7/FFFFFF?text=SB",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-6",
+      "description": "Logo for GOIL.",
       "imageUrl": "https://placehold.co/100x100/F97316/FFFFFF?text=G",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-7",
+      "description": "Logo for Vodafone Ghana.",
       "imageUrl": "https://placehold.co/100x100/E11D48/FFFFFF?text=V",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-8",
+      "description": "Logo for Ecobank Ghana.",
       "imageUrl": "https://placehold.co/100x100/1D4ED8/FFFFFF?text=E",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-9",
+      "description": "Logo for KPMG Ghana.",
       "imageUrl": "https://placehold.co/100x100/000000/FFFFFF?text=KPMG",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-10",
+      "description": "Logo for PwC Ghana.",
       "imageUrl": "https://placehold.co/100x100/DC2626/FFFFFF?text=PwC",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-11",
+      "description": "Logo for Ashesi University.",
       "imageUrl": "https://placehold.co/100x100/16A34A/FFFFFF?text=A",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-12",
+      "description": "Logo for Nyaho Medical Centre.",
       "imageUrl": "https://placehold.co/100x100/C026D3/FFFFFF?text=NMC",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-13",
+      "description": "Logo for Melcom Group.",
       "imageUrl": "https://placehold.co/100x100/EF4444/FFFFFF?text=M",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-14",
+      "description": "Logo for TotalEnergies Ghana.",
       "imageUrl": "https://placehold.co/100x100/F97316/FFFFFF?text=T",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-15",
+      "description": "Logo for CalBank.",
       "imageUrl": "https://placehold.co/100x100/1D4ED8/FFFFFF?text=CB",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-16",
+      "description": "Logo for AirtelTigo.",
       "imageUrl": "https://placehold.co/100x100/7E22CE/FFFFFF?text=AT",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-17",
+      "description": "Logo for Databank Group.",
       "imageUrl": "https://placehold.co/100x100/0284C7/FFFFFF?text=DB",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-18",
+      "description": "Logo for EY Ghana.",
       "imageUrl": "https://placehold.co/100x100/FBBF24/000000?text=EY",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-19",
+      "description": "Logo for ExpressPay.",
       "imageUrl": "https://placehold.co/100x100/EF4444/FFFFFF?text=EP",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-20",
+      "description": "Logo for Soronko Academy.",
       "imageUrl": "https://placehold.co/100x100/5A3E8A/FFFFFF?text=SA",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-21",
+      "description": "Logo for Rancard.",
       "imageUrl": "https://placehold.co/100x100/047857/FFFFFF?text=R",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-22",
+      "description": "Logo for Benso Oil Palm Plantation.",
       "imageUrl": "https://placehold.co/100x100/166534/FFFFFF?text=BOPP",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-23",
+      "description": "Logo for Koala Shopping Centre.",
       "imageUrl": "https://placehold.co/100x100/DC2626/FFFFFF?text=KSC",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-24",
+      "description": "Logo for PALACE.",
       "imageUrl": "https://placehold.co/100x100/000000/FFFFFF?text=P",
       "imageHint": "company logo"
     },
