@@ -8,446 +8,446 @@
     },
     {
       "id": "company-logo-1",
-      "description": "Logo for a tech company.",
-      "imageUrl": "https://images.unsplash.com/photo-1529612700005-e35377bf1415?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NzA3MDUxNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Innovate Inc..",
+      "imageUrl": "https://placehold.co/100x100/000000/FFFFFF?text=I",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-2",
-      "description": "Logo for a startup.",
-      "imageUrl": "https://images.unsplash.com/photo-1622465911368-72162f8da3e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NzA3MDUxNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for QuantumLeap.",
+      "imageUrl": "https://placehold.co/100x100/1E40AF/FFFFFF?text=Q",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-3",
-      "description": "Logo for a software house.",
-      "imageUrl": "https://images.unsplash.com/photo-1619551734325-81aaf323686c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NzA3MDUxNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Synergy Corp.",
+      "imageUrl": "https://placehold.co/100x100/BE123C/FFFFFF?text=S",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-4",
-      "description": "Logo for a design agency.",
-      "imageUrl": "https://images.unsplash.com/photo-1562783912-21ad31ee2a83?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NzA3MDUxNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for DataDriven.",
+      "imageUrl": "https://placehold.co/100x100/5A3E8A/FFFFFF?text=D",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-5",
-      "description": "Logo for a fintech company.",
-      "imageUrl": "https://images.unsplash.com/photo-1529612700005-e35377bf1415?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NzA3MDUxNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for PixelPerfect.",
+      "imageUrl": "https://placehold.co/100x100/047857/FFFFFF?text=P",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-6",
-      "description": "Logo for a healthtech company.",
-      "imageUrl": "https://images.unsplash.com/photo-1562783912-21ad31ee2a83?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NzA3MDUxNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for HealthFirst.",
+      "imageUrl": "https://placehold.co/100x100/B45309/FFFFFF?text=H",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-7",
-      "description": "Logo for a creative studio.",
-      "imageUrl": "https://images.unsplash.com/photo-1562783912-21ad31ee2a83?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NzA3MDUxNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for EcoSolutions.",
+      "imageUrl": "https://placehold.co/100x100/1D4ED8/FFFFFF?text=E",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-8",
-      "description": "Logo for an e-commerce brand.",
-      "imageUrl": "https://images.unsplash.com/photo-1620288627223-53302f4e8c74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NzA3MDUxNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for NextGen Edu.",
+      "imageUrl": "https://placehold.co/100x100/7E22CE/FFFFFF?text=N",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-9",
-      "description": "Logo for a consulting firm.",
-      "imageUrl": "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NzA3MDUxNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Zenith Media.",
+      "imageUrl": "https://placehold.co/100x100/000000/FFFFFF?text=Z",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-10",
-      "description": "Logo for a travel company.",
-      "imageUrl": "https://images.unsplash.com/photo-1549924231-f129b911e442?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NzA3MDUxNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for BuildRight.",
+      "imageUrl": "https://placehold.co/100x100/1E40AF/FFFFFF?text=B",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-11",
-      "description": "Logo for a food and beverage company.",
-      "imageUrl": "https://images.unsplash.com/photo-1620288627223-53302f4e8c74?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NzA3MDUxNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for AgroPlus.",
+      "imageUrl": "https://placehold.co/100x100/BE123C/FFFFFF?text=A",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-12",
-      "description": "Logo for a real estate agency.",
-      "imageUrl": "https://images.unsplash.com/photo-1529612700005-e35377bf1415?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NzA3MDUxNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for FinSecure.",
+      "imageUrl": "https://placehold.co/100x100/5A3E8A/FFFFFF?text=F",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-13",
-      "description": "Logo for an IT services company.",
-      "imageUrl": "https://images.unsplash.com/photo-1529612700005-e35377bf1415?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NzA3MDUxNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for TechNova.",
+      "imageUrl": "https://placehold.co/100x100/047857/FFFFFF?text=T",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-14",
-      "description": "Logo for a marketing agency.",
-      "imageUrl": "https://images.unsplash.com/photo-1562783912-21ad31ee2a83?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NzA3MDUxNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for GreenScape.",
+      "imageUrl": "https://placehold.co/100x100/B45309/FFFFFF?text=G",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-15",
-      "description": "Logo for an automotive company.",
-      "imageUrl": "https://images.unsplash.com/photo-1496200186974-4293800e2c20?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NzA3MDUxNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for BioGen.",
+      "imageUrl": "https://placehold.co/100x100/1D4ED8/FFFFFF?text=B",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-16",
-      "description": "Logo for an entertainment studio.",
-      "imageUrl": "https://images.unsplash.com/photo-1529612700005-e35377bf1415?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NzA3MDUxNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for CyberSafe.",
+      "imageUrl": "https://placehold.co/100x100/7E22CE/FFFFFF?text=C",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-17",
-      "description": "Logo for an agriculture company.",
-      "imageUrl": "https://images.unsplash.com/photo-1549924231-f129b911e442?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NzA3MDUxNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for AquaPure.",
+      "imageUrl": "https://placehold.co/100x100/000000/FFFFFF?text=A",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-18",
-      "description": "Logo for a venture capital firm.",
-      "imageUrl": "https://images.unsplash.com/photo-1496200186974-4293800e2c20?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NzA3MDUxNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Solaris.",
+      "imageUrl": "https://placehold.co/100x100/1E40AF/FFFFFF?text=S",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-19",
-      "description": "Logo for a software company.",
-      "imageUrl": "https://images.unsplash.com/photo-1496200186974-4293800e2c20?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NzA3MDUxNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for LogiChain.",
+      "imageUrl": "https://placehold.co/100x100/BE123C/FFFFFF?text=L",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-20",
-      "description": "Logo for a robotics company.",
-      "imageUrl": "https://images.unsplash.com/photo-1562783912-21ad31ee2a83?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NzA3MDUxNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Medica.",
+      "imageUrl": "https://placehold.co/100x100/5A3E8A/FFFFFF?text=M",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-21",
-      "description": "Logo for an architecture firm.",
-      "imageUrl": "https://images.unsplash.com/photo-1622465911368-72162f8da3e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NzA3MDUxNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for RoboCorp.",
+      "imageUrl": "https://placehold.co/100x100/047857/FFFFFF?text=R",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-22",
-      "description": "Logo for a retail brand.",
-      "imageUrl": "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NzA3MDUxNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Archinnovate.",
+      "imageUrl": "https://placehold.co/100x100/B45309/FFFFFF?text=A",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-23",
-      "description": "Logo for a financial company.",
-      "imageUrl": "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NzA3MDUxNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Retail-e.",
+      "imageUrl": "https://placehold.co/100x100/1D4ED8/FFFFFF?text=R",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-24",
-      "description": "Logo for a travel agency.",
-      "imageUrl": "https://images.unsplash.com/photo-1619551734325-81aaf323686c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb21wYW55JTIwbG9nb3xlbnwwfHx8fDE3NzA3MDUxNTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Logo for Fintex.",
+      "imageUrl": "https://placehold.co/100x100/7E22CE/FFFFFF?text=F",
       "imageHint": "company logo"
     },
     {
       "id": "avatar-1",
-      "description": "Portrait of a Ghanaian woman.",
-      "imageUrl": "https://images.unsplash.com/photo-1594085430910-de1c1d48241a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxHaGFuYWlhbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MDc3NDYyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Ghanaian portrait"
+      "description": "Portrait of a professional.",
+      "imageUrl": "https://picsum.photos/seed/avatar1/200/200",
+      "imageHint": "professional portrait"
     },
     {
       "id": "avatar-2",
-      "description": "Portrait of a Ghanaian woman.",
-      "imageUrl": "https://images.unsplash.com/photo-1680531854944-2917979cee21?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxHaGFuYWlhbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MDc3NDYyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Ghanaian portrait"
+      "description": "Portrait of a professional.",
+      "imageUrl": "https://picsum.photos/seed/avatar2/200/200",
+      "imageHint": "professional portrait"
     },
     {
       "id": "avatar-3",
-      "description": "Portrait of a Ghanaian man.",
-      "imageUrl": "https://images.unsplash.com/photo-1588578929512-82de8ae1e8df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxHaGFuYWlhbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MDc3NDYyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Ghanaian portrait"
+      "description": "Portrait of a professional.",
+      "imageUrl": "https://picsum.photos/seed/avatar3/200/200",
+      "imageHint": "professional portrait"
     },
     {
       "id": "avatar-4",
-      "description": "Portrait of a Ghanaian woman.",
-      "imageUrl": "https://images.unsplash.com/photo-1721602195409-4f3e19c6b102?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxHaGFuYWlhbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MDc3NDYyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Ghanaian portrait"
+      "description": "Portrait of a professional.",
+      "imageUrl": "https://picsum.photos/seed/avatar4/200/200",
+      "imageHint": "professional portrait"
     },
     {
       "id": "avatar-5",
-      "description": "Portrait of a Ghanaian man.",
-      "imageUrl": "https://images.unsplash.com/photo-1680531854944-2917979cee21?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxHaGFuYWlhbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MDc3NDYyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Ghanaian portrait"
+      "description": "Portrait of a professional.",
+      "imageUrl": "https://picsum.photos/seed/avatar5/200/200",
+      "imageHint": "professional portrait"
     },
     {
       "id": "avatar-6",
-      "description": "Portrait of a Ghanaian woman.",
-      "imageUrl": "https://images.unsplash.com/photo-1588578929512-82de8ae1e8df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxHaGFuYWlhbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MDc3NDYyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Ghanaian portrait"
+      "description": "Portrait of a professional.",
+      "imageUrl": "https://picsum.photos/seed/avatar6/200/200",
+      "imageHint": "professional portrait"
     },
     {
       "id": "avatar-7",
-      "description": "Portrait of a Ghanaian man.",
-      "imageUrl": "https://images.unsplash.com/photo-1680531854944-2917979cee21?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxHaGFuYWlhbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MDc3NDYyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Ghanaian portrait"
+      "description": "Portrait of a professional.",
+      "imageUrl": "https://picsum.photos/seed/avatar7/200/200",
+      "imageHint": "professional portrait"
     },
     {
       "id": "avatar-8",
-      "description": "Portrait of a Ghanaian woman.",
-      "imageUrl": "https://images.unsplash.com/photo-1628019742671-f06edd70c513?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxHaGFuYWlhbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MDc3NDYyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Ghanaian portrait"
+      "description": "Portrait of a professional.",
+      "imageUrl": "https://picsum.photos/seed/avatar8/200/200",
+      "imageHint": "professional portrait"
     },
     {
       "id": "avatar-9",
-      "description": "Portrait of a Ghanaian man.",
-      "imageUrl": "https://images.unsplash.com/photo-1594085430910-de1c1d48241a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxHaGFuYWlhbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MDc3NDYyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Ghanaian portrait"
+      "description": "Portrait of a professional.",
+      "imageUrl": "https://picsum.photos/seed/avatar9/200/200",
+      "imageHint": "professional portrait"
     },
     {
       "id": "avatar-10",
-      "description": "Portrait of a Ghanaian woman.",
-      "imageUrl": "https://images.unsplash.com/photo-1680531854944-2917979cee21?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxHaGFuYWlhbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MDc3NDYyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Ghanaian portrait"
+      "description": "Portrait of a professional.",
+      "imageUrl": "https://picsum.photos/seed/avatar10/200/200",
+      "imageHint": "professional portrait"
     },
     {
       "id": "avatar-11",
-      "description": "Portrait of a Ghanaian man.",
-      "imageUrl": "https://images.unsplash.com/photo-1588578929512-82de8ae1e8df?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxHaGFuYWlhbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MDc3NDYyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Ghanaian portrait"
+      "description": "Portrait of a professional.",
+      "imageUrl": "https://picsum.photos/seed/avatar11/200/200",
+      "imageHint": "professional portrait"
     },
     {
       "id": "avatar-12",
-      "description": "Portrait of a Ghanaian woman.",
-      "imageUrl": "https://images.unsplash.com/photo-1721602195409-4f3e19c6b102?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxHaGFuYWlhbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MDc3NDYyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Ghanaian portrait"
+      "description": "Portrait of a professional.",
+      "imageUrl": "https://picsum.photos/seed/avatar12/200/200",
+      "imageHint": "professional portrait"
     },
     {
       "id": "avatar-13",
-      "description": "Portrait of a Ghanaian man.",
-      "imageUrl": "https://images.unsplash.com/photo-1620734885969-a3c21e9f34c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8R2hhbmFpYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA3NzQ2Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Ghanaian portrait"
+      "description": "Portrait of a professional.",
+      "imageUrl": "https://picsum.photos/seed/avatar13/200/200",
+      "imageHint": "professional portrait"
     },
     {
       "id": "avatar-14",
-      "description": "Portrait of a Ghanaian woman.",
-      "imageUrl": "https://images.unsplash.com/photo-1620734885969-a3c21e9f34c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8R2hhbmFpYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA3NzQ2Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Ghanaian portrait"
+      "description": "Portrait of a professional.",
+      "imageUrl": "https://picsum.photos/seed/avatar14/200/200",
+      "imageHint": "professional portrait"
     },
     {
       "id": "avatar-15",
-      "description": "Portrait of a Ghanaian man.",
-      "imageUrl": "https://images.unsplash.com/photo-1729727900374-09abc0bb75b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxHaGFuYWlhbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MDc3NDYyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Ghanaian portrait"
+      "description": "Portrait of a professional.",
+      "imageUrl": "https://picsum.photos/seed/avatar15/200/200",
+      "imageHint": "professional portrait"
     },
     {
       "id": "avatar-16",
-      "description": "Portrait of a Ghanaian woman.",
-      "imageUrl": "https://images.unsplash.com/photo-1620734885969-a3c21e9f34c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8R2hhbmFpYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA3NzQ2Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Ghanaian portrait"
+      "description": "Portrait of a professional.",
+      "imageUrl": "https://picsum.photos/seed/avatar16/200/200",
+      "imageHint": "professional portrait"
     },
     {
       "id": "avatar-17",
-      "description": "Portrait of a Ghanaian man.",
-      "imageUrl": "https://images.unsplash.com/photo-1680109878442-4e354d29f83a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxHaGFuYWlhbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MDc3NDYyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Ghanaian portrait"
+      "description": "Portrait of a professional.",
+      "imageUrl": "https://picsum.photos/seed/avatar17/200/200",
+      "imageHint": "professional portrait"
     },
     {
       "id": "avatar-18",
-      "description": "Portrait of a Ghanaian woman.",
-      "imageUrl": "https://images.unsplash.com/photo-1680531854944-2917979cee21?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxHaGFuYWlhbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MDc3NDYyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Ghanaian portrait"
+      "description": "Portrait of a professional.",
+      "imageUrl": "https://picsum.photos/seed/avatar18/200/200",
+      "imageHint": "professional portrait"
     },
     {
       "id": "avatar-19",
-      "description": "Portrait of a Ghanaian man.",
-      "imageUrl": "https://images.unsplash.com/photo-1620734885969-a3c21e9f34c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8R2hhbmFpYW4lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA3NzQ2Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Ghanaian portrait"
+      "description": "Portrait of a professional.",
+      "imageUrl": "https://picsum.photos/seed/avatar19/200/200",
+      "imageHint": "professional portrait"
     },
     {
       "id": "avatar-20",
-      "description": "Portrait of a Ghanaian woman.",
-      "imageUrl": "https://images.unsplash.com/photo-1721602195409-4f3e19c6b102?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxHaGFuYWlhbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MDc3NDYyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Ghanaian portrait"
+      "description": "Portrait of a professional.",
+      "imageUrl": "https://picsum.photos/seed/avatar20/200/200",
+      "imageHint": "professional portrait"
     },
     {
       "id": "avatar-21",
-      "description": "Portrait of a Ghanaian man.",
-      "imageUrl": "https://images.unsplash.com/photo-1637219322409-dfbc03665af3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxHaGFuYWlhbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MDc3NDYyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Ghanaian portrait"
+      "description": "Portrait of a professional.",
+      "imageUrl": "https://picsum.photos/seed/avatar21/200/200",
+      "imageHint": "professional portrait"
     },
     {
       "id": "avatar-22",
-      "description": "Portrait of a Ghanaian woman.",
-      "imageUrl": "https://images.unsplash.com/photo-1721602195409-4f3e19c6b102?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxHaGFuYWlhbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MDc3NDYyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Ghanaian portrait"
+      "description": "Portrait of a professional.",
+      "imageUrl": "https://picsum.photos/seed/avatar22/200/200",
+      "imageHint": "professional portrait"
     },
     {
       "id": "avatar-23",
-      "description": "Portrait of a Ghanaian man.",
-      "imageUrl": "https://images.unsplash.com/photo-1680531854944-2917979cee21?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxHaGFuYWlhbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MDc3NDYyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Ghanaian portrait"
+      "description": "Portrait of a professional.",
+      "imageUrl": "https://picsum.photos/seed/avatar23/200/200",
+      "imageHint": "professional portrait"
     },
     {
       "id": "avatar-24",
-      "description": "Portrait of a Ghanaian woman.",
-      "imageUrl": "https://images.unsplash.com/photo-1594085430910-de1c1d48241a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxHaGFuYWlhbiUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MDc3NDYyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Ghanaian portrait"
+      "description": "Portrait of a professional.",
+      "imageUrl": "https://picsum.photos/seed/avatar24/200/200",
+      "imageHint": "professional portrait"
     },
     {
       "id": "blog-post-1",
-      "description": "Two Black people in an interview setting.",
-      "imageUrl": "https://images.unsplash.com/photo-1511376979163-f804dff7ad7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxpbnRlcnZpZXclMjBqb2J8ZW58MHx8fHwxNzcwNjY1OTQxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Two people in an interview setting.",
+      "imageUrl": "https://picsum.photos/seed/blog1/600/400",
       "imageHint": "interview job"
     },
     {
       "id": "blog-post-2",
       "description": "Code on a screen",
-      "imageUrl": "https://images.unsplash.com/photo-1658274474851-fda40d4c309d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjb2RlJTIwc2NyZWVufGVufDB8fHx8MTc3MDc1MDgyMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/blog2/600/400",
       "imageHint": "code screen"
     },
     {
       "id": "blog-post-3",
       "description": "Diverse team collaborating around a whiteboard.",
-      "imageUrl": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0ZWFtJTIwY29sbGFib3JhdGlvbnxlbnwwfHx8fDE3NzA3MDg4NTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/blog3/600/400",
       "imageHint": "team collaboration"
     },
     {
       "id": "blog-post-4",
       "description": "Serverless architecture diagram",
-      "imageUrl": "https://images.unsplash.com/photo-1644757256739-7782a59712aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxzZXJ2ZXJsZXNzJTIwYXJjaGl0ZWN0dXJlfGVufDB8fHx8MTc3MDY2NjMzMHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "serverless architecture"
+      "imageUrl": "https://picsum.photos/seed/blog4/600/400",
+      "imageHint": "architecture diagram"
     },
     {
       "id": "blog-post-5",
       "description": "State management flow chart",
-      "imageUrl": "https://images.unsplash.com/photo-1763431595443-1bf2586803eb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzdGF0ZSUyMG1hbmFnZW1lbnR8ZW58MHx8fHwxNzcwNzc0NjI3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/blog5/600/400",
       "imageHint": "state management"
     },
     {
       "id": "blog-post-6",
-      "description": "Black person working remotely at a desk.",
-      "imageUrl": "https://images.unsplash.com/photo-1715210471871-590883e6a720?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cmVtb3RlJTIwd29ya3xlbnwwfHx8fDE3NzA3NzQ2Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "Person working remotely at a desk.",
+      "imageUrl": "https://picsum.photos/seed/blog6/600/400",
       "imageHint": "remote work"
     },
     {
       "id": "blog-post-7",
       "description": "A person writing career goals in a notebook.",
-      "imageUrl": "https://images.unsplash.com/photo-1543269865-cbf427effbad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjYXJlZXIlMjBhZHZpY2V8ZW58MHx8fHwxNzcxMjYxMjYyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/blog7/600/400",
       "imageHint": "career advice"
     },
     {
       "id": "blog-post-8",
       "description": "Modern office interior with plants.",
-      "imageUrl": "https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxvZmZpY2UlMjBsaWZlfGVufDB8fHx8MTc3MTI2MTM0NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/blog8/600/400",
       "imageHint": "office life"
     },
     {
       "id": "find-job-1",
-      "description": "Ghanaian people working and collaborating.",
-      "imageUrl": "https://images.unsplash.com/photo-1719480830236-b17202be2699?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxHaGFuYWlhbiUyMHBlb3BsZSUyMHdvcmtpbmd8ZW58MHx8fHwxNzcwNzc0NjI3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Ghanaian people working"
+      "description": "People working and collaborating.",
+      "imageUrl": "https://picsum.photos/seed/findjob1/600/400",
+      "imageHint": "people working"
     },
     {
       "id": "find-job-2",
       "description": "A graph showing upward trend",
-      "imageUrl": "https://images.unsplash.com/photo-1633282336779-2a8d28e31a08?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxncmFwaCUyMHRyZW5kfGVufDB8fHx8MTc3MDY5MDYzNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/findjob2/600/400",
       "imageHint": "graph trend"
     },
     {
       "id": "find-job-3",
       "description": "A card with apply button",
-      "imageUrl": "https://images.unsplash.com/photo-1743234816028-c12cd44f0b02?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhcHBseSUyMGJ1dHRvbnxlbnwwfHx8fDE3NzA2OTA2Mzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/findjob3/600/400",
       "imageHint": "apply button"
     },
     {
       "id": "location-accra",
       "description": "Independence Arch in Accra",
-      "imageUrl": "https://images.unsplash.com/photo-1730453255648-af776b331035?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxBY2NyYSUyMHNreWxpbmV8ZW58MHx8fHwxNzcwNzc0NjI3fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/accra/600/400",
       "imageHint": "Accra skyline"
     },
     {
       "id": "location-kumasi",
       "description": "Kejetia Market in Kumasi",
-      "imageUrl": "https://images.unsplash.com/photo-1629019979466-bea84b3a914a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxLdW1hc2klMjBjdWx0dXJlfGVufDB8fHx8MTc3MDc3NDYyNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/kumasi/600/400",
       "imageHint": "Kumasi culture"
     },
     {
       "id": "location-takoradi",
       "description": "Fishing boats in Takoradi",
-      "imageUrl": "https://images.unsplash.com/photo-1618997963248-3b3a628c1c5a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNDE5ODJ8MHwxfHNlYXJjaHwxfHxHaGFuYSUyMGhhcmJvdXJ8ZW58MHx8fHwxNzcyNjM3MDkxfDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/takoradi/600/400",
       "imageHint": "Takoradi harbour"
     },
     {
       "id": "location-cape-coast",
       "description": "Cape Coast castle",
-      "imageUrl": "https://images.unsplash.com/photo-1557973070-524a52026131?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNDE5ODJ8MHwxfHNlYXJjaHwxfHxDYXBlJTIwQ29hc3QlMjBDYXN0bGV8ZW58MHx8fHwxNzcyNjM3MTcxfDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/capecoast/600/400",
       "imageHint": "CapeCoast castle"
     },
     {
       "id": "location-tamale",
       "description": "Tamale mosque",
-      "imageUrl": "https://images.unsplash.com/photo-1628102492128-099c27943de3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNDE5ODJ8MHwxfHNlYXJjaHwxfHxMYXJhYmFuZ2ElMjBNb3NxdWV8ZW58MHx8fHwxNzcyNjM3MjM0fDA&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/tamale/600/400",
       "imageHint": "Tamale mosque"
     },
     {
       "id": "location-tema",
       "description": "Tema port",
-      "imageUrl": "https://images.unsplash.com/photo-1603513492128-a84175ff1010?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNDE5ODJ8MHwxfHNlYXJjaHwxfHxjb250YWluZXIlMjBwb3J0fGVufDB8fHx8MTc3MjYzNzI3N3ww&ixlib=rb-4.0.3&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/tema/600/400",
       "imageHint": "Tema port"
     },
     {
       "id": "hiring-main",
-      "description": "A group of Black Ghanaian executives in a professional meeting.",
-      "imageUrl": "https://images.unsplash.com/photo-1665686374006-b8f04b62d244?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxibGFjayUyMGV4ZWN1dGl2ZXMlMjBtZWV0aW5nfGVufDB8fHx8MTcyMjYxNzU3N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Black executives"
+      "description": "A group of professionals in a meeting.",
+      "imageUrl": "https://picsum.photos/seed/hiringmain/500/600",
+      "imageHint": "business executives"
     },
     {
       "id": "subscription-1",
       "description": "Team collaboration meeting",
-      "imageUrl": "https://images.unsplash.com/photo-1631203928521-bde1e727e8b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHx0ZWFtJTIwbWVldGluZ3xlbnwwfHx8fDE3NzA3NDMzNTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/sub1/150/100",
       "imageHint": "team meeting"
     },
     {
       "id": "subscription-2",
       "description": "Person working at a desk",
-      "imageUrl": "https://images.unsplash.com/photo-1551434678-e076c223a692?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwZXJzb24lMjB3b3JraW5nfGVufDB8fHx8MTc3MDc3NDYyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/sub2/120/120",
       "imageHint": "person working"
     },
     {
       "id": "subscription-3",
       "description": "Group of students learning",
-      "imageUrl": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxzdHVkZW50cyUyMGxlYXJuaW5nfGVufDB8fHx8MTc3MDc0ODU5Mnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/sub3/160/100",
       "imageHint": "students learning"
     },
     {
       "id": "subscription-4",
       "description": "Man with beard at a desk",
-      "imageUrl": "https://images.unsplash.com/photo-1622117527896-88712457ce81?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtYW4lMjBkZXNrfGVufDB8fHx8MTc3MDc3NDYyN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/sub4/100/120",
       "imageHint": "man desk"
     },
     {
       "id": "subscription-5",
       "description": "Two people in an office environment",
-      "imageUrl": "https://images.unsplash.com/photo-1556761175-b413da4baf72?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxvZmZpY2UlMjBwZW9wbGV8ZW58MHx8fHwxNzcwNzc0NjI2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/sub5/120/90",
       "imageHint": "office people"
     },
     {
       "id": "category-bg",
       "description": "Modern office setting with people working",
-      "imageUrl": "https://images.unsplash.com/photo-1686100510829-e5ba636736b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxvZmZpY2UlMjBiYWNrZ3JvdW5kfGVufDB8fHx8MTc3MDY4MjMwMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/categorybg/1920/1080",
       "imageHint": "office background"
     },
     {
       "id": "top-companies-bg",
       "description": "A vibrant market scene in Ghana.",
-      "imageUrl": "https://images.unsplash.com/photo-1686146711957-04aec031396b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxHaGFuYSUyMG1hcmtldHxlbnwwfHx8fDE3NzA3NzQ2Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/topcompaniesbg/1920/1080",
       "imageHint": "Ghana market"
     },
     {
       "id": "latest-news-bg",
-      "description": "A person of color reading news on a digital tablet.",
-      "imageUrl": "https://images.unsplash.com/photo-1652979775179-d81a2e9748c4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxuZXdzJTIwcmVhZGluZ3xlbnwwfHx8fDE3NzA3NzQ2Mjd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "description": "A person reading news on a digital tablet.",
+      "imageUrl": "https://picsum.photos/seed/latestnewsbg/1920/1080",
       "imageHint": "news reading"
     },
     {
@@ -477,19 +477,19 @@
     {
       "id": "pricing-basic",
       "description": "Small team collaborating in a bright, modern startup office.",
-      "imageUrl": "https://images.unsplash.com/photo-1572025442646-866d16c84a54?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxzdGFydHVwJTIwb2ZmaWNlfGVufDB8fHx8MTc3MDc2NTU5N3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/pricingbasic/600/400",
       "imageHint": "startup office"
     },
     {
       "id": "pricing-pro",
       "description": "A professional team in a conference room discussing a project on a large screen.",
-      "imageUrl": "https://images.unsplash.com/photo-1688380692117-63178554d76d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxidXNpbmVzcyUyMG1lZXRpbmd8ZW58MHx8fHwxNzcwNzUxNDI0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/pricingpro/600/400",
       "imageHint": "business meeting"
     },
     {
       "id": "pricing-enterprise",
       "description": "A bustling, large open-plan office of a major corporation.",
-      "imageUrl": "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb3Jwb3JhdGUlMjBvZmZpY2V8ZW58MHx8fHwxNzcwODE5Mzg4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/pricingenterprise/600/400",
       "imageHint": "corporate office"
     },
     {
@@ -499,21 +499,9 @@
       "imageHint": "resume document"
     },
     {
-      "id": "blog-post-7",
-      "description": "A person writing career goals in a notebook.",
-      "imageUrl": "https://images.unsplash.com/photo-1543269865-cbf427effbad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjYXJlZXIlMjBhZHZpY2V8ZW58MHx8fHwxNzcxMjYxMjYyfDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "career advice"
-    },
-    {
-      "id": "blog-post-8",
-      "description": "Modern office interior with plants.",
-      "imageUrl": "https://images.unsplash.com/photo-1527192491265-7e15c55b1ed2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxvZmZpY2UlMjBsaWZlfGVufDB8fHx8MTc3MTI2MTM0NHww&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "office life"
-    },
-    {
       "id": "contact-map",
       "description": "A vibrant, stylized map of a city showing streets and locations.",
-      "imageUrl": "https://images.unsplash.com/photo-1717700299581-c2fc3fad4ee8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjaXR5JTIwbWFwfGVufDB8fHx8MTc3MDgxNDA5NHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://picsum.photos/seed/contactmap/1080/400",
       "imageHint": "city map"
     }
   ]
