@@ -31,8 +31,8 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import SocialShareButtons from '@/components/shared/social-share-buttons';
 
-export default function JobDetailPage({ params }: { params: { id: string } }) {
-  const { id } = params;
+export default function JobDetailPage({ params: paramsPromise }: { params: Promise<{ id: string }> }) {
+  const { id } = React.use(paramsPromise);
   const job = DUMMY_JOBS.find((j) => j.id === id);
 
   const { toast } = useToast();
