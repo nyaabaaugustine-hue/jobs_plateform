@@ -3,8 +3,8 @@
     {
       "id": "hero-main",
       "description": "A modern office scene with Black professionals collaborating around a table with laptops.",
-      "imageUrl": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhZnJpY2FuJTIwYnVzaW5lc3MlMjBvZmZpY2V8ZW58MHx8fHwxNzcxMDE4NTg0fDA&ixlib=rb-4.1.0&q=80&w=1080",
-      "imageHint": "Ghana professionals collaborating"
+      "imageUrl": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxhZnJpY2FuJTIwYnVzaW5lc3MlMjBtZWV0aW5nfGVufDB8fHx8MTc3MTAxNzYyNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "Ghanaian professionals collaborating"
     },
     {
       "id": "company-logo-1",
@@ -267,13 +267,13 @@
     {
       "id": "location-tema",
       "description": "The port of Tema, Ghana.",
-      "imageUrl": "https://images.unsplash.com/photo-1627993356238-d6b38c2925d4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771012630/tema_xleug8.jpg",
       "imageHint": "Tema port"
     },
     {
       "id": "hiring-main",
       "description": "A group of Black professionals in a business meeting.",
-      "imageUrl": "https://images.unsplash.com/photo-1543269664-7e97f0de39e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhZnJpY2FuJTIwYnVzaW5lc3MlMjBtZWV0aW5nfGVufDB8fHx8MTc3MTAxNzYyNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1613462538814-7d51073ce0ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
       "imageHint": "business meeting"
     },
     {
@@ -309,13 +309,13 @@
     {
       "id": "category-bg",
       "description": "Modern office setting with Ghanaian people working.",
-      "imageUrl": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxhZnJpY2FuJTIwYnVzaW5lc3MlMjBtZWV0aW5nfGVufDB8fHx8MTc3MTAxNzYyNXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
       "imageHint": "Ghana office"
     },
     {
       "id": "top-companies-bg",
       "description": "A vibrant market scene in Accra, Ghana.",
-      "imageUrl": "https://images.unsplash.com/photo-1588289476051-76503c4b5709?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhY2NyYSUyMG1hcmtldHxlbnwwfHx8fDE3NzEwMTg3ODZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageUrl": "https://images.unsplash.com/photo-1618925480413-5858d4a0445d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
       "imageHint": "Ghana market"
     },
     {
@@ -350,7 +350,7 @@
     },
     {
       "id": "pricing-basic",
-      "description": "Small team of Ghanaian professionals collaborating in a bright, modern startup office.",
+      "description": "Small team of Black professionals collaborating in a bright, modern startup office.",
       "imageUrl": "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
       "imageHint": "startup office"
     },
@@ -362,7 +362,7 @@
     },
     {
       "id": "pricing-enterprise",
-      "description": "A bustling, large open-plan office with Ghanaian professionals.",
+      "description": "A bustling, large open-plan office with Black professionals.",
       "imageUrl": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
       "imageHint": "corporate office"
     },
