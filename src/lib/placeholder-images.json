@@ -3,8 +3,8 @@
     {
       "id": "hero-main",
       "description": "Abstract background graphic",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_1200,h_800,c_fill,g_auto/business-conference.jpg",
-      "imageHint": "business conference"
+      "imageUrl": "https://chapelhillmanagers.com/wp-content/uploads/2020/07/Vector-Smart-Object.png",
+      "imageHint": "abstract background"
     },
     {
       "id": "company-logo-1",
@@ -153,301 +153,301 @@
     {
       "id": "avatar-1",
       "description": "Portrait of a professional.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,g_face/smiling-man.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1655249481446-25d575f1c054?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcwODkyMjM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-2",
       "description": "Portrait of a professional.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,g_face/woman-in-white.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1581065178047-8ee15951ede6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-3",
       "description": "Portrait of a professional.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,g_face/face_on_phone.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1655249493799-9cee4fe983bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-4",
       "description": "Portrait of a professional.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,g_face/woman-in-black.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-5",
       "description": "Portrait of a professional.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,g_face/man-in-suit.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1595211877493-41a4e5f236b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-6",
       "description": "Portrait of a professional.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,g_face/woman-with-glasses.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-7",
       "description": "Portrait of a professional.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,g_face/young-man.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1595211877493-41a4e5f236b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-8",
       "description": "Portrait of a professional.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,g_face/woman-smiling.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1655249481446-25d575f1c054?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcwODkyMjM3fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-9",
       "description": "Portrait of a professional.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,g_face/man-in-white.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1607990283143-e81e7a2c9349?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-10",
       "description": "Portrait of a professional.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,g_face/woman-with-camera.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1581065178047-8ee15951ede6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-11",
       "description": "Portrait of a professional.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,g_face/man-in-blue.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-12",
       "description": "Portrait of a professional.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,g_face/woman-in-red.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1595211877493-41a4e5f236b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-13",
       "description": "Portrait of a professional.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,g_face/man-with-hat.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1581065178047-8ee15951ede6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-14",
       "description": "Portrait of a professional.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,g_face/woman-in-yellow.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1595211877493-41a4e5f236b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-15",
       "description": "Portrait of a professional.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,g_face/man-in-green.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-16",
       "description": "Portrait of a professional.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,g_face/woman-in-brown.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-17",
       "description": "Portrait of a professional.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,g_face/man-in-white-checkered.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1581065178047-8ee15951ede6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-18",
       "description": "Portrait of a professional.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,g_face/woman-with-flowers.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-19",
       "description": "Portrait of a professional.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,g_face/man-in-black-suit.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1607990283143-e81e7a2c9349?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-20",
       "description": "Portrait of a professional.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,g_face/woman-in-white-blouse.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-21",
       "description": "Portrait of a professional.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,g_face/man-in-blue-suit.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1607990283143-e81e7a2c9349?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-22",
       "description": "Portrait of a professional.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,g_face/woman-with-laptop.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1595211877493-41a4e5f236b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-23",
       "description": "Portrait of a professional.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,g_face/man-in-white-shirt.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1581065178047-8ee15951ede6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-24",
       "description": "Portrait of a professional.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_200,h_200,c_fill,g_face/woman-in-pink.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NzA4OTIyMzd8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "blog-post-1",
       "description": "Two people in an interview setting.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_600,h_400,c_fill,g_auto/people/business-meeting.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1686771416282-3888ddaf249b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxpbnRlcnZpZXclMjBqb2J8ZW58MHx8fHwxNzcwOTgzNzQzfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "interview job"
     },
     {
       "id": "blog-post-2",
       "description": "Code on a screen",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_600,h_400,c_fill,g_auto/people/programmers.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1567641091594-71640a68f847?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjb2RlJTIwc2NyZWVufGVufDB8fHx8MTc3MDk3MTYwMHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "code screen"
     },
     {
       "id": "blog-post-3",
       "description": "Diverse team collaborating around a whiteboard.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_600,h_400,c_fill,g_auto/people/business-people.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0ZWFtJTIwY29sbGFib3JhdGlvbnxlbnwwfHx8fDE3NzA5MTY0NDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "team collaboration"
     },
     {
       "id": "blog-post-4",
       "description": "Serverless architecture diagram",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_600,h_400,c_fill/docs/serverless-architecture.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1768726455768-b28adf49945b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhcmNoaXRlY3R1cmUlMjBkaWFncmFtfGVufDB8fHx8MTc3MDg3OTk4NHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "architecture diagram"
     },
     {
       "id": "blog-post-5",
       "description": "State management flow chart",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_600,h_400,c_fill/docs/data-flow.png",
+      "imageUrl": "https://images.unsplash.com/photo-1675794211095-b4dcb5892986?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzdGF0ZSUyMG1hbmFnZW1lbnR8ZW58MHx8fHwxNzcwOTgzNzQzfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "state management"
     },
     {
       "id": "blog-post-6",
       "description": "Person working remotely at a desk.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_600,h_400,c_fill,g_auto/people/woman_with_laptop.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1715210471871-590883e6a720?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cmVtb3RlJTIwd29ya3xlbnwwfHx8fDE3NzA5MDM5OTl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "remote work"
     },
     {
       "id": "blog-post-7",
       "description": "A person writing career goals in a notebook.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_600,h_400,c_fill,g_auto/people/woman-writing.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1762968280286-0bfcc4afd0ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjYXJlZXIlMjBhZHZpY2V8ZW58MHx8fHwxNzcwOTgzNzQzfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "career advice"
     },
     {
       "id": "blog-post-8",
       "description": "Modern office interior with plants.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_600,h_400,c_fill/samples/office.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1503797172624-decbe212fdb5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxvZmZpY2UlMjBsaWZlfGVufDB8fHx8MTc3MDk4Mzc0M3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "office life"
     },
     {
       "id": "find-job-1",
       "description": "People working and collaborating.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_600,h_400,c_fill,g_auto/people/business-people-2.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1572021335469-31706a17aaef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwZW9wbGUlMjB3b3JraW5nfGVufDB8fHx8MTc3MDk4Mzc0M3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "people working"
     },
     {
       "id": "find-job-2",
       "description": "A graph showing upward trend",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_600,h_400,c_fill/docs/trends-bar-chart.png",
+      "imageUrl": "https://images.unsplash.com/photo-1633282336779-2a8d28e31a08?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxncmFwaCUyMHRyZW5kfGVufDB8fHx8MTc3MDk4Mzc0M3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "graph trend"
     },
     {
       "id": "find-job-3",
       "description": "A card with apply button",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_600,h_400,c_fill/docs/apply_button.png",
+      "imageUrl": "https://images.unsplash.com/photo-1573661962284-b4780a0ee275?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhcHBseSUyMGJ1dHRvbnxlbnwwfHx8fDE3NzA5ODM3NDN8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "apply button"
     },
     {
       "id": "location-accra",
       "description": "Independence Arch in Accra",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_600,h_400,c_fill,g_auto/samples/landscapes/beach-boat.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1730453255648-af776b331035?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxBY2NyYSUyMHNreWxpbmV8ZW58MHx8fHwxNzcwOTgzNzQzfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Accra skyline"
     },
     {
       "id": "location-kumasi",
       "description": "Kejetia Market in Kumasi",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_600,h_400,c_fill,g_auto/samples/landscapes/market.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1634074967416-dd24d702c93c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxLdW1hc2klMjBjdWx0dXJlfGVufDB8fHx8MTc3MDk4Mzc0M3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Kumasi culture"
     },
     {
       "id": "location-takoradi",
       "description": "Fishing boats in Takoradi",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_600,h_400,c_fill,g_auto/samples/landscapes/seaside-powerline.jpg",
+      "imageUrl": "https://picsum.photos/seed/takoradi/600/400",
       "imageHint": "Takoradi harbour"
     },
     {
       "id": "location-cape-coast",
       "description": "Cape Coast castle",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_600,h_400,c_fill,g_auto/samples/landscapes/girl-urban-view.jpg",
+      "imageUrl": "https://picsum.photos/seed/capecoast/600/400",
       "imageHint": "CapeCoast castle"
     },
     {
       "id": "location-tamale",
       "description": "Tamale mosque",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_600,h_400,c_fill,g_auto/samples/landscapes/architecture-signs.jpg",
+      "imageUrl": "https://picsum.photos/seed/tamale/600/400",
       "imageHint": "Tamale mosque"
     },
     {
       "id": "location-tema",
       "description": "Tema port",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_600,h_400,c_fill,g_auto/samples/landscapes/boat-on-the-water.jpg",
+      "imageUrl": "https://picsum.photos/seed/tema/600/400",
       "imageHint": "Tema port"
     },
     {
       "id": "hiring-main",
       "description": "A group of professionals in a meeting.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_500,h_600,c_fill,g_auto/people/business-meeting.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1613462538814-7d51073ce0ce?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YnVzaW5lc3MlMjBleGVjdXRpdmVzfGVufDB8fHx8MTc3MDk4Mzc0NHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "business executives"
     },
     {
       "id": "subscription-1",
       "description": "Team collaboration meeting",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_150,h_100,c_fill,g_auto/people/business-people.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1568992688065-536aad8a12f6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHx0ZWFtJTIwbWVldGluZ3xlbnwwfHx8fDE3NzA5NzU0OTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "team meeting"
     },
     {
       "id": "subscription-2",
       "description": "Person working at a desk",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_120,h_120,c_fill,g_face/people/woman_with_laptop.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1543270122-f7a11ad44f3a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxwZXJzb24lMjB3b3JraW5nfGVufDB8fHx8MTc3MDk3NTk1Mnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "person working"
     },
     {
       "id": "subscription-3",
       "description": "Group of students learning",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_160,h_100,c_fill/people/students-learning.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1565598621680-94ac0c22b148?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzdHVkZW50cyUyMGxlYXJuaW5nfGVufDB8fHx8MTc3MDg3NzQ4Mnww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "students learning"
     },
     {
       "id": "subscription-4",
       "description": "Man with beard at a desk",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_100,h_120,c_fill,g_face/man-in-suit.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1593487568720-92097fb460fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtYW4lMjBkZXNrfGVufDB8fHx8MTc3MDk4Mzc0M3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "man desk"
     },
     {
       "id": "subscription-5",
       "description": "Two people in an office environment",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_120,h_90,c_fill/people/business-people-2.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxvZmZpY2UlMjBwZW9wbGV8ZW58MHx8fHwxNzcwOTgzNzQzfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "office people"
     },
     {
       "id": "category-bg",
       "description": "Modern office setting with people working",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_1920,h_1080,c_fill/samples/office.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1715593949273-09009558300a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8b2ZmaWNlJTIwYmFja2dyb3VuZHxlbnwwfHx8fDE3NzA5MjI1NzV8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "office background"
     },
     {
       "id": "top-companies-bg",
       "description": "A vibrant market scene in Ghana.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_1920,h_1080,c_fill,g_auto/samples/landscapes/market.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1741973771743-a4c0e6e59b9d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxHaGFuYSUyMG1hcmtldHxlbnwwfHx8fDE3NzA5ODM3NDN8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Ghana market"
     },
     {
       "id": "latest-news-bg",
       "description": "A person reading news on a digital tablet.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_1920,h_1080,c_fill/people/woman-with-tablet.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1607893092608-d63553872334?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxuZXdzJTIwcmVhZGluZ3xlbnwwfHx8fDE3NzA5ODM3NDR8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "news reading"
     },
     {
@@ -477,19 +477,19 @@
     {
       "id": "pricing-basic",
       "description": "Small team collaborating in a bright, modern startup office.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_600,h_400,c_fill,g_auto/people/business-people.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzdGFydHVwJTIwb2ZmaWNlfGVufDB8fHx8MTc3MDk4MzI2M3ww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "startup office"
     },
     {
       "id": "pricing-pro",
       "description": "A professional team in a conference room discussing a project on a large screen.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_600,h_400,c_fill,g_auto/people/business-meeting.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1688380692117-63178554d76d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxidXNpbmVzcyUyMG1lZXRpbmd8ZW58MHx8fHwxNzcwODY0OTU5fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "business meeting"
     },
     {
       "id": "pricing-enterprise",
       "description": "A bustling, large open-plan office of a major corporation.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_600,h_400,c_fill,g_auto/samples/office.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1606857521015-7f9fcf423740?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjb3Jwb3JhdGUlMjBvZmZpY2V8ZW58MHx8fHwxNzcwOTU4MDgzfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "corporate office"
     },
     {
@@ -501,7 +501,7 @@
     {
       "id": "contact-map",
       "description": "A vibrant, stylized map of a city showing streets and locations.",
-      "imageUrl": "https://res.cloudinary.com/demo/image/upload/w_1080,h_400,c_fill,g_auto/docs/map.jpg",
+      "imageUrl": "https://images.unsplash.com/photo-1730317195705-8a265a59ed1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjaXR5JTIwbWFwfGVufDB8fHx8MTc3MDk0MzczOHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "city map"
     }
   ]
