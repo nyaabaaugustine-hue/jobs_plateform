@@ -1,10 +1,11 @@
+
 {
   "placeholderImages": [
     {
       "id": "hero-main",
       "description": "Abstract background graphic",
-      "imageUrl": "https://chapelhillmanagers.com/wp-content/uploads/2020/07/Vector-Smart-Object.png",
-      "imageHint": "abstract background"
+      "imageUrl": "https://picsum.photos/seed/hero-ghana/1920/1080",
+      "imageHint": "Ghana office"
     },
     {
       "id": "company-logo-1",
@@ -297,62 +298,62 @@
     {
       "id": "blog-post-1",
       "description": "Two people in an interview setting.",
-      "imageUrl": "https://picsum.photos/seed/blog1/600/400",
-      "imageHint": "interview job"
+      "imageUrl": "https://picsum.photos/seed/ghana-interview/600/400",
+      "imageHint": "job interview"
     },
     {
       "id": "blog-post-2",
       "description": "Code on a screen",
-      "imageUrl": "https://picsum.photos/seed/blog2/600/400",
+      "imageUrl": "https://picsum.photos/seed/ghana-code/600/400",
       "imageHint": "code screen"
     },
     {
       "id": "blog-post-3",
       "description": "Diverse team collaborating around a whiteboard.",
-      "imageUrl": "https://picsum.photos/seed/blog3/600/400",
-      "imageHint": "team collaboration"
+      "imageUrl": "https://picsum.photos/seed/ghana-team/600/400",
+      "imageHint": "Ghanaian team"
     },
     {
       "id": "blog-post-4",
       "description": "Serverless architecture diagram",
-      "imageUrl": "https://picsum.photos/seed/blog4/600/400",
+      "imageUrl": "https://picsum.photos/seed/ghana-arch/600/400",
       "imageHint": "architecture diagram"
     },
     {
       "id": "blog-post-5",
       "description": "State management flow chart",
-      "imageUrl": "https://picsum.photos/seed/blog5/600/400",
+      "imageUrl": "https://picsum.photos/seed/ghana-state/600/400",
       "imageHint": "state management"
     },
     {
       "id": "blog-post-6",
       "description": "Person working remotely at a desk.",
-      "imageUrl": "https://picsum.photos/seed/blog6/600/400",
+      "imageUrl": "https://picsum.photos/seed/ghana-remote/600/400",
       "imageHint": "remote work"
     },
     {
       "id": "blog-post-7",
       "description": "A person writing career goals in a notebook.",
-      "imageUrl": "https://picsum.photos/seed/blog7/600/400",
+      "imageUrl": "https://picsum.photos/seed/ghana-career/600/400",
       "imageHint": "career advice"
     },
     {
       "id": "blog-post-8",
       "description": "Modern office interior with plants.",
-      "imageUrl": "https://picsum.photos/seed/blog8/600/400",
+      "imageUrl": "https://picsum.photos/seed/ghana-office-life/600/400",
       "imageHint": "office life"
     },
     {
       "id": "find-job-1",
       "description": "People working and collaborating.",
       "imageUrl": "https://picsum.photos/seed/findjob1/600/400",
-      "imageHint": "people working"
+      "imageHint": "Ghana professionals"
     },
     {
       "id": "find-job-2",
       "description": "A graph showing upward trend",
       "imageUrl": "https://picsum.photos/seed/findjob2/600/400",
-      "imageHint": "graph trend"
+      "imageHint": "business graph"
     },
     {
       "id": "find-job-3",
@@ -363,44 +364,44 @@
     {
       "id": "location-accra",
       "description": "Independence Arch in Accra",
-      "imageUrl": "https://picsum.photos/seed/accra/600/400",
+      "imageUrl": "https://picsum.photos/seed/accra-skyline/600/400",
       "imageHint": "Accra skyline"
     },
     {
       "id": "location-kumasi",
       "description": "Kejetia Market in Kumasi",
-      "imageUrl": "https://picsum.photos/seed/kumasi/600/400",
-      "imageHint": "Kumasi culture"
+      "imageUrl": "https://picsum.photos/seed/kumasi-market/600/400",
+      "imageHint": "Kumasi market"
     },
     {
       "id": "location-takoradi",
       "description": "Fishing boats in Takoradi",
-      "imageUrl": "https://picsum.photos/seed/takoradi/600/400",
+      "imageUrl": "https://picsum.photos/seed/takoradi-harbour/600/400",
       "imageHint": "Takoradi harbour"
     },
     {
       "id": "location-cape-coast",
       "description": "Cape Coast castle",
-      "imageUrl": "https://picsum.photos/seed/capecoast/600/400",
+      "imageUrl": "https://picsum.photos/seed/cape-coast-castle/600/400",
       "imageHint": "CapeCoast castle"
     },
     {
       "id": "location-tamale",
       "description": "Tamale mosque",
-      "imageUrl": "https://picsum.photos/seed/tamale/600/400",
+      "imageUrl": "https://picsum.photos/seed/tamale-mosque/600/400",
       "imageHint": "Tamale mosque"
     },
     {
       "id": "location-tema",
       "description": "Tema port",
-      "imageUrl": "https://picsum.photos/seed/tema/600/400",
+      "imageUrl": "https://picsum.photos/seed/tema-port/600/400",
       "imageHint": "Tema port"
     },
     {
       "id": "hiring-main",
       "description": "A group of professionals in a meeting.",
-      "imageUrl": "https://picsum.photos/seed/hiringmain/500/600",
-      "imageHint": "business executives"
+      "imageUrl": "https://picsum.photos/seed/hiring-ghana/500/600",
+      "imageHint": "business meeting"
     },
     {
       "id": "subscription-1",
@@ -435,19 +436,19 @@
     {
       "id": "category-bg",
       "description": "Modern office setting with people working",
-      "imageUrl": "https://picsum.photos/seed/categorybg/1920/1080",
-      "imageHint": "office background"
+      "imageUrl": "https://picsum.photos/seed/ghana-office/1920/1080",
+      "imageHint": "Ghana office"
     },
     {
       "id": "top-companies-bg",
       "description": "A vibrant market scene in Ghana.",
-      "imageUrl": "https://picsum.photos/seed/topcompaniesbg/1920/1080",
+      "imageUrl": "https://picsum.photos/seed/ghana-market/1920/1080",
       "imageHint": "Ghana market"
     },
     {
       "id": "latest-news-bg",
       "description": "A person reading news on a digital tablet.",
-      "imageUrl": "https://picsum.photos/seed/latestnewsbg/1920/1080",
+      "imageUrl": "https://picsum.photos/seed/news-reading/1920/1080",
       "imageHint": "news reading"
     },
     {
@@ -477,19 +478,19 @@
     {
       "id": "pricing-basic",
       "description": "Small team collaborating in a bright, modern startup office.",
-      "imageUrl": "https://picsum.photos/seed/pricingbasic/600/400",
+      "imageUrl": "https://picsum.photos/seed/pricing-basic/600/400",
       "imageHint": "startup office"
     },
     {
       "id": "pricing-pro",
       "description": "A professional team in a conference room discussing a project on a large screen.",
-      "imageUrl": "https://picsum.photos/seed/pricingpro/600/400",
+      "imageUrl": "https://picsum.photos/seed/pricing-pro/600/400",
       "imageHint": "business meeting"
     },
     {
       "id": "pricing-enterprise",
       "description": "A bustling, large open-plan office of a major corporation.",
-      "imageUrl": "https://picsum.photos/seed/pricingenterprise/600/400",
+      "imageUrl": "https://picsum.photos/seed/pricing-enterprise/600/400",
       "imageHint": "corporate office"
     },
     {
@@ -501,8 +502,10 @@
     {
       "id": "contact-map",
       "description": "A vibrant, stylized map of a city showing streets and locations.",
-      "imageUrl": "https://picsum.photos/seed/contactmap/1080/400",
-      "imageHint": "city map"
+      "imageUrl": "https://picsum.photos/seed/accra-map/1080/400",
+      "imageHint": "Accra map"
     }
   ]
 }
+
+    

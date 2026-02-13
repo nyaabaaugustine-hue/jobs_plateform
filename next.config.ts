@@ -19,25 +19,19 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'res.cloudinary.com',
-        port: '',
-        pathname: '/demo/**',
-      },
-      {
-        protocol: 'https',
         hostname: 'storage.googleapis.com',
         port: '',
         pathname: '/**',
       },
       {
         protocol: 'https',
-        hostname: 'images.unsplash.com',
+        hostname: 'picsum.photos',
         port: '',
         pathname: '/**',
       },
       {
         protocol: 'https',
-        hostname: 'picsum.photos',
+        hostname: 'images.unsplash.com',
         port: '',
         pathname: '/**',
       }
