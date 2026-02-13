@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "hero-main",
-      "description": "Two Ghanaian professionals collaborating over a laptop in a modern office.",
-      "imageUrl": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&q=80&w=1080&auto=format&fit=crop",
-      "imageHint": "Ghanaian professionals office"
+      "description": "The Cape Coast Castle in Ghana against a clear blue sky.",
+      "imageUrl": "https://images.unsplash.com/photo-1579003593418-22a4d7c3c43b?ixlib=rb-4.0.3&q=80&w=1080&auto=format&fit=crop",
+      "imageHint": "Cape Coast castle"
     },
     {
       "id": "company-logo-1",
@@ -81,211 +81,157 @@
     {
       "id": "avatar-1",
       "description": "Portrait of a Ghanaian professional woman smiling.",
-      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&q=80&w=400&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=388&q=80",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-2",
       "description": "Portrait of a Ghanaian professional man in a suit.",
-      "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&q=80&w=400&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-3",
       "description": "Portrait of a young Ghanaian professional woman.",
-      "imageUrl": "https://images.unsplash.com/photo-1595211877493-41a4e5f236b3?ixlib=rb-4.0.3&q=80&w=400&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1595211877493-41a4e5f236b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-4",
       "description": "Portrait of a Ghanaian man in business-casual attire.",
-      "imageUrl": "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&q=80&w=400&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-5",
       "description": "Portrait of a smiling Ghanaian woman with braids.",
-      "imageUrl": "https://images.unsplash.com/photo-1607990283143-e81e7a2c9349?ixlib=rb-4.0.3&q=80&w=400&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1607990283143-e81e7a2c9349?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-6",
       "description": "Candid shot of a Ghanaian professional woman laughing.",
-      "imageUrl": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&q=80&w=400&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-7",
       "description": "Portrait of a young Ghanaian man smiling.",
-      "imageUrl": "https://images.unsplash.com/photo-1581065178047-8ee15951ede6?ixlib=rb-4.0.3&q=80&w=400&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1581065178047-8ee15951ede6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-8",
       "description": "Portrait of a Ghanaian professional woman with glasses.",
-      "imageUrl": "https://images.unsplash.com/photo-1655249493799-9cee4fe983bb?ixlib=rb-4.0.3&q=80&w=400&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1655249493799-9cee4fe983bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-9",
       "description": "Portrait of a confident Ghanaian man.",
-      "imageUrl": "https://images.unsplash.com/photo-1655249481446-25d575f1c054?ixlib=rb-4.0.3&q=80&w=400&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1655249481446-25d575f1c054?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-10",
       "description": "Portrait of a Ghanaian woman in a modern office.",
-      "imageUrl": "https://images.unsplash.com/photo-1573496799515-eeb3277f4838?ixlib=rb-4.0.3&q=80&w=400&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1573496799515-eeb3277f4838?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-11",
       "description": "Portrait of a friendly Ghanaian man with a beard.",
-      "imageUrl": "https://images.unsplash.com/photo-1623679799634-841494762b38?ixlib=rb-4.0.3&q=80&w=400&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1623679799634-841494762b38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-12",
       "description": "Candid portrait of a Ghanaian professional woman at work.",
-      "imageUrl": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&q=80&w=400&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-13",
       "description": "Portrait of a mature Ghanaian professional man.",
-      "imageUrl": "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-4.0.3&q=80&w=400&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-14",
       "description": "Portrait of a smiling Ghanaian woman with short hair.",
-      "imageUrl": "https://images.unsplash.com/photo-1628890920690-9e29d0019b9b?ixlib=rb-4.0.3&q=80&w=400&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1628890920690-9e29d0019b9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-15",
       "description": "Portrait of a professional Ghanaian man in a modern office.",
-      "imageUrl": "https://images.unsplash.com/photo-1600878459149-598674f3b036?ixlib=rb-4.0.3&q=80&w=400&auto=format&fit=crop",
-      "imageHint": "professional portrait"
-    },
-    {
-      "id": "avatar-16",
-      "description": "Portrait of a professional Ghanaian woman in a bright office.",
-      "imageUrl": "https://images.unsplash.com/photo-1623964434259-69b52a92440b?ixlib=rb-4.0.3&q=80&w=400&auto=format&fit=crop",
-      "imageHint": "professional portrait"
-    },
-    {
-      "id": "avatar-17",
-      "description": "Headshot of a Black professional man smiling warmly.",
-      "imageUrl": "https://images.unsplash.com/photo-1537511446984-935f663eb1f4?ixlib=rb-4.0.3&q=80&w=400&auto=format&fit=crop",
-      "imageHint": "professional portrait"
-    },
-    {
-      "id": "avatar-18",
-      "description": "Portrait of a confident Black professional woman.",
-      "imageUrl": "https://images.unsplash.com/photo-1542596594-649ed6e6b342?ixlib=rb-4.0.3&q=80&w=400&auto=format&fit=crop",
-      "imageHint": "professional portrait"
-    },
-    {
-      "id": "avatar-19",
-      "description": "Portrait of a young Black professional man.",
-      "imageUrl": "https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-4.0.3&q=80&w=400&auto=format&fit=crop",
-      "imageHint": "professional portrait"
-    },
-    {
-      "id": "avatar-20",
-      "description": "Portrait of a smiling Black professional woman.",
-      "imageUrl": "https://images.unsplash.com/photo-1573497491208-6b1acb260507?ixlib=rb-4.0.3&q=80&w=400&auto=format&fit=crop",
-      "imageHint": "professional portrait"
-    },
-    {
-      "id": "avatar-21",
-      "description": "Portrait of a Black professional man, looking thoughtfully.",
-      "imageUrl": "https://images.unsplash.com/photo-1566753323558-f4e0952af115?ixlib=rb-4.0.3&q=80&w=400&auto=format&fit=crop",
-      "imageHint": "professional portrait"
-    },
-    {
-      "id": "avatar-22",
-      "description": "Candid portrait of a Black woman at her workspace.",
-      "imageUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&q=80&w=400&auto=format&fit=crop",
-      "imageHint": "professional portrait"
-    },
-    {
-      "id": "avatar-23",
-      "description": "Portrait of a young Black man in a modern setting.",
-      "imageUrl": "https://images.unsplash.com/photo-1605462863863-10d9e47e15ee?ixlib=rb-4.0.3&q=80&w=400&auto=format&fit=crop",
-      "imageHint": "professional portrait"
-    },
-    {
-      "id": "avatar-24",
-      "description": "Headshot of a smiling Black professional woman.",
-      "imageUrl": "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-4.0.3&q=80&w=400&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1600878459149-598674f3b036?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
       "imageHint": "professional portrait"
     },
     {
       "id": "blog-post-1",
       "description": "Two Black professionals in a job interview setting.",
-      "imageUrl": "https://images.unsplash.com/photo-1573496130407-57329f01f769?ixlib=rb-4.0.3&q=80&w=800&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1573496130407-57329f01f769?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
       "imageHint": "job interview"
     },
     {
       "id": "blog-post-2",
       "description": "A Black developer coding on a laptop screen.",
-      "imageUrl": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&q=80&w=800&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
       "imageHint": "code screen"
     },
     {
       "id": "blog-post-3",
       "description": "A diverse team of Black professionals collaborating around a whiteboard in an office.",
-      "imageUrl": "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&q=80&w=800&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
       "imageHint": "Ghanaian team"
     },
     {
       "id": "blog-post-4",
       "description": "A young Black man working on a laptop in a cafe.",
-      "imageUrl": "https://images.unsplash.com/photo-1522881193457-33ae7c39524e?ixlib=rb-4.0.3&q=80&w=800&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1522881193457-33ae7c39524e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
       "imageHint": "remote work"
     },
     {
       "id": "blog-post-5",
       "description": "A Black woman leading a presentation in an office.",
-      "imageUrl": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&q=80&w=800&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
       "imageHint": "business presentation"
     },
     {
       "id": "blog-post-6",
       "description": "A Black person working remotely at a well-lit desk.",
-      "imageUrl": "https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixlib=rb-4.0.3&q=80&w=800&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
       "imageHint": "remote work"
     },
     {
       "id": "blog-post-7",
       "description": "A Black professional writing career goals in a notebook.",
-      "imageUrl": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&q=80&w=800&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80",
       "imageHint": "career advice"
     },
     {
       "id": "blog-post-8",
       "description": "Modern office interior with Black professionals working in the background.",
-      "imageUrl": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&q=80&w=800&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
       "imageHint": "office life"
     },
     {
       "id": "find-job-1",
       "description": "Ghanaian professionals collaborating in a meeting.",
-      "imageUrl": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&q=80&w=800&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
       "imageHint": "Ghana professionals"
     },
     {
       "id": "find-job-2",
       "description": "A Black professional presenting a graph showing an upward trend.",
-      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&q=80&w=800&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
       "imageHint": "business graph"
     },
     {
       "id": "find-job-3",
       "description": "A Black person's hand applying for a job on a laptop.",
-      "imageUrl": "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&q=80&w=800&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
       "imageHint": "apply job"
     },
     {
