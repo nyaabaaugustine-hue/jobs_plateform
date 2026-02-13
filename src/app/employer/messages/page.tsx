@@ -41,12 +41,12 @@ const conversationsData: Conversation[] = DUMMY_APPLICANTS.slice(0, 8).map(appli
 export default function EmployerMessagesPage() {
   const { toast } = useToast();
   const [conversations, setConversations] = useState<Conversation[]>(conversationsData);
-  const [selectedConversation, setSelectedConversation] = useState(conversations[0]);
+  const [selectedConversation, setSelectedConversation] = useState<Conversation | null>(conversations[0] || null);
   const [messageText, setMessageText] = useState('');
 
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!messageText.trim()) return;
+    if (!messageText.trim() || !selectedConversation) return;
 
     const newMessage: Message = { from: 'me', text: messageText };
 
@@ -87,7 +87,7 @@ export default function EmployerMessagesPage() {
                             onClick={() => setSelectedConversation(convo)}
                             className={cn(
                                 "w-full text-left p-4 border-b flex gap-3 hover:bg-secondary transition-colors",
-                                selectedConversation.id === convo.id && "bg-secondary"
+                                selectedConversation?.id === convo.id && "bg-secondary"
                             )}
                         >
                             <Avatar>
