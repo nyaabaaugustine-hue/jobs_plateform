@@ -22,7 +22,7 @@ export default function HeroSearchForm() {
   };
 
   return (
-    <div className="rounded-2xl bg-white/10 backdrop-blur-sm p-4 shadow-lg border border-white/20 animate-in fade-in-30 slide-in-from-bottom-12 duration-700 delay-400">
+    <div className="rounded-2xl bg-white/10 backdrop-blur-sm p-4 shadow-lg border border-white/20 ring-2 ring-primary/50 animate-in fade-in-30 slide-in-from-bottom-12 duration-700 delay-400">
       <form onSubmit={handleSearch} className="flex items-center flex-col sm:flex-row gap-4">
         <div className="flex w-full items-center">
           <Briefcase className="h-5 w-5 text-gray-300 mx-3" />
