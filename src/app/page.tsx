@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Briefcase, CheckCircle, MapPin } from 'lucide-react';
@@ -12,7 +13,6 @@ import TopCompanies from '@/components/top-companies';
 import { Suspense } from 'react';
 import HeroSearchForm from '@/components/hero-search-form';
 import SectionHeader from '@/components/shared/section-header';
-import dynamic from 'next/dynamic';
 import { DUMMY_JOBS, JOB_CATEGORIES, DUMMY_COMPANIES, DUMMY_REVIEWS, DUMMY_LOCATIONS, DUMMY_BLOG_POSTS } from '@/lib/data';
 import JobCategories from '@/components/job-categories';
 import HiringSection from '@/components/hiring-section';
@@ -20,13 +20,10 @@ import LatestNews from '@/components/latest-news';
 import SubscriptionSection from '@/components/subscription-section';
 import WhyChooseUs from '@/components/why-choose-us';
 import Testimonials from '@/components/testimonials';
-import VolunteerSection from '@/components/volunteer-section';
 import PricingGrid from '@/components/pricing-grid';
 import JobsByLocation from '@/components/jobs-by-location';
-
-const LiveActivityBar = dynamic(() => import('@/components/live-activity-bar'), { ssr: false });
-const AISupportWidget = dynamic(() => import('@/components/ai-support-widget'), { ssr: false });
-
+import DynamicClientWidgets from '@/components/DynamicClientWidgets';
+import VolunteerSection from '@/components/volunteer-section';
 
 export default function HomePage() {
   const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
@@ -39,11 +36,15 @@ export default function HomePage() {
   ];
 
   const latestPosts = DUMMY_BLOG_POSTS.filter(p => p.status === 'Published').slice(0, 3);
+  const jobs = DUMMY_JOBS;
+  const companies = DUMMY_COMPANIES.slice(0, 10);
+  const categories = ['All', ...JOB_CATEGORIES.map((c) => c.name)];
+  const reviews = DUMMY_REVIEWS;
+  const locations = DUMMY_LOCATIONS;
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
       <Header />
-      <LiveActivityBar />
       <main className="flex-1">
         {/* Hero Section */}
         <section
@@ -83,9 +84,9 @@ export default function HomePage() {
           </div>
         </section>
 
-        <TopCompanies companies={DUMMY_COMPANIES.slice(0, 10)} />
+        <TopCompanies companies={companies} />
 
-        <FeaturedJobs jobs={DUMMY_JOBS} categories={['All', ...JOB_CATEGORIES.map((c) => c.name)]} />
+        <FeaturedJobs jobs={jobs} categories={categories} />
 
         <WhyChooseUs />
 
@@ -117,9 +118,9 @@ export default function HomePage() {
           </div>
         </section>
 
-        <Testimonials reviews={DUMMY_REVIEWS} />
+        <Testimonials reviews={reviews} />
 
-        <JobsByLocation locations={DUMMY_LOCATIONS} />
+        <JobsByLocation locations={locations} />
         
         <LatestNews posts={latestPosts} />
 
@@ -127,7 +128,7 @@ export default function HomePage() {
 
       </main>
       <Footer />
-      <AISupportWidget />
+      <DynamicClientWidgets />
     </div>
   );
 }
