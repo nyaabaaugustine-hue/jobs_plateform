@@ -36,7 +36,7 @@ export default function HiredNotification() {
       });
     };
 
-    const interval = setInterval(showRandomHiredNotification, 20000); 
+    const interval = setInterval(showRandomHiredNotification, 30000); 
 
     return () => {
       clearInterval(interval);
