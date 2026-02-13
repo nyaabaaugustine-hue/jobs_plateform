@@ -369,7 +369,3 @@ export const DUMMY_OPPORTUNITIES = [
     filterValue: 'all',
   }
 ];
-
-    
-
-    
