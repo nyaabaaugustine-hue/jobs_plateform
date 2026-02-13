@@ -1,7 +1,19 @@
 'use client';
 
 import Link from 'next/link';
-import { Menu, LogOut, LayoutDashboard } from 'lucide-react';
+import {
+  Menu,
+  LogOut,
+  LayoutDashboard,
+  Home,
+  Briefcase,
+  Users,
+  Sparkles,
+  Building2,
+  CreditCard,
+  PenSquare,
+  Mail,
+} from 'lucide-react';
 import Logo from './logo';
 import { Button } from '@/components/ui/button';
 import {
@@ -28,19 +40,19 @@ export default function Header() {
 
   // For demo purposes, we will assume the user is always logged out on public pages.
   // The dashboard layouts will handle their own "logged in" state.
-  const user = null; 
+  const user = null;
 
   const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/jobs', label: 'Find a Job' },
-    { href: '/browse-candidates', label: 'Browse Candidates' },
-    { href: '/opportunities', label: 'Opportunities' },
-    { href: '/companies', label: 'Companies' },
-    { href: '/pricing', label: 'Pricing' },
-    { href: '/blog', label: 'Blog' },
-    { href: '/contacts', label: 'Contacts' },
+    { href: '/', label: 'Home', icon: Home },
+    { href: '/jobs', label: 'Find a Job', icon: Briefcase },
+    { href: '/browse-candidates', label: 'Browse Candidates', icon: Users },
+    { href: '/opportunities', label: 'Opportunities', icon: Sparkles },
+    { href: '/companies', label: 'Companies', icon: Building2 },
+    { href: '/pricing', label: 'Pricing', icon: CreditCard },
+    { href: '/blog', label: 'Blog', icon: PenSquare },
+    { href: '/contacts', label: 'Contacts', icon: Mail },
   ];
-  
+
   const renderAuthButtons = () => {
     return (
       <div className="hidden items-center gap-2 md:flex">
@@ -56,8 +68,8 @@ export default function Header() {
       </div>
     );
   };
-  
-   const renderMobileAuthButtons = () => {
+
+  const renderMobileAuthButtons = () => {
     return (
       <div className="grid w-full grid-cols-2 gap-4">
         <Button variant="outline" asChild size="lg">
@@ -83,16 +95,23 @@ export default function Header() {
           </Link>
           <nav className="hidden items-center gap-6 md:flex">
             {navLinks.map((link) => {
-              const isActive = link.href === '/' ? pathname === '/' : pathname.startsWith(link.href);
+              const isActive =
+                link.href === '/'
+                  ? pathname === '/'
+                  : pathname.startsWith(link.href);
+              const Icon = link.icon;
               return (
                 <Link
                   key={link.href + link.label}
                   href={link.href}
                   className={cn(
-                    "text-sm font-medium transition-colors hover:text-primary",
-                    isActive ? "text-primary font-semibold" : "text-muted-foreground"
+                    'flex items-center gap-1.5 text-sm font-medium transition-colors hover:text-primary',
+                    isActive
+                      ? 'text-primary font-semibold'
+                      : 'text-muted-foreground'
                   )}
                 >
+                  <Icon className="h-4 w-4" />
                   {link.label}
                 </Link>
               );
@@ -111,23 +130,32 @@ export default function Header() {
             <SheetContent side="left" className="flex flex-col bg-card p-0">
               <SheetHeader className="p-6 pb-4">
                 <SheetTitle className="sr-only">Menu</SheetTitle>
-                <SheetDescription className="sr-only">Main navigation links</SheetDescription>
+                <SheetDescription className="sr-only">
+                  Main navigation links
+                </SheetDescription>
                 <Link href="/">
                   <Logo />
                 </Link>
               </SheetHeader>
               <nav className="flex-1 space-y-2 p-4">
                 {navLinks.map((link) => {
-                  const isActive = link.href === '/' ? pathname === '/' : pathname.startsWith(link.href);
+                  const isActive =
+                    link.href === '/'
+                      ? pathname === '/'
+                      : pathname.startsWith(link.href);
+                  const Icon = link.icon;
                   return (
                     <Link
                       key={link.href + link.label}
                       href={link.href}
                       className={cn(
-                        "block rounded-lg px-4 py-3 text-lg font-medium transition-colors hover:bg-primary/10 hover:text-primary",
-                        isActive ? "text-primary bg-primary/10" : "text-muted-foreground"
+                        'flex items-center gap-4 rounded-lg px-4 py-3 text-lg font-medium transition-colors hover:bg-primary/10 hover:text-primary',
+                        isActive
+                          ? 'text-primary bg-primary/10'
+                          : 'text-muted-foreground'
                       )}
                     >
+                      <Icon className="h-5 w-5" />
                       {link.label}
                     </Link>
                   );
