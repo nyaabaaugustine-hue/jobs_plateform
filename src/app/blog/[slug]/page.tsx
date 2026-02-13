@@ -1,6 +1,7 @@
 
 'use client';
 
+import React from 'react';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { DUMMY_BLOG_POSTS } from '@/lib/data';
@@ -14,8 +15,8 @@ import { CalendarDays, Clock } from 'lucide-react';
 import RelatedPosts from '@/components/related-posts';
 import SocialShareButtons from '@/components/shared/social-share-buttons';
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+export default function BlogPostPage({ params: paramsPromise }: { params: Promise<{ slug: string }> }) {
+  const { slug } = React.use(paramsPromise);
   const postData = DUMMY_BLOG_POSTS.find((p) => p.slug === slug);
 
   if (!postData) {
