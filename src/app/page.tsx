@@ -8,21 +8,24 @@ import { Input } from '@/components/ui/input';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import { Separator } from '@/components/ui/separator';
-import JobCategories from '@/components/job-categories';
 import FeaturedJobs from '@/components/featured-jobs';
-import HiringSection from '@/components/hiring-section';
 import TopCompanies from '@/components/top-companies';
-import LatestNews from '@/components/latest-news';
-import SubscriptionSection from '@/components/subscription-section';
 import LiveActivityBar from '@/components/live-activity-bar';
-import WhyChooseUs from '@/components/why-choose-us';
-import Testimonials from '@/components/testimonials';
 import { Suspense } from 'react';
-import VolunteerSection from '@/components/volunteer-section';
 import HeroSearchForm from '@/components/hero-search-form';
 import SectionHeader from '@/components/shared/section-header';
-import PricingGrid from '@/components/pricing-grid';
-import JobsByLocation from '@/components/jobs-by-location';
+import dynamic from 'next/dynamic';
+
+const JobCategories = dynamic(() => import('@/components/job-categories'));
+const HiringSection = dynamic(() => import('@/components/hiring-section'));
+const LatestNews = dynamic(() => import('@/components/latest-news'));
+const SubscriptionSection = dynamic(() => import('@/components/subscription-section'));
+const WhyChooseUs = dynamic(() => import('@/components/why-choose-us'));
+const Testimonials = dynamic(() => import('@/components/testimonials'));
+const VolunteerSection = dynamic(() => import('@/components/volunteer-section'));
+const PricingGrid = dynamic(() => import('@/components/pricing-grid'));
+const JobsByLocation = dynamic(() => import('@/components/jobs-by-location'));
+
 
 export default function HomePage() {
   const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
