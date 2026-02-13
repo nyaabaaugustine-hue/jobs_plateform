@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -59,26 +60,10 @@ export const tiers = [
   },
 ];
 
-const KenteCornerArt = () => {
-    const kenteImage = PlaceHolderImages.find(p => p.id === 'kente-corner-art');
-    if (!kenteImage) return null;
-
-    return (
-        <div className="absolute top-0 right-0 h-28 w-28 opacity-30 dark:opacity-40 pointer-events-none overflow-hidden rounded-tr-2xl">
-            <Image
-                src={kenteImage.imageUrl}
-                alt={kenteImage.description}
-                width={200}
-                height={200}
-                className="absolute -top-8 -right-8 object-contain transform rotate-12"
-            />
-        </div>
-    );
-};
-
 
 export default function PricingGrid() {
   const [isYearly, setIsYearly] = useState(false);
+  const kenteImage = PlaceHolderImages.find(p => p.id === 'kente-corner-art');
 
   const getCtaLink = (tier: typeof tiers[0]) => {
     if (tier.id === 'enterprise') {
@@ -102,63 +87,74 @@ export default function PricingGrid() {
             </span>
         </div>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 items-stretch">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 items-end pt-8">
         {tiers.map((tier, index) => {
             return (
-            <Card key={tier.name} className={cn(
-                'relative flex flex-col h-full rounded-2xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-700',
-                {
-                  'border-2 border-red-500 bg-secondary/50 backdrop-blur-sm': tier.id === 'basic',
-                  'border-2 border-yellow-400 shadow-xl bg-black/50': tier.id === 'pro',
-                  'border-2 border-green-500 bg-secondary/50 backdrop-blur-sm': tier.id === 'enterprise',
-                }
-            )} style={{ animationDelay: `${200 + index * 100}ms` }}>
-                <KenteCornerArt />
+            <div key={tier.name} className={cn(
+                "relative transition-transform duration-300",
+                tier.isPopular && 'lg:scale-105'
+            )}>
                 {tier.isPopular && (
-                    <div className="absolute top-0 right-6 -mt-4 bg-black text-yellow-400 px-4 py-1.5 text-sm font-semibold rounded-full shadow-lg z-10 flex items-center gap-1.5">
+                    <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-yellow-400 text-black px-4 py-1.5 rounded-full text-sm font-semibold shadow-lg z-20 flex items-center gap-1.5">
                         <Star className="h-4 w-4" fill="currentColor"/> Most Popular
                     </div>
                 )}
-                <CardHeader className="text-center pt-10">
-                    <CardTitle className="font-headline text-3xl text-white">{tier.name}</CardTitle>
-                    <CardDescription className="pt-1 text-gray-200">{tier.description}</CardDescription>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                    <div className="text-center mb-8">
-                    <span className="font-headline text-5xl font-bold text-white">
-                      {typeof tier.price.monthly === 'number' && typeof tier.price.yearly === 'number'
-                        ? `GH₵${isYearly ? Math.round(tier.price.yearly / 12) : tier.price.monthly}`
-                        : 'Custom'}
-                    </span>
-                    <span className="text-gray-400">
-                        {typeof tier.price.monthly === 'number' ? '/month' : ''}
-                    </span>
-                    {isYearly && typeof tier.price.yearly === 'number' && tier.price.yearly > 0 && (
-                        <p className="text-sm text-gray-400 mt-1">Billed as GH₵{tier.price.yearly}/year</p>
-                    )}
-                    </div>
-                    <ul className="space-y-4">
-                    {tier.features.map((feature) => (
-                        <li key={feature} className="flex items-center gap-3">
-                        <CheckCircle className="h-5 w-5 text-primary" />
-                        <span className="text-gray-200">{feature}</span>
-                        </li>
-                    ))}
-                    </ul>
-                </CardContent>
-                <CardFooter className="p-6 mt-auto">
-                    <Button
-                    asChild
-                    size="lg"
-                    className={cn(
-                        'w-full font-bold text-lg', 
-                        tier.isPopular ? 'bg-yellow-500 hover:bg-yellow-600 text-black' : 'bg-white/10 hover:bg-white/20 text-white'
-                    )}
-                    >
-                    <Link href={getCtaLink(tier)}>{tier.cta}</Link>
-                    </Button>
-                </CardFooter>
-            </Card>
+                <Card className={cn(
+                    'relative flex flex-col h-full rounded-2xl transition-all duration-300 overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-700 bg-card/80 backdrop-blur-sm border-white/20',
+                    tier.isPopular ? 'border-2 border-yellow-400 shadow-2xl' : 'hover:shadow-xl hover:-translate-y-1'
+                )} style={{ animationDelay: `${200 + index * 100}ms` }}>
+                     {kenteImage && (
+                        <Image
+                            src={kenteImage.imageUrl}
+                            alt={kenteImage.description}
+                            width={96}
+                            height={96}
+                            className="absolute top-0 right-0 h-16 w-16 lg:h-24 lg:w-24 opacity-15 pointer-events-none z-0"
+                        />
+                     )}
+                     <div className="relative z-10 flex flex-col h-full">
+                        <CardHeader className="text-center pt-10">
+                            <CardTitle className="font-headline text-3xl text-white">{tier.name}</CardTitle>
+                            <CardDescription className="pt-1 text-gray-200">{tier.description}</CardDescription>
+                        </CardHeader>
+                        <CardContent className="flex-grow">
+                            <div className="text-center mb-8">
+                            <span className="font-headline text-5xl font-bold text-white">
+                            {typeof tier.price.monthly === 'number' && typeof tier.price.yearly === 'number'
+                                ? `GH₵${isYearly ? Math.round(tier.price.yearly / 12) : tier.price.monthly}`
+                                : 'Custom'}
+                            </span>
+                            <span className="text-gray-400">
+                                {typeof tier.price.monthly === 'number' ? '/month' : ''}
+                            </span>
+                            {isYearly && typeof tier.price.yearly === 'number' && tier.price.yearly > 0 && (
+                                <p className="text-sm text-gray-400 mt-1">Billed as GH₵{tier.price.yearly}/year</p>
+                            )}
+                            </div>
+                            <ul className="space-y-4">
+                            {tier.features.map((feature) => (
+                                <li key={feature} className="flex items-center gap-3">
+                                <CheckCircle className="h-5 w-5 text-primary" />
+                                <span className="text-gray-200">{feature}</span>
+                                </li>
+                            ))}
+                            </ul>
+                        </CardContent>
+                        <CardFooter className="p-6 mt-auto">
+                            <Button
+                            asChild
+                            size="lg"
+                            className={cn(
+                                'w-full font-bold text-lg', 
+                                tier.isPopular ? 'bg-yellow-500 hover:bg-yellow-600 text-black' : 'bg-white/10 hover:bg-white/20 text-white'
+                            )}
+                            >
+                            <Link href={getCtaLink(tier)}>{tier.cta}</Link>
+                            </Button>
+                        </CardFooter>
+                     </div>
+                </Card>
+            </div>
         )})}
         </div>
     </div>
