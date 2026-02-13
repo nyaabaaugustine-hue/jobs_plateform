@@ -3,51 +3,33 @@ import type { Job, Company, Review, Application, Applicant, User, BlogPost } fro
 import { Briefcase, Code, Headset, Megaphone, PenTool, Search, Users, BookOpen, Palette, Wallet, BrainCircuit, GitMerge, KanbanSquare, Scale, Stethoscope, Clapperboard, GraduationCap, Handshake, Lightbulb, UserCog, Landmark } from 'lucide-react';
 
 const ghanaianCompanies = [
-    { name: "mPharma", industry: "Healthtech" },
-    { name: "Hubtel", industry: "Fintech" },
-    { name: "MTN Ghana", industry: "Telecommunications" },
-    { name: "GCB Bank", industry: "Banking" },
-    { name: "Stanbic Bank Ghana", industry: "Banking" },
-    { name: "GOIL", industry: "Oil & Gas" },
-    { name: "Vodafone Ghana", industry: "Telecommunications" },
-    { name: "Ecobank Ghana", industry: "Banking" },
-    { name: "KPMG Ghana", industry: "Consulting" },
-    { name: "PwC Ghana", industry: "Professional Services" },
-    { name: "Ashesi University", industry: "Education" },
-    { name: "Nyaho Medical Centre", industry: "Healthcare" }
+    { id: '1', name: "mPharma", industry: "Healthtech", logo: 'company-logo-1' },
+    { id: '2', name: "Hubtel", industry: "Fintech", logo: 'company-logo-2' },
+    { id: '3', name: "MTN Ghana", industry: "Telecommunications", logo: 'company-logo-3' },
+    { id: '4', name: "GCB Bank", industry: "Banking", logo: 'company-logo-4' },
+    { id: '5', name: "Stanbic Bank", industry: "Banking", logo: 'company-logo-5' },
+    { id: '6', name: "GOIL", industry: "Oil & Gas", logo: 'company-logo-6' },
+    { id: '7', name: "Vodafone Ghana", industry: "Telecommunications", logo: 'company-logo-7' },
+    { id: '8', name: "Ecobank Ghana", industry: "Banking", logo: 'company-logo-8' },
+    { id: '9', name: "KPMG Ghana", industry: "Consulting", logo: 'company-logo-9' },
+    { id: '10', name: "PwC Ghana", industry: "Professional Services", logo: 'company-logo-10' },
+    { id: '11', name: "Ashesi University", industry: "Education", logo: 'company-logo-11' },
+    { id: '12', name: "Nyaho Medical Centre", industry: "Healthcare", logo: 'company-logo-12' },
 ];
 
 
-export const DUMMY_COMPANIES: Company[] = Array.from({ length: 12 }, (_, i) => {
-    const companyInfo = ghanaianCompanies[i % ghanaianCompanies.length];
+export const DUMMY_COMPANIES: Company[] = ghanaianCompanies.map((company, i) => {
     const ratings = [4.5, 4.8, 4.2, 4.9, 4.6, 4.7, 4.3, 4.4, 4.8, 4.1, 4.0, 4.9];
     const jobCounts = [5, 8, 3, 12, 6, 9, 2, 7, 10, 4, 1, 15];
-    const companyName = companyInfo.name;
     
-    // Special handling for the first company to be 'mPharma' and used for the employer dashboard demo
-    if (i === 0) {
-        return {
-            id: '1',
-            name: 'mPharma',
-            logo: 'company-logo-1',
-            industry: 'Healthtech',
-            location: 'Accra, Ghana',
-            description: `A leading healthtech company in Ghana.`,
-            website: `mpharma.com`,
-            employerId: `employer-1`,
-            activeJobs: jobCounts[i],
-            rating: ratings[i],
-        };
-    }
-
     return {
-        id: `${i + 1}`,
-        name: companyName,
-        logo: `company-logo-${i + 1}`,
-        industry: companyInfo.industry,
+        id: company.id,
+        name: company.name,
+        logo: company.logo,
+        industry: company.industry,
         location: ['Accra, Ghana', 'Kumasi, Ghana', 'Takoradi, Ghana', 'Tema, Ghana'][i % 4],
-        description: `A leading company in ${companyInfo.industry}.`,
-        website: `${companyName.toLowerCase().replace(/[^a-z0-9]/g, '')}.com.gh`,
+        description: `A leading company in ${company.industry}.`,
+        website: `${company.name.toLowerCase().replace(/[^a-z0-9]/g, '')}.com.gh`,
         employerId: `employer-${i+1}`,
         activeJobs: jobCounts[i],
         rating: ratings[i],
@@ -102,11 +84,16 @@ export const DUMMY_JOBS: Job[] = Array.from({ length: 20 }, (_, i) => {
         experienceLevel = experienceLevels[i % experienceLevels.length];
     }
 
+    // Special handling to make the first job be from mPharma for the employer dashboard demo
+    const assignedCompany = i === 0 
+        ? DUMMY_COMPANIES.find(c => c.name === 'mPharma') || company 
+        : company;
+
     return {
         id: `job-${i + 1}`,
         title: `${experienceLevel} ${category}`,
         description: 'We are looking for a talented individual to join our team. This role involves developing and maintaining our core products, collaborating with cross-functional teams to deliver high-quality solutions.',
-        company: company,
+        company: assignedCompany,
         location: ['Accra', 'Kumasi', 'Remote'][i % 3],
         type: jobType,
         experienceLevel: experienceLevel,

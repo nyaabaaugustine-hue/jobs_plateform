@@ -2,8 +2,8 @@
   "placeholderImages": [
     {
       "id": "hero-main",
-      "description": "Modern office scene with Black professionals collaborating.",
-      "imageUrl": "https://images.unsplash.com/photo-1543269664-56d93c1b41a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
+      "description": "A modern office scene with Ghanaian professionals collaborating around a table with laptops.",
+      "imageUrl": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxhZnJpY2FuJTIwYnVzaW5lc3MlMjBtZWV0aW5nfGVufDB8fHx8MTc3MTAxNzYyNXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Ghanaian professionals collaborating"
     },
     {
@@ -21,7 +21,7 @@
     {
       "id": "company-logo-3",
       "description": "Logo for MTN Ghana.",
-      "imageUrl": "https://placehold.co/100x100/5A3E8A/FFFFFF?text=M",
+      "imageUrl": "https://placehold.co/100x100/FDB813/000000?text=MTN",
       "imageHint": "company logo"
     },
     {
@@ -33,252 +33,174 @@
     {
       "id": "company-logo-5",
       "description": "Logo for Stanbic Bank.",
-      "imageUrl": "https://placehold.co/100x100/B45309/FFFFFF?text=S",
+      "imageUrl": "https://placehold.co/100x100/0033A1/FFFFFF?text=S",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-6",
       "description": "Logo for GOIL.",
-      "imageUrl": "https://placehold.co/100x100/1D4ED8/FFFFFF?text=G",
+      "imageUrl": "https://placehold.co/100x100/E30613/FFFFFF?text=G",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-7",
       "description": "Logo for Vodafone Ghana.",
-      "imageUrl": "https://placehold.co/100x100/7E22CE/FFFFFF?text=V",
+      "imageUrl": "https://placehold.co/100x100/E60000/FFFFFF?text=V",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-8",
       "description": "Logo for Ecobank Ghana.",
-      "imageUrl": "https://placehold.co/100x100/000000/FFFFFF?text=E",
+      "imageUrl": "https://placehold.co/100x100/004386/FFFFFF?text=E",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-9",
       "description": "Logo for KPMG Ghana.",
-      "imageUrl": "https://placehold.co/100x100/1E40AF/FFFFFF?text=K",
+      "imageUrl": "https://placehold.co/100x100/00338D/FFFFFF?text=K",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-10",
       "description": "Logo for PwC Ghana.",
-      "imageUrl": "https://placehold.co/100x100/BE123C/FFFFFF?text=P",
+      "imageUrl": "https://placehold.co/100x100/DC6900/FFFFFF?text=PwC",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-11",
       "description": "Logo for Ashesi University.",
-      "imageUrl": "https://placehold.co/100x100/5A3E8A/FFFFFF?text=A",
+      "imageUrl": "https://placehold.co/100x100/942621/FFFFFF?text=A",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-12",
       "description": "Logo for Nyaho Medical Centre.",
-      "imageUrl": "https://placehold.co/100x100/047857/FFFFFF?text=N",
-      "imageHint": "company logo"
-    },
-    {
-      "id": "company-logo-13",
-      "description": "Logo for Melcom Group.",
-      "imageUrl": "https://placehold.co/100x100/B45309/FFFFFF?text=M",
-      "imageHint": "company logo"
-    },
-    {
-      "id": "company-logo-14",
-      "description": "Logo for TotalEnergies Ghana.",
-      "imageUrl": "https://placehold.co/100x100/1D4ED8/FFFFFF?text=T",
-      "imageHint": "company logo"
-    },
-    {
-      "id": "company-logo-15",
-      "description": "Logo for CalBank.",
-      "imageUrl": "https://placehold.co/100x100/7E22CE/FFFFFF?text=C",
-      "imageHint": "company logo"
-    },
-    {
-      "id": "company-logo-16",
-      "description": "Logo for AirtelTigo.",
-      "imageUrl": "https://placehold.co/100x100/000000/FFFFFF?text=A",
-      "imageHint": "company logo"
-    },
-    {
-      "id": "company-logo-17",
-      "description": "Logo for Databank Group.",
-      "imageUrl": "https://placehold.co/100x100/1E40AF/FFFFFF?text=D",
-      "imageHint": "company logo"
-    },
-    {
-      "id": "company-logo-18",
-      "description": "Logo for EY Ghana.",
-      "imageUrl": "https://placehold.co/100x100/BE123C/FFFFFF?text=E",
-      "imageHint": "company logo"
-    },
-    {
-      "id": "company-logo-19",
-      "description": "Logo for ExpressPay.",
-      "imageUrl": "https://placehold.co/100x100/5A3E8A/FFFFFF?text=E",
-      "imageHint": "company logo"
-    },
-    {
-      "id": "company-logo-20",
-      "description": "Logo for Soronko Academy.",
-      "imageUrl": "https://placehold.co/100x100/047857/FFFFFF?text=S",
-      "imageHint": "company logo"
-    },
-    {
-      "id": "company-logo-21",
-      "description": "Logo for Rancard.",
-      "imageUrl": "https://placehold.co/100x100/B45309/FFFFFF?text=R",
-      "imageHint": "company logo"
-    },
-    {
-      "id": "company-logo-22",
-      "description": "Logo for Benso Oil Palm Plantation.",
-      "imageUrl": "https://placehold.co/100x100/1D4ED8/FFFFFF?text=B",
-      "imageHint": "company logo"
-    },
-    {
-      "id": "company-logo-23",
-      "description": "Logo for Koala Shopping Centre.",
-      "imageUrl": "https://placehold.co/100x100/7E22CE/FFFFFF?text=K",
-      "imageHint": "company logo"
-    },
-    {
-      "id": "company-logo-24",
-      "description": "Logo for PALACE.",
-      "imageUrl": "https://placehold.co/100x100/000000/FFFFFF?text=P",
+      "imageUrl": "https://placehold.co/100x100/005A9D/FFFFFF?text=N",
       "imageHint": "company logo"
     },
     {
       "id": "avatar-1",
-      "description": "Portrait of a Ghanaian professional woman.",
-      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+      "description": "Portrait of a Ghanaian professional.",
+      "imageUrl": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhZnJpY2FuJTIwcHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcxMDE4MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-2",
-      "description": "Portrait of a Ghanaian professional man.",
-      "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+      "description": "Portrait of a Ghanaian professional.",
+      "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxhZnJpY2FuJTIwcHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcxMDE4MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-3",
-      "description": "Portrait of a Ghanaian professional woman.",
-      "imageUrl": "https://images.unsplash.com/photo-1595211877493-41a4e5f236b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+      "description": "Portrait of a Ghanaian professional.",
+      "imageUrl": "https://images.unsplash.com/photo-1595211877493-41a4e5f236b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxhZnJpY2FuJTIwcHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcxMDE4MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-4",
-      "description": "Portrait of a Ghanaian professional man.",
-      "imageUrl": "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+      "description": "Portrait of a Ghanaian professional.",
+      "imageUrl": "https://images.unsplash.com/photo-1560250097-0b93528c311a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhZnJpY2FuJTIwcHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcxMDE4MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-5",
-      "description": "Portrait of a Ghanaian professional man.",
-      "imageUrl": "https://images.unsplash.com/photo-1607990283143-e81e7a2c9349?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+      "description": "Portrait of a Ghanaian professional.",
+      "imageUrl": "https://images.unsplash.com/photo-1607990283143-e81e7a2c9349?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxhZnJpY2FuJTIwcHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcxMDE4MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-6",
-      "description": "Portrait of a Ghanaian professional woman.",
-      "imageUrl": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
-      "imageHint": "professional portrait"
-    },
-    {
-      "id": "avatar-7",
-      "description": "Portrait of a Ghanaian professional man.",
-      "imageUrl": "https://images.unsplash.com/photo-1581065178047-8ee15951ede6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
-      "imageHint": "professional portrait"
-    },
-    {
-      "id": "avatar-8",
-      "description": "Portrait of a Ghanaian professional woman.",
-      "imageUrl": "https://images.unsplash.com/photo-1655249493799-9cee4fe983bb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
-      "imageHint": "professional portrait"
-    },
-    {
-      "id": "avatar-9",
-      "description": "Portrait of a Ghanaian professional man.",
-      "imageUrl": "https://images.unsplash.com/photo-1655249481446-25d575f1c054?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
-      "imageHint": "professional portrait"
-    },
-    {
-      "id": "avatar-10",
-      "description": "Portrait of a Ghanaian professional woman.",
+      "description": "Portrait of a Ghanaian professional.",
       "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhZnJpY2FuJTIwcHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcxMDE4MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
+      "id": "avatar-7",
+      "description": "Portrait of a Ghanaian professional.",
+      "imageUrl": "https://images.unsplash.com/photo-1581065178047-8ee15951ede6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhZnJpY2FuJTIwcHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcxMDE4MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional portrait"
+    },
+    {
+      "id": "avatar-8",
+      "description": "Portrait of a Ghanaian professional.",
+      "imageUrl": "https://images.unsplash.com/photo-1655249493799-9cee4fe983bb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxhZnJpY2FuJTIwcHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcxMDE4MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional portrait"
+    },
+    {
+      "id": "avatar-9",
+      "description": "Portrait of a Ghanaian professional.",
+      "imageUrl": "https://images.unsplash.com/photo-1655249481446-25d575f1c054?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YWZyaWNhbiUyMHByb2Zlc3Npb25hbCUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MTAxODAzMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional portrait"
+    },
+    {
+      "id": "avatar-10",
+      "description": "Portrait of a Ghanaian professional.",
+      "imageUrl": "https://images.unsplash.com/photo-1655249481446-25d575f1c054?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YWZyaWNhbiUyMHByb2Zlc3Npb25hbCUyMHBvcnRyYWl0fGVufDB8fHx8MTc3MTAxODAzMnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "professional portrait"
+    },
+    {
       "id": "avatar-11",
-      "description": "Portrait of a Ghanaian professional man.",
+      "description": "Portrait of a Ghanaian professional.",
       "imageUrl": "https://images.unsplash.com/photo-1607990283143-e81e7a2c9349?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxhZnJpY2FuJTIwcHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcxMDE4MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-12",
-      "description": "Portrait of a Ghanaian professional woman.",
+      "description": "Portrait of a Ghanaian professional.",
       "imageUrl": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxhZnJpY2FuJTIwcHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcxMDE4MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-13",
-      "description": "Portrait of a Ghanaian professional woman.",
+      "description": "Portrait of a Ghanaian professional.",
       "imageUrl": "https://images.unsplash.com/photo-1595211877493-41a4e5f236b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxhZnJpY2FuJTIwcHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcxMDE4MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-14",
-      "description": "Portrait of a Ghanaian professional man.",
+      "description": "Portrait of a Ghanaian professional.",
       "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxhZnJpY2FuJTIwcHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcxMDE4MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "avatar-15",
-      "description": "Portrait of a Ghanaian professional woman.",
-      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
-      "imageHint": "professional portrait"
-    },
-    {
-      "id": "avatar-16",
-      "description": "Portrait of a Ghanaian professional man.",
-      "imageUrl": "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
+      "description": "Portrait of a Ghanaian professional.",
+      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhZnJpY2FuJTIwcHJvZmVzc2lvbmFsJTIwcG9ydHJhaXR8ZW58MHx8fHwxNzcxMDE4MDMyfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "professional portrait"
     },
     {
       "id": "blog-post-1",
-      "description": "Two Black professionals in an interview setting.",
+      "description": "Two Black professionals in a job interview setting.",
       "imageUrl": "https://images.unsplash.com/photo-1573496130407-57329f01f769?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhZnJpY2FuJTIwYnVzaW5lc3MlMjBqb2IlMjBpbnRlcnZpZXd8ZW58MHx8fHwxNzcxMDE4NDI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "job interview"
     },
     {
       "id": "blog-post-2",
-      "description": "Black developer coding on a screen",
+      "description": "A Black developer coding on a laptop screen.",
       "imageUrl": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80",
       "imageHint": "code screen"
     },
     {
       "id": "blog-post-3",
-      "description": "Diverse team of Black professionals collaborating around a whiteboard.",
+      "description": "A diverse team of Black professionals collaborating around a whiteboard in an office.",
       "imageUrl": "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80",
       "imageHint": "Ghanaian team"
     },
     {
       "id": "blog-post-4",
-      "description": "Abstract technology background",
+      "description": "Abstract technology background with glowing nodes, representing serverless architecture.",
       "imageUrl": "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzcxMDE4NDI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "architecture diagram"
     },
     {
       "id": "blog-post-5",
-      "description": "Abstract technology background",
+      "description": "Abstract flow chart representing state management.",
       "imageUrl": "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMGJhY2tncm91bmR8ZW58MHx8fHwxNzcxMDE4NDI4fDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "state management"
     },
     {
       "id": "blog-post-6",
-      "description": "Black person working remotely at a desk.",
+      "description": "A Black person working remotely at a well-lit desk.",
       "imageUrl": "https://images.unsplash.com/photo-1586281380349-632531db7ed4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxhZnJpY2FuJTIwcmVtb3RlJTIwd29ya3xlbnwwfHx8fDE3NzEwMTg0Mjh8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "remote work"
     },
@@ -290,19 +212,19 @@
     },
     {
       "id": "blog-post-8",
-      "description": "Modern office interior with Black professionals in the background.",
+      "description": "Modern office interior with Black professionals working in the background.",
       "imageUrl": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxvZmZpY2UlMjBsaWZlfGVufDB8fHx8MTc3MTAxODQyOHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "office life"
     },
     {
       "id": "find-job-1",
-      "description": "Ghanaian professionals working and collaborating.",
+      "description": "Ghanaian professionals collaborating in a meeting.",
       "imageUrl": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxhZnJpY2FuJTIwYnVzaW5lc3MlMjBtZWV0aW5nfGVufDB8fHx8fDE3NzEwMTg0Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "Ghana professionals"
     },
     {
       "id": "find-job-2",
-      "description": "A graph showing upward trend being presented by a Black professional.",
+      "description": "A Black professional presenting a graph showing an upward trend.",
       "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMGdyYXBofGVufDB8fHx8fDE3NzEwMTg0Mjl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "business graph"
     },
