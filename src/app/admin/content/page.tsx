@@ -2,9 +2,10 @@
 'use client';
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { LayoutDashboard, Palmtree } from 'lucide-react';
+import { LayoutDashboard, Palmtree, Handshake } from 'lucide-react';
 import HeroEditor from './components/hero-editor';
 import WhyChooseUsEditor from './components/why-choose-us-editor';
+import HiringSectionEditor from './components/hiring-section-editor';
 
 export default function AdminContentPage() {
   return (
@@ -24,12 +25,18 @@ export default function AdminContentPage() {
           <TabsTrigger value="why-choose-us">
             <LayoutDashboard className="mr-2" /> 'Why Choose Us' Section
           </TabsTrigger>
+          <TabsTrigger value="hiring-section">
+            <Handshake className="mr-2" /> Hiring Section
+          </TabsTrigger>
         </TabsList>
         <TabsContent value="hero">
           <HeroEditor />
         </TabsContent>
         <TabsContent value="why-choose-us">
           <WhyChooseUsEditor />
+        </TabsContent>
+        <TabsContent value="hiring-section">
+          <HiringSectionEditor />
         </TabsContent>
       </Tabs>
     </div>
