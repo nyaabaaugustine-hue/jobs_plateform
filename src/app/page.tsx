@@ -31,6 +31,7 @@ const AISupportWidget = dynamic(() => import('@/components/ai-support-widget'), 
 
 export default function HomePage() {
   const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
+  const categoryBgImage = PlaceHolderImages.find((p) => p.id === 'category-bg');
 
   const trustIndicators = [
     { text: '12,430+ jobs available' },
@@ -93,14 +94,26 @@ export default function HomePage() {
 
         <HiringSection />
         
-        <section className="py-16 md:py-24 bg-secondary">
-          <div className="mb-12 text-center">
-              <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Flexible Pricing for Every Team</h2>
-              <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-                  Choose the plan that's right for you. Get started for free or unlock powerful features with our Pro plan.
-              </p>
+        <section className="relative py-16 md:py-24">
+          {categoryBgImage && (
+            <Image
+              src={categoryBgImage.imageUrl}
+              alt="Modern office background"
+              fill
+              className="object-cover z-0"
+              data-ai-hint={categoryBgImage.imageHint}
+            />
+          )}
+          <div className="absolute inset-0 bg-background/80 backdrop-blur-sm z-10" />
+          <div className="relative z-20">
+            <div className="mb-12 text-center">
+                <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Flexible Pricing for Every Team</h2>
+                <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+                    Choose the plan that's right for you. Get started for free or unlock powerful features with our Pro plan.
+                </p>
+            </div>
+            <PricingGrid />
           </div>
-          <PricingGrid />
         </section>
 
         <Testimonials />
