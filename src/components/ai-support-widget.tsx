@@ -2,16 +2,21 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { Bot, SendHorizonal, X, Loader, CornerDownLeft, Sparkles, User, MessageSquare } from 'lucide-react';
+import { Bot, SendHorizonal, X, Loader, Sparkles, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { useToast } from '@/hooks/use-toast';
 
 type Message = {
     id: number;
     sender: 'user' | 'ai';
     text: string;
+    action?: {
+        label: string;
+        onClick: () => void;
+    };
 };
 
 type QuickAction = {
@@ -25,18 +30,58 @@ export default function AISupportWidget() {
     const [inputValue, setInputValue] = useState('');
     const [isTyping, setIsTyping] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement>(null);
+    const { toast } = useToast();
     
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+     const handleShowPopularJob = () => {
+        // 1. Add a user message to simulate the click
+        const userMessage: Message = { id: Date.now(), sender: 'user', text: "Show me the popular job" };
+        
+        // 2. Remove the action from the previous AI message to prevent re-clicking
+        setMessages(prev =>
+            prev.map(m => (m.action ? { ...m, action: undefined } : m)).concat(userMessage)
+        );
+
+        // 3. AI responds with the job
+        setIsTyping(true);
+        setTimeout(() => {
+            const aiResponse: Message = { 
+                id: Date.now() + 1, 
+                sender: 'ai', 
+                text: "Our most popular opening right now is 'Senior React Developer' at Innovate Inc. It's a great remote opportunity with a competitive salary.",
+                action: {
+                    label: 'View Job Details',
+                    onClick: () => {
+                        toast({
+                            title: "Navigating to Job...",
+                            description: "Opening the 'Senior React Developer' position.",
+                            variant: 'vibrant',
+                        });
+                    }
+                }
+            };
+            setMessages(prev => [...prev, aiResponse]);
+            setIsTyping(false);
+        }, 1800);
     };
 
     useEffect(() => {
         if (isOpen) {
             setIsTyping(true);
             setTimeout(() => {
-                setMessages([
-                    { id: 1, sender: 'ai', text: "Hello! I'm your AI Support Assistant. How can I help you find your next opportunity or top-tier talent today?" }
-                ]);
+                const initialAiMessage: Message = {
+                    id: 1,
+                    sender: 'ai',
+                    text: "Hello! I'm your AI Support Assistant. I can help you find jobs or answer your questions. For example, I can show you our most popular job right now.",
+                    action: {
+                        label: 'Show me the popular job',
+                        onClick: handleShowPopularJob,
+                    }
+                };
+                setMessages([initialAiMessage]);
                 setIsTyping(false);
             }, 1500);
         } else {
@@ -59,12 +104,6 @@ export default function AISupportWidget() {
             setIsTyping(false);
         }, 1200);
     };
-
-    const quickActions: QuickAction[] = [
-        { label: 'View Pricing', action: () => handleQuickAction('Tell me about pricing.', 'Of course! Our pricing is designed to be flexible. We have a free Basic plan, a Pro plan for growing teams at GH₵99/month, and custom Enterprise solutions. You can see all the details on our pricing page!') },
-        { label: 'Post a Job', action: () => handleQuickAction('How do I post a job?', 'Posting a job is easy! Just head over to our "Post a Job" page, fill in the details about the role, and you can publish it in minutes. Our Pro plan allows for multiple job posts.') },
-        { label: 'Browse Candidates', action: () => handleQuickAction('Can I browse candidates?', 'Absolutely. Our "Browse Candidates" section lets you discover top talent. With a Pro plan, you get unlimited views and access to our AI matching feature to find the perfect fit faster.') },
-    ];
     
     const handleSendMessage = (e?: React.FormEvent) => {
         e?.preventDefault();
@@ -120,6 +159,7 @@ export default function AISupportWidget() {
                                 message.sender === 'user' ? 'flex-row-reverse' : 'flex-row'
                             )}>
                                 {message.sender === 'ai' && <Bot className="h-6 w-6 text-primary shrink-0 mb-1" />}
+                                {message.sender === 'user' && <User className="h-6 w-6 text-primary shrink-0 mb-1" />}
                                 <div className={cn(
                                     "px-4 py-2.5 rounded-xl max-w-[85%] text-sm",
                                     message.sender === 'user'
@@ -127,18 +167,19 @@ export default function AISupportWidget() {
                                         : "bg-secondary text-secondary-foreground rounded-bl-none"
                                 )}>
                                     <p className="whitespace-pre-wrap">{message.text}</p>
+                                     {message.action && (
+                                        <Button
+                                            size="sm"
+                                            className="mt-3 bg-primary/10 text-primary hover:bg-primary/20 border border-primary/20"
+                                            onClick={message.action.onClick}
+                                        >
+                                            <Sparkles className="mr-2 h-3 w-3" />
+                                            {message.action.label}
+                                        </Button>
+                                    )}
                                 </div>
                             </div>
                         ))}
-                        {messages.length === 1 && (
-                            <div className="flex flex-wrap gap-2 animate-fade-in-up" style={{animationDelay: '300ms'}}>
-                                {quickActions.map(qa => (
-                                     <Button key={qa.label} variant="outline" size="sm" className="rounded-full bg-secondary/80 border-primary/20 hover:bg-primary/20" onClick={() => qa.action()}>
-                                        {qa.label}
-                                    </Button>
-                                ))}
-                            </div>
-                        )}
                          {isTyping && (
                             <div className="flex gap-2 items-end animate-fade-in-up">
                                 <Bot className="h-6 w-6 text-primary shrink-0 mb-1" />
@@ -191,4 +232,3 @@ export default function AISupportWidget() {
         </TooltipProvider>
     );
 }
-
