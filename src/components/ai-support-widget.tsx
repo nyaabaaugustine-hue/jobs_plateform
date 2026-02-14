@@ -252,20 +252,24 @@ export default function AISupportWidget() {
                     <TooltipTrigger asChild>
                          <button
                             onClick={() => setIsOpen(!isOpen)}
-                             className={cn(
-                                "relative w-16 h-16 rounded-full overflow-hidden shadow-xl shadow-[0_0_20px_rgba(59,130,246,0.4)] ring-2 ring-primary/40 transition-all duration-300 ease-out hover:scale-105",
+                            className={cn(
+                                "relative w-20 h-20 rounded-full overflow-hidden shadow-2xl shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-transform duration-300 ease-out hover:scale-105",
                                 isOpen && 'scale-0 opacity-0'
                             )}
                         >
                             {aiButtonImage ? (
-                                <Image
-                                    src={aiButtonImage.imageUrl}
-                                    alt={aiButtonImage.description}
-                                    fill
-                                    className="object-cover"
-                                />
+                                <div className="absolute inset-0">
+                                    <Image
+                                        src={aiButtonImage.imageUrl}
+                                        alt={aiButtonImage.description}
+                                        fill
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
                             ) : (
-                                <Sparkles className="h-8 w-8 text-white" />
+                                <div className="w-full h-full bg-primary flex items-center justify-center">
+                                     <Sparkles className="h-10 w-10 text-white" />
+                                </div>
                             )}
                         </button>
                     </TooltipTrigger>
