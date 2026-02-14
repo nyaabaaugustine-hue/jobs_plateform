@@ -23,7 +23,7 @@ export default function Logo({ className }: LogoProps) {
       <Image
         src={logoImage.imageUrl}
         alt="Chapel Hill Logo"
-        width={150}
+        width={122}
         height={40}
         className="object-contain"
         priority
