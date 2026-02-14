@@ -1,4 +1,5 @@
 
+
 export type Company = {
   id: string;
   name: string;
@@ -8,10 +9,14 @@ export type Company = {
   description: string;
   website: string;
   employerId: string;
+  size?: string;
+  subscriptionTier?: 'basic' | 'pro' | 'enterprise';
   // Non-schema fields
   activeJobs?: number;
   rating?: number;
 };
+
+export type UserRole = 'jobSeeker' | 'employer' | 'recruiter' | 'hiringManager' | 'admin';
 
 export type User = {
   id: string;
@@ -20,13 +25,24 @@ export type User = {
   lastName?: string;
   email: string;
   avatar: string; // URL to avatar image
-  role: string;
+  role: UserRole;
+  companyId?: string;
+  profileData?: {
+    skills?: string[];
+    education?: any[];
+    experience?: any[];
+    resumeUrl?: string;
+    profileStrength?: number;
+  };
+  aiScore?: number;
+  resumeEmbedding?: string;
 };
 
 export type Job = {
   id:string;
   title: string;
   description: string;
+  requirements?: string;
   company: Company;
   location: string;
   type: 'Full-time' | 'Part-time' | 'Contract' | 'Internship' | 'Volunteer';
@@ -37,6 +53,8 @@ export type Job = {
   postedDate: string;
   employerId?: string;
   category?: string;
+  jobEmbedding?: string;
+  aiPriorityScore?: number;
 };
 
 export type Review = {
@@ -46,13 +64,27 @@ export type Review = {
   comment: string;
 };
 
+export type ApplicationStatus = 'APPLIED' | 'UNDER_REVIEW' | 'SHORTLISTED' | 'INTERVIEW' | 'OFFER' | 'HIRED' | 'REJECTED';
+
 export type Application = {
   id: string;
   job: Job;
-  user: User;
-  status: 'Applied' | 'Screening' | 'Interview' | 'Offer' | 'Hired' | 'Rejected';
+  user: User; // In a real app, this might just be applicantId
+  status: ApplicationStatus;
   appliedDate: string;
+  jobId: string;
+  applicantId: string;
+  companyId: string;
+  employerId: string;
+  resumeUrl?: string;
   coverLetter?: string;
+  aiMatchScore?: number;
+  screeningScore?: number;
+  interviewScore?: number;
+  interviewDate?: string;
+  offerDetails?: string;
+  pipelineStage?: string;
+  timelineEvents?: any[];
 };
 
 export type Applicant = {

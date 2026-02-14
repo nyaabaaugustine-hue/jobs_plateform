@@ -16,8 +16,24 @@ service cloud.firestore {
       return isSignedIn() && exists(/databases/$(database)/documents/roles_admin/$(request.auth.uid));
     }
     
-    function isEmployer() {
-        return isSignedIn() && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'employer';
+    function getUserRole() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role;
+    }
+
+    function isRole(role) {
+      return isSignedIn() && getUserRole() == role;
+    }
+    
+    // Checks if the requesting user is part of the hiring team for a given company
+    function isHiringTeamMember(companyId) {
+      let user = get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+      let company = get(/databases/$(database)/documents/companies/$(companyId)).data;
+      let userRole = getUserRole();
+
+      let isCompanyOwner = company.employerId == request.auth.uid && userRole == 'employer';
+      let isTeamMember = (userRole == 'recruiter' || userRole == 'hiringManager') && user.companyId == companyId;
+
+      return isCompanyOwner || isTeamMember;
     }
 
     // Rules for user profiles
@@ -37,17 +53,17 @@ service cloud.firestore {
     // Rules for companies
     match /companies/{companyId} {
       allow read: if true;
-      allow create: if isEmployer() && request.auth.uid == request.resource.data.employerId;
-      allow update: if (isEmployer() && request.auth.uid == resource.data.employerId) || isAdmin();
+      allow create: if isRole('employer') && request.auth.uid == request.resource.data.employerId;
+      allow update: if isHiringTeamMember(companyId) || isAdmin();
       allow delete: if isAdmin();
     }
 
     // Rules for jobs
     match /jobs/{jobId} {
         allow read: if true;
-        allow create: if isEmployer() && request.auth.uid == request.resource.data.employerId;
-        allow update: if (isEmployer() && request.auth.uid == resource.data.employerId) || isAdmin();
-        allow delete: if (isEmployer() && request.auth.uid == resource.data.employerId) || isAdmin();
+        allow create: if isRole('employer') && request.auth.uid == request.resource.data.employerId;
+        allow update: if isHiringTeamMember(request.resource.data.companyId) || isAdmin();
+        allow delete: if isHiringTeamMember(request.resource.data.companyId) || isAdmin();
     }
 
     // Rules for blog posts
@@ -58,9 +74,9 @@ service cloud.firestore {
 
     // Rules for applications
     match /applications/{applicationId} {
-        allow read: if isSignedIn() && (request.auth.uid == resource.data.applicantId || request.auth.uid == resource.data.employerId || isAdmin());
+        allow read: if isSignedIn() && (request.auth.uid == resource.data.applicantId || isHiringTeamMember(resource.data.companyId) || isAdmin());
         allow create: if isSignedIn() && request.auth.uid == request.resource.data.applicantId;
-        allow update: if isSignedIn() && (request.auth.uid == resource.data.employerId || isAdmin()); // For status changes
+        allow update: if isSignedIn() && (isHiringTeamMember(resource.data.companyId) || isAdmin());
         allow delete: if isAdmin();
     }
   }
