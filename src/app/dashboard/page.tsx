@@ -11,7 +11,7 @@ import SavedJobsSummary from './components/SavedJobsSummary';
 
 export default function JobSeekerDashboard() {
   const savedJobs = DUMMY_JOBS.filter((job, index) => [3, 4, 6, 8, 10].includes(index));
-  const interviewsScheduled = DUMMY_APPLICATIONS.filter((a) => a.status === 'Interview').length;
+  const interviewsScheduled = DUMMY_APPLICATIONS.filter((a) => a.status === 'INTERVIEW').length;
 
   return (
     <div className="space-y-6">
@@ -31,7 +31,7 @@ export default function JobSeekerDashboard() {
         <KpiCard
           title="Applications Sent"
           value={DUMMY_APPLICATIONS.length.toString()}
-          trend={`+${DUMMY_APPLICATIONS.filter(a => a.status === "Applied").length} this month`}
+          trend={`+${DUMMY_APPLICATIONS.filter(a => a.status === "APPLIED").length} this month`}
           icon={<FileText />}
         />
         <KpiCard
