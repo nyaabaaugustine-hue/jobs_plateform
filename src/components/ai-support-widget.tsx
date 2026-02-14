@@ -259,7 +259,7 @@ export default function AISupportWidget() {
                             {aiButtonImage ? (
                                 <Image
                                     src={aiButtonImage.imageUrl}
-                                    alt={aiButton-image.description}
+                                    alt={aiButtonImage.description}
                                     fill
                                     className="object-cover"
                                 />
