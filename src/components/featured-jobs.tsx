@@ -81,3 +81,5 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
     </section>
   );
 }
+
+    

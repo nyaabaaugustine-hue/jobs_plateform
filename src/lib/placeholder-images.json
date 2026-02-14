@@ -385,6 +385,12 @@
       "imageHint": "kente pattern"
     },
     {
+      "id": "featured-jobs-bg",
+      "description": "An abstract background for the featured jobs section.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771016962/opp_avvuvh.webp",
+      "imageHint": "abstract background"
+    },
+    {
       "id": "ai-support-button",
       "description": "A futuristic AI robot head icon for the support button.",
       "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771070833/ai_rkwthg.png",
