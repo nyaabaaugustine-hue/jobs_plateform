@@ -51,7 +51,6 @@ import { ThemeToggle } from '../theme-toggle';
 
 const DesktopAuthButtons = () => (
     <div className="flex items-center gap-2">
-      <ThemeToggle />
       <Button variant="ghost" asChild>
         <Link href="/login">Login</Link>
       </Button>
