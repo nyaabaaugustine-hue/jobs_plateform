@@ -4,6 +4,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import HiredNotification from '@/components/hired-notification';
 import { ThemeProvider } from '@/components/theme-provider';
+import DynamicClientWidgets from '@/components/DynamicClientWidgets';
 
 const inter = Inter({ 
   subsets: ['latin'], 
@@ -28,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${spaceGrotesk.variable} font-body antialiased`}>
+      <body className={`${inter.variable} ${spaceGrotesk.variable} font-body antialiased`} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -38,6 +39,7 @@ export default function RootLayout({
           {children}
           <Toaster />
           <HiredNotification />
+          <DynamicClientWidgets />
         </ThemeProvider>
       </body>
     </html>
