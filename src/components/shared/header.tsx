@@ -14,6 +14,7 @@ import {
   Mail,
   Info,
   ChevronDown,
+  PlusCircle,
 } from 'lucide-react';
 import Logo from './logo';
 import { Button } from '@/components/ui/button';
@@ -89,29 +90,37 @@ export default function Header() {
   }, []);
 
   const navLinks = [
+    { href: '/', label: 'Home', icon: Home, color: 'text-sky-500' },
     {
-      label: 'Home',
-      icon: Home,
-      color: 'text-sky-500',
+      label: 'For Job Seekers',
+      icon: Users,
+      color: 'text-emerald-500',
       subLinks: [
-        { href: '/', label: 'Homepage', icon: Home, color: 'text-sky-500' },
-        { href: '/about', label: 'About Us', icon: Info, color: 'text-gray-500' },
+        { href: '/jobs', label: 'Find a Job', icon: Briefcase, color: 'text-emerald-500' },
+        { href: '/companies', label: 'Browse Companies', icon: Building2, color: 'text-orange-500' },
+        { href: '/opportunities', label: 'Student Opportunities', icon: Sparkles, color: 'text-yellow-500' },
       ]
     },
-    { 
-      label: 'Candidates',
-      icon: Users,
+    {
+      label: 'For Employers',
+      icon: Building2,
       color: 'text-indigo-500',
       subLinks: [
         { href: '/browse-candidates', label: 'Browse Candidates', icon: Users, color: 'text-indigo-500' },
-        { href: '/opportunities', label: 'Opportunities', icon: Sparkles, color: 'text-yellow-500' },
+        { href: '/employer/jobs/new', label: 'Post a Job', icon: PlusCircle, color: 'text-primary' },
+        { href: '/pricing', label: 'Pricing', icon: CreditCard, color: 'text-rose-500' },
       ]
     },
-    { href: '/jobs', label: 'Find a Job', icon: Briefcase, color: 'text-emerald-500' },
-    { href: '/companies', label: 'Companies', icon: Building2, color: 'text-orange-500' },
-    { href: '/pricing', label: 'Pricing', icon: CreditCard, color: 'text-rose-500' },
-    { href: '/blog', label: 'Blog', icon: PenSquare, color: 'text-blue-500' },
-    { href: '/contacts', label: 'Contact', icon: Mail, color: 'text-purple-500' },
+    {
+      label: 'Resources',
+      icon: Info,
+      color: 'text-gray-500',
+      subLinks: [
+        { href: '/blog', label: 'Blog', icon: PenSquare, color: 'text-blue-500' },
+        { href: '/about', label: 'About Us', icon: Info, color: 'text-gray-500' },
+        { href: '/contacts', label: 'Contact', icon: Mail, color: 'text-purple-500' },
+      ]
+    },
   ];
 
   return (
