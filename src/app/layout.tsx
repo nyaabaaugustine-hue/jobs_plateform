@@ -6,7 +6,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from '@/components/theme-provider';
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
-import ClientWidgets from '@/components/shared/client-widgets';
+import DynamicWidgetsWrapper from '@/components/shared/dynamic-widgets-wrapper';
 
 const inter = Inter({ 
   subsets: ['latin'], 
@@ -44,7 +44,7 @@ export default function RootLayout({
             <Footer />
           </div>
           <Toaster />
-          <ClientWidgets />
+          <DynamicWidgetsWrapper />
         </ThemeProvider>
       </body>
     </html>
