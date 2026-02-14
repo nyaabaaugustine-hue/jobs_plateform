@@ -14,6 +14,7 @@ type SocialShareButtonsProps = {
   location?: string;
   salary?: string;
   deadline?: string;
+  companyName?: string;
 };
 
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -26,7 +27,7 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 
-export default function SocialShareButtons({ title, type = 'post', description, location, salary, deadline }: SocialShareButtonsProps) {
+export default function SocialShareButtons({ title, type = 'post', description, location, salary, deadline, companyName }: SocialShareButtonsProps) {
   const pathname = usePathname();
   const url = `https://chapel-hill-ltd.com${pathname}`;
   const encodedUrl = encodeURIComponent(url);
@@ -35,7 +36,7 @@ export default function SocialShareButtons({ title, type = 'post', description, 
   let shareText: string;
 
   if (type === 'job') {
-    let jobDetails = `Check out this job opportunity: "${title}" at ${location}.`;
+    let jobDetails = `Check out this job opportunity: "${title}" at ${companyName} in ${location}.`;
     if (salary) {
       jobDetails += `\n\n💰 Salary: ${salary}`;
     }
@@ -45,21 +46,23 @@ export default function SocialShareButtons({ title, type = 'post', description, 
     if (description) {
       jobDetails += `\n\n${description.substring(0, 100)}...`;
     }
+    jobDetails += `\n\nApply Now: ${url}`;
     shareText = jobDetails;
   } else {
     shareText = `Check out this article: "${title}"`;
     if(description) {
-        shareText += `\n\n${description.substring(0, 150)}...`
+        shareText += `\n\n${description.substring(0, 150)}...`;
     }
+    shareText += `\n\nRead more: ${url}`;
   }
 
   const encodedText = encodeURIComponent(shareText);
 
   const socialLinks = {
-    twitter: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedText}`,
+    twitter: `https://twitter.com/intent/tweet?text=${encodedText}`,
     linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodedUrl}&title=${encodedTitle}&summary=${encodeURIComponent(description || '')}`,
     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedText}`,
-    whatsapp: `https://wa.me/?text=${encodedText}%20${encodedUrl}`
+    whatsapp: `https://wa.me/?text=${encodedText}`
   };
 
   return (

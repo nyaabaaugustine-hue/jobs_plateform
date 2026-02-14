@@ -272,6 +272,7 @@ export default function JobDetailPage({ params }: JobDetailPageProps) {
                         <SocialShareButtons
                           type="job"
                           title={job.title}
+                          companyName={job.company.name}
                           description={job.description}
                           location={job.location}
                           salary={job.salaryRange}
