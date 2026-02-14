@@ -250,21 +250,23 @@ export default function AISupportWidget() {
                 {/* Floating Button */}
                 <Tooltip>
                     <TooltipTrigger asChild>
-                        <button
+                         <button
                             onClick={() => setIsOpen(!isOpen)}
                             className={cn(
-                                "relative w-16 h-16 rounded-full overflow-hidden shadow-2xl bg-black shadow-[0_0_20px_rgba(59,130,246,0.4)] ring-2 ring-primary/40 transition-all duration-300 ease-out hover:scale-105",
+                                "relative w-14 h-14 sm:w-16 sm:h-16 rounded-full overflow-hidden shadow-2xl bg-[rgb(111,159,145)] shadow-[0_0_20px_rgba(59,130,246,0.4)] ring-2 ring-primary/40 transition-all duration-300 ease-out hover:scale-105",
                                 isOpen && 'scale-0 opacity-0'
                             )}
                         >
-                            {aiButtonImage && (
+                            <div className="absolute inset-0 w-full h-full">
+                                {aiButtonImage && (
                                 <Image
                                     src={aiButtonImage.imageUrl}
                                     alt={aiButtonImage.description}
                                     fill
                                     className="object-cover"
                                 />
-                            )}
+                                )}
+                            </div>
                         </button>
                     </TooltipTrigger>
                     <TooltipContent side="left" className="bg-black/80 text-white border-white/20">
