@@ -2,7 +2,6 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import Image from 'next/image';
 import { Bot, SendHorizonal, X, Loader, Sparkles, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -253,20 +252,12 @@ export default function AISupportWidget() {
                          <button
                             onClick={() => setIsOpen(!isOpen)}
                             className={cn(
-                                "relative w-20 h-20 rounded-full overflow-hidden shadow-2xl shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-transform duration-300 ease-out hover:scale-105",
+                                "relative w-20 h-20 rounded-full overflow-hidden shadow-2xl shadow-[0_0_20px_rgba(59,130,246,0.4)] transition-transform duration-300 ease-out hover:scale-105 bg-cover bg-center",
                                 isOpen && 'scale-0 opacity-0'
                             )}
+                            style={{ backgroundImage: aiButtonImage ? `url(${aiButtonImage.imageUrl})` : undefined }}
                         >
-                            {aiButtonImage ? (
-                                <div className="absolute inset-0">
-                                    <Image
-                                        src={aiButtonImage.imageUrl}
-                                        alt={aiButtonImage.description}
-                                        fill
-                                        className="w-full h-full object-cover"
-                                    />
-                                </div>
-                            ) : (
+                            {!aiButtonImage && (
                                 <div className="w-full h-full bg-primary flex items-center justify-center">
                                      <Sparkles className="h-10 w-10 text-white" />
                                 </div>
@@ -281,4 +272,3 @@ export default function AISupportWidget() {
         </TooltipProvider>
     );
 }
-    
