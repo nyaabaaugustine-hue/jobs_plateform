@@ -1,6 +1,12 @@
 {
   "placeholderImages": [
     {
+      "id": "main-logo",
+      "description": "The main ReactHire logo.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771096406/logo_mnjb2z.jpg",
+      "imageHint": "ReactHire logo"
+    },
+    {
       "id": "hero-main",
       "description": "A diverse team of professionals collaborating in a modern office.",
       "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771012435/hero_bg_uwn4fa.jpg",

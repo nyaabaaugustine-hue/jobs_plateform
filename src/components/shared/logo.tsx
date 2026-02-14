@@ -1,18 +1,33 @@
-import { Briefcase } from 'lucide-react';
+import Image from 'next/image';
 import { cn } from '@/lib/utils';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 type LogoProps = {
   className?: string;
-  iconOnly?: boolean;
 };
 
-export default function Logo({ className, iconOnly = false }: LogoProps) {
-  return (
-    <div className={cn('flex items-center gap-2', className)}>
-      <Briefcase className="h-7 w-7 text-primary" />
-      {!iconOnly && (
+export default function Logo({ className }: LogoProps) {
+  const logoImage = PlaceHolderImages.find((p) => p.id === 'main-logo');
+
+  if (!logoImage) {
+    // Fallback to text if image is not found
+    return (
+      <div className={cn('flex items-center', className)}>
         <span className="text-xl font-bold text-foreground font-headline">ReactHire</span>
-      )}
+      </div>
+    );
+  }
+
+  return (
+    <div className={cn('flex items-center', className)}>
+      <Image
+        src={logoImage.imageUrl}
+        alt="ReactHire Logo"
+        width={120}
+        height={30}
+        className="object-contain"
+        priority
+      />
     </div>
   );
 }
