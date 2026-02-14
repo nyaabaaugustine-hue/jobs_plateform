@@ -108,7 +108,7 @@ export default function HomePage() {
           )}
           <div className="absolute inset-0 bg-background/80 backdrop-blur-sm z-10" />
           <div className="relative z-20">
-            <div className="mb-12 text-center">
+            <div className="mb-12 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
                 <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Flexible Pricing for Every Team</h2>
                 <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
                     Choose the plan that's right for you. Get started for free or unlock powerful features with our Pro plan.
