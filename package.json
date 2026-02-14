@@ -8,7 +8,7 @@
     "url": "https://github.com/nyaabaaugustine-hue/chapel_hill.git"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --port 9002 --hostname 0.0.0.0",
     "genkit:dev": "genkit start -- tsx src/ai/dev.ts",
     "genkit:watch": "genkit start -- tsx --watch src/ai/dev.ts",
     "build": "NODE_ENV=production next build",
@@ -54,9 +54,10 @@
     "genkit": "^1.20.0",
     "lucide-react": "^0.475.0",
     "next": "15.5.12",
-    "react": "^19.2.1",
+    "next-themes": "^0.4.0",
+    "react": "^19.2.4",
     "react-day-picker": "^9.11.3",
-    "react-dom": "^19.2.1",
+    "react-dom": "^19.2.4",
     "react-hook-form": "^7.54.2",
     "recharts": "^2.15.1",
     "tailwind-merge": "^3.0.1",
