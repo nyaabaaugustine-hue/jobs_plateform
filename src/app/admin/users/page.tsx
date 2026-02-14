@@ -75,6 +75,8 @@ export default function AdminUsersPage() {
         permissionRole = 'employer';
     } else if (['HR Specialist', 'Recruiter'].includes(newProfessionalTitle)) {
         permissionRole = 'recruiter';
+    } else if (['Product Manager', 'Marketing Manager'].includes(newProfessionalTitle)) {
+        permissionRole = 'hiringManager';
     } else if (['Admin', 'Administrator'].includes(newProfessionalTitle)) {
         permissionRole = 'admin';
     }
@@ -267,9 +269,11 @@ export default function AdminUsersPage() {
                 <p className="font-bold text-lg">{user.name}</p>
                 <p className="text-sm text-muted-foreground mb-4">{user.email}</p>
                 
-                <Badge variant="outline" className={cn("font-medium", getRoleBadgeClass(user.professionalTitle || ''))}>
-                    {user.professionalTitle}
-                </Badge>
+                {user.professionalTitle && (
+                  <Badge variant="outline" className={cn("font-medium", getRoleBadgeClass(user.professionalTitle))}>
+                      {user.professionalTitle}
+                  </Badge>
+                )}
                 
                 <div className="mt-6 w-full flex-1 flex flex-col justify-end">
                     <div className="flex items-center justify-between text-xs text-muted-foreground mb-4">
