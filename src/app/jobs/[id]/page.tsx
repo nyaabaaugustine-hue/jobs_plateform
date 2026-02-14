@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -79,6 +78,10 @@ export default function JobDetailPage({ params }: JobDetailPageProps) {
         status: 'APPLIED',
         appliedDate: new Date().toISOString(),
         coverLetter: coverLetter,
+        jobId: job.id,
+        applicantId: currentUser.id,
+        companyId: job.company.id,
+        employerId: job.company.employerId,
     };
     
     // Create new applicant record for employer dashboard
