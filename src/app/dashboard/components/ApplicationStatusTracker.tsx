@@ -16,12 +16,12 @@ type StatusLabel = 'Applied' | 'Screening' | 'Interview' | 'Offer' | 'Hired' | '
 
 // Config object keyed by the UI label
 const statusConfig: Record<StatusLabel, { icon: React.ReactNode, color: string }> = {
-    Applied: { icon: <FileText className="h-4 w-4" />, color: 'bg-blue-500/10 text-blue-500' },
-    Screening: { icon: <Eye className="h-4 w-4" />, color: 'bg-yellow-500/10 text-yellow-600' },
-    Interview: { icon: <MessageSquare className="h-4 w-4" />, color: 'bg-purple-500/10 text-purple-500' },
-    Offer: { icon: <Award className="h-4 w-4" />, color: 'bg-orange-500/10 text-orange-500' },
-    Hired: { icon: <CheckCircle className="h-4 w-4" />, color: 'bg-emerald-500/10 text-emerald-600' },
-    Rejected: { icon: <XCircle className="h-4 w-4" />, color: 'bg-destructive/10 text-destructive' },
+    'Applied': { icon: <FileText className="h-4 w-4" />, color: 'bg-blue-500/10 text-blue-500' },
+    'Screening': { icon: <Eye className="h-4 w-4" />, color: 'bg-yellow-500/10 text-yellow-600' },
+    'Interview': { icon: <MessageSquare className="h-4 w-4" />, color: 'bg-purple-500/10 text-purple-500' },
+    'Offer': { icon: <Award className="h-4 w-4" />, color: 'bg-orange-500/10 text-orange-500' },
+    'Hired': { icon: <CheckCircle className="h-4 w-4" />, color: 'bg-emerald-500/10 text-emerald-600' },
+    'Rejected': { icon: <XCircle className="h-4 w-4" />, color: 'bg-destructive/10 text-destructive' },
 };
 
 
