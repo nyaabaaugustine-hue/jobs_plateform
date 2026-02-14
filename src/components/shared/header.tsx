@@ -50,23 +50,24 @@ const DesktopAuthButtons = () => (
     </div>
   );
 
-  const MobileAuthButtons = () => (
+  const MobileAuthButtons = ({ onLinkClick }: { onLinkClick?: () => void }) => (
     <div className="grid w-full grid-cols-2 gap-4">
       <Button variant="outline" asChild size="lg">
-        <Link href="/login">Login</Link>
+        <Link href="/login" onClick={onLinkClick}>Login</Link>
       </Button>
       <Button
         asChild
         size="lg"
         className="bg-accent-gradient font-semibold text-primary-foreground shadow-lg transition-transform hover:scale-105"
       >
-        <Link href="/register">Register</Link>
+        <Link href="/register" onClick={onLinkClick}>Register</Link>
       </Button>
     </div>
   );
 
 export default function Header() {
   const [isMounted, setIsMounted] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -92,7 +93,7 @@ export default function Header() {
         <div className="flex items-center gap-4">
           <div className="md:hidden">
             {isMounted && (
-              <Sheet>
+              <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
                   <SheetTrigger asChild>
                   <Button variant="outline" size="icon">
                       <Menu className="h-6 w-6" />
@@ -105,8 +106,8 @@ export default function Header() {
                       <SheetDescription className="sr-only">
                       Main navigation links
                       </SheetDescription>
-                      <Link href="/">
-                      <Logo />
+                      <Link href="/" onClick={() => setMobileMenuOpen(false)}>
+                        <Logo />
                       </Link>
                   </SheetHeader>
                   <nav className="flex-1 space-y-2 p-4">
@@ -120,6 +121,7 @@ export default function Header() {
                           <Link
                           key={link.href + link.label}
                           href={link.href}
+                          onClick={() => setMobileMenuOpen(false)}
                           className={cn(
                               'flex items-center gap-4 rounded-lg px-4 py-3 text-lg font-medium transition-colors hover:bg-primary/10 hover:text-primary',
                               isActive
@@ -134,7 +136,7 @@ export default function Header() {
                       })}
                   </nav>
                   <SheetFooter className="mt-auto border-t bg-background/30 p-4">
-                      <MobileAuthButtons />
+                      <MobileAuthButtons onLinkClick={() => setMobileMenuOpen(false)} />
                   </SheetFooter>
                   </SheetContent>
               </Sheet>
