@@ -1,4 +1,3 @@
-
 import PageHero from '@/components/shared/page-hero';
 import { Card, CardContent } from '@/components/ui/card';
 import WhyChooseUs from '@/components/why-choose-us';
@@ -13,7 +12,7 @@ export default function AboutPage() {
   return (
     <>
       <PageHero
-        title="About ReactHire"
+        title="About Chapel Hill"
         subtitle="Connecting top talent with the best opportunities in the React ecosystem."
       />
       <main className="flex-1 py-16 md:py-24 space-y-24">
@@ -22,7 +21,7 @@ export default function AboutPage() {
                 <CardContent className="p-10 text-center">
                 <h2 className="font-headline text-2xl font-bold">Our Mission</h2>
                 <p className="mt-4 text-muted-foreground">
-                    At ReactHire, our mission is to empower developers and companies by creating a specialized platform for React-focused careers. We believe that by connecting the right talent with the right opportunities, we can help build the future of web technology. We are committed to fostering a community built on trust, transparency, and professional growth.
+                    At Chapel Hill, our mission is to empower developers and companies by creating a specialized platform for React-focused careers. We believe that by connecting the right talent with the right opportunities, we can help build the future of web technology. We are committed to fostering a community built on trust, transparency, and professional growth.
                 </p>
                 </CardContent>
             </Card>
@@ -34,7 +33,7 @@ export default function AboutPage() {
             <div className="mb-12 text-center">
                 <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-foreground">Meet Our Team</h2>
                 <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-                    The passionate individuals behind ReactHire.
+                    The passionate individuals behind Chapel Hill.
                 </p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">

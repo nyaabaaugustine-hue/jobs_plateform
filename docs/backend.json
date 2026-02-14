@@ -3,7 +3,7 @@
     "User": {
       "title": "User",
       "type": "object",
-      "description": "Represents a user of the ReactHire platform.",
+      "description": "Represents a user of the Chapel Hill platform.",
       "properties": {
         "email": { "type": "string", "description": "User's email address.", "format": "email" },
         "firstName": { "type": "string", "description": "User's first name." },

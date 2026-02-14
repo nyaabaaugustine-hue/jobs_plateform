@@ -1,4 +1,3 @@
-
 import type { Metadata } from 'next';
 import { Inter, Space_Grotesk } from 'next/font/google';
 import './globals.css';
@@ -20,7 +19,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: 'ReactHire - Find Your Next Job',
+  title: 'Chapel Hill - Find Your Next Job',
   description: 'The Easiest Way to Get Your New Job',
 };
 

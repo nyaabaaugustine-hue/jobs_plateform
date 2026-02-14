@@ -2,9 +2,9 @@
   "placeholderImages": [
     {
       "id": "main-logo",
-      "description": "The main ReactHire logo.",
-      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjQwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0ZXh0IHg9IjAiIHk9IjMwIiBmb250LWZhbWlseT0ic2Fucy1zZXJpZiIgZm9udC1zaXplPSIyOCIgZm9udC13ZWlnaHQ9ImJvbGQiIGZpbGw9IiMyOUFCRTIiPlJlYWN0PHRzcGFuIGZvbnQtd2VpZ2h0PSJub3JtYWwiPkhpcmU8L3RzcGFuPjwvdGV4dD48L3N2Zz4=",
-      "imageHint": "ReactHire logo"
+      "description": "The Chapel Hill logo.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771097592/lllogo_zqlrsm.png",
+      "imageHint": "Chapel Hill logo"
     },
     {
       "id": "hero-main",
