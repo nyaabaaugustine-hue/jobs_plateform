@@ -78,9 +78,9 @@ export default function Header() {
   const navLinks = [
     { href: '/', label: 'Home', icon: Home, color: 'text-sky-500' },
     { href: '/about', label: 'About Us', icon: Info, color: 'text-gray-500' },
-    { href: '/jobs', label: 'Find a Job', icon: Briefcase, color: 'text-emerald-500' },
     { href: '/browse-candidates', label: 'Browse Candidates', icon: Users, color: 'text-indigo-500' },
     { href: '/opportunities', label: 'Opportunities', icon: Sparkles, color: 'text-yellow-500' },
+    { href: '/jobs', label: 'Find a Job', icon: Briefcase, color: 'text-emerald-500' },
     { href: '/companies', label: 'Companies', icon: Building2, color: 'text-orange-500' },
     { href: '/pricing', label: 'Pricing', icon: CreditCard, color: 'text-rose-500' },
     { href: '/blog', label: 'Blog', icon: PenSquare, color: 'text-blue-500' },
