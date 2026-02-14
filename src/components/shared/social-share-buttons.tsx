@@ -36,19 +36,19 @@ export default function SocialShareButtons({ title, type = 'post', description, 
   let shareText: string;
 
   if (type === 'job') {
-    let jobDetails = `Check out this job opportunity: "${title}" at ${location}.`;
+    let jobDetails = `Check out this job opportunity: "${title}" at ${location}.\n\n`;
     
     if (salary) {
-      jobDetails += `\n\n💰 Salary: ${salary}`;
+      jobDetails += `💰 Salary: ${salary}\n`;
     }
     if (deadline) {
-      jobDetails += `\n📅 Apply by: ${deadline}`;
+      jobDetails += `📅 Apply by: ${deadline}\n\n`;
     }
 
     if (description) {
-      jobDetails += `\n\n${description.substring(0, 100)}... ${url}`;
+      jobDetails += `${description.substring(0, 100)}... ${url}`;
     } else {
-      jobDetails += `\n\nApply Now: ${url}`;
+        jobDetails += `Apply Now: ${url}`;
     }
     shareText = jobDetails;
   } else {
