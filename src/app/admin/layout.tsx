@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -31,7 +30,8 @@ import {
   SidebarInset,
   SidebarGroup,
   SidebarGroupLabel,
-  SidebarSeparator
+  SidebarSeparator,
+  useSidebar
 } from '@/components/ui/sidebar';
 import Logo from '@/components/shared/logo';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -39,9 +39,14 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Button } from '@/components/ui/button';
 import DashboardHeader from '@/components/shared/dashboard-header';
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
+function AdminNav() {
   const pathname = usePathname();
+  const { setOpenMobile } = useSidebar();
   const adminAvatar = PlaceHolderImages.find((img) => img.id === 'avatar-2');
+
+  const handleLinkClick = () => {
+    setOpenMobile(false);
+  };
   
   const menuItems = [
     {
@@ -75,50 +80,56 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   ];
   
   return (
+    <Sidebar>
+      <SidebarHeader>
+        <Logo />
+      </SidebarHeader>
+      <SidebarContent>
+        <SidebarMenu>
+          {menuItems.map((group) => (
+            <SidebarGroup key={group.group}>
+              <SidebarGroupLabel>{group.group}</SidebarGroupLabel>
+              {group.items.map((item) => (
+                <SidebarMenuItem key={item.label}>
+                  <SidebarMenuButton asChild isActive={pathname === item.href || (item.href !== '/admin' && pathname.startsWith(item.href))}>
+                    <Link href={item.href} onClick={handleLinkClick}>
+                      {item.icon}
+                      <span>{item.label}</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarGroup>
+          ))}
+        </SidebarMenu>
+      </SidebarContent>
+      <SidebarSeparator />
+      <SidebarFooter>
+         <div className="flex items-center gap-3">
+          <Avatar className="h-10 w-10">
+            {adminAvatar && <AvatarImage src={adminAvatar.imageUrl} alt="Admin Avatar" />}
+            <AvatarFallback>AD</AvatarFallback>
+          </Avatar>
+          <div className="flex-1">
+            <p className="text-sm font-semibold">Admin User</p>
+            <p className="text-xs text-muted-foreground">Administrator</p>
+          </div>
+          <Button variant="ghost" size="icon" asChild>
+            <Link href="/login">
+              <LogOut />
+            </Link>
+          </Button>
+        </div>
+      </SidebarFooter>
+    </Sidebar>
+  );
+}
+
+export default function AdminLayout({ children }: { children: React.ReactNode }) {
+  return (
     <SidebarProvider>
       <div className="flex min-h-screen bg-background">
-        <Sidebar>
-          <SidebarHeader>
-            <Logo />
-          </SidebarHeader>
-          <SidebarContent>
-            <SidebarMenu>
-              {menuItems.map((group) => (
-                <SidebarGroup key={group.group}>
-                  <SidebarGroupLabel>{group.group}</SidebarGroupLabel>
-                  {group.items.map((item) => (
-                    <SidebarMenuItem key={item.label}>
-                      <SidebarMenuButton asChild isActive={pathname === item.href || (item.href !== '/admin' && pathname.startsWith(item.href))}>
-                        <Link href={item.href}>
-                          {item.icon}
-                          <span>{item.label}</span>
-                        </Link>
-                      </SidebarMenuButton>
-                    </SidebarMenuItem>
-                  ))}
-                </SidebarGroup>
-              ))}
-            </SidebarMenu>
-          </SidebarContent>
-          <SidebarSeparator />
-          <SidebarFooter>
-             <div className="flex items-center gap-3">
-              <Avatar className="h-10 w-10">
-                {adminAvatar && <AvatarImage src={adminAvatar.imageUrl} alt="Admin Avatar" />}
-                <AvatarFallback>AD</AvatarFallback>
-              </Avatar>
-              <div className="flex-1">
-                <p className="text-sm font-semibold">Admin User</p>
-                <p className="text-xs text-muted-foreground">Administrator</p>
-              </div>
-              <Button variant="ghost" size="icon" asChild>
-                <Link href="/login">
-                  <LogOut />
-                </Link>
-              </Button>
-            </div>
-          </SidebarFooter>
-        </Sidebar>
+        <AdminNav />
         <SidebarInset>
              <DashboardHeader />
              <main className="flex-1 p-4 sm:p-6 lg:p-8 bg-secondary/50">
