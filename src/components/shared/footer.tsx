@@ -69,7 +69,7 @@ export default function Footer() {
           <div className="lg:col-span-3 space-y-4">
             <Logo />
             <p className="text-sm text-muted-foreground">
-              ReactHire is the heart of the professional community and the best resource to discover and connect with talent and jobs worldwide.
+              Chapel Hill is the heart of the professional community and the best resource to discover and connect with talent and jobs worldwide.
             </p>
             <div className="flex space-x-1">
               <Button variant="ghost" size="icon" asChild>
@@ -140,7 +140,7 @@ export default function Footer() {
 
         <div className="flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
           <p className="text-center md:text-left mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} ReactHire. All rights reserved. Developed By <span className="font-semibold text-primary">TGNE Solutions</span> - Tema.
+            &copy; {new Date().getFullYear()} Chapel Hill. All rights reserved. Developed By <span className="font-semibold text-primary">TGNE Solutions</span> - Tema.
           </p>
           <div className='flex gap-6'>
              <Link href="#" className="hover:text-primary">Terms & Conditions</Link>
