@@ -383,6 +383,12 @@
       "description": "A vibrant kente cloth pattern for decorative corner art.",
       "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771014874/kente_qgwuaq.jpg",
       "imageHint": "kente pattern"
+    },
+    {
+      "id": "ai-support-button",
+      "description": "Cropped image of a man in a military-style hat for an AI support button.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771102500/ai-support-officer.png",
+      "imageHint": "man portrait"
     }
   ]
 }

@@ -2,6 +2,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 import { Bot, SendHorizonal, X, Loader, Sparkles, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -9,6 +10,7 @@ import { cn } from '@/lib/utils';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import { useToast } from '@/hooks/use-toast';
 import { useRouter } from 'next/navigation';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 type Message = {
     id: number;
@@ -29,6 +31,8 @@ export default function AISupportWidget() {
     const { toast } = useToast();
     const router = useRouter();
     
+    const aiButtonImage = PlaceHolderImages.find((img) => img.id === 'ai-support-button');
+
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     };
@@ -248,11 +252,20 @@ export default function AISupportWidget() {
                         <Button 
                             onClick={() => setIsOpen(!isOpen)}
                             className={cn(
-                                "h-16 w-16 rounded-full bg-accent-gradient p-0 shadow-lg hover:scale-110 active:scale-105 transition-all duration-300 animate-pulse-glow",
+                                "h-16 w-16 rounded-full bg-accent-gradient p-0 shadow-lg hover:scale-110 active:scale-105 transition-all duration-300 animate-pulse-glow overflow-hidden",
                                 isOpen && 'scale-0 opacity-0'
                             )}
                         >
-                            <Sparkles className="h-8 w-8 text-white" />
+                            {aiButtonImage ? (
+                                <Image
+                                    src={aiButtonImage.imageUrl}
+                                    alt={aiButtonImage.description}
+                                    fill
+                                    className="object-cover"
+                                />
+                            ) : (
+                                <Sparkles className="h-8 w-8 text-white" />
+                            )}
                         </Button>
                     </TooltipTrigger>
                     <TooltipContent side="left" className="bg-black/80 text-white border-white/20">
