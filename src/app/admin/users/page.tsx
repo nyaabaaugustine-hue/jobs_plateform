@@ -115,7 +115,13 @@ export default function AdminUsersPage() {
     )
     .filter(user => roleFilter === 'all' || (user.professionalTitle || '').toLowerCase().replace(/ /g, '-') === roleFilter);
 
-  const uniqueProfessionalTitles = [...new Set(DUMMY_USERS.map(user => user.professionalTitle).filter((title): title is string => !!title))];
+  const uniqueProfessionalTitles: string[] = [
+    ...new Set(
+      DUMMY_USERS
+        .map(user => user.professionalTitle)
+        .filter((title): title is string => !!title) // type guard
+    )
+  ];
 
   const getRoleBadgeClass = (role: string) => {
     const lowerRole = role.toLowerCase();
