@@ -20,14 +20,16 @@ export default function Logo({ className }: LogoProps) {
 
   return (
     <div className={cn('flex items-center', className)}>
-      <Image
-        src={logoImage.imageUrl}
-        alt="Chapel Hill Logo"
-        width={122}
-        height={40}
-        className="object-contain"
-        priority
-      />
+      <div className="bg-accent p-2 rounded-xl">
+        <Image
+          src={logoImage.imageUrl}
+          alt="Chapel Hill Logo"
+          width={122}
+          height={40}
+          className="object-contain"
+          priority
+        />
+      </div>
     </div>
   );
 }
