@@ -7,6 +7,8 @@ import { Button } from './ui/button';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], categories: string[] }) {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -15,10 +17,22 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
     if (selectedCategory === 'All') return true;
     return job.category === selectedCategory;
   }).slice(0, 9);
+  
+  const featuredJobsBg = PlaceHolderImages.find((p) => p.id === 'featured-jobs-bg');
 
   return (
-    <section className="py-16 md:py-24 bg-background">
-      <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+    <section className="relative py-16 md:py-24">
+       {featuredJobsBg && (
+        <Image
+          src={featuredJobsBg.imageUrl}
+          alt={featuredJobsBg.description}
+          fill
+          className="object-cover z-0"
+          data-ai-hint={featuredJobsBg.imageHint}
+        />
+      )}
+      <div className="absolute inset-0 bg-background/90 z-10" />
+      <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-10 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
           <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">Featured Jobs</h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
