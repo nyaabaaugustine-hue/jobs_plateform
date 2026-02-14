@@ -6,11 +6,15 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { DUMMY_APPLICATIONS } from '@/lib/data';
-import type { Application } from '@/lib/types';
+import type { Application, ApplicationStatus } from '@/lib/types';
 import React from 'react';
 import { cn } from '@/lib/utils';
 
-const statusConfig: Record<Application['status'], { icon: React.ReactNode, color: string }> = {
+// Define the UI labels for the statuses
+type StatusLabel = 'Applied' | 'Screening' | 'Interview' | 'Offer' | 'Hired' | 'Rejected';
+
+// Config object keyed by the UI label
+const statusConfig: Record<StatusLabel, { icon: React.ReactNode, color: string }> = {
     Applied: { icon: <FileText className="h-4 w-4" />, color: 'bg-blue-500/10 text-blue-500' },
     Screening: { icon: <Eye className="h-4 w-4" />, color: 'bg-yellow-500/10 text-yellow-600' },
     Interview: { icon: <MessageSquare className="h-4 w-4" />, color: 'bg-purple-500/10 text-purple-500' },
@@ -21,12 +25,26 @@ const statusConfig: Record<Application['status'], { icon: React.ReactNode, color
 
 
 export default function ApplicationStatusTracker() {
-  const statusCounts = DUMMY_APPLICATIONS.reduce((acc, app) => {
-    acc[app.status] = (acc[app.status] || 0) + 1;
-    return acc;
-  }, {} as Record<Application['status'], number>);
+  const getStatusLabel = (status: ApplicationStatus): StatusLabel => {
+    switch (status) {
+      case 'APPLIED': return 'Applied';
+      case 'UNDER_REVIEW':
+      case 'SHORTLISTED': return 'Screening';
+      case 'INTERVIEW': return 'Interview';
+      case 'OFFER': return 'Offer';
+      case 'HIRED': return 'Hired';
+      case 'REJECTED': return 'Rejected';
+      default: return 'Applied';
+    }
+  };
 
-  const statuses: Application['status'][] = ['Applied', 'Screening', 'Interview', 'Offer', 'Hired', 'Rejected'];
+  const statusCounts = DUMMY_APPLICATIONS.reduce((acc, app) => {
+    const label = getStatusLabel(app.status);
+    acc[label] = (acc[label] || 0) + 1;
+    return acc;
+  }, {} as Record<StatusLabel, number>);
+
+  const statuses: StatusLabel[] = ['Applied', 'Screening', 'Interview', 'Offer', 'Hired', 'Rejected'];
 
   return (
     <Card>
