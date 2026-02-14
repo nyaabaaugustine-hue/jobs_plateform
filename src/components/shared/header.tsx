@@ -89,8 +89,15 @@ export default function Header() {
   }, []);
 
   const navLinks = [
-    { href: '/', label: 'Home', icon: Home, color: 'text-sky-500' },
-    { href: '/about', label: 'About Us', icon: Info, color: 'text-gray-500' },
+    {
+      label: 'Home',
+      icon: Home,
+      color: 'text-sky-500',
+      subLinks: [
+        { href: '/', label: 'Homepage', icon: Home, color: 'text-sky-500' },
+        { href: '/about', label: 'About Us', icon: Info, color: 'text-gray-500' },
+      ]
+    },
     { 
       label: 'Candidates',
       icon: Users,
@@ -151,7 +158,7 @@ export default function Header() {
                                   <AccordionContent className="pb-0 pl-8">
                                     <nav className="flex flex-col space-y-1">
                                       {link.subLinks.map(subLink => {
-                                        const isSubActive = pathname.startsWith(subLink.href);
+                                        const isSubActive = subLink.href === '/' ? pathname === '/' : pathname.startsWith(subLink.href);
                                         const SubIcon = subLink.icon;
                                         return (
                                           <Link
@@ -216,7 +223,7 @@ export default function Header() {
                         const Icon = link.icon;
 
                         if (link.subLinks) {
-                            const isDropdownActive = link.subLinks.some(subLink => pathname.startsWith(subLink.href));
+                            const isDropdownActive = link.subLinks.some(subLink => subLink.href === '/' ? pathname === '/' : pathname.startsWith(subLink.href));
                             return (
                                 <DropdownMenu key={link.label}>
                                     <Tooltip>
