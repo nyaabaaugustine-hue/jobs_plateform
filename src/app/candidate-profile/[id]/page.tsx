@@ -152,7 +152,7 @@ export default function CandidateProfilePage({ params }: CandidateProfilePagePro
                             <AvatarFallback className="text-4xl">{user.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                         </Avatar>
                         <h1 className="font-headline text-2xl font-bold">{user.name}</h1>
-                        <p className="text-muted-foreground">{user.role}</p>
+                        <p className="text-muted-foreground">{user.professionalTitle}</p>
                          <div className="flex justify-center items-center gap-1 text-muted-foreground text-sm mt-2">
                             <MapPin className="h-4 w-4" />
                             <span>Accra, Ghana</span>

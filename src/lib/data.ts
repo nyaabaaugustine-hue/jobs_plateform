@@ -1,5 +1,5 @@
 
-import type { Job, Company, Review, Application, Applicant, User, BlogPost } from './types';
+import type { Job, Company, Review, Application, Applicant, User, BlogPost, UserRole } from './types';
 import { Users, BookOpen, Palette, BrainCircuit, GitMerge, KanbanSquare, Scale, Stethoscope, Clapperboard, GraduationCap, Handshake, Lightbulb } from 'lucide-react';
 
 const ghanaianCompanies = [
@@ -39,14 +39,28 @@ export const DUMMY_COMPANIES: Company[] = ghanaianCompanies.map((company, i) => 
 export const DUMMY_USERS: User[] = Array.from({ length: 24 }, (_, i) => {
     const firstNames = ['Ama', 'Kofi', 'Adwoa', 'Yaw', 'Esi', 'Kwame', 'Akua', 'Kwadwo'];
     const lastNames = ['Mensah', 'Addo', 'Owusu', 'Adjei', 'Serwaa', 'Boateng', 'Asare', 'Osei'];
-    const roles = ['Software Developer', 'Product Manager', 'UX/UI Designer', 'Data Scientist', 'Marketing Manager', 'HR Specialist', 'Financial Analyst', 'Project Manager', 'DevOps Engineer', 'QA Engineer', 'Content Writer', 'Sales Executive', 'Accountant', 'Student', 'Intern', 'Lecturer', 'Actress', 'Film Director', 'CEO', 'Director of Engineering'];
+    const professionalTitles = ['Software Developer', 'Product Manager', 'UX/UI Designer', 'Data Scientist', 'Marketing Manager', 'HR Specialist', 'Financial Analyst', 'Project Manager', 'DevOps Engineer', 'QA Engineer', 'Content Writer', 'Sales Executive', 'Accountant', 'Student', 'Intern', 'Lecturer', 'Actress', 'Film Director', 'CEO', 'Director of Engineering'];
     const name = `${firstNames[i % firstNames.length]} ${lastNames[i % lastNames.length]}`;
+    const professionalTitle = professionalTitles[i % professionalTitles.length];
+
+    let permissionRole: UserRole = 'jobSeeker';
+    if (['CEO', 'Director of Engineering'].includes(professionalTitle)) {
+        permissionRole = 'employer';
+    } else if (['HR Specialist'].includes(professionalTitle)) {
+        permissionRole = 'recruiter';
+    } else if (['Product Manager', 'Marketing Manager'].includes(professionalTitle)) {
+        permissionRole = 'hiringManager';
+    }
+
+    if (i === 2) permissionRole = 'admin'; // Override for one admin user for demo.
+
     return {
         id: `user-${i + 1}`,
         name: name,
         email: `${name.toLowerCase().replace(' ', '.')}@example.com`,
         avatar: `avatar-${i + 1}`,
-        role: roles[i % roles.length],
+        role: permissionRole,
+        professionalTitle: professionalTitle,
     };
 });
 

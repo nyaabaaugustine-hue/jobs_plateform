@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { DUMMY_USERS } from '@/lib/data';
-import type { User } from '@/lib/types';
+import type { User, UserRole } from '@/lib/types';
 import { Card, CardContent, CardHeader, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -44,7 +44,7 @@ export default function AdminUsersPage() {
   const [newFirstName, setNewFirstName] = useState('');
   const [newLastName, setNewLastName] = useState('');
   const [newEmail, setNewEmail] = useState('');
-  const [newRole, setNewRole] = useState('');
+  const [newProfessionalTitle, setNewProfessionalTitle] = useState('');
   const [isUploading, setIsUploading] = useState(false);
   const [uploadedImageUrl, setUploadedImageUrl] = useState<string | null>(null);
 
@@ -63,17 +63,28 @@ export default function AdminUsersPage() {
     setNewFirstName('');
     setNewLastName('');
     setNewEmail('');
-    setNewRole('');
+    setNewProfessionalTitle('');
     setUploadedImageUrl(null);
   };
   
   const handleCreateUser = (e: React.FormEvent) => {
     e.preventDefault();
+
+    let permissionRole: UserRole = 'jobSeeker';
+    if (['CEO', 'Director of Engineering'].includes(newProfessionalTitle)) {
+        permissionRole = 'employer';
+    } else if (['HR Specialist', 'Recruiter'].includes(newProfessionalTitle)) {
+        permissionRole = 'recruiter';
+    } else if (['Admin', 'Administrator'].includes(newProfessionalTitle)) {
+        permissionRole = 'admin';
+    }
+
     const newUser: User = {
       id: `user-${Date.now()}`,
       name: `${newFirstName} ${newLastName}`,
       email: newEmail,
-      role: newRole,
+      role: permissionRole,
+      professionalTitle: newProfessionalTitle,
       avatar: uploadedImageUrl ? (PlaceHolderImages.find(p => p.imageUrl === uploadedImageUrl)?.id || 'avatar-1') : 'avatar-1',
     };
     setUsers(prev => [newUser, ...prev]);
@@ -99,9 +110,9 @@ export default function AdminUsersPage() {
       user.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       user.email.toLowerCase().includes(searchTerm.toLowerCase())
     )
-    .filter(user => roleFilter === 'all' || user.role.toLowerCase().replace(/ /g, '-') === roleFilter);
+    .filter(user => roleFilter === 'all' || (user.professionalTitle || '').toLowerCase().replace(/ /g, '-') === roleFilter);
 
-  const uniqueRoles = [...new Set(DUMMY_USERS.map(user => user.role))];
+  const uniqueProfessionalTitles = [...new Set(DUMMY_USERS.map(user => user.professionalTitle).filter(Boolean)) as string[]];
 
   const getRoleBadgeClass = (role: string) => {
     const lowerRole = role.toLowerCase();
@@ -194,13 +205,13 @@ export default function AdminUsersPage() {
                   <Input id="password" type="password" placeholder="Create a strong password" required />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="role">Role</Label>
-                  <Select onValueChange={setNewRole} required>
+                  <Label htmlFor="role">Professional Title</Label>
+                  <Select onValueChange={setNewProfessionalTitle} required>
                     <SelectTrigger id="role">
-                      <SelectValue placeholder="Select a role" />
+                      <SelectValue placeholder="Select a title" />
                     </SelectTrigger>
                     <SelectContent>
-                      {uniqueRoles.map(role => (
+                      {uniqueProfessionalTitles.map(role => (
                         <SelectItem key={role} value={role}>{role}</SelectItem>
                       ))}
                     </SelectContent>
@@ -234,7 +245,7 @@ export default function AdminUsersPage() {
                     </SelectTrigger>
                     <SelectContent>
                         <SelectItem value="all">All Roles</SelectItem>
-                        {uniqueRoles.map(role => (
+                        {uniqueProfessionalTitles.map(role => (
                             <SelectItem key={role} value={role.toLowerCase().replace(/ /g, '-')}>{role}</SelectItem>
                         ))}
                     </SelectContent>
@@ -256,8 +267,8 @@ export default function AdminUsersPage() {
                 <p className="font-bold text-lg">{user.name}</p>
                 <p className="text-sm text-muted-foreground mb-4">{user.email}</p>
                 
-                <Badge variant="outline" className={cn("font-medium", getRoleBadgeClass(user.role))}>
-                    {user.role}
+                <Badge variant="outline" className={cn("font-medium", getRoleBadgeClass(user.professionalTitle || ''))}>
+                    {user.professionalTitle}
                 </Badge>
                 
                 <div className="mt-6 w-full flex-1 flex flex-col justify-end">

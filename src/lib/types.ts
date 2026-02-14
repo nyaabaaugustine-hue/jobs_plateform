@@ -26,6 +26,7 @@ export type User = {
   email: string;
   avatar: string; // URL to avatar image
   role: UserRole;
+  professionalTitle?: string;
   companyId?: string;
   profileData?: {
     skills?: string[];

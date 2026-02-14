@@ -86,7 +86,7 @@ export default function Testimonials() {
                         </Avatar>
                         <div>
                           <p className="font-semibold">{review.user.name}</p>
-                          <p className="text-sm text-muted-foreground">{review.user.role}</p>
+                          <p className="text-sm text-muted-foreground">{review.user.professionalTitle}</p>
                         </div>
                       </div>
                     </Card>

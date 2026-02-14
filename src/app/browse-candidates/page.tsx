@@ -90,7 +90,7 @@ const CandidateCard = ({ user }: { user: User }) => {
                   <AvatarFallback className="text-3xl">{user.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                 </Avatar>
                 <Link href={`/candidate-profile/${user.id}`} className="font-bold text-lg hover:text-primary transition-colors">{user.name}</Link>
-                <p className="text-sm text-muted-foreground mb-4 h-10">{user.role}</p>
+                <p className="text-sm text-muted-foreground mb-4 h-10">{user.professionalTitle}</p>
                 
                 <div className="flex w-full justify-around text-xs text-muted-foreground mb-4 border-y py-3">
                     <div className="flex flex-col items-center gap-1">
@@ -172,7 +172,7 @@ const CandidateCard = ({ user }: { user: User }) => {
 export default function BrowseCandidatesPage() {
   // We'll only show users who are job seekers, not employers or admins from the dummy data.
   const candidates = DUMMY_USERS.filter(user => 
-    !['Employer', 'Admin', 'Hiring Manager', 'CEO', 'Director of Engineering'].includes(user.role)
+    user.role === 'jobSeeker'
   );
 
   return (
