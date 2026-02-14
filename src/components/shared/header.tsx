@@ -146,7 +146,7 @@ export default function Header() {
                                 <AccordionItem value="item-1" className="border-b-0">
                                   <AccordionTrigger className={cn(
                                     'flex items-center gap-4 rounded-lg px-4 py-3 text-lg font-medium transition-colors hover:no-underline [&>svg.lucide-chevron-down]:h-5 [&>svg.lucide-chevron-down]:w-5',
-                                    'text-neutral-300 hover:text-white hover:bg-white/10'
+                                    'text-white hover:bg-white/10 font-medium'
                                   )}>
                                     <div className='flex items-center gap-4'>
                                       <Icon className={cn('h-4 w-4', link.color)} />
@@ -189,10 +189,10 @@ export default function Header() {
                           href={link.href!}
                           onClick={() => setMobileMenuOpen(false)}
                           className={cn(
-                              'flex items-center gap-4 rounded-lg px-4 py-3 text-lg font-medium transition-colors hover:bg-white/10 hover:text-white',
+                              'flex items-center gap-4 rounded-lg px-4 py-3 text-lg font-medium transition-colors hover:bg-white/10',
                               isActive
                               ? 'text-white font-semibold bg-white/10'
-                              : 'text-neutral-300'
+                              : 'text-neutral-300 hover:text-white'
                           )}
                           >
                           <Icon className={cn('h-4 w-4', link.color)} />
@@ -229,7 +229,7 @@ export default function Header() {
                                             <DropdownMenuTrigger asChild>
                                                 <Button variant="ghost" className={cn(
                                                     'flex items-center gap-2 rounded-md p-2 text-sm font-medium transition-colors',
-                                                    isDropdownActive ? 'text-white font-semibold' : 'text-neutral-300 hover:text-white'
+                                                    isDropdownActive ? 'text-white font-bold' : 'text-neutral-300 hover:text-white'
                                                 )}>
                                                     <Icon className={cn('h-4 w-4', link.color)} />
                                                     <span className="hidden xl:inline whitespace-nowrap">{link.label}</span>
@@ -241,11 +241,11 @@ export default function Header() {
                                             <p>{link.label}</p>
                                         </TooltipContent>
                                     </Tooltip>
-                                    <DropdownMenuContent>
+                                    <DropdownMenuContent className="bg-sky-800/90 backdrop-blur-sm border-sky-600">
                                         {link.subLinks.map(subLink => {
                                             const SubIcon = subLink.icon;
                                             return (
-                                                <DropdownMenuItem key={subLink.href} asChild>
+                                                <DropdownMenuItem key={subLink.href} asChild className="focus:bg-sky-700">
                                                     <Link href={subLink.href} className="flex items-center gap-2">
                                                         <SubIcon className={cn('h-4 w-4', subLink.color)} />
                                                         {subLink.label}
@@ -265,8 +265,8 @@ export default function Header() {
                             <Link
                                 href={link.href!}
                                 className={cn(
-                                'flex items-center gap-2 rounded-md p-2 text-sm font-medium transition-colors',
-                                isActive ? 'text-white font-semibold' : 'text-neutral-300 hover:text-white'
+                                'flex items-center gap-2 rounded-md p-2 text-sm transition-colors',
+                                isActive ? 'text-white font-bold' : 'text-neutral-300 hover:text-white'
                                 )}
                             >
                                 <Icon className={cn('h-4 w-4', link.color)} />
