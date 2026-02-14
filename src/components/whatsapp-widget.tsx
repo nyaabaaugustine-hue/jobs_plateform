@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
@@ -15,31 +16,10 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 export default function WhatsAppWidget() {
     // Replace with the administrator's actual WhatsApp number
-    const adminPhoneNumber = "233541988383"; // Example number for Ghana
+    const adminPhoneNumber = "+233541988383"; // Example number for Ghana
     const prefilledMessage = "Hello, I have a question about the platform.";
 
     const whatsappLink = `https://wa.me/${adminPhoneNumber}?text=${encodeURIComponent(prefilledMessage)}`;
 
-    return (
-        <TooltipProvider>
-            <div className="fixed bottom-6 left-6 z-50">
-                <Tooltip>
-                    <TooltipTrigger asChild>
-                        <Link
-                            href={whatsappLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-[#25D366] rounded-full shadow-lg transition-transform hover:scale-110"
-                            aria-label="Chat with us on WhatsApp"
-                        >
-                           <WhatsAppIcon className="w-8 h-8 text-white" />
-                        </Link>
-                    </TooltipTrigger>
-                    <TooltipContent side="right" className="bg-black/80 text-white border-white/20">
-                        <p>Chat with Admin</p>
-                    </TooltipContent>
-                </Tooltip>
-            </div>
-        </TooltipProvider>
-    );
+    return null;
 }
