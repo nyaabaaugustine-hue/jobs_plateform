@@ -1,3 +1,4 @@
+
 {
   "placeholderImages": [
     {
@@ -404,9 +405,9 @@
     },
     {
       "id": "ai-tools-hero",
-      "description": "Abstract circular logo graphic for AI tools section.",
-      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771103002/klo_vappbs.png",
-      "imageHint": "abstract logo"
+      "description": "A woman interacting with a futuristic user interface.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771108988/Screenshot_154_qlx6pl.png",
+      "imageHint": "woman technology"
     }
   ]
 }
