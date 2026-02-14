@@ -3,22 +3,46 @@
 
 import React, { useState, useEffect } from 'react';
 import { DUMMY_APPLICATIONS } from '@/lib/data';
-import type { Application } from '@/lib/types';
+import type { Application, ApplicationStatus } from '@/lib/types';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
 import { FileText, Eye, MessageSquare, Award, CheckCircle, XCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
+// These are the columns for the UI board.
 const statusColumns = ['Applied', 'Screening', 'Interview', 'Offer', 'Hired', 'Rejected'] as const;
+type StatusColumn = typeof statusColumns[number];
 
-const statusConfig: Record<Application['status'], { icon: React.ElementType, textColor: string, bgColor: string, borderColor: string }> = {
+// This configuration now correctly uses the UI column names as keys.
+const statusConfig: Record<StatusColumn, { icon: React.ElementType, textColor: string, bgColor: string, borderColor: string }> = {
     Applied: { icon: FileText, textColor: 'text-blue-600 dark:text-blue-400', bgColor: 'bg-blue-500/5', borderColor: 'border-blue-500/20' },
     Screening: { icon: Eye, textColor: 'text-yellow-600 dark:text-yellow-400', bgColor: 'bg-yellow-500/5', borderColor: 'border-yellow-500/20' },
     Interview: { icon: MessageSquare, textColor: 'text-purple-600 dark:text-purple-400', bgColor: 'bg-purple-500/5', borderColor: 'border-purple-500/20' },
     Offer: { icon: Award, textColor: 'text-orange-600 dark:text-orange-400', bgColor: 'bg-orange-500/5', borderColor: 'border-orange-500/20' },
     Hired: { icon: CheckCircle, textColor: 'text-emerald-600 dark:text-emerald-400', bgColor: 'bg-emerald-500/5', borderColor: 'border-emerald-500/20' },
     Rejected: { icon: XCircle, textColor: 'text-destructive', bgColor: 'bg-destructive/5', borderColor: 'border-destructive/20' },
+};
+
+// A helper function to map data model status to UI column status
+const getStatusColumn = (appStatus: ApplicationStatus): StatusColumn => {
+    switch (appStatus) {
+        case 'APPLIED':
+            return 'Applied';
+        case 'UNDER_REVIEW':
+        case 'SHORTLISTED':
+            return 'Screening';
+        case 'INTERVIEW':
+            return 'Interview';
+        case 'OFFER':
+            return 'Offer';
+        case 'HIRED':
+            return 'Hired';
+        case 'REJECTED':
+            return 'Rejected';
+        default:
+            return 'Applied'; // Fallback
+    }
 };
 
 
@@ -51,10 +75,15 @@ export default function ApplicationsPage() {
     setIsLoading(false);
   }, []);
 
-  const applicationsByStatus = statusColumns.reduce((acc, status) => {
-    acc[status] = applications.filter((app) => app.status === status);
-    return acc;
-  }, {} as Record<typeof statusColumns[number], Application[]>);
+  // Group applications into the correct UI columns
+  const applicationsByStatus = applications.reduce((acc, app) => {
+      const column = getStatusColumn(app.status);
+      if (!acc[column]) {
+          acc[column] = [];
+      }
+      acc[column].push(app);
+      return acc;
+  }, {} as Record<StatusColumn, Application[]>);
 
   if (isLoading) {
     return (
@@ -89,14 +118,15 @@ export default function ApplicationsPage() {
         {statusColumns.map((status) => {
           const config = statusConfig[status];
           const Icon = config.icon;
+          const appsInStatus = applicationsByStatus[status] || [];
           return (
             <div key={status} className="w-80 shrink-0">
               <h2 className={cn("font-semibold mb-4 px-1 flex items-center gap-2", config.textColor)}>
                 <Icon className="h-5 w-5" />
-                {status} ({applicationsByStatus[status].length})
+                {status} ({appsInStatus.length})
               </h2>
               <div className={cn("space-y-4 p-2 rounded-lg h-full border-t-4", config.bgColor, config.borderColor)}>
-                {applicationsByStatus[status].map((app) => (
+                {appsInStatus.map((app) => (
                   <Card key={app.id} className="w-full shadow-sm">
                     <CardHeader>
                       <CardTitle className="text-base">{app.job.title}</CardTitle>
@@ -108,7 +138,7 @@ export default function ApplicationsPage() {
                     </CardContent>
                   </Card>
                 ))}
-                {applicationsByStatus[status].length === 0 && (
+                {appsInStatus.length === 0 && (
                   <div className="flex h-32 items-center justify-center rounded-lg border-dashed border-2 text-sm text-muted-foreground">
                       No applications
                   </div>

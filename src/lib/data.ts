@@ -146,26 +146,28 @@ export const DUMMY_APPLICATIONS: Application[] = DUMMY_APPLICANTS.map((applicant
     let applicationStatus: Application['status'];
     switch (applicant.status) {
         case 'New':
-            applicationStatus = 'Applied';
+            applicationStatus = 'APPLIED';
             break;
         case 'Reviewed':
+            applicationStatus = 'UNDER_REVIEW';
+            break;
         case 'Shortlisted':
-            applicationStatus = 'Screening';
+            applicationStatus = 'SHORTLISTED';
             break;
         case 'Interview':
-            applicationStatus = 'Interview';
+            applicationStatus = 'INTERVIEW';
             break;
         case 'Offer':
-            applicationStatus = 'Offer';
+            applicationStatus = 'OFFER';
             break;
         case 'Hired':
-            applicationStatus = 'Hired';
+            applicationStatus = 'HIRED';
             break;
         case 'Rejected':
-            applicationStatus = 'Rejected';
+            applicationStatus = 'REJECTED';
             break;
         default:
-            applicationStatus = 'Applied';
+            applicationStatus = 'APPLIED';
     }
 
     return {
