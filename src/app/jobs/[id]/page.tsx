@@ -48,7 +48,8 @@ export default function JobDetailPage({ params }: JobDetailPageProps) {
     name: 'John Doe',
     email: 'john.doe@email.com',
     avatar: 'avatar-13',
-    role: 'Senior React Developer'
+    role: 'jobSeeker',
+    professionalTitle: 'Senior React Developer'
   };
 
   useEffect(() => {
@@ -75,7 +76,7 @@ export default function JobDetailPage({ params }: JobDetailPageProps) {
         id: `app-${Date.now()}`,
         job: job,
         user: currentUser,
-        status: 'Applied',
+        status: 'APPLIED',
         appliedDate: new Date().toISOString(),
         coverLetter: coverLetter,
     };
