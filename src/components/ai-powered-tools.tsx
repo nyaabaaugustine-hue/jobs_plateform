@@ -37,7 +37,9 @@ const FeatureCard = ({ icon: Icon, title, description, align }: typeof features[
     align === 'right' ? 'lg:text-right' : 'lg:text-left', 'text-center'
   )}>
     <div className={cn(
-      'inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 mb-4'
+      'inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 mb-4',
+      'mx-auto',
+      align === 'right' ? 'lg:ml-auto lg:mr-0' : 'lg:mr-auto lg:ml-0'
     )}>
       <Icon className="h-6 w-6 text-primary" />
     </div>
@@ -56,42 +58,49 @@ export default function AiPoweredTools() {
           title="Own your career one bold step at a time"
           subtitle="Go from apply to you're hired as our AI-powered tool gives you an advantage in today's competitive job market."
         />
-        <div className="grid grid-cols-1 lg:grid-cols-3 items-center gap-12 mt-12">
-          <div className="space-y-12">
+        
+        {/* Desktop Layout */}
+        <div className="hidden lg:block relative mt-16">
+            <div className="grid grid-cols-2 gap-x-32 gap-y-20">
+                <FeatureCard {...features[0]} />
+                <FeatureCard {...features[2]} />
+                <FeatureCard {...features[1]} />
+                <FeatureCard {...features[3]} />
+            </div>
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="relative w-96 h-96">
+                    {heroImage && (
+                        <Image
+                            src={heroImage.imageUrl}
+                            alt={heroImage.description}
+                            width={500}
+                            height={500}
+                            className="object-contain"
+                            data-ai-hint={heroImage.imageHint}
+                        />
+                    )}
+                </div>
+            </div>
+        </div>
+
+        {/* Mobile Layout */}
+        <div className="lg:hidden space-y-12 mt-12">
             <FeatureCard {...features[0]} />
             <FeatureCard {...features[1]} />
-          </div>
-
-          <div className="hidden lg:block relative group">
-            {heroImage && (
-              <Image
-                src={heroImage.imageUrl}
-                alt={heroImage.description}
-                width={500}
-                height={500}
-                className="object-contain w-full aspect-square"
-                data-ai-hint={heroImage.imageHint}
-              />
-            )}
-          </div>
-          
-          <div className="lg:hidden flex items-center justify-center relative my-8">
-             {heroImage && (
-              <Image
-                src={heroImage.imageUrl}
-                alt={heroImage.description}
-                width={300}
-                height={300}
-                className="object-contain w-full max-w-xs aspect-square"
-                data-ai-hint={heroImage.imageHint}
-              />
-            )}
-          </div>
-
-          <div className="space-y-12">
+            <div className="flex items-center justify-center relative my-8">
+                {heroImage && (
+                <Image
+                    src={heroImage.imageUrl}
+                    alt={heroImage.description}
+                    width={300}
+                    height={300}
+                    className="object-contain w-full max-w-xs aspect-square"
+                    data-ai-hint={heroImage.imageHint}
+                />
+                )}
+            </div>
             <FeatureCard {...features[2]} />
             <FeatureCard {...features[3]} />
-          </div>
         </div>
       </div>
     </section>
