@@ -13,7 +13,7 @@ import TopCompanies from '@/components/top-companies';
 import { Suspense } from 'react';
 import HeroSearchForm from '@/components/hero-search-form';
 import SectionHeader from '@/components/shared/section-header';
-import { DUMMY_JOBS, JOB_CATEGORIES, DUMMY_COMPANIES, DUMMY_REVIEWS, DUMMY_LOCATIONS, DUMMY_BLOG_POSTS } from '@/lib/data';
+import { DUMMY_JOBS, JOB_CATEGORIES, DUMMY_COMPANIES, DUMMY_LOCATIONS, DUMMY_BLOG_POSTS } from '@/lib/data';
 import JobCategories from '@/components/job-categories';
 import HiringSection from '@/components/hiring-section';
 import LatestNews from '@/components/latest-news';
@@ -39,7 +39,6 @@ export default function HomePage() {
   const jobs = DUMMY_JOBS;
   const companies = DUMMY_COMPANIES.slice(0, 10);
   const categories = ['All', ...JOB_CATEGORIES.map((c) => c.name)];
-  const reviews = DUMMY_REVIEWS;
   const locations = DUMMY_LOCATIONS;
 
   return (
@@ -48,7 +47,7 @@ export default function HomePage() {
       <main className="flex-1">
         {/* Hero Section */}
         <section
-          className="relative w-full py-20 lg:py-32 flex items-center justify-center text-center"
+          className="relative w-full py-20 lg:py-32 flex items-center justify-center text-center animate-in fade-in slide-in-from-bottom-4 duration-700"
         >
           {heroImage && (
             <Image
@@ -96,7 +95,7 @@ export default function HomePage() {
 
         <HiringSection />
         
-        <section className="relative py-16 md:py-24">
+        <section className="relative py-16 md:py-24 animate-in fade-in slide-in-from-bottom-4 duration-700">
           {categoryBgImage && (
             <Image
               src={categoryBgImage.imageUrl}
@@ -118,7 +117,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <Testimonials reviews={reviews} />
+        <Testimonials />
 
         <JobsByLocation locations={locations} />
         

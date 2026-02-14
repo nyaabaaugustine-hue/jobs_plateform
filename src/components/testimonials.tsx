@@ -1,9 +1,11 @@
+
 'use client';
 
 import type { Review } from '@/lib/types';
 import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { DUMMY_REVIEWS } from '@/lib/data';
 import StarRating from './shared/star-rating';
 import {
   Carousel,
@@ -16,7 +18,8 @@ import Autoplay from "embla-carousel-react";
 import React from 'react';
 import Image from 'next/image';
 
-export default function Testimonials({ reviews }: { reviews: Review[] }) {
+export default function Testimonials() {
+  const reviews: Review[] = DUMMY_REVIEWS;
 
   const plugin = React.useRef(
     Autoplay({ delay: 5000, stopOnInteraction: true })
