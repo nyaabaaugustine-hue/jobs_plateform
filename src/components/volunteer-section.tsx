@@ -4,6 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const opportunities = [
   {
@@ -30,9 +32,21 @@ const opportunities = [
 ];
 
 export default function VolunteerSection() {
+  const bgImage = PlaceHolderImages.find((p) => p.id === 'subscription-3');
+
   return (
-    <section className="bg-secondary py-16 md:py-24">
-      <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+    <section className="relative py-16 md:py-24">
+       {bgImage && (
+        <Image
+          src={bgImage.imageUrl}
+          alt={bgImage.description}
+          fill
+          className="object-cover z-0"
+          data-ai-hint={bgImage.imageHint}
+        />
+      )}
+      <div className="absolute inset-0 bg-background/90 z-10" />
+      <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <SectionHeader
           title="Kickstart Your Career"
           subtitle="Explore volunteer and attachment opportunities designed for students to gain hands-on experience and make a difference."
