@@ -9,7 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import FeaturedJobs from '@/components/featured-jobs';
 import TopCompanies from '@/components/top-companies';
-import { Suspense, useState } from 'react';
+import { Suspense, useState, useEffect } from 'react';
 import HeroSearchForm from '@/components/hero-search-form';
 import SectionHeader from '@/components/shared/section-header';
 import { DUMMY_JOBS, JOB_CATEGORIES, DUMMY_COMPANIES, DUMMY_LOCATIONS, DUMMY_BLOG_POSTS } from '@/lib/data';
@@ -28,6 +28,15 @@ export default function HomePage() {
   const [isAdPanelOpen, setIsAdPanelOpen] = useState(false);
   const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
   const categoryBgImage = PlaceHolderImages.find((p) => p.id === 'category-bg');
+
+  useEffect(() => {
+    // Open the panel automatically after a short delay on page load
+    const timer = setTimeout(() => {
+      setIsAdPanelOpen(true);
+    }, 2000); // 2-second delay
+
+    return () => clearTimeout(timer); // Cleanup the timer
+  }, []); // Empty dependency array ensures this runs only once on mount
 
   const trustIndicators = [
     { text: '12,430+ jobs available' },
@@ -91,14 +100,6 @@ export default function HomePage() {
 
         <FastRoutes />
         
-        <section className="py-8 text-center bg-card">
-          <div className="container">
-            <Button onClick={() => setIsAdPanelOpen(true)}>
-              Show Ad Panel
-            </Button>
-          </div>
-        </section>
-
         <JobCategories />
 
         <HiringSection />
