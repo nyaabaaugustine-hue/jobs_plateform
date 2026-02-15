@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -220,7 +219,7 @@ export default function JobDetailPage({ params }: JobDetailPageProps) {
                         </div>
                         <div className="flex items-center justify-between">
                             <span className="text-muted-foreground flex items-center gap-2"><Wallet /> Salary</span>
-                            <span className="font-semibold text-primary">{job.salaryRange}</span>
+                            <span className="font-semibold text-chart-5">{job.salaryRange}</span>
                         </div>
                     </CardContent>
                 </Card>

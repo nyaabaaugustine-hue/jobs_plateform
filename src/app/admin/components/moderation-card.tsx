@@ -73,7 +73,7 @@ export default function ModerationCard({ job, aiFlagged = false, onApprove, onRe
         <CardDescription>{job.company.name} - {job.location}</CardDescription>
          <div className="flex flex-wrap gap-2 pt-2 text-sm text-muted-foreground">
             <Badge variant="outline" className="flex items-center gap-2 bg-chart-1/10 text-chart-1 border-chart-1/20"><Briefcase /><span>{job.type}</span></Badge>
-            <Badge variant="outline" className="flex items-center gap-2 bg-chart-3/10 text-chart-3 border-chart-3/20"><Wallet /><span>{job.salaryRange}</span></Badge>
+            <Badge variant="outline" className="flex items-center gap-2 bg-chart-5/10 text-chart-5 border-chart-5/20"><Wallet /><span>{job.salaryRange}</span></Badge>
             <Badge variant="outline" className="flex items-center gap-2 bg-chart-4/10 text-chart-4 border-chart-4/20"><MapPin /><span>{job.experienceLevel}</span></Badge>
         </div>
       </CardHeader>
