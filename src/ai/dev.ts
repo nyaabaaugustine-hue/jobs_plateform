@@ -3,3 +3,4 @@ config();
 
 import '@/ai/flows/ai-job-recommendations.ts';
 import '@/ai/flows/admin-job-moderation.ts';
+import '@/ai/flows/sms-notification-flow.ts';

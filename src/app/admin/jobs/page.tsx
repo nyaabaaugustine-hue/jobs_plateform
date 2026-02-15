@@ -13,7 +13,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator
 } from '@/components/ui/dropdown-menu';
-import { MoreHorizontal, PlusCircle, Users, MapPin, Clock } from 'lucide-react';
+import { MoreHorizontal, PlusCircle, Users, MapPin, Clock, Upload, Download } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import Link from 'next/link';
 import { formatDistanceToNow } from 'date-fns';
@@ -146,12 +146,16 @@ export default function AdminJobsPage() {
           <h1 className="font-headline text-3xl font-bold">Job Management</h1>
           <p className="text-muted-foreground">Manage all jobs on the platform.</p>
         </div>
-        <Button asChild>
-          <Link href="/employer/jobs/new">
-            <PlusCircle className="mr-2 h-4 w-4" />
-            Add New Job
-          </Link>
-        </Button>
+        <div className="flex items-center gap-2">
+            <Button variant="outline" onClick={() => toast({ title: 'Exporting Jobs...', description: 'This would trigger a CSV download.' })}><Download className="mr-2 h-4 w-4" /> Export</Button>
+            <Button variant="outline" onClick={() => toast({ title: 'Importing Jobs...', description: 'This would open a file upload dialog.' })}><Upload className="mr-2 h-4 w-4" /> Import</Button>
+            <Button asChild>
+            <Link href="/employer/jobs/new">
+                <PlusCircle className="mr-2 h-4 w-4" />
+                Add New Job
+            </Link>
+            </Button>
+        </div>
       </div>
 
       <Card>

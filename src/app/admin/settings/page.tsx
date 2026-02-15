@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Globe, Briefcase, Users, Shield, KeyRound, Bell, Save } from 'lucide-react';
+import { Globe, Briefcase, Users, Shield, KeyRound, Bell, Save, MessageCircle } from 'lucide-react';
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -41,13 +41,14 @@ export default function AdminSettingsPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
         <div className="lg:col-span-2">
             <Tabs defaultValue="general" className="space-y-6">
-              <TabsList className="grid w-full grid-cols-2 md:grid-cols-3 lg:grid-cols-6 h-auto">
+              <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 lg:grid-cols-7 h-auto">
                   <TabsTrigger value="general"><Globe className="mr-2"/> General</TabsTrigger>
                   <TabsTrigger value="jobs"><Briefcase className="mr-2"/> Jobs</TabsTrigger>
                   <TabsTrigger value="users"><Users className="mr-2"/> Users</TabsTrigger>
                   <TabsTrigger value="security"><Shield className="mr-2"/> Security</TabsTrigger>
                   <TabsTrigger value="integrations"><KeyRound className="mr-2"/> Integrations</TabsTrigger>
                   <TabsTrigger value="notifications"><Bell className="mr-2"/> Notifications</TabsTrigger>
+                  <TabsTrigger value="sms"><MessageCircle className="mr-2"/> SMS</TabsTrigger>
               </TabsList>
               
               <TabsContent value="general">
@@ -188,6 +189,32 @@ export default function AdminSettingsPage() {
                               <p className="text-xs text-muted-foreground">This address receives alerts for new user registrations, support tickets, and system errors.</p>
                           </div>
                        </CardContent>
+                  </Card>
+              </TabsContent>
+              <TabsContent value="sms">
+                  <Card>
+                      <CardHeader>
+                          <CardTitle>SMS Gateway</CardTitle>
+                          <CardDescription>Configure your SMS provider for sending notifications.</CardDescription>
+                      </CardHeader>
+                      <CardContent className="space-y-6">
+                          <div className="space-y-2">
+                              <Label htmlFor="sms-provider">SMS Provider</Label>
+                              <Input id="sms-provider" defaultValue="Twilio" disabled />
+                          </div>
+                          <div className="space-y-2">
+                              <Label htmlFor="twilio-sid">Twilio Account SID</Label>
+                              <Input id="twilio-sid" type="password" placeholder="ACxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" />
+                          </div>
+                          <div className="space-y-2">
+                              <Label htmlFor="twilio-token">Twilio Auth Token</Label>
+                              <Input id="twilio-token" type="password" placeholder="••••••••••••••••••••" />
+                          </div>
+                          <div className="space-y-2">
+                              <Label htmlFor="twilio-phone">Twilio Phone Number</Label>
+                              <Input id="twilio-phone" placeholder="+15017122661" />
+                          </div>
+                      </CardContent>
                   </Card>
               </TabsContent>
             </Tabs>

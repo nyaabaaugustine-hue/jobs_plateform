@@ -14,7 +14,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator
 } from '@/components/ui/dropdown-menu';
-import { MoreHorizontal, PlusCircle, Upload, Loader2, Edit } from 'lucide-react';
+import { MoreHorizontal, PlusCircle, Upload, Loader2, Edit, Download } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -171,72 +171,76 @@ export default function AdminCompaniesPage() {
           <h1 className="font-headline text-3xl font-bold">Company Management</h1>
           <p className="text-muted-foreground">Manage all companies on the platform.</p>
         </div>
-        <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>
-          <DialogTrigger asChild>
-            <Button className="bg-accent-gradient" onClick={() => setIsCreateDialogOpen(true)}>
-              <PlusCircle className="mr-2 h-4 w-4" />
-              Add New Company
-            </Button>
-          </DialogTrigger>
-          <DialogContent className="sm:max-w-lg">
-            <form onSubmit={handleCreateCompany}>
-              <DialogHeader>
-                <DialogTitle>
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <PlusCircle className="h-5 w-5 text-primary" />
+        <div className="flex items-center gap-2">
+            <Button variant="outline" onClick={() => toast({ title: 'Exporting Companies...', description: 'This would trigger a CSV download.' })}><Download className="mr-2 h-4 w-4" /> Export</Button>
+            <Button variant="outline" onClick={() => toast({ title: 'Importing Companies...', description: 'This would open a file upload dialog.' })}><Upload className="mr-2 h-4 w-4" /> Import</Button>
+            <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>
+            <DialogTrigger asChild>
+                <Button className="bg-accent-gradient" onClick={() => setIsCreateDialogOpen(true)}>
+                <PlusCircle className="mr-2 h-4 w-4" />
+                Add New Company
+                </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-lg">
+                <form onSubmit={handleCreateCompany}>
+                <DialogHeader>
+                    <DialogTitle>
+                    <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center">
+                        <PlusCircle className="h-5 w-5 text-primary" />
+                        </div>
+                        <span>Add New Company</span>
                     </div>
-                    <span>Add New Company</span>
-                  </div>
-                </DialogTitle>
-                <DialogDescription>
-                  Fill in the details below to add a new company to the platform.
-                </DialogDescription>
-              </DialogHeader>
-              <div className="grid gap-4 py-4">
-                <div className="space-y-2">
-                  <Label htmlFor="name">Company Name</Label>
-                  <Input id="name" placeholder="Innovate Inc." value={newCompanyName} onChange={e => setNewCompanyName(e.target.value)} required />
+                    </DialogTitle>
+                    <DialogDescription>
+                    Fill in the details below to add a new company to the platform.
+                    </DialogDescription>
+                </DialogHeader>
+                <div className="grid gap-4 py-4">
+                    <div className="space-y-2">
+                    <Label htmlFor="name">Company Name</Label>
+                    <Input id="name" placeholder="Innovate Inc." value={newCompanyName} onChange={e => setNewCompanyName(e.target.value)} required />
+                    </div>
+                    <div className="space-y-2">
+                    <Label htmlFor="logo">Company Logo</Label>
+                    <div className="flex flex-col items-center justify-center w-full p-6 border-2 border-dashed rounded-lg">
+                        {isUploading ? (
+                            <Loader2 className="w-8 h-8 text-muted-foreground animate-spin" />
+                        ) : uploadedImageUrl ? (
+                            <Image src={uploadedImageUrl} alt="Uploaded preview" width={60} height={60} className="rounded-md object-cover" />
+                        ) : (
+                            <Upload className="w-8 h-8 text-muted-foreground" />
+                        )}
+                        <p className="mt-2 text-sm text-muted-foreground">
+                            {isUploading ? 'Uploading...' : uploadedImageUrl ? 'Logo selected. ' : 'Drag & drop or '}
+                            {!uploadedImageUrl && !isUploading && (
+                                <Button variant="link" className="p-0 h-auto" type="button" onClick={handleImageUpload}>click to upload</Button>
+                            )}
+                            {uploadedImageUrl && !isUploading && (
+                                <Button variant="link" className="p-0 h-auto text-destructive" type="button" onClick={() => setUploadedImageUrl(null)}>Remove</Button>
+                            )}
+                        </p>
+                    </div>
+                    </div>
+                    <div className="space-y-2">
+                    <Label htmlFor="industry">Industry</Label>
+                    <Input id="industry" placeholder="e.g., Tech, Finance" value={newCompanyIndustry} onChange={e => setNewCompanyIndustry(e.target.value)} required />
+                    </div>
+                    <div className="space-y-2">
+                    <Label htmlFor="location">Location</Label>
+                    <Input id="location" placeholder="e.g., Accra, Ghana" value={newCompanyLocation} onChange={e => setNewCompanyLocation(e.target.value)} required />
+                    </div>
                 </div>
-                <div className="space-y-2">
-                  <Label htmlFor="logo">Company Logo</Label>
-                  <div className="flex flex-col items-center justify-center w-full p-6 border-2 border-dashed rounded-lg">
-                      {isUploading ? (
-                          <Loader2 className="w-8 h-8 text-muted-foreground animate-spin" />
-                      ) : uploadedImageUrl ? (
-                          <Image src={uploadedImageUrl} alt="Uploaded preview" width={60} height={60} className="rounded-md object-cover" />
-                      ) : (
-                          <Upload className="w-8 h-8 text-muted-foreground" />
-                      )}
-                      <p className="mt-2 text-sm text-muted-foreground">
-                          {isUploading ? 'Uploading...' : uploadedImageUrl ? 'Logo selected. ' : 'Drag & drop or '}
-                          {!uploadedImageUrl && !isUploading && (
-                              <Button variant="link" className="p-0 h-auto" type="button" onClick={handleImageUpload}>click to upload</Button>
-                          )}
-                          {uploadedImageUrl && !isUploading && (
-                              <Button variant="link" className="p-0 h-auto text-destructive" type="button" onClick={() => setUploadedImageUrl(null)}>Remove</Button>
-                          )}
-                      </p>
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="industry">Industry</Label>
-                  <Input id="industry" placeholder="e.g., Tech, Finance" value={newCompanyIndustry} onChange={e => setNewCompanyIndustry(e.target.value)} required />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="location">Location</Label>
-                  <Input id="location" placeholder="e.g., Accra, Ghana" value={newCompanyLocation} onChange={e => setNewCompanyLocation(e.target.value)} required />
-                </div>
-              </div>
-              <DialogFooter>
-                <DialogClose asChild>
-                  <Button type="button" variant="outline">Cancel</Button>
-                </DialogClose>
-                <Button type="submit" className="bg-accent-gradient">Add Company</Button>
-              </DialogFooter>
-            </form>
-          </DialogContent>
-        </Dialog>
+                <DialogFooter>
+                    <DialogClose asChild>
+                    <Button type="button" variant="outline">Cancel</Button>
+                    </DialogClose>
+                    <Button type="submit" className="bg-accent-gradient">Add Company</Button>
+                </DialogFooter>
+                </form>
+            </DialogContent>
+            </Dialog>
+        </div>
       </div>
 
        {/* Edit Company Dialog */}
