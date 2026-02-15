@@ -284,9 +284,9 @@
     },
     {
       "id": "hiring-main",
-      "description": "An abstract background with geometric shapes.",
-      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771111377/3124_lsxwt6.jpg",
-      "imageHint": "abstract background"
+      "description": "A group of diverse professionals in a modern office.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771014874/3232_ejy9fc.webp",
+      "imageHint": "business team"
     },
     {
       "id": "subscription-1",
@@ -326,9 +326,9 @@
     },
     {
       "id": "top-companies-bg",
-      "description": "An abstract background with geometric shapes.",
-      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771111377/3124_lsxwt6.jpg",
-      "imageHint": "abstract background"
+      "description": "A vibrant market scene in Accra, Ghana.",
+      "imageUrl": "https://images.unsplash.com/photo-1618925480413-5858d4a0445d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "imageHint": "Ghana market"
     },
     {
       "id": "latest-news-bg",
@@ -386,9 +386,9 @@
     },
     {
       "id": "contact-map",
-      "description": "A screenshot of a map showing a location in Accra.",
-      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771148872/Screenshot_156_cdc4ns.png",
-      "imageHint": "contact map"
+      "description": "A vibrant, stylized map of Accra.",
+      "imageUrl": "https://images.unsplash.com/photo-1618422159590-c5f21224f8d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80",
+      "imageHint": "Accra map"
     },
     {
       "id": "kente-corner-art",
@@ -410,9 +410,9 @@
     },
     {
       "id": "ai-tools-hero",
-      "description": "A man interacting with a futuristic user interface.",
-      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771110692/vvvv_anqoxg.jpg",
-      "imageHint": "man technology"
+      "description": "A woman interacting with a futuristic user interface.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771108988/Screenshot_154_qlx6pl.png",
+      "imageHint": "woman technology"
     }
   ]
 }
