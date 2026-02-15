@@ -100,7 +100,11 @@ export default function PricingGrid() {
                 )}
                 <Card className={cn(
                     'relative flex flex-col h-full rounded-2xl transition-all duration-300 overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-700',
-                    tier.isPopular ? 'border-2 border-yellow-400 shadow-2xl bg-background' : 'hover:shadow-xl hover:-translate-y-1'
+                    tier.isPopular
+                        ? 'border-2 border-yellow-400 shadow-2xl bg-background'
+                        : 'hover:shadow-xl hover:-translate-y-1',
+                    tier.id === 'basic' && 'border-2 border-red-400',
+                    tier.id === 'enterprise' && 'border-2 border-green-400'
                 )} style={{ animationDelay: `${200 + index * 100}ms` }}>
                      {kenteImage && (
                         <Image
