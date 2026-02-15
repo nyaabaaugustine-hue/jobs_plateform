@@ -1,3 +1,4 @@
+'use client';
 
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,7 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import FeaturedJobs from '@/components/featured-jobs';
 import TopCompanies from '@/components/top-companies';
-import { Suspense } from 'react';
+import { Suspense, useState } from 'react';
 import HeroSearchForm from '@/components/hero-search-form';
 import SectionHeader from '@/components/shared/section-header';
 import { DUMMY_JOBS, JOB_CATEGORIES, DUMMY_COMPANIES, DUMMY_LOCATIONS, DUMMY_BLOG_POSTS } from '@/lib/data';
@@ -21,8 +22,10 @@ import Testimonials from '@/components/testimonials';
 import FastRoutes from '@/components/fast-routes';
 import PricingGrid from '@/components/pricing-grid';
 import JobsByLocation from '@/components/jobs-by-location';
+import AdPanel from '@/components/shared/ad-panel';
 
 export default function HomePage() {
+  const [isAdPanelOpen, setIsAdPanelOpen] = useState(false);
   const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
   const categoryBgImage = PlaceHolderImages.find((p) => p.id === 'category-bg');
 
@@ -40,6 +43,7 @@ export default function HomePage() {
 
   return (
       <main className="flex-1">
+        <AdPanel isOpen={isAdPanelOpen} onClose={() => setIsAdPanelOpen(false)} />
         {/* Hero Section */}
         <section
           className="relative w-full py-20 lg:py-32 flex items-center justify-center text-center"
@@ -86,6 +90,14 @@ export default function HomePage() {
         <WhyChooseUs />
 
         <FastRoutes />
+        
+        <section className="py-8 text-center bg-card">
+          <div className="container">
+            <Button onClick={() => setIsAdPanelOpen(true)}>
+              Show Ad Panel
+            </Button>
+          </div>
+        </section>
 
         <JobCategories />
 
