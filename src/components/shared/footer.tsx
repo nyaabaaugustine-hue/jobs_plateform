@@ -8,10 +8,21 @@ import { Input } from '../ui/input';
 import { Separator } from '../ui/separator';
 import { useToast } from '@/hooks/use-toast';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 export default function Footer() {
   const { toast } = useToast();
   const [email, setEmail] = useState('');
+  const pathname = usePathname();
+
+  const isDashboardPage =
+    pathname.startsWith('/admin') ||
+    pathname.startsWith('/dashboard') ||
+    pathname.startsWith('/employer');
+
+  if (isDashboardPage) {
+    return null;
+  }
 
   const navSections = [
     {

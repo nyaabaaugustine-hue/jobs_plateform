@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -96,9 +95,19 @@ const DesktopAuthButtons = () => (
   );
 
 export default function Header() {
+  const pathname = usePathname();
+
+  const isDashboardPage =
+    pathname.startsWith('/admin') ||
+    pathname.startsWith('/dashboard') ||
+    pathname.startsWith('/employer');
+
+  if (isDashboardPage) {
+    return null;
+  }
+  
   const [isMounted, setIsMounted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const pathname = usePathname();
 
   const { auth } = useFirebase();
   const { user: authUser, isUserLoading: isAuthUserLoading } = useUser();
@@ -196,7 +205,6 @@ export default function Header() {
   ];
 
   const DesktopAuthDisplay = () => {
-    // If auth state is still loading, show skeleton.
     if (isAuthUserLoading) {
       return (
         <div className="flex items-center gap-4">
@@ -205,9 +213,7 @@ export default function Header() {
       );
     }
 
-    // If user is authenticated
     if (authUser) {
-      // If user data is still loading, show a skeleton version of the avatar.
       if (isUserDataLoading) {
         return (
           <div className="flex items-center gap-2">
@@ -217,7 +223,6 @@ export default function Header() {
         );
       }
       
-      // If user data loaded successfully
       if (userData) {
         const userAvatar = PlaceHolderImages.find(p => p.id === userData.avatar);
         const profileLink = getProfileLink();
@@ -278,8 +283,6 @@ export default function Header() {
         );
       }
       
-      // If user is authenticated but user data failed to load (or doesn't exist)
-      // We can show a generic user menu with just a logout button.
       return (
         <div className="flex items-center gap-2">
           <ThemeToggle />
@@ -309,7 +312,6 @@ export default function Header() {
       );
     }
     
-    // If user is not authenticated
     return <DesktopAuthButtons />;
   };
 
@@ -317,7 +319,6 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur-sm">
       <div className="mx-auto flex h-[80px] max-w-7xl items-center justify-between px-6 lg:px-12">
         
-        {/* Left: Logo & Mobile Trigger */}
         <div className="flex items-center gap-4">
           <div className="md:hidden">
             {isMounted && (
@@ -442,7 +443,6 @@ export default function Header() {
           </Link>
         </div>
 
-        {/* Center: Nav (Desktop) */}
         <div className="hidden md:flex">
             <TooltipProvider>
                 <nav className="flex items-center gap-1 lg:gap-2">
@@ -512,7 +512,6 @@ export default function Header() {
             </TooltipProvider>
         </div>
 
-        {/* Right: Auth (Desktop) */}
         <div className="hidden md:flex items-center">
           <DesktopAuthDisplay />
         </div>
