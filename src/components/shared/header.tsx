@@ -117,7 +117,7 @@ export default function Header() {
       icon: Info,
       color: 'text-gray-500',
       subLinks: [
-        { href: '/blog', label: 'Blog', icon: PenSquare, color: 'text-blue-500' },
+        { href: '/blog', label: 'Our News & Stories', icon: PenSquare, color: 'text-blue-500' },
         { href: '/features', label: 'Feature Showcase', icon: LayoutDashboard, color: 'text-teal-500' },
         { href: '/about', label: 'About Us', icon: Info, color: 'text-gray-500' },
         { href: '/contacts', label: 'Contact', icon: Mail, color: 'text-purple-500' },
