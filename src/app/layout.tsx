@@ -3,11 +3,9 @@ import { Inter, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from '@/components/theme-provider';
-import Header from '@/components/shared/header';
-import Footer from '@/components/shared/footer';
-import DynamicWidgetsWrapper from '@/components/shared/dynamic-widgets-wrapper';
-import ConditionalLiveActivityBar from '@/components/shared/conditional-live-activity-bar';
 import { FirebaseClientProvider } from '@/firebase';
+import MainLayoutWrapper from '@/components/shared/main-layout-wrapper';
+import DynamicWidgetsWrapper from '@/components/shared/dynamic-widgets-wrapper';
 
 const inter = Inter({ 
   subsets: ['latin'], 
@@ -44,12 +42,7 @@ export default function RootLayout({
         >
           <FirebaseClientProvider>
             <div className="flex flex-col min-h-screen">
-              <div className="sticky top-0 z-50">
-                <Header />
-                <ConditionalLiveActivityBar />
-              </div>
-              {children}
-              <Footer />
+              <MainLayoutWrapper>{children}</MainLayoutWrapper>
             </div>
             <Toaster />
             <DynamicWidgetsWrapper />
