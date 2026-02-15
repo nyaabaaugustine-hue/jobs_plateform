@@ -4,8 +4,10 @@
 import { useEffect } from 'react';
 import Image from 'next/image';
 import { X } from 'lucide-react';
+import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
@@ -15,7 +17,8 @@ interface AdPanelProps {
 }
 
 export default function AdPanel({ isOpen, onClose }: AdPanelProps) {
-  const promoImage = PlaceHolderImages.find((p) => p.id === 'ad-panel-promo');
+  // Using the first blog post image as requested by the user for styling reference
+  const promoImage = PlaceHolderImages.find((p) => p.id === 'blog-post-1');
 
   useEffect(() => {
     const handleEsc = (event: KeyboardEvent) => {
@@ -45,54 +48,52 @@ export default function AdPanel({ isOpen, onClose }: AdPanelProps) {
       {/* Panel */}
       <aside
         className={cn(
-          'fixed top-0 left-0 h-full w-full max-w-sm bg-background shadow-2xl z-[100] transition-transform duration-500 ease-in-out flex flex-col',
-          isOpen ? 'translate-x-0' : '-translate-x-full'
+          'fixed bottom-6 left-6 w-full max-w-sm bg-transparent border-none z-[100] transition-all duration-500 ease-in-out',
+          isOpen ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
         )}
         role="dialog"
         aria-modal="true"
         aria-labelledby="ad-panel-headline"
       >
-        {/* Close Button */}
-        <Button
-          variant="ghost"
-          size="icon"
-          className="absolute top-4 right-4 rounded-full text-muted-foreground hover:bg-muted hover:text-foreground z-10"
-          onClick={onClose}
-        >
-          <X className="h-6 w-6" />
-          <span className="sr-only">Close panel</span>
-        </Button>
+        <Card className="overflow-hidden transition-all duration-300 shadow-2xl group flex flex-col relative">
+          <Button
+            variant="ghost"
+            size="icon"
+            className="absolute top-2 right-2 rounded-full text-white bg-black/30 hover:bg-black/60 hover:text-white z-10 h-8 w-8"
+            onClick={onClose}
+          >
+            <X className="h-5 w-5" />
+            <span className="sr-only">Close panel</span>
+          </Button>
 
-        {/* Content */}
-        <div className="flex-1 overflow-y-auto">
-          {promoImage && (
-            <div className="relative w-full aspect-[4/3]">
-              <Image
-                src={promoImage.imageUrl}
-                alt={promoImage.description}
-                fill
-                className="object-cover"
-                data-ai-hint={promoImage.imageHint}
-                sizes="(max-width: 768px) 100vw, 30vw"
-              />
-            </div>
-          )}
-
-          <div className="p-8 lg:p-12 space-y-6">
-            <h2 id="ad-panel-headline" className="font-headline text-3xl lg:text-4xl font-bold">
-              Boost Your Productivity Today
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Discover powerful tools designed to streamline your workflow and
-              maximize efficiency.
+          <Link href="#" className="block overflow-hidden">
+            {promoImage && (
+                <div className="relative">
+                  <Image
+                      src={promoImage.imageUrl}
+                      alt="Boost your productivity"
+                      width={600}
+                      height={400}
+                      className="w-full object-cover aspect-[16/9] transition-transform duration-300 group-hover:scale-105"
+                      data-ai-hint={promoImage.imageHint}
+                      sizes="(max-width: 768px) 100vw, 30vw"
+                  />
+                </div>
+            )}
+          </Link>
+          <CardContent className="p-6 flex flex-col flex-grow bg-card">
+              <h3 id="ad-panel-headline" className="font-headline text-lg font-bold group-hover:text-primary transition-colors">
+                Boost Your Productivity Today
+              </h3>
+            <p className="text-muted-foreground text-sm mt-2 flex-grow">
+                Discover powerful tools designed to streamline your workflow and maximize efficiency.
             </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button size="lg" className="flex-1 hover:brightness-110">Get Started</Button>
-              <Button size="lg" variant="outline" className="flex-1">Learn More</Button>
+            <div className="flex flex-col sm:flex-row gap-2 pt-4 mt-4 border-t">
+              <Button size="sm" className="flex-1 hover:brightness-110">Get Started</Button>
+              <Button size="sm" variant="outline" className="flex-1">Learn More</Button>
             </div>
-          </div>
-        </div>
+          </CardContent>
+        </Card>
       </aside>
     </>
   );
