@@ -7,6 +7,7 @@ import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import DynamicWidgetsWrapper from '@/components/shared/dynamic-widgets-wrapper';
 import ConditionalLiveActivityBar from '@/components/shared/conditional-live-activity-bar';
+import { FirebaseClientProvider } from '@/firebase';
 
 const inter = Inter({ 
   subsets: ['latin'], 
@@ -41,16 +42,18 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="flex flex-col min-h-screen">
-            <div className="sticky top-0 z-50">
-              <Header />
-              <ConditionalLiveActivityBar />
+          <FirebaseClientProvider>
+            <div className="flex flex-col min-h-screen">
+              <div className="sticky top-0 z-50">
+                <Header />
+                <ConditionalLiveActivityBar />
+              </div>
+              {children}
+              <Footer />
             </div>
-            {children}
-            <Footer />
-          </div>
-          <Toaster />
-          <DynamicWidgetsWrapper />
+            <Toaster />
+            <DynamicWidgetsWrapper />
+          </FirebaseClientProvider>
         </ThemeProvider>
       </body>
     </html>

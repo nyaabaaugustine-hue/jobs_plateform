@@ -6,87 +6,166 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import Link from "next/link"
-import { Separator } from "@/components/ui/separator"
 import Image from "next/image"
 import { PlaceHolderImages } from "@/lib/placeholder-images"
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useToast } from '@/hooks/use-toast';
+import { useFirebase } from '@/firebase/provider';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { doc, getDoc } from 'firebase/firestore';
 
 export default function LoginPage() {
     const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
 
-    const [email, setEmail] = useState('jobseeker@example.com');
-    const [password, setPassword] = useState('password');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [isLoading, setIsLoading] = useState(false);
 
     const router = useRouter();
     const { toast } = useToast();
+    const { auth, firestore } = useFirebase();
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
+        if (!auth || !firestore) {
+            toast({
+                title: 'Error',
+                description: 'Firebase is not initialized. Please try again later.',
+                variant: 'destructive',
+            });
+            return;
+        }
         setIsLoading(true);
 
-        // Demo logic: redirect based on email
-        let destination = '/dashboard'; // Default to job seeker
-        let roleName = 'Job Seeker';
-        if (email.toLowerCase().includes('employer')) {
-            destination = '/employer';
-            roleName = 'Employer';
-        } else if (email.toLowerCase().includes('admin')) {
-            destination = '/admin';
-            roleName = 'Admin';
-        }
+        try {
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
 
+            toast({
+                title: 'Login Successful',
+                description: 'Redirecting to your dashboard...',
+                variant: 'vibrant',
+            });
 
-        toast({
-            title: `Logged in as ${roleName}`,
-            description: 'Redirecting to your dashboard...',
-            variant: 'vibrant',
-        });
-        
-        // Simulate network delay for demo
-        setTimeout(() => {
+            // Fetch user role from Firestore to redirect correctly
+            const userDocRef = doc(firestore, "users", user.uid);
+            const userDoc = await getDoc(userDocRef);
+
+            let destination = '/dashboard'; // Default
+            if (userDoc.exists()) {
+                const userData = userDoc.data();
+                switch (userData.role) {
+                    case 'admin':
+                        destination = '/admin';
+                        break;
+                    case 'employer':
+                    case 'recruiter':
+                    case 'hiringManager':
+                        destination = '/employer';
+                        break;
+                    case 'jobSeeker':
+                    default:
+                        destination = '/dashboard';
+                }
+            } else {
+                 // Check if user is an admin by looking in roles_admin collection
+                const adminDocRef = doc(firestore, "roles_admin", user.uid);
+                const adminDoc = await getDoc(adminDocRef);
+                if (adminDoc.exists()) {
+                    destination = '/admin';
+                }
+            }
+            
             router.push(destination);
+
+        } catch (error: any) {
+            console.error("Login failed:", error);
+            let errorMessage = "An unknown error occurred.";
+            if (error.code) {
+                switch (error.code) {
+                    case 'auth/user-not-found':
+                    case 'auth/wrong-password':
+                    case 'auth/invalid-credential':
+                        errorMessage = 'Invalid email or password. Please try again.';
+                        break;
+                    case 'auth/invalid-email':
+                        errorMessage = 'Please enter a valid email address.';
+                        break;
+                    case 'auth/too-many-requests':
+                        errorMessage = 'Access to this account has been temporarily disabled due to many failed login attempts. You can try again later.';
+                        break;
+                }
+            }
+            toast({
+                title: 'Login Failed',
+                description: errorMessage,
+                variant: 'destructive',
+            });
             setIsLoading(false);
-        }, 1000);
+        }
     };
 
-    const handleOneClickLogin = (role: 'jobSeeker' | 'employer' | 'admin') => {
-        setIsLoading(true);
-        let destination = '/dashboard';
-        let roleName = 'Job Seeker';
-
-        if (role === 'employer') {
-            destination = '/employer';
-            roleName = 'Employer';
-        } else if (role === 'admin') {
-            destination = '/admin';
-            roleName = 'Admin';
+    const handleOneClickLogin = async (role: 'jobSeeker' | 'employer' | 'admin') => {
+        if (!auth || !firestore) {
+            toast({
+                title: 'Error',
+                description: 'Firebase is not initialized. Please try again later.',
+                variant: 'destructive',
+            });
+            return;
         }
 
-        toast({
-            title: `Logged in as ${roleName}`,
-            description: 'Redirecting to your dashboard...',
-            variant: 'vibrant',
-        });
+        let demoEmail = '';
+        let roleName = '';
+        let destination = '';
 
-        setTimeout(() => {
+        switch (role) {
+            case 'employer':
+                demoEmail = 'employer@example.com';
+                roleName = 'Employer';
+                destination = '/employer';
+                break;
+            case 'admin':
+                demoEmail = 'admin@example.com';
+                roleName = 'Admin';
+                destination = '/admin';
+                break;
+            case 'jobSeeker':
+            default:
+                demoEmail = 'jobseeker@example.com';
+                roleName = 'Job Seeker';
+                destination = '/dashboard';
+                break;
+        }
+        
+        setEmail(demoEmail);
+        setPassword('password');
+        setIsLoading(true);
+
+        try {
+            await signInWithEmailAndPassword(auth, demoEmail, 'password');
+            toast({
+                title: `Logged in as ${roleName}`,
+                description: 'Redirecting to your dashboard...',
+                variant: 'vibrant',
+            });
             router.push(destination);
+        } catch (error) {
+            toast({
+                title: 'Demo Login Failed',
+                description: `Could not log in as ${roleName}. Please ensure demo users (e.g., ${demoEmail}) exist in Firebase Authentication with the password 'password'.`,
+                variant: 'destructive',
+            });
             setIsLoading(false);
-        }, 1000);
+        }
     };
 
     const handleSocialLogin = (provider: string) => {
-        setIsLoading(true);
         toast({
-            title: `Logging in with ${provider}...`,
-            description: "This feature is for demonstration purposes.",
+            title: `Login with ${provider}`,
+            description: "Social login has not been implemented in this demo.",
         });
-        setTimeout(() => {
-            router.push('/dashboard');
-            setIsLoading(false);
-        }, 1500);
     };
 
     const handleForgotPassword = () => {
@@ -177,7 +256,7 @@ export default function LoginPage() {
                     </div>
                 </div>
                 
-                <Button variant="outline" className="w-full" disabled={isLoading} onClick={() => handleSocialLogin('Google')}>
+                <Button variant="outline" className="w-full" type="button" disabled={isLoading} onClick={() => handleSocialLogin('Google')}>
                     Login with Google
                 </Button>
 

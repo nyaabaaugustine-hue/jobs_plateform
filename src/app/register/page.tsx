@@ -11,6 +11,9 @@ import { PlaceHolderImages } from "@/lib/placeholder-images"
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useToast } from '@/hooks/use-toast';
+import { useFirebase } from '@/firebase/provider';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
+import { doc, setDoc } from 'firebase/firestore';
 
 export default function RegisterPage() {
     const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
@@ -22,6 +25,7 @@ export default function RegisterPage() {
     
     const router = useRouter();
     const { toast } = useToast();
+    const { auth, firestore } = useFirebase();
 
     const handleRegister = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -33,31 +37,74 @@ export default function RegisterPage() {
             });
             return;
         }
+        if (!auth || !firestore) {
+            toast({
+                title: 'Error',
+                description: 'Firebase is not initialized. Please try again later.',
+                variant: 'destructive',
+            });
+            return;
+        }
+
         setIsLoading(true);
 
-        toast({
-            title: 'Account Created!',
-            description: "You've been successfully registered. Redirecting...",
-            variant: 'vibrant',
-        });
-        
-        // Simulate network delay and redirect to the default dashboard
-        setTimeout(() => {
-            router.push('/dashboard');
+        try {
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
+            
+            // Update user profile
+            await updateProfile(user, {
+                displayName: `${firstName} ${lastName}`
+            });
+
+            // Create user document in Firestore
+            const userDocRef = doc(firestore, "users", user.uid);
+            await setDoc(userDocRef, {
+                email: user.email,
+                firstName: firstName,
+                lastName: lastName,
+                name: `${firstName} ${lastName}`,
+                role: 'jobSeeker', // Default role for new signups
+                createdAt: new Date().toISOString(),
+                avatar: `avatar-${Math.floor(Math.random() * 15) + 1}`
+            });
+
+            toast({
+                title: 'Account Created!',
+                description: "You've been successfully registered. Redirecting...",
+                variant: 'vibrant',
+            });
+            
+            // Redirect to dashboard after a short delay
+            setTimeout(() => {
+                router.push('/dashboard');
+                // No need to set isLoading to false, as the page will unmount.
+            }, 1000);
+
+        } catch (error: any) {
+            console.error("Registration failed:", error);
+            let errorMessage = "An unknown error occurred.";
+            if (error.code === 'auth/email-already-in-use') {
+                errorMessage = "This email address is already in use by another account.";
+            } else if (error.code === 'auth/invalid-email') {
+                errorMessage = "Please enter a valid email address.";
+            } else if (error.code === 'auth/weak-password') {
+                errorMessage = 'The password is too weak. Please use at least 6 characters.';
+            }
+            toast({
+                title: 'Registration Failed',
+                description: errorMessage,
+                variant: 'destructive',
+            });
             setIsLoading(false);
-        }, 1000);
+        }
     };
 
     const handleSocialSignUp = (provider: string) => {
-        setIsLoading(true);
         toast({
-            title: `Signing up with ${provider}...`,
-            description: "This feature is for demonstration purposes.",
+            title: `Sign up with ${provider}`,
+            description: "Social sign-up has not been implemented in this demo.",
         });
-        setTimeout(() => {
-            router.push('/dashboard');
-            setIsLoading(false);
-        }, 1500);
     };
 
   return (
@@ -119,7 +166,7 @@ export default function RegisterPage() {
                                 <span className="bg-card px-2 text-muted-foreground">Or continue with</span>
                             </div>
                         </div>
-                        <Button variant="outline" className="w-full" onClick={() => handleSocialSignUp('Google')} disabled={isLoading}>
+                        <Button variant="outline" type="button" className="w-full" onClick={() => handleSocialSignUp('Google')} disabled={isLoading}>
                             Sign up with Google
                         </Button>
                     </div>
