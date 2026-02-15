@@ -443,6 +443,12 @@
       "description": "A woman interacting with a futuristic user interface.",
       "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771108988/Screenshot_154_qlx6pl.png",
       "imageHint": "woman technology"
+    },
+    {
+      "id": "contact-form-bg",
+      "description": "A person working on a laptop in a modern, bright office setting.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771163025/contacts_amr2rb.jpg",
+      "imageHint": "office workspace"
     }
   ]
 }
