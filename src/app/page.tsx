@@ -20,7 +20,6 @@ import WhyChooseUs from '@/components/why-choose-us';
 import Testimonials from '@/components/testimonials';
 import PricingGrid from '@/components/pricing-grid';
 import JobsByLocation from '@/components/jobs-by-location';
-import AiPoweredTools from '@/components/ai-powered-tools';
 
 export default function HomePage() {
   const categoryBgImage = PlaceHolderImages.find((p) => p.id === 'category-bg');
@@ -80,8 +79,6 @@ export default function HomePage() {
         <FeaturedJobs jobs={jobs} categories={categories} />
 
         <WhyChooseUs />
-
-        <AiPoweredTools />
 
         <JobCategories />
 
