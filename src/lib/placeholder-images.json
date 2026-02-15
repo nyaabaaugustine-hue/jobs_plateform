@@ -13,6 +13,36 @@
       "imageHint": "professionals collaborating"
     },
     {
+      "id": "ad-mpharma",
+      "description": "A scientist in a lab, representing healthcare technology.",
+      "imageUrl": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "imageHint": "healthcare technology"
+    },
+    {
+      "id": "ad-hubtel",
+      "description": "A person using a phone for a mobile payment, representing fintech.",
+      "imageUrl": "https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+      "imageHint": "mobile payment"
+    },
+    {
+      "id": "ad-mtn",
+      "description": "A vibrant cityscape at night, representing connectivity.",
+      "imageUrl": "https://images.unsplash.com/photo-1531215459359-0f19565070a3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "imageHint": "city connectivity"
+    },
+    {
+      "id": "ad-ashesi",
+      "description": "A modern university campus with students.",
+      "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "imageHint": "university campus"
+    },
+    {
+      "id": "ad-gcb",
+      "description": "The modern interior of a bank, representing financial services.",
+      "imageUrl": "https://images.unsplash.com/photo-1518991669955-4c730a5d21c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "imageHint": "modern bank"
+    },
+    {
       "id": "ad-panel-promo",
       "description": "A team collaborating around a laptop in a modern office.",
       "imageUrl": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",

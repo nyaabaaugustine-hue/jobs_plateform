@@ -23,6 +23,7 @@ import FastRoutes from '@/components/fast-routes';
 import PricingGrid from '@/components/pricing-grid';
 import JobsByLocation from '@/components/jobs-by-location';
 import AdPanel from '@/components/shared/ad-panel';
+import CompanyAds from '@/components/company-ads';
 
 export default function HomePage() {
   const [isAdPanelOpen, setIsAdPanelOpen] = useState(false);
@@ -110,6 +111,8 @@ export default function HomePage() {
         <FeaturedJobs jobs={jobs} categories={categories} />
 
         <WhyChooseUs />
+
+        <CompanyAds />
 
         <FastRoutes />
         
