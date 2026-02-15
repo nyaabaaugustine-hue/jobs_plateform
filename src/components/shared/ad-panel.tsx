@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect } from 'react';
@@ -44,8 +45,7 @@ export default function AdPanel({ isOpen, onClose }: AdPanelProps) {
       {/* Panel */}
       <aside
         className={cn(
-          'fixed top-0 left-0 h-full w-full max-w-md bg-background shadow-2xl z-[100] transition-transform duration-500 ease-in-out flex flex-col',
-          'md:w-[30%] lg:w-[25%]',
+          'fixed top-0 left-0 h-full w-full max-w-sm bg-background shadow-2xl z-[100] transition-transform duration-500 ease-in-out flex flex-col',
           isOpen ? 'translate-x-0' : '-translate-x-full'
         )}
         role="dialog"
