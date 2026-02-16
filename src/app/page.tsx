@@ -24,6 +24,7 @@ import PricingGrid from '@/components/pricing-grid';
 import JobsByLocation from '@/components/jobs-by-location';
 import AdPanel from '@/components/shared/ad-panel';
 import CompanyAds from '@/components/company-ads';
+import OurPartners from '@/components/our-partners';
 
 const adData = [
   {
@@ -180,6 +181,8 @@ export default function HomePage() {
         <JobsByLocation locations={locations} />
         
         <LatestNews posts={latestPosts} />
+
+        <OurPartners />
 
         <SubscriptionSection />
 
