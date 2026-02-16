@@ -2,10 +2,12 @@
 
 import { AnimatePresence, motion } from 'framer-motion';
 import { useAppReady } from '@/context/loading-provider';
-import Logo from '@/components/shared/logo';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
+import Image from 'next/image';
 
 export default function GlobalLoader() {
   const { isReady } = useAppReady();
+  const logoImage = PlaceHolderImages.find((p) => p.id === 'main-logo');
 
   // Variants for the animation orchestration
   const containerVariants = {
@@ -54,10 +56,19 @@ export default function GlobalLoader() {
             variants={contentVariants}
             className="relative flex flex-col items-center justify-center"
           >
-            <div className="relative w-32 h-32">
+            <div className="relative w-48 h-32">
                 <div className="absolute inset-0 bg-gradient-to-tr from-sky-500/50 via-emerald-500/50 to-sky-500/50 rounded-full animate-pulse blur-2xl" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                    <Logo />
+                    {logoImage && (
+                        <Image
+                          src={logoImage.imageUrl}
+                          alt="Chapel Hill Logo"
+                          width={122}
+                          height={40}
+                          className="object-contain"
+                          priority
+                        />
+                    )}
                 </div>
             </div>
           </motion.div>
