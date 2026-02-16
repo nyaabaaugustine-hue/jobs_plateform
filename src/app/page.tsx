@@ -1,76 +1,76 @@
-{
-  "name": "chapel-hill",
-  "version": "0.1.0",
-  "private": true,
-  "description": "An AI-powered platform for job searching and recruitment",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/nyaabaaugustine-hue/chapel_hill.git"
-  },
-  "scripts": {
-    "dev": "next dev --port 9002 --hostname 0.0.0.0",
-    "genkit:dev": "genkit start -- tsx src/ai/dev.ts",
-    "genkit:watch": "genkit start -- tsx --watch src/ai/dev.ts",
-    "build": "NODE_ENV=production next build",
-    "start": "next start",
-    "lint": "next lint",
-    "typecheck": "tsc --noEmit",
-    "analyze": "ANALYZE=true npm run build"
-  },
-  "engines": {
-    "node": "20"
-  },
-  "dependencies": {
-    "@genkit-ai/google-genai": "^1.1.0",
-    "@radix-ui/react-accordion": "^1.2.3",
-    "@radix-ui/react-alert-dialog": "^1.1.6",
-    "@radix-ui/react-avatar": "^1.1.3",
-    "@radix-ui/react-checkbox": "^1.1.4",
-    "@radix-ui/react-collapsible": "^1.1.11",
-    "@radix-ui/react-dialog": "^1.1.6",
-    "@radix-ui/react-dropdown-menu": "^2.1.6",
-    "@radix-ui/react-label": "^2.1.2",
-    "@radix-ui/react-menubar": "^1.1.6",
-    "@radix-ui/react-popover": "^1.1.6",
-    "@radix-ui/react-progress": "^1.1.2",
-    "@radix-ui/react-radio-group": "^1.2.3",
-    "@radix-ui/react-scroll-area": "^1.2.3",
-    "@radix-ui/react-select": "^2.1.6",
-    "@radix-ui/react-separator": "^1.1.2",
-    "@radix-ui/react-slider": "^1.2.3",
-    "@radix-ui/react-slot": "^1.2.3",
-    "@radix-ui/react-switch": "^1.1.3",
-    "@radix-ui/react-tabs": "^1.1.3",
-    "@radix-ui/react-toast": "^1.2.6",
-    "@radix-ui/react-tooltip": "^1.1.8",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "date-fns": "^3.6.0",
-    "dotenv": "^16.5.0",
-    "embla-carousel-autoplay": "^8.1.3",
-    "embla-carousel-react": "^8.1.3",
-    "firebase": "^11.9.1",
-    "framer-motion": "^11.2.12",
-    "genkit": "^1.1.0",
-    "lucide-react": "^0.475.0",
-    "next": "14.2.35",
-    "next-themes": "^0.3.0",
-    "react": "^18.2.0",
-    "react-day-picker": "^9.11.3",
-    "react-dom": "^18.2.0",
-    "recharts": "^2.12.7",
-    "tailwind-merge": "^3.0.1",
-    "tailwindcss-animate": "^1.0.7",
-    "zod": "^3.24.2"
-  },
-  "devDependencies": {
-    "@next/bundle-analyzer": "^14.2.3",
-    "@types/node": "^20",
-    "@types/react": "18.2.0",
-    "@types/react-dom": "18.2.0",
-    "genkit-cli": "^1.1.0",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
-  }
+
+import Image from 'next/image';
+import { DUMMY_JOBS, DUMMY_COMPANIES, DUMMY_LOCATIONS, DUMMY_BLOG_POSTS } from '@/lib/data';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
+import TopCompanies from '@/components/top-companies';
+import FeaturedJobs from '@/components/featured-jobs';
+import WhyChooseUs from '@/components/why-choose-us';
+import VolunteerSection from '@/components/volunteer-section';
+import JobsByLocation from '@/components/jobs-by-location';
+import Testimonials from '@/components/testimonials';
+import HiringSection from '@/components/hiring-section';
+import LatestNews from '@/components/latest-news';
+import SubscriptionSection from '@/components/subscription-section';
+import Faq from '@/components/faq';
+import HeroSearchForm from '@/components/hero-search-form';
+
+export default function HomePage() {
+  const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
+  const companies = DUMMY_COMPANIES.slice(0, 10);
+  const jobs = DUMMY_JOBS;
+  const categories = ['All', 'Technology', 'Marketing', 'Design', 'Finance', 'Management'];
+  const locations = DUMMY_LOCATIONS;
+  const latestPosts = DUMMY_BLOG_POSTS.filter(p => p.status === 'Published').slice(0, 3);
+  
+  return (
+    <main className="flex-1">
+      {/* Hero Section */}
+      <section className="relative w-full py-24 md:py-32 flex items-center justify-center text-center bg-background">
+        {heroImage && (
+            <Image
+              src={heroImage.imageUrl}
+              alt={heroImage.description}
+              fill
+              className="object-cover z-0"
+              data-ai-hint={heroImage.imageHint}
+              priority
+              sizes="100vw"
+            />
+          )}
+        <div className="absolute inset-0 bg-black/60 z-10" />
+        <div className="relative z-20 container mx-auto px-6 max-w-4xl">
+          <div className="flex flex-col justify-center space-y-6">
+            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl !leading-tight font-headline animate-in fade-in slide-in-from-bottom-4 duration-700">
+              Find Your Next Job, <span className="text-primary">Faster.</span>
+            </h1>
+            <p className="max-w-xl mx-auto text-lg text-gray-200 animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '150ms'}}>
+              Discover your next career move with verified employers and salary transparency.
+            </p>
+            <div className="max-w-3xl w-full mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '300ms'}}>
+              <HeroSearchForm />
+            </div>
+             <div className="flex justify-center items-center gap-4 text-sm text-gray-300 animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '450ms'}}>
+                <div className="flex items-center -space-x-2">
+                    <Image className="inline-block h-8 w-8 rounded-full ring-2 ring-background" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=388&q=80" alt="User" width={32} height={32} />
+                    <Image className="inline-block h-8 w-8 rounded-full ring-2 ring-background" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="User" width={32} height={32} />
+                    <Image className="inline-block h-8 w-8 rounded-full ring-2 ring-background" src="https://images.unsplash.com/photo-1595211877493-41a4e5f236b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80" alt="User" width={32} height={32} />
+                </div>
+                <p><span className="font-bold text-white">1,500+</span> people got jobs</p>
+             </div>
+          </div>
+        </div>
+      </section>
+
+      <TopCompanies companies={companies} />
+      <FeaturedJobs jobs={jobs} categories={categories} />
+      <WhyChooseUs />
+      <VolunteerSection />
+      <JobsByLocation locations={locations} />
+      <Testimonials />
+      <HiringSection />
+      <LatestNews posts={latestPosts} />
+      <SubscriptionSection />
+      <Faq />
+    </main>
+  );
 }

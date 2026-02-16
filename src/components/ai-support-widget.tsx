@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
@@ -19,6 +20,21 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
         />
     </svg>
 );
+
+type MessageAction = {
+  label: string;
+  onClick: () => void;
+};
+
+type Message = {
+  id: number;
+  sender: 'user' | 'ai';
+  text?: string;
+  imageUrl?: string;
+  imageHint?: string;
+  actions?: MessageAction[];
+};
+
 
 export default function AISupportWidget() {
     const pathname = usePathname();
