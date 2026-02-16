@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -8,7 +9,7 @@ import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { CheckCircle, Lightbulb, Loader, Shield, XCircle, Briefcase, MapPin, Wallet, ScrollText } from 'lucide-react';
 import { runJobModeration } from '@/lib/actions';
-import type { ModerateJobPostOutput } from '@/ai/flows/admin-job-moderation';
+import type { ModerateJobPostOutput } from '@/lib/ai-types';
 import { Separator } from '@/components/ui/separator';
 import { ScrollArea } from '@/components/ui/scroll-area';
 

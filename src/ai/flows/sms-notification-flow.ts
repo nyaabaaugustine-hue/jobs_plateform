@@ -1,26 +1,18 @@
+
 'use server';
 /**
  * @fileOverview A placeholder flow for sending SMS notifications.
  *
  * - sendSmsNotification - A function that simulates sending an SMS.
- * - SmsNotificationInput - The input type for the sendSmsNotification function.
- * - SmsNotificationOutput - The return type for the sendSmsNotification function.
  */
 
 import { ai } from '@/ai/genkit';
-import { z } from 'genkit';
-
-const SmsNotificationInputSchema = z.object({
-  phoneNumber: z.string().describe('The recipient\'s phone number in E.164 format.'),
-  message: z.string().describe('The content of the SMS message to send.'),
-});
-export type SmsNotificationInput = z.infer<typeof SmsNotificationInputSchema>;
-
-const SmsNotificationOutputSchema = z.object({
-  success: z.boolean().describe('Whether the SMS was sent successfully.'),
-  messageId: z.string().optional().describe('The unique ID of the sent message, if successful.'),
-});
-export type SmsNotificationOutput = z.infer<typeof SmsNotificationOutputSchema>;
+import {
+  SmsNotificationInputSchema,
+  type SmsNotificationInput,
+  SmsNotificationOutputSchema,
+  type SmsNotificationOutput,
+} from '@/lib/ai-types';
 
 export async function sendSmsNotification(input: SmsNotificationInput): Promise<SmsNotificationOutput> {
   return smsNotificationFlow(input);

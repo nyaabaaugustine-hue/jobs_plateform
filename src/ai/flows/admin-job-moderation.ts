@@ -1,3 +1,4 @@
+
 'use server';
 
 /**
@@ -5,26 +6,15 @@
  * allowing administrators to automatically detect and flag potentially fraudulent or spam job postings.
  *
  * - moderateJobPost - A function that moderates a job post and flags it if it's potentially fraudulent or spam.
- * - ModerateJobPostInput - The input type for the moderateJobPost function.
- * - ModerateJobPostOutput - The return type for the moderateJobPost function.
  */
 
 import { ai } from '@/ai/genkit';
-import { z } from 'zod';
-
-const ModerateJobPostInputSchema = z.object({
-  jobPost: z.string().describe('The job post content to be moderated.'),
-});
-export type ModerateJobPostInput = z.infer<typeof ModerateJobPostInputSchema>;
-
-const ModerateJobPostOutputSchema = z.object({
-  isSpam: z.boolean().describe('Whether the job post is potentially spam or fraudulent.'),
-  reason: z
-    .string()
-    .optional()
-    .describe('The reason why the job post was flagged as spam or fraudulent.'),
-});
-export type ModerateJobPostOutput = z.infer<typeof ModerateJobPostOutputSchema>;
+import { 
+  ModerateJobPostInputSchema, 
+  type ModerateJobPostInput, 
+  ModerateJobPostOutputSchema,
+  type ModerateJobPostOutput
+} from '@/lib/ai-types';
 
 export async function moderateJobPost(input: ModerateJobPostInput): Promise<ModerateJobPostOutput> {
   return moderateJobPostFlow(input);

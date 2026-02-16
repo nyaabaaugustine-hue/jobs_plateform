@@ -5,45 +5,16 @@
  * @fileOverview Provides AI-driven job recommendations based on user profile and skills.
  *
  * - getAiJobRecommendations - A function that returns AI-driven job recommendations.
- * - AiJobRecommendationsInput - The input type for the getAiJobRecommendations function.
- * - AiJobRecommendationsOutput - The return type for the getAiJobRecommendations function.
  */
 
 import { ai } from '@/ai/genkit';
-import { z } from 'zod';
+import {
+  AiJobRecommendationsInputSchema,
+  type AiJobRecommendationsInput,
+  AiJobRecommendationsOutputSchema,
+  type AiJobRecommendationsOutput
+} from '@/lib/ai-types';
 
-const AiJobRecommendationsInputSchema = z.object({
-  profileSummary: z
-    .string()
-    .describe("A summary of the job seeker's profile, including skills and experience."),
-  jobPreferences: z
-    .string()
-    .describe("The job seeker's preferences, such as desired job types and locations."),
-  skillGaps: z.string().optional().describe('Optional skill gaps identified in the profile.'),
-});
-export type AiJobRecommendationsInput = z.infer<typeof AiJobRecommendationsInputSchema>;
-
-const AiJobRecommendationsOutputSchema = z.object({
-  recommendedJobs: z
-    .array(z.string())
-    .describe('A list of job titles or descriptions recommended for the job seeker.'),
-  skillGapSuggestions: z
-    .array(z.string())
-    .optional()
-    .describe('Suggestions for addressing any skill gaps.'),
-  resumeMatchingScore: z
-    .number()
-    .min(70)
-    .max(100)
-    .optional()
-    .describe('A score between 70-100 indicating how well the resume matches the recommended jobs.'),
-  shouldRecommend: z
-    .boolean()
-    .describe(
-      'A boolean value that determines whether the job recommendations should be shown or not based on the user profile.'
-    ),
-});
-export type AiJobRecommendationsOutput = z.infer<typeof AiJobRecommendationsOutputSchema>;
 
 export async function getAiJobRecommendations(
   input: AiJobRecommendationsInput

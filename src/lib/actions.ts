@@ -1,15 +1,18 @@
+
 'use server';
 
 import {
   getAiJobRecommendations,
-  AiJobRecommendationsInput,
-  AiJobRecommendationsOutput,
 } from '@/ai/flows/ai-job-recommendations';
 import {
   moderateJobPost,
+} from '@/ai/flows/admin-job-moderation';
+import type { 
+  AiJobRecommendationsInput,
+  AiJobRecommendationsOutput,
   ModerateJobPostInput,
   ModerateJobPostOutput,
-} from '@/ai/flows/admin-job-moderation';
+} from './ai-types';
 
 export const fetchAiJobRecommendations = async (input: AiJobRecommendationsInput): Promise<AiJobRecommendationsOutput> => {
   if (!process.env.GEMINI_API_KEY && !process.env.GOOGLE_API_KEY) {
