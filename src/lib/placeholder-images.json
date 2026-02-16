@@ -93,7 +93,7 @@
     {
       "id": "company-logo-8",
       "description": "Logo for Ecobank Ghana.",
-      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiMwMDQzODYiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnS5c2VyaWYiIGZvbnQtc2l6ZT0iNjAiIGZpbGw9IiNGRkZGRkYiPkU8L3RleHQ+PC9zdmc+",
+      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiMwMDQzODYiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNjAiIGZpbGw9IiNGRkZGRkYiPkU8L3RleHQ+PC9zdmc+",
       "imageHint": "company logo"
     },
     {
@@ -435,7 +435,7 @@
     {
       "id": "ai-support-button",
       "description": "A futuristic AI robot head icon for the support button.",
-      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771070833/ai_rkwthg.png",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771168493/eds_bjytks.png",
       "imageHint": "AI robot"
     },
     {
