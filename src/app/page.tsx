@@ -14,7 +14,6 @@ import { Suspense, useState, useEffect, useRef } from 'react';
 import HeroSearchForm from '@/components/hero-search-form';
 import SectionHeader from '@/components/shared/section-header';
 import { DUMMY_JOBS, JOB_CATEGORIES, DUMMY_COMPANIES, DUMMY_LOCATIONS, DUMMY_BLOG_POSTS } from '@/lib/data';
-import JobCategories from '@/components/job-categories';
 import HiringSection from '@/components/hiring-section';
 import LatestNews from '@/components/latest-news';
 import SubscriptionSection from '@/components/subscription-section';
@@ -163,8 +162,6 @@ export default function HomePage() {
 
         <VolunteerSection />
         
-        <JobCategories />
-
         <HiringSection />
         
         <section className="relative py-16 md:py-24">
