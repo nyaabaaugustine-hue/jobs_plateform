@@ -109,15 +109,15 @@
       "imageHint": "company logo"
     },
     {
-      "id": "company-logo-11",
-      "description": "Logo for Ashesi University.",
-      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771235542/facebook-cover-y_cpver4.png",
-      "imageHint": "company logo"
-    },
-    {
       "id": "company-logo-12",
       "description": "Logo for Nyaho Medical Centre.",
       "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771236535/nyhaho_rznhuo.png",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "company-logo-11",
+      "description": "Logo for Ashesi University.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771235542/facebook-cover-y_cpver4.png",
       "imageHint": "company logo"
     },
     {
@@ -391,6 +391,12 @@
       "imageHint": "secure ssl"
     },
     {
+      "id": "resume-doc",
+      "description": "A placeholder image for a resume document.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771239121/resume_w55gvy.png",
+      "imageHint": "resume document"
+    },
+    {
       "id": "pricing-basic",
       "description": "Small team of Black professionals collaborating in a bright, modern startup office.",
       "imageUrl": "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
@@ -407,12 +413,6 @@
       "description": "A bustling, large open-plan office with Black professionals.",
       "imageUrl": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
       "imageHint": "corporate office"
-    },
-    {
-      "id": "resume-doc",
-      "description": "A placeholder image for a resume document.",
-      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771239121/resume_w55gvy.png",
-      "imageHint": "resume document"
     },
     {
       "id": "contact-map",
