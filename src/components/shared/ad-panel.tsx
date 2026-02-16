@@ -104,7 +104,7 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
                 {ad.description}
             </p>
             <div className="pt-4 mt-4 border-t">
-              <Button asChild size="sm" className="w-full hover:brightness-110">
+              <Button asChild variant="secondary" size="sm" className="w-full hover:brightness-110">
                 <Link href={`/companies/${ad.company.id}`}>
                   View Careers at {ad.company.name} <ArrowRight className="ml-2 h-4 w-4"/>
                 </Link>
