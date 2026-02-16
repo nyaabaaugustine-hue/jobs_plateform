@@ -96,16 +96,6 @@ const DesktopAuthButtons = () => (
 
 export default function Header() {
   const pathname = usePathname();
-
-  const isDashboardPage =
-    pathname.startsWith('/admin') ||
-    pathname.startsWith('/dashboard') ||
-    pathname.startsWith('/employer');
-
-  if (isDashboardPage) {
-    return null;
-  }
-  
   const [isMounted, setIsMounted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -123,6 +113,15 @@ export default function Header() {
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
+  const isDashboardPage =
+    pathname.startsWith('/admin') ||
+    pathname.startsWith('/dashboard') ||
+    pathname.startsWith('/employer');
+
+  if (isDashboardPage) {
+    return null;
+  }
 
   const getDashboardLink = () => {
     if (!userData?.role) return '/dashboard';
