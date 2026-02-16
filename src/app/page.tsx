@@ -78,7 +78,7 @@ export default function HomePage() {
     if (isAdPanelOpen) {
       rotationTimer = setInterval(() => {
         setCurrentAdIndex(prevIndex => (prevIndex + 1) % ads.length);
-      }, 50000);
+      }, 50000); // Changed from 50000 to 50000 (no change needed here as per last request)
     }
 
     return () => clearInterval(rotationTimer);
@@ -125,10 +125,10 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-black/60 z-10" />
           <div className="relative z-20 container mx-auto px-6 max-w-4xl">
             <div className="flex flex-col justify-center space-y-6">
-              <h1 className="text-5xl font-extrabold tracking-tight text-foreground sm:text-6xl !leading-tight font-headline">
+              <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-6xl !leading-tight font-headline">
                 Find Your Next Job, Faster.
               </h1>
-              <p className="max-w-3xl mx-auto text-lg text-foreground">
+              <p className="max-w-3xl mx-auto text-lg text-gray-200">
                 Discover your next career move with verified employers and salary transparency.
               </p>
               <div>
@@ -138,8 +138,8 @@ export default function HomePage() {
               </div>
               <div className="flex items-center gap-4 pt-6 flex-wrap justify-center">
                 {trustIndicators.map((item, index) => (
-                  <div key={index} className="flex items-center gap-2 text-sm text-foreground rounded-full bg-white/10 px-4 py-1.5 border border-white/20 backdrop-blur-sm">
-                    <CheckCircle className="h-4 w-4 text-foreground" />
+                  <div key={index} className="flex items-center gap-2 text-sm text-white rounded-full bg-white/10 px-4 py-1.5 border border-white/20 backdrop-blur-sm">
+                    <CheckCircle className="h-4 w-4 text-white" />
                     <span>{item.text}</span>
                   </div>
                 ))}

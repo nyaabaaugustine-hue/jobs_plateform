@@ -3,8 +3,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { formatDistanceToNow } from 'date-fns';
-import { Clock, MapPin, Briefcase, Zap, Wallet, BarChart } from 'lucide-react';
+import { Clock, MapPin, Briefcase, Zap, Wallet } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 import type { Job } from '@/lib/types';
@@ -12,6 +11,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardFooter, CardTitle, CardDescription } from '@/components/ui/card';
+import ClientSideDate from './shared/client-side-date';
 
 type JobCardProps = {
   job: Job;
@@ -25,13 +25,11 @@ export default function JobCard({ job }: JobCardProps) {
   const period = isHourly ? 'Hourly' : 'yearly';
   
   const [matchScore, setMatchScore] = useState<number | null>(null);
-  const [postedAt, setPostedAt] = useState('');
 
   useEffect(() => {
-    // Generate random score and formatted date on the client after mount to prevent hydration errors
+    // Generate random score on the client after mount to prevent hydration errors
     setMatchScore(Math.floor(Math.random() * (98 - 75 + 1)) + 75);
-    setPostedAt(formatDistanceToNow(new Date(job.postedDate), { addSuffix: true }));
-  }, [job.postedDate]);
+  }, []);
 
   return (
     <Card className="flex h-full flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1.5 border-t-4 border-primary/10 hover:border-primary">
@@ -88,7 +86,7 @@ export default function JobCard({ job }: JobCardProps) {
             </div>
         )}
       </CardContent>
-      <CardFooter className="p-4 flex items-end justify-between bg-secondary/50">
+      <CardFooter className="p-4 flex flex-wrap items-end justify-between gap-x-4 gap-y-2 bg-secondary/50">
         <div className="flex flex-col text-left">
            <div className="flex items-baseline gap-1">
             <span className="font-headline text-lg font-bold text-gold">{salary}</span>
@@ -96,7 +94,7 @@ export default function JobCard({ job }: JobCardProps) {
           </div>
           <div className="flex items-center gap-1 text-xs text-muted-foreground mt-1">
             <Clock className="h-3 w-3" />
-            {postedAt && <span>{postedAt}</span>}
+            <ClientSideDate dateString={job.postedDate} />
           </div>
         </div>
         <Button asChild className="rounded-lg bg-primary text-primary-foreground font-semibold shadow-lg transform transition-transform hover:scale-105 hover:bg-primary/90">
@@ -108,5 +106,3 @@ export default function JobCard({ job }: JobCardProps) {
     </Card>
   );
 }
-
-    
