@@ -94,7 +94,10 @@ export default function RevenueChart() {
                 axisLine={false}
                 tickMargin={8}
                 fontSize={12}
-                tickFormatter={(value) => `GH₵${Number(value) / 1000}k`}
+                tickFormatter={(value) => {
+                    if (Number(value) === 0) return 'GH₵0';
+                    return `GH₵${Number(value) / 1000}k`;
+                }}
               />
               <Tooltip content={<ChartTooltipContent indicator="dot" />} />
               <Legend iconType="circle" wrapperStyle={{paddingTop: '20px'}}/>
