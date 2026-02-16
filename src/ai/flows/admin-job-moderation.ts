@@ -9,10 +9,9 @@
  * - ModerateJobPostOutput - The return type for the moderateJobPost function.
  */
 
-import {ai} from '@/ai/genkit';
+import { ai } from '@/ai/genkit';
 import { generate } from 'genkit';
-import {z} from 'zod';
-import { geminiPro } from '@genkit-ai/googleai';
+import { z } from 'zod';
 
 const ModerateJobPostInputSchema = z.object({
   jobPost: z.string().describe('The job post content to be moderated.'),
@@ -56,7 +55,7 @@ const moderateJobPostFlow = ai.defineFlow(
   Make sure to set the isSpam output field appropriately.
   `;
     const llmResponse = await generate({
-      model: geminiPro,
+      model: 'gemini-pro',
       prompt: prompt,
       output: {
         format: 'json',

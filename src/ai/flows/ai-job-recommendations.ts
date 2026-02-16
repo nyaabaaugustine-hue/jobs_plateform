@@ -9,10 +9,9 @@
  * - AiJobRecommendationsOutput - The return type for the getAiJobRecommendations function.
  */
 
-import {ai} from '@/ai/genkit';
+import { ai } from '@/ai/genkit';
 import { generate } from 'genkit';
-import {z} from 'zod';
-import { geminiPro } from '@genkit-ai/googleai';
+import { z } from 'zod';
 
 const AiJobRecommendationsInputSchema = z.object({
   profileSummary: z
@@ -71,7 +70,7 @@ Based on the profile summary, decide whether the job recommendations should be s
 Respond with a list of recommended jobs, suggestions for addressing skill gaps, and a resume matching score (a number between 70 and 100), if applicable.`;
 
     const llmResponse = await generate({
-      model: geminiPro,
+      model: 'gemini-pro',
       prompt: prompt,
       output: {
         format: 'json',

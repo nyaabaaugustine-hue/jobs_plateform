@@ -250,8 +250,8 @@ export default function AISupportWidget() {
                                     <div className={cn(
                                         "px-4 py-2.5 rounded-xl max-w-[85%] text-sm",
                                         message.sender === 'user'
-                                            ? "bg-primary text-primary-foreground rounded-br-none"
-                                            : "bg-secondary text-secondary-foreground rounded-bl-none"
+                                            ? "bg-emerald-200 dark:bg-emerald-800 text-foreground rounded-br-none"
+                                            : "bg-card rounded-bl-none border"
                                     )}>
                                         {message.text && <p className="whitespace-pre-wrap">{message.text}</p>}
                                         {message.actions && (

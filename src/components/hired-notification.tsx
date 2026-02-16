@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect, useRef } from 'react';
@@ -68,9 +69,9 @@ export default function HiredNotification() {
     const initialTimeout = setTimeout(() => {
       if (sessionStorage.getItem('hiredNotificationsStopped') !== 'true') {
         showRandomHiredNotification();
-        intervalRef.current = setInterval(showRandomHiredNotification, 50000);
+        intervalRef.current = setInterval(showRandomHiredNotification, 47000);
       }
-    }, 8000);
+    }, 7000);
 
     return () => {
       clearTimeout(initialTimeout);

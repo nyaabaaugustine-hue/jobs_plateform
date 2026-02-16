@@ -119,13 +119,13 @@ export default function EmployerMessagesPage() {
                     </Avatar>
                     <p className="font-semibold">{selectedConversation.name}</p>
                 </div>
-                <ScrollArea className="flex-1 p-6 bg-secondary/30">
+                <ScrollArea className="flex-1 p-6 bg-secondary">
                     <div className="space-y-4">
                         {selectedConversation.messages.map((msg, index) => (
                              <div key={index} className={cn("flex", msg.from === 'me' ? "justify-end" : "justify-start")}>
                                 <div className={cn(
                                     "max-w-xs md:max-w-md lg:max-w-lg rounded-xl px-4 py-3 text-sm",
-                                    msg.from === 'me' ? "bg-primary text-primary-foreground" : "bg-card border"
+                                    msg.from === 'me' ? "bg-emerald-200 dark:bg-emerald-800 text-foreground rounded-br-none" : "bg-card border rounded-bl-none"
                                 )}>
                                     {msg.text}
                                 </div>
