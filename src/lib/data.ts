@@ -1,4 +1,3 @@
-
 import type { Job, Company, Review, Application, Applicant, User, BlogPost, UserRole } from './types';
 import { Users, BookOpen, Palette, BrainCircuit, GitMerge, KanbanSquare, Scale, Stethoscope, Clapperboard, GraduationCap, Handshake, Lightbulb } from 'lucide-react';
 
@@ -364,24 +363,24 @@ export const DUMMY_OPPORTUNITIES = [
     icon: GraduationCap,
     title: 'Student Attachments',
     description: 'Gain real-world experience with leading companies in your field of study. Bridge the gap between theory and practice.',
-    iconBg: 'bg-blue-500/10',
-    iconColor: 'text-blue-500',
+    iconBg: 'bg-slate-400/10',
+    iconColor: 'text-slate-400',
     filterValue: 'internship',
   },
   {
     icon: Handshake,
     title: 'Volunteer Programs',
     description: 'Make an impact by contributing your skills to NGOs and community projects. Build your network and character.',
-    iconBg: 'bg-green-500/10',
-    iconColor: 'text-green-500',
+    iconBg: 'bg-slate-400/10',
+    iconColor: 'text-slate-400',
     filterValue: 'volunteer',
   },
   {
     icon: Lightbulb,
     title: 'Innovation Challenges',
     description: 'Participate in student-focused innovation challenges and hackathons sponsored by top tech firms.',
-    iconBg: 'bg-yellow-500/10',
-    iconColor: 'text-yellow-500',
+    iconBg: 'bg-slate-400/10',
+    iconColor: 'text-slate-400',
     filterValue: 'all',
   }
 ];
