@@ -38,6 +38,9 @@ export default function Testimonials() {
     return null;
   }
   
+  const firstRowReviews = reviews.slice(0, Math.ceil(reviews.length / 2));
+  const secondRowReviews = reviews.slice(Math.ceil(reviews.length / 2));
+
   return (
     <section className="relative py-16 md:py-24">
        {bgImage && (
@@ -55,10 +58,15 @@ export default function Testimonials() {
             <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-foreground">What Our Users Say</h2>
         </div>
 
-        <div className="relative w-full overflow-hidden">
+        <div className="relative w-full overflow-hidden space-y-8">
             <div className="flex animate-marquee-ltr whitespace-nowrap py-4">
-                {[...reviews, ...reviews].filter(review => review.user).map((review, index) => (
-                    <TestimonialCard key={`${review.id}-${index}`} review={review} />
+                {[...firstRowReviews, ...firstRowReviews].filter(review => review.user).map((review, index) => (
+                    <TestimonialCard key={`${review.id}-1-${index}`} review={review} />
+                ))}
+            </div>
+            <div className="flex animate-marquee-rtl whitespace-nowrap py-4">
+                {[...secondRowReviews, ...secondRowReviews].filter(review => review.user).map((review, index) => (
+                    <TestimonialCard key={`${review.id}-2-${index}`} review={review} />
                 ))}
             </div>
             <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background to-transparent" />
