@@ -9,9 +9,12 @@ import { DUMMY_OPPORTUNITIES, DUMMY_JOBS } from '@/lib/data';
 import JobCard from '@/components/job-card';
 import PageHero from '@/components/shared/page-hero';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function OpportunitiesPage() {
   const [filter, setFilter] = useState<'all' | 'internship' | 'volunteer'>('all');
+  const bgImage = PlaceHolderImages.find((p) => p.id === 'contact-form-bg');
 
   const allOpportunityJobs = DUMMY_JOBS.filter(
     (job) => job.type === 'Internship' || job.type === 'Volunteer'
@@ -51,8 +54,18 @@ export default function OpportunitiesPage() {
         title="Kickstart Your Career"
         subtitle="Explore volunteer and attachment opportunities designed for students to gain hands-on experience and make a difference."
       />
-      <main className="flex-1 py-16 md:py-24">
-        <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+      <main className="relative flex-1 py-16 md:py-24">
+        {bgImage && (
+            <Image
+                src={bgImage.imageUrl}
+                alt={bgImage.description}
+                fill
+                className="object-cover z-0"
+                data-ai-hint={bgImage.imageHint}
+            />
+        )}
+        <div className="absolute inset-0 bg-background/80 z-10" />
+        <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {DUMMY_OPPORTUNITIES.map((opportunity, index) => (
               <Card
