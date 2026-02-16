@@ -69,7 +69,7 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
         aria-modal="true"
         aria-labelledby="ad-panel-headline"
       >
-        <Card className="overflow-hidden transition-all duration-300 shadow-2xl group flex flex-col relative">
+        <Card className="overflow-hidden transition-all duration-300 shadow-2xl group flex flex-col relative ring-4 ring-destructive/40">
           <Button
             variant="ghost"
             size="icon"
