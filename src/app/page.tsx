@@ -26,6 +26,7 @@ import JobsByLocation from '@/components/jobs-by-location';
 import AdPanel from '@/components/shared/ad-panel';
 import CompanyAds from '@/components/company-ads';
 import OurPartners from '@/components/our-partners';
+import Faq from '@/components/faq';
 
 const adData = [
   {
@@ -184,6 +185,8 @@ export default function HomePage() {
         </section>
 
         <Testimonials />
+
+        <Faq />
 
         <JobsByLocation locations={locations} />
         
