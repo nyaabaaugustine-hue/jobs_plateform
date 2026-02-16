@@ -7,9 +7,11 @@ import { DUMMY_USERS } from '@/lib/data';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import SectionHeader from '@/components/shared/section-header';
+import Image from 'next/image';
 
 export default function AboutPage() {
   const teamMembers = DUMMY_USERS.slice(0, 4);
+  const missionLogo = PlaceHolderImages.find((p) => p.id === 'main-logo');
 
   return (
     <>
@@ -20,8 +22,17 @@ export default function AboutPage() {
       <main className="flex-1 py-16 md:py-24 bg-secondary/30 space-y-20">
         
         <div className="container mx-auto max-w-4xl px-4 md:px-6">
-            <Card className="shadow-lg animate-in fade-in-up duration-500">
-                <CardContent className="p-10 text-center">
+            <Card className="relative overflow-hidden shadow-lg animate-in fade-in-up duration-500">
+                {missionLogo && (
+                    <Image
+                        src={missionLogo.imageUrl}
+                        alt="Chapel Hill Logo Watermark"
+                        width={200}
+                        height={200}
+                        className="absolute inset-0 m-auto h-full w-auto object-contain opacity-5 z-0"
+                    />
+                )}
+                <CardContent className="relative z-10 p-10 text-center">
                     <h2 className="font-headline text-3xl font-bold text-primary">Our Mission</h2>
                     <p className="mt-4 text-lg text-muted-foreground">
                         At Chapel Hill, our mission is to empower developers and companies by creating a specialized platform for React-focused careers. We believe that by connecting the right talent with the right opportunities, we can help build the future of web technology. We are committed to fostering a community built on trust, transparency, and professional growth.

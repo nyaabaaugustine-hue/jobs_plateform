@@ -67,7 +67,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 const DesktopAuthButtons = () => (
     <div className="flex items-center gap-2">
       <ThemeToggle />
-      <Button variant="ghost" asChild>
+      <Button variant="outline" asChild>
         <Link href="/login">Login</Link>
       </Button>
       <Button
@@ -458,7 +458,7 @@ export default function Header() {
                                             <DropdownMenuTrigger asChild>
                                                 <Button variant="ghost" className={cn(
                                                     'flex items-center gap-2 rounded-md p-2 text-sm font-medium transition-colors',
-                                                    isDropdownActive ? 'text-foreground font-bold' : 'text-muted-foreground hover:text-foreground'
+                                                    isDropdownActive ? 'text-foreground font-bold' : 'text-foreground/80 hover:text-foreground'
                                                 )}>
                                                     <Icon className={cn('h-4 w-4', link.color)} />
                                                     <span className="hidden xl:inline whitespace-nowrap">{link.label}</span>
@@ -495,7 +495,7 @@ export default function Header() {
                                 href={link.href!}
                                 className={cn(
                                 'flex items-center gap-2 rounded-md p-2 text-sm transition-colors',
-                                isActive ? 'text-foreground font-bold' : 'text-muted-foreground hover:text-foreground'
+                                isActive ? 'text-foreground font-bold' : 'text-foreground/80 hover:text-foreground'
                                 )}
                             >
                                 <Icon className={cn('h-4 w-4', link.color)} />

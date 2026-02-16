@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .bg-accent-gradient {
+    @apply bg-gradient-to-r from-accent via-primary to-accent/80 bg-[length:200%_auto] text-accent-foreground;
+    animation: gradient 3s ease infinite;
+  }
+}
+
 @layer base {
   :root {
     /* Light Mode: Professional Blue & Green Theme */
