@@ -1,14 +1,15 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { DUMMY_COMPANIES } from '@/lib/data';
-import { cn } from '@/lib/utils';
 import { ArrowRight } from 'lucide-react';
 import SectionHeader from './shared/section-header';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
 
 const adData = [
   {
@@ -50,64 +51,69 @@ const ads = adData.map(ad => {
 });
 
 export default function CompanyAds() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex(prevIndex => (prevIndex + 1) % ads.length);
-    }, 30000); // 30 seconds
-
-    return () => clearInterval(interval);
-  }, []);
-
-  const currentAd = ads[currentIndex];
-  if (!currentAd || !currentAd.company || !currentAd.image) return null;
+  const plugin = useRef(
+    Autoplay({ delay: 5000, stopOnInteraction: true })
+  );
 
   return (
     <section className="py-16 md:py-24 bg-secondary">
       <div className="container mx-auto max-w-7xl px-6 lg:px-12">
         <SectionHeader title="Sponsored by Industry Leaders" />
-        <div className="relative rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 ease-in-out ring-4 ring-primary/40">
-            {ads.map((ad, index) => (
-                ad.image && (
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          plugins={[plugin.current]}
+          onMouseEnter={plugin.current.stop}
+          onMouseLeave={plugin.current.reset}
+          className="relative"
+        >
+          <CarouselContent>
+            {ads.map((ad, index) => {
+              if (!ad.company || !ad.image) return null;
+              return (
+                <CarouselItem key={index}>
+                  <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-4 ring-primary/40">
                     <Image
-                        key={ad.companyId}
-                        src={ad.image.imageUrl}
-                        alt={ad.headline}
-                        fill
-                        className={cn(
-                            'object-cover transition-opacity duration-1000',
-                            index === currentIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'
-                        )}
-                        data-ai-hint={ad.image.imageHint}
+                      src={ad.image.imageUrl}
+                      alt={ad.headline}
+                      fill
+                      className={'object-cover'}
+                      data-ai-hint={ad.image.imageHint}
                     />
-                )
-            ))}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent z-20" />
-            <div className="relative z-30 p-8 md:p-12 flex flex-col justify-end min-h-[450px]">
-                <div className="max-w-2xl">
-                    {currentAd.company.logo && (
-                        <div className="bg-white/90 rounded-xl p-2 w-20 h-20 mb-4 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent z-20" />
+                    <div className="relative z-30 p-8 md:p-12 flex flex-col justify-end min-h-[450px]">
+                      <div className="max-w-2xl">
+                        {ad.company.logo && (
+                          <div className="bg-white/90 rounded-xl p-2 w-20 h-20 mb-4 flex items-center justify-center">
                             <Image
-                                src={PlaceHolderImages.find(p => p.id === currentAd.company!.logo)!.imageUrl}
-                                alt={`${currentAd.company.name} logo`}
-                                width={64}
-                                height={64}
-                                className="object-contain"
+                              src={PlaceHolderImages.find(p => p.id === ad.company!.logo)!.imageUrl}
+                              alt={`${ad.company.name} logo`}
+                              width={64}
+                              height={64}
+                              className="object-contain"
                             />
-                        </div>
-                    )}
-                    <h3 className="font-headline text-3xl md:text-4xl font-bold !leading-tight text-gray-100">{currentAd.headline}</h3>
-                    <p className="mt-2 text-lg text-gray-300">{currentAd.description}</p>
-                    <Button asChild size="lg" className="mt-6">
-                        <Link href={`/companies/${currentAd.company.id}`}>
-                            View Careers at {currentAd.company.name}
+                          </div>
+                        )}
+                        <h3 className="font-headline text-3xl md:text-4xl font-bold !leading-tight text-gray-100">{ad.headline}</h3>
+                        <p className="mt-2 text-lg text-gray-300">{ad.description}</p>
+                        <Button asChild size="lg" className="mt-6">
+                          <Link href={`/companies/${ad.company.id}`}>
+                            View Careers at {ad.company.name}
                             <ArrowRight className="ml-2" />
-                        </Link>
-                    </Button>
-                </div>
-            </div>
-        </div>
+                          </Link>
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                </CarouselItem>
+              );
+            })}
+          </CarouselContent>
+          <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-40 text-white bg-black/30 hover:bg-black/50" />
+          <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-40 text-white bg-black/30 hover:bg-black/50" />
+        </Carousel>
       </div>
     </section>
   );
