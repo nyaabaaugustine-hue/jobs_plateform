@@ -26,6 +26,7 @@ import AdPanel from '@/components/shared/ad-panel';
 import CompanyAds from '@/components/company-ads';
 import OurPartners from '@/components/our-partners';
 import Faq from '@/components/faq';
+import AiPoweredTools from '@/components/ai-powered-tools';
 
 const adData = [
   {
@@ -157,6 +158,8 @@ export default function HomePage() {
         <FeaturedJobs jobs={jobs} categories={categories} />
 
         <WhyChooseUs />
+
+        <AiPoweredTools />
 
         <CompanyAds />
 
