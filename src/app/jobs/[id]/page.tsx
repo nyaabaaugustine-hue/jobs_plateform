@@ -12,7 +12,6 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Briefcase, Clock, Wallet, MapPin, Zap, Loader2 } from 'lucide-react';
 import Link from 'next/link';
 import { Separator } from '@/components/ui/separator';
-import { formatDistanceToNow, addDays, format } from 'date-fns';
 import { useToast } from '@/hooks/use-toast';
 import type { Application, Applicant, User } from '@/lib/types';
 import {
@@ -28,6 +27,7 @@ import {
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import SocialShareButtons from '@/components/shared/social-share-buttons';
+import ClientSideDate from '@/components/shared/client-side-date';
 
 interface JobDetailPageProps {
   params: Promise<{ id: string }>;
@@ -39,9 +39,9 @@ export default function JobDetailPage({ params }: JobDetailPageProps) {
 
   const { toast } = useToast();
   const [isApplied, setIsApplied] = useState(false);
-  const [postedAt, setPostedAt] = useState('');
   const [coverLetter, setCoverLetter] = useState('');
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [deadline, setDeadline] = useState('');
 
   const currentUser: User = {
     id: 'user-john-doe',
@@ -55,8 +55,6 @@ export default function JobDetailPage({ params }: JobDetailPageProps) {
   useEffect(() => {
     if (!job) return;
     
-    setPostedAt(formatDistanceToNow(new Date(job.postedDate), { addSuffix: true }));
-
     try {
       const applications: Application[] = JSON.parse(localStorage.getItem('job-applications') || '[]');
       const hasApplied = applications.some(app => app.job.id === job.id && app.user.id === currentUser.id);
@@ -126,8 +124,6 @@ export default function JobDetailPage({ params }: JobDetailPageProps) {
   };
 
   const companyLogo = PlaceHolderImages.find((img) => img.id === job.company.logo);
-  
-  const deadline = format(addDays(new Date(job.postedDate), 30), 'MMMM dd, yyyy');
 
   return (
       <main className="flex-1 py-12 md:py-16">
@@ -167,7 +163,7 @@ export default function JobDetailPage({ params }: JobDetailPageProps) {
                         </div>
                         <div className="flex items-center gap-2">
                             <Clock className="h-4 w-4" />
-                            {postedAt && <span>Posted {postedAt}</span>}
+                            <ClientSideDate dateString={job.postedDate} />
                         </div>
                       </div>
                     </div>
@@ -221,6 +217,10 @@ export default function JobDetailPage({ params }: JobDetailPageProps) {
                         <div className="flex items-center justify-between">
                             <span className="text-muted-foreground flex items-center gap-2"><Wallet /> Salary</span>
                             <span className="font-semibold text-chart-5">{job.salaryRange}</span>
+                        </div>
+                         <div className="flex items-center justify-between">
+                            <span className="text-muted-foreground flex items-center gap-2"><Clock /> Apply Before</span>
+                            <span className="font-semibold"><ClientSideDate dateString={job.postedDate} formatType="deadline" /></span>
                         </div>
                     </CardContent>
                 </Card>

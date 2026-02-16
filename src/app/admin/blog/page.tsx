@@ -19,7 +19,6 @@ import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
-import { format } from 'date-fns';
 import Image from 'next/image';
 import { Separator } from '@/components/ui/separator';
 import {
@@ -35,6 +34,7 @@ import {
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import ClientSideDate from '@/components/shared/client-side-date';
 
 export default function AdminBlogPage() {
   const { toast } = useToast();
@@ -362,7 +362,7 @@ export default function AdminBlogPage() {
                     <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                   </CardTitle>
                   <CardDescription className="text-xs pt-1">
-                    by {post.author.name} on {format(new Date(post.date), 'MMMM dd, yyyy')}
+                    by {post.author.name} on <ClientSideDate dateString={post.date} formatType="long" />
                   </CardDescription>
               </CardHeader>
               <CardContent className="flex-grow space-y-3 pt-0">

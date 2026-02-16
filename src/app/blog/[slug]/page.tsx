@@ -9,6 +9,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { CalendarDays, Clock } from 'lucide-react';
 import RelatedPosts from '@/components/related-posts';
 import SocialShareButtons from '@/components/shared/social-share-buttons';
+import ClientSideDate from '@/components/shared/client-side-date';
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -76,7 +77,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                         <div className="mt-4 space-y-2 text-sm text-muted-foreground">
                             <div className="flex items-center gap-2">
                                 <CalendarDays className="h-4 w-4"/>
-                                <span>Published on {new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                                <span>Published on <ClientSideDate dateString={post.date} formatType="long" /></span>
                             </div>
                             <div className="flex items-center gap-2">
                                 <Clock className="h-4 w-4" />

@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { BlogPost } from '@/lib/types';
 import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { format } from 'date-fns';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import ClientSideDate from './shared/client-side-date';
 
 type BlogPostCardProps = {
   post: BlogPost;
@@ -40,7 +40,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
            <div className="flex items-center gap-3 text-right">
              <div>
                 <p className="font-semibold text-xs">{post.author.name}</p>
-                <p className="text-xs text-muted-foreground">{format(new Date(post.date), "MMMM dd, yyyy")}</p>
+                <ClientSideDate dateString={post.date} formatType="long" className="text-xs text-muted-foreground" />
               </div>
               <Avatar className="h-8 w-8">
                 {authorAvatar && <AvatarImage src={authorAvatar.imageUrl} alt={post.author.name} />}

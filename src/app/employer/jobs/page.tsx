@@ -16,12 +16,12 @@ import {
 import { MoreHorizontal, PlusCircle, Users, Clock, BarChart, Briefcase, UserPlus } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import Link from 'next/link';
-import { formatDistanceToNow } from 'date-fns';
 import { cn } from '@/lib/utils';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useToast } from '@/hooks/use-toast';
 import { Separator } from '@/components/ui/separator';
 import KpiCard from '@/app/employer/components/kpi-card';
+import ClientSideDate from '@/components/shared/client-side-date';
 
 const CardSkeleton = () => (
     <Card>
@@ -49,7 +49,6 @@ const CardSkeleton = () => (
 const EmployerJobCard = ({ job, onDelete }: { job: Job; onDelete: (jobId: string) => void; }) => {
   const { toast } = useToast();
   const [status, setStatus] = useState<string | null>(null);
-  const [postedAt, setPostedAt] = useState<string | null>(null);
   const applicantCount = DUMMY_APPLICANTS.filter(app => app.jobId === job.id).length;
 
   useEffect(() => {
@@ -59,10 +58,9 @@ const EmployerJobCard = ({ job, onDelete }: { job: Job; onDelete: (jobId: string
     };
     
     setStatus(getJobStatus(job.postedDate));
-    setPostedAt(formatDistanceToNow(new Date(job.postedDate), { addSuffix: true }));
   }, [job.postedDate]);
   
-  if (status === null || postedAt === null) {
+  if (status === null) {
       return <CardSkeleton />;
   }
 
@@ -89,7 +87,7 @@ const EmployerJobCard = ({ job, onDelete }: { job: Job; onDelete: (jobId: string
         </div>
         <div className="flex justify-between items-center text-sm">
             <span className="text-muted-foreground flex items-center gap-2"><Clock className="h-4 w-4" /> Posted</span>
-            <span className="font-semibold">{postedAt}</span>
+            <span className="font-semibold"><ClientSideDate dateString={job.postedDate} /></span>
         </div>
       </CardContent>
       <CardFooter className="border-t pt-4">
