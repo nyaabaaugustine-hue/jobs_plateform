@@ -44,7 +44,7 @@ export default function JobCard({ job }: JobCardProps) {
                 alt={`${job.company.name} logo`}
                 width={48}
                 height={48}
-                className="h-full w-full object-contain"
+                className="h-full w-full object-cover"
               />
             </div>
           </Link>
@@ -108,3 +108,5 @@ export default function JobCard({ job }: JobCardProps) {
     </Card>
   );
 }
+
+    

@@ -34,13 +34,13 @@ export default function TopCompanies({ companies }: { companies: Company[] }) {
               <Link key={company.id} href={`/companies/${company.id}`} className="block group animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: `${200 + index * 50}ms` }}>
                 <Card className="h-full p-4 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl bg-card/50 backdrop-blur-sm flex flex-col items-center justify-center">
                   {companyLogo && (
-                    <div className="relative mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-white p-2 shadow-inner border">
+                    <div className="relative mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-white p-2 shadow-inner border overflow-hidden">
                         <Image
                           src={companyLogo.imageUrl}
                           alt={`${company.name} logo`}
                           width={64}
                           height={64}
-                          className="h-full w-full object-contain"
+                          className="h-full w-full object-cover"
                         />
                     </div>
                   )}
@@ -65,3 +65,5 @@ export default function TopCompanies({ companies }: { companies: Company[] }) {
     </section>
   );
 }
+
+    

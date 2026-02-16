@@ -25,7 +25,7 @@ export default function CompanyCard({ company }: CompanyCardProps) {
                         src={companyLogo.imageUrl}
                         alt={`${company.name} logo`}
                         fill
-                        className="object-contain"
+                        className="object-cover"
                     />
                 </div>
             )}
@@ -61,3 +61,5 @@ export default function CompanyCard({ company }: CompanyCardProps) {
     </Card>
   );
 }
+
+    
