@@ -1,5 +1,7 @@
+
 'use client';
 
+import dynamic from 'next/dynamic';
 import { DUMMY_JOBS, DUMMY_APPLICANTS } from '@/lib/data';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -12,7 +14,13 @@ import { ArrowRight, Briefcase, FileText, UserCheck, Users, PlusCircle } from 'l
 import KpiCard from './components/kpi-card';
 import ActivityFeed from './components/activity-feed';
 import ExpiringJobs from './components/expiring-jobs';
-import HiringFunnelChart from '@/app/employer/components/hiring-funnel-chart';
+import { Skeleton } from '@/components/ui/skeleton';
+
+const HiringFunnelChart = dynamic(() => import('@/app/employer/components/hiring-funnel-chart'), {
+    ssr: false,
+    loading: () => <Skeleton className="h-[400px] w-full" />,
+});
+
 
 export default function EmployerDashboard() {
   // Assuming this employer is Innovate Inc. for demo purposes

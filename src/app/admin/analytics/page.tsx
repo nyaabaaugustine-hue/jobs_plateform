@@ -1,9 +1,22 @@
+
+'use client';
+
+import dynamic from 'next/dynamic';
 import { DollarSign, Users, Briefcase, Shield } from 'lucide-react';
 import KpiCard from '@/app/admin/components/kpi-card';
-import RevenueChart from '@/app/admin/components/revenue-chart';
-import UserDistributionChart from '@/app/admin/components/user-distribution-chart';
 import JobInsights from '@/app/admin/components/job-insights';
 import LocationBreakdown from '@/app/admin/components/location-breakdown';
+import { Skeleton } from '@/components/ui/skeleton';
+
+const RevenueChart = dynamic(() => import('@/app/admin/components/revenue-chart'), { 
+  ssr: false, 
+  loading: () => <Skeleton className="h-[400px] w-full" /> 
+});
+const UserDistributionChart = dynamic(() => import('@/app/admin/components/user-distribution-chart'), { 
+  ssr: false, 
+  loading: () => <Skeleton className="h-[400px] w-full" /> 
+});
+
 
 export default function AdminAnalyticsPage() {
   return (

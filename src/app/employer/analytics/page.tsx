@@ -1,67 +1,28 @@
+
 'use client';
 
-import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip, Legend, Pie, PieChart, Cell } from 'recharts';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
-import { ChartContainer, ChartTooltipContent } from '@/components/ui/chart';
 import KpiCard from '@/app/employer/components/kpi-card';
 import { Button } from '@/components/ui/button';
 import { DUMMY_JOBS, DUMMY_APPLICANTS } from '@/lib/data';
 import Link from 'next/link';
 import { Briefcase as JobIcon, Users, UserCheck, Eye, Download, ArrowUpRight } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
-import HiringFunnelChart from '@/app/employer/components/hiring-funnel-chart';
 import { useState, useEffect } from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
+import dynamic from 'next/dynamic';
 
-// --- Applicant Source Chart Component ---
-const sourceChartData = [
-  { source: 'Direct', value: 150, fill: 'var(--color-direct)' },
-  { source: 'LinkedIn', value: 120, fill: 'var(--color-linkedin)' },
-  { source: 'Referrals', value: 95, fill: 'var(--color-referrals)' },
-  { source: 'Job Board', value: 87, fill: 'var(--color-jobboard)' },
-  { source: 'Other', value: 30, fill: 'var(--color-other)' },
-];
-const sourceChartConfig = {
-  value: { label: 'Applicants' },
-  direct: { label: 'Direct', color: 'hsl(var(--primary))' },
-  linkedin: { label: 'LinkedIn', color: 'hsl(var(--accent))' },
-  referrals: { label: 'Referrals', color: 'hsl(var(--chart-3))' },
-  jobboard: { label: 'Job Board', color: 'hsl(var(--chart-4))' },
-  other: { label: 'Other', color: 'hsl(var(--chart-5))' },
-};
-const ApplicantSourceChart = () => (
-  <Card className="h-full flex flex-col">
-    <CardHeader>
-      <CardTitle>Applicant Sources</CardTitle>
-      <CardDescription>Where your candidates are coming from.</CardDescription>
-    </CardHeader>
-    <CardContent className="flex-1 pb-0">
-      <ChartContainer config={sourceChartConfig} className="mx-auto aspect-square max-h-[350px]">
-        <ResponsiveContainer width="100%" height="100%">
-          <PieChart>
-            <Tooltip content={<ChartTooltipContent nameKey="source" hideLabel />} />
-            <Pie data={sourceChartData} dataKey="value" nameKey="source" cx="50%" cy="50%" outerRadius={100} innerRadius={60} strokeWidth={5}>
-              {sourceChartData.map((entry) => (<Cell key={`cell-${entry.source}`} fill={entry.fill} />))}
-            </Pie>
-            <Legend content={({ payload }) => (
-              <ul className="flex flex-wrap gap-x-4 gap-y-1 justify-center pt-4">
-                {payload?.map((entry: any, index: number) => (
-                  <li key={`item-${index}`} className="flex items-center gap-2 text-xs">
-                    <span className="h-2 w-2 rounded-full" style={{ backgroundColor: entry.color }} />
-                    {entry.payload.source}
-                  </li>
-                ))}
-              </ul>
-            )} />
-          </PieChart>
-        </ResponsiveContainer>
-      </ChartContainer>
-    </CardContent>
-  </Card>
-);
+const ApplicantSourceChart = dynamic(() => import('../components/applicant-source-chart'), { 
+  ssr: false, 
+  loading: () => <Skeleton className="h-[400px] w-full" /> 
+});
+const HiringFunnelChart = dynamic(() => import('@/app/employer/components/hiring-funnel-chart'), { 
+  ssr: false, 
+  loading: () => <Skeleton className="h-[400px] w-full" /> 
+});
 
 
 // --- Job Performance Table Component ---

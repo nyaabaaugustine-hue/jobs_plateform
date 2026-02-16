@@ -1,6 +1,8 @@
+
 'use client';
 
 import { useState } from 'react';
+import dynamic from 'next/dynamic';
 import {
   DollarSign,
   Users,
@@ -10,8 +12,6 @@ import {
   Download,
 } from 'lucide-react';
 import KpiCard from './components/kpi-card';
-import RevenueChart from './components/revenue-chart';
-import UserDistributionChart from './components/user-distribution-chart';
 import ActivityFeed from './components/activity-feed';
 import JobInsights from './components/job-insights';
 import ModerationCenter from './components/moderation-center';
@@ -31,6 +31,17 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Skeleton } from '@/components/ui/skeleton';
+
+const RevenueChart = dynamic(() => import('./components/revenue-chart'), { 
+  ssr: false,
+  loading: () => <Skeleton className="h-[400px] w-full" />
+});
+const UserDistributionChart = dynamic(() => import('./components/user-distribution-chart'), { 
+  ssr: false,
+  loading: () => <Skeleton className="h-[400px] w-full" />
+});
+
 
 export default function AdminDashboard() {
   const { toast } = useToast();
