@@ -9,7 +9,7 @@
     {
       "id": "hero-main",
       "description": "A diverse team of professionals collaborating in a modern office.",
-      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771163025/contacts_amr2rb.jpg",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771012435/hero_bg_uwn4fa.jpg",
       "imageHint": "professionals collaborating"
     },
     {
@@ -117,7 +117,7 @@
     {
       "id": "company-logo-12",
       "description": "Logo for Nyaho Medical Centre.",
-      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiMwMDVBOURiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNjAiIGZpbGw9IiNGRkZGRkYiPk48L3RleHQ+PC9zdmc+",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771236535/nyhaho_rznhuo.png",
       "imageHint": "company logo"
     },
     {
