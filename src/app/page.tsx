@@ -10,7 +10,7 @@ import { Input } from '@/components/ui/input';
 import { Separator } from '@/components/ui/separator';
 import FeaturedJobs from '@/components/featured-jobs';
 import TopCompanies from '@/components/top-companies';
-import { Suspense, useState, useEffect } from 'react';
+import { Suspense, useState, useEffect, useRef } from 'react';
 import HeroSearchForm from '@/components/hero-search-form';
 import SectionHeader from '@/components/shared/section-header';
 import { DUMMY_JOBS, JOB_CATEGORIES, DUMMY_COMPANIES, DUMMY_LOCATIONS, DUMMY_BLOG_POSTS } from '@/lib/data';
@@ -60,6 +60,13 @@ export default function HomePage() {
   const [currentAdIndex, setCurrentAdIndex] = useState(0);
   const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
   const categoryBgImage = PlaceHolderImages.find((p) => p.id === 'category-bg');
+  const heroSectionRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (heroSectionRef.current) {
+      heroSectionRef.current.scrollIntoView();
+    }
+  }, []);
 
   useEffect(() => {
     if (localStorage.getItem('adPanelClosed') === 'true') {
@@ -78,7 +85,7 @@ export default function HomePage() {
     if (isAdPanelOpen) {
       rotationTimer = setInterval(() => {
         setCurrentAdIndex(prevIndex => (prevIndex + 1) % ads.length);
-      }, 50000); // Changed from 50000 to 50000 (no change needed here as per last request)
+      }, 50000);
     }
 
     return () => clearInterval(rotationTimer);
@@ -111,6 +118,7 @@ export default function HomePage() {
         />
         {/* Hero Section */}
         <section
+          ref={heroSectionRef}
           className="relative w-full py-20 lg:py-32 flex items-center justify-center text-center"
         >
           {heroImage && (
