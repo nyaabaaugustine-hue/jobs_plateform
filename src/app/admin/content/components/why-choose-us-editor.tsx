@@ -118,7 +118,6 @@ export default function WhyChooseUsEditor() {
         <div className="mt-2 w-full rounded-lg border bg-background p-8">
           <SectionHeader
             title="Why Demo?"
-            subtitle="We're more than just a job board. We're your career partner."
           />
           <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
             {features.map((feature, index) => {
