@@ -20,8 +20,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 224 71% 10%;
 
-    --primary: 43 33% 90%; /* Milky Clay White */
-    --primary-foreground: 224 71% 10%; /* Dark Blue */
+    --primary: 220 15% 96%; /* Milky Grey White */
+    --primary-foreground: 220 10% 15%; /* Dark Grey */
     
     --secondary: 220 14% 94%;
     --secondary-foreground: 224 71% 10%;
@@ -72,8 +72,8 @@
     --popover: 220 10% 8%;
     --popover-foreground: 43 33% 95%;
 
-    --primary: 217 91% 60%; /* Vibrant Blue */
-    --primary-foreground: 0 0% 100%;
+    --primary: 220 15% 96%; /* Milky Grey White */
+    --primary-foreground: 220 10% 15%; /* Dark Grey */
     
     --secondary: 220 10% 15%;
     --secondary-foreground: 210 20% 90%;
