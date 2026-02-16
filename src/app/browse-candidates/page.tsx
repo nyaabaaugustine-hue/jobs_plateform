@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -27,6 +26,7 @@ import {
 } from '@/components/ui/dialog';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Label } from '@/components/ui/label';
+import Image from 'next/image';
 
 const CandidateCard = ({ user }: { user: User }) => {
     const { toast } = useToast();
@@ -174,6 +174,7 @@ export default function BrowseCandidatesPage() {
   const candidates = DUMMY_USERS.filter(user => 
     user.role === 'jobSeeker'
   );
+  const bgImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
 
   return (
     <>
@@ -181,8 +182,18 @@ export default function BrowseCandidatesPage() {
         title="Browse Top Candidates"
         subtitle="Discover the best talent for your team from our community of skilled professionals."
       />
-      <main className="flex-1 py-16 md:py-24 bg-secondary/30">
-        <div className="container mx-auto px-4 md:px-6">
+      <main className="relative flex-1 py-16 md:py-24">
+        {bgImage && (
+            <Image
+                src={bgImage.imageUrl}
+                alt={bgImage.description}
+                fill
+                className="object-cover z-0"
+                data-ai-hint={bgImage.imageHint}
+            />
+        )}
+        <div className="absolute inset-0 bg-background/80 z-10" />
+        <div className="relative z-20 container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {candidates.map((user) => (
               <CandidateCard key={user.id} user={user} />
