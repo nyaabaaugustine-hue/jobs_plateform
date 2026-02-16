@@ -3,14 +3,14 @@ import type { Job, Company, Review, Application, Applicant, User, BlogPost, User
 import { Users, BookOpen, Palette, BrainCircuit, GitMerge, KanbanSquare, Scale, Stethoscope, Clapperboard, GraduationCap, Handshake, Lightbulb } from 'lucide-react';
 
 const ghanaianCompanies = [
-    { id: '1', name: "Made in Ghana", industry: "Manufacturing", logo: 'company-logo-1' },
-    { id: '2', name: "NHIS", industry: "Insurance", logo: 'company-logo-2' },
-    { id: '3', name: "Ghana Gas", industry: "Energy", logo: 'company-logo-3' },
-    { id: '4', name: "TotalEnergies Ghana", industry: "Oil & Gas", logo: 'company-logo-4' },
-    { id: '5', name: "GHACEM", industry: "Construction", logo: 'company-logo-5' },
-    { id: '6', name: "GRIDCo", industry: "Energy", logo: 'company-logo-6' },
-    { id: '7', name: "SIC Insurance", industry: "Insurance", logo: 'company-logo-7' },
-    { id: '8', name: "Ghana Water", industry: "Utilities", logo: 'company-logo-8' },
+    { id: '1', name: "mPharma", industry: "Healthcare", logo: 'company-logo-1' },
+    { id: '2', name: "Hubtel", industry: "Fintech", logo: 'company-logo-2' },
+    { id: '3', name: "MTN Ghana", industry: "Telecommunications", logo: 'company-logo-3' },
+    { id: '4', name: "GCB Bank", industry: "Banking", logo: 'company-logo-4' },
+    { id: '5', name: "Stanbic Bank", industry: "Banking", logo: 'company-logo-5' },
+    { id: '6', name: "GOIL", industry: "Oil & Gas", logo: 'company-logo-6' },
+    { id: '7', name: "Vodafone Ghana", industry: "Telecommunications", logo: 'company-logo-7' },
+    { id: '8', name: "Ecobank Ghana", industry: "Banking", logo: 'company-logo-8' },
     { id: '9', name: "KPMG Ghana", industry: "Consulting", logo: 'company-logo-9' },
     { id: '10', name: "PwC Ghana", industry: "Professional Services", logo: 'company-logo-10' },
     { id: '11', name: "Ashesi University", industry: "Education", logo: 'company-logo-11' },
@@ -98,9 +98,9 @@ export const DUMMY_JOBS: Job[] = Array.from({ length: 20 }, (_, i) => {
         experienceLevel = experienceLevels[i % experienceLevels.length];
     }
 
-    // Special handling to make the first job be from Made in Ghana for the employer dashboard demo
+    // Special handling to make the first job be from mPharma for the employer dashboard demo
     const assignedCompany = i === 0 
-        ? DUMMY_COMPANIES.find(c => c.name === 'Made in Ghana') || company 
+        ? DUMMY_COMPANIES.find(c => c.name === 'mPharma') || company 
         : company;
 
     return {
