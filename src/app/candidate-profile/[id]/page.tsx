@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -90,11 +89,11 @@ const CandidateProfileSkeleton = () => (
 );
 
 interface CandidateProfilePageProps {
-  params: Promise<{ id: string }>;
+  params: { id: string };
 }
 
 export default function CandidateProfilePage({ params }: CandidateProfilePageProps) {
-  const { id } = React.use(params);
+  const { id } = params;
   const { toast } = useToast();
 
   const [user, setUser] = useState<(typeof DUMMY_USERS)[0] | undefined>(undefined);

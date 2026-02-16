@@ -12,11 +12,11 @@ import SocialShareButtons from '@/components/shared/social-share-buttons';
 import ClientSideDate from '@/components/shared/client-side-date';
 
 interface BlogPostPageProps {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {
-  const { slug } = await params;
+  const { slug } = params;
   const postData = DUMMY_BLOG_POSTS.find((p) => p.slug === slug);
 
   if (!postData) {

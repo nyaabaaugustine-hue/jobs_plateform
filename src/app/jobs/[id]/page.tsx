@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -30,11 +29,11 @@ import SocialShareButtons from '@/components/shared/social-share-buttons';
 import ClientSideDate from '@/components/shared/client-side-date';
 
 interface JobDetailPageProps {
-  params: Promise<{ id: string }>;
+  params: { id: string };
 }
 
 export default function JobDetailPage({ params }: JobDetailPageProps) {
-  const { id } = React.use(params);
+  const { id } = params;
   const job = DUMMY_JOBS.find((j) => j.id === id);
 
   const { toast } = useToast();

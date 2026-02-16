@@ -10,11 +10,11 @@ import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
 
 interface CompanyDetailPageProps {
-  params: Promise<{ id: string }>;
+  params: { id: string };
 }
 
 export default async function CompanyDetailPage({ params }: CompanyDetailPageProps) {
-  const { id } = await params;
+  const { id } = params;
   const company = DUMMY_COMPANIES.find((c) => c.id === id);
 
   if (!company) {
