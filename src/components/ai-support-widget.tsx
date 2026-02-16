@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
@@ -15,7 +14,9 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 type Message = {
     id: number;
     sender: 'user' | 'ai';
-    text: string;
+    text?: string;
+    imageUrl?: string;
+    imageHint?: string;
     actions?: {
         label: string;
         onClick: () => void;
@@ -121,30 +122,41 @@ export default function AISupportWidget() {
 
     useEffect(() => {
         if (isOpen) {
+            // Immediately show typing indicator
             setIsTyping(true);
+    
+            // First message (image)
             setTimeout(() => {
-                const initialAiMessage: Message = {
-                    id: 1,
+                const imageMessage: Message = {
+                    id: Date.now(),
                     sender: 'ai',
-                    text: "Hello! I'm Abena, your AI Support Assistant. How can I help you today? 🇬🇭 Here are a few things I can do:",
-                    actions: [
-                        {
-                            label: 'Show popular jobs',
-                            onClick: handleShowPopularJob,
-                        },
-                        {
-                            label: 'Explain pricing plans',
-                            onClick: handleExplainPricing,
-                        },
-                        {
-                            label: 'WhatsApp Chat',
-                            onClick: handleOpenWhatsApp,
-                        }
-                    ]
+                    imageUrl: 'https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771205327/straight_yqwg78.png',
+                    imageHint: 'AI assistant portrait'
                 };
-                setMessages([initialAiMessage]);
-                setIsTyping(false);
-            }, 1500);
+                setMessages([imageMessage]);
+                setIsTyping(false); // Stop typing after image is "sent"
+    
+                // Second message (text with actions) after a short pause
+                setTimeout(() => {
+                    setIsTyping(true); // Start typing for the next message
+                    setTimeout(() => {
+                        const textMessage: Message = {
+                            id: Date.now() + 1,
+                            sender: 'ai',
+                            text: "Hello! I'm Abena, your AI Support Assistant. How can I help you today? 🇬🇭 Here are a few things I can do:",
+                            actions: [
+                                { label: 'Show popular jobs', onClick: handleShowPopularJob },
+                                { label: 'Explain pricing plans', onClick: handleExplainPricing },
+                                { label: 'WhatsApp Chat', onClick: handleOpenWhatsApp }
+                            ]
+                        };
+                        setMessages(prev => [...prev, textMessage]);
+                        setIsTyping(false); // Stop typing after text is "sent"
+                    }, 1200); // Time for AI to "think" before typing text
+                }, 800); // Pause between messages
+    
+            }, 1000); // Initial delay before the first message appears
+    
         } else {
             // Reset chat when closed
             setMessages([]);
@@ -220,37 +232,48 @@ export default function AISupportWidget() {
                                     </div>
                                 )}
                                 
-                                <div className={cn(
-                                    "px-4 py-2.5 rounded-xl max-w-[85%] text-sm",
-                                    message.sender === 'user'
-                                        ? "bg-primary text-primary-foreground rounded-br-none"
-                                        : "bg-secondary text-secondary-foreground rounded-bl-none"
-                                )}>
-                                    <p className="whitespace-pre-wrap">{message.text}</p>
-                                    {message.actions && (
-                                        <div className="mt-3 flex flex-wrap gap-2">
-                                            {message.actions.map((action, index) => {
-                                                const isWhatsApp = action.label.includes('WhatsApp');
-                                                return (
-                                                    <Button
-                                                        key={index}
-                                                        size="sm"
-                                                        className={cn(
-                                                            "border",
-                                                            isWhatsApp 
-                                                                ? "bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500/20 border-emerald-500/20"
-                                                                : "bg-primary/10 text-primary hover:bg-primary/20 border-primary/20"
-                                                        )}
-                                                        onClick={action.onClick}
-                                                    >
-                                                        {isWhatsApp ? <WhatsAppIcon className="mr-2 h-4 w-4" /> : <Sparkles className="mr-2 h-3 w-3" />}
-                                                        {action.label}
-                                                    </Button>
-                                                )
-                                            })}
-                                        </div>
-                                    )}
-                                </div>
+                                {message.imageUrl ? (
+                                    <Image
+                                        src={message.imageUrl}
+                                        alt={message.imageHint || 'Chat image'}
+                                        width={250}
+                                        height={250}
+                                        className="rounded-lg object-cover w-48"
+                                        data-ai-hint={message.imageHint}
+                                    />
+                                ) : (
+                                    <div className={cn(
+                                        "px-4 py-2.5 rounded-xl max-w-[85%] text-sm",
+                                        message.sender === 'user'
+                                            ? "bg-primary text-primary-foreground rounded-br-none"
+                                            : "bg-secondary text-secondary-foreground rounded-bl-none"
+                                    )}>
+                                        {message.text && <p className="whitespace-pre-wrap">{message.text}</p>}
+                                        {message.actions && (
+                                            <div className="mt-3 flex flex-wrap gap-2">
+                                                {message.actions.map((action, index) => {
+                                                    const isWhatsApp = action.label.includes('WhatsApp');
+                                                    return (
+                                                        <Button
+                                                            key={index}
+                                                            size="sm"
+                                                            className={cn(
+                                                                "border",
+                                                                isWhatsApp 
+                                                                    ? "bg-emerald-500/10 text-emerald-600 hover:bg-emerald-500/20 border-emerald-500/20"
+                                                                    : "bg-primary/10 text-primary hover:bg-primary/20 border-primary/20"
+                                                            )}
+                                                            onClick={action.onClick}
+                                                        >
+                                                            {isWhatsApp ? <WhatsAppIcon className="mr-2 h-4 w-4" /> : <Sparkles className="mr-2 h-3 w-3" />}
+                                                            {action.label}
+                                                        </Button>
+                                                    )
+                                                })}
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
 
                                 {message.sender === 'user' && <User className="h-8 w-8 text-muted-foreground rounded-full p-1 bg-muted shrink-0" />}
                             </div>
