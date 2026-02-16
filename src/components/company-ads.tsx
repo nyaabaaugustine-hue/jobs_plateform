@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -68,7 +67,7 @@ export default function CompanyAds() {
     <section className="py-16 md:py-24 bg-secondary">
       <div className="container mx-auto max-w-7xl px-6 lg:px-12">
         <SectionHeader title="Sponsored by Industry Leaders" />
-        <div className="relative rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 ease-in-out ring-4 ring-destructive/40">
+        <div className="relative rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 ease-in-out ring-4 ring-primary/40">
             {ads.map((ad, index) => (
                 ad.image && (
                     <Image
