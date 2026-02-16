@@ -10,7 +10,6 @@
  */
 
 import { ai } from '@/ai/genkit';
-import { generate } from 'genkit';
 import { z } from 'zod';
 
 const ModerateJobPostInputSchema = z.object({
@@ -31,17 +30,17 @@ export async function moderateJobPost(input: ModerateJobPostInput): Promise<Mode
   return moderateJobPostFlow(input);
 }
 
-const moderateJobPostFlow = ai.defineFlow(
-  {
-    name: 'moderateJobPostFlow',
-    inputSchema: ModerateJobPostInputSchema,
-    outputSchema: ModerateJobPostOutputSchema,
+const moderateJobPostPrompt = ai.definePrompt({
+  name: 'moderateJobPostPrompt',
+  input: { schema: ModerateJobPostInputSchema },
+  output: { schema: ModerateJobPostOutputSchema },
+  config: {
+    model: 'gemini-pro',
   },
-  async (input) => {
-    const prompt = `You are an expert job post moderator. Your task is to analyze the provided job post and determine if it is potentially fraudulent or spam.
+  prompt: `You are an expert job post moderator. Your task is to analyze the provided job post and determine if it is potentially fraudulent or spam.
 
   Job Post:
-  ${input.jobPost}
+  {{{jobPost}}}
 
   Evaluate the job post based on factors such as:
   - Unrealistic salary offers
@@ -53,16 +52,17 @@ const moderateJobPostFlow = ai.defineFlow(
 
   Based on your analysis, determine if the job post is spam or fraudulent and provide a reason for your determination. If the post is not spam, isSpam should be false and the reason should be an empty string.
   Make sure to set the isSpam output field appropriately.
-  `;
-    const llmResponse = await generate({
-      model: 'gemini-pro',
-      prompt: prompt,
-      output: {
-        format: 'json',
-        schema: ModerateJobPostOutputSchema,
-      },
-    });
+  `,
+});
 
-    return llmResponse.output()!;
+const moderateJobPostFlow = ai.defineFlow(
+  {
+    name: 'moderateJobPostFlow',
+    inputSchema: ModerateJobPostInputSchema,
+    outputSchema: ModerateJobPostOutputSchema,
+  },
+  async (input) => {
+    const { output } = await moderateJobPostPrompt(input);
+    return output!;
   }
 );
