@@ -61,10 +61,13 @@ export default function HomePage() {
   const categoryBgImage = PlaceHolderImages.find((p) => p.id === 'category-bg');
 
   useEffect(() => {
-    // Open the panel automatically after a short delay on page load
+    if (sessionStorage.getItem('adPanelClosed') === 'true') {
+      return;
+    }
+
     const openTimer = setTimeout(() => {
       setIsAdPanelOpen(true);
-    }, 2000);
+    }, 3000);
 
     return () => clearTimeout(openTimer);
   }, []);
@@ -72,15 +75,18 @@ export default function HomePage() {
   useEffect(() => {
     let rotationTimer: NodeJS.Timeout;
     if (isAdPanelOpen) {
-      // Rotate the ad every 10 seconds
       rotationTimer = setInterval(() => {
         setCurrentAdIndex(prevIndex => (prevIndex + 1) % ads.length);
-      }, 10000);
+      }, 5000);
     }
 
-    // Cleanup the timer if the panel is closed or the component unmounts
     return () => clearInterval(rotationTimer);
   }, [isAdPanelOpen]);
+
+  const handleCloseAdPanel = () => {
+    setIsAdPanelOpen(false);
+    sessionStorage.setItem('adPanelClosed', 'true');
+  };
 
   const trustIndicators = [
     { text: '12,430+ jobs available' },
@@ -99,7 +105,7 @@ export default function HomePage() {
       <main className="flex-1">
         <AdPanel 
           isOpen={isAdPanelOpen} 
-          onClose={() => setIsAdPanelOpen(false)} 
+          onClose={handleCloseAdPanel} 
           ad={currentAd}
         />
         {/* Hero Section */}

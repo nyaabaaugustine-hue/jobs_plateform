@@ -1,12 +1,13 @@
+
 'use client';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { PartyPopper } from 'lucide-react';
+import { ToastAction } from './ui/toast';
 
-// Small, self-contained data to avoid pulling in the entire data.ts file
 const hiredExamples = [
   { name: 'Kofi Mensah', job: 'Senior React Developer', avatarId: 'avatar-2' },
   { name: 'Ama Serwaa', job: 'UX/UI Designer', avatarId: 'avatar-1' },
@@ -15,10 +16,26 @@ const hiredExamples = [
 ];
 
 export default function HiredNotification() {
-  const { toast } = useToast();
+  const { toast, dismiss } = useToast();
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  const stopNotifications = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+    sessionStorage.setItem('hiredNotificationsStopped', 'true');
+    dismiss();
+  };
 
   useEffect(() => {
     const showRandomHiredNotification = () => {
+      if (sessionStorage.getItem('hiredNotificationsStopped') === 'true') {
+        if (intervalRef.current) {
+          clearInterval(intervalRef.current);
+        }
+        return;
+      }
+
       const example = hiredExamples[Math.floor(Math.random() * hiredExamples.length)];
       const userAvatar = PlaceHolderImages.find((img) => img.id === example.avatarId);
 
@@ -39,15 +56,33 @@ export default function HiredNotification() {
             </div>
           </div>
         ),
+        action: (
+          <ToastAction
+            altText="Stop notifications"
+            onClick={stopNotifications}
+          >
+            Stop alerts
+          </ToastAction>
+        ),
+        duration: 10000,
       });
     };
 
-    const interval = setInterval(showRandomHiredNotification, 30000); 
+    const initialTimeout = setTimeout(() => {
+      if (sessionStorage.getItem('hiredNotificationsStopped') !== 'true') {
+        showRandomHiredNotification();
+        intervalRef.current = setInterval(showRandomHiredNotification, 30000);
+      }
+    }, 8000);
 
     return () => {
-      clearInterval(interval);
+      clearTimeout(initialTimeout);
+      if (intervalRef.current) {
+        clearInterval(intervalRef.current);
+      }
     };
-  }, [toast]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [toast, dismiss]);
 
   return null;
 }
