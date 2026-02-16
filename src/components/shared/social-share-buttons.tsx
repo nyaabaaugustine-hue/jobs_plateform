@@ -7,16 +7,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React from 'react';
 
-type SocialShareButtonsProps = {
-  title: string;
-  type?: 'job' | 'post';
-  description?: string;
-  location?: string;
-  salary?: string;
-  deadline?: string;
-  companyName?: string;
-};
-
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
         <path
@@ -26,6 +16,15 @@ const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
     </svg>
 );
 
+type SocialShareButtonsProps = {
+  title: string;
+  type?: 'job' | 'post';
+  description?: string;
+  location?: string;
+  salary?: string;
+  deadline?: string;
+  companyName?: string;
+};
 
 export default function SocialShareButtons({ title, type = 'post', description, location, salary, deadline, companyName }: SocialShareButtonsProps) {
   const pathname = usePathname();
