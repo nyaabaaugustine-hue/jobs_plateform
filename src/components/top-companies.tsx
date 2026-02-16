@@ -25,9 +25,6 @@ export default function TopCompanies({ companies }: { companies: Company[] }) {
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-12 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
           <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-foreground">Top Companies Hiring</h2>
-          <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-            Discover your next career step with industry-leading firms.
-          </p>
         </div>
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
           {companies.map((company, index) => {

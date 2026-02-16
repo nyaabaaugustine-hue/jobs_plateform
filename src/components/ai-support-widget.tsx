@@ -126,7 +126,7 @@ export default function AISupportWidget() {
                 const initialAiMessage: Message = {
                     id: 1,
                     sender: 'ai',
-                    text: "Hello! I'm your AI Support Assistant. How can I help you today? Here are a few things I can do:",
+                    text: "Hello! I'm Abena, your AI Support Assistant. How can I help you today? 🇬🇭 Here are a few things I can do:",
                     actions: [
                         {
                             label: 'Show popular jobs',
@@ -192,11 +192,11 @@ export default function AISupportWidget() {
                     <header className="p-4 border-b border-white/10 bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 flex items-center justify-between shrink-0">
                         <div className="flex items-center gap-3">
                              <div className="relative">
-                                <Bot className="h-7 w-7 text-white" />
+                                <User className="h-7 w-7 text-white" />
                                 <span className="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full bg-green-400 ring-2 ring-card" />
                             </div>
                             <div>
-                                <h2 className="font-bold text-base text-white">AI Support Assistant</h2>
+                                <h2 className="font-bold text-base text-white">Abena</h2>
                                 <p className="text-xs text-gray-300">Online</p>
                             </div>
                         </div>
@@ -212,7 +212,7 @@ export default function AISupportWidget() {
                                 "flex w-full items-end gap-3 animate-fade-in-up",
                                 message.sender === 'user' ? 'justify-end' : 'justify-start'
                             )}>
-                                {message.sender === 'ai' && <Bot className="h-7 w-7 text-primary shrink-0 mb-1" />}
+                                {message.sender === 'ai' && <User className="h-7 w-7 text-primary shrink-0 mb-1" />}
                                 
                                 <div className={cn(
                                     "px-4 py-2.5 rounded-xl max-w-[85%] text-sm",
@@ -251,7 +251,7 @@ export default function AISupportWidget() {
                         ))}
                          {isTyping && (
                             <div className="flex items-end gap-3 animate-fade-in-up justify-start">
-                                <Bot className="h-7 w-7 text-primary shrink-0 mb-1" />
+                                <User className="h-7 w-7 text-primary shrink-0 mb-1" />
                                 <div className="px-4 py-2.5 rounded-xl bg-secondary rounded-bl-none">
                                     <div className="flex items-center gap-1.5">
                                         <span className="h-1.5 w-1.5 bg-primary rounded-full animate-pulse [animation-delay:-0.3s]" />
@@ -304,7 +304,7 @@ export default function AISupportWidget() {
                         </button>
                     </TooltipTrigger>
                     <TooltipContent side="left" className="bg-black/80 text-white border-white/20">
-                        <p>Chat with AI Support</p>
+                        <p>Chat with Abena</p>
                     </TooltipContent>
                 </Tooltip>
             </div>
