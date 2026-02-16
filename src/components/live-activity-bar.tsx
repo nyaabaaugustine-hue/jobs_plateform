@@ -2,6 +2,7 @@
 'use client';
 
 import { Award, Briefcase, Building, CheckCircle } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 const activityItems = [
   { icon: Briefcase, metric: '12,430', label: 'Jobs Available' },
@@ -18,17 +19,26 @@ export default function LiveActivityBar() {
 
       <div className="flex animate-marquee-rtl whitespace-nowrap">
         {/* Render items twice for seamless loop */}
-        {[...activityItems, ...activityItems].map((item, index) => (
-          <div key={index} className="flex shrink-0 items-center gap-3 py-2 px-8 text-foreground">
-            <div className="rounded-lg bg-burgundy/10 p-1.5 text-burgundy">
-              <item.icon className="h-4 w-4" />
+        {[...activityItems, ...activityItems].map((item, index) => {
+          const isEven = index % 2 === 0;
+          return (
+            <div key={index} className="flex shrink-0 items-center gap-3 py-2 px-8">
+              <div className={cn(
+                  "rounded-lg p-1.5",
+                  isEven ? "bg-muted text-foreground" : "bg-burgundy/10 text-burgundy"
+              )}>
+                <item.icon className="h-4 w-4" />
+              </div>
+              <div>
+                <p className={cn(
+                    "text-base font-bold",
+                    isEven ? "text-foreground" : "text-burgundy"
+                )}>{item.metric}</p>
+                <p className="text-xs text-muted-foreground">{item.label}</p>
+              </div>
             </div>
-            <div>
-              <p className="text-base font-bold text-burgundy">{item.metric}</p>
-              <p className="text-xs text-muted-foreground">{item.label}</p>
-            </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
     </div>
   );

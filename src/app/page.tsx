@@ -85,16 +85,16 @@ export default function HomePage() {
         </div>
       </section>
 
+      <HiringSection />
       <TopCompanies companies={companies} />
       <FeaturedJobs jobs={jobs} categories={categories} />
       <WhyChooseUs />
       <VolunteerSection />
       <JobsByLocation locations={locations} />
       <Testimonials />
-      <HiringSection />
       <LatestNews posts={latestPosts} />
-      <SubscriptionSection />
       <Faq />
+      <SubscriptionSection />
     </main>
   );
 }
