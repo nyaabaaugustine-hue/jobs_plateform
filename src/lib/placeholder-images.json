@@ -369,25 +369,25 @@
     {
       "id": "paystack-logo",
       "description": "Paystack logo",
-      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMjUiIHZpZXdCb3g9IjAgMCAxMDAgMjUiPjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMjUiIGZpbGw9IiMwMDAwMDAiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiNGRkZGRkYiPlBheXN0YWNrPC90ZXh0Pjwvc3ZnPg==",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771239121/paystack-2_d1j4ey.png",
       "imageHint": "Paystack logo"
     },
     {
       "id": "visa-logo",
       "description": "Visa logo",
-      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSIyNSIgdmlld0JveD0iMCAwIDUwIDI1Ij48cmVjdCB3aWR0aD0iNTAiIGhlaWdodD0iMjUiIGZpbGw9IiMxQTFGNzEiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnSyc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiNGRkZGRkYiPlZJU0E8L3RleHQ+PC9zdmc+",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771239121/visa_nrlj1j.png",
       "imageHint": "Visa logo"
     },
     {
       "id": "mastercard-logo",
       "description": "Mastercard logo",
-      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSIyNSIgdmlld0JveD0iMCAwIDUwIDI1Ij48cmVjdCB3aWR0aD0iNTAiIGhlaWdodD0iMjUiIGZpbGw9IiNFQjAwMUIiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiNGRkZGRkYiPk1DPC90ZXh0Pjwvc3ZnPg==",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771239121/master_t6jb2e.png",
       "imageHint": "Mastercard logo"
     },
     {
       "id": "ssl-badge",
       "description": "SSL Secure badge",
-      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCAxMjAgNDAiPjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIGZpbGw9IiMyMmM1NWMiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiNmZmZmZmYiPlNlY3VyZSBTU0w8L3RleHQ+PC9zdmc+",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771239121/ssl-badge_l1vx4a.png",
       "imageHint": "secure ssl"
     },
     {
@@ -411,7 +411,7 @@
     {
       "id": "resume-doc",
       "description": "A placeholder image for a resume document.",
-      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNTY2IiB2aWV3Qm94PSIwIDAgNDAwIDU2NiI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI1NjYiIGZpbGw9IiNmMEY5ZmYiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNDAiIGZpbGw9IiMwMjg0YzciPlJlc3VtZS5wZGY8L3RleHQ+PC9zdmc+",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771239121/resume_w55gvy.png",
       "imageHint": "resume document"
     },
     {
