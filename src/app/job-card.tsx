@@ -11,7 +11,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardFooter, CardTitle, CardDescription } from '@/components/ui/card';
-import ClientSideDate from './shared/client-side-date';
+import ClientSideDate from '@/components/shared/client-side-date';
 
 type JobCardProps = {
   job: Job;
