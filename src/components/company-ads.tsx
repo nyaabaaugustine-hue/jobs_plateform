@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useRef } from 'react';
@@ -59,7 +60,7 @@ const validAds = adData.map(ad => {
 
 export default function CompanyAds() {
   const plugin = useRef(
-    Autoplay({ delay: 5000, stopOnInteraction: false, stopOnMouseEnter: true })
+    Autoplay({ delay: 7000, stopOnInteraction: false, stopOnMouseEnter: true })
   );
 
   // This is the "error test": If no valid ads can be constructed, show an error message.
