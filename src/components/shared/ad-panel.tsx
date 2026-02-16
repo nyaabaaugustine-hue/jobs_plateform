@@ -52,18 +52,24 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
       {/* Overlay */}
       <div
         aria-hidden="true"
+        data-state={isOpen ? 'open' : 'closed'}
         className={cn(
-          'fixed inset-0 bg-black/60 z-[99] transition-opacity duration-500 ease-in-out',
-          isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          'fixed inset-0 bg-black/60 z-[99]',
+          'data-[state=open]:animate-in data-[state=open]:fade-in-0 duration-500',
+          'data-[state=closed]:animate-out data-[state=closed]:fade-out-0 duration-500',
+          'data-[state=closed]:pointer-events-none'
         )}
         onClick={onClose}
       />
 
       {/* Panel */}
       <aside
+        data-state={isOpen ? 'open' : 'closed'}
         className={cn(
-          'fixed bottom-6 left-6 w-full max-w-sm bg-transparent border-none z-[100] transition-all duration-700 ease-in-out',
-          isOpen ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
+          'fixed bottom-6 left-6 w-full max-w-sm bg-transparent border-none z-[100]',
+          'data-[state=open]:animate-in data-[state=open]:slide-in-from-left-full data-[state=open]:duration-700 ease-out',
+          'data-[state=closed]:animate-out data-[state=closed]:slide-out-to-left-full data-[state=closed]:duration-500 ease-in',
+          'data-[state=closed]:pointer-events-none'
         )}
         role="dialog"
         aria-modal="true"
