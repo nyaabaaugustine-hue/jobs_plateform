@@ -20,7 +20,7 @@ import LatestNews from '@/components/latest-news';
 import SubscriptionSection from '@/components/subscription-section';
 import WhyChooseUs from '@/components/why-choose-us';
 import Testimonials from '@/components/testimonials';
-import FastRoutes from '@/components/fast-routes';
+import VolunteerSection from '@/components/volunteer-section';
 import PricingGrid from '@/components/pricing-grid';
 import JobsByLocation from '@/components/jobs-by-location';
 import AdPanel from '@/components/shared/ad-panel';
@@ -161,7 +161,7 @@ export default function HomePage() {
 
         <CompanyAds />
 
-        <FastRoutes />
+        <VolunteerSection />
         
         <JobCategories />
 

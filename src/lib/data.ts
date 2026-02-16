@@ -363,24 +363,24 @@ export const DUMMY_OPPORTUNITIES = [
     icon: GraduationCap,
     title: 'Student Attachments',
     description: 'Gain real-world experience with leading companies in your field of study. Bridge the gap between theory and practice.',
-    iconBg: 'bg-slate-400/10',
-    iconColor: 'text-slate-400',
+    iconBg: 'bg-primary/10',
+    iconColor: 'text-primary',
     filterValue: 'internship',
   },
   {
     icon: Handshake,
     title: 'Volunteer Programs',
     description: 'Make an impact by contributing your skills to NGOs and community projects. Build your network and character.',
-    iconBg: 'bg-slate-400/10',
-    iconColor: 'text-slate-400',
+    iconBg: 'bg-primary/10',
+    iconColor: 'text-primary',
     filterValue: 'volunteer',
   },
   {
     icon: Lightbulb,
     title: 'Innovation Challenges',
     description: 'Participate in student-focused innovation challenges and hackathons sponsored by top tech firms.',
-    iconBg: 'bg-slate-400/10',
-    iconColor: 'text-slate-400',
+    iconBg: 'bg-primary/10',
+    iconColor: 'text-primary',
     filterValue: 'all',
   }
 ];
@@ -388,3 +388,4 @@ export const DUMMY_OPPORTUNITIES = [
     
 
     
+

@@ -1,4 +1,4 @@
-import { GraduationCap, Handshake, Lightbulb } from 'lucide-react';
+import { DUMMY_OPPORTUNITIES } from '@/lib/data';
 import SectionHeader from './shared/section-header';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
@@ -6,30 +6,6 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-
-const opportunities = [
-  {
-    icon: GraduationCap,
-    title: 'Student Attachments',
-    description: 'Gain real-world experience with leading companies in your field of study. Bridge the gap between theory and practice.',
-    iconBg: 'bg-slate-400/10',
-    iconColor: 'text-slate-400'
-  },
-  {
-    icon: Handshake,
-    title: 'Volunteer Programs',
-    description: 'Make an impact by contributing your skills to NGOs and community projects. Build your network and character.',
-    iconBg: 'bg-slate-400/10',
-    iconColor: 'text-slate-400'
-  },
-  {
-    icon: Lightbulb,
-    title: 'Innovation Challenges',
-    description: 'Participate in student-focused innovation challenges and hackathons sponsored by top tech firms.',
-    iconBg: 'bg-slate-400/10',
-    iconColor: 'text-slate-400'
-  }
-];
 
 export default function VolunteerSection() {
   const bgImage = PlaceHolderImages.find((p) => p.id === 'featured-jobs-bg');
@@ -53,7 +29,7 @@ export default function VolunteerSection() {
           className="animate-in fade-in slide-in-from-bottom-4 duration-700"
         />
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          {opportunities.map((opportunity, index) => (
+          {DUMMY_OPPORTUNITIES.map((opportunity, index) => (
             <Card key={index} className="text-center animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: `${200 + index * 100}ms` }}>
               <CardHeader className="items-center">
                 <div className={cn("flex h-16 w-16 items-center justify-center rounded-full", opportunity.iconBg)}>
