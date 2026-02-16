@@ -50,17 +50,3 @@ export const AiJobRecommendationsOutputSchema = z.object({
     ),
 });
 export type AiJobRecommendationsOutput = z.infer<typeof AiJobRecommendationsOutputSchema>;
-
-
-// From: src/ai/flows/sms-notification-flow.ts
-export const SmsNotificationInputSchema = z.object({
-    phoneNumber: z.string().describe('The recipient\'s phone number in E.164 format.'),
-    message: z.string().describe('The content of the SMS message to send.'),
-});
-export type SmsNotificationInput = z.infer<typeof SmsNotificationInputSchema>;
-
-export const SmsNotificationOutputSchema = z.object({
-    success: z.boolean().describe('Whether the SMS was sent successfully.'),
-    messageId: z.string().optional().describe('The unique ID of the sent message, if successful.'),
-});
-export type SmsNotificationOutput = z.infer<typeof SmsNotificationOutputSchema>;

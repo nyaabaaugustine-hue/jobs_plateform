@@ -43,12 +43,6 @@
       "imageHint": "contactless payment"
     },
     {
-      "id": "ad-panel-promo",
-      "description": "A team collaborating around a laptop in a modern office.",
-      "imageUrl": "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-      "imageHint": "team collaboration"
-    },
-    {
       "id": "company-logo-1",
       "description": "Logo for mPharma.",
       "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771235434/facebook-cover-2_kbwa2f.jpg",
@@ -367,30 +361,6 @@
       "imageHint": "news reading"
     },
     {
-      "id": "paystack-logo",
-      "description": "Paystack logo",
-      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771239121/paystack-2_d1j4ey.png",
-      "imageHint": "Paystack logo"
-    },
-    {
-      "id": "visa-logo",
-      "description": "Visa logo",
-      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771239121/visa_nrlj1j.png",
-      "imageHint": "Visa logo"
-    },
-    {
-      "id": "mastercard-logo",
-      "description": "Mastercard logo",
-      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771239121/master_t6jb2e.png",
-      "imageHint": "Mastercard logo"
-    },
-    {
-      "id": "ssl-badge",
-      "description": "SSL Secure badge",
-      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771239121/ssl-badge_l1vx4a.png",
-      "imageHint": "secure ssl"
-    },
-    {
       "id": "resume-doc",
       "description": "A placeholder image for a resume document.",
       "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771239121/resume_w55gvy.png",
@@ -443,12 +413,6 @@
       "description": "An introductory image for the AI assistant Abena.",
       "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771205327/straight_yqwg78.png",
       "imageHint": "AI assistant"
-    },
-    {
-      "id": "ai-tools-hero",
-      "description": "A woman interacting with a futuristic user interface.",
-      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771108988/Screenshot_154_qlx6pl.png",
-      "imageHint": "woman technology"
     },
     {
       "id": "contact-form-bg",
