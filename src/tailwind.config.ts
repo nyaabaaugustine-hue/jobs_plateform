@@ -56,6 +56,7 @@ export default {
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
+        gold: 'hsl(var(--gold))',
         chart: {
           '1': 'hsl(var(--chart-1))',
           '2': 'hsl(var(--chart-2))',
@@ -127,7 +128,7 @@ export default {
       animation: {
         'accordion-down': 'accordion-down 0.3s ease-out',
         'accordion-up': 'accordion-up 0.3s ease-out',
-        'marquee-rtl': 'marquee-rtl 60s linear infinite',
+        'marquee-rtl': 'marquee-rtl 40s linear infinite',
         'marquee-ltr': 'marquee-ltr 80s linear infinite',
         'gradient': 'gradient 3s linear infinite',
         'pulse-glow': 'pulse-glow 2s infinite',
