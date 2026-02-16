@@ -1,4 +1,3 @@
-
 'use client';
 
 import { Button } from "@/components/ui/button"
@@ -11,6 +10,9 @@ import { PlaceHolderImages } from "@/lib/placeholder-images"
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useToast } from '@/hooks/use-toast';
+import { useFirebase } from '@/firebase/provider';
+import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { doc, getDoc } from 'firebase/firestore';
 
 export default function AdminLoginPage() {
     const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
@@ -21,25 +23,69 @@ export default function AdminLoginPage() {
 
     const router = useRouter();
     const { toast } = useToast();
+    const { auth, firestore } = useFirebase();
+
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
+        if (!auth || !firestore) {
+             toast({
+                title: 'Error',
+                description: 'Firebase is not initialized.',
+                variant: 'destructive',
+            });
+            return;
+        }
         setIsLoading(true);
 
-        // For this admin-specific login page, always redirect to the admin dashboard.
-        const destination = '/admin';
+        try {
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            const user = userCredential.user;
 
-        toast({
-            title: 'Admin Login Successful',
-            description: 'Redirecting to your dashboard...',
-            variant: 'vibrant',
-        });
-        
-        // Simulate network delay for demo
-        setTimeout(() => {
-            router.push(destination);
+            const adminDocRef = doc(firestore, "roles_admin", user.uid);
+            const adminDoc = await getDoc(adminDocRef);
+
+            const userDocRef = doc(firestore, "users", user.uid);
+            const userDoc = await getDoc(userDocRef);
+
+            if (adminDoc.exists() || (userDoc.exists() && userDoc.data().role === 'admin')) {
+                toast({
+                    title: 'Admin Login Successful',
+                    description: 'Redirecting to your dashboard...',
+                    variant: 'vibrant',
+                });
+                router.push('/admin');
+            } else {
+                 toast({
+                    title: 'Login Failed',
+                    description: 'You do not have administrative privileges.',
+                    variant: 'destructive',
+                });
+                 setIsLoading(false);
+                 await signOut(auth);
+            }
+
+        } catch (error: any) {
+            console.error("Login failed:", error);
+            let errorMessage = "An unknown error occurred.";
+            if (error.code) {
+                switch (error.code) {
+                    case 'auth/user-not-found':
+                    case 'auth/wrong-password':
+                    case 'auth/invalid-credential':
+                        errorMessage = 'Invalid email or password.';
+                        break;
+                    default:
+                        errorMessage = "An error occurred during login."
+                }
+            }
+            toast({
+                title: 'Login Failed',
+                description: errorMessage,
+                variant: 'destructive',
+            });
             setIsLoading(false);
-        }, 1000);
+        }
     };
 
   return (
