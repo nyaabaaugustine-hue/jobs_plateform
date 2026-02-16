@@ -12,9 +12,9 @@ const activityItems = [
 
 export default function LiveActivityBar() {
   return (
-    <div className="relative w-full overflow-hidden bg-muted/50 border-y">
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-muted/50 to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-muted/50 to-transparent" />
+    <div className="relative w-full overflow-hidden bg-background border-y">
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-background to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-background to-transparent" />
 
       <div className="flex animate-marquee-rtl whitespace-nowrap">
         {/* Render items twice for seamless loop */}
