@@ -67,8 +67,8 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
         data-state={isOpen ? 'open' : 'closed'}
         className={cn(
           'fixed bottom-6 left-6 w-full max-w-sm bg-transparent border-none z-[100]',
-          'data-[state=open]:animate-in data-[state=open]:slide-in-from-left data-[state=open]:duration-700 ease-out',
-          'data-[state=closed]:animate-out data-[state=closed]:slide-out-to-left data-[state=closed]:duration-500 ease-in',
+          'data-[state=open]:animate-in data-[state=open]:slide-in-from-left-full data-[state=open]:duration-700 ease-out',
+          'data-[state=closed]:animate-out data-[state=closed]:slide-out-to-left-full data-[state=closed]:duration-500 ease-in',
           'data-[state=closed]:pointer-events-none'
         )}
         role="dialog"
@@ -97,7 +97,7 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
                   data-ai-hint={ad.image.imageHint}
                   sizes="(max-width: 768px) 100vw, 30vw"
               />
-              <Badge variant="secondary" className="absolute top-2 left-2 bg-black/50 text-white border-white/20 text-xs z-10">
+              <Badge variant="secondary" className="absolute top-2 left-2 bg-red-900/70 text-red-100 border-red-800/50 text-xs z-10">
                 Advertisement
               </Badge>
             </div>
