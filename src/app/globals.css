@@ -20,8 +20,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 224 71% 10%;
 
-    --primary: 220 15% 96%; /* Milky Grey White */
-    --primary-foreground: 220 10% 15%; /* Dark Grey */
+    --primary: 217 91% 60%; /* Vibrant Blue */
+    --primary-foreground: 0 0% 100%; /* White */
     
     --secondary: 220 14% 94%;
     --secondary-foreground: 224 71% 10%;
@@ -42,6 +42,8 @@
     --radius: 0.75rem;
 
     --gold: 45 85% 55%;
+
+    --burgundy: 345 44% 31%;
 
     /* Chart colors */
     --chart-1: hsl(var(--primary));
@@ -72,8 +74,8 @@
     --popover: 220 10% 8%;
     --popover-foreground: 43 33% 95%;
 
-    --primary: 220 15% 96%; /* Milky Grey White */
-    --primary-foreground: 220 10% 15%; /* Dark Grey */
+    --primary: 217 91% 60%; /* Vibrant Blue */
+    --primary-foreground: 0 0% 100%;
     
     --secondary: 220 10% 15%;
     --secondary-foreground: 210 20% 90%;
@@ -92,6 +94,8 @@
     --ring: 217 91% 60%; /* Vibrant Blue Ring */
 
     --gold: 45 85% 55%;
+    
+    --burgundy: 345 44% 41%;
   }
 }
 
