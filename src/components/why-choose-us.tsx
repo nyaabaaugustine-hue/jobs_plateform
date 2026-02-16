@@ -1,3 +1,4 @@
+
 import { Shield, Zap, BrainCircuit } from 'lucide-react';
 import SectionHeader from './shared/section-header';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
@@ -51,7 +52,7 @@ export default function WhyChooseUs() {
           {features.map((feature, index) => (
             <Card key={index} className="text-center animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: `${200 + index * 100}ms` }}>
               <CardHeader className="items-center">
-                <div className={cn("flex h-16 w-16 items-center justify-center rounded-full", feature.iconBg)}>
+                <div className={cn("flex h-16 w-16 items-center justify-center rounded-full ring-4 ring-muted-foreground/20", feature.iconBg)}>
                   <feature.icon className={cn("h-8 w-8", feature.iconColor)} />
                 </div>
               </CardHeader>
