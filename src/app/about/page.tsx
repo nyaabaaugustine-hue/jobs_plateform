@@ -29,12 +29,12 @@ export default function AboutPage() {
                         alt="Chapel Hill Logo Watermark"
                         width={200}
                         height={200}
-                        className="absolute inset-0 m-auto h-full w-auto object-contain opacity-10 z-0"
+                        className="absolute inset-0 m-auto h-full w-auto object-contain opacity-20 z-0"
                     />
                 )}
                 <CardContent className="relative z-10 p-10 text-center">
-                    <h2 className="font-headline text-3xl font-bold text-primary">Our Mission</h2>
-                    <p className="mt-4 text-lg text-muted-foreground">
+                    <h2 className="font-headline text-3xl font-bold text-foreground">Our Mission</h2>
+                    <p className="mt-4 text-xl font-light text-foreground/90 font-headline leading-relaxed">
                         At Chapel Hill, our mission is to empower developers and companies by creating a specialized platform for React-focused careers. We believe that by connecting the right talent with the right opportunities, we can help build the future of web technology. We are committed to fostering a community built on trust, transparency, and professional growth.
                     </p>
                 </CardContent>

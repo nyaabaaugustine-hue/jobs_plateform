@@ -21,7 +21,7 @@ export default function TopCompanies({ companies }: { companies: Company[] }) {
           data-ai-hint={bgImage.imageHint}
         />
       )}
-      <div className="absolute inset-0 bg-background/[.43] z-10" />
+      <div className="absolute inset-0 bg-background/80 backdrop-blur-sm z-10" />
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-12 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
           <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-foreground">Top Companies Hiring</h2>
@@ -31,9 +31,9 @@ export default function TopCompanies({ companies }: { companies: Company[] }) {
             const companyLogo = PlaceHolderImages.find((img) => img.id === company.logo);
             return (
               <Link key={company.id} href={`/companies/${company.id}`} className="block group animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: `${200 + index * 50}ms` }}>
-                <Card className="h-full p-4 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl bg-card flex flex-col items-center justify-center">
+                <Card className="h-full p-4 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl bg-card/50 backdrop-blur-sm flex flex-col items-center justify-center">
                   {companyLogo && (
-                    <div className="relative mb-4 flex h-20 w-20 items-center justify-center rounded-2xl bg-background p-2 shadow-inner border">
+                    <div className="relative mb-4 flex h-20 w-20 items-center justify-center rounded-full bg-background p-2 shadow-inner border">
                         <Image
                           src={companyLogo.imageUrl}
                           alt={`${company.name} logo`}

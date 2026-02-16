@@ -99,7 +99,7 @@ export default function CompanyAds() {
                     )}
                     <h3 className="font-headline text-3xl md:text-4xl font-bold !leading-tight text-gray-100">{currentAd.headline}</h3>
                     <p className="mt-2 text-lg text-gray-300">{currentAd.description}</p>
-                    <Button asChild size="lg" className="mt-6 bg-white/10 text-white border-white/20 backdrop-blur-sm font-semibold transition-all hover:bg-white/20 hover:scale-105 shadow-lg">
+                    <Button asChild size="lg" className="mt-6">
                         <Link href={`/companies/${currentAd.company.id}`}>
                             View Careers at {currentAd.company.name}
                             <ArrowRight className="ml-2" />
