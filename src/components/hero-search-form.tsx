@@ -34,7 +34,7 @@ export default function HeroSearchForm() {
             id="job-title"
             type="search"
             placeholder="Job title, keyword"
-            className="border-none focus-visible:ring-0 text-base h-12 bg-transparent text-foreground placeholder:text-foreground/70"
+            className="border-none focus-visible:ring-0 text-base h-12 bg-transparent text-foreground placeholder:text-foreground"
             value={jobTitle}
             onChange={(e) => setJobTitle(e.target.value)}
           />
@@ -46,7 +46,7 @@ export default function HeroSearchForm() {
             id="location"
             type="search"
             placeholder="City or zip code"
-            className="border-none focus-visible:ring-0 text-base h-12 bg-transparent text-foreground placeholder:text-foreground/70"
+            className="border-none focus-visible:ring-0 text-base h-12 bg-transparent text-foreground placeholder:text-foreground"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
           />
