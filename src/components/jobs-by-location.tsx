@@ -17,9 +17,6 @@ export default function JobsByLocation({ locations }: { locations: Location[] })
       <div className="container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-12 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
           <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">Jobs by Location</h2>
-          <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-            Find your favorite jobs and reap the benefits for yourself.
-          </p>
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {locations.map((location, index) => {

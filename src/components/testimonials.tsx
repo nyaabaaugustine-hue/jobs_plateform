@@ -53,9 +53,6 @@ export default function Testimonials() {
       <div className="relative z-20 container mx-auto max-w-7xl px-0">
         <div className="mb-12 text-center animate-in fade-in slide-in-from-bottom-4 duration-700 px-6 lg:px-12">
             <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-foreground">What Our Users Say</h2>
-            <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-                Discover how we've helped professionals and companies achieve their goals.
-            </p>
         </div>
 
         <div className="relative w-full overflow-hidden">

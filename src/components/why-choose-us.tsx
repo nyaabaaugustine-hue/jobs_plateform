@@ -46,9 +46,6 @@ export default function WhyChooseUs() {
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-10 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
             <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-foreground">Why Chapel Hill?</h2>
-            <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-                We're more than just a job board. We're your career partner.
-            </p>
         </div>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {features.map((feature, index) => (

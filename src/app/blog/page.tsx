@@ -11,7 +11,7 @@ export default function BlogPage() {
     <>
       <PageHero
         title="Our News and Stories"
-        subtitle="Explore articles, tips, and insights to help you grow your career and stay ahead."
+        subtitle=""
       />
       <main className="flex-1 py-16 md:py-24">
         <div className="container mx-auto px-4 md:px-6">
