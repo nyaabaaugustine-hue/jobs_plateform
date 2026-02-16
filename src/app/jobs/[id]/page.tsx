@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -230,7 +231,7 @@ export default function JobDetailPage({ params }: JobDetailPageProps) {
                     <CardContent>
                         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                             <DialogTrigger asChild>
-                                <Button disabled={isApplied} className="w-full bg-primary" size="lg">
+                                <Button disabled={isApplied} variant="secondary" className="w-full" size="lg">
                                     {isApplied ? 'Applied' : 'Apply Now'}
                                 </Button>
                             </DialogTrigger>
