@@ -92,7 +92,7 @@ export default function SubscriptionSection() {
             <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-foreground">
               Get Job Alerts
             </h2>
-             <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
+             <p className="mt-4 max-w-2xl mx-auto text-lg text-sky-400">
               Subscribe to our newsletter to receive the latest job postings.
             </p>
             <form onSubmit={handleSubscribe} className="mt-8 max-w-xl mx-auto">
