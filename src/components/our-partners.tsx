@@ -8,19 +8,26 @@ export default function OurPartners() {
   const partners = DUMMY_COMPANIES.slice(0, 12); // Use first 12 companies as partners
   const firstRow = partners.slice(0, 6);
   const secondRow = partners.slice(6, 12);
+  const bgImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
 
   return (
-    <section className="py-16 md:py-24 bg-secondary">
-      <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+    <section className="relative py-16 md:py-24">
+       {bgImage && (
+        <Image
+          src={bgImage.imageUrl}
+          alt={bgImage.description}
+          fill
+          className="object-cover z-0"
+          data-ai-hint={bgImage.imageHint}
+        />
+      )}
+      <div className="absolute inset-0 bg-background/95 z-10" />
+      <div className="container mx-auto max-w-7xl px-6 lg:px-12 relative z-20">
         <SectionHeader
           title="Trusted By The Best"
           subtitle="We are proud to partner with leading companies and organizations to connect talent with opportunity."
         />
-        <div className="relative mt-12 flex h-64 w-full flex-col items-center justify-center overflow-hidden rounded-2xl bg-card/50 p-6 shadow-inner">
-          <div className="pointer-events-none absolute -top-1 z-10 h-full w-full bg-gradient-to-b from-secondary via-transparent to-secondary" />
-          <div className="pointer-events-none absolute -left-1 z-10 h-full w-20 bg-gradient-to-r from-secondary to-transparent" />
-          <div className="pointer-events-none absolute -right-1 z-10 h-full w-20 bg-gradient-to-l from-secondary to-transparent" />
-
+        <div className="relative mt-12 flex h-64 w-full flex-col items-center justify-center overflow-hidden rounded-2xl bg-card/30 p-6 shadow-inner">
           <div className="space-y-8">
             <div className="animate-marquee-rtl flex min-w-full shrink-0 items-center justify-around gap-16">
               {[...firstRow, ...firstRow].map((company, index) => {

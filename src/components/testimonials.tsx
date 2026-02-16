@@ -15,10 +15,12 @@ import {
 } from '@/components/ui/carousel';
 import Autoplay from "embla-carousel-autoplay";
 import React, { useState, useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 export default function Testimonials() {
   const [isMounted, setIsMounted] = useState(false);
   const reviews: Review[] = DUMMY_REVIEWS;
+  const bgImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
 
   const plugin = useRef<ReturnType<typeof Autoplay> | null>(null);
 
@@ -34,7 +36,17 @@ export default function Testimonials() {
   if (!isMounted) {
     // Render a static placeholder or skeleton on the server and before hydration
     return (
-      <section className="relative py-16 md:py-24 bg-secondary">
+      <section className="relative py-16 md:py-24">
+         {bgImage && (
+            <Image
+              src={bgImage.imageUrl}
+              alt={bgImage.description}
+              fill
+              className="object-cover z-0"
+              data-ai-hint={bgImage.imageHint}
+            />
+          )}
+          <div className="absolute inset-0 bg-background/90 z-10" />
         <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
           <div className="mb-12 text-center">
               <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-foreground">What Our Users Say</h2>
@@ -49,7 +61,17 @@ export default function Testimonials() {
   }
   
   return (
-    <section className="relative py-16 md:py-24 bg-secondary">
+    <section className="relative py-16 md:py-24">
+       {bgImage && (
+        <Image
+          src={bgImage.imageUrl}
+          alt={bgImage.description}
+          fill
+          className="object-cover z-0"
+          data-ai-hint={bgImage.imageHint}
+        />
+      )}
+      <div className="absolute inset-0 bg-background/90 z-10" />
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-12 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
             <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-foreground">What Our Users Say</h2>
