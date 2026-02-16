@@ -32,7 +32,7 @@ export default function HiringSection() {
               ))}
             </ul>
             <div className="pt-4 flex items-center gap-4">
-              <Button asChild size="lg" className="rounded-xl bg-accent-gradient transform transition-transform hover:scale-105">
+              <Button asChild size="lg" className="rounded-xl transform transition-transform hover:scale-105">
                 <Link href="/employer/jobs/new">Post a Job</Link>
               </Button>
                <Button asChild size="lg" variant="outline">

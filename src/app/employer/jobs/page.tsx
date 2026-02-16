@@ -155,7 +155,7 @@ export default function EmployerJobsPage() {
                 <h1 className="font-headline text-3xl font-bold">My Job Listings</h1>
                 <p className="text-muted-foreground">Manage all jobs you have posted.</p>
             </div>
-            <Button asChild className="w-full md:w-auto bg-accent-gradient">
+            <Button asChild className="w-full md:w-auto">
                 <Link href="/employer/jobs/new">
                     <PlusCircle className="mr-2 h-4 w-4" />
                     Post Job
