@@ -29,24 +29,24 @@ export default function HeroSearchForm() {
         className="flex items-center flex-col sm:flex-row gap-4"
       >
         <div className="flex w-full items-center">
-          <Briefcase className="h-5 w-5 text-gray-300 mx-3" />
+          <Briefcase className="h-5 w-5 text-foreground/80 mx-3" />
           <Input
             id="job-title"
             type="search"
             placeholder="Job title, keyword"
-            className="border-none focus-visible:ring-0 text-base h-12 bg-transparent text-white placeholder:text-gray-300"
+            className="border-none focus-visible:ring-0 text-base h-12 bg-transparent text-foreground placeholder:text-foreground/60"
             value={jobTitle}
             onChange={(e) => setJobTitle(e.target.value)}
           />
         </div>
         <Separator orientation="vertical" className="h-8 hidden sm:block bg-border" />
         <div className="flex w-full items-center">
-          <MapPin className="h-5 w-5 text-gray-300 mx-3" />
+          <MapPin className="h-5 w-5 text-foreground/80 mx-3" />
           <Input
             id="location"
             type="search"
             placeholder="City or zip code"
-            className="border-none focus-visible:ring-0 text-base h-12 bg-transparent text-white placeholder:text-gray-300"
+            className="border-none focus-visible:ring-0 text-base h-12 bg-transparent text-foreground placeholder:text-foreground/60"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
           />
@@ -55,7 +55,7 @@ export default function HeroSearchForm() {
           type="submit"
           size="lg"
           variant="outline"
-          className="font-semibold text-base w-full sm:w-auto h-12 rounded-xl bg-transparent border-2 border-white/50 text-white hover:bg-white/10"
+          className="font-semibold text-base w-full sm:w-auto h-12 rounded-xl bg-transparent border-2 border-foreground/50 text-foreground hover:bg-foreground/10"
         >
           Find Jobs
         </Button>

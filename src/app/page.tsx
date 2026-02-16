@@ -40,10 +40,10 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-black/60 z-10" />
         <div className="relative z-20 container mx-auto px-6 max-w-4xl">
           <div className="flex flex-col justify-center space-y-6">
-            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl !leading-tight font-headline animate-in fade-in slide-in-from-bottom-4 duration-700">
-              Find Your Next Job, <span className="text-primary">Faster.</span>
+            <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-6xl !leading-tight font-headline animate-in fade-in slide-in-from-bottom-4 duration-700">
+              Find Your Next Job, Faster.
             </h1>
-            <p className="max-w-xl mx-auto text-lg text-gray-200 animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '150ms'}}>
+            <p className="max-w-xl mx-auto text-lg text-foreground/90 animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '150ms'}}>
               Discover your next career move with verified employers and salary transparency.
             </p>
             <div className="max-w-3xl w-full mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '300ms'}}>
