@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useEffect, useRef } from 'react';
@@ -40,19 +39,17 @@ export default function HiredNotification() {
       const userAvatar = PlaceHolderImages.find((img) => img.id === example.avatarId);
 
       toast({
-        className: 'bg-gold text-background border-yellow-300/50 shadow-lg',
+        variant: 'black',
+        className: 'p-4 pr-10',
         description: (
           <div className="flex items-center gap-3">
-            <PartyPopper className="h-6 w-6 shrink-0" />
-            <div className="flex items-center gap-2">
-              <Avatar className="h-8 w-8 border-2 border-background/50">
-                {userAvatar && <AvatarImage src={userAvatar.imageUrl} alt={example.name} />}
-                <AvatarFallback>{example.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
-              </Avatar>
-              <div>
-                <p className="font-semibold text-sm">{`${example.name.split(' ')[0]} was hired!`} 🇬🇭</p>
-                <p className="text-xs">{`For the ${example.job} role.`}</p>
-              </div>
+            <Avatar className="h-8 w-8 border-2 border-background/50">
+              {userAvatar && <AvatarImage src={userAvatar.imageUrl} alt={example.name} />}
+              <AvatarFallback>{example.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+            </Avatar>
+            <div>
+              <p className="font-semibold text-sm flex items-center gap-1.5">{`${example.name.split(' ')[0]} was hired!`} <PartyPopper className="h-4 w-4 text-yellow-400" /></p>
+              <p className="text-xs opacity-80">{`For the ${example.job} role.`}</p>
             </div>
           </div>
         ),
@@ -60,7 +57,6 @@ export default function HiredNotification() {
           <ToastAction
             altText="Stop notifications"
             onClick={stopNotifications}
-            className="border-background/30 text-background/70 hover:bg-background/20 hover:text-background"
           >
             Stop alerts
           </ToastAction>
@@ -74,7 +70,7 @@ export default function HiredNotification() {
         showRandomHiredNotification();
         intervalRef.current = setInterval(showRandomHiredNotification, 50000);
       }
-    }, 8000); // 3s for ad panel + 5s wait = 8s total
+    }, 8000);
 
     return () => {
       clearTimeout(initialTimeout);
