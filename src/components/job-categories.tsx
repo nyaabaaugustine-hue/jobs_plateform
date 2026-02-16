@@ -17,34 +17,31 @@ export default function JobCategories() {
           </p>
         </div>
         
-        <div className="relative animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '200ms' }}>
-          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-background to-transparent" />
-          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-background to-transparent" />
-
-          <div className="flex animate-marquee-ltr whitespace-nowrap py-4">
-            {[...JOB_CATEGORIES, ...JOB_CATEGORIES].map((category, index) => (
-              <div key={index} className="flex-shrink-0 mx-3" style={{ width: '300px' }}>
-                <Link
-                  href="#"
-                  className="group rounded-xl border bg-card p-4 flex items-center gap-4 text-left transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-lg h-full"
-                >
-                  <div className={cn('h-14 w-14 flex items-center justify-center rounded-lg shrink-0 p-2', category.iconBgColor)}>
-                    {typeof category.icon === 'string' ? (
-                        <Image src={category.icon} alt={category.name} width={40} height={40} className="object-contain" />
-                    ) : (
-                        <category.icon className={cn('h-7 w-7', category.color)} />
-                    )}
+        <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {JOB_CATEGORIES.map((category, index) => (
+                  <div key={index} className="animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: `${200 + index * 50}ms` }}>
+                    <Link
+                      href="#"
+                      className="group rounded-xl border bg-card p-4 flex items-center gap-4 text-left transition-all duration-300 hover:border-primary hover:-translate-y-1 hover:shadow-lg h-full"
+                    >
+                      <div className={cn('h-14 w-14 flex items-center justify-center rounded-lg shrink-0 p-2', category.iconBgColor)}>
+                        {typeof category.icon === 'string' ? (
+                            <Image src={category.icon} alt={category.name} width={40} height={40} className="object-contain" />
+                        ) : (
+                            <category.icon className={cn('h-7 w-7', category.color)} />
+                        )}
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-foreground group-hover:text-primary leading-tight">
+                          {category.name}
+                        </h3>
+                        <p className="text-sm text-muted-foreground">{category.jobCount}</p>
+                      </div>
+                    </Link>
                   </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground group-hover:text-primary leading-tight">
-                      {category.name}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">{category.jobCount}</p>
-                  </div>
-                </Link>
-              </div>
-            ))}
-          </div>
+                ))}
+            </div>
         </div>
       </div>
     </section>

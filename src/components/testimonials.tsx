@@ -9,7 +9,7 @@ import Image from 'next/image';
 const TestimonialCard = ({ review }: { review: Review }) => {
     const userAvatar = PlaceHolderImages.find((img) => img.id === review.user.avatar);
     return (
-        <div className="mx-4 flex-shrink-0 w-[380px]">
+        <div className="mx-2 flex-shrink-0 w-[380px]">
             <Card className="flex h-full flex-col justify-between">
                 <CardContent className="p-6">
                     <StarRating rating={review.rating} />
