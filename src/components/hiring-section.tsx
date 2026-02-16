@@ -55,6 +55,7 @@ export default function HiringSection() {
                 data-ai-hint={hiringImage.imageHint}
               />
             )}
+            <div className="absolute inset-0 bg-primary/10 rounded-3xl" />
           </div>
         </div>
       </div>
