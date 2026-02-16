@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Award, Briefcase, Building, CheckCircle } from 'lucide-react';
@@ -29,11 +30,8 @@ export default function LiveActivityBar() {
                 <item.icon className="h-4 w-4" />
               </div>
               <div>
-                <p className={cn(
-                    "text-base font-bold",
-                    isEven ? "text-foreground/80" : "text-burgundy"
-                )}>{item.metric}</p>
-                <p className="text-xs text-foreground/80">{item.label}</p>
+                <p className="text-base font-bold text-burgundy">{item.metric}</p>
+                <p className="text-xs text-muted-foreground">{item.label}</p>
               </div>
             </div>
           )
