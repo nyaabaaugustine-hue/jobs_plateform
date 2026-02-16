@@ -85,7 +85,7 @@ export default function CompanyAds() {
             ))}
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent z-20" />
             <div className="relative z-30 p-8 md:p-12 flex flex-col justify-end min-h-[450px]">
-                <div className="max-w-2xl text-white">
+                <div className="max-w-2xl">
                     {currentAd.company.logo && (
                         <div className="bg-white/90 rounded-xl p-2 w-20 h-20 mb-4 flex items-center justify-center">
                             <Image
@@ -97,9 +97,9 @@ export default function CompanyAds() {
                             />
                         </div>
                     )}
-                    <h3 className="font-headline text-3xl md:text-4xl font-bold !leading-tight">{currentAd.headline}</h3>
-                    <p className="mt-2 text-lg text-gray-200">{currentAd.description}</p>
-                    <Button asChild size="lg" className="mt-6 bg-accent-gradient font-semibold">
+                    <h3 className="font-headline text-3xl md:text-4xl font-bold !leading-tight text-gray-100">{currentAd.headline}</h3>
+                    <p className="mt-2 text-lg text-gray-300">{currentAd.description}</p>
+                    <Button asChild size="lg" className="mt-6 bg-white/10 text-white border-white/20 backdrop-blur-sm font-semibold transition-all hover:bg-white/20 hover:scale-105 shadow-lg">
                         <Link href={`/companies/${currentAd.company.id}`}>
                             View Careers at {currentAd.company.name}
                             <ArrowRight className="ml-2" />
