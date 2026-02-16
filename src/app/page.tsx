@@ -132,11 +132,11 @@ export default function HomePage() {
           )}
           <div className="absolute inset-0 bg-black/60 z-10" />
           <div className="relative z-20 container mx-auto px-6 max-w-4xl">
-            <div className="flex flex-col justify-center space-y-6">
-              <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-6xl !leading-tight font-headline">
+            <div className="flex flex-col justify-center space-y-4">
+              <h1 className="text-5xl font-bold tracking-tight text-white sm:text-6xl !leading-tight font-headline">
                 Find Your Next Job, Faster.
               </h1>
-              <p className="max-w-3xl mx-auto text-lg text-accent font-headline">
+              <p className="max-w-3xl mx-auto text-xl font-semibold text-gray-200">
                 Discover your next career move with verified employers and salary transparency.
               </p>
               <div>
@@ -184,9 +184,6 @@ export default function HomePage() {
           <div className="relative z-20">
             <div className="mb-12 text-center">
                 <h2 className="font-headline text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Flexible Pricing for Every Team</h2>
-                <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-                    Choose the plan that's right for you. Get started for free or unlock powerful features with our Pro plan.
-                </p>
             </div>
             <PricingGrid />
           </div>
