@@ -69,7 +69,7 @@
     {
       "id": "company-logo-4",
       "description": "Logo for GCB Bank.",
-      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771205324/3_iyiiwz.png",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_5px_solid_red,b_rgb:262c35/v1771205324/3_iyiiwz.png",
       "imageHint": "company logo"
     },
     {
@@ -437,6 +437,12 @@
       "description": "A futuristic AI robot head icon for the support button.",
       "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771168493/eds_bjytks.png",
       "imageHint": "AI robot"
+    },
+    {
+      "id": "ai-support-intro",
+      "description": "An introductory image for the AI assistant Abena.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771205327/straight_yqwg78.png",
+      "imageHint": "AI assistant"
     },
     {
       "id": "ai-tools-hero",
