@@ -53,7 +53,7 @@ export default function HeroSearchForm() {
         <Button
           type="submit"
           size="lg"
-          className="font-semibold text-base w-full sm:w-auto h-12 rounded-xl bg-[rgb(204,211,218)] text-foreground hover:bg-[rgb(190,200,210)] transition-all duration-200"
+          className="font-semibold text-base w-full sm:w-auto h-12 rounded-xl"
         >
           Find Jobs
         </Button>

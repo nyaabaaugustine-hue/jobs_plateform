@@ -14,8 +14,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 224 71% 10%;
 
-    --primary: 221 68% 40%; /* User's specified blue: rgb(30, 64, 175) */
-    --primary-foreground: 0 0% 100%;
+    --primary: 210 26% 83%; /* Changed from blue to rgb(204, 211, 218) */
+    --primary-foreground: 224 71% 10%; /* Changed from white to dark blue for contrast */
     
     --secondary: 221 68% 94%;
     --secondary-foreground: 224 71% 10%;
