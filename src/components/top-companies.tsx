@@ -41,6 +41,7 @@ export default function TopCompanies({ companies }: { companies: Company[] }) {
                           alt={`${company.name} logo`}
                           fill
                           className="object-cover scale-110"
+                          sizes="5rem"
                         />
                     </div>
                   )}
@@ -65,5 +66,3 @@ export default function TopCompanies({ companies }: { companies: Company[] }) {
     </section>
   );
 }
-
-    

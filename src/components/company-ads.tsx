@@ -83,6 +83,8 @@ const AdCarousel = () => {
                         fill
                         className={'object-cover'}
                         data-ai-hint={ad.image.imageHint}
+                        priority={index === 0}
+                        sizes="(max-width: 1280px) 100vw, 1280px"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent z-20" />
                     <div className="relative z-30 p-8 md:p-12 flex flex-col justify-end min-h-[450px]">

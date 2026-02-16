@@ -51,6 +51,8 @@ export default function AdminLoginPage() {
               fill
               className="object-cover z-0"
               data-ai-hint={heroImage.imageHint}
+              priority
+              sizes="100vw"
             />
           )}
         <div className="absolute inset-0 bg-black/60 z-10" />

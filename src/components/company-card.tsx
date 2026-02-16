@@ -27,6 +27,7 @@ export default function CompanyCard({ company }: CompanyCardProps) {
                         alt={`${company.name} logo`}
                         fill
                         className="object-contain"
+                        sizes="4rem"
                     />
                 </div>
             )}
@@ -62,5 +63,3 @@ export default function CompanyCard({ company }: CompanyCardProps) {
     </Card>
   );
 }
-
-    

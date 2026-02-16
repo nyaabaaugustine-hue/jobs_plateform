@@ -53,6 +53,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     className="w-full object-cover rounded-lg aspect-video mb-8 shadow-lg"
                     data-ai-hint={postImage.imageHint}
                     priority
+                    sizes="100vw"
                 />
                 )}
                 <div 
