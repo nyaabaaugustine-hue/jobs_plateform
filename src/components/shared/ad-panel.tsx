@@ -51,24 +51,18 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
       {/* Overlay */}
       <div
         aria-hidden="true"
-        data-state={isOpen ? 'open' : 'closed'}
         className={cn(
-          'fixed inset-0 bg-black/60 z-[99]',
-          'data-[state=open]:animate-in data-[state=open]:fade-in-0 duration-500',
-          'data-[state=closed]:animate-out data-[state=closed]:fade-out-0 duration-500',
-          !isOpen && 'pointer-events-none'
+          'fixed inset-0 bg-black/60 z-[99] transition-opacity duration-500',
+          isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         )}
         onClick={onClose}
       />
 
       {/* Panel */}
       <aside
-        data-state={isOpen ? 'open' : 'closed'}
         className={cn(
-          'fixed bottom-6 left-6 w-full max-w-sm bg-transparent border-none z-[100]',
-          'data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:slide-in-from-left-24 duration-500',
-          'data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:slide-out-to-left-24 duration-300',
-          !isOpen && 'pointer-events-none'
+          'fixed bottom-6 left-6 w-full max-w-sm bg-transparent border-none z-[100] transition-all duration-500 ease-in-out',
+          isOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full pointer-events-none'
         )}
         role="dialog"
         aria-modal="true"
@@ -96,7 +90,7 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
                   data-ai-hint={ad.image.imageHint}
                   sizes="(max-width: 768px) 100vw, 30vw"
               />
-              <Badge variant="secondary" className="absolute top-2 left-2 bg-burgundy-700/80 text-white border-burgundy-600/50 text-xs z-10">
+              <Badge variant="secondary" className="absolute top-2 left-2 bg-destructive/10 text-destructive border-destructive/20 text-xs z-10">
                 Advertisement
               </Badge>
             </div>
