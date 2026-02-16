@@ -6,10 +6,11 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { DUMMY_COMPANIES } from '@/lib/data';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ServerCrash } from 'lucide-react';
 import SectionHeader from './shared/section-header';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
+import { Card, CardDescription, CardHeader, CardTitle } from './ui/card';
 
 const adData = [
   {
@@ -44,16 +45,43 @@ const adData = [
   },
 ];
 
-const ads = adData.map(ad => {
+// Process ad data at the module level to filter out any invalid entries upfront.
+const validAds = adData.map(ad => {
     const company = DUMMY_COMPANIES.find(c => c.id === ad.companyId);
     const image = PlaceHolderImages.find(p => p.id === ad.imageId);
+    if (!company || !image) {
+        console.warn(`Ad data for companyId ${ad.companyId} or imageId ${ad.imageId} is incomplete.`);
+        return null;
+    }
     return { ...ad, company, image };
-});
+}).filter(ad => ad !== null);
+
 
 export default function CompanyAds() {
   const plugin = useRef(
-    Autoplay({ delay: 5000, stopOnInteraction: false })
+    Autoplay({ delay: 5000, stopOnInteraction: true, stopOnMouseEnter: true })
   );
+
+  // This is the "error test": If no valid ads can be constructed, show an error message.
+  if (validAds.length === 0) {
+    return (
+        <section className="py-16 md:py-24 bg-secondary">
+             <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+                <SectionHeader title="Sponsored by Industry Leaders" />
+                <Card className="border-destructive">
+                    <CardHeader>
+                        <CardTitle className="flex items-center gap-2 text-destructive">
+                            <ServerCrash /> Ad Slider Error
+                        </CardTitle>
+                        <CardDescription>
+                            The ad slider could not be loaded. This is a test to check for data consistency errors. It indicates that the data required for the advertisements is missing or incorrect.
+                        </CardDescription>
+                    </CardHeader>
+                </Card>
+            </div>
+        </section>
+    );
+  }
 
   return (
     <section className="py-16 md:py-24 bg-secondary">
@@ -68,8 +96,8 @@ export default function CompanyAds() {
           className="relative"
         >
           <CarouselContent>
-            {ads.map((ad, index) => {
-              if (!ad.company || !ad.image) return null;
+            {validAds.map((ad, index) => {
+              if (!ad) return null; // Should not happen due to pre-filtering, but as a safeguard.
               return (
                 <CarouselItem key={index}>
                   <div className="relative rounded-2xl overflow-hidden shadow-2xl ring-4 ring-primary/40">
