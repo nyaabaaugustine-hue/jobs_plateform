@@ -136,7 +136,7 @@ export default function HomePage() {
               <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-6xl !leading-tight font-headline">
                 Find Your Next Job, Faster.
               </h1>
-              <p className="max-w-3xl mx-auto text-lg text-gray-200">
+              <p className="max-w-3xl mx-auto text-lg text-accent font-headline">
                 Discover your next career move with verified employers and salary transparency.
               </p>
               <div>
