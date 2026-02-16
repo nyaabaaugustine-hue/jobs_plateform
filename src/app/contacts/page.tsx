@@ -89,7 +89,7 @@ export default function ContactsPage() {
                       <Label htmlFor="message" className="text-gray-200">Message</Label>
                       <Textarea id="message" placeholder="Your message..." rows={6} value={message} onChange={(e) => setMessage(e.target.value)} required className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 focus:bg-white/20" />
                     </div>
-                    <Button type="submit" className="w-full bg-primary" size="lg" disabled={isSending}>
+                    <Button type="submit" variant="secondary" className="w-full" size="lg" disabled={isSending}>
                       {isSending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Send className="mr-2 h-4 w-4" />}
                       {isSending ? 'Sending...' : 'Send Message'}
                     </Button>
@@ -118,7 +118,7 @@ export default function ContactsPage() {
                                 <h4 className="font-semibold">Call Us</h4>
                                 <p className="text-muted-foreground">+233 54 198 8383</p>
                             </div>
-                            <Button asChild size="sm" className="bg-primary">
+                            <Button asChild size="sm" variant="secondary">
                                 <a href="tel:+233541988383">
                                     <Phone className="mr-2 h-4 w-4" />
                                     Call Now
