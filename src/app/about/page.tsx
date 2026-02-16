@@ -29,7 +29,7 @@ export default function AboutPage() {
                         alt="Chapel Hill Logo Watermark"
                         width={200}
                         height={200}
-                        className="absolute inset-0 m-auto h-full w-auto object-contain opacity-5 z-0"
+                        className="absolute inset-0 m-auto h-full w-auto object-contain opacity-10 z-0"
                     />
                 )}
                 <CardContent className="relative z-10 p-10 text-center">
