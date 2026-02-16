@@ -62,7 +62,7 @@ export default function HomePage() {
   const categoryBgImage = PlaceHolderImages.find((p) => p.id === 'category-bg');
 
   useEffect(() => {
-    if (sessionStorage.getItem('adPanelClosed') === 'true') {
+    if (localStorage.getItem('adPanelClosed') === 'true') {
       return;
     }
 
@@ -78,7 +78,7 @@ export default function HomePage() {
     if (isAdPanelOpen) {
       rotationTimer = setInterval(() => {
         setCurrentAdIndex(prevIndex => (prevIndex + 1) % ads.length);
-      }, 5000);
+      }, 50000);
     }
 
     return () => clearInterval(rotationTimer);
@@ -86,7 +86,7 @@ export default function HomePage() {
 
   const handleCloseAdPanel = () => {
     setIsAdPanelOpen(false);
-    sessionStorage.setItem('adPanelClosed', 'true');
+    localStorage.setItem('adPanelClosed', 'true');
   };
 
   const trustIndicators = [
