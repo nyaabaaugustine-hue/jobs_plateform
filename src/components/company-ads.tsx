@@ -59,7 +59,7 @@ const validAds = adData.map(ad => {
 
 export default function CompanyAds() {
   const plugin = useRef(
-    Autoplay({ delay: 5000, stopOnInteraction: true, stopOnMouseEnter: true })
+    Autoplay({ delay: 5000, stopOnInteraction: true })
   );
 
   // This is the "error test": If no valid ads can be constructed, show an error message.
@@ -94,6 +94,8 @@ export default function CompanyAds() {
           }}
           plugins={[plugin.current]}
           className="relative"
+          onMouseEnter={plugin.current.stop}
+          onMouseLeave={plugin.current.reset}
         >
           <CarouselContent>
             {validAds.map((ad, index) => {
