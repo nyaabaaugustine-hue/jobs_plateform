@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useRef } from 'react';
@@ -52,6 +51,9 @@ const ads = adData.map(ad => {
 });
 
 export default function CompanyAds() {
+  const plugin = useRef(
+    Autoplay({ delay: 5000, stopOnInteraction: true })
+  );
 
   return (
     <section className="py-16 md:py-24 bg-secondary">
@@ -62,13 +64,10 @@ export default function CompanyAds() {
             align: "start",
             loop: true,
           }}
-          plugins={[
-            Autoplay({
-              delay: 5000,
-              stopOnInteraction: true,
-            }),
-          ]}
+          plugins={[plugin.current]}
           className="relative"
+          onMouseEnter={plugin.current.stop}
+          onMouseLeave={plugin.current.reset}
         >
           <CarouselContent>
             {ads.map((ad, index) => {
