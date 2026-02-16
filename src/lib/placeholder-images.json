@@ -51,67 +51,67 @@
     {
       "id": "company-logo-1",
       "description": "Logo for mPharma.",
-      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiMxRTQwQUYiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNjAiIGZpbGw9IiNGRkZGRkYiPk08L3RleHQ+PC9zdmc+",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771205325/1_g8ymn4.jpg",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-2",
       "description": "Logo for Hubtel.",
-      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNCRTEyM0MiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNjAiIGZpbGw9IiNGRkZGRkYiPkg8L3RleHQ+PC9zdmc+",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771205324/2_z4ahas.jpg",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-3",
       "description": "Logo for MTN Ghana.",
-      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNGREI4MTMiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNDAiIGZpbGw9IiMwMDAwMDAiPk1UTjwvdGV4dD48L3N2Zz4=",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771205324/8_dkzees.jpg",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-4",
       "description": "Logo for GCB Bank.",
-      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiMwNDc4NTciLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNDAiIGZpbGw9IiNGRkZGRkYiPkdDQjwvdGV4dD48L3N2Zz4=",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771205324/3_iyiiwz.png",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-5",
       "description": "Logo for Stanbic Bank.",
-      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiMwMDMzQTEiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNjAiIGZpbGw9IiNGRkZGRkYiPlM8L3RleHQ+PC9zdmc+",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771205323/rr_t6ebks.jpg",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-6",
       "description": "Logo for GOIL.",
-      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNFMzA2MTMiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNjAiIGZpbGw9IiNGRkZGRkYiPkc8L3RleHQ+PC9zdmc+",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771205324/4_bu9rfs.jpg",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-7",
       "description": "Logo for Vodafone Ghana.",
-      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNFNjAwMDAiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNjAiIGZpbGw9IiNGRkZGRkYiPlY8L3RleHQ+PC9zdmc+",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771205324/rre_mrbjyg.png",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-8",
       "description": "Logo for Ecobank Ghana.",
-      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiMwMDQzODYiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNjAiIGZpbGw9IiNGRkZGRkYiPkU8L3RleHQ+PC9zdmc+",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771205324/5_d3z9ug.png",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-9",
       "description": "Logo for KPMG Ghana.",
-      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiMwMDMzOEQiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNjAiIGZpbGw9IiNGRkZGRkYiPkg8L3RleHQ+PC9zdmc+",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771205323/1a_ispwul.jpg",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-10",
       "description": "Logo for PwC Ghana.",
-      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiNEQzY5MDAiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNDAiIGZpbGw9IiNGRkZGRkYiPlB3QzwvdGV4dD48L3N2Zz4=",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771205323/y_ukj2r8.png",
       "imageHint": "company logo"
     },
     {
       "id": "company-logo-11",
       "description": "Logo for Ashesi University.",
-      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMTAwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHJlY3Qgd2lkdGg9IjEwMCIgaGVpZ2h0PSIxMDAiIGZpbGw9IiM5NDI2MjEiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNjAiIGZpbGw9IiNGRkZGRkYiPkE8L3RleHQ+PC9zdmc+",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771205323/9_yex97f.jpg",
       "imageHint": "company logo"
     },
     {

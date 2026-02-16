@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
@@ -42,6 +43,8 @@ export default function AISupportWidget() {
     const router = useRouter();
 
     const aiSupportImage = PlaceHolderImages.find(p => p.id === 'ai-support-button');
+    const abenaAvatar = PlaceHolderImages.find(p => p.id === 'ai-support-button');
+    const abenaIntro = PlaceHolderImages.find(p => p.id === 'ai-support-intro');
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -122,23 +125,24 @@ export default function AISupportWidget() {
 
     useEffect(() => {
         if (isOpen) {
-            // Immediately show typing indicator
+            if (messages.length > 0) return;
+            
             setIsTyping(true);
     
-            // First message (image)
             setTimeout(() => {
-                const imageMessage: Message = {
-                    id: Date.now(),
-                    sender: 'ai',
-                    imageUrl: 'https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771205327/straight_yqwg78.png',
-                    imageHint: 'AI assistant portrait'
-                };
-                setMessages([imageMessage]);
-                setIsTyping(false); // Stop typing after image is "sent"
+                if (abenaIntro) {
+                    const imageMessage: Message = {
+                        id: Date.now(),
+                        sender: 'ai',
+                        imageUrl: abenaIntro.imageUrl,
+                        imageHint: abenaIntro.imageHint
+                    };
+                    setMessages([imageMessage]);
+                }
+                setIsTyping(false);
     
-                // Second message (text with actions) after a short pause
                 setTimeout(() => {
-                    setIsTyping(true); // Start typing for the next message
+                    setIsTyping(true);
                     setTimeout(() => {
                         const textMessage: Message = {
                             id: Date.now() + 1,
@@ -151,14 +155,13 @@ export default function AISupportWidget() {
                             ]
                         };
                         setMessages(prev => [...prev, textMessage]);
-                        setIsTyping(false); // Stop typing after text is "sent"
-                    }, 1200); // Time for AI to "think" before typing text
-                }, 800); // Pause between messages
+                        setIsTyping(false);
+                    }, 1200);
+                }, 800);
     
-            }, 1000); // Initial delay before the first message appears
+            }, 1000);
     
         } else {
-            // Reset chat when closed
             setMessages([]);
             setInputValue('');
         }
@@ -204,9 +207,11 @@ export default function AISupportWidget() {
                     <header className="p-4 border-b border-white/10 bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 flex items-center justify-between shrink-0">
                         <div className="flex items-center gap-3">
                             <div className="relative">
-                                <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-white/30">
-                                    <Image src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771168493/eds_bjytks.png" alt="Abena AI Assistant" width={32} height={32} />
-                                </div>
+                                {abenaAvatar && (
+                                    <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-white/30">
+                                        <Image src={abenaAvatar.imageUrl} alt="Abena AI Assistant" width={32} height={32} />
+                                    </div>
+                                )}
                                 <span className="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full bg-green-400 ring-2 ring-card" />
                             </div>
                             <div>
@@ -226,9 +231,9 @@ export default function AISupportWidget() {
                                 "flex w-full items-start gap-3 animate-fade-in-up",
                                 message.sender === 'user' ? 'justify-end' : 'justify-start'
                             )}>
-                                {message.sender === 'ai' && (
+                                {message.sender === 'ai' && abenaAvatar && (
                                      <div className="w-8 h-8 rounded-full overflow-hidden shrink-0">
-                                        <Image src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771168493/eds_bjytks.png" alt="Abena AI Assistant" width={32} height={32} />
+                                        <Image src={abenaAvatar.imageUrl} alt="Abena AI Assistant" width={32} height={32} />
                                     </div>
                                 )}
                                 
@@ -238,7 +243,7 @@ export default function AISupportWidget() {
                                         alt={message.imageHint || 'Chat image'}
                                         width={250}
                                         height={250}
-                                        className="rounded-lg object-cover w-48"
+                                        className="rounded-lg object-contain w-48"
                                         data-ai-hint={message.imageHint}
                                     />
                                 ) : (
@@ -280,9 +285,11 @@ export default function AISupportWidget() {
                         ))}
                          {isTyping && (
                             <div className="flex items-start gap-3 animate-fade-in-up justify-start">
-                                <div className="w-8 h-8 rounded-full overflow-hidden shrink-0">
-                                    <Image src="https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771168493/eds_bjytks.png" alt="Abena AI Assistant" width={32} height={32} />
-                                </div>
+                                {abenaAvatar && (
+                                    <div className="w-8 h-8 rounded-full overflow-hidden shrink-0">
+                                        <Image src={abenaAvatar.imageUrl} alt="Abena AI Assistant" width={32} height={32} />
+                                    </div>
+                                )}
                                 <div className="px-4 py-2.5 rounded-xl bg-secondary rounded-bl-none">
                                     <div className="flex items-center gap-1.5">
                                         <span className="h-1.5 w-1.5 bg-primary rounded-full animate-pulse [animation-delay:-0.3s]" />
