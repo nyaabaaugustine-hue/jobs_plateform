@@ -2,17 +2,41 @@
 import Image from 'next/image';
 import { DUMMY_JOBS, DUMMY_COMPANIES, DUMMY_LOCATIONS, DUMMY_BLOG_POSTS } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import TopCompanies from '@/components/top-companies';
-import FeaturedJobs from '@/components/featured-jobs';
-import WhyChooseUs from '@/components/why-choose-us';
-import VolunteerSection from '@/components/volunteer-section';
-import JobsByLocation from '@/components/jobs-by-location';
-import Testimonials from '@/components/testimonials';
-import HiringSection from '@/components/hiring-section';
-import LatestNews from '@/components/latest-news';
-import SubscriptionSection from '@/components/subscription-section';
-import Faq from '@/components/faq';
 import HeroSearchForm from '@/components/hero-search-form';
+import dynamic from 'next/dynamic';
+import { Skeleton } from '@/components/ui/skeleton';
+
+const TopCompanies = dynamic(() => import('@/components/top-companies'), {
+  loading: () => <Skeleton className="h-[300px] w-full" />,
+});
+const FeaturedJobs = dynamic(() => import('@/components/featured-jobs'), {
+  loading: () => <Skeleton className="h-[600px] w-full" />,
+});
+const WhyChooseUs = dynamic(() => import('@/components/why-choose-us'), {
+  loading: () => <Skeleton className="h-[400px] w-full" />,
+});
+const VolunteerSection = dynamic(() => import('@/components/volunteer-section'), {
+  loading: () => <Skeleton className="h-[400px] w-full" />,
+});
+const JobsByLocation = dynamic(() => import('@/components/jobs-by-location'), {
+  loading: () => <Skeleton className="h-[500px] w-full" />,
+});
+const Testimonials = dynamic(() => import('@/components/testimonials'), {
+  loading: () => <Skeleton className="h-[400px] w-full" />,
+});
+const HiringSection = dynamic(() => import('@/components/hiring-section'), {
+  loading: () => <Skeleton className="h-[500px] w-full" />,
+});
+const LatestNews = dynamic(() => import('@/components/latest-news'), {
+  loading: () => <Skeleton className="h-[500px] w-full" />,
+});
+const SubscriptionSection = dynamic(() => import('@/components/subscription-section'), {
+    loading: () => <Skeleton className="h-[300px] w-full" />,
+});
+const Faq = dynamic(() => import('@/components/faq'), {
+  loading: () => <Skeleton className="h-[600px] w-full" />,
+});
+
 
 export default function HomePage() {
   const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
@@ -40,10 +64,10 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-black/60 z-10" />
         <div className="relative z-20 container mx-auto px-6 max-w-4xl">
           <div className="flex flex-col justify-center space-y-6">
-            <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-6xl !leading-tight font-headline animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl !leading-tight font-headline text-white animate-in fade-in slide-in-from-bottom-4 duration-700">
               Find Your Next Job, Faster.
             </h1>
-            <p className="max-w-xl mx-auto text-lg text-foreground/90 animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '150ms'}}>
+            <p className="max-w-xl mx-auto text-lg text-gray-200 animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '150ms'}}>
               Discover your next career move with verified employers and salary transparency.
             </p>
             <div className="max-w-3xl w-full mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '300ms'}}>
