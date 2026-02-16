@@ -5,6 +5,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import HeroSearchForm from '@/components/hero-search-form';
 import dynamic from 'next/dynamic';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Suspense } from 'react';
 
 const TopCompanies = dynamic(() => import('@/components/top-companies'), {
   loading: () => <Skeleton className="h-[300px] w-full" />,
@@ -71,7 +72,9 @@ export default function HomePage() {
               Discover your next career move with verified employers and salary transparency.
             </p>
             <div className="max-w-3xl w-full mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '300ms'}}>
-              <HeroSearchForm />
+              <Suspense fallback={<Skeleton className="h-16 w-full rounded-2xl" />}>
+                <HeroSearchForm />
+              </Suspense>
             </div>
              <div className="flex justify-center items-center gap-4 text-sm text-gray-300 animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '450ms'}}>
                 <div className="flex items-center -space-x-2">
