@@ -20,7 +20,7 @@
     "node": "20"
   },
   "dependencies": {
-    "@genkit-ai/googleai": "1.0.0",
+    "@genkit-ai/google-genai": "1.0.0",
     "@genkit-ai/next": "1.0.0",
     "@hookform/resolvers": "^3.3.4",
     "@radix-ui/react-accordion": "^1.2.3",
