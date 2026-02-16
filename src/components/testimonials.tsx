@@ -1,3 +1,4 @@
+
 import type { Review } from '@/lib/types';
 import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -58,7 +59,7 @@ export default function Testimonials() {
             <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-foreground">What Our Users Say</h2>
         </div>
 
-        <div className="relative w-full overflow-hidden space-y-8">
+        <div className="relative w-full overflow-hidden space-y-2">
             <div className="flex animate-marquee-ltr whitespace-nowrap py-4">
                 {[...firstRowReviews, ...firstRowReviews].filter(review => review.user).map((review, index) => (
                     <TestimonialCard key={`${review.id}-1-${index}`} review={review} />
