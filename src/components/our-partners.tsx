@@ -1,3 +1,4 @@
+
 import { DUMMY_COMPANIES } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
@@ -25,7 +26,6 @@ export default function OurPartners() {
       <div className="container mx-auto max-w-7xl px-6 lg:px-12 relative z-20">
         <SectionHeader
           title="Trusted By The Best"
-          subtitle="We are proud to partner with leading companies and organizations to connect talent with opportunity."
         />
         <div className="relative mt-12 flex h-64 w-full flex-col items-center justify-center overflow-hidden rounded-2xl bg-card/30 p-6 shadow-inner">
           <div className="space-y-8">
