@@ -2,7 +2,7 @@
   "name": "chapel-hill",
   "version": "0.1.0",
   "private": true,
-  "description": "An AI-powered platform for job searching and recruitment.",
+  "description": "An AI-powered platform for job searching and recruitment",
   "repository": {
     "type": "git",
     "url": "https://github.com/nyaabaaugustine-hue/chapel_hill.git"
