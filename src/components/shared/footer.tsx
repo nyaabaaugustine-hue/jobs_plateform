@@ -151,7 +151,7 @@ export default function Footer() {
 
         <div className="flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
           <p className="text-center md:text-left mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} Chapel Hill. All rights reserved. Developed By <span className="font-semibold text-primary">TGNE Solutions</span> - Tema.
+            &copy; {new Date().getFullYear()} Chapel Hill. All rights reserved. Developed By <span className="font-semibold text-primary">TGNE Solutions</span>.
           </p>
           <div className='flex gap-6'>
              <Link href="#" className="hover:text-primary">Terms & Conditions</Link>
