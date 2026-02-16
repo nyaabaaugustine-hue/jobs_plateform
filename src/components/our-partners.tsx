@@ -28,8 +28,8 @@ export default function OurPartners() {
           title="Trusted By The Best"
         />
         <div className="relative mt-12 flex h-64 w-full flex-col items-center justify-center overflow-hidden rounded-2xl bg-card/30 p-6 shadow-inner">
-          <div className="space-y-8">
-            <div className="animate-marquee-rtl flex min-w-full shrink-0 items-center justify-around gap-16">
+          <div className="space-y-4">
+            <div className="animate-marquee-rtl flex min-w-full shrink-0 items-center justify-around gap-8">
               {[...firstRow, ...firstRow].map((company, index) => {
                 const logo = PlaceHolderImages.find((p) => p.id === company.logo);
                 return (
@@ -47,7 +47,7 @@ export default function OurPartners() {
                 )
               })}
             </div>
-            <div className="animate-marquee-ltr flex min-w-full shrink-0 items-center justify-around gap-16">
+            <div className="animate-marquee-ltr flex min-w-full shrink-0 items-center justify-around gap-8">
               {[...secondRow, ...secondRow].map((company, index) => {
                 const logo = PlaceHolderImages.find((p) => p.id === company.logo);
                 return (
