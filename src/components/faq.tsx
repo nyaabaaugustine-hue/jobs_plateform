@@ -37,7 +37,7 @@ import {
   ]
   
   export default function Faq() {
-    const faqImage = PlaceHolderImages.find((p) => p.id === 'find-job-1');
+    const faqImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
   
     return (
       <section className="py-16 md:py-24 bg-secondary">
