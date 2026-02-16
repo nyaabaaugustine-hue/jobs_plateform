@@ -51,10 +51,6 @@ export default function AISupportWidget() {
         pathname.startsWith('/dashboard') ||
         pathname.startsWith('/employer');
 
-    if (isDashboardPage) {
-        return null;
-    }
-
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     };
@@ -198,6 +194,10 @@ export default function AISupportWidget() {
             setIsTyping(false);
         }, 1800);
     };
+
+    if (isDashboardPage) {
+        return null;
+    }
 
     return (
         <TooltipProvider>
