@@ -11,6 +11,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import type { PlaceHolderImages, ImagePlaceholder } from '@/lib/placeholder-images';
 import type { Company } from '@/lib/types';
+import { Badge } from '@/components/ui/badge';
 
 
 type Ad = {
@@ -72,7 +73,7 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
           <Button
             variant="ghost"
             size="icon"
-            className="absolute top-2 right-2 rounded-full text-white bg-black/30 hover:bg-black/60 hover:text-white z-10 h-8 w-8"
+            className="absolute top-2 right-2 rounded-full text-white bg-black/30 hover:bg-black/60 hover:text-white z-20 h-8 w-8"
             onClick={onClose}
           >
             <X className="h-5 w-5" />
@@ -90,6 +91,9 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
                   data-ai-hint={ad.image.imageHint}
                   sizes="(max-width: 768px) 100vw, 30vw"
               />
+              <Badge variant="secondary" className="absolute top-2 left-2 bg-black/50 text-white border-white/20 text-xs z-10">
+                Advertisement
+              </Badge>
             </div>
           </Link>
           <CardContent className="p-6 flex flex-col flex-grow bg-card">

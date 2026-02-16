@@ -56,22 +56,22 @@
   .dark {
     /* Dark Mode: Professional Blue & Green Theme */
     --background: 224 71% 4%; /* Very dark blue */
-    --foreground: 210 40% 98%;
+    --foreground: 40 33% 96%; /* Milky, clay cream white */
     
     --card: 224 71% 9%;
-    --card-foreground: 210 40% 98%;
+    --card-foreground: 40 33% 96%;
     
     --popover: 224 71% 4%;
-    --popover-foreground: 210 40% 98%;
+    --popover-foreground: 40 33% 96%;
 
-    --primary: 221 70% 65%; /* Brighter blue for dark mode */
-    --primary-foreground: 224 71% 10%;
+    --primary: 210 26% 83%; /* Light gray for buttons */
+    --primary-foreground: 224 71% 10%; /* Dark text for light buttons */
     
     --secondary: 224 71% 12%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary-foreground: 40 33% 96%;
     
     --muted: 224 71% 12%;
-    --muted-foreground: 215 25% 65%;
+    --muted-foreground: 40 20% 75%; /* Creamy muted text */
     
     --accent: 145 65% 55%; /* Brighter green for dark mode */
     --accent-foreground: 224 71% 10%;
@@ -81,7 +81,7 @@
     
     --border: 224 71% 12%;
     --input: 224 71% 12%;
-    --ring: 221 70% 65%;
+    --ring: 210 26% 83%; /* Ring matches new primary */
   }
 }
 
@@ -91,11 +91,5 @@
   }
   body {
     @apply bg-background text-foreground;
-  }
-}
-
-@layer utilities {
-  .bg-accent-gradient {
-    background-image: linear-gradient(to right, hsl(var(--primary)), hsl(var(--accent)));
   }
 }
