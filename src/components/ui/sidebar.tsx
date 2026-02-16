@@ -1,3 +1,4 @@
+
 "use client"
 
 import * as React from "react"
@@ -600,7 +601,7 @@ SidebarMenuButton.displayName = "SidebarMenuButton"
 
 const SidebarMenuAction = React.forwardRef<
   HTMLButtonElement,
-  React.ComponentProps<"button"> & {
+  React.ComponentPropsWithoutRef<"button"> & {
     asChild?: boolean
     showOnHover?: boolean
   }
@@ -767,3 +768,5 @@ export {
   SidebarTrigger,
   useSidebar,
 }
+
+    
