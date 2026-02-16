@@ -1,3 +1,4 @@
+
 import { FileText, Video, Send, Users } from 'lucide-react';
 import SectionHeader from './shared/section-header';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
@@ -59,7 +60,6 @@ export default function FastRoutes() {
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <SectionHeader
           title="Fast Routes to Your Next Job"
-          subtitle="Utilize our powerful tools and features designed to accelerate your job search and help you land your dream role sooner."
         />
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           {routes.map((route, index) => (
