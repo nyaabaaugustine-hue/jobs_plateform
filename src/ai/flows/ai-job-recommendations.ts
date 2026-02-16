@@ -10,7 +10,9 @@
  */
 
 import {ai} from '@/ai/genkit';
-import {z} from 'genkit';
+import { generate } from 'genkit';
+import {z} from 'zod';
+import { geminiPro } from '@genkit-ai/googleai';
 
 const AiJobRecommendationsInputSchema = z.object({
   profileSummary: z
@@ -51,41 +53,44 @@ export async function getAiJobRecommendations(
   return aiJobRecommendationsFlow(input);
 }
 
-const prompt = ai.definePrompt({
-  name: 'aiJobRecommendationsPrompt',
-  input: {schema: AiJobRecommendationsInputSchema},
-  output: {schema: AiJobRecommendationsOutputSchema},
-  prompt: `You are an AI job recommendation expert. Given the job seeker's profile summary, job preferences, and any identified skill gaps, provide relevant job recommendations.
-
-Profile Summary: {{{profileSummary}}}
-Job Preferences: {{{jobPreferences}}}
-Skill Gaps: {{{skillGaps}}}
-
-Based on the profile summary, decide whether the job recommendations should be shown or not. Set shouldRecommend accordingly.
-
-Respond with a list of recommended jobs, suggestions for addressing skill gaps, and a resume matching score (a number between 70 and 100), if applicable.`,
-  config: {
-    safetySettings: [
-      {
-        category: 'HARM_CATEGORY_DANGEROUS_CONTENT',
-        threshold: 'BLOCK_ONLY_HIGH',
-      },
-      {
-        category: 'HARM_CATEGORY_HATE_SPEECH',
-        threshold: 'BLOCK_ONLY_HIGH',
-      },
-    ],
-  },
-});
-
 const aiJobRecommendationsFlow = ai.defineFlow(
   {
     name: 'aiJobRecommendationsFlow',
     inputSchema: AiJobRecommendationsInputSchema,
     outputSchema: AiJobRecommendationsOutputSchema,
   },
-  async input => {
-    const {output} = await prompt(input);
-    return output!;
+  async (input) => {
+    const prompt = `You are an AI job recommendation expert. Given the job seeker's profile summary, job preferences, and any identified skill gaps, provide relevant job recommendations.
+
+Profile Summary: ${input.profileSummary}
+Job Preferences: ${input.jobPreferences}
+Skill Gaps: ${input.skillGaps || 'None'}
+
+Based on the profile summary, decide whether the job recommendations should be shown or not. Set shouldRecommend accordingly.
+
+Respond with a list of recommended jobs, suggestions for addressing skill gaps, and a resume matching score (a number between 70 and 100), if applicable.`;
+
+    const llmResponse = await generate({
+      model: geminiPro,
+      prompt: prompt,
+      output: {
+        format: 'json',
+        schema: AiJobRecommendationsOutputSchema,
+      },
+      config: {
+        safetySettings: [
+          {
+            category: 'HARM_CATEGORY_DANGEROUS_CONTENT',
+            threshold: 'BLOCK_ONLY_HIGH',
+          },
+          {
+            category: 'HARM_CATEGORY_HATE_SPEECH',
+            threshold: 'BLOCK_ONLY_HIGH',
+          },
+        ],
+      },
+    });
+
+    return llmResponse.output()!;
   }
 );

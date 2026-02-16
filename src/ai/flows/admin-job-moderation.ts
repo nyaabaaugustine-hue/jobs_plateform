@@ -10,7 +10,9 @@
  */
 
 import {ai} from '@/ai/genkit';
-import {z} from 'genkit';
+import { generate } from 'genkit';
+import {z} from 'zod';
+import { geminiPro } from '@genkit-ai/googleai';
 
 const ModerateJobPostInputSchema = z.object({
   jobPost: z.string().describe('The job post content to be moderated.'),
@@ -30,14 +32,17 @@ export async function moderateJobPost(input: ModerateJobPostInput): Promise<Mode
   return moderateJobPostFlow(input);
 }
 
-const moderateJobPostPrompt = ai.definePrompt({
-  name: 'moderateJobPostPrompt',
-  input: {schema: ModerateJobPostInputSchema},
-  output: {schema: ModerateJobPostOutputSchema},
-  prompt: `You are an expert job post moderator. Your task is to analyze the provided job post and determine if it is potentially fraudulent or spam.
+const moderateJobPostFlow = ai.defineFlow(
+  {
+    name: 'moderateJobPostFlow',
+    inputSchema: ModerateJobPostInputSchema,
+    outputSchema: ModerateJobPostOutputSchema,
+  },
+  async (input) => {
+    const prompt = `You are an expert job post moderator. Your task is to analyze the provided job post and determine if it is potentially fraudulent or spam.
 
   Job Post:
-  {{jobPost}}
+  ${input.jobPost}
 
   Evaluate the job post based on factors such as:
   - Unrealistic salary offers
@@ -49,18 +54,16 @@ const moderateJobPostPrompt = ai.definePrompt({
 
   Based on your analysis, determine if the job post is spam or fraudulent and provide a reason for your determination. If the post is not spam, isSpam should be false and the reason should be an empty string.
   Make sure to set the isSpam output field appropriately.
-  Response should be in JSON format.
-  `,
-});
+  `;
+    const llmResponse = await generate({
+      model: geminiPro,
+      prompt: prompt,
+      output: {
+        format: 'json',
+        schema: ModerateJobPostOutputSchema,
+      },
+    });
 
-const moderateJobPostFlow = ai.defineFlow(
-  {
-    name: 'moderateJobPostFlow',
-    inputSchema: ModerateJobPostInputSchema,
-    outputSchema: ModerateJobPostOutputSchema,
-  },
-  async input => {
-    const {output} = await moderateJobPostPrompt(input);
-    return output!;
+    return llmResponse.output()!;
   }
 );

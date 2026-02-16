@@ -38,9 +38,9 @@
     },
     {
       "id": "ad-gcb",
-      "description": "The modern interior of a bank, representing financial services.",
-      "imageUrl": "https://images.unsplash.com/photo-1518991669955-4c730a5d21c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
-      "imageHint": "modern bank"
+      "description": "A person making a contactless payment, representing modern financial services.",
+      "imageUrl": "https://images.unsplash.com/photo-1556740758-90de374c12ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "imageHint": "contactless payment"
     },
     {
       "id": "ad-panel-promo",
