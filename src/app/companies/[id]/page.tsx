@@ -42,6 +42,7 @@ export default async function CompanyDetailPage({ params }: CompanyDetailPagePro
                       fill
                       className="object-cover"
                       data-ai-hint={companyBanner.imageHint}
+                      priority
                   />
               )}
                <div className="absolute inset-0 bg-black/40" />

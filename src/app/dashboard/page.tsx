@@ -1,15 +1,23 @@
 
+'use client';
+
+import { useState, useEffect } from 'react';
 import { DUMMY_JOBS, DUMMY_APPLICATIONS } from '@/lib/data';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import JobRecommendations from '@/components/job-recommendations';
-import KpiCard from './components/KpiCard';
+import KpiCard, { KpiCardSkeleton } from './components/KpiCard';
 import { FileText, Bookmark, Eye, Search, UserCheck } from 'lucide-react';
 import ApplicationStatusTracker from './components/ApplicationStatusTracker';
 import ProfileCompletion from './components/ProfileCompletion';
 import SavedJobsSummary from './components/SavedJobsSummary';
 
 export default function JobSeekerDashboard() {
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const savedJobs = DUMMY_JOBS.filter((job, index) => [3, 4, 6, 8, 10].includes(index));
   const interviewsScheduled = DUMMY_APPLICATIONS.filter((a) => a.status === 'INTERVIEW').length;
 
@@ -28,31 +36,42 @@ export default function JobSeekerDashboard() {
 
       {/* KPI Cards */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        <KpiCard
-          title="Applications Sent"
-          value={DUMMY_APPLICATIONS.length.toString()}
-          trend={`+${DUMMY_APPLICATIONS.filter(a => a.status === "APPLIED").length} this month`}
-          icon={<FileText />}
-        />
-        <KpiCard
-          title="Interviews"
-          value={interviewsScheduled.toString()}
-          trend="+2 this week"
-          icon={<UserCheck />}
-        />
-        <KpiCard
-          title="Profile Views"
-          value="42"
-          trend="+15% this week"
-          icon={<Eye />}
-        />
-        <KpiCard
-          title="Saved Jobs"
-          value={savedJobs.length.toString()}
-          trend="1 new today"
-          icon={<Bookmark />}
-          trendDirection="down"
-        />
+        {!isClient ? (
+          <>
+            <KpiCardSkeleton />
+            <KpiCardSkeleton />
+            <KpiCardSkeleton />
+            <KpiCardSkeleton />
+          </>
+        ) : (
+          <>
+            <KpiCard
+              title="Applications Sent"
+              value={DUMMY_APPLICATIONS.length.toString()}
+              trend={`+${DUMMY_APPLICATIONS.filter(a => a.status === "APPLIED").length} this month`}
+              icon={<FileText />}
+            />
+            <KpiCard
+              title="Interviews"
+              value={interviewsScheduled.toString()}
+              trend="+2 this week"
+              icon={<UserCheck />}
+            />
+            <KpiCard
+              title="Profile Views"
+              value="42"
+              trend="+15% this week"
+              icon={<Eye />}
+            />
+            <KpiCard
+              title="Saved Jobs"
+              value={savedJobs.length.toString()}
+              trend="1 new today"
+              icon={<Bookmark />}
+              trendDirection="down"
+            />
+          </>
+        )}
       </div>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">

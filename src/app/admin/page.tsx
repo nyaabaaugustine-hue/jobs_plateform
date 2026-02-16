@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import {
   DollarSign,
@@ -11,7 +11,7 @@ import {
   UserPlus,
   Download,
 } from 'lucide-react';
-import KpiCard from './components/kpi-card';
+import KpiCard, { KpiCardSkeleton } from './components/kpi-card';
 import ActivityFeed from './components/activity-feed';
 import JobInsights from './components/job-insights';
 import ModerationCenter from './components/moderation-center';
@@ -45,10 +45,15 @@ const UserDistributionChart = dynamic(() => import('./components/user-distributi
 
 export default function AdminDashboard() {
   const { toast } = useToast();
+  const [isClient, setIsClient] = useState(false);
   const [isInviteDialogOpen, setIsInviteDialogOpen] = useState(false);
   const [inviteEmail, setInviteEmail] = useState('');
   const [inviteName, setInviteName] = useState('');
   const [inviteCompany, setInviteCompany] = useState('');
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const handleAction = (title: string, description: string) => {
     toast({
@@ -129,31 +134,42 @@ export default function AdminDashboard() {
 
       {/* KPI Cards */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        <KpiCard
-          title="Total Revenue"
-          value="GH₵12,450"
-          trend="+15.2% from last month"
-          icon={<DollarSign />}
-        />
-        <KpiCard
-          title="Active Users"
-          value="2,834"
-          trend="+5.8% from last month"
-          icon={<Users />}
-        />
-        <KpiCard
-          title="Active Jobs"
-          value="842"
-          trend="-2.1% from last month"
-          trendDirection="down"
-          icon={<Briefcase />}
-        />
-        <KpiCard
-          title="Pending Moderation"
-          value="8"
-          trend="3 new today"
-          icon={<Shield />}
-        />
+        {!isClient ? (
+            <>
+                <KpiCardSkeleton />
+                <KpiCardSkeleton />
+                <KpiCardSkeleton />
+                <KpiCardSkeleton />
+            </>
+        ) : (
+            <>
+                <KpiCard
+                  title="Total Revenue"
+                  value="GH₵12,450"
+                  trend="+15.2% from last month"
+                  icon={<DollarSign />}
+                />
+                <KpiCard
+                  title="Active Users"
+                  value="2,834"
+                  trend="+5.8% from last month"
+                  icon={<Users />}
+                />
+                <KpiCard
+                  title="Active Jobs"
+                  value="842"
+                  trend="-2.1% from last month"
+                  trendDirection="down"
+                  icon={<Briefcase />}
+                />
+                <KpiCard
+                  title="Pending Moderation"
+                  value="8"
+                  trend="3 new today"
+                  icon={<Shield />}
+                />
+            </>
+        )}
       </div>
 
       <SystemHealth />

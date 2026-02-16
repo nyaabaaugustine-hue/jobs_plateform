@@ -1,6 +1,7 @@
 
 'use client';
 
+import { useState, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { DUMMY_JOBS, DUMMY_APPLICANTS } from '@/lib/data';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -11,7 +12,7 @@ import { Badge } from '@/components/ui/badge';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { ArrowRight, Briefcase, FileText, UserCheck, Users, PlusCircle } from 'lucide-react';
-import KpiCard from './components/kpi-card';
+import KpiCard, { KpiCardSkeleton } from './components/kpi-card';
 import ActivityFeed from './components/activity-feed';
 import ExpiringJobs from './components/expiring-jobs';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -23,6 +24,11 @@ const HiringFunnelChart = dynamic(() => import('@/app/employer/components/hiring
 
 
 export default function EmployerDashboard() {
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   // Assuming this employer is Innovate Inc. for demo purposes
   const employerJobs = DUMMY_JOBS.filter(job => job.company.id === '1');
   const employerJobIds = employerJobs.map(j => j.id);
@@ -47,30 +53,41 @@ export default function EmployerDashboard() {
 
       {/* KPI Cards */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        <KpiCard
-          title="Active Jobs"
-          value={employerJobs.length.toString()}
-          trend="+2 this month"
-          icon={<Briefcase />}
-        />
-        <KpiCard
-          title="Total Applicants"
-          value={employerApplicants.length.toString()}
-          trend="+12 this week"
-          icon={<Users />}
-        />
-        <KpiCard
-          title="Interviews"
-          value={interviewsScheduled.toString()}
-          trend="2 new today"
-          icon={<UserCheck />}
-        />
-        <KpiCard
-          title="Hired"
-          value={hiredCount.toString()}
-          trend="+1 this month"
-          icon={<FileText />}
-        />
+        {!isClient ? (
+            <>
+                <KpiCardSkeleton />
+                <KpiCardSkeleton />
+                <KpiCardSkeleton />
+                <KpiCardSkeleton />
+            </>
+        ) : (
+            <>
+                <KpiCard
+                  title="Active Jobs"
+                  value={employerJobs.length.toString()}
+                  trend="+2 this month"
+                  icon={<Briefcase />}
+                />
+                <KpiCard
+                  title="Total Applicants"
+                  value={employerApplicants.length.toString()}
+                  trend="+12 this week"
+                  icon={<Users />}
+                />
+                <KpiCard
+                  title="Interviews"
+                  value={interviewsScheduled.toString()}
+                  trend="2 new today"
+                  icon={<UserCheck />}
+                />
+                <KpiCard
+                  title="Hired"
+                  value={hiredCount.toString()}
+                  trend="+1 this month"
+                  icon={<FileText />}
+                />
+            </>
+        )}
       </div>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">

@@ -3,10 +3,11 @@
 
 import dynamic from 'next/dynamic';
 import { DollarSign, Users, Briefcase, Shield } from 'lucide-react';
-import KpiCard from '@/app/admin/components/kpi-card';
+import KpiCard, { KpiCardSkeleton } from '@/app/admin/components/kpi-card';
 import JobInsights from '@/app/admin/components/job-insights';
 import LocationBreakdown from '@/app/admin/components/location-breakdown';
 import { Skeleton } from '@/components/ui/skeleton';
+import { useState, useEffect } from 'react';
 
 const RevenueChart = dynamic(() => import('@/app/admin/components/revenue-chart'), { 
   ssr: false, 
@@ -19,6 +20,11 @@ const UserDistributionChart = dynamic(() => import('@/app/admin/components/user-
 
 
 export default function AdminAnalyticsPage() {
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   return (
     <div className="space-y-8">
       <div>
@@ -28,31 +34,42 @@ export default function AdminAnalyticsPage() {
 
       {/* KPI Cards */}
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        <KpiCard
-          title="Total Revenue"
-          value="GH₵12,450"
-          trend="+15.2% from last month"
-          icon={<DollarSign />}
-        />
-        <KpiCard
-          title="Active Users"
-          value="2,834"
-          trend="+5.8% from last month"
-          icon={<Users />}
-        />
-        <KpiCard
-          title="Active Jobs"
-          value="842"
-          trend="-2.1% from last month"
-          trendDirection="down"
-          icon={<Briefcase />}
-        />
-        <KpiCard
-          title="Pending Moderation"
-          value="8"
-          trend="3 new today"
-          icon={<Shield />}
-        />
+        {!isClient ? (
+            <>
+                <KpiCardSkeleton />
+                <KpiCardSkeleton />
+                <KpiCardSkeleton />
+                <KpiCardSkeleton />
+            </>
+        ) : (
+            <>
+                <KpiCard
+                  title="Total Revenue"
+                  value="GH₵12,450"
+                  trend="+15.2% from last month"
+                  icon={<DollarSign />}
+                />
+                <KpiCard
+                  title="Active Users"
+                  value="2,834"
+                  trend="+5.8% from last month"
+                  icon={<Users />}
+                />
+                <KpiCard
+                  title="Active Jobs"
+                  value="842"
+                  trend="-2.1% from last month"
+                  trendDirection="down"
+                  icon={<Briefcase />}
+                />
+                <KpiCard
+                  title="Pending Moderation"
+                  value="8"
+                  trend="3 new today"
+                  icon={<Shield />}
+                />
+            </>
+        )}
       </div>
 
       {/* Charts */}
