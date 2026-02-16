@@ -82,10 +82,7 @@ export default function CheckoutForm() {
   const [tax, setTax] = useState(0);
   const [total, setTotal] = useState(0);
 
-  const paystackLogo = PlaceHolderImages.find(p => p.id === 'paystack-logo');
-  const visaLogo = PlaceHolderImages.find(p => p.id === 'visa-logo');
-  const mastercardLogo = PlaceHolderImages.find(p => p.id === 'mastercard-logo');
-  const sslBadge = PlaceHolderImages.find(p => p.id === 'ssl-badge');
+  const trustedPaymentImage = PlaceHolderImages.find(p => p.id === 'checkout-trusted-payment');
 
   useEffect(() => {
     const planId = searchParams.get('plan');
@@ -146,7 +143,7 @@ export default function CheckoutForm() {
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-        <Card>
+        <Card className="bg-card/80 backdrop-blur-sm">
             <CardHeader>
                 <CardTitle>Order Summary</CardTitle>
                 <CardDescription>Review your subscription details before payment.</CardDescription>
@@ -190,10 +187,10 @@ export default function CheckoutForm() {
                 </div>
             </CardContent>
         </Card>
-        <Card>
+        <Card className="bg-card/80 backdrop-blur-sm">
             <CardHeader>
                 <CardTitle className="flex items-center gap-2"><CreditCard /> Payment Details</CardTitle>
-                <CardDescription>Securely complete your purchase with Paystack.</CardDescription>
+                <CardDescription>Securely complete your purchase.</CardDescription>
             </CardHeader>
             <CardContent>
                 <form onSubmit={handlePayment} className="space-y-6">
@@ -210,13 +207,7 @@ export default function CheckoutForm() {
                       <div className="space-y-2">
                         <Label>Card Details</Label>
                          <div className="border rounded-md p-4 space-y-3 bg-secondary/50">
-                           <div className="relative">
-                               <Input placeholder="Card Number" className="pr-20"/>
-                               <div className="absolute inset-y-0 right-2 flex items-center gap-1">
-                                   {visaLogo && <Image src={visaLogo.imageUrl} alt="Visa" width={32} height={20} />}
-                                   {mastercardLogo && <Image src={mastercardLogo.imageUrl} alt="Mastercard" width={32} height={20} />}
-                               </div>
-                           </div>
+                           <Input placeholder="Card Number"/>
                             <div className="grid grid-cols-2 gap-4">
                               <Input placeholder="MM / YY" />
                               <Input placeholder="CVC" />
@@ -225,10 +216,9 @@ export default function CheckoutForm() {
                       </div>
                     )}
                     
-                    <div className="text-xs text-muted-foreground text-center pt-2 flex items-center justify-center gap-2">
-                         {paystackLogo && <Image src={paystackLogo.imageUrl} alt="Paystack" width={80} height={20} />}
-                        <span>| This is a simulated payment for demo purposes.</span>
-                    </div>
+                    <p className="text-xs text-muted-foreground text-center pt-2">
+                        This is a simulated payment for demo purposes. No real transaction will occur.
+                    </p>
                     <Button type="submit" size="lg" className="w-full bg-primary" disabled={isLoading}>
                         {isLoading ? <Loader2 className="mr-2 animate-spin" /> : (price > 0 ? `Pay GH₵${total.toFixed(2)} Now` : 'Complete Setup')}
                     </Button>
@@ -240,11 +230,20 @@ export default function CheckoutForm() {
                     <Lock className="h-4 w-4 text-emerald-500"/>
                     <span>SSL Secure Payment</span>
                 </div>
-                 {sslBadge && (
-                    <Image src={sslBadge.imageUrl} alt="SSL Secure" width={100} height={50} />
+                 {trustedPaymentImage && (
+                    <Image 
+                      src={trustedPaymentImage.imageUrl} 
+                      alt={trustedPaymentImage.description}
+                      width={300} 
+                      height={50}
+                      className="object-contain" 
+                      data-ai-hint={trustedPaymentImage.imageHint}
+                    />
                 )}
             </CardFooter>
         </Card>
     </div>
   );
 }
+
+    
