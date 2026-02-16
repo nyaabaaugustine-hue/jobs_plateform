@@ -84,28 +84,32 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
 
           <Link href={`/companies/${ad.company.id}`} className="block overflow-hidden">
             <div className="relative">
-              <Image
-                  src={ad.image.imageUrl}
-                  alt={ad.headline}
-                  width={600}
-                  height={400}
-                  className="w-full object-cover aspect-[16/9] transition-transform duration-300 group-hover:scale-105"
-                  data-ai-hint={ad.image.imageHint}
-                  sizes="(max-width: 768px) 100vw, 30vw"
-              />
+              <div
+                key={ad.imageId} // Force re-render on ad change to trigger animation
+                className="w-full aspect-[16/9] animate-in fade-in duration-500"
+              >
+                <Image
+                    src={ad.image.imageUrl}
+                    alt={ad.headline}
+                    fill
+                    className="w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    data-ai-hint={ad.image.imageHint}
+                    sizes="(max-width: 768px) 100vw, 30vw"
+                />
+              </div>
               <Badge variant="secondary" className="absolute top-2 left-2 bg-destructive/10 text-destructive border-destructive/20 text-xs z-10">
                 Advertisement
               </Badge>
             </div>
           </Link>
           <CardContent className="p-6 flex flex-col flex-grow bg-card">
-              <h3 id="ad-panel-headline" className="font-headline text-lg font-bold group-hover:text-primary transition-colors">
+              <h3 id="ad-panel-headline" className="font-headline text-lg font-bold group-hover:text-primary transition-colors animate-in fade-in slide-in-from-bottom-2 duration-500 delay-200">
                 {ad.headline}
               </h3>
-            <p className="text-muted-foreground text-sm mt-2 flex-grow">
+            <p className="text-muted-foreground text-sm mt-2 flex-grow animate-in fade-in slide-in-from-bottom-2 duration-500 delay-300">
                 {ad.description}
             </p>
-            <div className="pt-4 mt-4 border-t">
+            <div className="pt-4 mt-4 border-t animate-in fade-in slide-in-from-bottom-2 duration-500 delay-400">
               <Button asChild variant="secondary" size="sm" className="w-full hover:brightness-110">
                 <Link href={`/companies/${ad.company.id}`}>
                   View Careers at {ad.company.name} <ArrowRight className="ml-2 h-4 w-4"/>

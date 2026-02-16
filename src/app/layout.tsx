@@ -5,7 +5,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from '@/components/theme-provider';
 import { FirebaseClientProvider } from '@/firebase';
 import MainLayoutWrapper from '@/components/shared/main-layout-wrapper';
-import DynamicWidgetsWrapper from '@/components/shared/dynamic-widgets-wrapper';
+import dynamic from 'next/dynamic';
 
 const inter = Inter({ 
   subsets: ['latin'], 
@@ -25,6 +25,11 @@ export const metadata: Metadata = {
     icon: 'https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771103002/klo_vappbs.png',
   },
 };
+
+const DynamicWidgetsWrapper = dynamic(
+  () => import('@/components/shared/dynamic-widgets-wrapper'),
+  { ssr: false }
+);
 
 export default function RootLayout({
   children,
