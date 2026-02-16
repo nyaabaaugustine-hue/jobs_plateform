@@ -61,8 +61,14 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
       {/* Panel */}
       <aside
         className={cn(
-          'fixed bottom-6 left-6 w-full max-w-sm bg-transparent border-none z-[100] transition-all duration-500 ease-in-out',
-          isOpen ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-full pointer-events-none'
+          // Responsive positioning
+          'fixed bottom-4 inset-x-4 sm:bottom-6 sm:left-6 sm:right-auto sm:w-full sm:max-w-sm',
+          // Base styles
+          'bg-transparent border-none z-[100] transition-all duration-500 ease-in-out',
+          // Animation states based on screen size
+          isOpen
+            ? 'opacity-100 translate-y-0 sm:translate-x-0'
+            : 'opacity-0 pointer-events-none translate-y-full sm:translate-y-0 sm:-translate-x-full'
         )}
         role="dialog"
         aria-modal="true"
@@ -70,7 +76,7 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
       >
         <Card
           key={ad.companyId}
-          className="overflow-hidden transition-all duration-300 shadow-2xl group flex flex-col relative ring-4 ring-primary/40 animate-in fade-in-50 slide-in-from-bottom-5 duration-700"
+          className="overflow-hidden transition-all duration-300 shadow-2xl group flex flex-col relative ring-4 ring-primary/40 animate-in fade-in zoom-in-95 duration-500"
         >
           <Button
             variant="ghost"
@@ -86,7 +92,7 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
             <div className="relative">
               <div
                 key={ad.imageId} // Force re-render on ad change to trigger animation
-                className="w-full aspect-[16/9] animate-in fade-in duration-500"
+                className="w-full aspect-[16/9] animate-in fade-in zoom-in-95 duration-700"
               >
                 <Image
                     src={ad.image.imageUrl}
@@ -103,13 +109,13 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
             </div>
           </Link>
           <CardContent className="p-6 flex flex-col flex-grow bg-card">
-              <h3 id="ad-panel-headline" className="font-headline text-lg font-bold group-hover:text-primary transition-colors animate-in fade-in slide-in-from-bottom-2 duration-500 delay-200">
+              <h3 id="ad-panel-headline" className="font-headline text-lg font-bold group-hover:text-primary transition-colors">
                 {ad.headline}
               </h3>
-            <p className="text-muted-foreground text-sm mt-2 flex-grow animate-in fade-in slide-in-from-bottom-2 duration-500 delay-300">
+            <p className="text-muted-foreground text-sm mt-2 flex-grow">
                 {ad.description}
             </p>
-            <div className="pt-4 mt-4 border-t animate-in fade-in slide-in-from-bottom-2 duration-500 delay-400">
+            <div className="pt-4 mt-4 border-t">
               <Button asChild variant="secondary" size="sm" className="w-full hover:brightness-110">
                 <Link href={`/companies/${ad.company.id}`}>
                   View Careers at {ad.company.name} <ArrowRight className="ml-2 h-4 w-4"/>
