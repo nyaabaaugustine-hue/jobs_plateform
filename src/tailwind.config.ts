@@ -105,6 +105,9 @@ export default {
           from: { transform: 'translateX(-50%)' },
           to: { transform: 'translateX(0)' },
         },
+        'gradient': {
+          'to': { 'background-position': '200% center' },
+        },
         'pulse-glow': {
           '0%, 100%': {
             'box-shadow': '0 0 0 0 hsl(var(--primary) / 0.7)',
@@ -127,6 +130,7 @@ export default {
         'accordion-up': 'accordion-up 0.3s ease-out',
         'marquee-rtl': 'marquee-rtl 40s linear infinite',
         'marquee-ltr': 'marquee-ltr 80s linear infinite',
+        'gradient': 'gradient 3s ease infinite',
         'pulse-glow': 'pulse-glow 2s infinite',
         'fade-in': 'fade-in 0.3s ease-out',
         'fade-in-up': 'fade-in-up 0.4s ease-out',

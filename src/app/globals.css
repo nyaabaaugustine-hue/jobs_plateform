@@ -4,8 +4,7 @@
 
 @layer components {
   .bg-accent-gradient {
-    @apply bg-gradient-to-r from-accent via-primary to-accent/80 bg-[length:200%_auto] text-accent-foreground;
-    animation: gradient 3s ease infinite;
+    @apply bg-gradient-to-r from-accent via-primary to-accent/80 bg-[length:200%_auto] text-accent-foreground animate-gradient;
   }
 }
 

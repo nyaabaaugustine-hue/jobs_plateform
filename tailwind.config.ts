@@ -129,7 +129,7 @@ export default {
         'accordion-up': 'accordion-up 0.3s ease-out',
         'marquee-rtl': 'marquee-rtl 40s linear infinite',
         'marquee-ltr': 'marquee-ltr 80s linear infinite',
-        'gradient': 'gradient 3s linear infinite',
+        'gradient': 'gradient 3s ease infinite',
         'pulse-glow': 'pulse-glow 2s infinite',
         'fade-in': 'fade-in 0.3s ease-out',
         'fade-in-up': 'fade-in-up 0.4s ease-out',
