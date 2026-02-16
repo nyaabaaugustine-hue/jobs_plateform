@@ -1,4 +1,3 @@
-
 'use client';
 
 import Image from 'next/image';
@@ -69,10 +68,6 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
-    if (localStorage.getItem('adPanelClosed') === 'true') {
-      return;
-    }
-
     const openTimer = setTimeout(() => {
       setIsAdPanelOpen(true);
     }, 3000);
@@ -93,7 +88,6 @@ export default function HomePage() {
 
   const handleCloseAdPanel = () => {
     setIsAdPanelOpen(false);
-    localStorage.setItem('adPanelClosed', 'true');
   };
 
   const trustIndicators = [
@@ -133,10 +127,10 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-black/60 z-10" />
           <div className="relative z-20 container mx-auto px-6 max-w-4xl">
             <div className="flex flex-col justify-center space-y-4">
-              <h1 className="text-5xl font-bold tracking-tight text-white sm:text-6xl !leading-tight font-headline">
+              <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-7xl !leading-tight font-headline">
                 Find Your Next Job, Faster.
               </h1>
-              <p className="max-w-3xl mx-auto text-xl font-semibold text-gray-200">
+              <p className="max-w-3xl mx-auto text-xl font-semibold text-gray-200" style={{ color: 'hsl(43, 33%, 85%)', fontWeight: '600' }}>
                 Discover your next career move with verified employers and salary transparency.
               </p>
               <div>
