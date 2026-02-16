@@ -52,7 +52,7 @@ const ads = adData.map(ad => {
 
 export default function CompanyAds() {
   const plugin = useRef(
-    Autoplay({ delay: 5000, stopOnInteraction: true })
+    Autoplay({ delay: 5000, stopOnInteraction: false })
   );
 
   return (
@@ -66,8 +66,6 @@ export default function CompanyAds() {
           }}
           plugins={[plugin.current]}
           className="relative"
-          onMouseEnter={plugin.current.stop}
-          onMouseLeave={plugin.current.reset}
         >
           <CarouselContent>
             {ads.map((ad, index) => {
