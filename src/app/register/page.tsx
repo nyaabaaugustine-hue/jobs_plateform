@@ -75,10 +75,7 @@ export default function RegisterPage() {
             });
             
             setIsLoading(false);
-            // Redirect to dashboard after a short delay
-            setTimeout(() => {
-                router.push('/dashboard');
-            }, 1000);
+            router.push('/dashboard');
 
         } catch (error: any) {
             console.error("Registration failed:", error);

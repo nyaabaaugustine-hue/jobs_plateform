@@ -30,7 +30,7 @@ import {
   SheetTrigger,
   SheetFooter,
 } from '@/components/ui/sheet';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import {
@@ -96,6 +96,7 @@ const DesktopAuthButtons = () => (
 
 export default function Header() {
   const pathname = usePathname();
+  const router = useRouter();
   const [isMounted, setIsMounted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -165,6 +166,7 @@ export default function Header() {
   const handleLogout = () => {
     if (auth) {
       signOut(auth);
+      router.push('/login');
     }
   };
 
