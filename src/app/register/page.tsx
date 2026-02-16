@@ -74,10 +74,10 @@ export default function RegisterPage() {
                 variant: 'vibrant',
             });
             
+            setIsLoading(false);
             // Redirect to dashboard after a short delay
             setTimeout(() => {
                 router.push('/dashboard');
-                // No need to set isLoading to false, as the page will unmount.
             }, 1000);
 
         } catch (error: any) {

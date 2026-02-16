@@ -76,6 +76,7 @@ export default function LoginPage() {
                 }
             }
             
+            setIsLoading(false);
             router.push(destination);
 
         } catch (error: any) {
@@ -150,6 +151,7 @@ export default function LoginPage() {
                 description: 'Redirecting to your dashboard...',
                 variant: 'vibrant',
             });
+            setIsLoading(false);
             router.push(destination);
         } catch (error: any) {
             // If sign-in fails because the user doesn't exist, create the user
@@ -188,6 +190,7 @@ export default function LoginPage() {
                         description: 'Redirecting to your dashboard...',
                         variant: 'vibrant',
                     });
+                    setIsLoading(false);
                     router.push(destination);
     
                 } catch (creationError: any) {
