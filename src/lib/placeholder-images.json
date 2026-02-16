@@ -356,9 +356,9 @@
     },
     {
       "id": "top-companies-bg",
-      "description": "A vibrant market scene in Accra, Ghana.",
-      "imageUrl": "https://images.unsplash.com/photo-1618925480413-5858d4a0445d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
-      "imageHint": "Ghana market"
+      "description": "A modern and professional office background.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771111377/3124_lsxwt6.jpg",
+      "imageHint": "office background"
     },
     {
       "id": "latest-news-bg",
@@ -375,7 +375,7 @@
     {
       "id": "visa-logo",
       "description": "Visa logo",
-      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSIyNSIgdmlld0JveD0iMCAwIDUwIDI1Ij48cmVjdCB3aWR0aD0iNTAiIGhlaWdodD0iMjUiIGZpbGw9IiMxQTFGNzEiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiNGRkZGRkYiPlZJU0E8L3RleHQ+PC9zdmc+",
+      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSIyNSIgdmlld0JveD0iMCAwIDUwIDI1Ij48cmVjdCB3aWR0aD0iNTAiIGhlaWdodD0iMjUiIGZpbGw9IiMxQTFGNzEiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnSyc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiNGRkZGRkYiPlZJU0E8L3RleHQ+PC9zdmc+",
       "imageHint": "Visa logo"
     },
     {
