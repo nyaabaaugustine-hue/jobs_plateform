@@ -34,7 +34,7 @@ export default function AboutPage() {
                 )}
                 <CardContent className="relative z-10 p-10 text-center">
                     <h2 className="font-headline text-3xl font-bold text-foreground">Our Mission</h2>
-                    <p className="mt-4 text-xl font-light text-foreground/90 font-headline leading-relaxed">
+                    <p className="mt-4 text-2xl font-bold text-foreground font-headline leading-relaxed">
                         At Chapel Hill, our mission is to empower developers and companies by creating a specialized platform for React-focused careers. We believe that by connecting the right talent with the right opportunities, we can help build the future of web technology. We are committed to fostering a community built on trust, transparency, and professional growth.
                     </p>
                 </CardContent>
