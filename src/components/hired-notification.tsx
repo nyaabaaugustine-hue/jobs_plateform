@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useEffect, useRef } from 'react';
@@ -7,6 +6,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { PartyPopper } from 'lucide-react';
 import { ToastAction } from './ui/toast';
+import { usePathname } from 'next/navigation';
 
 const hiredExamples = [
   { name: 'Kofi Mensah', job: 'Senior React Developer', avatarId: 'avatar-2' },
@@ -18,6 +18,12 @@ const hiredExamples = [
 export default function HiredNotification() {
   const { toast, dismiss } = useToast();
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const pathname = usePathname();
+
+  const isDashboardPage =
+    pathname.startsWith('/admin') ||
+    pathname.startsWith('/dashboard') ||
+    pathname.startsWith('/employer');
 
   const stopNotifications = () => {
     if (intervalRef.current) {
@@ -28,6 +34,10 @@ export default function HiredNotification() {
   };
 
   useEffect(() => {
+    if (isDashboardPage) {
+      return;
+    }
+
     const showRandomHiredNotification = () => {
       if (sessionStorage.getItem('hiredNotificationsStopped') === 'true') {
         if (intervalRef.current) {
@@ -80,7 +90,7 @@ export default function HiredNotification() {
       }
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [toast, dismiss]);
+  }, [toast, dismiss, isDashboardPage]);
 
   return null;
 }

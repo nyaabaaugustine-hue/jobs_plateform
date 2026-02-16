@@ -1,13 +1,13 @@
 'use client';
 
 import AISupportWidget from '@/components/ai-support-widget';
-import ConditionalHiredNotification from '@/components/shared/conditional-hired-notification';
+import HiredNotification from '@/components/hired-notification';
 
 export default function ClientWidgets() {
   return (
     <>
       <AISupportWidget />
-      <ConditionalHiredNotification />
+      <HiredNotification />
     </>
   );
 }

@@ -11,18 +11,6 @@ import { useToast } from '@/hooks/use-toast';
 import { useRouter, usePathname } from 'next/navigation';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
-type Message = {
-    id: number;
-    sender: 'user' | 'ai';
-    text?: string;
-    imageUrl?: string;
-    imageHint?: string;
-    actions?: {
-        label: string;
-        onClick: () => void;
-    }[];
-};
-
 const WhatsAppIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
         <path
