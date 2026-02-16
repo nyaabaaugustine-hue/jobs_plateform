@@ -8,6 +8,8 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import SectionHeader from '@/components/shared/section-header';
 import Image from 'next/image';
+import OurPartners from '@/components/our-partners';
+import Faq from '@/components/faq';
 
 export default function AboutPage() {
   const teamMembers = DUMMY_USERS.slice(0, 4);
@@ -41,6 +43,8 @@ export default function AboutPage() {
             </Card>
         </div>
 
+        <OurPartners />
+
         <WhyChooseUs />
 
         <div className="container mx-auto max-w-7xl px-6 lg:px-12">
@@ -70,6 +74,8 @@ export default function AboutPage() {
         </div>
 
         <Testimonials />
+
+        <Faq />
 
       </main>
     </>
