@@ -67,8 +67,8 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
         data-state={isOpen ? 'open' : 'closed'}
         className={cn(
           'fixed bottom-6 left-6 w-full max-w-sm bg-transparent border-none z-[100]',
-          'data-[state=open]:animate-in data-[state=open]:slide-in-from-left-full data-[state=open]:duration-700 ease-out',
-          'data-[state=closed]:animate-out data-[state=closed]:slide-out-to-left-full data-[state=closed]:duration-500 ease-in',
+          'data-[state=open]:animate-in data-[state=open]:slide-in-from-left data-[state=open]:duration-700 ease-out',
+          'data-[state=closed]:animate-out data-[state=closed]:slide-out-to-left data-[state=closed]:duration-500 ease-in',
           'data-[state=closed]:pointer-events-none'
         )}
         role="dialog"
