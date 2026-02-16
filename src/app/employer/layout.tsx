@@ -1,4 +1,5 @@
 
+
 'use client';
 
 import Link from 'next/link';
@@ -94,7 +95,7 @@ function EmployerNav() {
       </SidebarContent>
       <SidebarFooter>
          <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full border bg-white">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full border">
             {companyLogo ? (
               <Image
                 src={companyLogo.imageUrl}
@@ -137,3 +138,4 @@ export default function EmployerLayout({ children }: { children: React.ReactNode
     </SidebarProvider>
   );
 }
+

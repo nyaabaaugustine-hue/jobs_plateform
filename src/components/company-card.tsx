@@ -1,4 +1,5 @@
 
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Building, MapPin, Briefcase } from 'lucide-react';
@@ -20,12 +21,12 @@ export default function CompanyCard({ company }: CompanyCardProps) {
     <Card className="group flex h-full flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl">
         <CardHeader className="flex-row items-center gap-4 p-6">
             {companyLogo && (
-                <div className="relative h-16 w-16 shrink-0 rounded-lg border bg-white p-1">
+                <div className="relative h-16 w-16 shrink-0 rounded-lg border p-1">
                     <Image
                         src={companyLogo.imageUrl}
                         alt={`${company.name} logo`}
                         fill
-                        className="object-cover"
+                        className="object-contain"
                     />
                 </div>
             )}
