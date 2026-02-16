@@ -97,7 +97,7 @@ export default function JobCard({ job }: JobCardProps) {
             <ClientSideDate dateString={job.postedDate} />
           </div>
         </div>
-        <Button asChild variant="secondary" className="rounded-lg font-semibold shadow-lg transform transition-transform hover:scale-105">
+        <Button asChild variant="secondary" className="rounded-lg font-semibold shadow-lg transform transition-transform hover:scale-105 border-2 border-primary">
           <Link href={`/jobs/${job.id}`}>
             Apply Now
           </Link>
