@@ -47,7 +47,7 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
                     className={cn(
                         "rounded-full px-4 py-2 text-sm font-medium transition-all duration-300",
                         selectedCategory === category
-                            ? "bg-accent-gradient text-primary-foreground shadow-lg ring-2 ring-offset-background ring-offset-2 ring-accent"
+                            ? "bg-primary text-primary-foreground shadow-lg ring-2 ring-offset-background ring-offset-2 ring-accent"
                             : "bg-card text-foreground ring-1 ring-white/20 hover:bg-primary/10 hover:ring-primary/50 hover:text-primary hover:shadow-md"
                     )}
                 >

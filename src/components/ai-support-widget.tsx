@@ -311,7 +311,7 @@ export default function AISupportWidget() {
                                 value={inputValue}
                                 onChange={(e) => setInputValue(e.target.value)}
                             />
-                            <Button type="submit" size="icon" className="bg-accent-gradient" disabled={!inputValue || isTyping}>
+                            <Button type="submit" size="icon" className="bg-primary" disabled={!inputValue || isTyping}>
                                 <SendHorizonal className="h-5 w-5" />
                             </Button>
                         </form>

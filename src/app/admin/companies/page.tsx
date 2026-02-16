@@ -176,7 +176,7 @@ export default function AdminCompaniesPage() {
             <Button variant="outline" onClick={() => toast({ title: 'Importing Companies...', description: 'This would open a file upload dialog.' })}><Upload className="mr-2 h-4 w-4" /> Import</Button>
             <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>
             <DialogTrigger asChild>
-                <Button className="bg-accent-gradient" onClick={() => setIsCreateDialogOpen(true)}>
+                <Button className="bg-primary" onClick={() => setIsCreateDialogOpen(true)}>
                 <PlusCircle className="mr-2 h-4 w-4" />
                 Add New Company
                 </Button>
@@ -235,7 +235,7 @@ export default function AdminCompaniesPage() {
                     <DialogClose asChild>
                     <Button type="button" variant="outline">Cancel</Button>
                     </DialogClose>
-                    <Button type="submit" className="bg-accent-gradient">Add Company</Button>
+                    <Button type="submit" className="bg-primary">Add Company</Button>
                 </DialogFooter>
                 </form>
             </DialogContent>
@@ -299,7 +299,7 @@ export default function AdminCompaniesPage() {
                         <DialogClose asChild>
                           <Button type="button" variant="outline" onClick={() => setIsEditDialogOpen(false)}>Cancel</Button>
                         </DialogClose>
-                        <Button type="submit" className="bg-accent-gradient">Save Changes</Button>
+                        <Button type="submit" className="bg-primary">Save Changes</Button>
                     </DialogFooter>
                 </form>
             </DialogContent>

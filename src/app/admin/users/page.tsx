@@ -155,7 +155,7 @@ export default function AdminUsersPage() {
             <Button variant="outline" onClick={() => toast({ title: 'Importing Users...', description: 'This would open a file upload dialog.' })}><Upload className="mr-2 h-4 w-4" /> Import</Button>
             <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>
             <DialogTrigger asChild>
-                <Button className="bg-accent-gradient" onClick={() => setIsCreateDialogOpen(true)}>
+                <Button className="bg-primary" onClick={() => setIsCreateDialogOpen(true)}>
                 <PlusCircle className="mr-2 h-4 w-4" />
                 Add New User
                 </Button>
@@ -233,7 +233,7 @@ export default function AdminUsersPage() {
                     <DialogClose asChild>
                     <Button type="button" variant="outline">Cancel</Button>
                     </DialogClose>
-                    <Button type="submit" className="bg-accent-gradient">Create User</Button>
+                    <Button type="submit" className="bg-primary">Create User</Button>
                 </DialogFooter>
                 </form>
             </DialogContent>

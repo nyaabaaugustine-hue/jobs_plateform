@@ -185,7 +185,7 @@ export default function AdminBlogPage() {
         {/* Create Post Dialog */}
         <Dialog open={isCreateDialogOpen} onOpenChange={setIsCreateDialogOpen}>
           <DialogTrigger asChild>
-             <Button className="bg-accent-gradient" onClick={() => setIsCreateDialogOpen(true)}>
+             <Button className="bg-primary" onClick={() => setIsCreateDialogOpen(true)}>
               <PlusCircle className="mr-2 h-4 w-4" />
               Create New Post
             </Button>
@@ -244,7 +244,7 @@ export default function AdminBlogPage() {
                 <DialogClose asChild>
                   <Button type="button" variant="outline">Cancel</Button>
                 </DialogClose>
-                <Button type="submit" className="bg-accent-gradient">Save Draft</Button>
+                <Button type="submit" className="bg-primary">Save Draft</Button>
               </DialogFooter>
             </form>
           </DialogContent>
@@ -307,7 +307,7 @@ export default function AdminBlogPage() {
                 <DialogClose asChild>
                   <Button type="button" variant="outline" onClick={() => setIsEditDialogOpen(false)}>Cancel</Button>
                 </DialogClose>
-                <Button type="submit" className="bg-accent-gradient">Save Changes</Button>
+                <Button type="submit" className="bg-primary">Save Changes</Button>
               </DialogFooter>
             </form>
           </DialogContent>

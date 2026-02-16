@@ -267,7 +267,7 @@ export default function LoginPage() {
                         </div>
                         <Input id="password" type="password" required value={password} onChange={e => setPassword(e.target.value)} />
                     </div>
-                    <Button type="submit" className="w-full bg-accent-gradient" disabled={isLoading}>
+                    <Button type="submit" className="w-full bg-primary" disabled={isLoading}>
                         {isLoading ? 'Logging in...' : 'Login'}
                     </Button>
                     </div>

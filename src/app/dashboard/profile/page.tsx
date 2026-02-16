@@ -232,7 +232,7 @@ export default function ProfilePage() {
                 </CardContent>
             </Card>
              <div className="lg:col-span-3">
-                <Button size="lg" className="w-full bg-accent-gradient" onClick={handleSaveProfile}>
+                <Button size="lg" className="w-full bg-primary" onClick={handleSaveProfile}>
                   <Save className="mr-2 h-4 w-4" /> Save Profile
                 </Button>
             </div>

@@ -328,7 +328,7 @@ export default function NewJobPage() {
                     <Button variant="outline" size="lg" type="button" className="w-full" onClick={() => handleAction('Generating Preview...', 'This would open the job details in a new tab.')}>
                         <Eye className="mr-2 h-4 w-4" /> Preview
                     </Button>
-                    <Button type="submit" size="lg" className="w-full bg-accent-gradient" disabled={isSubmitting}>
+                    <Button type="submit" size="lg" className="w-full bg-primary" disabled={isSubmitting}>
                         {isSubmitting ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Save className="mr-2 h-4 w-4" />}
                         {isSubmitting ? 'Publishing...' : 'Save & Publish'}
                     </Button>

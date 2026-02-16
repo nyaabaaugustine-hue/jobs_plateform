@@ -69,7 +69,7 @@ export default function UserPostsPage() {
           <h1 className="font-headline text-3xl font-bold">My Blog Posts</h1>
           <p className="text-muted-foreground">Create and manage your articles.</p>
         </div>
-        <Button asChild className="bg-accent-gradient">
+        <Button asChild className="bg-primary">
           <Link href="/dashboard/posts/new">
             <PlusCircle className="mr-2 h-4 w-4" />
             Create New Post

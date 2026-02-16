@@ -22,7 +22,7 @@ export default function JobSeekerDashboard() {
         </div>
         <div className="flex items-center gap-2">
             <Button asChild variant="outline"><Link href="/dashboard/profile">Edit Profile</Link></Button>
-            <Button asChild className="bg-accent-gradient"><Link href="/jobs"><Search className="mr-2"/> Find a Job</Link></Button>
+            <Button asChild className="bg-primary"><Link href="/jobs"><Search className="mr-2"/> Find a Job</Link></Button>
         </div>
       </div>
 

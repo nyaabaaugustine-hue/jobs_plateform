@@ -72,7 +72,7 @@ const DesktopAuthButtons = () => (
       </Button>
       <Button
         asChild
-        className="rounded-xl bg-accent-gradient px-5 py-2.5 font-semibold text-primary-foreground shadow-sm transition-transform hover:scale-105"
+        className="rounded-xl bg-primary px-5 py-2.5 font-semibold text-primary-foreground shadow-sm transition-transform hover:scale-105"
       >
         <Link href="/register">Register</Link>
       </Button>
@@ -87,7 +87,7 @@ const DesktopAuthButtons = () => (
       <Button
         asChild
         size="lg"
-        className="bg-accent-gradient font-semibold text-primary-foreground shadow-lg transition-transform hover:scale-105"
+        className="bg-primary font-semibold text-primary-foreground shadow-lg transition-transform hover:scale-105"
       >
         <Link href="/register" onClick={onLinkClick}>Register</Link>
       </Button>

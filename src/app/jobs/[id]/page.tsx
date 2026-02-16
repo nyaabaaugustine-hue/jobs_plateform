@@ -231,7 +231,7 @@ export default function JobDetailPage({ params }: JobDetailPageProps) {
                     <CardContent>
                         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                             <DialogTrigger asChild>
-                                <Button disabled={isApplied} className="w-full bg-accent-gradient" size="lg">
+                                <Button disabled={isApplied} className="w-full bg-primary" size="lg">
                                     {isApplied ? 'Applied' : 'Apply Now'}
                                 </Button>
                             </DialogTrigger>

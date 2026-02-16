@@ -48,7 +48,7 @@ export default function ProfileCompletion() {
             ))}
         </div>
         <div className="mt-6">
-            <Button asChild className="w-full bg-accent-gradient">
+            <Button asChild className="w-full bg-primary">
                 <Link href="/dashboard/profile">Complete Your Profile <ArrowRight className="ml-2" /></Link>
             </Button>
         </div>

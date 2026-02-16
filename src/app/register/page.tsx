@@ -154,7 +154,7 @@ export default function RegisterPage() {
                             <Label htmlFor="password">Password</Label>
                             <Input id="password" type="password" required value={password} onChange={e => setPassword(e.target.value)} />
                         </div>
-                        <Button type="submit" className="w-full bg-accent-gradient" disabled={isLoading}>
+                        <Button type="submit" className="w-full bg-primary" disabled={isLoading}>
                             {isLoading ? 'Creating Account...' : 'Create an account'}
                         </Button>
                         <div className="relative my-2">

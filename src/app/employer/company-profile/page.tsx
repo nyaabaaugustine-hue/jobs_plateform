@@ -163,7 +163,7 @@ export default function CompanyProfilePage() {
                         </CardContent>
                     </Card>
 
-                    <Button size="lg" className="w-full bg-accent-gradient" onClick={handleSaveChanges}>
+                    <Button size="lg" className="w-full bg-primary" onClick={handleSaveChanges}>
                         <Save className="mr-2 h-4 w-4" /> Save All Changes
                     </Button>
                 </div>

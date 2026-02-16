@@ -229,7 +229,7 @@ export default function CheckoutForm() {
                          {paystackLogo && <Image src={paystackLogo.imageUrl} alt="Paystack" width={80} height={20} />}
                         <span>| This is a simulated payment for demo purposes.</span>
                     </div>
-                    <Button type="submit" size="lg" className="w-full bg-accent-gradient" disabled={isLoading}>
+                    <Button type="submit" size="lg" className="w-full bg-primary" disabled={isLoading}>
                         {isLoading ? <Loader2 className="mr-2 animate-spin" /> : (price > 0 ? `Pay GH₵${total.toFixed(2)} Now` : 'Complete Setup')}
                     </Button>
                 </form>
