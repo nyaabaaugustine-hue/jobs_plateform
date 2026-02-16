@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -137,7 +138,7 @@ export default function JobDetailPage({ params }: JobDetailPageProps) {
                 <CardHeader>
                   <div className="flex items-start gap-4">
                     {companyLogo && (
-                        <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-lg bg-background p-2 border shadow-sm">
+                        <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-lg bg-white p-2 border shadow-sm">
                             <Image
                                 src={companyLogo.imageUrl}
                                 alt={`${job.company.name} logo`}

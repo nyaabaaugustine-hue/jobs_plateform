@@ -49,7 +49,7 @@ export default async function CompanyDetailPage({ params }: CompanyDetailPagePro
             <div className="p-6 sm:p-8">
               <div className="relative -mt-24 flex items-end gap-6">
                 {companyLogo && (
-                  <div className="bg-card p-2 rounded-lg border-4 border-card shadow-md">
+                  <div className="bg-white p-2 rounded-lg border-4 border-border shadow-md">
                     <Image
                       src={companyLogo.imageUrl}
                       alt={`${company.name} logo`}

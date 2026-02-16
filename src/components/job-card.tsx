@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -37,7 +38,7 @@ export default function JobCard({ job }: JobCardProps) {
       <CardHeader className="flex flex-row items-start gap-4 p-4">
         {companyLogo && (
           <Link href={`/companies/${job.company.id}`} className="block">
-            <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-background p-2 border shadow-sm">
+            <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl bg-white p-2 border shadow-sm">
               <Image
                 src={companyLogo.imageUrl}
                 alt={`${job.company.name} logo`}

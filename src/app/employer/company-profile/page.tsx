@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -117,7 +118,7 @@ export default function CompanyProfilePage() {
                             <div>
                                 <Label>Company Logo</Label>
                                 <div className="flex items-center gap-6 mt-2">
-                                    {logoUrl && <Image src={logoUrl} alt="Company Logo" width={80} height={80} className="rounded-lg border p-2 bg-secondary/50" />}
+                                    {logoUrl && <Image src={logoUrl} alt="Company Logo" width={80} height={80} className="rounded-lg border p-2 bg-white" />}
                                     <div className="flex-1 flex flex-col items-center justify-center w-full p-4 border-2 border-dashed rounded-lg">
                                         {isUploading ? (
                                             <Loader2 className="w-8 h-8 text-muted-foreground animate-spin" />

@@ -1,3 +1,4 @@
+
 'use client';
 
 import Link from 'next/link';
@@ -17,7 +18,7 @@ import {
   SidebarGroupLabel,
   useSidebar,
 } from '@/components/ui/sidebar';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import DashboardHeader from '@/components/shared/dashboard-header';
@@ -93,10 +94,19 @@ function EmployerNav() {
       </SidebarContent>
       <SidebarFooter>
          <div className="flex items-center gap-3">
-          <Avatar className="h-10 w-10">
-            {companyLogo && <AvatarImage src={companyLogo.imageUrl} alt="Company Logo" />}
-            <AvatarFallback>II</AvatarFallback>
-          </Avatar>
+          <div className="flex h-10 w-10 items-center justify-center rounded-full border bg-white">
+            {companyLogo ? (
+              <Image
+                src={companyLogo.imageUrl}
+                alt="Company Logo"
+                width={32}
+                height={32}
+                className="h-8 w-8 object-contain"
+              />
+            ) : (
+              <span className="text-lg font-bold text-primary">II</span>
+            )}
+          </div>
           <div className="flex-1">
             <p className="text-sm font-semibold">Innovate Inc.</p>
             <p className="text-xs text-muted-foreground">Employer Account</p>

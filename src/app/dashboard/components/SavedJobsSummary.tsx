@@ -29,7 +29,7 @@ export default function SavedJobsSummary() {
             return (
              <div key={job.id} className="flex items-center gap-4 p-3 rounded-lg border hover:bg-secondary/50 transition-colors">
                 {logo && 
-                    <div className="bg-background rounded-md p-1 border flex-shrink-0">
+                    <div className="bg-white rounded-md p-1 border flex-shrink-0">
                         <Image src={logo.imageUrl} alt={job.company.name} width={40} height={40} className="rounded-sm object-contain" />
                     </div>
                 }
