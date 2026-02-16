@@ -3,38 +3,40 @@ import Image from 'next/image';
 import { DUMMY_JOBS, DUMMY_COMPANIES, DUMMY_LOCATIONS, DUMMY_BLOG_POSTS } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import HeroSearchForm from '@/components/hero-search-form';
-import dynamic from 'next/dynamic';
+import dynamicComponent from 'next/dynamic';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Suspense } from 'react';
 
-const TopCompanies = dynamic(() => import('@/components/top-companies'), {
+export const dynamic = "force-dynamic";
+
+const TopCompanies = dynamicComponent(() => import('@/components/top-companies'), {
   loading: () => <Skeleton className="h-[300px] w-full" />,
 });
-const FeaturedJobs = dynamic(() => import('@/components/featured-jobs'), {
+const FeaturedJobs = dynamicComponent(() => import('@/components/featured-jobs'), {
   loading: () => <Skeleton className="h-[600px] w-full" />,
 });
-const WhyChooseUs = dynamic(() => import('@/components/why-choose-us'), {
+const WhyChooseUs = dynamicComponent(() => import('@/components/why-choose-us'), {
   loading: () => <Skeleton className="h-[400px] w-full" />,
 });
-const VolunteerSection = dynamic(() => import('@/components/volunteer-section'), {
+const VolunteerSection = dynamicComponent(() => import('@/components/volunteer-section'), {
   loading: () => <Skeleton className="h-[400px] w-full" />,
 });
-const JobsByLocation = dynamic(() => import('@/components/jobs-by-location'), {
+const JobsByLocation = dynamicComponent(() => import('@/components/jobs-by-location'), {
   loading: () => <Skeleton className="h-[500px] w-full" />,
 });
-const Testimonials = dynamic(() => import('@/components/testimonials'), {
+const Testimonials = dynamicComponent(() => import('@/components/testimonials'), {
   loading: () => <Skeleton className="h-[400px] w-full" />,
 });
-const HiringSection = dynamic(() => import('@/components/hiring-section'), {
+const HiringSection = dynamicComponent(() => import('@/components/hiring-section'), {
   loading: () => <Skeleton className="h-[500px] w-full" />,
 });
-const LatestNews = dynamic(() => import('@/components/latest-news'), {
+const LatestNews = dynamicComponent(() => import('@/components/latest-news'), {
   loading: () => <Skeleton className="h-[500px] w-full" />,
 });
-const SubscriptionSection = dynamic(() => import('@/components/subscription-section'), {
+const SubscriptionSection = dynamicComponent(() => import('@/components/subscription-section'), {
     loading: () => <Skeleton className="h-[300px] w-full" />,
 });
-const Faq = dynamic(() => import('@/components/faq'), {
+const Faq = dynamicComponent(() => import('@/components/faq'), {
   loading: () => <Skeleton className="h-[600px] w-full" />,
 });
 
