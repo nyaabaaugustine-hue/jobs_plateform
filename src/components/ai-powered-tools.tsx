@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import SectionHeader from './shared/section-header';
 import { cn } from '@/lib/utils';
+import { Badge } from './ui/badge';
 
 const features = [
   {
@@ -43,7 +44,10 @@ const FeatureCard = ({ icon: Icon, title, description, align }: typeof features[
     )}>
       <Icon className="h-6 w-6 text-primary" />
     </div>
-    <h3 className="font-bold text-lg mb-1">{title}</h3>
+    <h3 className="font-bold text-lg mb-1 flex items-center justify-center lg:justify-start gap-2">
+      {title}
+      <Badge className="bg-yellow-400 text-black">PRO</Badge>
+    </h3>
     <p className="text-muted-foreground">{description}</p>
   </div>
 );

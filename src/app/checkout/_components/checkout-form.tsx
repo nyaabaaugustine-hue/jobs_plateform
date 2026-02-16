@@ -2,7 +2,7 @@
 
 import { useSearchParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { tiers } from '@/components/pricing-grid';
+import { employerTiers, jobSeekerTiers } from '@/components/pricing-grid';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { CheckCircle, CreditCard, Loader2, Lock } from 'lucide-react';
@@ -75,8 +75,10 @@ export default function CheckoutForm() {
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+  const allTiers = [...employerTiers, ...jobSeekerTiers];
+
   // State to hold values derived from client-side searchParams
-  const [selectedTier, setSelectedTier] = useState<(typeof tiers)[0] | undefined>();
+  const [selectedTier, setSelectedTier] = useState<(typeof allTiers)[0] | undefined>();
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly' | null>(null);
   const [price, setPrice] = useState(0);
   const [tax, setTax] = useState(0);
@@ -87,7 +89,7 @@ export default function CheckoutForm() {
   useEffect(() => {
     const planId = searchParams.get('plan');
     const billing = searchParams.get('billing') as 'monthly' | 'yearly' | null;
-    const tier = tiers.find(t => t.id === planId);
+    const tier = allTiers.find(t => t.id === planId);
 
     if (!tier || !billing) {
       router.push('/pricing');
@@ -111,7 +113,7 @@ export default function CheckoutForm() {
     setPrice(currentPrice);
     setTax(currentTax);
     setTotal(currentTotal);
-  }, [searchParams, router]);
+  }, [searchParams, router, allTiers]);
   
   const handlePayment = (e: React.FormEvent) => {
       e.preventDefault();
@@ -161,7 +163,7 @@ export default function CheckoutForm() {
                          )}
                     </div>
                      <ul className="space-y-3 text-sm">
-                        {selectedTier.features.map((feature) => (
+                        {selectedTier.features.map((feature: any) => (
                             <li key={feature} className="flex items-center gap-3">
                             <CheckCircle className="h-5 w-5 text-emerald-500" />
                             <span className="text-muted-foreground">{feature}</span>
@@ -245,5 +247,3 @@ export default function CheckoutForm() {
     </div>
   );
 }
-
-    

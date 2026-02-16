@@ -13,7 +13,7 @@ export default function PricingPage() {
     <>
       <PageHero
         title="Flexible Pricing for Every Team"
-        subtitle="Choose the plan that's right for you. Get started for free or unlock powerful features with our Pro plan."
+        subtitle="Find the perfect plan for your needs, whether you're hiring talent or advancing your career."
       />
       <main className="relative flex-1 py-16 md:py-24">
         {categoryBgImage && (

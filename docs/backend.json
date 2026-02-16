@@ -12,6 +12,7 @@
         "companyId": { "type": "string", "description": "The ID of the company the user belongs to (for team members)." },
         "createdAt": { "type": "string", "format": "date-time" },
         "updatedAt": { "type": "string", "format": "date-time" },
+        "subscriptionTier": { "type": "string", "description": "The user's current subscription tier (for job seekers).", "enum": ["basic", "pro"] },
         "profileData": {
           "type": "object",
           "description": "Structured data from user's profile.",
