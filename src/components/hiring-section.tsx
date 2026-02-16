@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from './ui/button';
@@ -31,12 +32,15 @@ export default function HiringSection() {
                 </li>
               ))}
             </ul>
-            <div className="pt-4 flex items-center gap-4">
+            <div className="pt-4 flex flex-wrap items-center gap-4">
               <Button asChild size="lg" className="rounded-xl transform transition-transform hover:scale-105">
                 <Link href="/employer/jobs/new">Post a Job</Link>
               </Button>
                <Button asChild size="lg" variant="outline">
                 <Link href="/pricing">View Pricing</Link>
+              </Button>
+              <Button asChild size="lg" variant="ghost" className="text-muted-foreground hover:text-primary">
+                <Link href="/contacts">Advertise with us</Link>
               </Button>
             </div>
           </div>
