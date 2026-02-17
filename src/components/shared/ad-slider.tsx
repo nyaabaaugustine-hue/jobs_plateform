@@ -9,7 +9,6 @@ import type { Company } from '@/lib/types';
 import type { ImagePlaceholder } from '@/lib/placeholder-images';
 import { usePathname } from 'next/navigation';
 
-
 type Ad = {
   companyId: string;
   headline: string;
@@ -54,7 +53,6 @@ const ads: Ad[] = [
     }
 ].filter(ad => ad.company && ad.image);
 
-
 export default function AdSlider() {
   const pathname = usePathname();
   const [currentAdIndex, setCurrentAdIndex] = useState(0);
@@ -63,33 +61,37 @@ export default function AdSlider() {
   const isDashboardPage =
     pathname.startsWith('/admin') ||
     pathname.startsWith('/dashboard') ||
-    pathname.startsWith('/employer');
+    pathname.startsWith('/employer') ||
+    pathname === '/login' ||
+    pathname === '/register';
 
   useEffect(() => {
-    if (isDashboardPage || ads.length === 0 || sessionStorage.getItem('adSliderClosed') === 'true') {
+    if (isDashboardPage || ads.length === 0) {
         return;
     }
 
-    // Show the first ad after an initial delay
+    // Show the first ad after a short delay
     const initialTimeout = setTimeout(() => {
-      setIsPanelOpen(true);
-    }, 15000); // 15 seconds after page load
+      if (sessionStorage.getItem('adSliderClosed') !== 'true') {
+        setIsPanelOpen(true);
+      }
+    }, 3000); // 3 seconds after page load
 
-    // Then, cycle through ads every 30 seconds
+    // Then, cycle through ads every 20 seconds
     const interval = setInterval(() => {
         if (sessionStorage.getItem('adSliderClosed') === 'true') {
             clearInterval(interval);
             return;
         }
 
-        setIsPanelOpen(false); // Close the panel to animate out
+        setIsPanelOpen(false); // Close current panel
 
         setTimeout(() => {
             setCurrentAdIndex(prevIndex => (prevIndex + 1) % ads.length);
-            setIsPanelOpen(true); // Open with new ad to animate in
-        }, 1000); // Wait for animation out
+            setIsPanelOpen(true); // Animate in new ad
+        }, 1000); // Small gap for transition
 
-    }, 30000); // 30 seconds
+    }, 20000); // Cycle every 20 seconds
 
     return () => {
       clearTimeout(initialTimeout);

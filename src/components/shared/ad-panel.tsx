@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect } from 'react';
@@ -8,10 +9,9 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
-import type { PlaceHolderImages, ImagePlaceholder } from '@/lib/placeholder-images';
+import type { ImagePlaceholder } from '@/lib/placeholder-images';
 import type { Company } from '@/lib/types';
 import { Badge } from '@/components/ui/badge';
-
 
 type Ad = {
   companyId: string;
@@ -48,77 +48,70 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
 
   return (
     <>
-      {/* Overlay */}
+      {/* Semi-transparent Overlay - only visible when panel is open */}
       <div
         aria-hidden="true"
         className={cn(
-          'fixed inset-0 bg-black/60 z-[99] transition-opacity duration-500',
+          'fixed inset-0 bg-black/20 backdrop-blur-[2px] z-[99] transition-opacity duration-500',
           isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         )}
         onClick={onClose}
       />
 
-      {/* Panel */}
+      {/* Panel Container */}
       <aside
         className={cn(
-          // Responsive positioning
-          'fixed bottom-4 inset-x-4 sm:bottom-6 sm:left-6 sm:right-auto sm:w-full sm:max-w-sm',
-          // Base styles
-          'bg-transparent border-none z-[100] transition-all duration-500 ease-in-out',
-          // Animation states based on screen size
+          'fixed bottom-6 left-6 z-[100] w-[calc(100vw-3rem)] max-w-sm transition-all duration-700 ease-in-out',
           isOpen
-            ? 'opacity-100 translate-y-0 sm:translate-x-0'
-            : 'opacity-0 pointer-events-none translate-y-full sm:translate-y-0 sm:-translate-x-full'
+            ? 'opacity-100 translate-x-0 scale-100'
+            : 'opacity-0 -translate-x-full scale-95 pointer-events-none'
         )}
         role="dialog"
         aria-modal="true"
         aria-labelledby="ad-panel-headline"
       >
         <Card
-          key={ad.companyId}
-          className="overflow-hidden transition-all duration-300 shadow-2xl group flex flex-col relative ring-4 ring-primary/40 animate-in fade-in zoom-in-95 duration-500"
+          className="overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] group border-2 border-primary/20 bg-card/95 backdrop-blur-md"
         >
           <Button
             variant="ghost"
             size="icon"
-            className="absolute top-2 right-2 rounded-full text-white bg-rose-800 hover:bg-rose-900 z-20 h-8 w-8"
+            className="absolute top-2 right-2 rounded-full text-white bg-black/40 hover:bg-black/60 z-20 h-8 w-8 transition-colors"
             onClick={onClose}
           >
-            <X className="h-5 w-5" />
+            <X className="h-4 w-4" />
             <span className="sr-only">Close panel</span>
           </Button>
 
-          <Link href={`/companies/${ad.company.id}`} className="block overflow-hidden">
-            <div className="relative">
-              <div
-                key={ad.imageId} // Force re-render on ad change to trigger animation
-                className="w-full aspect-[16/9] animate-in fade-in zoom-in-95 duration-700"
-              >
-                <Image
-                    src={ad.image.imageUrl}
-                    alt={ad.headline}
-                    fill
-                    className="w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    data-ai-hint={ad.image.imageHint}
-                    sizes="(max-width: 768px) 100vw, 30vw"
-                />
-              </div>
-              <Badge variant="secondary" className="absolute top-2 left-2 bg-destructive/10 text-destructive border-destructive/20 text-xs z-10">
-                Advertisement
-              </Badge>
+          <div className="relative">
+            <div className="w-full aspect-video overflow-hidden">
+              <Image
+                  src={ad.image.imageUrl}
+                  alt={ad.headline}
+                  fill
+                  className="w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  data-ai-hint={ad.image.imageHint}
+                  sizes="(max-width: 768px) 100vw, 30vw"
+              />
             </div>
-          </Link>
-          <CardContent className="p-6 flex flex-col flex-grow bg-card">
-              <h3 id="ad-panel-headline" className="font-headline text-lg font-bold group-hover:text-primary transition-colors">
+            <div className="absolute top-2 left-2 flex gap-2">
+                <Badge className="bg-primary text-white border-none text-[10px] font-bold tracking-wider uppercase px-2 py-0.5">
+                    Recommended
+                </Badge>
+            </div>
+          </div>
+
+          <CardContent className="p-5 flex flex-col">
+              <h3 id="ad-panel-headline" className="font-headline text-lg font-bold text-foreground leading-tight group-hover:text-primary transition-colors">
                 {ad.headline}
               </h3>
-            <p className="text-muted-foreground text-sm mt-2 flex-grow">
+            <p className="text-muted-foreground text-sm mt-2 line-clamp-2">
                 {ad.description}
             </p>
-            <div className="pt-4 mt-4 border-t">
-              <Button asChild variant="secondary" size="sm" className="w-full hover:brightness-110">
+            <div className="pt-4 mt-4 border-t flex items-center justify-between">
+              <Button asChild variant="secondary" size="sm" className="w-full bg-accent-gradient font-bold hover:brightness-110">
                 <Link href={`/companies/${ad.company.id}`}>
-                  View Careers at {ad.company.name} <ArrowRight className="ml-2 h-4 w-4"/>
+                  Explore Careers <ArrowRight className="ml-2 h-4 w-4"/>
                 </Link>
               </Button>
             </div>
