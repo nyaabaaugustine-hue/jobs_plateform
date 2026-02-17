@@ -23,9 +23,9 @@ export default function LiveActivityBar() {
             <div className="rounded-xl p-2 bg-primary/10 text-primary shadow-sm">
               <item.icon className="h-4 w-4" />
             </div>
-            <div>
-              <p className="text-sm font-black text-foreground tracking-tight">{item.metric}</p>
-              <p className="text-[10px] uppercase tracking-[0.15em] font-black text-muted-foreground/60">{item.label}</p>
+            <div className="flex flex-col">
+              <p className="font-headline text-sm font-black text-foreground tracking-tighter leading-none">{item.metric}</p>
+              <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-muted-foreground/70 mt-1">{item.label}</p>
             </div>
           </div>
         ))}
