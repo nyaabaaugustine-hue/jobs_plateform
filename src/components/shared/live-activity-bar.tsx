@@ -25,12 +25,15 @@ export default function LiveActivityBar() {
             <div key={index} className="flex shrink-0 items-center gap-3 py-2 px-8">
               <div className={cn(
                   "rounded-lg p-1.5",
-                  isEven ? "bg-muted text-foreground/80" : "bg-burgundy/10 text-burgundy"
+                  isEven ? "bg-muted text-foreground" : "bg-burgundy/10 text-burgundy"
               )}>
                 <item.icon className="h-4 w-4" />
               </div>
               <div>
-                <p className="text-base font-bold text-burgundy">{item.metric}</p>
+                <p className={cn(
+                    "text-base font-bold",
+                    isEven ? "text-foreground" : "text-burgundy"
+                )}>{item.metric}</p>
                 <p className="text-xs text-muted-foreground">{item.label}</p>
               </div>
             </div>
