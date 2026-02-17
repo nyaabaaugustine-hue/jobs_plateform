@@ -23,7 +23,7 @@ export default function HomePage() {
   const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
   const companies = DUMMY_COMPANIES.slice(0, 10);
   const jobs = DUMMY_JOBS;
-  const categories = ['All', 'Technology', 'Marketing', 'Design', 'Finance', 'Management'];
+  const categories = ['All', 'Technology', 'Marketing', 'Design', 'Finance', 'Management', 'Software', 'Healthcare', 'Education', 'Data Science'];
   const locations = DUMMY_LOCATIONS;
   const latestPosts = DUMMY_BLOG_POSTS.filter(p => p.status === 'Published').slice(0, 3);
   
