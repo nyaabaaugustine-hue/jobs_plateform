@@ -64,14 +64,14 @@ const DesktopAuthButtons = () => (
     <div className="flex items-center gap-2">
       <ThemeToggle />
       <Button variant="outline" asChild>
-        <Link href="/auth/login">Login</Link>
+        <Link href="/api/auth/login">Login</Link>
       </Button>
       <Button
         asChild
         variant="secondary"
         className="rounded-xl px-5 py-2.5 font-semibold shadow-sm transition-transform hover:scale-105"
       >
-        <Link href="/auth/login?screen_hint=signup">Register</Link>
+        <Link href="/api/auth/login?screen_hint=signup">Register</Link>
       </Button>
     </div>
   );
@@ -79,7 +79,7 @@ const DesktopAuthButtons = () => (
   const MobileAuthButtons = ({ onLinkClick }: { onLinkClick?: () => void }) => (
     <div className="grid w-full grid-cols-2 gap-4">
       <Button variant="outline" asChild size="lg">
-        <Link href="/auth/login" onClick={onLinkClick}>Login</Link>
+        <Link href="/api/auth/login" onClick={onLinkClick}>Login</Link>
       </Button>
       <Button
         asChild
@@ -87,7 +87,7 @@ const DesktopAuthButtons = () => (
         size="lg"
         className="font-semibold shadow-lg transition-transform hover:scale-105"
       >
-        <Link href="/auth/login?screen_hint=signup" onClick={onLinkClick}>Register</Link>
+        <Link href="/api/auth/login?screen_hint=signup" onClick={onLinkClick}>Register</Link>
       </Button>
     </div>
   );
@@ -119,7 +119,7 @@ export default function Header() {
   const getSettingsLink = () => '/dashboard/settings';
 
   const handleLogout = () => {
-    router.push('/auth/logout');
+    router.push('/api/auth/logout');
   };
 
   const navLinks = [
