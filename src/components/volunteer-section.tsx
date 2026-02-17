@@ -8,7 +8,7 @@ import { cn } from '@/lib/utils';
 
 export default function VolunteerSection() {
   return (
-    <section className="relative py-16 md:py-24 bg-background">
+    <section className="relative py-16 md:py-24 bg-secondary">
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <SectionHeader
           title="Kickstart Your Career"

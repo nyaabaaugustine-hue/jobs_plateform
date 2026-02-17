@@ -149,9 +149,7 @@ export default function HomePage() {
             <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl !leading-tight font-headline text-white animate-in fade-in slide-in-from-bottom-4 duration-700">
               Find Your Next Job, Faster.
             </h1>
-            <p className="max-w-xl mx-auto text-lg text-gray-200 animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '150ms'}}>
-              Discover your next career move with verified employers and salary transparency.
-            </p>
+            
             <div className="max-w-3xl w-full mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '300ms'}}>
               <HeroSearchForm />
             </div>
