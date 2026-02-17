@@ -75,12 +75,13 @@ export default function Testimonials() {
   // State for the dialog
   const [open, setOpen] = useState(false);
   const [name, setName] = useState('');
+  const [position, setPosition] = useState('');
   const [comment, setComment] = useState('');
   const [rating, setRating] = useState(5);
 
   const handleSubmitReview = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !comment) {
+    if (!name || !comment || !position) {
         toast({
             title: 'Incomplete Review',
             description: 'Please fill out all fields.',
@@ -97,6 +98,7 @@ export default function Testimonials() {
     setOpen(false); // Close the dialog
     // Reset form
     setName('');
+    setPosition('');
     setComment('');
     setRating(5);
   };
@@ -131,6 +133,10 @@ export default function Testimonials() {
                   <div className="space-y-2">
                     <Label htmlFor="name">Your Name</Label>
                     <Input id="name" placeholder="e.g., John Doe" value={name} onChange={(e) => setName(e.target.value)} required />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="position">Your Position</Label>
+                    <Input id="position" placeholder="e.g., Software Engineer" value={position} onChange={(e) => setPosition(e.target.value)} required />
                   </div>
                   <div className="space-y-2">
                     <Label>Your Rating</Label>
