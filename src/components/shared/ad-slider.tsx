@@ -56,6 +56,7 @@ export default function AdSlider() {
   const pathname = usePathname();
   const [currentAdIndex, setCurrentAdIndex] = useState(0);
   const [isPanelOpen, setIsPanelOpen] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
   
   const isDashboardPage =
     pathname.startsWith('/admin') ||
@@ -69,14 +70,21 @@ export default function AdSlider() {
         return;
     }
 
-    // Wait for 5 seconds after load to show the first ad
+    // Initial Appearance: 5 Seconds after load
     const initialTimeout = setTimeout(() => {
       if (sessionStorage.getItem('adSliderClosed') !== 'true') {
         setIsPanelOpen(true);
+        setHasStarted(true);
       }
     }, 5000);
 
-    // Run interval every 47 seconds to cycle through ads
+    return () => clearTimeout(initialTimeout);
+  }, [isDashboardPage]);
+
+  useEffect(() => {
+    if (!hasStarted || isDashboardPage || sessionStorage.getItem('adSliderClosed') === 'true') return;
+
+    // Cycle every 47 seconds
     const cycleInterval = setInterval(() => {
         if (sessionStorage.getItem('adSliderClosed') === 'true') {
             clearInterval(cycleInterval);
@@ -85,20 +93,18 @@ export default function AdSlider() {
 
         setIsPanelOpen(false); 
 
+        // Wait for slide-out animation before changing index and sliding back in
         setTimeout(() => {
             if (sessionStorage.getItem('adSliderClosed') !== 'true') {
                 setCurrentAdIndex(prevIndex => (prevIndex + 1) % ads.length);
                 setIsPanelOpen(true);
             }
-        }, 1000);
+        }, 800);
 
     }, 47000);
 
-    return () => {
-      clearTimeout(initialTimeout);
-      clearInterval(cycleInterval);
-    };
-  }, [isDashboardPage]);
+    return () => clearInterval(cycleInterval);
+  }, [hasStarted, isDashboardPage]);
   
   const handleClose = () => {
     setIsPanelOpen(false);

@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import Image from 'next/image';
-import { X, ArrowRight } from 'lucide-react';
+import { X, ArrowUpRight, Megaphone } from 'lucide-react';
 import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
@@ -79,12 +79,12 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
           </Button>
 
           <div className="relative">
-            <div className="w-full aspect-[16/10] overflow-hidden">
+            <div className="w-full aspect-[16/9] overflow-hidden">
               <Image
                   src={ad.image.imageUrl}
                   alt={ad.headline}
                   fill
-                  className="w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full object-cover transition-transform duration-1000 group-hover:scale-110"
                   data-ai-hint={ad.image.imageHint}
                   sizes="(max-width: 768px) 100vw, 30vw"
               />
@@ -105,14 +105,26 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
             <p className="text-muted-foreground text-sm mt-3 line-clamp-2 font-medium">
                 {ad.description}
             </p>
-            <div className="pt-5 mt-5 border-t border-border/50 flex items-center justify-between">
-              {/* BESPOKE MILKY WHITE BUTTON WITH BLACK/GOLD RINGS */}
+            
+            <div className="pt-5 mt-5 border-t border-border/50 flex flex-col gap-3">
+              {/* PRIMARY VISIT BUTTON - MILKY WHITE WITH BLACK/GOLD RINGS */}
               <Button 
                 asChild 
                 className="w-full h-12 bg-[#fdfdfd] text-black border-2 border-black ring-2 ring-gold ring-offset-0 font-black tracking-wide hover:bg-white hover:scale-[1.02] transition-all rounded-xl shadow-lg"
               >
                 <Link href={`/companies/${ad.company.id}`}>
-                  Explore Careers <ArrowRight className="ml-2 h-4 w-4"/>
+                  Visit Website <ArrowUpRight className="ml-2 h-4 w-4"/>
+                </Link>
+              </Button>
+
+              {/* SECONDARY ADVERTISE BUTTON */}
+              <Button 
+                asChild 
+                variant="outline"
+                className="w-full h-10 border-dashed border-burgundy/30 text-burgundy font-bold hover:bg-burgundy/5 hover:text-burgundy transition-all rounded-xl"
+              >
+                <Link href="/contacts">
+                  <Megaphone className="mr-2 h-4 w-4" /> Advertise with us
                 </Link>
               </Button>
             </div>

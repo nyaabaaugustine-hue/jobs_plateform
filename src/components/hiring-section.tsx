@@ -16,7 +16,7 @@ export default function HiringSection() {
 
   return (
     <section className="relative py-24 lg:py-32 overflow-hidden bg-background">
-      {/* Section Background Image with 80% Opacity to allow Shining White to bleed through */}
+      {/* Background Image reduced to 80% opacity to allow Shining White theme to bleed through */}
       {bgImage && (
         <Image
           src={bgImage.imageUrl}
@@ -28,7 +28,7 @@ export default function HiringSection() {
         />
       )}
       
-      {/* Subtle Light Overlay for consistent "Shining" look instead of dark */}
+      {/* Shining overlay to enhance the milky white look without being dark */}
       <div className="absolute inset-0 bg-background/40 z-10" />
 
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
@@ -70,7 +70,7 @@ export default function HiringSection() {
                 </div>
             </div>
             
-            {/* RESTORED TO LARGE ORIGINAL IMAGE SIZE */}
+            {/* LARGE ORIGINAL IMPACT IMAGE */}
             <div className="relative flex items-center justify-center animate-in fade-in slide-in-from-right duration-1000">
                 {hiringImage && (
                   <div className="relative group w-full max-w-[600px]">
@@ -84,6 +84,7 @@ export default function HiringSection() {
                           data-ai-hint={hiringImage.imageHint}
                       />
                     </div>
+                    {/* Visual Pulse for "Shining" effect */}
                     <div className="absolute -inset-10 bg-primary/10 blur-[100px] -z-10 rounded-full opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
                   </div>
                 )}
