@@ -1,3 +1,4 @@
+
 'use client';
 
 import { DUMMY_OPPORTUNITIES } from '@/lib/data';
@@ -6,25 +7,10 @@ import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function VolunteerSection() {
-  const bgImage = "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771367035/Screenshot_168_txi3nv.png";
-
   return (
-    <section className="relative py-24 overflow-hidden">
-      {bgImage && (
-        <Image
-          src={bgImage}
-          alt="Kickstart Career Background"
-          fill
-          className="object-cover z-0"
-          priority
-        />
-      )}
-      <div className="absolute inset-0 bg-background/80 z-10" />
-
+    <section className="py-24 bg-[#f6f4ee] dark:bg-secondary/10">
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <SectionHeader
           title="Kickstart Your Career"
@@ -33,7 +19,7 @@ export default function VolunteerSection() {
         />
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {DUMMY_OPPORTUNITIES.map((opportunity, index) => (
-            <Card key={index} className="text-center animate-in fade-in slide-in-from-bottom-4 duration-700 bg-card/80 backdrop-blur-sm border-none shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1" style={{ animationDelay: `${200 + index * 100}ms` }}>
+            <Card key={index} className="text-center animate-in fade-in slide-in-from-bottom-4 duration-700 bg-card border-none shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1" style={{ animationDelay: `${200 + index * 100}ms` }}>
               <CardHeader className="items-center pb-2">
                 <div className={cn("flex h-20 w-20 items-center justify-center rounded-2xl shadow-inner", opportunity.iconBg)}>
                   <opportunity.icon className={cn("h-10 w-10", opportunity.iconColor)} />
