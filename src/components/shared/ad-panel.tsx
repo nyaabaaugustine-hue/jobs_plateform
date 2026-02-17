@@ -90,8 +90,8 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
               />
             </div>
             <div className="absolute top-3 left-3 flex gap-2">
-                <div className="bg-white/95 px-3 py-1.5 rounded-sm border-l-[3px] border-burgundy shadow-lg">
-                    <span className="font-headline text-[10px] font-black tracking-[0.3em] uppercase text-burgundy">
+                <div className="bg-white/95 px-3 py-1.5 rounded-sm border-l-[3px] border-[#800020] shadow-lg">
+                    <span className="font-headline text-[10px] font-black tracking-[0.3em] uppercase text-[#800020]">
                         ADVERTISEMENT
                     </span>
                 </div>
@@ -110,7 +110,7 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
               {/* PRIMARY VISIT BUTTON - MILKY WHITE WITH BLACK/GOLD RINGS */}
               <Button 
                 asChild 
-                className="w-full h-12 bg-[#fdfdfd] text-black border-2 border-black ring-2 ring-gold ring-offset-0 font-black tracking-wide hover:bg-white hover:scale-[1.02] transition-all rounded-xl shadow-lg"
+                className="w-full h-12 bg-[#fdfdfd] text-black border-2 border-black ring-2 ring-[#FFD700] ring-offset-0 font-black tracking-wide hover:bg-white hover:scale-[1.02] transition-all rounded-xl shadow-lg"
               >
                 <Link href={`/companies/${ad.company.id}`}>
                   Visit Website <ArrowUpRight className="ml-2 h-4 w-4"/>
@@ -121,7 +121,7 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
               <Button 
                 asChild 
                 variant="outline"
-                className="w-full h-10 border-dashed border-burgundy/30 text-burgundy font-bold hover:bg-burgundy/5 hover:text-burgundy transition-all rounded-xl"
+                className="w-full h-10 border-dashed border-[#800020]/30 text-[#800020] font-bold hover:bg-[#800020]/5 hover:text-[#800020] transition-all rounded-xl"
               >
                 <Link href="/contacts">
                   <Megaphone className="mr-2 h-4 w-4" /> Advertise with us

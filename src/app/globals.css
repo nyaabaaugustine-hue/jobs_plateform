@@ -10,9 +10,9 @@
 
 @layer base {
   :root {
-    /* DEFINITIVE MILKY GREY WHITE - SHINING & HIGH CONTRAST */
+    /* SHINING MILKY GREY WHITE - HIGH CONTRAST */
     --background: 210 10% 98%; 
-    --foreground: 222 47% 5%; /* Deep Charcoal Black for Maximum Contrast */
+    --foreground: 222 47% 5%; /* Deep Charcoal */
     
     --card: 0 0% 100%;
     --card-foreground: 222 47% 5%;

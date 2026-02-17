@@ -66,39 +66,27 @@ export default function AdSlider() {
     pathname === '/register';
 
   useEffect(() => {
-    if (isDashboardPage || ads.length === 0 || sessionStorage.getItem('adSliderClosed') === 'true') {
-        return;
-    }
+    if (isDashboardPage || ads.length === 0) return;
 
-    // Initial Appearance: 5 Seconds after load
+    // Initial Appearance: Exactly 5 Seconds after load
     const initialTimeout = setTimeout(() => {
-      if (sessionStorage.getItem('adSliderClosed') !== 'true') {
-        setIsPanelOpen(true);
-        setHasStarted(true);
-      }
+      setIsPanelOpen(true);
+      setHasStarted(true);
     }, 5000);
 
     return () => clearTimeout(initialTimeout);
   }, [isDashboardPage]);
 
   useEffect(() => {
-    if (!hasStarted || isDashboardPage || sessionStorage.getItem('adSliderClosed') === 'true') return;
+    if (!hasStarted || isDashboardPage) return;
 
-    // Cycle exactly every 47 seconds as requested
+    // Cycle every 47 seconds
     const cycleInterval = setInterval(() => {
-        if (sessionStorage.getItem('adSliderClosed') === 'true') {
-            clearInterval(cycleInterval);
-            return;
-        }
-
         setIsPanelOpen(false); 
 
-        // Smooth transition wait before showing the next ad
         setTimeout(() => {
-            if (sessionStorage.getItem('adSliderClosed') !== 'true') {
-                setCurrentAdIndex(prevIndex => (prevIndex + 1) % ads.length);
-                setIsPanelOpen(true);
-            }
+            setCurrentAdIndex(prevIndex => (prevIndex + 1) % ads.length);
+            setIsPanelOpen(true);
         }, 1000);
 
     }, 47000);
@@ -108,7 +96,6 @@ export default function AdSlider() {
   
   const handleClose = () => {
     setIsPanelOpen(false);
-    sessionStorage.setItem('adSliderClosed', 'true');
   };
 
   if (isDashboardPage || ads.length === 0) {

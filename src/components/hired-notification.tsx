@@ -31,7 +31,6 @@ export default function HiredNotification() {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
     }
-    sessionStorage.setItem('hiredNotificationsStopped', 'true');
     dismiss();
   };
 
@@ -40,13 +39,6 @@ export default function HiredNotification() {
     
     if (!isDashboardPage) {
       const showRandomHiredNotification = () => {
-        if (sessionStorage.getItem('hiredNotificationsStopped') === 'true') {
-          if (intervalRef.current) {
-            clearInterval(intervalRef.current);
-          }
-          return;
-        }
-
         const example = hiredExamples[Math.floor(Math.random() * hiredExamples.length)];
         const userAvatar = PlaceHolderImages.find((img) => img.id === example.avatarId);
 
@@ -86,13 +78,11 @@ export default function HiredNotification() {
         });
       };
 
-      // Start the cycle 4 seconds after initial load for that "flash" feel
+      // Start the cycle 4 seconds after initial load
       initialTimeout = setTimeout(() => {
-        if (sessionStorage.getItem('hiredNotificationsStopped') !== 'true') {
-          showRandomHiredNotification();
-          // Cycle every 25 seconds
-          intervalRef.current = setInterval(showRandomHiredNotification, 25000);
-        }
+        showRandomHiredNotification();
+        // Cycle every 25 seconds
+        intervalRef.current = setInterval(showRandomHiredNotification, 25000);
       }, 4000);
     }
 
