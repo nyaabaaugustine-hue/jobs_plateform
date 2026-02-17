@@ -1,4 +1,3 @@
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from './ui/button';
@@ -33,7 +32,7 @@ export default function HiringSection() {
               ))}
             </ul>
             <div className="pt-4 flex flex-wrap items-center gap-4">
-              <Button asChild size="lg" className="rounded-xl transform transition-transform hover:scale-105">
+              <Button asChild size="lg" variant="outline" className="rounded-xl transform transition-transform hover:scale-105 border-accent text-accent hover:text-accent-foreground">
                 <Link href="/employer/jobs/new">Post a Job</Link>
               </Button>
                <Button asChild size="lg" variant="outline">
