@@ -10,7 +10,6 @@ import { Card, CardContent } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
 import type { ImagePlaceholder } from '@/lib/placeholder-images';
 import type { Company } from '@/lib/types';
-import { Badge } from '@/components/ui/badge';
 
 type Ad = {
   companyId: string;
@@ -47,7 +46,6 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
 
   return (
     <>
-      {/* Container with pointer-events-none to prevent blocking page clicks when closed */}
       <div
         className={cn(
           'fixed inset-0 z-[99] transition-all duration-500 pointer-events-none',
@@ -92,9 +90,11 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
               />
             </div>
             <div className="absolute top-2 left-2 flex gap-2">
-                <Badge className="bg-primary text-white border-none text-[10px] font-bold tracking-wider uppercase px-2 py-0.5">
-                    Recommended
-                </Badge>
+                <div className="bg-white/95 text-burgundy px-2 py-1 rounded-sm border-l-4 border-burgundy shadow-sm">
+                    <span className="font-headline text-[9px] font-extrabold tracking-[0.25em] uppercase">
+                        Advertisement
+                    </span>
+                </div>
             </div>
           </div>
 
@@ -106,7 +106,10 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
                 {ad.description}
             </p>
             <div className="pt-4 mt-4 border-t flex items-center justify-between">
-              <Button asChild variant="secondary" className="w-full bg-accent-gradient font-bold">
+              <Button 
+                asChild 
+                className="w-full h-11 bg-[#fbfaf8] text-black border-2 border-black ring-2 ring-gold ring-offset-0 font-bold hover:bg-[#efede8] transition-all rounded-xl"
+              >
                 <Link href={`/companies/${ad.company.id}`}>
                   Explore Careers <ArrowRight className="ml-2 h-4 w-4"/>
                 </Link>

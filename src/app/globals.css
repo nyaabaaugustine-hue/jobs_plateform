@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -33,6 +32,9 @@
     --accent: 45 85% 50%;
     --accent-foreground: 222 47% 5%;
 
+    --burgundy: 345 80% 25%;
+    --gold: 45 85% 55%;
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
     
@@ -41,7 +43,6 @@
     --ring: 217 91% 60%;
 
     --radius: 0.75rem;
-    --gold: 45 85% 50%;
 
     --chart-1: hsl(var(--primary));
     --chart-2: hsl(var(--accent));
@@ -87,8 +88,6 @@
     --border: 220 10% 20%;
     --input: 220 10% 20%;
     --ring: 217 91% 60%;
-
-    --gold: 45 85% 55%;
   }
 }
 
