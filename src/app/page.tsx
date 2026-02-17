@@ -5,16 +5,38 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import HeroSearchForm from '@/components/hero-search-form';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Suspense } from 'react';
-import TopCompanies from '@/components/top-companies';
-import FeaturedJobs from '@/components/featured-jobs';
-import WhyChooseUs from '@/components/why-choose-us';
-import VolunteerSection from '@/components/volunteer-section';
-import JobsByLocation from '@/components/jobs-by-location';
-import Testimonials from '@/components/testimonials';
-import HiringSection from '@/components/hiring-section';
-import LatestNews from '@/components/latest-news';
-import SubscriptionSection from '@/components/subscription-section';
-import Faq from '@/components/faq';
+import nextDynamic from 'next/dynamic';
+
+const TopCompanies = nextDynamic(() => import('@/components/top-companies'), {
+  loading: () => <Skeleton className="h-[300px] w-full" />,
+});
+const FeaturedJobs = nextDynamic(() => import('@/components/featured-jobs'), {
+  loading: () => <Skeleton className="h-[500px] w-full" />,
+});
+const WhyChooseUs = nextDynamic(() => import('@/components/why-choose-us'), {
+  loading: () => <Skeleton className="h-[300px] w-full" />,
+});
+const VolunteerSection = nextDynamic(() => import('@/components/volunteer-section'), {
+    loading: () => <Skeleton className="h-[400px] w-full" />,
+});
+const JobsByLocation = nextDynamic(() => import('@/components/jobs-by-location'), {
+    loading: () => <Skeleton className="h-[400px] w-full" />,
+});
+const Testimonials = nextDynamic(() => import('@/components/testimonials'), {
+    loading: () => <Skeleton className="h-[400px] w-full" />,
+});
+const HiringSection = nextDynamic(() => import('@/components/hiring-section'), {
+    loading: () => <Skeleton className="h-[500px] w-full" />,
+});
+const LatestNews = nextDynamic(() => import('@/components/latest-news'), {
+    loading: () => <Skeleton className="h-[500px] w-full" />,
+});
+const SubscriptionSection = nextDynamic(() => import('@/components/subscription-section'), {
+    loading: () => <Skeleton className="h-[300px] w-full" />,
+});
+const Faq = nextDynamic(() => import('@/components/faq'), {
+    loading: () => <Skeleton className="h-[500px] w-full" />,
+});
 
 
 export const dynamic = "force-dynamic";
