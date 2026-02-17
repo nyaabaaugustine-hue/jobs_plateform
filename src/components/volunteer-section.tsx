@@ -13,7 +13,7 @@ export default function VolunteerSection() {
   const bgImage = PlaceHolderImages.find((p) => p.id === 'freedom-justice');
 
   return (
-    <section className="relative py-24 overflow-hidden bg-[#f6f4ee] dark:bg-background">
+    <section className="relative py-24 overflow-hidden">
       {/* Background Image with Overlay */}
       {bgImage && (
         <>
@@ -23,6 +23,7 @@ export default function VolunteerSection() {
             fill
             className="object-cover z-0"
             data-ai-hint={bgImage.imageHint}
+            priority
           />
           <div className="absolute inset-0 bg-background/90 z-10" />
         </>
