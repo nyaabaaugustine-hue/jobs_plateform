@@ -1,4 +1,3 @@
-
 'use client';
 
 import Image from 'next/image';
@@ -89,15 +88,15 @@ export default function JobCard({ job }: JobCardProps) {
       <CardFooter className="p-4 flex items-end justify-between bg-secondary/50">
         <div className="flex flex-col text-left">
            <div className="flex items-baseline gap-1">
-            <span className="font-headline text-lg font-bold text-gold">{salary}</span>
-            <span className="text-sm text-gold/80">/{period}</span>
+            <span className="font-headline text-lg font-bold text-foreground">{salary}</span>
+            <span className="text-sm text-foreground/80">/{period}</span>
           </div>
           <div className="flex items-center gap-1 text-xs text-muted-foreground mt-1">
             <Clock className="h-3 w-3" />
             <ClientSideDate dateString={job.postedDate} />
           </div>
         </div>
-        <Button asChild className="rounded-lg bg-primary text-primary-foreground font-semibold shadow-lg transform transition-transform hover:scale-105 hover:bg-primary/90">
+        <Button asChild variant="secondary" className="rounded-lg font-semibold shadow-lg transform transition-transform hover:scale-105">
           <Link href={`/jobs/${job.id}`}>
             Apply Now
           </Link>
@@ -106,5 +105,3 @@ export default function JobCard({ job }: JobCardProps) {
     </Card>
   );
 }
-
-    
