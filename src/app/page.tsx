@@ -24,20 +24,20 @@ export default function HomePage() {
   
   return (
     <main className="flex-1 bg-background">
-      {/* Hero Section - 80% Opacity */}
+      {/* Hero Section - 93% Opacity */}
       <section className="relative w-full h-[700px] flex items-center justify-center text-center overflow-hidden">
         {heroImage && (
             <Image
               src={heroImage.imageUrl}
               alt={heroImage.description}
               fill
-              className="object-cover z-0 opacity-80"
+              className="object-cover z-0 opacity-[0.93]"
               data-ai-hint={heroImage.imageHint}
               priority
               sizes="100vw"
             />
           )}
-        <div className="absolute inset-0 bg-background/40 z-10" />
+        <div className="absolute inset-0 bg-background/10 z-10" />
         <div className="relative z-20 container mx-auto px-6 max-w-4xl">
           <div className="flex flex-col justify-center space-y-6">
             <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl !leading-tight font-headline text-foreground animate-in fade-in slide-in-from-bottom-4 duration-700">

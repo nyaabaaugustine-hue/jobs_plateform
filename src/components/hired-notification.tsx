@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
@@ -21,6 +21,7 @@ export default function HiredNotification() {
   const { toast, dismiss } = useToast();
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const pathname = usePathname();
+  const [isStopped, setIsStopped] = useState(false);
 
   const isDashboardPage =
     pathname.startsWith('/admin') ||
@@ -28,6 +29,7 @@ export default function HiredNotification() {
     pathname.startsWith('/employer');
 
   const stopNotifications = () => {
+    setIsStopped(true);
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
     }
@@ -37,8 +39,10 @@ export default function HiredNotification() {
   useEffect(() => {
     let initialTimeout: NodeJS.Timeout | null = null;
     
-    if (!isDashboardPage) {
+    if (!isDashboardPage && !isStopped) {
       const showRandomHiredNotification = () => {
+        if (isStopped) return;
+        
         const example = hiredExamples[Math.floor(Math.random() * hiredExamples.length)];
         const userAvatar = PlaceHolderImages.find((img) => img.id === example.avatarId);
 
@@ -80,9 +84,11 @@ export default function HiredNotification() {
 
       // Start the cycle exactly 4 seconds after initial load
       initialTimeout = setTimeout(() => {
-        showRandomHiredNotification();
-        // Cycle every 25 seconds for high engagement
-        intervalRef.current = setInterval(showRandomHiredNotification, 25000);
+        if (!isStopped) {
+            showRandomHiredNotification();
+            // Cycle every 25 seconds
+            intervalRef.current = setInterval(showRandomHiredNotification, 25000);
+        }
       }, 4000);
     }
 
@@ -91,7 +97,7 @@ export default function HiredNotification() {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [toast, dismiss, isDashboardPage]);
+  }, [toast, dismiss, isDashboardPage, isStopped]);
 
   return null;
 }

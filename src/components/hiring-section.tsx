@@ -16,19 +16,19 @@ export default function HiringSection() {
 
   return (
     <section className="relative py-24 lg:py-32 overflow-hidden bg-background">
-      {/* 60% Opacity Background Image for Shining Milky White Bleed */}
+      {/* 93% Opacity Background Image */}
       {bgImage && (
         <Image
           src={bgImage.imageUrl}
           alt={bgImage.description}
           fill
-          className="object-cover z-0 opacity-60"
+          className="object-cover z-0 opacity-[0.93]"
           data-ai-hint={bgImage.imageHint}
           priority
         />
       )}
       
-      <div className="absolute inset-0 bg-background/40 z-10" />
+      <div className="absolute inset-0 bg-background/20 z-10" />
 
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
