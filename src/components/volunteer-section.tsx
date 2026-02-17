@@ -1,4 +1,3 @@
-
 import { DUMMY_OPPORTUNITIES } from '@/lib/data';
 import SectionHeader from './shared/section-header';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
@@ -17,7 +16,7 @@ export default function VolunteerSection() {
         />
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {DUMMY_OPPORTUNITIES.map((opportunity, index) => (
-            <Card key={index} className="text-center animate-in fade-in slide-in-from-bottom-4 duration-700 bg-card" style={{ animationDelay: `${200 + index * 100}ms` }}>
+            <Card key={index} className="text-center animate-in fade-in slide-in-from-bottom-4 duration-700 bg-card border-none shadow-md hover:shadow-lg transition-shadow" style={{ animationDelay: `${200 + index * 100}ms` }}>
               <CardHeader className="items-center">
                 <div className={cn("flex h-16 w-16 items-center justify-center rounded-full", opportunity.iconBg)}>
                   <opportunity.icon className={cn("h-8 w-8", opportunity.iconColor)} />
@@ -31,7 +30,7 @@ export default function VolunteerSection() {
           ))}
         </div>
         <div className="mt-12 text-center animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '500ms' }}>
-          <Button asChild size="lg" variant="outline">
+          <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/5">
             <Link href="/opportunities">Explore Opportunities</Link>
           </Button>
         </div>
