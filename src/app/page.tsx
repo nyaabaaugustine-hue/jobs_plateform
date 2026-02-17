@@ -1,4 +1,3 @@
-
 import Image from 'next/image';
 import { DUMMY_JOBS, DUMMY_COMPANIES, DUMMY_LOCATIONS, DUMMY_BLOG_POSTS } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
