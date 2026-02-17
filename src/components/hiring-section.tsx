@@ -26,7 +26,7 @@ export default function HiringSection() {
             <ul className="space-y-3">
               {benefits.map((benefit, index) => (
                 <li key={index} className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-primary" />
+                  <CheckCircle className="h-5 w-5 text-accent" />
                   <span className="text-muted-foreground">{benefit}</span>
                 </li>
               ))}
