@@ -1,5 +1,6 @@
 
 
+
 # Chapel Hill - AI-Powered Job & Recruitment Platform
 
 Chapel Hill is a sophisticated, AI-powered platform designed to connect job seekers with employers. It serves as a comprehensive job board with distinct user roles and features, all built on a modern, scalable tech stack.
