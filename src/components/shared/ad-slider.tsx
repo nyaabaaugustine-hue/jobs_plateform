@@ -65,7 +65,6 @@ export default function AdSlider() {
     pathname === '/register';
 
   useEffect(() => {
-    // Immediate return if dashboard or user previously closed it in this session
     if (isDashboardPage || ads.length === 0 || sessionStorage.getItem('adSliderClosed') === 'true') {
         return;
     }
@@ -79,23 +78,19 @@ export default function AdSlider() {
 
     // Run interval every 47 seconds to cycle through ads
     const cycleInterval = setInterval(() => {
-        // If user has closed it, clear the interval entirely
         if (sessionStorage.getItem('adSliderClosed') === 'true') {
             clearInterval(cycleInterval);
             return;
         }
 
-        // Smooth slide out before switching
         setIsPanelOpen(false); 
 
         setTimeout(() => {
-            setCurrentAdIndex(prevIndex => (prevIndex + 1) % ads.length);
-            
-            // Re-open if not closed by user
             if (sessionStorage.getItem('adSliderClosed') !== 'true') {
+                setCurrentAdIndex(prevIndex => (prevIndex + 1) % ads.length);
                 setIsPanelOpen(true);
             }
-        }, 1000); // 1s transition buffer
+        }, 1000);
 
     }, 47000);
 
@@ -107,7 +102,6 @@ export default function AdSlider() {
   
   const handleClose = () => {
     setIsPanelOpen(false);
-    // User explicitly closed it, so stop showing it for this session
     sessionStorage.setItem('adSliderClosed', 'true');
   };
 

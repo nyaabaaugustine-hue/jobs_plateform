@@ -46,7 +46,6 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
 
   return (
     <>
-      {/* Subtle overlay that doesn't block interaction */}
       <div
         className={cn(
           'fixed inset-0 z-[99] transition-all duration-700 pointer-events-none bg-black/0',

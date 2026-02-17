@@ -24,7 +24,6 @@ export default function VolunteerSection() {
             data-ai-hint={bgImage.imageHint}
             priority
           />
-          {/* 50% Transparent Rich Creme Overlay */}
           <div className="absolute inset-0 z-10" style={{ backgroundColor: 'hsla(48, 20%, 94%, 0.5)' }} />
         </>
       )}

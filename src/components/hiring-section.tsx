@@ -15,7 +15,7 @@ export default function HiringSection() {
   ];
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-24 lg:py-32 overflow-hidden">
       {/* Section Background Image */}
       {bgImage && (
         <Image
@@ -36,7 +36,7 @@ export default function HiringSection() {
                 <h2 className="font-headline text-4xl font-extrabold tracking-tight !leading-tight text-white sm:text-5xl lg:text-6xl">
                   Hire Top-Tier React Talent in 48 Hours
                 </h2>
-                <p className="text-xl text-gray-100 font-bold max-w-xl">
+                <p className="text-xl text-gray-100 font-medium max-w-xl">
                   Discover qualified professionals ready to bring your projects to life. Over 4,500+ employers trust our platform to find the best developers in the ecosystem.
                 </p>
                 <ul className="space-y-4">
@@ -71,19 +71,19 @@ export default function HiringSection() {
             </div>
             <div className="relative flex items-center justify-center animate-in fade-in slide-in-from-right duration-1000">
                 {hiringImage && (
-                  <div className="relative group">
-                    <div className="relative z-10 rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4 border-white/10 transition-transform duration-500 group-hover:scale-[1.02]">
+                  <div className="relative group w-full max-w-[600px]">
+                    <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.6)] border-4 border-white/10 transition-transform duration-500 group-hover:scale-[1.03]">
                       <Image
                           src={hiringImage.imageUrl}
                           alt={hiringImage.description}
-                          width={500}
-                          height={600}
+                          width={600}
+                          height={750}
                           className="object-cover w-full aspect-[4/5]"
                           data-ai-hint={hiringImage.imageHint}
                       />
                     </div>
-                    {/* Subtle glow effect */}
-                    <div className="absolute -inset-6 bg-primary/20 blur-3xl -z-10 rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
+                    {/* Glow effect */}
+                    <div className="absolute -inset-10 bg-primary/30 blur-[100px] -z-10 rounded-full opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
                   </div>
                 )}
             </div>

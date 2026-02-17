@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useEffect } from 'react';
@@ -11,7 +10,6 @@ export function LoadingManager() {
     document.body.classList.add('overflow-hidden');
 
     const handleLoad = () => {
-        // Ultra-snappy transition: just enough to prevent a flicker
         setTimeout(() => {
             document.body.classList.remove('overflow-hidden');
             setIsReady(true);
@@ -24,7 +22,6 @@ export function LoadingManager() {
       window.addEventListener('load', handleLoad, { once: true });
     }
       
-    // Aggressive fallback for best user experience
     const fallbackTimeout = setTimeout(handleLoad, 600);
 
     return () => {
