@@ -56,7 +56,6 @@ export default function AdSlider() {
   const pathname = usePathname();
   const [currentAdIndex, setCurrentAdIndex] = useState(0);
   const [isPanelOpen, setIsPanelOpen] = useState(false);
-  const [hasStarted, setHasStarted] = useState(false);
   
   const isDashboardPage =
     pathname.startsWith('/admin') ||
@@ -68,17 +67,10 @@ export default function AdSlider() {
   useEffect(() => {
     if (isDashboardPage || ads.length === 0) return;
 
-    // Initial Appearance: Exactly 5 Seconds after load
+    // Initial Appearance: 5 Seconds after load
     const initialTimeout = setTimeout(() => {
       setIsPanelOpen(true);
-      setHasStarted(true);
     }, 5000);
-
-    return () => clearTimeout(initialTimeout);
-  }, [isDashboardPage]);
-
-  useEffect(() => {
-    if (!hasStarted || isDashboardPage) return;
 
     // Cycle every 47 seconds
     const cycleInterval = setInterval(() => {
@@ -91,8 +83,11 @@ export default function AdSlider() {
 
     }, 47000);
 
-    return () => clearInterval(cycleInterval);
-  }, [hasStarted, isDashboardPage]);
+    return () => {
+        clearTimeout(initialTimeout);
+        clearInterval(cycleInterval);
+    };
+  }, [isDashboardPage]);
   
   const handleClose = () => {
     setIsPanelOpen(false);
