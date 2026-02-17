@@ -49,7 +49,7 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
       <div
         className={cn(
           'fixed inset-0 z-[99] transition-all duration-700 pointer-events-none bg-black/0',
-          isOpen && 'bg-black/5 backdrop-blur-[1px] pointer-events-auto'
+          isOpen && 'bg-black/10 backdrop-blur-[2px] pointer-events-auto'
         )}
         onClick={onClose}
       />
@@ -66,7 +66,7 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
         aria-labelledby="ad-panel-headline"
       >
         <Card
-          className="overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.2)] group border-2 border-primary/10 bg-card/95 backdrop-blur-xl rounded-2xl"
+          className="overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.3)] group border-2 border-primary/10 bg-card/95 backdrop-blur-xl rounded-2xl"
         >
           <Button
             variant="ghost"
@@ -90,8 +90,8 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
               />
             </div>
             <div className="absolute top-3 left-3 flex gap-2">
-                <div className="bg-white/95 px-3 py-1.5 rounded-sm border-l-[3px] border-[#800020] shadow-lg">
-                    <span className="font-headline text-[10px] font-black tracking-[0.3em] uppercase text-[#800020]">
+                <div className="bg-white/95 px-3 py-1.5 rounded-sm border-l-[3px] border-burgundy shadow-lg">
+                    <span className="font-headline text-[10px] font-black tracking-[0.3em] uppercase text-burgundy">
                         ADVERTISEMENT
                     </span>
                 </div>
@@ -107,10 +107,10 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
             </p>
             
             <div className="pt-5 mt-5 border-t border-border/50 flex flex-col gap-3">
-              {/* PRIMARY VISIT BUTTON - MILKY WHITE WITH BLACK/GOLD RINGS */}
+              {/* PRIMARY VISIT BUTTON - MILKY WHITE WITH BLACK BORDER AND GOLD RING */}
               <Button 
                 asChild 
-                className="w-full h-12 bg-[#fdfdfd] text-black border-2 border-black ring-2 ring-[#FFD700] ring-offset-0 font-black tracking-wide hover:bg-white hover:scale-[1.02] transition-all rounded-xl shadow-lg"
+                className="w-full h-12 bg-white text-black border-2 border-black ring-2 ring-gold ring-offset-0 font-black tracking-wide hover:bg-white/90 hover:scale-[1.02] transition-all rounded-xl shadow-lg"
               >
                 <Link href={`/companies/${ad.company.id}`}>
                   Visit Website <ArrowUpRight className="ml-2 h-4 w-4"/>
@@ -121,7 +121,7 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
               <Button 
                 asChild 
                 variant="outline"
-                className="w-full h-10 border-dashed border-[#800020]/30 text-[#800020] font-bold hover:bg-[#800020]/5 hover:text-[#800020] transition-all rounded-xl"
+                className="w-full h-10 border-dashed border-burgundy/30 text-burgundy font-bold hover:bg-burgundy/5 hover:text-burgundy transition-all rounded-xl"
               >
                 <Link href="/contacts">
                   <Megaphone className="mr-2 h-4 w-4" /> Advertise with us
