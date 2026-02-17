@@ -66,7 +66,9 @@ export default function AdSlider() {
     pathname.startsWith('/employer');
 
   useEffect(() => {
-    if (isDashboardPage || ads.length === 0) return;
+    if (isDashboardPage || ads.length === 0 || sessionStorage.getItem('adSliderClosed') === 'true') {
+        return;
+    }
 
     // Show the first ad after an initial delay
     const initialTimeout = setTimeout(() => {
@@ -75,6 +77,11 @@ export default function AdSlider() {
 
     // Then, cycle through ads every 30 seconds
     const interval = setInterval(() => {
+        if (sessionStorage.getItem('adSliderClosed') === 'true') {
+            clearInterval(interval);
+            return;
+        }
+
         setIsPanelOpen(false); // Close the panel to animate out
 
         setTimeout(() => {
@@ -90,6 +97,11 @@ export default function AdSlider() {
     };
   }, [isDashboardPage]);
   
+  const handleClose = () => {
+    setIsPanelOpen(false);
+    sessionStorage.setItem('adSliderClosed', 'true');
+  };
+
   if (isDashboardPage || ads.length === 0) {
       return null;
   }
@@ -97,7 +109,7 @@ export default function AdSlider() {
   return (
     <AdPanel
       isOpen={isPanelOpen}
-      onClose={() => setIsPanelOpen(false)}
+      onClose={handleClose}
       ad={ads[currentAdIndex]}
     />
   );
