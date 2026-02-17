@@ -24,6 +24,7 @@ export default function HiringSection() {
           alt="Office background"
           fill
           className="object-cover z-0"
+          data-ai-hint={sectionBgImage.imageHint}
         />
       )}
       <div className="absolute inset-0 bg-black/70 z-10" />
