@@ -31,7 +31,7 @@ export default function HiringSection() {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             <div className="flex flex-col space-y-6">
                 <h2 className="font-headline text-4xl font-bold tracking-tight !leading-tight text-foreground sm:text-5xl">Hire Top-Tier React Talent in 48 Hours</h2>
-                <p className="text-lg text-muted-foreground">Discover qualified professionals ready to bring your projects to life. Over 4,500+ employers trust our platform to find the best developers in the ecosystem.</p>
+                <p className="text-lg text-foreground font-bold">Discover qualified professionals ready to bring your projects to life. Over 4,500+ employers trust our platform to find the best developers in the ecosystem.</p>
                 <ul className="space-y-3">
                     {benefits.map((benefit, index) => (
                         <li key={index} className="flex items-center gap-3">
@@ -41,7 +41,7 @@ export default function HiringSection() {
                     ))}
                 </ul>
                 <div className="pt-4 flex flex-wrap items-center gap-4">
-                    <Button asChild size="lg" variant="outline" className="font-semibold border-accent text-accent hover:bg-accent/10 hover:text-accent">
+                    <Button asChild size="lg" variant="outline" className="font-semibold">
                       <Link href="/employer/jobs/new">Post a Job</Link>
                     </Button>
                     <Button asChild size="lg" variant="outline">
