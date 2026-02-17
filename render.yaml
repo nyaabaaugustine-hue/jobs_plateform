@@ -11,8 +11,6 @@ services:
       # Standard Auth0 Vars
       - key: AUTH0_SECRET
         value: 17ae29c93834cd608c6f8c4b7d63441af9c1ecc4c3b0e26ed02423c0f2672616
-      - key: AUTH0_BASE_URL
-        value: https://jobs-plateform-vvat.onrender.com
       - key: AUTH0_ISSUER_BASE_URL
         value: https://dev-nklk657qus8k276s.us.auth0.com
       - key: AUTH0_CLIENT_ID
