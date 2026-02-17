@@ -10,33 +10,33 @@
 
 @layer base {
   :root {
-    /* Refined Milk White - Reduced Contrast */
-    --background: 48 15% 98%; /* rgb(251, 250, 248) */
-    --foreground: 25 35% 15%;
+    /* Rich Creme Grey White - High Contrast */
+    --background: 48 20% 94%; /* Richer Creme */
+    --foreground: 222 47% 5%; /* Deep Charcoal for High Contrast */
     
     --card: 0 0% 100%;
-    --card-foreground: 25 35% 15%;
+    --card-foreground: 222 47% 5%;
     
-    --popover: 48 15% 98%;
-    --popover-foreground: 25 35% 15%;
+    --popover: 48 20% 94%;
+    --popover-foreground: 222 47% 5%;
 
     --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
     
-    --secondary: 48 15% 95%;
-    --secondary-foreground: 25 35% 15%;
+    --secondary: 48 20% 90%;
+    --secondary-foreground: 222 47% 5%;
     
-    --muted: 48 15% 93%;
-    --muted-foreground: 25 35% 40%;
+    --muted: 48 10% 85%;
+    --muted-foreground: 222 20% 30%;
     
     --accent: 45 85% 50%;
-    --accent-foreground: 25 35% 15%;
+    --accent-foreground: 222 47% 5%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 25 20% 92%; 
-    --input: 25 20% 92%;
+    --border: 48 10% 85%; 
+    --input: 48 10% 85%;
     --ring: 217 91% 60%;
 
     --radius: 0.75rem;
@@ -60,13 +60,13 @@
 
   .dark {
     --background: 220 10% 8%;
-    --foreground: 43 33% 95%; 
+    --foreground: 48 20% 94%; 
     
     --card: 220 10% 12%;
-    --card-foreground: 43 33% 95%;
+    --card-foreground: 48 20% 94%;
     
     --popover: 220 10% 8%;
-    --popover-foreground: 43 33% 95%;
+    --popover-foreground: 48 20% 94%;
 
     --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
