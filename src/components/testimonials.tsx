@@ -1,4 +1,6 @@
 
+'use client';
+
 import type { Review } from '@/lib/types';
 import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -6,15 +8,18 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { DUMMY_REVIEWS } from '@/lib/data';
 import StarRating from './shared/star-rating';
 import Image from 'next/image';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import React from 'react';
 
 const TestimonialCard = ({ review }: { review: Review }) => {
     const userAvatar = PlaceHolderImages.find((img) => img.id === review.user.avatar);
     return (
-        <div className="mx-2 flex-shrink-0 w-[380px]">
+        <div className="p-1 h-full">
             <Card className="flex h-full flex-col justify-between">
                 <CardContent className="p-6 flex-grow">
                     <StarRating rating={review.rating} />
-                    <p className="mt-4 text-muted-foreground italic break-all">"{review.comment}"</p>
+                    <p className="mt-4 text-muted-foreground italic break-words">"{review.comment}"</p>
                 </CardContent>
                 <div className="flex items-center gap-4 border-t p-6 bg-secondary/30">
                     <Avatar>
@@ -39,8 +44,9 @@ export default function Testimonials() {
     return null;
   }
   
-  const firstRowReviews = reviews.slice(0, Math.ceil(reviews.length / 2));
-  const secondRowReviews = reviews.slice(Math.ceil(reviews.length / 2));
+  const plugin = React.useRef(
+    Autoplay({ delay: 5000, stopOnInteraction: true })
+  )
 
   return (
     <section className="relative py-16 md:py-24">
@@ -54,25 +60,31 @@ export default function Testimonials() {
         />
       )}
       <div className="absolute inset-0 bg-background/90 z-10" />
-      <div className="relative z-20 container mx-auto max-w-7xl px-0">
-        <div className="mb-12 text-center animate-in fade-in slide-in-from-bottom-4 duration-700 px-6 lg:px-12">
+      <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
+        <div className="mb-12 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
             <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-foreground">What Our Users Say</h2>
         </div>
 
-        <div className="relative w-full overflow-hidden space-y-2">
-            <div className="flex animate-marquee-ltr whitespace-nowrap py-4">
-                {[...firstRowReviews, ...firstRowReviews].filter(review => review.user).map((review, index) => (
-                    <TestimonialCard key={`${review.id}-1-${index}`} review={review} />
-                ))}
-            </div>
-            <div className="flex animate-marquee-rtl whitespace-nowrap py-4">
-                {[...secondRowReviews, ...secondRowReviews].filter(review => review.user).map((review, index) => (
-                    <TestimonialCard key={`${review.id}-2-${index}`} review={review} />
-                ))}
-            </div>
-            <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background to-transparent" />
-            <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background to-transparent" />
-        </div>
+        <Carousel
+          plugins={[plugin.current]}
+          className="w-full"
+          onMouseEnter={plugin.current.stop}
+          onMouseLeave={plugin.current.reset}
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+        >
+          <CarouselContent>
+            {reviews.filter(review => review.user).map((review, index) => (
+              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                <TestimonialCard review={review} />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="hidden lg:flex" />
+          <CarouselNext className="hidden lg:flex" />
+        </Carousel>
       </div>
     </section>
   );
