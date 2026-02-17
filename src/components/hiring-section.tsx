@@ -26,13 +26,13 @@ export default function HiringSection() {
             <ul className="space-y-3">
               {benefits.map((benefit, index) => (
                 <li key={index} className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-accent" />
+                  <CheckCircle className="h-5 w-5 text-gold" />
                   <span className="text-muted-foreground">{benefit}</span>
                 </li>
               ))}
             </ul>
             <div className="pt-4 flex flex-wrap items-center gap-4">
-              <Button asChild size="lg" variant="outline" className="rounded-xl transform transition-transform hover:scale-105 border-accent text-accent hover:text-accent-foreground">
+              <Button asChild size="lg" variant="outline" className="rounded-xl transform transition-transform hover:scale-105 border-gold text-gold hover:text-accent-foreground hover:bg-gold/10">
                 <Link href="/employer/jobs/new">Post a Job</Link>
               </Button>
                <Button asChild size="lg" variant="outline">
