@@ -1,3 +1,4 @@
+
 import { DUMMY_OPPORTUNITIES } from '@/lib/data';
 import SectionHeader from './shared/section-header';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
@@ -8,10 +9,10 @@ import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function VolunteerSection() {
-  const bgImage = PlaceHolderImages.find((p) => p.id === 'featured-jobs-bg');
+  const bgImage = PlaceHolderImages.find((p) => p.id === 'location-accra');
 
   return (
-    <section className="relative py-16 md:py-24">
+    <section className="relative pt-8 md:pt-12 pb-16 md:pb-24">
        {bgImage && (
         <Image
           src={bgImage.imageUrl}
@@ -30,7 +31,7 @@ export default function VolunteerSection() {
         />
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {DUMMY_OPPORTUNITIES.map((opportunity, index) => (
-            <Card key={index} className="text-center animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: `${200 + index * 100}ms` }}>
+            <Card key={index} className="text-center animate-in fade-in slide-in-from-bottom-4 duration-700 bg-card/50 backdrop-blur-sm" style={{ animationDelay: `${200 + index * 100}ms` }}>
               <CardHeader className="items-center">
                 <div className={cn("flex h-16 w-16 items-center justify-center rounded-full", opportunity.iconBg)}>
                   <opportunity.icon className={cn("h-8 w-8", opportunity.iconColor)} />
