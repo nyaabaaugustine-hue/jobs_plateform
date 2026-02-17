@@ -1,4 +1,3 @@
-
 import { DUMMY_COMPANIES } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
@@ -18,7 +17,7 @@ export default function OurPartners() {
           src={bgImage.imageUrl}
           alt={bgImage.description}
           fill
-          className="object-cover z-0 opacity-80"
+          className="object-cover z-0 opacity-[0.07]"
           data-ai-hint={bgImage.imageHint}
         />
       )}

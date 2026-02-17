@@ -4,8 +4,6 @@ import type { BlogPost } from '@/lib/types';
 import BlogPostCard from './blog-post-card';
 import { Button } from './ui/button';
 import Link from 'next/link';
-import { Skeleton } from './ui/skeleton';
-import { Card, CardContent } from './ui/card';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
@@ -19,7 +17,7 @@ export default function LatestNews({ posts }: { posts: BlogPost[] }) {
           src={bgImage.imageUrl}
           alt={bgImage.description}
           fill
-          className="object-cover z-0 opacity-80"
+          className="object-cover z-0 opacity-[0.07]"
           data-ai-hint={bgImage.imageHint}
         />
       )}

@@ -16,19 +16,19 @@ export default function HiringSection() {
 
   return (
     <section className="relative py-24 lg:py-32 overflow-hidden bg-background">
-      {/* Background Image reduced to 80% opacity to allow Shining White theme to bleed through */}
+      {/* Background Image set to 7% opacity (93% reduction) to ensure the Shining White theme shines through */}
       {bgImage && (
         <Image
           src={bgImage.imageUrl}
           alt={bgImage.description}
           fill
-          className="object-cover z-0 opacity-80"
+          className="object-cover z-0 opacity-[0.07]"
           data-ai-hint={bgImage.imageHint}
           priority
         />
       )}
       
-      {/* Shining overlay to enhance the milky white look without being dark */}
+      {/* Shining overlay to enhance the milky white look */}
       <div className="absolute inset-0 bg-background/40 z-10" />
 
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
@@ -74,7 +74,7 @@ export default function HiringSection() {
             <div className="relative flex items-center justify-center animate-in fade-in slide-in-from-right duration-1000">
                 {hiringImage && (
                   <div className="relative group w-full max-w-[600px]">
-                    <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.2)] border-4 border-white transition-transform duration-500 group-hover:scale-[1.03]">
+                    <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.15)] border-4 border-white transition-transform duration-500 group-hover:scale-[1.03]">
                       <Image
                           src={hiringImage.imageUrl}
                           alt={hiringImage.description}
@@ -85,7 +85,7 @@ export default function HiringSection() {
                       />
                     </div>
                     {/* Visual Pulse for "Shining" effect */}
-                    <div className="absolute -inset-10 bg-primary/10 blur-[100px] -z-10 rounded-full opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
+                    <div className="absolute -inset-10 bg-primary/5 blur-[100px] -z-10 rounded-full opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
                   </div>
                 )}
             </div>

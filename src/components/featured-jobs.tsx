@@ -26,7 +26,7 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
           src={bgImage.imageUrl}
           alt={bgImage.description}
           fill
-          className="object-cover z-0 opacity-80"
+          className="object-cover z-0 opacity-[0.07]"
           data-ai-hint={bgImage.imageHint}
         />
       )}
