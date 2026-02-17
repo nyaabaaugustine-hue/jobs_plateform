@@ -1,4 +1,3 @@
-
 'use client';
 
 import { DUMMY_OPPORTUNITIES } from '@/lib/data';
@@ -14,7 +13,7 @@ export default function VolunteerSection() {
   const bgImage = PlaceHolderImages.find((p) => p.id === 'freedom-justice');
 
   return (
-    <section className="relative py-24 bg-[#f6f4ee] dark:bg-secondary/10 overflow-hidden">
+    <section className="relative py-24 overflow-hidden bg-[#f6f4ee] dark:bg-background">
       {/* Background Image with Overlay */}
       {bgImage && (
         <>

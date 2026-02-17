@@ -9,34 +9,23 @@ export default function GlobalLoader() {
   const { isReady } = useAppReady();
   const logoImage = PlaceHolderImages.find((p) => p.id === 'main-logo');
 
-  // Animation variants
   const containerVariants = {
     exit: {
-      transition: {
-        staggerChildren: 0.1,
-      },
+      opacity: 0,
+      transition: { duration: 0.4, ease: "easeInOut" }
     },
   };
 
   const logoVariants = {
-    initial: { opacity: 0, scale: 0.8, y: 10 },
+    initial: { opacity: 0, scale: 0.8, y: 20 },
     animate: { 
       opacity: 1, 
       scale: 1, 
       y: 0,
-      transition: { duration: 0.6, ease: "easeOut" } 
-    },
-    exit: {
-      opacity: 0,
-      scale: 1.1,
-      transition: { duration: 0.3, ease: "easeIn" },
-    },
-  };
-
-  const bgVariants = {
-    exit: {
-      opacity: 0,
-      transition: { duration: 0.5, ease: "easeInOut" },
+      transition: { 
+        duration: 0.5, 
+        ease: [0.22, 1, 0.36, 1] 
+      } 
     },
   };
 
@@ -49,54 +38,46 @@ export default function GlobalLoader() {
           initial="initial"
           animate="animate"
           exit="exit"
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-background"
           role="status"
           aria-live="polite"
           aria-label="Loading platform"
         >
-          {/* Background Gradient Pulse */}
-          <motion.div 
-            variants={bgVariants}
-            className="absolute inset-0 flex items-center justify-center"
-          >
-            <div className="h-64 w-64 bg-primary/20 rounded-full blur-[100px] animate-pulse" />
-          </motion.div>
-
-          {/* Logo Content */}
-          <motion.div
-            variants={logoVariants}
-            className="relative z-10 flex flex-col items-center gap-6"
-          >
+          <div className="relative flex flex-col items-center gap-8">
             {logoImage && (
-              <div className="relative">
-                <Image
-                  src={logoImage.imageUrl}
-                  alt="Chapel Hill Logo"
-                  width={200}
-                  height={60}
-                  className="object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.4)]"
-                  priority
-                />
-                {/* Shine effect passing through logo */}
-                <motion.div 
-                  initial={{ x: '-100%', opacity: 0 }}
-                  animate={{ x: '200%', opacity: [0, 0.5, 0] }}
-                  transition={{ repeat: Infinity, duration: 2, ease: "linear", delay: 0.5 }}
-                  className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-[-20deg]"
-                />
-              </div>
+              <motion.div
+                variants={logoVariants}
+                className="relative"
+              >
+                <div className="relative z-10 bg-white/90 p-4 rounded-xl shadow-2xl ring-1 ring-black/5">
+                  <Image
+                    src={logoImage.imageUrl}
+                    alt="Chapel Hill Logo"
+                    width={180}
+                    height={60}
+                    className="object-contain"
+                    priority
+                  />
+                </div>
+                {/* Logo Glow */}
+                <div className="absolute -inset-10 bg-primary/20 blur-3xl -z-10 rounded-full animate-pulse" />
+              </motion.div>
             )}
             
-            {/* Minimal loading bar */}
-            <div className="w-32 h-[2px] bg-white/10 rounded-full overflow-hidden">
+            {/* Loading Indicator */}
+            <div className="w-48 h-1 bg-muted rounded-full overflow-hidden">
               <motion.div 
                 initial={{ x: '-100%' }}
                 animate={{ x: '100%' }}
-                transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-                className="w-full h-full bg-primary shadow-[0_0_10px_hsl(var(--primary))]"
+                transition={{ 
+                  repeat: Infinity, 
+                  duration: 1.2, 
+                  ease: "easeInOut" 
+                }}
+                className="w-full h-full bg-primary"
               />
             </div>
-          </motion.div>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>
