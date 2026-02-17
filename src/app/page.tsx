@@ -131,7 +131,7 @@ export default function HomePage() {
   return (
     <main className="flex-1">
       {/* Hero Section (Stays static for fast LCP) */}
-      <section className="relative w-full py-24 md:py-32 flex items-center justify-center text-center bg-background">
+      <section className="relative w-full h-[700px] flex items-center justify-center text-center bg-background">
         {heroImage && (
             <Image
               src={heroImage.imageUrl}
@@ -144,6 +144,7 @@ export default function HomePage() {
             />
           )}
         <div className="absolute inset-0 bg-black/60 z-10" />
+        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-b from-transparent to-background z-10" />
         <div className="relative z-20 container mx-auto px-6 max-w-4xl">
           <div className="flex flex-col justify-center space-y-6">
             <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl !leading-tight font-headline text-white animate-in fade-in slide-in-from-bottom-4 duration-700">
@@ -158,7 +159,9 @@ export default function HomePage() {
       </section>
 
       {/* Statically loaded sections */}
-      <HiringSection />
+      <div className="relative z-20 -mt-24">
+        <HiringSection />
+      </div>
 
       {/* Dynamically loaded sections */}
       <Suspense fallback={<TopCompaniesSkeleton />}>

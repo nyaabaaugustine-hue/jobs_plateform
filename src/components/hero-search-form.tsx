@@ -23,7 +23,7 @@ export default function HeroSearchForm() {
   };
 
   return (
-    <div className="rounded-2xl bg-background/50 p-2 border border-border/50 backdrop-blur-md shadow-2xl shadow-black/5">
+    <div className="rounded-2xl bg-background/50 p-2 border border-border/50 backdrop-blur-sm shadow-xl shadow-black/5">
       <form 
         onSubmit={handleSearch} 
         className="flex items-center flex-col sm:flex-row gap-4"
