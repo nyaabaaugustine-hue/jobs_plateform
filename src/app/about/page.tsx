@@ -23,10 +23,12 @@ import {
     BarChart, 
     PieChart 
 } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 export default function AboutPage() {
   const teamMembers = DUMMY_USERS.slice(0, 4);
   const missionLogo = PlaceHolderImages.find((p) => p.id === 'main-logo');
+  const categoryBgImage = PlaceHolderImages.find((p) => p.id === 'category-bg');
 
   const services = [
     {
@@ -104,20 +106,30 @@ export default function AboutPage() {
             </Card>
         </div>
         
-        <section className="py-16 md:py-24 bg-secondary">
-          <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+        <section className="relative py-16 md:py-24">
+            {categoryBgImage && (
+                <Image
+                    src={categoryBgImage.imageUrl}
+                    alt={categoryBgImage.description}
+                    fill
+                    className="object-cover z-0"
+                    data-ai-hint={categoryBgImage.imageHint}
+                />
+            )}
+            <div className="absolute inset-0 bg-background/90 z-10" />
+            <div className="container mx-auto max-w-7xl px-6 lg:px-12 relative z-20">
             <SectionHeader
               title="Our Services"
               subtitle="Comprehensive Human Capital Management solutions."
             />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {services.map((service, index) => (
-                <Card key={index} className="flex flex-col text-center items-center p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-in fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
+                <Card key={index} className="flex flex-col text-center items-center p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-in fade-in-up bg-card/70 backdrop-blur-sm border-t-4 border-transparent hover:border-primary">
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 mb-4">
                     <service.icon className="h-8 w-8 text-primary" />
                   </div>
                   <CardTitle className="mb-2 text-xl">{service.title}</CardTitle>
-                  <CardContent className="text-muted-foreground flex-grow p-0">
+                  <CardContent className="text-card-foreground/80 flex-grow p-0">
                     <p>{service.description}</p>
                   </CardContent>
                 </Card>
