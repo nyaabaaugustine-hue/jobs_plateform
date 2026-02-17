@@ -3,40 +3,16 @@ import Image from 'next/image';
 import { DUMMY_JOBS, DUMMY_COMPANIES, DUMMY_LOCATIONS, DUMMY_BLOG_POSTS } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import HeroSearchForm from '@/components/hero-search-form';
-import { Skeleton } from '@/components/ui/skeleton';
-import { Suspense } from 'react';
-import nextDynamic from 'next/dynamic';
-
-const TopCompanies = nextDynamic(() => import('@/components/top-companies'), {
-  loading: () => <Skeleton className="h-[300px] w-full" />,
-});
-const FeaturedJobs = nextDynamic(() => import('@/components/featured-jobs'), {
-  loading: () => <Skeleton className="h-[500px] w-full" />,
-});
-const WhyChooseUs = nextDynamic(() => import('@/components/why-choose-us'), {
-  loading: () => <Skeleton className="h-[300px] w-full" />,
-});
-const VolunteerSection = nextDynamic(() => import('@/components/volunteer-section'), {
-    loading: () => <Skeleton className="h-[400px] w-full" />,
-});
-const JobsByLocation = nextDynamic(() => import('@/components/jobs-by-location'), {
-    loading: () => <Skeleton className="h-[400px] w-full" />,
-});
-const Testimonials = nextDynamic(() => import('@/components/testimonials'), {
-    loading: () => <Skeleton className="h-[400px] w-full" />,
-});
-const HiringSection = nextDynamic(() => import('@/components/hiring-section'), {
-    loading: () => <Skeleton className="h-[500px] w-full" />,
-});
-const LatestNews = nextDynamic(() => import('@/components/latest-news'), {
-    loading: () => <Skeleton className="h-[500px] w-full" />,
-});
-const SubscriptionSection = nextDynamic(() => import('@/components/subscription-section'), {
-    loading: () => <Skeleton className="h-[300px] w-full" />,
-});
-const Faq = nextDynamic(() => import('@/components/faq'), {
-    loading: () => <Skeleton className="h-[500px] w-full" />,
-});
+import TopCompanies from '@/components/top-companies';
+import FeaturedJobs from '@/components/featured-jobs';
+import WhyChooseUs from '@/components/why-choose-us';
+import VolunteerSection from '@/components/volunteer-section';
+import JobsByLocation from '@/components/jobs-by-location';
+import Testimonials from '@/components/testimonials';
+import HiringSection from '@/components/hiring-section';
+import LatestNews from '@/components/latest-news';
+import SubscriptionSection from '@/components/subscription-section';
+import Faq from '@/components/faq';
 
 
 export const dynamic = "force-dynamic";
@@ -74,9 +50,7 @@ export default function HomePage() {
               Discover your next career move with verified employers and salary transparency.
             </p>
             <div className="max-w-3xl w-full mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '300ms'}}>
-              <Suspense fallback={<Skeleton className="h-16 w-full rounded-2xl" />}>
-                <HeroSearchForm />
-              </Suspense>
+              <HeroSearchForm />
             </div>
              <div className="flex justify-center items-center gap-4 text-sm text-gray-300 animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '450ms'}}>
                 <div className="flex items-center -space-x-2">
@@ -90,36 +64,16 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Suspense fallback={<Skeleton className="h-[500px] w-full" />}>
-        <HiringSection />
-      </Suspense>
-      <Suspense fallback={<Skeleton className="h-[300px] w-full" />}>
-        <TopCompanies companies={companies} />
-      </Suspense>
-      <Suspense fallback={<Skeleton className="h-[500px] w-full" />}>
-        <FeaturedJobs jobs={jobs} categories={categories} />
-      </Suspense>
-      <Suspense fallback={<Skeleton className="h-[300px] w-full" />}>
-        <WhyChooseUs />
-      </Suspense>
-      <Suspense fallback={<Skeleton className="h-[400px] w-full" />}>
-        <VolunteerSection />
-      </Suspense>
-      <Suspense fallback={<Skeleton className="h-[400px] w-full" />}>
-        <JobsByLocation locations={locations} />
-      </Suspense>
-      <Suspense fallback={<Skeleton className="h-[400px] w-full" />}>
-        <Testimonials />
-      </Suspense>
-      <Suspense fallback={<Skeleton className="h-[500px] w-full" />}>
-        <LatestNews posts={latestPosts} />
-      </Suspense>
-      <Suspense fallback={<Skeleton className="h-[500px] w-full" />}>
-        <Faq />
-      </Suspense>
-      <Suspense fallback={<Skeleton className="h-[300px] w-full" />}>
-        <SubscriptionSection />
-      </Suspense>
+      <HiringSection />
+      <TopCompanies companies={companies} />
+      <FeaturedJobs jobs={jobs} categories={categories} />
+      <WhyChooseUs />
+      <VolunteerSection />
+      <JobsByLocation locations={locations} />
+      <Testimonials />
+      <LatestNews posts={latestPosts} />
+      <Faq />
+      <SubscriptionSection />
     </main>
   );
 }
