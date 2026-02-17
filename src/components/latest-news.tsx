@@ -7,12 +7,25 @@ import { Button } from './ui/button';
 import Link from 'next/link';
 import { Skeleton } from './ui/skeleton';
 import { Card, CardContent } from './ui/card';
+import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function LatestNews({ posts }: { posts: BlogPost[] }) {
+  const bgImage = PlaceHolderImages.find((p) => p.id === 'latest-news-bg');
 
   return (
-    <section className="py-28 bg-secondary">
-      <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+    <section className="relative py-20">
+      {bgImage && (
+        <Image
+          src={bgImage.imageUrl}
+          alt={bgImage.description}
+          fill
+          className="object-cover z-0"
+          data-ai-hint={bgImage.imageHint}
+        />
+      )}
+      <div className="absolute inset-0 bg-background/95 z-10" />
+      <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-12 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
           <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-foreground">Our News and Stories</h2>
         </div>

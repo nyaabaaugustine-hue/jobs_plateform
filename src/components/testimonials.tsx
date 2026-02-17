@@ -42,7 +42,7 @@ export default function Testimonials() {
   const secondRow = reviews.slice(Math.ceil(reviews.length / 2));
 
   return (
-    <section className="py-28 bg-background">
+    <section className="py-20 bg-background">
       <div className="container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-12 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
             <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-foreground">What Our Users Say</h2>

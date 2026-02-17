@@ -7,6 +7,7 @@ import { CheckCircle } from 'lucide-react';
 
 export default function HiringSection() {
   const hiringImage = PlaceHolderImages.find((p) => p.id === 'hiring-main');
+  const bgImage = PlaceHolderImages.find((p) => p.id === 'contact-form-bg');
   
   const benefits = [
     'Explore a vast pool of qualified candidates.',
@@ -15,8 +16,19 @@ export default function HiringSection() {
   ];
 
   return (
-    <section className="py-28 bg-background">
-      <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+    <section className="relative py-20">
+      {bgImage && (
+        <Image
+          src={bgImage.imageUrl}
+          alt={bgImage.description}
+          fill
+          className="object-cover z-0"
+          data-ai-hint={bgImage.imageHint}
+        />
+      )}
+      <div className="absolute inset-0 bg-background/90 z-10" />
+
+      <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             <div className="flex flex-col space-y-6">
                 <h2 className="font-headline text-4xl font-bold tracking-tight !leading-tight text-foreground sm:text-5xl">Hire Top-Tier React Talent in 48 Hours</h2>

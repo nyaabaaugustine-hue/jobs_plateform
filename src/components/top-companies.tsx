@@ -9,9 +9,22 @@ import { Badge } from './ui/badge';
 import type { Company } from '@/lib/types';
 
 export default function TopCompanies({ companies }: { companies: Company[] }) {
+  const bgImage = PlaceHolderImages.find((p) => p.id === 'top-companies-bg');
+
   return (
-    <section className="py-28 bg-secondary">
-      <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+    <section className="relative py-20">
+       {bgImage && (
+        <Image
+          src={bgImage.imageUrl}
+          alt={bgImage.description}
+          fill
+          className="object-cover z-0"
+          data-ai-hint={bgImage.imageHint}
+        />
+      )}
+      <div className="absolute inset-0 bg-background/95 z-10" />
+
+      <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-12 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
           <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-foreground">Top Companies Hiring</h2>
         </div>
@@ -20,7 +33,7 @@ export default function TopCompanies({ companies }: { companies: Company[] }) {
             const companyLogo = PlaceHolderImages.find((img) => img.id === company.logo);
             return (
               <Link key={company.id} href={`/companies/${company.id}`} className="block group animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: `${'200' + index * 50}ms` }}>
-                <Card className="h-full p-4 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl bg-card flex flex-col items-center justify-center">
+                <Card className="h-full p-4 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl bg-card/70 backdrop-blur-sm flex flex-col items-center justify-center">
                   {companyLogo && (
                     <div className="relative mb-4 h-20 w-20 rounded-full shadow-inner border overflow-hidden bg-white">
                         <Image

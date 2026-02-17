@@ -8,9 +8,12 @@ import { Button } from './ui/button';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], categories: string[] }) {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const bgImage = PlaceHolderImages.find((p) => p.id === 'featured-jobs-bg');
 
   const featuredJobs = jobs.filter(job => {
     if (selectedCategory === 'All') return true;
@@ -18,8 +21,18 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
   }).slice(0, 9);
 
   return (
-    <section className="py-28 bg-background">
-      <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+    <section className="relative py-20">
+      {bgImage && (
+        <Image
+          src={bgImage.imageUrl}
+          alt={bgImage.description}
+          fill
+          className="object-cover z-0"
+          data-ai-hint={bgImage.imageHint}
+        />
+      )}
+      <div className="absolute inset-0 bg-background/90 z-10" />
+      <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-10 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
           <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">Featured Jobs</h2>
         </div>
@@ -34,7 +47,7 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
                         "rounded-full px-4 py-2 text-sm font-medium transition-all duration-300",
                         selectedCategory === category
                             ? "bg-primary text-primary-foreground shadow-lg"
-                            : "bg-card text-foreground ring-1 ring-border/50 hover:bg-primary/10 hover:ring-primary/50 hover:text-primary"
+                            : "bg-card/70 backdrop-blur-sm text-foreground ring-1 ring-border/50 hover:bg-primary/10 hover:ring-primary/50 hover:text-primary"
                     )}
                 >
                     {category}

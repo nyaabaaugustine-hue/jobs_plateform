@@ -26,7 +26,7 @@ export default function SubscriptionSection() {
     };
 
   return (
-    <section className="py-28 bg-secondary">
+    <section className="py-20 bg-secondary">
       <div className="container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="relative rounded-3xl bg-card p-10 md:p-16 lg:p-20 text-foreground overflow-hidden animate-in fade-in zoom-in-95 duration-700">
           <div className="relative z-10 text-center">

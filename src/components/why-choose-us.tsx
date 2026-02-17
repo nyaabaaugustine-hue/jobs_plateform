@@ -30,7 +30,7 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-28 bg-secondary">
+    <section className="py-20 bg-secondary">
       <div className="container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-10 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
             <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-foreground">Why Chapel Hill?</h2>

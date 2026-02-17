@@ -41,7 +41,7 @@ import {
     const faqImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
   
     return (
-      <section className="py-28 bg-background">
+      <section className="py-20 bg-background">
         <div className="container mx-auto max-w-7xl px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-in fade-in slide-in-from-left-12 duration-700">
