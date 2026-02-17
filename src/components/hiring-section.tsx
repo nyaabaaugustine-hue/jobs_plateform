@@ -7,7 +7,7 @@ import { CheckCircle } from 'lucide-react';
 import Logo from './shared/logo';
 
 export default function HiringSection() {
-  const sectionBgImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
+  const sectionBgImage = PlaceHolderImages.find((p) => p.id === 'contact-form-bg');
   const hiringImage = PlaceHolderImages.find((p) => p.id === 'hiring-main');
   
   const benefits = [
