@@ -154,8 +154,8 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Chapel Hill. All rights reserved. <span className="text-muted-foreground">Developed By</span> <span className="font-semibold text-accent">TGNE Solutions</span>
           </p>
           <div className='flex gap-6'>
-             <Link href="#" className="hover:text-primary">Terms & Conditions</Link>
-             <Link href="#" className="hover:text-primary">Privacy Policy</Link>
+             <Link href="#" className="text-accent hover:underline">Terms & Conditions</Link>
+             <Link href="#" className="text-accent hover:underline">Privacy Policy</Link>
           </div>
         </div>
       </div>
