@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -45,8 +44,8 @@ const ads: Ad[] = [
     },
     {
         companyId: '11',
-        headline: 'Educate the next generation of leaders at Ashesi',
-        description: 'Join a world-class faculty and staff dedicated to ethical leadership and innovation in Africa.',
+        headline: 'Educate Future Leaders',
+        description: 'Join Ashesi University and dedicated staff committed to ethical leadership and innovation in Africa.',
         imageId: 'ad-ashesi',
         company: DUMMY_COMPANIES.find(c => c.id === '11'),
         image: PlaceHolderImages.find(p => p.id === 'ad-ashesi')
@@ -70,14 +69,14 @@ export default function AdSlider() {
         return;
     }
 
-    // Show the first ad after a short delay
+    // Show the first ad after 3 seconds for immediate engagement
     const initialTimeout = setTimeout(() => {
       if (sessionStorage.getItem('adSliderClosed') !== 'true') {
         setIsPanelOpen(true);
       }
-    }, 3000); // 3 seconds after page load
+    }, 3000);
 
-    // Then, cycle through ads every 20 seconds
+    // Cycle through ads every 20 seconds
     const interval = setInterval(() => {
         if (sessionStorage.getItem('adSliderClosed') === 'true') {
             clearInterval(interval);
@@ -89,9 +88,9 @@ export default function AdSlider() {
         setTimeout(() => {
             setCurrentAdIndex(prevIndex => (prevIndex + 1) % ads.length);
             setIsPanelOpen(true); // Animate in new ad
-        }, 1000); // Small gap for transition
+        }, 800); // Sharp transition
 
-    }, 20000); // Cycle every 20 seconds
+    }, 20000);
 
     return () => {
       clearTimeout(initialTimeout);
