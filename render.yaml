@@ -8,3 +8,17 @@ services:
     envVars:
       - key: NODE_VERSION
         value: 20
+      - key: AUTH0_SECRET
+        value: 17ae29c93834cd608c6f8c4b7d63441af9c1ecc4c3b0e26ed02423c0f2672616
+      - key: AUTH0_BASE_URL
+        value: https://jobs-plateform-vvat.onrender.com
+      - key: AUTH0_ISSUER_BASE_URL
+        value: https://dev-nklk657qus8k276s.us.auth0.com
+      - key: AUTH0_CLIENT_ID
+        value: E3523rvacyYL98uLr5caNKPZTXcHP0P1
+      - key: AUTH0_CLIENT_SECRET
+        value: xlkWyKk8DvNmPQLppTzWZ0kC5-IoRIoBdWELOynPvg825zCtRUgIAbuF2LdnD2vk
+      - key: APP_BASE_URL
+        value: https://jobs-plateform-vvat.onrender.com
+      - key: AUTH0_DOMAIN
+        value: dev-nklk657qus8k276s.us.auth0.com
