@@ -10,27 +10,22 @@ export function LoadingManager() {
     document.body.classList.add('overflow-hidden');
 
     const handleLoad = () => {
-        document.body.classList.remove('overflow-hidden');
-        setIsReady(true);
+        // Ensure the logo animation is seen for at least a brief moment
+        // but keep it snappy overall.
+        setTimeout(() => {
+            document.body.classList.remove('overflow-hidden');
+            setIsReady(true);
+        }, 800);
     };
 
-    // Use a faster combination of font loading and window load
     if (document.readyState === 'complete') {
-      // Small delay to ensure the loader is seen but doesn't linger
-      setTimeout(handleLoad, 500);
+      handleLoad();
     } else {
-      Promise.all([document.fonts.ready])
-        .then(() => {
-          window.addEventListener('load', handleLoad, { once: true });
-        })
-        .catch((error) => {
-          console.error('Font loading check failed:', error);
-          handleLoad();
-        });
+      window.addEventListener('load', handleLoad, { once: true });
     }
       
-    // Reduced fallback to ensure snappy experience
-    const fallbackTimeout = setTimeout(handleLoad, 3000);
+    // Fallback if load event takes too long
+    const fallbackTimeout = setTimeout(handleLoad, 2500);
 
     return () => {
       window.removeEventListener('load', handleLoad);
