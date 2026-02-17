@@ -23,22 +23,57 @@ import {
     BarChart, 
     PieChart 
 } from 'lucide-react';
-import { cn } from '@/lib/utils';
 
 export default function AboutPage() {
   const teamMembers = DUMMY_USERS.slice(0, 4);
   const missionLogo = PlaceHolderImages.find((p) => p.id === 'main-logo');
 
   const services = [
-    { icon: Search, title: "Recruitment", bgColor: "bg-primary/10", iconColor: "text-primary" },
-    { icon: ShieldCheck, title: "Reference Checking", bgColor: "bg-accent/10", iconColor: "text-accent" },
-    { icon: Star, title: "Talent Assessment", bgColor: "bg-chart-3/10", iconColor: "text-chart-3" },
-    { icon: Building, title: "Full-Service HR Outsourcing for Companies", bgColor: "bg-chart-4/10", iconColor: "text-chart-4" },
-    { icon: GraduationCap, title: "Corporate Training, Employee and Organizational Development.", bgColor: "bg-chart-5/10", iconColor: "text-chart-5" },
-    { icon: DollarSign, title: "Pay-roll Services", bgColor: "bg-emerald-500/10", iconColor: "text-emerald-500" },
-    { icon: Handshake, title: "Employee Relations Services", bgColor: "bg-rose-500/10", iconColor: "text-rose-500" },
-    { icon: BarChart, title: "Market Research Strategy", bgColor: "bg-indigo-500/10", iconColor: "text-indigo-500" },
-    { icon: PieChart, title: "People Analytics And Insights", bgColor: "bg-blue-500/10", iconColor: "text-blue-500" }
+    {
+      icon: Search,
+      title: "Recruitment",
+      description: "Leverage our extensive network and advanced tools to find the perfect candidates for your roles.",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Reference Checking",
+      description: "Ensure candidate integrity with our thorough and confidential reference checking services.",
+    },
+    {
+      icon: Star,
+      title: "Talent Assessment",
+      description: "Utilize industry-leading assessment tools to evaluate candidate skills and fit for your team.",
+    },
+    {
+      icon: Building,
+      title: "Full-Service HR Outsourcing for Companies",
+      description: "Let us handle your HR needs, from onboarding to compliance, so you can focus on your core business.",
+    },
+    {
+      icon: GraduationCap,
+      title: "Corporate Training, Employee and Organizational Development.",
+      description: "Invest in your team's growth with our customized corporate training and development programs.",
+    },
+    {
+      icon: DollarSign,
+      title: "Pay-roll Services",
+      description: "Streamline your payroll with our accurate, compliant, and timely payroll processing services.",
+    },
+    {
+      icon: Handshake,
+      title: "Employee Relations Services",
+      description: "Foster a positive workplace environment with our expert guidance on employee relations.",
+    },
+    {
+      icon: BarChart,
+      title: "Market Research Strategy",
+      description: "Gain a competitive edge with our in-depth market research and strategic business insights.",
+    },
+    {
+      icon: PieChart,
+      title: "People Analytics And Insights",
+      description: "Make data-driven decisions about your workforce with our powerful people analytics and insights.",
+    }
   ];
 
   return (
@@ -47,17 +82,17 @@ export default function AboutPage() {
         title="About Chapel Hill"
         subtitle="Connecting top talent with the best opportunities in the React ecosystem."
       />
-      <main className="flex-1 py-16 md:py-24 bg-secondary/30 space-y-20">
+      <main className="flex-1 py-16 md:py-24 bg-background space-y-20">
         
         <div className="container mx-auto max-w-4xl px-4 md:px-6">
-            <Card className="relative overflow-hidden shadow-lg animate-in fade-in-up duration-500">
+            <Card className="relative overflow-hidden shadow-lg animate-in fade-in-up duration-500 bg-card/80 backdrop-blur-sm">
                 {missionLogo && (
                     <Image
                         src={missionLogo.imageUrl}
                         alt="Chapel Hill Logo Watermark"
                         width={200}
                         height={200}
-                        className="absolute inset-0 m-auto h-full w-auto object-contain opacity-20 z-0"
+                        className="absolute inset-0 m-auto h-full w-auto object-contain opacity-5 z-0"
                     />
                 )}
                 <CardContent className="relative z-10 p-10 text-center">
@@ -68,31 +103,32 @@ export default function AboutPage() {
                 </CardContent>
             </Card>
         </div>
-
-        <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+        
+        <section className="py-16 md:py-24 bg-secondary">
+          <div className="container mx-auto max-w-7xl px-6 lg:px-12">
             <SectionHeader
-                title="Our Services"
+              title="Our Services"
+              subtitle="Comprehensive Human Capital Management solutions."
             />
-            <Card>
-                <CardHeader>
-                    <CardTitle>Human Capital Management</CardTitle>
-                </CardHeader>
-                <CardContent className="p-6 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
-                    {services.map((service, index) => (
-                        <div key={index} className="flex items-center gap-3">
-                            <div className={cn("flex h-8 w-8 items-center justify-center rounded-lg flex-shrink-0", service.bgColor)}>
-                                <service.icon className={cn("h-5 w-5", service.iconColor)} />
-                            </div>
-                            <p className="font-medium text-muted-foreground">{service.title}</p>
-                        </div>
-                    ))}
-                </CardContent>
-            </Card>
-        </div>
-
-        <OurPartners />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {services.map((service, index) => (
+                <Card key={index} className="flex flex-col text-center items-center p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-in fade-in-up" style={{ animationDelay: `${index * 100}ms` }}>
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 mb-4">
+                    <service.icon className="h-8 w-8 text-primary" />
+                  </div>
+                  <CardTitle className="mb-2 text-xl">{service.title}</CardTitle>
+                  <CardContent className="text-muted-foreground flex-grow p-0">
+                    <p>{service.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
 
         <WhyChooseUs />
+
+        <OurPartners />
 
         <div className="container mx-auto max-w-7xl px-6 lg:px-12">
             <SectionHeader
