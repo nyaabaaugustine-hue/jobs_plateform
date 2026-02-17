@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useEffect } from 'react';
@@ -15,23 +14,23 @@ export function LoadingManager() {
         setIsReady(true);
     };
 
-    // Use a combination of font loading and window load
-    Promise.all([document.fonts.ready])
-      .then(() => {
-        if (document.readyState === 'complete') {
-          handleLoad();
-        } else {
+    // Use a faster combination of font loading and window load
+    if (document.readyState === 'complete') {
+      // Small delay to ensure the loader is seen but doesn't linger
+      setTimeout(handleLoad, 500);
+    } else {
+      Promise.all([document.fonts.ready])
+        .then(() => {
           window.addEventListener('load', handleLoad, { once: true });
-        }
-      })
-      .catch((error) => {
-        console.error('Failed to wait for fonts:', error);
-        // Still proceed even if font loading fails
-        handleLoad();
-      });
+        })
+        .catch((error) => {
+          console.error('Font loading check failed:', error);
+          handleLoad();
+        });
+    }
       
-    // Fallback to ensure loader doesn't stick forever
-    const fallbackTimeout = setTimeout(handleLoad, 5000);
+    // Reduced fallback to ensure snappy experience
+    const fallbackTimeout = setTimeout(handleLoad, 3000);
 
     return () => {
       window.removeEventListener('load', handleLoad);
@@ -40,5 +39,5 @@ export function LoadingManager() {
     };
   }, [setIsReady]);
 
-  return null; // This component does not render anything
+  return null;
 }
