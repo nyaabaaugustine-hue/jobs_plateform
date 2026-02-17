@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -25,9 +26,9 @@ export default function SubscriptionSection() {
     };
 
   return (
-    <section className="py-16 md:py-24 bg-secondary">
+    <section className="py-28 bg-secondary">
       <div className="container mx-auto max-w-7xl px-6 lg:px-12">
-        <div className="relative rounded-3xl bg-primary/10 p-10 md:p-16 lg:p-20 text-foreground overflow-hidden animate-in fade-in zoom-in-95 duration-700">
+        <div className="relative rounded-3xl bg-card p-10 md:p-16 lg:p-20 text-foreground overflow-hidden animate-in fade-in zoom-in-95 duration-700">
           <div className="relative z-10 text-center">
             <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-foreground">
               Get Job Alerts
@@ -36,14 +37,14 @@ export default function SubscriptionSection() {
               Subscribe to our newsletter to receive the latest job postings.
             </p>
             <form onSubmit={handleSubscribe} className="mt-8 max-w-xl mx-auto">
-                <div className="flex items-center gap-2 bg-card p-2 rounded-xl">
+                <div className="flex items-center gap-2 bg-background p-2 rounded-xl border">
                     <Button type="submit" size="lg" className="rounded-lg bg-primary text-primary-foreground font-semibold px-6">
                         Subscribe
                     </Button>
                     <Input
                       type="email"
                       placeholder="Enter your email address"
-                      className="flex-1 bg-transparent border-none focus-visible:ring-0 text-card-foreground placeholder:text-muted-foreground"
+                      className="flex-1 bg-transparent border-none focus-visible:ring-0 text-foreground placeholder:text-muted-foreground"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required

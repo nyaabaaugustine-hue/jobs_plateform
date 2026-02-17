@@ -23,7 +23,7 @@ export default function HeroSearchForm() {
   };
 
   return (
-    <div className="rounded-2xl bg-background/50 p-2 border border-border/50 backdrop-blur-sm shadow-xl shadow-black/5">
+    <div className="rounded-2xl bg-background/80 p-2 border border-border/50 backdrop-blur-md shadow-2xl shadow-black/20">
       <form 
         onSubmit={handleSearch} 
         className="flex items-center flex-col sm:flex-row gap-4"
@@ -54,8 +54,8 @@ export default function HeroSearchForm() {
         <Button
           type="submit"
           size="lg"
-          variant="outline"
-          className="font-semibold text-base w-full sm:w-auto h-12 rounded-xl bg-transparent border-2 border-foreground/50 text-foreground hover:bg-foreground/10"
+          variant="secondary"
+          className="font-semibold text-base w-full sm:w-auto h-12 rounded-xl"
         >
           Find Jobs
         </Button>

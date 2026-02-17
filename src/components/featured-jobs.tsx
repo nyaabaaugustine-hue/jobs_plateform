@@ -8,8 +8,6 @@ import { Button } from './ui/button';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], categories: string[] }) {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -18,22 +16,10 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
     if (selectedCategory === 'All') return true;
     return job.category === selectedCategory;
   }).slice(0, 9);
-  
-  const featuredJobsBg = PlaceHolderImages.find((p) => p.id === 'featured-jobs-bg');
 
   return (
-    <section className="relative py-16 md:py-24">
-       {featuredJobsBg && (
-        <Image
-          src={featuredJobsBg.imageUrl}
-          alt={featuredJobsBg.description}
-          fill
-          className="object-cover z-0"
-          data-ai-hint={featuredJobsBg.imageHint}
-        />
-      )}
-      <div className="absolute inset-0 bg-background/90 z-10" />
-      <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
+    <section className="py-28 bg-background">
+      <div className="container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-10 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
           <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">Featured Jobs</h2>
         </div>
@@ -47,8 +33,8 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
                     className={cn(
                         "rounded-full px-4 py-2 text-sm font-medium transition-all duration-300",
                         selectedCategory === category
-                            ? "bg-primary text-primary-foreground shadow-lg ring-2 ring-offset-background ring-offset-2 ring-accent"
-                            : "bg-card text-foreground ring-1 ring-white/20 hover:bg-primary/10 hover:ring-primary/50 hover:text-primary hover:shadow-md"
+                            ? "bg-primary text-primary-foreground shadow-lg"
+                            : "bg-card text-foreground ring-1 ring-border/50 hover:bg-primary/10 hover:ring-primary/50 hover:text-primary"
                     )}
                 >
                     {category}
@@ -56,7 +42,7 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
             ))}
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {featuredJobs.map((job, index) => (
             <div key={job.id} className="animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: `${300 + index * 75}ms` }}>
               <JobCard job={job} />
@@ -79,5 +65,3 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
     </section>
   );
 }
-
-    

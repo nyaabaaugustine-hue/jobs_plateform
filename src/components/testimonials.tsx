@@ -1,3 +1,4 @@
+
 'use client';
 
 import type { Review } from '@/lib/types';
@@ -6,13 +7,12 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { DUMMY_REVIEWS } from '@/lib/data';
 import StarRating from './shared/star-rating';
-import Image from 'next/image';
 import React from 'react';
 
 const TestimonialCard = ({ review }: { review: Review }) => {
     const userAvatar = PlaceHolderImages.find((img) => img.id === review.user.avatar);
     return (
-        <Card className="flex h-full flex-col justify-between w-[350px] md:w-[400px]">
+        <Card className="flex h-full flex-col justify-between w-[350px] md:w-[400px] bg-card">
             <CardContent className="p-6 flex-grow">
                 <StarRating rating={review.rating} />
                 <p className="mt-4 text-muted-foreground italic break-words">"{review.comment}"</p>
@@ -33,7 +33,6 @@ const TestimonialCard = ({ review }: { review: Review }) => {
 
 export default function Testimonials() {
   const reviews: Review[] = DUMMY_REVIEWS.filter(review => review.user);
-  const bgImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
   
   if (!reviews || reviews.length === 0) {
     return null;
@@ -43,18 +42,8 @@ export default function Testimonials() {
   const secondRow = reviews.slice(Math.ceil(reviews.length / 2));
 
   return (
-    <section className="relative py-16 md:py-24">
-       {bgImage && (
-        <Image
-          src={bgImage.imageUrl}
-          alt={bgImage.description}
-          fill
-          className="object-cover z-0"
-          data-ai-hint={bgImage.imageHint}
-        />
-      )}
-      <div className="absolute inset-0 bg-background/90 z-10" />
-      <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
+    <section className="py-28 bg-background">
+      <div className="container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-12 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
             <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-foreground">What Our Users Say</h2>
         </div>

@@ -1,3 +1,4 @@
+
 import {
     Accordion,
     AccordionContent,
@@ -40,7 +41,7 @@ import {
     const faqImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
   
     return (
-      <section className="py-16 md:py-24 bg-secondary">
+      <section className="py-28 bg-background">
         <div className="container mx-auto max-w-7xl px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-in fade-in slide-in-from-left-12 duration-700">
@@ -80,4 +81,3 @@ import {
       </section>
     )
   }
-  

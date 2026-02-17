@@ -15,7 +15,7 @@ export default function HiringSection() {
   ];
 
   return (
-    <section className="py-24 bg-background">
+    <section className="py-28 bg-background">
       <div className="container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
             <div className="flex flex-col space-y-6">
@@ -41,18 +41,21 @@ export default function HiringSection() {
                     </Button>
                 </div>
             </div>
-             <div className="relative flex items-center justify-center">
+            <div className="relative flex items-center justify-center">
                 {hiringImage && (
-                    <div className="relative">
-                        <Image
-                            src={hiringImage.imageUrl}
-                            alt="A smiling woman in a call center"
-                            width={500}
-                            height={600}
-                            className="rounded-3xl shadow-2xl object-cover w-full aspect-[4/5]"
-                            data-ai-hint="call center"
-                        />
+                  <div className="relative">
+                    <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl">
+                      <Image
+                          src={hiringImage.imageUrl}
+                          alt={hiringImage.description}
+                          width={500}
+                          height={600}
+                          className="object-cover w-full aspect-[4/5]"
+                          data-ai-hint={hiringImage.imageHint}
+                      />
                     </div>
+                    <div className="absolute -inset-4 bg-primary/10 blur-3xl -z-10 rounded-full" />
+                  </div>
                 )}
             </div>
         </div>

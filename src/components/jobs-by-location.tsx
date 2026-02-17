@@ -1,3 +1,4 @@
+
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -13,7 +14,7 @@ type Location = {
 
 export default function JobsByLocation({ locations }: { locations: Location[] }) {
   return (
-    <section className="py-16 md:py-24 bg-secondary">
+    <section className="py-28 bg-secondary">
       <div className="container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-12 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
           <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">Jobs by Location</h2>
@@ -23,7 +24,7 @@ export default function JobsByLocation({ locations }: { locations: Location[] })
             const locationImage = PlaceHolderImages.find((img) => img.id === location.imageId);
             return (
               <Link key={location.name} href="#" className="block group animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: `${200 + index * 75}ms` }}>
-                <Card className="overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <Card className="overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl bg-card">
                   {locationImage && (
                     <Image
                       src={locationImage.imageUrl}

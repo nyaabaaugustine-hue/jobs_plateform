@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -31,11 +32,11 @@ export default function JobCard({ job }: JobCardProps) {
   }, []);
 
   return (
-    <Card className="flex h-full flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1.5 border-t-4 border-primary/10 hover:border-primary">
-      <CardHeader className="flex flex-row items-start gap-4 p-4">
+    <Card className="bg-card rounded-2xl p-6 border border-border/20 hover:border-primary/50 transition-all duration-300 flex h-full flex-col overflow-hidden group">
+      <CardHeader className="flex flex-row items-start gap-4 p-0">
         {companyLogo && (
           <Link href={`/companies/${job.company.id}`} className="block">
-            <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl p-2 border shadow-sm">
+            <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-xl p-2 border bg-white shadow-sm">
               <Image
                 src={companyLogo.imageUrl}
                 alt={`${job.company.name} logo`}
@@ -65,7 +66,7 @@ export default function JobCard({ job }: JobCardProps) {
           </Badge>
         )}
       </CardHeader>
-      <CardContent className="flex-grow p-4 pt-0 space-y-4">
+      <CardContent className="flex-grow p-0 pt-4 space-y-4">
         <div className="flex flex-wrap gap-2">
             {matchScore && <Badge variant="secondary" className="bg-accent/10 text-accent border-accent/20 font-semibold">{matchScore}% Match</Badge>}
             <Badge variant="outline">{job.type}</Badge>
@@ -85,7 +86,7 @@ export default function JobCard({ job }: JobCardProps) {
             </div>
         )}
       </CardContent>
-      <CardFooter className="p-4 flex flex-wrap items-end justify-between gap-x-4 gap-y-2 bg-secondary/50">
+      <CardFooter className="p-0 pt-4 flex items-end justify-between">
         <div className="flex flex-col text-left">
            <div className="flex items-baseline gap-1">
             <span className="font-headline text-lg font-bold text-foreground">{salary}</span>

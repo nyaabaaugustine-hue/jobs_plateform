@@ -30,8 +30,8 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="relative py-16 md:py-24 bg-secondary">
-      <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
+    <section className="py-28 bg-secondary">
+      <div className="container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-10 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
             <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-foreground">Why Chapel Hill?</h2>
         </div>
@@ -39,7 +39,7 @@ export default function WhyChooseUs() {
           {features.map((feature, index) => (
             <Card key={index} className="text-center animate-in fade-in slide-in-from-bottom-4 duration-700 bg-card" style={{ animationDelay: `${200 + index * 100}ms` }}>
               <CardHeader className="items-center">
-                <div className={cn("flex h-16 w-16 items-center justify-center rounded-full ring-4 ring-muted-foreground/20", feature.iconBg)}>
+                <div className={cn("flex h-16 w-16 items-center justify-center rounded-full", feature.iconBg)}>
                   <feature.icon className={cn("h-8 w-8", feature.iconColor)} />
                 </div>
               </CardHeader>

@@ -8,8 +8,8 @@ import { cn } from '@/lib/utils';
 
 export default function VolunteerSection() {
   return (
-    <section className="relative py-16 md:py-24 bg-secondary">
-      <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
+    <section className="py-28 bg-background">
+      <div className="container mx-auto max-w-7xl px-6 lg:px-12">
         <SectionHeader
           title="Kickstart Your Career"
           subtitle="Explore volunteer and attachment opportunities designed for students to gain hands-on experience and make a difference."
