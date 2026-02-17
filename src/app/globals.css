@@ -10,34 +10,34 @@
 
 @layer base {
   :root {
-    /* Light Theme: Clay White & Blue */
-    --background: 43 33% 95%; /* Clay White */
-    --foreground: 224 71% 10%; /* Dark Blue */
+    /* Light Theme: Clay & Creme */
+    --background: 38 67% 96%; /* Milky Creme */
+    --foreground: 25 35% 25%; /* Dark Clay */
     
-    --card: 0 0% 100%;
-    --card-foreground: 224 71% 10%;
+    --card: 30 40% 94%;
+    --card-foreground: 25 35% 25%;
     
-    --popover: 0 0% 100%;
-    --popover-foreground: 224 71% 10%;
+    --popover: 38 67% 96%;
+    --popover-foreground: 25 35% 25%;
 
     --primary: 217 91% 60%; /* Vibrant Blue */
     --primary-foreground: 0 0% 100%; /* White */
     
-    --secondary: 220 14% 94%;
-    --secondary-foreground: 224 71% 10%;
+    --secondary: 30 30% 92%;
+    --secondary-foreground: 25 35% 25%;
     
-    --muted: 220 14% 94%;
-    --muted-foreground: 220 9% 46%;
+    --muted: 30 25% 90%;
+    --muted-foreground: 25 35% 45%;
     
     --accent: 45 85% 55%; /* Gold */
-    --accent-foreground: 224 71% 10%;
+    --accent-foreground: 25 35% 25%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 217 91% 60%; /* Vibrant Blue for ring */
+    --border: 30 20% 88%;
+    --input: 30 20% 88%;
+    --ring: 217 91% 60%;
 
     --radius: 0.75rem;
 
