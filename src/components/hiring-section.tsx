@@ -45,13 +45,13 @@ export default function HiringSection() {
               </Button>
             </div>
           </div>
-          <div className="relative flex items-center justify-center animate-in fade-in slide-in-from-right-12 duration-700 delay-200 aspect-[4/5]">
+          <div className="relative flex items-center justify-center animate-in fade-in slide-in-from-right-12 duration-700 delay-200 aspect-[4/5] rounded-3xl overflow-hidden">
              {bgPatternImage && (
                 <Image
                     src={bgPatternImage.imageUrl}
                     alt={bgPatternImage.description}
                     fill
-                    className="rounded-3xl shadow-2xl object-cover z-0"
+                    className="shadow-2xl object-cover z-0"
                     data-ai-hint={bgPatternImage.imageHint}
                 />
             )}
@@ -59,8 +59,8 @@ export default function HiringSection() {
               <Image
                 src={hiringImage.imageUrl}
                 alt={hiringImage.description}
-                width={300}
-                height={375}
+                width={480}
+                height={600}
                 className="relative z-10 object-contain drop-shadow-2xl"
                 data-ai-hint={hiringImage.imageHint}
               />
