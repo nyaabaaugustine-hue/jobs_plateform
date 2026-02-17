@@ -461,6 +461,12 @@
       "description": "A collection of trusted payment provider logos and security seals.",
       "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771272346/pay_yzab2c.png",
       "imageHint": "payment security"
+    },
+    {
+      "id": "african-pattern-bg",
+      "description": "A colorful African pattern with concentric circles.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771295982/african-colorful-background_cvwcyw.jpg",
+      "imageHint": "african pattern"
     }
   ]
 }

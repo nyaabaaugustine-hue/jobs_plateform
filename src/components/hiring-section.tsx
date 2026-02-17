@@ -12,6 +12,7 @@ export default function HiringSection() {
     'Post job openings quickly and easily.',
     'Utilize AI to match with the perfect hire.',
   ];
+  const bgPatternImage = PlaceHolderImages.find((p) => p.id === 'african-pattern-bg');
 
   return (
     <section className="bg-secondary py-16 md:py-24">
@@ -44,18 +45,26 @@ export default function HiringSection() {
               </Button>
             </div>
           </div>
-          <div className="relative flex items-center justify-center animate-in fade-in slide-in-from-right-12 duration-700 delay-200">
+          <div className="relative flex items-center justify-center animate-in fade-in slide-in-from-right-12 duration-700 delay-200 aspect-[4/5]">
+             {bgPatternImage && (
+                <Image
+                    src={bgPatternImage.imageUrl}
+                    alt={bgPatternImage.description}
+                    fill
+                    className="rounded-3xl shadow-2xl object-cover z-0"
+                    data-ai-hint={bgPatternImage.imageHint}
+                />
+            )}
             {hiringImage && (
               <Image
                 src={hiringImage.imageUrl}
                 alt={hiringImage.description}
-                width={500}
-                height={600}
-                className="rounded-3xl shadow-2xl object-contain w-full aspect-[4/5]"
+                width={300}
+                height={375}
+                className="relative z-10 object-contain drop-shadow-2xl"
                 data-ai-hint={hiringImage.imageHint}
               />
             )}
-            <div className="absolute inset-0 bg-primary/10 rounded-3xl" />
           </div>
         </div>
       </div>
