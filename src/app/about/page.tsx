@@ -1,4 +1,6 @@
 
+'use client';
+
 import PageHero from '@/components/shared/page-hero';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import WhyChooseUs from '@/components/why-choose-us';
@@ -28,69 +30,15 @@ export default function AboutPage() {
   const missionLogo = PlaceHolderImages.find((p) => p.id === 'main-logo');
 
   const services = [
-    {
-        icon: Search,
-        title: "Recruitment",
-        description: "Leverage our extensive network and advanced tools to find the perfect candidates for your roles.",
-        bgColor: "bg-primary/10",
-        iconColor: "text-primary"
-    },
-    {
-        icon: ShieldCheck,
-        title: "Reference Checking",
-        description: "Ensure candidate integrity with our thorough and confidential reference checking services.",
-        bgColor: "bg-accent/10",
-        iconColor: "text-accent"
-    },
-    {
-        icon: Star,
-        title: "Talent Assessment",
-        description: "Utilize industry-leading assessment tools to evaluate candidate skills and fit for your team.",
-        bgColor: "bg-chart-3/10",
-        iconColor: "text-chart-3"
-    },
-    {
-        icon: Building,
-        title: "Full-Service HR Outsourcing",
-        description: "Let us handle your HR needs, from onboarding to compliance, so you can focus on your core business.",
-        bgColor: "bg-chart-4/10",
-        iconColor: "text-chart-4"
-    },
-    {
-        icon: GraduationCap,
-        title: "Corporate Training & Development",
-        description: "Invest in your team's growth with our customized corporate training and development programs.",
-        bgColor: "bg-chart-5/10",
-        iconColor: "text-chart-5"
-    },
-    {
-        icon: DollarSign,
-        title: "Payroll Services",
-        description: "Streamline your payroll with our accurate, compliant, and timely payroll processing services.",
-        bgColor: "bg-emerald-500/10",
-        iconColor: "text-emerald-500"
-    },
-    {
-        icon: Handshake,
-        title: "Employee Relations Services",
-        description: "Foster a positive workplace environment with our expert guidance on employee relations.",
-        bgColor: "bg-rose-500/10",
-        iconColor: "text-rose-500"
-    },
-    {
-        icon: BarChart,
-        title: "Market Research Strategy",
-        description: "Gain a competitive edge with our in-depth market research and strategic business insights.",
-        bgColor: "bg-indigo-500/10",
-        iconColor: "text-indigo-500"
-    },
-    {
-        icon: PieChart,
-        title: "People Analytics & Insights",
-        description: "Make data-driven decisions about your workforce with our powerful people analytics and insights.",
-        bgColor: "bg-blue-500/10",
-        iconColor: "text-blue-500"
-    }
+    { icon: Search, title: "Recruitment", bgColor: "bg-primary/10", iconColor: "text-primary" },
+    { icon: ShieldCheck, title: "Reference Checking", bgColor: "bg-accent/10", iconColor: "text-accent" },
+    { icon: Star, title: "Talent Assessment", bgColor: "bg-chart-3/10", iconColor: "text-chart-3" },
+    { icon: Building, title: "Full-Service HR Outsourcing for Companies", bgColor: "bg-chart-4/10", iconColor: "text-chart-4" },
+    { icon: GraduationCap, title: "Corporate Training, Employee and Organizational Development.", bgColor: "bg-chart-5/10", iconColor: "text-chart-5" },
+    { icon: DollarSign, title: "Pay-roll Services", bgColor: "bg-emerald-500/10", iconColor: "text-emerald-500" },
+    { icon: Handshake, title: "Employee Relations Services", bgColor: "bg-rose-500/10", iconColor: "text-rose-500" },
+    { icon: BarChart, title: "Market Research Strategy", bgColor: "bg-indigo-500/10", iconColor: "text-indigo-500" },
+    { icon: PieChart, title: "People Analytics And Insights", bgColor: "bg-blue-500/10", iconColor: "text-blue-500" }
   ];
 
   return (
@@ -124,23 +72,22 @@ export default function AboutPage() {
         <div className="container mx-auto max-w-7xl px-6 lg:px-12">
             <SectionHeader
                 title="Our Services"
-                subtitle="Comprehensive Human Capital Management solutions."
             />
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {services.map((service, index) => (
-                    <Card key={index} className="transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-in fade-in-up" style={{ animationDelay: `${index * 100}ms`}}>
-                        <CardHeader>
-                            <div className={cn("flex h-12 w-12 items-center justify-center rounded-lg", service.bgColor)}>
-                                <service.icon className={cn("h-6 w-6", service.iconColor)} />
+            <Card>
+                <CardHeader>
+                    <CardTitle>Human Capital Management</CardTitle>
+                </CardHeader>
+                <CardContent className="p-6 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4">
+                    {services.map((service, index) => (
+                        <div key={index} className="flex items-center gap-3">
+                            <div className={cn("flex h-8 w-8 items-center justify-center rounded-lg flex-shrink-0", service.bgColor)}>
+                                <service.icon className={cn("h-5 w-5", service.iconColor)} />
                             </div>
-                            <CardTitle className="pt-2">{service.title}</CardTitle>
-                        </CardHeader>
-                        <CardContent>
-                            <p className="text-muted-foreground">{service.description}</p>
-                        </CardContent>
-                    </Card>
-                ))}
-            </div>
+                            <p className="font-medium text-muted-foreground">{service.title}</p>
+                        </div>
+                    ))}
+                </CardContent>
+            </Card>
         </div>
 
         <OurPartners />
