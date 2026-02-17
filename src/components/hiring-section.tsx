@@ -51,7 +51,7 @@ export default function HiringSection() {
                 alt={hiringImage.description}
                 width={500}
                 height={600}
-                className="rounded-3xl shadow-2xl object-cover w-full aspect-[4/5]"
+                className="rounded-3xl shadow-2xl object-contain h-[70%] w-auto"
                 data-ai-hint={hiringImage.imageHint}
               />
             )}
