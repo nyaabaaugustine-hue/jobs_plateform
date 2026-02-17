@@ -14,10 +14,298 @@
       "imageHint": "professionals collaborating"
     },
     {
+      "id": "ad-mpharma",
+      "description": "A scientist in a lab, representing healthcare technology.",
+      "imageUrl": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "imageHint": "healthcare technology"
+    },
+    {
+      "id": "ad-hubtel",
+      "description": "A person using a phone for a mobile payment, representing fintech.",
+      "imageUrl": "https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+      "imageHint": "mobile payment"
+    },
+    {
+      "id": "ad-mtn",
+      "description": "A vibrant cityscape at night, representing connectivity.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771164842/assd_bawlbh.jpg",
+      "imageHint": "city connectivity"
+    },
+    {
+      "id": "ad-ashesi",
+      "description": "A modern university campus with students.",
+      "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "imageHint": "university campus"
+    },
+    {
+      "id": "ad-gcb",
+      "description": "A person making a contactless payment, representing modern financial services.",
+      "imageUrl": "https://images.unsplash.com/photo-1556740758-90de374c12ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "imageHint": "contactless payment"
+    },
+    {
+      "id": "company-logo-1",
+      "description": "Logo for mPharma.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771235434/facebook-cover-2_kbwa2f.jpg",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "company-logo-2",
+      "description": "Logo for Hubtel.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771235434/facebook-cover-3_zq0xre.png",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "company-logo-3",
+      "description": "Logo for MTN Ghana.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771235434/facebook-cover-1_g62yvb.jpg",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "company-logo-4",
+      "description": "Logo for GCB Bank.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771235434/facebook-cover-1a_nfq5ui.jpg",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "company-logo-5",
+      "description": "Logo for Stanbic Bank.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771235480/facebook-cover-4_gjdwq5.jpg",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "company-logo-6",
+      "description": "Logo for GOIL.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771235523/facebook-cover-5_yrns3r.png",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "company-logo-7",
+      "description": "Logo for Vodafone Ghana.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771235524/facebook-cover-8_izylvw.jpg",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "company-logo-8",
+      "description": "Logo for Ecobank Ghana.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771235525/facebook-cover-9_twvoug.jpg",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "company-logo-9",
+      "description": "Logo for KPMG Ghana.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771235536/facebook-cover-rr_mmzmgv.jpg",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "company-logo-10",
+      "description": "Logo for PwC Ghana.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771235541/facebook-cover-rre_c58b2j.png",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "company-logo-11",
+      "description": "Logo for Ashesi University.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771235542/facebook-cover-y_cpver4.png",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "company-logo-12",
+      "description": "Logo for Nyaho Medical Centre.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771236535/nyhaho_rznhuo.png",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "avatar-1",
+      "description": "Portrait of a Ghanaian professional woman smiling.",
+      "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=388&q=80",
+      "imageHint": "professional portrait"
+    },
+    {
+      "id": "avatar-2",
+      "description": "Portrait of a Ghanaian professional man in a suit.",
+      "imageUrl": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "imageHint": "professional portrait"
+    },
+    {
+      "id": "avatar-3",
+      "description": "Portrait of a young Ghanaian professional woman.",
+      "imageUrl": "https://images.unsplash.com/photo-1595211877493-41a4e5f236b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+      "imageHint": "professional portrait"
+    },
+    {
+      "id": "avatar-4",
+      "description": "Portrait of a Ghanaian man in business-casual attire.",
+      "imageUrl": "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+      "imageHint": "professional portrait"
+    },
+    {
+      "id": "avatar-5",
+      "description": "Portrait of a smiling Ghanaian woman with braids.",
+      "imageUrl": "https://images.unsplash.com/photo-1607990283143-e81e7a2c9349?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+      "imageHint": "professional portrait"
+    },
+    {
+      "id": "avatar-6",
+      "description": "Candid shot of a Ghanaian professional woman laughing.",
+      "imageUrl": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+      "imageHint": "professional portrait"
+    },
+    {
+      "id": "avatar-7",
+      "description": "Portrait of a young Ghanaian man smiling.",
+      "imageUrl": "https://images.unsplash.com/photo-1581065178047-8ee15951ede6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80",
+      "imageHint": "professional portrait"
+    },
+    {
+      "id": "avatar-8",
+      "description": "Portrait of a Ghanaian professional woman with glasses.",
+      "imageUrl": "https://images.unsplash.com/photo-1655249493799-9cee4fe983bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+      "imageHint": "professional portrait"
+    },
+    {
+      "id": "avatar-9",
+      "description": "Portrait of a confident Ghanaian man.",
+      "imageUrl": "https://images.unsplash.com/photo-1655249481446-25d575f1c054?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+      "imageHint": "professional portrait"
+    },
+    {
+      "id": "avatar-10",
+      "description": "Portrait of a Ghanaian woman in a modern office.",
+      "imageUrl": "https://images.unsplash.com/photo-1573496799515-eeb3277f4838?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "imageHint": "professional portrait"
+    },
+    {
+      "id": "avatar-11",
+      "description": "Portrait of a friendly Ghanaian man with a beard.",
+      "imageUrl": "https://images.unsplash.com/photo-1623679799634-841494762b38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+      "imageHint": "professional portrait"
+    },
+    {
+      "id": "avatar-12",
+      "description": "Candid portrait of a Ghanaian professional woman at work.",
+      "imageUrl": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80",
+      "imageHint": "professional portrait"
+    },
+    {
+      "id": "avatar-13",
+      "description": "Portrait of a mature Ghanaian professional man.",
+      "imageUrl": "https://images.unsplash.com/photo-1600486913747-55e5470d6f40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "imageHint": "professional portrait"
+    },
+    {
+      "id": "avatar-14",
+      "description": "Portrait of a smiling Ghanaian woman with short hair.",
+      "imageUrl": "https://images.unsplash.com/photo-1628890920690-9e29d0019b9b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+      "imageHint": "professional portrait"
+    },
+    {
+      "id": "avatar-15",
+      "description": "Portrait of a professional Ghanaian man in a modern office.",
+      "imageUrl": "https://images.unsplash.com/photo-1600878459149-598674f3b036?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+      "imageHint": "professional portrait"
+    },
+    {
+      "id": "blog-post-1",
+      "description": "Two Black professionals in a job interview setting.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771061299/ddddd_exsis3.jpg",
+      "imageHint": "job interview"
+    },
+    {
+      "id": "blog-post-2",
+      "description": "A Black developer coding on a laptop screen.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771061239/1750667763790_rgywl3.jpg",
+      "imageHint": "code screen"
+    },
+    {
+      "id": "blog-post-3",
+      "description": "A diverse team of Black professionals collaborating around a whiteboard in an office.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771061238/dfgfg_idgonn.jpg",
+      "imageHint": "Ghanaian team"
+    },
+    {
+      "id": "blog-post-4",
+      "description": "Abstract visualization of serverless architecture.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771061238/fff_lsri9o.jpg",
+      "imageHint": "serverless architecture"
+    },
+    {
+      "id": "blog-post-5",
+      "description": "A Black woman leading a presentation in an office.",
+      "imageUrl": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "imageHint": "business presentation"
+    },
+    {
+      "id": "blog-post-6",
+      "description": "A Black person working remotely at a well-lit desk.",
+      "imageUrl": "https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "imageHint": "remote work"
+    },
+    {
+      "id": "blog-post-7",
+      "description": "A Black professional writing career goals in a notebook.",
+      "imageUrl": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80",
+      "imageHint": "career advice"
+    },
+    {
+      "id": "blog-post-8",
+      "description": "Modern office interior with Black professionals working in the background.",
+      "imageUrl": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "imageHint": "office life"
+    },
+    {
+      "id": "find-job-1",
+      "description": "Ghanaian professionals collaborating in a meeting.",
+      "imageUrl": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "imageHint": "Ghana professionals"
+    },
+    {
+      "id": "find-job-2",
+      "description": "A Black professional presenting a graph showing an upward trend.",
+      "imageUrl": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "imageHint": "business graph"
+    },
+    {
+      "id": "find-job-3",
+      "description": "A Black person's hand applying for a job on a laptop.",
+      "imageUrl": "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "imageHint": "apply job"
+    },
+    {
       "id": "location-accra",
       "description": "Professional modern background.",
       "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771367035/Screenshot_168_txi3nv.png",
       "imageHint": "professional background"
+    },
+    {
+      "id": "location-kumasi",
+      "description": "Kejetia Market in Kumasi, Ghana.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771012631/kumasi_iaoomm.jpg",
+      "imageHint": "Kumasi market"
+    },
+    {
+      "id": "location-takoradi",
+      "description": "Fishing boats at a harbour in Takoradi, Ghana.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771014157/tadi_uemdqo.jpg",
+      "imageHint": "Takoradi harbour"
+    },
+    {
+      "id": "location-cape-coast",
+      "description": "Cape Coast Castle in Ghana.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771015562/ccvvbvb_j6rxdw.jpg",
+      "imageHint": "CapeCoast castle"
+    },
+    {
+      "id": "location-tamale",
+      "description": "The central mosque in Tamale, Ghana.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771014264/tamale_stnlm1.jpg",
+      "imageHint": "Tamale mosque"
+    },
+    {
+      "id": "location-tema",
+      "description": "The port of Tema, Ghana.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771012630/tema_xleug8.jpg",
+      "imageHint": "Tema port"
     },
     {
       "id": "hiring-main",
@@ -26,10 +314,112 @@
       "imageHint": "professional desk"
     },
     {
+      "id": "subscription-1",
+      "description": "Team of Black professionals in a collaboration meeting.",
+      "imageUrl": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "imageHint": "team meeting"
+    },
+    {
+      "id": "subscription-2",
+      "description": "Black professional woman working at a desk.",
+      "imageUrl": "https://images.unsplash.com/photo-1524508762098-fd966ffb6ef9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+      "imageHint": "person working"
+    },
+    {
+      "id": "subscription-3",
+      "description": "Group of Black students learning in a classroom.",
+      "imageUrl": "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "imageHint": "students learning"
+    },
+    {
+      "id": "subscription-4",
+      "description": "Black man with beard working at a desk.",
+      "imageUrl": "https://images.unsplash.com/photo-1623679799634-841494762b38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80",
+      "imageHint": "man desk"
+    },
+    {
+      "id": "subscription-5",
+      "description": "Two Black professionals in an office environment.",
+      "imageUrl": "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1032&q=80",
+      "imageHint": "office people"
+    },
+    {
+      "id": "category-bg",
+      "description": "Modern office setting with Ghanaian people working.",
+      "imageUrl": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "imageHint": "Ghana office"
+    },
+    {
       "id": "top-companies-bg",
       "description": "Modern office interior",
       "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771111377/3124_lsxwt6.jpg",
       "imageHint": "office interior"
+    },
+    {
+      "id": "latest-news-bg",
+      "description": "A Black professional reading news on a digital tablet.",
+      "imageUrl": "https://images.unsplash.com/photo-1586953208448-39502e78315c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=992&q=80",
+      "imageHint": "news reading"
+    },
+    {
+      "id": "paystack-logo",
+      "description": "Paystack logo",
+      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMjUiIHZpZXdCb3g9IjAgMCAxMDAgMjUiPjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMjUiIGZpbGw9IiMwMDAwMDAiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiNGRkZGRkYiPlBheXN0YWNrPC90ZXh0Pjwvc3ZnPg==",
+      "imageHint": "Paystack logo"
+    },
+    {
+      "id": "visa-logo",
+      "description": "Visa logo",
+      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSIyNSIgdmlld0JveD0iMCAwIDUwIDI1Ij48cmVjdCB3aWR0aD0iNTAiIGhlaWdodD0iMjUiIGZpbGw9IiMxQTFGNzEiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnSyc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiNGRkZGRkYiPlZJU0E8L3RleHQ+PC9zdmc+",
+      "imageHint": "Visa logo"
+    },
+    {
+      "id": "mastercard-logo",
+      "description": "Mastercard logo",
+      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSIyNSIgdmlld0JveD0iMCAwIDUwIDI1Ij48cmVjdCB3aWR0aD0iNTAiIGhlaWdodD0iMjUiIGZpbGw9IiNFQjAwMUIiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiNGRkZGRkYiPk1DPC90ZXh0Pjwvc3ZnPg==",
+      "imageHint": "Mastercard logo"
+    },
+    {
+      "id": "ssl-badge",
+      "description": "SSL Secure badge",
+      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCAxMjAgNDAiPjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIGZpbGw9IiMyMmM1NWMiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiNmZmZmZmYiPlNlY3VyZSBTU0w8L3RleHQ+PC9zdmc+",
+      "imageHint": "secure ssl"
+    },
+    {
+      "id": "pricing-basic",
+      "description": "Small team of Black professionals collaborating in a bright, modern startup office.",
+      "imageUrl": "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "imageHint": "startup office"
+    },
+    {
+      "id": "pricing-pro",
+      "description": "A professional Ghanaian team in a conference room discussing a project on a large screen.",
+      "imageUrl": "https://images.unsplash.com/photo-1543269664-56d93c1b41a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "imageHint": "business meeting"
+    },
+    {
+      "id": "pricing-enterprise",
+      "description": "A bustling, large open-plan office with Black professionals.",
+      "imageUrl": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "imageHint": "corporate office"
+    },
+    {
+      "id": "resume-doc",
+      "description": "A placeholder image for a resume document.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771239121/resume_w55gvy.png",
+      "imageHint": "resume document"
+    },
+    {
+      "id": "contact-map",
+      "description": "A vibrant, stylized map of Accra.",
+      "imageUrl": "https://images.unsplash.com/photo-1618422159590-c5f21224f8d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80",
+      "imageHint": "Accra map"
+    },
+    {
+      "id": "kente-corner-art",
+      "description": "A vibrant african pattern for decorative corner art.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771288949/nbv_ptjlm8.jpg",
+      "imageHint": "african pattern"
     },
     {
       "id": "featured-jobs-bg",
@@ -38,10 +428,52 @@
       "imageHint": "abstract background"
     },
     {
+      "id": "ai-support-button",
+      "description": "A futuristic AI robot head icon for the support button.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771168493/eds_bjytks.png",
+      "imageHint": "AI robot"
+    },
+    {
+      "id": "ai-support-intro",
+      "description": "An introductory image for the AI assistant Abena.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771205327/straight_yqwg78.png",
+      "imageHint": "AI assistant"
+    },
+    {
       "id": "contact-form-bg",
       "description": "A person working on a laptop in a modern, bright office setting.",
       "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771163025/contacts_amr2rb.jpg",
       "imageHint": "office workspace"
+    },
+    {
+      "id": "blog-post-9",
+      "description": "A person writing notes on a notepad at a desk.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771165456/htr_w8ve2g.jpg",
+      "imageHint": "writing notes"
+    },
+    {
+      "id": "checkout-bg",
+      "description": "A modern, professional office interior suggesting security and trust.",
+      "imageUrl": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3",
+      "imageHint": "modern office"
+    },
+    {
+      "id": "checkout-trusted-payment",
+      "description": "A collection of trusted payment provider logos and security seals.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771272346/pay_yzab2c.png",
+      "imageHint": "payment security"
+    },
+    {
+      "id": "african-pattern-bg",
+      "description": "A colorful African pattern with concentric circles.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771288949/nbv_ptjlm8.jpg",
+      "imageHint": "african pattern"
+    },
+    {
+      "id": "freedom-justice",
+      "description": "Independence Arch in Accra, Ghana, with 'Freedom and Justice' inscription.",
+      "imageUrl": "https://images.unsplash.com/photo-1590642916589-592bca10dfbf?q=80&w=2000&auto=format&fit=crop",
+      "imageHint": "Independence Arch"
     }
   ]
 }
