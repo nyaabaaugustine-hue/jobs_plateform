@@ -23,7 +23,7 @@ export default function HiringSection() {
           data-ai-hint={hiringImage.imageHint}
         />
       )}
-      <div className="absolute inset-0 bg-gray-900/70 z-10" />
+      <div className="absolute inset-0 bg-gray-900/75 z-10" />
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="flex flex-col space-y-6 animate-in fade-in slide-in-from-left-12 duration-700">
