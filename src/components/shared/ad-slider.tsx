@@ -69,28 +69,20 @@ export default function AdSlider() {
         return;
     }
 
-    // Show the first ad after 3 seconds for immediate engagement
+    // Reset flag if needed or just run - we want it to run for the user
     const initialTimeout = setTimeout(() => {
-      if (sessionStorage.getItem('adSliderClosed') !== 'true') {
-        setIsPanelOpen(true);
-      }
-    }, 3000);
+      setIsPanelOpen(true);
+    }, 2000);
 
-    // Cycle through ads every 20 seconds
     const interval = setInterval(() => {
-        if (sessionStorage.getItem('adSliderClosed') === 'true') {
-            clearInterval(interval);
-            return;
-        }
-
-        setIsPanelOpen(false); // Close current panel
+        setIsPanelOpen(false); 
 
         setTimeout(() => {
             setCurrentAdIndex(prevIndex => (prevIndex + 1) % ads.length);
-            setIsPanelOpen(true); // Animate in new ad
-        }, 800); // Sharp transition
+            setIsPanelOpen(true);
+        }, 600);
 
-    }, 20000);
+    }, 15000);
 
     return () => {
       clearTimeout(initialTimeout);
@@ -100,6 +92,7 @@ export default function AdSlider() {
   
   const handleClose = () => {
     setIsPanelOpen(false);
+    // Persistent close for this session only if manually closed
     sessionStorage.setItem('adSliderClosed', 'true');
   };
 

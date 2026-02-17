@@ -1,4 +1,3 @@
-
 'use client';
 
 import { Award, Briefcase, Building, CheckCircle } from 'lucide-react';
@@ -13,32 +12,23 @@ const activityItems = [
 
 export default function LiveActivityBar() {
   return (
-    <div className="relative w-full overflow-hidden bg-background border-y">
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-background to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-background to-transparent" />
+    <div className="relative w-full overflow-hidden bg-primary/5 border-y border-primary/10 backdrop-blur-sm">
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-background/80 to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-background/80 to-transparent" />
 
-      <div className="flex animate-marquee-rtl whitespace-nowrap">
-        {/* Render items twice for seamless loop */}
-        {[...activityItems, ...activityItems].map((item, index) => {
-          const isEven = index % 2 === 0;
-          return (
-            <div key={index} className="flex shrink-0 items-center gap-3 py-2 px-8">
-              <div className={cn(
-                  "rounded-lg p-1.5",
-                  isEven ? "bg-muted text-foreground" : "bg-burgundy/10 text-burgundy"
-              )}>
-                <item.icon className="h-4 w-4" />
-              </div>
-              <div>
-                <p className={cn(
-                    "text-base font-bold",
-                    isEven ? "text-foreground" : "text-burgundy"
-                )}>{item.metric}</p>
-                <p className="text-xs text-muted-foreground">{item.label}</p>
-              </div>
+      <div className="flex animate-marquee-rtl whitespace-nowrap py-2.5">
+        {/* Render items multiple times for a continuous loop */}
+        {[...activityItems, ...activityItems, ...activityItems, ...activityItems].map((item, index) => (
+          <div key={index} className="flex shrink-0 items-center gap-3 px-12">
+            <div className="rounded-lg p-1.5 bg-primary/10 text-primary">
+              <item.icon className="h-4 w-4" />
             </div>
-          )
-        })}
+            <div>
+              <p className="text-sm font-bold text-foreground">{item.metric}</p>
+              <p className="text-[10px] uppercase tracking-wider font-bold text-muted-foreground/70">{item.label}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

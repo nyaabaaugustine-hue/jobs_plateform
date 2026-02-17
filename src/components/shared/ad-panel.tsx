@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useEffect } from 'react';
@@ -48,20 +47,18 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
 
   return (
     <>
-      {/* Semi-transparent Overlay - only visible when panel is open */}
+      {/* Container with pointer-events-none to prevent blocking page clicks when closed */}
       <div
-        aria-hidden="true"
         className={cn(
-          'fixed inset-0 bg-black/20 backdrop-blur-[2px] z-[99] transition-opacity duration-500',
-          isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+          'fixed inset-0 z-[99] transition-all duration-500 pointer-events-none',
+          isOpen ? 'bg-black/10 backdrop-blur-[1px] pointer-events-auto' : 'bg-transparent'
         )}
         onClick={onClose}
       />
 
-      {/* Panel Container */}
       <aside
         className={cn(
-          'fixed bottom-6 left-6 z-[100] w-[calc(100vw-3rem)] max-w-sm transition-all duration-700 ease-in-out',
+          'fixed bottom-6 left-6 z-[100] w-[calc(100vw-3rem)] max-w-sm transition-all duration-500 ease-in-out',
           isOpen
             ? 'opacity-100 translate-x-0 scale-100'
             : 'opacity-0 -translate-x-full scale-95 pointer-events-none'
@@ -109,7 +106,7 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
                 {ad.description}
             </p>
             <div className="pt-4 mt-4 border-t flex items-center justify-between">
-              <Button asChild variant="secondary" size="sm" className="w-full bg-accent-gradient font-bold hover:brightness-110">
+              <Button asChild variant="secondary" className="w-full bg-accent-gradient font-bold">
                 <Link href={`/companies/${ad.company.id}`}>
                   Explore Careers <ArrowRight className="ml-2 h-4 w-4"/>
                 </Link>
