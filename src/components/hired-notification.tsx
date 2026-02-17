@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
-import { PartyPopper } from 'lucide-react';
+import { PartyPopper, Sparkles } from 'lucide-react';
 import { ToastAction } from './ui/toast';
 import { usePathname } from 'next/navigation';
 
@@ -13,6 +13,8 @@ const hiredExamples = [
   { name: 'Ama Serwaa', job: 'UX/UI Designer', avatarId: 'avatar-1' },
   { name: 'Yaw Adjei', job: 'Product Manager', avatarId: 'avatar-4' },
   { name: 'Esi Owusu', job: 'Data Scientist', avatarId: 'avatar-5' },
+  { name: 'Kwame Addo', job: 'Full-stack Engineer', avatarId: 'avatar-7' },
+  { name: 'Akua Asare', job: 'Content Strategist', avatarId: 'avatar-6' },
 ];
 
 export default function HiredNotification() {
@@ -36,8 +38,6 @@ export default function HiredNotification() {
   useEffect(() => {
     let initialTimeout: NodeJS.Timeout | null = null;
     
-    // The logic to show notifications is now wrapped inside the effect,
-    // ensuring the hook itself runs on every render.
     if (!isDashboardPage) {
       const showRandomHiredNotification = () => {
         if (sessionStorage.getItem('hiredNotificationsStopped') === 'true') {
@@ -52,40 +52,50 @@ export default function HiredNotification() {
 
         toast({
           variant: 'black',
-          className: 'p-4 pr-10',
+          className: 'p-4 pr-10 border-l-4 border-l-primary animate-in slide-in-from-bottom-full duration-500',
           description: (
             <div className="flex items-center gap-3">
-              <Avatar className="h-8 w-8 border-2 border-background/50">
-                {userAvatar && <AvatarImage src={userAvatar.imageUrl} alt={example.name} />}
-                <AvatarFallback>{example.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
-              </Avatar>
+              <div className="relative">
+                <Avatar className="h-10 w-10 border-2 border-white/20">
+                  {userAvatar && <AvatarImage src={userAvatar.imageUrl} alt={example.name} />}
+                  <AvatarFallback>{example.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                </Avatar>
+                <div className="absolute -bottom-1 -right-1 bg-primary rounded-full p-0.5">
+                  <Sparkles className="h-3 w-3 text-white" />
+                </div>
+              </div>
               <div>
-                <p className="font-semibold text-sm flex items-center gap-1.5">{`${example.name.split(' ')[0]} was hired!`} <PartyPopper className="h-4 w-4 text-yellow-400" /></p>
-                <p className="text-xs opacity-80">{`For the ${example.job} role.`}</p>
+                <p className="font-bold text-sm flex items-center gap-1.5 text-white">
+                  {`${example.name.split(' ')[0]} was hired!`} 
+                  <PartyPopper className="h-4 w-4 text-yellow-400" />
+                </p>
+                <p className="text-xs text-white/80 font-medium">{`New ${example.job} role filled.`}</p>
               </div>
             </div>
           ),
           action: (
             <ToastAction
-              altText="Stop notifications"
+              altText="Stop alerts"
               onClick={stopNotifications}
+              className="text-xs h-7"
             >
               Stop alerts
             </ToastAction>
           ),
-          duration: 10000,
+          duration: 8000,
         });
       };
 
+      // Start the cycle 4 seconds after initial load
       initialTimeout = setTimeout(() => {
         if (sessionStorage.getItem('hiredNotificationsStopped') !== 'true') {
           showRandomHiredNotification();
-          intervalRef.current = setInterval(showRandomHiredNotification, 47000);
+          // Cycle every 25 seconds for a "flash" frequency
+          intervalRef.current = setInterval(showRandomHiredNotification, 25000);
         }
-      }, 7000);
+      }, 4000);
     }
 
-    // The cleanup function runs regardless, ensuring timers are always cleared.
     return () => {
       if (initialTimeout) {
         clearTimeout(initialTimeout);
@@ -97,6 +107,5 @@ export default function HiredNotification() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [toast, dismiss, isDashboardPage]);
 
-  // This component never renders anything to the DOM.
   return null;
 }

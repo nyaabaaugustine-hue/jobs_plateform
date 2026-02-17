@@ -84,7 +84,7 @@ export default function AdSlider() {
   useEffect(() => {
     if (!hasStarted || isDashboardPage || sessionStorage.getItem('adSliderClosed') === 'true') return;
 
-    // Cycle every 47 seconds
+    // Cycle exactly every 47 seconds as requested
     const cycleInterval = setInterval(() => {
         if (sessionStorage.getItem('adSliderClosed') === 'true') {
             clearInterval(cycleInterval);
@@ -93,13 +93,13 @@ export default function AdSlider() {
 
         setIsPanelOpen(false); 
 
-        // Wait for slide-out animation before changing index and sliding back in
+        // Smooth transition wait before showing the next ad
         setTimeout(() => {
             if (sessionStorage.getItem('adSliderClosed') !== 'true') {
                 setCurrentAdIndex(prevIndex => (prevIndex + 1) % ads.length);
                 setIsPanelOpen(true);
             }
-        }, 800);
+        }, 1000);
 
     }, 47000);
 
