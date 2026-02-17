@@ -50,63 +50,26 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-b from-transparent to-background z-20" />
       </section>
 
       <HiringSection />
 
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent my-24" />
-      </div>
-
       <TopCompanies companies={companies} />
-
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent my-24" />
-      </div>
 
       <FeaturedJobs jobs={jobs} categories={categories} />
       
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent my-24" />
-      </div>
-
       <WhyChooseUs />
-
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent my-24" />
-      </div>
 
       <VolunteerSection />
 
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent my-24" />
-      </div>
-
       <JobsByLocation locations={locations} />
       
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent my-24" />
-      </div>
-
       <Testimonials />
       
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent my-24" />
-      </div>
-      
       <LatestNews posts={latestPosts} />
-
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent my-24" />
-      </div>
       
       <Faq />
       
-      <div className="container mx-auto px-6 lg:px-12">
-        <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent my-24" />
-      </div>
-
       <SubscriptionSection />
     </main>
   );
