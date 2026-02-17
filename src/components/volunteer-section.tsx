@@ -1,3 +1,4 @@
+
 'use client';
 
 import { DUMMY_OPPORTUNITIES } from '@/lib/data';
@@ -20,10 +21,11 @@ export default function VolunteerSection() {
             src={bgImage.imageUrl}
             alt={bgImage.description}
             fill
-            className="object-cover z-0"
+            className="object-cover z-0 opacity-80"
             data-ai-hint={bgImage.imageHint}
             priority
           />
+          {/* Half transparent rich creme background */}
           <div className="absolute inset-0 z-10" style={{ backgroundColor: 'hsla(48, 20%, 94%, 0.5)' }} />
         </>
       )}

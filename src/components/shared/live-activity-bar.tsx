@@ -6,26 +6,26 @@ import { cn } from '@/lib/utils';
 
 const activityItems = [
   { 
-    category: 'BREAKING', 
-    text: 'AI Matchmaking V2.0 is now live for all Pro members', 
+    category: 'LATEST NEWS', 
+    text: 'AI-Powered Career Matching is Now Live for all members', 
     icon: Newspaper,
     color: 'text-primary'
   },
   { 
-    category: 'NEW LISTINGS', 
-    text: 'Over 120 Senior React roles added in the last 12 hours', 
+    category: 'JOBS POSTED', 
+    text: '150+ New React & Next.js Roles Added in the Last 24 Hours', 
     icon: Briefcase,
     color: 'text-burgundy'
   },
   { 
-    category: 'STUDENT PROGRAM', 
-    text: 'Applications open for the "Code for Ghana" Summer Internship', 
+    category: 'STUDENT ATTACHMENTS', 
+    text: '45+ Professional Internship Programs Open for Summer Applications', 
     icon: GraduationCap,
     color: 'text-emerald-600'
   },
   { 
-    category: 'MILESTONE', 
-    text: 'Proudly supporting over 5,000+ local tech careers', 
+    category: 'VERIFIED FIRMS', 
+    text: 'Proudly supporting 4,500+ local tech companies actively hiring', 
     icon: Trophy,
     color: 'text-gold'
   },
@@ -42,25 +42,22 @@ export default function LiveActivityBar() {
         {/* Render items multiple times for a seamless loop */}
         {[...activityItems, ...activityItems, ...activityItems].map((item, index) => (
           <div key={index} className="flex shrink-0 items-center gap-4 px-12 group">
-            {/* Category Label */}
-            <div className="flex items-center gap-2">
+            {/* Professional Status Badge */}
+            <div className="flex items-center gap-2 bg-secondary/50 px-3 py-1 rounded-full border border-border/50">
               <span className="relative flex h-2 w-2">
                 <span className={cn("absolute inline-flex h-full w-full animate-ping rounded-full opacity-75", item.color === 'text-primary' ? 'bg-primary' : 'bg-burgundy')}></span>
                 <span className={cn("relative inline-flex h-2 w-2 rounded-full", item.color === 'text-primary' ? 'bg-primary' : 'bg-burgundy')}></span>
               </span>
               <span className={cn(
-                "font-headline text-[11px] font-black tracking-widest uppercase",
+                "font-headline text-[10px] font-black tracking-wider uppercase",
                 item.color
               )}>
                 {item.category}
               </span>
             </div>
             
-            {/* Visual Separator */}
-            <div className="h-4 w-px bg-border/60 mx-1" />
-
             {/* Announcement Text */}
-            <span className="text-sm font-medium text-foreground/90 tracking-tight">
+            <span className="text-sm font-semibold text-foreground/90 tracking-tight font-body">
               {item.text}
             </span>
           </div>

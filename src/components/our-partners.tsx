@@ -18,7 +18,7 @@ export default function OurPartners() {
           src={bgImage.imageUrl}
           alt={bgImage.description}
           fill
-          className="object-cover z-0"
+          className="object-cover z-0 opacity-80"
           data-ai-hint={bgImage.imageHint}
         />
       )}

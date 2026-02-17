@@ -17,13 +17,13 @@ export default function HiringSection() {
 
   return (
     <section className="relative py-24 lg:py-32 overflow-hidden">
-      {/* Section Background Image */}
+      {/* Section Background Image with 80% Opacity */}
       {bgImage && (
         <Image
           src={bgImage.imageUrl}
           alt={bgImage.description}
           fill
-          className="object-cover z-0"
+          className="object-cover z-0 opacity-80"
           data-ai-hint={bgImage.imageHint}
           priority
         />
@@ -70,6 +70,7 @@ export default function HiringSection() {
                     </Button>
                 </div>
             </div>
+            {/* LARGE ORIGINAL IMAGE SIZE */}
             <div className="relative flex items-center justify-center animate-in fade-in slide-in-from-right duration-1000">
                 {hiringImage && (
                   <div className="relative group w-full max-w-[600px]">
