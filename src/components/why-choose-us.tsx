@@ -1,5 +1,7 @@
+
+'use client';
+
 import { Shield, Zap, BrainCircuit } from 'lucide-react';
-import SectionHeader from './shared/section-header';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
@@ -33,7 +35,7 @@ export default function WhyChooseUs() {
   const bgImage = PlaceHolderImages.find((p) => p.id === 'location-accra');
 
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section className="relative py-24 overflow-hidden">
       {bgImage && (
         <Image
           src={bgImage.imageUrl}
@@ -41,25 +43,26 @@ export default function WhyChooseUs() {
           fill
           className="object-cover z-0"
           data-ai-hint={bgImage.imageHint}
+          priority
         />
       )}
-      <div className="absolute inset-0 bg-background/90 z-10" />
+      <div className="absolute inset-0 bg-background/80 z-10" />
       
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
-        <div className="mb-10 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
-            <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-foreground">Why Chapel Hill?</h2>
+        <div className="mb-12 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <h2 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl text-foreground">Why Chapel Hill?</h2>
         </div>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {features.map((feature, index) => (
-            <Card key={index} className="text-center animate-in fade-in slide-in-from-bottom-4 duration-700 bg-card/80 backdrop-blur-sm border-none shadow-md hover:shadow-lg transition-shadow" style={{ animationDelay: `${200 + index * 100}ms` }}>
-              <CardHeader className="items-center">
-                <div className={cn("flex h-16 w-16 items-center justify-center rounded-full", feature.iconBg)}>
-                  <feature.icon className={cn("h-8 w-8", feature.iconColor)} />
+            <Card key={index} className="text-center animate-in fade-in slide-in-from-bottom-4 duration-700 bg-card/80 backdrop-blur-sm border-none shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1" style={{ animationDelay: `${200 + index * 100}ms` }}>
+              <CardHeader className="items-center pb-2">
+                <div className={cn("flex h-20 w-20 items-center justify-center rounded-2xl shadow-inner", feature.iconBg)}>
+                  <feature.icon className={cn("h-10 w-10", feature.iconColor)} />
                 </div>
               </CardHeader>
-              <CardContent>
-                <CardTitle className="mb-2 text-xl text-card-foreground">{feature.title}</CardTitle>
-                <p className="text-muted-foreground">{feature.description}</p>
+              <CardContent className="pt-4">
+                <CardTitle className="mb-3 text-2xl font-bold text-card-foreground">{feature.title}</CardTitle>
+                <p className="text-muted-foreground leading-relaxed font-medium">{feature.description}</p>
               </CardContent>
             </Card>
           ))}
