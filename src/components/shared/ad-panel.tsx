@@ -117,11 +117,11 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
                 </Link>
               </Button>
 
-              {/* SECONDARY ADVERTISE BUTTON - HIGH VISIBILITY BURGUNDY */}
+              {/* SECONDARY ADVERTISE BUTTON - MILKY CLAY WHITE WITH RED (BURGUNDY) OUTLINE */}
               <Button 
                 asChild 
                 variant="outline"
-                className="w-full h-10 border-dashed border-burgundy text-burgundy font-black hover:bg-burgundy/5 transition-all rounded-xl shadow-sm"
+                className="w-full h-12 bg-background text-burgundy border-2 border-burgundy font-black hover:bg-burgundy/5 transition-all rounded-xl shadow-sm"
               >
                 <Link href="/contacts">
                   <Megaphone className="mr-2 h-4 w-4" /> Advertise with us

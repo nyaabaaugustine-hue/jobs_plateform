@@ -32,8 +32,9 @@ export default function HiredNotification() {
     setIsStopped(true);
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
+      intervalRef.current = null;
     }
-    dismiss(); // Clear all active toasts
+    dismiss(); // Clear all active toasts immediately
   };
 
   useEffect(() => {
@@ -41,6 +42,7 @@ export default function HiredNotification() {
     
     if (!isDashboardPage && !isStopped) {
       const showRandomHiredNotification = () => {
+        // Double check stopped state inside the callback
         if (isStopped) return;
         
         const example = hiredExamples[Math.floor(Math.random() * hiredExamples.length)];
@@ -85,12 +87,12 @@ export default function HiredNotification() {
         });
       };
 
-      // Start the cycle exactly 4 seconds after initial load
+      // Initial Flash: 4 seconds after load
       initialTimeout = setTimeout(() => {
         if (!isStopped) {
             showRandomHiredNotification();
-            // Cycle every 25 seconds
-            intervalRef.current = setInterval(showRandomHiredNotification, 25000);
+            // RECURRING CYCLE: Every 30 Seconds as requested
+            intervalRef.current = setInterval(showRandomHiredNotification, 30000);
         }
       }, 4000);
     }
