@@ -15,7 +15,8 @@ export default function HiringSection() {
   ];
 
   return (
-    <section className="relative py-20">
+    <section className="relative py-24 overflow-hidden">
+      {/* Section Background Image */}
       {bgImage && (
         <Image
           src={bgImage.imageUrl}
@@ -23,39 +24,55 @@ export default function HiringSection() {
           fill
           className="object-cover z-0"
           data-ai-hint={bgImage.imageHint}
+          priority
         />
       )}
-      <div className="absolute inset-0 bg-background/90 z-10" />
+      {/* Dark Overlay for Text Readability */}
+      <div className="absolute inset-0 bg-black/75 z-10" />
 
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
-        <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-            <div className="flex flex-col space-y-6">
-                <h2 className="font-headline text-4xl font-bold tracking-tight !leading-tight text-foreground sm:text-5xl">Hire Top-Tier React Talent in 48 Hours</h2>
-                <p className="text-lg text-foreground font-bold">Discover qualified professionals ready to bring your projects to life. Over 4,500+ employers trust our platform to find the best developers in the ecosystem.</p>
-                <ul className="space-y-3">
+        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
+            <div className="flex flex-col space-y-8 animate-in fade-in slide-in-from-left duration-700">
+                <h2 className="font-headline text-4xl font-extrabold tracking-tight !leading-tight text-white sm:text-5xl lg:text-6xl">
+                  Hire Top-Tier React Talent in 48 Hours
+                </h2>
+                <p className="text-xl text-gray-100 font-bold max-w-xl">
+                  Discover qualified professionals ready to bring your projects to life. Over 4,500+ employers trust our platform to find the best developers in the ecosystem.
+                </p>
+                <ul className="space-y-4">
                     {benefits.map((benefit, index) => (
-                        <li key={index} className="flex items-center gap-3">
-                            <CheckCircle className="h-5 w-5 text-accent" />
-                            <span className="text-muted-foreground">{benefit}</span>
+                        <li key={index} className="flex items-center gap-4 group">
+                            <CheckCircle className="h-6 w-6 text-gold shrink-0 transition-transform group-hover:scale-110" />
+                            <span className="text-gray-200 font-semibold text-lg">{benefit}</span>
                         </li>
                     ))}
                 </ul>
-                <div className="pt-4 flex flex-wrap items-center gap-4">
-                    <Button asChild size="lg" variant="outline" className="font-semibold">
+                <div className="pt-6 flex flex-wrap items-center gap-4">
+                    <Button 
+                      asChild 
+                      size="lg" 
+                      variant="outline" 
+                      className="font-bold border-white/40 text-white bg-white/10 backdrop-blur-md hover:bg-white/20 hover:border-white transition-all scale-105 shadow-xl"
+                    >
                       <Link href="/employer/jobs/new">Post a Job</Link>
                     </Button>
-                    <Button asChild size="lg" variant="outline">
+                    <Button 
+                      asChild 
+                      size="lg" 
+                      variant="outline" 
+                      className="font-bold border-white/20 text-gray-300 hover:text-white transition-colors"
+                    >
                       <Link href="/pricing">View Pricing</Link>
                     </Button>
-                     <Button asChild variant="link">
+                     <Button asChild variant="link" className="text-gold hover:text-gold/80 font-semibold">
                       <Link href="/contacts">Advertise with us</Link>
                     </Button>
                 </div>
             </div>
-            <div className="relative flex items-center justify-center">
+            <div className="relative flex items-center justify-center animate-in fade-in slide-in-from-right duration-1000">
                 {hiringImage && (
-                  <div className="relative">
-                    <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl">
+                  <div className="relative group">
+                    <div className="relative z-10 rounded-[2rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4 border-white/10 transition-transform duration-500 group-hover:scale-[1.02]">
                       <Image
                           src={hiringImage.imageUrl}
                           alt={hiringImage.description}
@@ -65,7 +82,8 @@ export default function HiringSection() {
                           data-ai-hint={hiringImage.imageHint}
                       />
                     </div>
-                    <div className="absolute -inset-4 bg-primary/10 blur-3xl -z-10 rounded-full" />
+                    {/* Subtle glow effect */}
+                    <div className="absolute -inset-6 bg-primary/20 blur-3xl -z-10 rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
                 )}
             </div>
