@@ -1,32 +1,68 @@
+
 'use client';
 
-import { Newspaper, Briefcase, GraduationCap, ShieldCheck } from 'lucide-react';
+import { Newspaper, Briefcase, GraduationCap, Trophy, Circle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const activityItems = [
-  { icon: Newspaper, metric: 'LATEST NEWS', label: 'AI-Powered Career Matching is Now Live' },
-  { icon: Briefcase, metric: 'JOBS POSTED', label: '150+ New Positions Added Today' },
-  { icon: GraduationCap, metric: 'ATTACHMENTS', label: '45+ Student Internship Programs Open' },
-  { icon: ShieldCheck, metric: 'VERIFIED FIRMS', label: '4,500+ Trusted Partners Hiring' },
+  { 
+    category: 'BREAKING', 
+    text: 'AI Matchmaking V2.0 is now live for all Pro members', 
+    icon: Newspaper,
+    color: 'text-primary'
+  },
+  { 
+    category: 'NEW LISTINGS', 
+    text: 'Over 120 Senior React roles added in the last 12 hours', 
+    icon: Briefcase,
+    color: 'text-burgundy'
+  },
+  { 
+    category: 'STUDENT PROGRAM', 
+    text: 'Applications open for the "Code for Ghana" Summer Internship', 
+    icon: GraduationCap,
+    color: 'text-emerald-600'
+  },
+  { 
+    category: 'MILESTONE', 
+    text: 'Proudly supporting over 5,000+ local tech careers', 
+    icon: Trophy,
+    color: 'text-gold'
+  },
 ];
 
 export default function LiveActivityBar() {
   return (
-    <div className="relative w-full overflow-hidden bg-primary/5 border-y border-primary/10 backdrop-blur-sm z-40">
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-background to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-background to-transparent" />
+    <div className="relative w-full overflow-hidden bg-background/80 border-y border-border/50 backdrop-blur-md z-40 h-12 flex items-center">
+      {/* Gradients for fading edges */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-24 bg-gradient-to-r from-background to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-24 bg-gradient-to-l from-background to-transparent" />
 
-      <div className="flex animate-marquee-rtl whitespace-nowrap py-3">
-        {/* Render items multiple times for a continuous loop */}
-        {[...activityItems, ...activityItems, ...activityItems, ...activityItems].map((item, index) => (
-          <div key={index} className="flex shrink-0 items-center gap-4 px-16">
-            <div className="rounded-xl p-2 bg-primary/10 text-primary shadow-sm">
-              <item.icon className="h-4 w-4" />
+      <div className="flex animate-marquee-rtl whitespace-nowrap items-center">
+        {/* Render items multiple times for a seamless loop */}
+        {[...activityItems, ...activityItems, ...activityItems].map((item, index) => (
+          <div key={index} className="flex shrink-0 items-center gap-4 px-12 group">
+            {/* Category Label */}
+            <div className="flex items-center gap-2">
+              <span className="relative flex h-2 w-2">
+                <span className={cn("absolute inline-flex h-full w-full animate-ping rounded-full opacity-75", item.color === 'text-primary' ? 'bg-primary' : 'bg-burgundy')}></span>
+                <span className={cn("relative inline-flex h-2 w-2 rounded-full", item.color === 'text-primary' ? 'bg-primary' : 'bg-burgundy')}></span>
+              </span>
+              <span className={cn(
+                "font-headline text-[11px] font-black tracking-widest uppercase",
+                item.color
+              )}>
+                {item.category}
+              </span>
             </div>
-            <div className="flex flex-col">
-              <p className="font-headline text-sm font-black text-foreground tracking-tighter leading-none">{item.metric}</p>
-              <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-muted-foreground/70 mt-1">{item.label}</p>
-            </div>
+            
+            {/* Visual Separator */}
+            <div className="h-4 w-px bg-border/60 mx-1" />
+
+            {/* Announcement Text */}
+            <span className="text-sm font-medium text-foreground/90 tracking-tight">
+              {item.text}
+            </span>
           </div>
         ))}
       </div>
