@@ -15,8 +15,8 @@ export default function HiringSection() {
   ];
 
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden">
-      {/* Section Background Image with 80% Opacity */}
+    <section className="relative py-24 lg:py-32 overflow-hidden bg-background">
+      {/* Section Background Image with 80% Opacity to allow Shining White to bleed through */}
       {bgImage && (
         <Image
           src={bgImage.imageUrl}
@@ -27,23 +27,24 @@ export default function HiringSection() {
           priority
         />
       )}
-      {/* Dark Overlay for Text Readability */}
-      <div className="absolute inset-0 bg-black/75 z-10" />
+      
+      {/* Subtle Light Overlay for consistent "Shining" look instead of dark */}
+      <div className="absolute inset-0 bg-background/40 z-10" />
 
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
             <div className="flex flex-col space-y-8 animate-in fade-in slide-in-from-left duration-700">
-                <h2 className="font-headline text-4xl font-extrabold tracking-tight !leading-tight text-white sm:text-5xl lg:text-6xl">
+                <h2 className="font-headline text-4xl font-extrabold tracking-tight !leading-tight text-foreground sm:text-5xl lg:text-6xl">
                   Hire Top-Tier React Talent in 48 Hours
                 </h2>
-                <p className="text-xl text-gray-100 font-medium max-w-xl">
+                <p className="text-xl text-muted-foreground font-medium max-w-xl">
                   Discover qualified professionals ready to bring your projects to life. Over 4,500+ employers trust our platform to find the best developers in the ecosystem.
                 </p>
                 <ul className="space-y-4">
                     {benefits.map((benefit, index) => (
                         <li key={index} className="flex items-center gap-4 group">
-                            <CheckCircle className="h-6 w-6 text-gold shrink-0 transition-transform group-hover:scale-110" />
-                            <span className="text-gray-200 font-semibold text-lg">{benefit}</span>
+                            <CheckCircle className="h-6 w-6 text-primary shrink-0 transition-transform group-hover:scale-110" />
+                            <span className="text-foreground/80 font-semibold text-lg">{benefit}</span>
                         </li>
                     ))}
                 </ul>
@@ -51,8 +52,7 @@ export default function HiringSection() {
                     <Button 
                       asChild 
                       size="lg" 
-                      variant="outline" 
-                      className="font-bold border-white/40 text-white bg-white/10 backdrop-blur-md hover:bg-white/20 hover:border-white transition-all scale-105 shadow-xl"
+                      className="font-bold bg-primary text-white hover:bg-primary/90 transition-all scale-105 shadow-xl"
                     >
                       <Link href="/employer/jobs/new">Post a Job</Link>
                     </Button>
@@ -60,20 +60,21 @@ export default function HiringSection() {
                       asChild 
                       size="lg" 
                       variant="outline" 
-                      className="font-bold border-white/20 text-gray-300 hover:text-white transition-colors"
+                      className="font-bold border-primary/20 text-primary hover:bg-primary/5 transition-colors"
                     >
                       <Link href="/pricing">View Pricing</Link>
                     </Button>
-                     <Button asChild variant="link" className="text-gold hover:text-gold/80 font-semibold">
+                     <Button asChild variant="link" className="text-primary hover:text-primary/80 font-semibold">
                       <Link href="/contacts">Advertise with us</Link>
                     </Button>
                 </div>
             </div>
-            {/* LARGE ORIGINAL IMAGE SIZE */}
+            
+            {/* RESTORED TO LARGE ORIGINAL IMAGE SIZE */}
             <div className="relative flex items-center justify-center animate-in fade-in slide-in-from-right duration-1000">
                 {hiringImage && (
                   <div className="relative group w-full max-w-[600px]">
-                    <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.6)] border-4 border-white/10 transition-transform duration-500 group-hover:scale-[1.03]">
+                    <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.2)] border-4 border-white transition-transform duration-500 group-hover:scale-[1.03]">
                       <Image
                           src={hiringImage.imageUrl}
                           alt={hiringImage.description}
@@ -83,7 +84,7 @@ export default function HiringSection() {
                           data-ai-hint={hiringImage.imageHint}
                       />
                     </div>
-                    <div className="absolute -inset-10 bg-primary/30 blur-[100px] -z-10 rounded-full opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
+                    <div className="absolute -inset-10 bg-primary/10 blur-[100px] -z-10 rounded-full opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
                   </div>
                 )}
             </div>

@@ -66,7 +66,7 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
         aria-labelledby="ad-panel-headline"
       >
         <Card
-          className="overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.4)] group border-2 border-primary/20 bg-card/95 backdrop-blur-xl rounded-2xl"
+          className="overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.2)] group border-2 border-primary/10 bg-card/95 backdrop-blur-xl rounded-2xl"
         >
           <Button
             variant="ghost"
@@ -90,9 +90,9 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
               />
             </div>
             <div className="absolute top-3 left-3 flex gap-2">
-                <div className="bg-white/95 text-burgundy px-3 py-1.5 rounded-sm border-l-[3px] border-burgundy shadow-lg">
-                    <span className="font-headline text-[10px] font-black tracking-[0.3em] uppercase">
-                        Advertisement
+                <div className="bg-white/95 px-3 py-1.5 rounded-sm border-l-[3px] border-burgundy shadow-lg">
+                    <span className="font-headline text-[10px] font-black tracking-[0.3em] uppercase text-burgundy">
+                        ADVERTISEMENT
                     </span>
                 </div>
             </div>
@@ -106,9 +106,10 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
                 {ad.description}
             </p>
             <div className="pt-5 mt-5 border-t border-border/50 flex items-center justify-between">
+              {/* BESPOKE MILKY WHITE BUTTON WITH BLACK/GOLD RINGS */}
               <Button 
                 asChild 
-                className="w-full h-12 bg-[#fbfaf8] text-black border-2 border-black ring-2 ring-gold ring-offset-0 font-black tracking-wide hover:bg-[#efede8] hover:scale-[1.02] transition-all rounded-xl shadow-lg"
+                className="w-full h-12 bg-[#fdfdfd] text-black border-2 border-black ring-2 ring-gold ring-offset-0 font-black tracking-wide hover:bg-white hover:scale-[1.02] transition-all rounded-xl shadow-lg"
               >
                 <Link href={`/companies/${ad.company.id}`}>
                   Explore Careers <ArrowRight className="ml-2 h-4 w-4"/>
