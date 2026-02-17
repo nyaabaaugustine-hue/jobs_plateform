@@ -10,23 +10,23 @@
 
 @layer base {
   :root {
-    /* Light Theme: Refined Clay & Creme for High Clarity */
-    --background: 38 67% 96%; /* Milky Creme */
+    /* Light Theme: Refined Clay & Creme (rgb(246, 244, 238)) */
+    --background: 48 29% 95%; /* Milky Creme - Exact match for rgb(246, 244, 238) */
     --foreground: 25 35% 15%; /* Deeper Clay for better readability */
     
     --card: 0 0% 100%;
     --card-foreground: 25 35% 15%;
     
-    --popover: 38 67% 96%;
+    --popover: 48 29% 95%;
     --popover-foreground: 25 35% 15%;
 
     --primary: 217 91% 60%; /* Vibrant Blue */
     --primary-foreground: 0 0% 100%; /* White */
     
-    --secondary: 210 20% 94%; /* Crisp Grey Milk White */
+    --secondary: 48 29% 92%; /* Slightly darker creme */
     --secondary-foreground: 25 35% 15%;
     
-    --muted: 210 20% 92%;
+    --muted: 48 29% 90%;
     --muted-foreground: 25 35% 40%;
     
     --accent: 45 85% 50%; /* Warm Gold */
@@ -35,7 +35,7 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 25 20% 88%; /* Slightly darker border for clarity */
+    --border: 25 20% 88%; 
     --input: 25 20% 88%;
     --ring: 217 91% 60%;
 
