@@ -6,6 +6,9 @@
   .bg-accent-gradient {
     @apply bg-gradient-to-r from-accent via-primary to-accent/80 bg-[length:200%_auto] text-accent-foreground animate-gradient;
   }
+  .bg-shiny-white-gradient {
+    @apply bg-gradient-to-r from-gray-200 via-white to-gray-200 bg-[length:200%_auto] text-gray-900 font-bold animate-gradient shadow-lg hover:opacity-90;
+  }
 }
 
 @layer base {
@@ -42,8 +45,6 @@
     --radius: 0.75rem;
 
     --gold: 45 85% 55%;
-
-    --burgundy: 345 44% 31%;
 
     /* Chart colors */
     --chart-1: hsl(var(--primary));
@@ -94,8 +95,6 @@
     --ring: 217 91% 60%; /* Vibrant Blue Ring */
 
     --gold: 45 85% 55%;
-    
-    --burgundy: 345 44% 41%;
   }
 }
 
