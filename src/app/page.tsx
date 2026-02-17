@@ -3,43 +3,21 @@ import Image from 'next/image';
 import { DUMMY_JOBS, DUMMY_COMPANIES, DUMMY_LOCATIONS, DUMMY_BLOG_POSTS } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import HeroSearchForm from '@/components/hero-search-form';
-import dynamicComponent from 'next/dynamic';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Suspense } from 'react';
+import TopCompanies from '@/components/top-companies';
+import FeaturedJobs from '@/components/featured-jobs';
+import WhyChooseUs from '@/components/why-choose-us';
+import VolunteerSection from '@/components/volunteer-section';
+import JobsByLocation from '@/components/jobs-by-location';
+import Testimonials from '@/components/testimonials';
+import HiringSection from '@/components/hiring-section';
+import LatestNews from '@/components/latest-news';
+import SubscriptionSection from '@/components/subscription-section';
+import Faq from '@/components/faq';
+
 
 export const dynamic = "force-dynamic";
-
-const TopCompanies = dynamicComponent(() => import('@/components/top-companies'), {
-  loading: () => <Skeleton className="h-[300px] w-full" />,
-});
-const FeaturedJobs = dynamicComponent(() => import('@/components/featured-jobs'), {
-  loading: () => <Skeleton className="h-[600px] w-full" />,
-});
-const WhyChooseUs = dynamicComponent(() => import('@/components/why-choose-us'), {
-  loading: () => <Skeleton className="h-[400px] w-full" />,
-});
-const VolunteerSection = dynamicComponent(() => import('@/components/volunteer-section'), {
-  loading: () => <Skeleton className="h-[400px] w-full" />,
-});
-const JobsByLocation = dynamicComponent(() => import('@/components/jobs-by-location'), {
-  loading: () => <Skeleton className="h-[500px] w-full" />,
-});
-const Testimonials = dynamicComponent(() => import('@/components/testimonials'), {
-  loading: () => <Skeleton className="h-[400px] w-full" />,
-});
-const HiringSection = dynamicComponent(() => import('@/components/hiring-section'), {
-  loading: () => <Skeleton className="h-[500px] w-full" />,
-});
-const LatestNews = dynamicComponent(() => import('@/components/latest-news'), {
-  loading: () => <Skeleton className="h-[500px] w-full" />,
-});
-const SubscriptionSection = dynamicComponent(() => import('@/components/subscription-section'), {
-    loading: () => <Skeleton className="h-[300px] w-full" />,
-});
-const Faq = dynamicComponent(() => import('@/components/faq'), {
-  loading: () => <Skeleton className="h-[600px] w-full" />,
-});
-
 
 export default function HomePage() {
   const heroImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
