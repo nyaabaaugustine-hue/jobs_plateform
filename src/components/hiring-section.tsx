@@ -13,8 +13,9 @@ export default function HiringSection() {
   ];
 
   return (
-    <section className="bg-secondary py-16 md:py-24">
-      <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+    <section className="relative bg-secondary py-16 md:py-24">
+       <div className="absolute inset-0 bg-background/97 z-10" />
+      <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div className="flex flex-col space-y-6">
             <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl !leading-tight">
