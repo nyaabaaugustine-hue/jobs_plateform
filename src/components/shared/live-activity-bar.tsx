@@ -1,13 +1,13 @@
 'use client';
 
-import { Award, Briefcase, Building, CheckCircle } from 'lucide-react';
+import { Newspaper, Briefcase, GraduationCap, ShieldCheck } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const activityItems = [
-  { icon: Briefcase, metric: '12,430', label: 'Jobs Available' },
-  { icon: Building, metric: '4,500', label: 'Companies Hiring' },
-  { icon: CheckCircle, metric: '98%', label: 'Candidate Satisfaction' },
-  { icon: Award, metric: '320', label: 'Hires This Week' },
+  { icon: Newspaper, metric: 'LATEST NEWS', label: 'AI-Powered Career Matching is Now Live' },
+  { icon: Briefcase, metric: 'JOBS POSTED', label: '150+ New Positions Added Today' },
+  { icon: GraduationCap, metric: 'ATTACHMENTS', label: '45+ Student Internship Programs Open' },
+  { icon: ShieldCheck, metric: 'VERIFIED FIRMS', label: '4,500+ Trusted Partners Hiring' },
 ];
 
 export default function LiveActivityBar() {
