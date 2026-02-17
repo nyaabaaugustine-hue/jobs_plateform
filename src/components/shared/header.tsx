@@ -55,27 +55,23 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { ThemeToggle } from '../theme-toggle';
-import { useFirebase, useUser, useDoc, useFirestore, useMemoFirebase } from '@/firebase';
-import { signOut } from 'firebase/auth';
-import { doc } from 'firebase/firestore';
-import type { User as AppUser } from '@/lib/types';
+import { useUser } from '@auth0/nextjs-auth0/client';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 
 const DesktopAuthButtons = () => (
     <div className="flex items-center gap-2">
       <ThemeToggle />
       <Button variant="outline" asChild>
-        <Link href="/login">Login</Link>
+        <Link href="/auth/login">Login</Link>
       </Button>
       <Button
         asChild
         variant="secondary"
         className="rounded-xl px-5 py-2.5 font-semibold shadow-sm transition-transform hover:scale-105"
       >
-        <Link href="/register">Register</Link>
+        <Link href="/auth/login?screen_hint=signup">Register</Link>
       </Button>
     </div>
   );
@@ -83,7 +79,7 @@ const DesktopAuthButtons = () => (
   const MobileAuthButtons = ({ onLinkClick }: { onLinkClick?: () => void }) => (
     <div className="grid w-full grid-cols-2 gap-4">
       <Button variant="outline" asChild size="lg">
-        <Link href="/login" onClick={onLinkClick}>Login</Link>
+        <Link href="/auth/login" onClick={onLinkClick}>Login</Link>
       </Button>
       <Button
         asChild
@@ -91,7 +87,7 @@ const DesktopAuthButtons = () => (
         size="lg"
         className="font-semibold shadow-lg transition-transform hover:scale-105"
       >
-        <Link href="/register" onClick={onLinkClick}>Register</Link>
+        <Link href="/auth/login?screen_hint=signup" onClick={onLinkClick}>Register</Link>
       </Button>
     </div>
   );
@@ -102,16 +98,7 @@ export default function Header() {
   const [isMounted, setIsMounted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const { auth } = useFirebase();
-  const { user: authUser, isUserLoading: isAuthUserLoading } = useUser();
-  const firestore = useFirestore();
-
-  const userDocRef = useMemoFirebase(() => {
-    if (!authUser || !firestore) return null;
-    return doc(firestore, 'users', authUser.uid);
-  }, [authUser, firestore]);
-  
-  const { data: userData, isLoading: isUserDataLoading } = useDoc<AppUser>(userDocRef);
+  const { user, isLoading: isAuthUserLoading } = useUser();
 
   useEffect(() => {
     setIsMounted(true);
@@ -126,50 +113,13 @@ export default function Header() {
     return null;
   }
 
-  const getDashboardLink = () => {
-    if (!userData?.role) return '/dashboard';
-    switch (userData.role) {
-      case 'admin': return '/admin';
-      case 'employer':
-      case 'recruiter':
-      case 'hiringManager': return '/employer';
-      default: return '/dashboard';
-    }
-  };
-  
-  const getProfileLink = () => {
-    if (!userData?.role) return '/dashboard/profile';
-    switch (userData.role) {
-      case 'employer':
-      case 'recruiter':
-      case 'hiringManager':
-        return '/employer/company-profile';
-      case 'admin':
-        return null; // Admin doesn't have a profile page
-      default: // jobSeeker
-        return '/dashboard/profile';
-    }
-  };
-
-  const getSettingsLink = () => {
-    if (!userData?.role) return '/dashboard/settings';
-    switch (userData.role) {
-      case 'employer':
-      case 'recruiter':
-      case 'hiringManager':
-        return '/employer/settings';
-      case 'admin':
-        return '/admin/settings';
-      default: // jobSeeker
-        return '/dashboard/settings';
-    }
-  };
+  // NOTE: Role-based routing is simplified as Auth0 user does not have role by default.
+  const getDashboardLink = () => '/dashboard';
+  const getProfileLink = () => '/dashboard/profile';
+  const getSettingsLink = () => '/dashboard/settings';
 
   const handleLogout = () => {
-    if (auth) {
-      signOut(auth);
-      router.push('/login');
-    }
+    router.push('/auth/logout');
   };
 
   const navLinks = [
@@ -216,94 +166,54 @@ export default function Header() {
       );
     }
 
-    if (authUser) {
-      if (isUserDataLoading) {
-        return (
-          <div className="flex items-center gap-2">
-            <ThemeToggle />
-            <Skeleton className="h-10 w-10 rounded-full" />
-          </div>
-        );
-      }
-      
-      if (userData) {
-        const userAvatar = PlaceHolderImages.find(p => p.id === userData.avatar);
-        const profileLink = getProfileLink();
-        const settingsLink = getSettingsLink();
+    if (user) {
+      const profileLink = getProfileLink();
+      const settingsLink = getSettingsLink();
 
-        return (
-          <div className="flex items-center gap-2">
-            <ThemeToggle />
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="relative h-10 w-10 rounded-full transition-transform hover:scale-110">
-                  <Avatar className="h-10 w-10 border-2 border-primary/50">
-                    {userAvatar && <AvatarImage src={userAvatar.imageUrl} alt={userData.name} />}
-                    <AvatarFallback>{userData.name?.split(' ').map(n => n[0]).join('')}</AvatarFallback>
-                  </Avatar>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56" align="end" forceMount>
-                <DropdownMenuLabel className="font-normal">
-                  <div className="flex flex-col space-y-1">
-                    <p className="text-sm font-medium leading-none">{userData.name}</p>
-                    <p className="text-xs leading-none text-muted-foreground">{userData.email}</p>
-                  </div>
-                </DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuGroup>
-                  <DropdownMenuItem asChild>
-                    <Link href={getDashboardLink()}>
-                      <LayoutDashboard className="mr-2 h-4 w-4" />
-                      <span>Dashboard</span>
-                    </Link>
-                  </DropdownMenuItem>
-                  {profileLink && (
-                    <DropdownMenuItem asChild>
-                      <Link href={profileLink}>
-                        <UserCircle className="mr-2 h-4 w-4" />
-                        <span>Profile</span>
-                      </Link>
-                    </DropdownMenuItem>
-                  )}
-                  {settingsLink && (
-                    <DropdownMenuItem asChild>
-                      <Link href={settingsLink}>
-                        <Settings className="mr-2 h-4 w-4" />
-                        <span>Settings</span>
-                      </Link>
-                    </DropdownMenuItem>
-                  )}
-                </DropdownMenuGroup>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem onClick={handleLogout}>
-                  <LogOut className="mr-2 h-4 w-4" />
-                  <span>Log out</span>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
-        );
-      }
-      
       return (
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="relative h-10 w-10 rounded-full">
-                <Avatar className="h-10 w-10 border-2 border-destructive/50">
-                  <AvatarFallback>??</AvatarFallback>
+              <Button variant="ghost" className="relative h-10 w-10 rounded-full transition-transform hover:scale-110">
+                <Avatar className="h-10 w-10 border-2 border-primary/50">
+                  {user.picture && <AvatarImage src={user.picture} alt={user.name || 'User'} />}
+                  <AvatarFallback>{user.name?.split(' ').map(n => n[0]).join('') || 'U'}</AvatarFallback>
                 </Avatar>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56" align="end" forceMount>
               <DropdownMenuLabel className="font-normal">
                 <div className="flex flex-col space-y-1">
-                  <p className="text-sm font-medium leading-none">User</p>
-                  <p className="text-xs leading-none text-muted-foreground">{authUser.email}</p>
+                  <p className="text-sm font-medium leading-none">{user.name}</p>
+                  <p className="text-xs leading-none text-muted-foreground">{user.email}</p>
                 </div>
               </DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuGroup>
+                <DropdownMenuItem asChild>
+                  <Link href={getDashboardLink()}>
+                    <LayoutDashboard className="mr-2 h-4 w-4" />
+                    <span>Dashboard</span>
+                  </Link>
+                </DropdownMenuItem>
+                {profileLink && (
+                  <DropdownMenuItem asChild>
+                    <Link href={profileLink}>
+                      <UserCircle className="mr-2 h-4 w-4" />
+                      <span>Profile</span>
+                    </Link>
+                  </DropdownMenuItem>
+                )}
+                {settingsLink && (
+                  <DropdownMenuItem asChild>
+                    <Link href={settingsLink}>
+                      <Settings className="mr-2 h-4 w-4" />
+                      <span>Settings</span>
+                    </Link>
+                  </DropdownMenuItem>
+                )}
+              </DropdownMenuGroup>
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={handleLogout}>
                 <LogOut className="mr-2 h-4 w-4" />
@@ -409,14 +319,12 @@ export default function Header() {
                   <SheetFooter className="mt-auto border-t bg-background/30 p-4 flex flex-col items-center gap-4">
                       {isAuthUserLoading ? (
                           <Skeleton className="h-24 w-full" />
-                      ) : authUser ? (
+                      ) : user ? (
                           <>
-                              {isUserDataLoading ? (
-                                <Skeleton className="h-12 w-full" />
-                              ) : userData && (
+                              {user && (
                                 <div className="w-full p-2 text-center border-b mb-2">
-                                    <p className="font-semibold">{userData.name}</p>
-                                    <p className="text-xs text-muted-foreground">{userData.email}</p>
+                                    <p className="font-semibold">{user.name}</p>
+                                    <p className="text-xs text-muted-foreground">{user.email}</p>
                                 </div>
                               )}
                               <div className="w-full space-y-2">
