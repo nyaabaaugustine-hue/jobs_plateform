@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect } from 'react';
@@ -10,12 +11,11 @@ export function LoadingManager() {
     document.body.classList.add('overflow-hidden');
 
     const handleLoad = () => {
-        // Ensure the logo animation is seen for at least a brief moment
-        // but keep it snappy overall.
+        // Fast transition
         setTimeout(() => {
             document.body.classList.remove('overflow-hidden');
             setIsReady(true);
-        }, 800);
+        }, 500);
     };
 
     if (document.readyState === 'complete') {
@@ -24,8 +24,7 @@ export function LoadingManager() {
       window.addEventListener('load', handleLoad, { once: true });
     }
       
-    // Fallback if load event takes too long
-    const fallbackTimeout = setTimeout(handleLoad, 2500);
+    const fallbackTimeout = setTimeout(handleLoad, 1500);
 
     return () => {
       window.removeEventListener('load', handleLoad);

@@ -1,4 +1,1 @@
-
-export default function JobCategories() {
-  return null;
-}
+// File removed to reduce size

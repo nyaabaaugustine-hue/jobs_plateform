@@ -1,4 +1,1 @@
-
-export default function WhatsAppWidget() {
-    return null;
-}
+// File removed to reduce size

@@ -1,3 +1,4 @@
+
 import type { Metadata } from 'next';
 import { Inter, Space_Grotesk } from 'next/font/google';
 import './globals.css';
@@ -18,12 +19,7 @@ export const metadata: Metadata = {
   title: 'Chapel Hill - Find Your Next Job',
   description: 'The Easiest Way to Get Your New Job',
   icons: {
-    icon: [
-      {
-        url: 'https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771358781/Blue_and_white_CH_favicon_design_dzdkuq.png',
-        href: 'https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771358781/Blue_and_white_CH_favicon_design_dzdkuq.png',
-      }
-    ],
+    icon: 'https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771358781/Blue_and_white_CH_favicon_design_dzdkuq.png',
     shortcut: 'https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771358781/Blue_and_white_CH_favicon_design_dzdkuq.png',
     apple: 'https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771358781/Blue_and_white_CH_favicon_design_dzdkuq.png',
   },

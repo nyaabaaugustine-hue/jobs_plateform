@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,9 +11,8 @@
 
 @layer base {
   :root {
-    /* Light Theme: Refined Clay & Creme (rgb(246, 244, 238)) */
-    --background: 48 29% 95%; /* Milky Creme - Exact match for rgb(246, 244, 238) */
-    --foreground: 25 35% 15%; /* Deeper Clay for better readability */
+    --background: 48 29% 95%; /* rgb(246, 244, 238) */
+    --foreground: 25 35% 15%;
     
     --card: 0 0% 100%;
     --card-foreground: 25 35% 15%;
@@ -20,16 +20,16 @@
     --popover: 48 29% 95%;
     --popover-foreground: 25 35% 15%;
 
-    --primary: 217 91% 60%; /* Vibrant Blue */
-    --primary-foreground: 0 0% 100%; /* White */
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
     
-    --secondary: 48 29% 92%; /* Slightly darker creme */
+    --secondary: 48 29% 92%;
     --secondary-foreground: 25 35% 15%;
     
     --muted: 48 29% 90%;
     --muted-foreground: 25 35% 40%;
     
-    --accent: 45 85% 50%; /* Warm Gold */
+    --accent: 45 85% 50%;
     --accent-foreground: 25 35% 15%;
 
     --destructive: 0 84.2% 60.2%;
@@ -40,10 +40,8 @@
     --ring: 217 91% 60%;
 
     --radius: 0.75rem;
-
     --gold: 45 85% 50%;
 
-    /* Chart colors */
     --chart-1: hsl(var(--primary));
     --chart-2: hsl(var(--accent));
     --chart-3: 180 50% 45%;
@@ -94,10 +92,6 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground font-body; }
 }

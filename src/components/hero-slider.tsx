@@ -1,4 +1,1 @@
-
-export function HeroSlider() {
-  return null;
-}
+// File removed to reduce size

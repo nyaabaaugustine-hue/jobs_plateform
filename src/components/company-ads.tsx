@@ -1,4 +1,1 @@
-
-export default function CompanyAds() {
-  return null;
-}
+// File removed to reduce size

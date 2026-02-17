@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Shield, Zap, BrainCircuit } from 'lucide-react';
@@ -30,7 +31,7 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-24 bg-[#f6f4ee] dark:bg-background">
+    <section className="py-24" style={{ backgroundColor: 'rgb(246, 244, 238)' }}>
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-12 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
             <h2 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl text-foreground">Why Chapel Hill?</h2>

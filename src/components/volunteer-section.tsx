@@ -1,3 +1,4 @@
+
 'use client';
 
 import { DUMMY_OPPORTUNITIES } from '@/lib/data';
@@ -14,7 +15,6 @@ export default function VolunteerSection() {
 
   return (
     <section className="relative py-24 overflow-hidden">
-      {/* Background Image with Overlay */}
       {bgImage && (
         <>
           <Image
