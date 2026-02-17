@@ -8,14 +8,8 @@ import { LoadingManager } from '@/components/global-loader/loading-manager';
 import GlobalLoader from '@/components/global-loader';
 import MainLayoutWrapper from '@/components/shared/main-layout-wrapper';
 import { Toaster } from '@/components/ui/toaster';
-import dynamic from 'next/dynamic';
+import DynamicWidgetsWrapper from '@/components/shared/dynamic-widgets-wrapper';
 import React from 'react';
-
-const DynamicWidgetsWrapper = dynamic(
-  () => import('@/components/shared/dynamic-widgets-wrapper'),
-  { ssr: false }
-);
-
 
 export function Providers({ children }: { children: React.ReactNode }) {
     return (
