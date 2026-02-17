@@ -24,21 +24,21 @@ export default function HiringSection() {
           data-ai-hint={bgImage.imageHint}
         />
       )}
-       <div className="absolute inset-0 bg-[hsl(var(--background)/0.94)] z-10" />
+       <div className="absolute inset-0 bg-black/90 z-10" />
       <div className="relative z-20 container mx-auto max-w-3xl px-6 lg:px-12">
         <div className="grid grid-cols-1 items-center gap-8">
           <div className="flex flex-col space-y-6 items-center">
-            <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl !leading-tight">
+            <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl !leading-tight text-white">
               Hire Top-Tier React Talent in 48 Hours
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-gray-200">
               Discover qualified professionals ready to bring your projects to life. Over 4,500+ employers trust our platform to find the best developers in the ecosystem.
             </p>
             <ul className="space-y-3 inline-block text-left">
               {benefits.map((benefit, index) => (
                 <li key={index} className="flex items-center gap-3">
                   <CheckCircle className="h-5 w-5 text-primary" />
-                  <span className="text-muted-foreground">{benefit}</span>
+                  <span className="text-gray-300">{benefit}</span>
                 </li>
               ))}
             </ul>
@@ -46,7 +46,7 @@ export default function HiringSection() {
               <Button asChild size="lg" className="bg-primary">
                 <Link href="/employer/jobs/new">Post a Job</Link>
               </Button>
-              <Button asChild size="lg" variant="outline">
+              <Button asChild size="lg" variant="outline" className="bg-white/10 text-white border-white/20 hover:bg-white/20">
                 <Link href="/pricing">View Pricing</Link>
               </Button>
             </div>
