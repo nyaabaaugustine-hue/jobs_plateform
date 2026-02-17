@@ -18,7 +18,3 @@ services:
         value: E3523rvacyYL98uLr5caNKPZTXcHP0P1
       - key: AUTH0_CLIENT_SECRET
         value: xlkWyKk8DvNmPQLppTzWZ0kC5-IoRIoBdWELOynPvg825zCtRUgIAbuF2LdnD2vk
-      - key: APP_BASE_URL
-        value: https://jobs-plateform-vvat.onrender.com
-      - key: AUTH0_DOMAIN
-        value: dev-nklk657qus8k276s.us.auth0.com
