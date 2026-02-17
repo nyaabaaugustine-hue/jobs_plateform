@@ -36,13 +36,13 @@ export default function HiringSection() {
             <ul className="space-y-3 inline-block text-left">
               {benefits.map((benefit, index) => (
                 <li key={index} className="flex items-center gap-3">
-                  <CheckCircle className="h-5 w-5 text-gold" />
+                  <CheckCircle className="h-5 w-5 text-primary" />
                   <span className="text-muted-foreground">{benefit}</span>
                 </li>
               ))}
             </ul>
             <div className="pt-4 flex items-center gap-4">
-              <Button asChild size="lg" className="bg-shiny-white-gradient">
+              <Button asChild size="lg" className="bg-primary">
                 <Link href="/employer/jobs/new">Post a Job</Link>
               </Button>
               <Button asChild size="lg" variant="outline">
