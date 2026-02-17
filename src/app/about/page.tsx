@@ -138,9 +138,9 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <WhyChooseUs />
-
         <OurPartners />
+
+        <WhyChooseUs />
 
         <div className="container mx-auto max-w-7xl px-6 lg:px-12">
             <SectionHeader
