@@ -90,16 +90,36 @@ export default function HomePage() {
         </div>
       </section>
 
-      <HiringSection />
-      <TopCompanies companies={companies} />
-      <FeaturedJobs jobs={jobs} categories={categories} />
-      <WhyChooseUs />
-      <VolunteerSection />
-      <JobsByLocation locations={locations} />
-      <Testimonials />
-      <LatestNews posts={latestPosts} />
-      <Faq />
-      <SubscriptionSection />
+      <Suspense fallback={<Skeleton className="h-[500px] w-full" />}>
+        <HiringSection />
+      </Suspense>
+      <Suspense fallback={<Skeleton className="h-[300px] w-full" />}>
+        <TopCompanies companies={companies} />
+      </Suspense>
+      <Suspense fallback={<Skeleton className="h-[500px] w-full" />}>
+        <FeaturedJobs jobs={jobs} categories={categories} />
+      </Suspense>
+      <Suspense fallback={<Skeleton className="h-[300px] w-full" />}>
+        <WhyChooseUs />
+      </Suspense>
+      <Suspense fallback={<Skeleton className="h-[400px] w-full" />}>
+        <VolunteerSection />
+      </Suspense>
+      <Suspense fallback={<Skeleton className="h-[400px] w-full" />}>
+        <JobsByLocation locations={locations} />
+      </Suspense>
+      <Suspense fallback={<Skeleton className="h-[400px] w-full" />}>
+        <Testimonials />
+      </Suspense>
+      <Suspense fallback={<Skeleton className="h-[500px] w-full" />}>
+        <LatestNews posts={latestPosts} />
+      </Suspense>
+      <Suspense fallback={<Skeleton className="h-[500px] w-full" />}>
+        <Faq />
+      </Suspense>
+      <Suspense fallback={<Skeleton className="h-[300px] w-full" />}>
+        <SubscriptionSection />
+      </Suspense>
     </main>
   );
 }
