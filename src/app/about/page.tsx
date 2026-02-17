@@ -1,6 +1,6 @@
 
 import PageHero from '@/components/shared/page-hero';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import WhyChooseUs from '@/components/why-choose-us';
 import Testimonials from '@/components/testimonials';
 import { DUMMY_USERS } from '@/lib/data';
@@ -10,10 +10,43 @@ import SectionHeader from '@/components/shared/section-header';
 import Image from 'next/image';
 import OurPartners from '@/components/our-partners';
 import Faq from '@/components/faq';
+import { Target, Search, Workflow, TrendingUp } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 export default function AboutPage() {
   const teamMembers = DUMMY_USERS.slice(0, 4);
   const missionLogo = PlaceHolderImages.find((p) => p.id === 'main-logo');
+
+  const services = [
+    {
+        icon: Search,
+        title: "Advanced Talent Sourcing",
+        description: "Go beyond job postings. Our platform provides advanced tools to search, filter, and connect with a diverse pool of passive and active candidates.",
+        bgColor: "bg-primary/10",
+        iconColor: "text-primary"
+    },
+    {
+        icon: Target,
+        title: "AI-Powered Candidate Matching",
+        description: "Our intelligent algorithms analyze profiles and skills to deliver a curated list of the most qualified candidates for your roles.",
+        bgColor: "bg-accent/10",
+        iconColor: "text-accent"
+    },
+    {
+        icon: Workflow,
+        title: "Streamlined Hiring Workflow",
+        description: "From applicant tracking to interview scheduling, manage your entire hiring process in one place with our intuitive dashboard.",
+        bgColor: "bg-chart-3/10",
+        iconColor: "text-chart-3"
+    },
+    {
+        icon: TrendingUp,
+        title: "Career Development Resources",
+        description: "We offer job seekers resources, articles, and tools to help grow skills, prepare for interviews, and advance their careers.",
+        bgColor: "bg-chart-5/10",
+        iconColor: "text-chart-5"
+    }
+  ];
 
   return (
     <>
@@ -41,6 +74,28 @@ export default function AboutPage() {
                     </p>
                 </CardContent>
             </Card>
+        </div>
+
+        <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+            <SectionHeader
+                title="What We Offer"
+                subtitle="A suite of powerful tools for both job seekers and employers."
+            />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                {services.map((service, index) => (
+                    <Card key={index} className="transition-all duration-300 hover:shadow-xl hover:-translate-y-1 animate-in fade-in-up" style={{ animationDelay: `${index * 100}ms`}}>
+                        <CardHeader>
+                            <div className={cn("flex h-12 w-12 items-center justify-center rounded-lg", service.bgColor)}>
+                                <service.icon className={cn("h-6 w-6", service.iconColor)} />
+                            </div>
+                            <CardTitle className="pt-2">{service.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent>
+                            <p className="text-muted-foreground">{service.description}</p>
+                        </CardContent>
+                    </Card>
+                ))}
+            </div>
         </div>
 
         <OurPartners />
