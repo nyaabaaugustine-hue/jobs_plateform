@@ -67,12 +67,12 @@ export default function AdSlider() {
   useEffect(() => {
     if (isDashboardPage || ads.length === 0) return;
 
-    // Initial Appearance: 5 Seconds after load
+    // Initial Appearance: Strictly 5 Seconds after load
     const initialTimeout = setTimeout(() => {
       setIsPanelOpen(true);
     }, 5000);
 
-    // Cycle every 47 seconds
+    // Cycle every 47 seconds exactly
     const cycleInterval = setInterval(() => {
         setIsPanelOpen(false); 
 

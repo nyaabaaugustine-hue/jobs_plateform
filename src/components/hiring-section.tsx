@@ -6,7 +6,7 @@ import { CheckCircle } from 'lucide-react';
 
 export default function HiringSection() {
   const hiringImage = PlaceHolderImages.find((p) => p.id === 'hiring-main');
-  const bgImage = PlaceHolderImages.find((p) => p.id === 'top-companies-bg');
+  const bgImage = PlaceHolderImages.find((p) => p.id['top-companies-bg']);
   
   const benefits = [
     'Explore a vast pool of qualified candidates.',
@@ -16,7 +16,7 @@ export default function HiringSection() {
 
   return (
     <section className="relative py-24 lg:py-32 overflow-hidden bg-background">
-      {/* Background Image set to 60% opacity for better contrast with Milky White */}
+      {/* 60% Opacity Background Image for Shining Milky White Bleed */}
       {bgImage && (
         <Image
           src={bgImage.imageUrl}

@@ -78,10 +78,10 @@ export default function HiredNotification() {
         });
       };
 
-      // Start the cycle 4 seconds after initial load
+      // Start the cycle exactly 4 seconds after initial load
       initialTimeout = setTimeout(() => {
         showRandomHiredNotification();
-        // Cycle every 25 seconds
+        // Cycle every 25 seconds for high engagement
         intervalRef.current = setInterval(showRandomHiredNotification, 25000);
       }, 4000);
     }
