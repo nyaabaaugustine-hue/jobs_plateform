@@ -55,7 +55,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { ThemeToggle } from '../theme-toggle';
-import { useUser } from '@auth0/nextjs-auth0/client';
+import { useUser, useFirebase } from '@/firebase';
+import { signOut } from 'firebase/auth';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
@@ -64,14 +65,14 @@ const DesktopAuthButtons = () => (
     <div className="flex items-center gap-2">
       <ThemeToggle />
       <Button variant="outline" asChild>
-        <Link href="/api/auth/login">Login</Link>
+        <Link href="/login">Login</Link>
       </Button>
       <Button
         asChild
         variant="secondary"
         className="rounded-xl px-5 py-2.5 font-semibold shadow-sm transition-transform hover:scale-105"
       >
-        <Link href="/api/auth/login?screen_hint=signup">Register</Link>
+        <Link href="/register">Register</Link>
       </Button>
     </div>
   );
@@ -79,7 +80,7 @@ const DesktopAuthButtons = () => (
   const MobileAuthButtons = ({ onLinkClick }: { onLinkClick?: () => void }) => (
     <div className="grid w-full grid-cols-2 gap-4">
       <Button variant="outline" asChild size="lg">
-        <Link href="/api/auth/login" onClick={onLinkClick}>Login</Link>
+        <Link href="/login" onClick={onLinkClick}>Login</Link>
       </Button>
       <Button
         asChild
@@ -87,7 +88,7 @@ const DesktopAuthButtons = () => (
         size="lg"
         className="font-semibold shadow-lg transition-transform hover:scale-105"
       >
-        <Link href="/api/auth/login?screen_hint=signup" onClick={onLinkClick}>Register</Link>
+        <Link href="/register" onClick={onLinkClick}>Register</Link>
       </Button>
     </div>
   );
@@ -98,7 +99,8 @@ export default function Header() {
   const [isMounted, setIsMounted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const { user, isLoading: isAuthUserLoading } = useUser();
+  const { auth } = useFirebase();
+  const { user, isUserLoading } = useUser();
 
   useEffect(() => {
     setIsMounted(true);
@@ -114,12 +116,23 @@ export default function Header() {
   }
 
   // NOTE: Role-based routing is simplified as Auth0 user does not have role by default.
-  const getDashboardLink = () => '/dashboard';
+  const getDashboardLink = () => {
+      if (!user) return '/dashboard';
+      // In a real app, you would get this from the user's custom claims or Firestore document
+      // For this demo, we'll assume a mock role or check the email.
+      if (user.email?.includes('admin')) return '/admin';
+      if (user.email?.includes('employer')) return '/employer';
+      return '/dashboard';
+  };
   const getProfileLink = () => '/dashboard/profile';
   const getSettingsLink = () => '/dashboard/settings';
 
   const handleLogout = () => {
-    router.push('/api/auth/logout');
+    if (auth) {
+        signOut(auth).then(() => {
+            router.push('/login');
+        });
+    }
   };
 
   const navLinks = [
@@ -158,7 +171,7 @@ export default function Header() {
   ];
 
   const DesktopAuthDisplay = () => {
-    if (isAuthUserLoading) {
+    if (isUserLoading) {
       return (
         <div className="flex items-center gap-4">
           <Skeleton className="h-10 w-10 rounded-full" />
@@ -177,15 +190,15 @@ export default function Header() {
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" className="relative h-10 w-10 rounded-full transition-transform hover:scale-110">
                 <Avatar className="h-10 w-10 border-2 border-primary/50">
-                  {user.picture && <AvatarImage src={user.picture} alt={user.name || 'User'} />}
-                  <AvatarFallback>{user.name?.split(' ').map(n => n[0]).join('') || 'U'}</AvatarFallback>
+                  {user.photoURL && <AvatarImage src={user.photoURL} alt={user.displayName || 'User'} />}
+                  <AvatarFallback>{user.displayName?.split(' ').map(n => n[0]).join('') || 'U'}</AvatarFallback>
                 </Avatar>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56" align="end" forceMount>
               <DropdownMenuLabel className="font-normal">
                 <div className="flex flex-col space-y-1">
-                  <p className="text-sm font-medium leading-none">{user.name}</p>
+                  <p className="text-sm font-medium leading-none">{user.displayName}</p>
                   <p className="text-xs leading-none text-muted-foreground">{user.email}</p>
                 </div>
               </DropdownMenuLabel>
@@ -317,13 +330,13 @@ export default function Header() {
                       })}
                   </nav>
                   <SheetFooter className="mt-auto border-t bg-background/30 p-4 flex flex-col items-center gap-4">
-                      {isAuthUserLoading ? (
+                      {isUserLoading ? (
                           <Skeleton className="h-24 w-full" />
                       ) : user ? (
                           <>
                               {user && (
                                 <div className="w-full p-2 text-center border-b mb-2">
-                                    <p className="font-semibold">{user.name}</p>
+                                    <p className="font-semibold">{user.displayName}</p>
                                     <p className="text-xs text-muted-foreground">{user.email}</p>
                                 </div>
                               )}
