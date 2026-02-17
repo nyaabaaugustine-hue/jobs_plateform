@@ -1,4 +1,3 @@
-
 'use client';
 
 import { DUMMY_OPPORTUNITIES } from '@/lib/data';
@@ -25,7 +24,7 @@ export default function VolunteerSection() {
             data-ai-hint={bgImage.imageHint}
             priority
           />
-          <div className="absolute inset-0 bg-background/90 z-10" />
+          <div className="absolute inset-0 bg-background/50 z-10" />
         </>
       )}
 
