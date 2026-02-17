@@ -2,6 +2,8 @@ import { Shield, Zap, BrainCircuit } from 'lucide-react';
 import SectionHeader from './shared/section-header';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const features = [
   {
@@ -28,15 +30,28 @@ const features = [
 ];
 
 export default function WhyChooseUs() {
+  const bgImage = PlaceHolderImages.find((p) => p.id === 'location-accra');
+
   return (
-    <section className="py-20 bg-secondary">
-      <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+    <section className="relative py-20 overflow-hidden">
+      {bgImage && (
+        <Image
+          src={bgImage.imageUrl}
+          alt={bgImage.description}
+          fill
+          className="object-cover z-0"
+          data-ai-hint={bgImage.imageHint}
+        />
+      )}
+      <div className="absolute inset-0 bg-background/90 z-10" />
+      
+      <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-10 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
             <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-foreground">Why Chapel Hill?</h2>
         </div>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {features.map((feature, index) => (
-            <Card key={index} className="text-center animate-in fade-in slide-in-from-bottom-4 duration-700 bg-card border-none shadow-md hover:shadow-lg transition-shadow" style={{ animationDelay: `${200 + index * 100}ms` }}>
+            <Card key={index} className="text-center animate-in fade-in slide-in-from-bottom-4 duration-700 bg-card/80 backdrop-blur-sm border-none shadow-md hover:shadow-lg transition-shadow" style={{ animationDelay: `${200 + index * 100}ms` }}>
               <CardHeader className="items-center">
                 <div className={cn("flex h-16 w-16 items-center justify-center rounded-full", feature.iconBg)}>
                   <feature.icon className={cn("h-8 w-8", feature.iconColor)} />
