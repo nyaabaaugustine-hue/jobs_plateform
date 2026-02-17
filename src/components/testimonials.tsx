@@ -12,9 +12,9 @@ const TestimonialCard = ({ review }: { review: Review }) => {
     return (
         <div className="mx-2 flex-shrink-0 w-[380px]">
             <Card className="flex h-full flex-col justify-between">
-                <CardContent className="p-6">
+                <CardContent className="p-6 flex-grow">
                     <StarRating rating={review.rating} />
-                    <p className="mt-4 text-muted-foreground italic">"{review.comment}"</p>
+                    <p className="mt-4 text-muted-foreground italic break-words">"{review.comment}"</p>
                 </CardContent>
                 <div className="flex items-center gap-4 border-t p-6 bg-secondary/30">
                     <Avatar>
