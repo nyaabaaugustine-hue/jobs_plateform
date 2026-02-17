@@ -82,7 +82,6 @@ export default function HiringSection() {
                           data-ai-hint={hiringImage.imageHint}
                       />
                     </div>
-                    {/* Glow effect */}
                     <div className="absolute -inset-10 bg-primary/30 blur-[100px] -z-10 rounded-full opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
                   </div>
                 )}

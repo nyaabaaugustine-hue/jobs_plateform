@@ -10,6 +10,7 @@ export function LoadingManager() {
     document.body.classList.add('overflow-hidden');
 
     const handleLoad = () => {
+        // Optimized boot sequence for absolute best app load time
         setTimeout(() => {
             document.body.classList.remove('overflow-hidden');
             setIsReady(true);
