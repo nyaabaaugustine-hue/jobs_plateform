@@ -1,4 +1,3 @@
-
 'use client';
 
 import { DUMMY_OPPORTUNITIES } from '@/lib/data';
@@ -11,17 +10,17 @@ import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function VolunteerSection() {
-  const bgImage = PlaceHolderImages.find((p) => p.id === 'location-accra');
+  const bgImage = "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771367035/Screenshot_168_txi3nv.png";
 
   return (
     <section className="relative py-24 overflow-hidden">
       {bgImage && (
         <Image
-          src={bgImage.imageUrl}
-          alt={bgImage.description}
+          src={bgImage}
+          alt="Kickstart Career Background"
           fill
           className="object-cover z-0"
-          data-ai-hint={bgImage.imageHint}
+          priority
         />
       )}
       <div className="absolute inset-0 bg-background/80 z-10" />
@@ -48,7 +47,7 @@ export default function VolunteerSection() {
           ))}
         </div>
         <div className="mt-16 text-center animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '500ms' }}>
-          <Button asChild size="lg" variant="secondary" className="font-bold px-10 shadow-lg scale-110">
+          <Button asChild size="lg" variant="outline" className="font-bold px-10 shadow-lg scale-110 border-gold text-gold hover:bg-gold/10 hover:text-gold transition-all duration-300">
             <Link href="/opportunities">Explore Opportunities</Link>
           </Button>
         </div>

@@ -10,47 +10,46 @@
 
 @layer base {
   :root {
-    /* Light Theme: Clay & Creme */
+    /* Light Theme: Refined Clay & Creme for High Clarity */
     --background: 38 67% 96%; /* Milky Creme */
-    --foreground: 25 35% 25%; /* Dark Clay */
+    --foreground: 25 35% 15%; /* Deeper Clay for better readability */
     
     --card: 0 0% 100%;
-    --card-foreground: 25 35% 25%;
+    --card-foreground: 25 35% 15%;
     
     --popover: 38 67% 96%;
-    --popover-foreground: 25 35% 25%;
+    --popover-foreground: 25 35% 15%;
 
     --primary: 217 91% 60%; /* Vibrant Blue */
     --primary-foreground: 0 0% 100%; /* White */
     
-    --secondary: 210 20% 96%; /* Grey Milk White */
-    --secondary-foreground: 25 35% 25%;
+    --secondary: 210 20% 94%; /* Crisp Grey Milk White */
+    --secondary-foreground: 25 35% 15%;
     
-    --muted: 210 20% 94%;
-    --muted-foreground: 25 35% 45%;
+    --muted: 210 20% 92%;
+    --muted-foreground: 25 35% 40%;
     
-    --accent: 45 85% 55%; /* Gold */
-    --accent-foreground: 25 35% 25%;
+    --accent: 45 85% 50%; /* Warm Gold */
+    --accent-foreground: 25 35% 15%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 210 20% 90%;
-    --input: 210 20% 90%;
+    --border: 25 20% 88%; /* Slightly darker border for clarity */
+    --input: 25 20% 88%;
     --ring: 217 91% 60%;
 
     --radius: 0.75rem;
 
-    --gold: 45 85% 55%;
+    --gold: 45 85% 50%;
 
     /* Chart colors */
     --chart-1: hsl(var(--primary));
     --chart-2: hsl(var(--accent));
-    --chart-3: 180 50% 45%; /* Teal */
-    --chart-4: 260 50% 60%; /* Purple */
-    --chart-5: 15 80% 55%; /* Burnt Orange */
+    --chart-3: 180 50% 45%;
+    --chart-4: 260 50% 60%;
+    --chart-5: 15 80% 55%;
     
-    /* Sidebar remains dark */
     --sidebar-background: 222 47% 11%;
     --sidebar-foreground: 210 40% 90%;
     --sidebar-primary: hsl(var(--primary));
@@ -62,9 +61,8 @@
   }
 
   .dark {
-    /* Dark Theme: Dark Charcoal & Blue/Gold */
     --background: 220 10% 8%;
-    --foreground: 43 33% 95%; /* Clay White Text */
+    --foreground: 43 33% 95%; 
     
     --card: 220 10% 12%;
     --card-foreground: 43 33% 95%;
@@ -72,7 +70,7 @@
     --popover: 220 10% 8%;
     --popover-foreground: 43 33% 95%;
 
-    --primary: 217 91% 60%; /* Vibrant Blue */
+    --primary: 217 91% 60%;
     --primary-foreground: 0 0% 100%;
     
     --secondary: 220 10% 15%;
@@ -81,7 +79,7 @@
     --muted: 220 10% 15%;
     --muted-foreground: 210 15% 65%;
     
-    --accent: 45 85% 55%; /* Gold */
+    --accent: 45 85% 55%; 
     --accent-foreground: 224 71% 10%;
 
     --destructive: 0 72% 51%;
@@ -89,7 +87,7 @@
     
     --border: 220 10% 20%;
     --input: 220 10% 20%;
-    --ring: 217 91% 60%; /* Vibrant Blue Ring */
+    --ring: 217 91% 60%;
 
     --gold: 45 85% 55%;
   }
