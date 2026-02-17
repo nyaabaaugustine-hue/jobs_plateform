@@ -5,24 +5,10 @@ import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function VolunteerSection() {
-  const bgImage = PlaceHolderImages.find((p) => p.id === 'location-accra');
-
   return (
-    <section className="relative pt-8 md:pt-12 pb-16 md:pb-24">
-       {bgImage && (
-        <Image
-          src={bgImage.imageUrl}
-          alt={bgImage.description}
-          fill
-          className="object-cover z-0"
-          data-ai-hint={bgImage.imageHint}
-        />
-      )}
-      <div className="absolute inset-0 bg-background/90 z-10" />
+    <section className="relative py-16 md:py-24 bg-secondary">
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <SectionHeader
           title="Kickstart Your Career"
@@ -31,7 +17,7 @@ export default function VolunteerSection() {
         />
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {DUMMY_OPPORTUNITIES.map((opportunity, index) => (
-            <Card key={index} className="text-center animate-in fade-in slide-in-from-bottom-4 duration-700 bg-card/50 backdrop-blur-sm" style={{ animationDelay: `${200 + index * 100}ms` }}>
+            <Card key={index} className="text-center animate-in fade-in slide-in-from-bottom-4 duration-700 bg-card" style={{ animationDelay: `${200 + index * 100}ms` }}>
               <CardHeader className="items-center">
                 <div className={cn("flex h-16 w-16 items-center justify-center rounded-full", opportunity.iconBg)}>
                   <opportunity.icon className={cn("h-8 w-8", opportunity.iconColor)} />
