@@ -6,7 +6,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { CheckCircle } from 'lucide-react';
 
 export default function HiringSection() {
-  const hiringImage = PlaceHolderImages.find((p) => p.id === 'contact-form-bg');
+  const hiringImage = PlaceHolderImages.find((p) => p.id === 'hiring-main');
   const benefits = [
     'Explore a vast pool of qualified candidates.',
     'Post job openings quickly and easily.',
