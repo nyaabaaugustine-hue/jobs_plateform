@@ -30,14 +30,14 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 relative overflow-hidden" style={{ backgroundColor: 'hsla(48, 20%, 94%, 0.5)' }}>
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-12 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
             <h2 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl text-foreground">Why Chapel Hill?</h2>
         </div>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {features.map((feature, index) => (
-            <Card key={index} className="text-center animate-in fade-in slide-in-from-bottom-4 duration-700 bg-card border border-border shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1" style={{ animationDelay: `${200 + index * 100}ms` }}>
+            <Card key={index} className="text-center animate-in fade-in slide-in-from-bottom-4 duration-700 bg-card/80 backdrop-blur-md border border-border shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1" style={{ animationDelay: `${200 + index * 100}ms` }}>
               <CardHeader className="items-center pb-2">
                 <div className={cn("flex h-20 w-20 items-center justify-center rounded-2xl shadow-inner", feature.iconBg)}>
                   <feature.icon className={cn("h-10 w-10", feature.iconColor)} />

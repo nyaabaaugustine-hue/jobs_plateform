@@ -1,4 +1,3 @@
-
 'use client';
 
 import { AnimatePresence, motion } from 'framer-motion';
@@ -18,13 +17,13 @@ export default function GlobalLoader() {
   };
 
   const logoVariants = {
-    initial: { opacity: 0, scale: 0.9, y: 10 },
+    initial: { opacity: 0, scale: 0.8, y: 20 },
     animate: { 
       opacity: 1, 
       scale: 1, 
       y: 0,
       transition: { 
-        duration: 0.4, 
+        duration: 0.5, 
         ease: "easeOut" 
       } 
     },
@@ -44,36 +43,48 @@ export default function GlobalLoader() {
           aria-live="polite"
           aria-label="Loading"
         >
-          <div className="relative flex flex-col items-center gap-6">
+          <div className="relative flex flex-col items-center gap-8">
             {logoImage && (
               <motion.div
                 variants={logoVariants}
                 className="relative"
               >
-                <div className="relative z-10 bg-white p-4 rounded-xl shadow-2xl">
+                <div className="relative z-10 bg-white p-6 rounded-2xl shadow-[0_0_50px_rgba(0,0,0,0.1)]">
                   <Image
                     src={logoImage.imageUrl}
                     alt="Logo"
-                    width={160}
-                    height={50}
+                    width={180}
+                    height={60}
                     className="object-contain"
                     priority
                   />
                 </div>
-                <div className="absolute -inset-8 bg-primary/15 blur-2xl -z-10 rounded-full animate-pulse" />
+                {/* Glow Animation */}
+                <motion.div 
+                  animate={{ 
+                    scale: [1, 1.2, 1],
+                    opacity: [0.3, 0.6, 0.3]
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                  className="absolute -inset-10 bg-primary/20 blur-3xl -z-10 rounded-full" 
+                />
               </motion.div>
             )}
             
-            <div className="w-32 h-1 bg-muted rounded-full overflow-hidden">
+            <div className="w-48 h-1.5 bg-muted rounded-full overflow-hidden shadow-inner">
               <motion.div 
                 initial={{ x: '-100%' }}
                 animate={{ x: '100%' }}
                 transition={{ 
                   repeat: Infinity, 
-                  duration: 1, 
-                  ease: "linear" 
+                  duration: 1.2, 
+                  ease: "easeInOut" 
                 }}
-                className="w-full h-full bg-primary"
+                className="w-full h-full bg-primary shadow-[0_0_10px_rgba(var(--primary),0.5)]"
               />
             </div>
           </div>

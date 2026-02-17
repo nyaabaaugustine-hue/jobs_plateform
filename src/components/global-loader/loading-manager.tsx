@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useEffect } from 'react';
@@ -11,11 +10,11 @@ export function LoadingManager() {
     document.body.classList.add('overflow-hidden');
 
     const handleLoad = () => {
-        // Fast transition
+        // Reduced load time for snappy feel
         setTimeout(() => {
             document.body.classList.remove('overflow-hidden');
             setIsReady(true);
-        }, 500);
+        }, 400);
     };
 
     if (document.readyState === 'complete') {
@@ -24,7 +23,8 @@ export function LoadingManager() {
       window.addEventListener('load', handleLoad, { once: true });
     }
       
-    const fallbackTimeout = setTimeout(handleLoad, 1500);
+    // Faster fallback
+    const fallbackTimeout = setTimeout(handleLoad, 1200);
 
     return () => {
       window.removeEventListener('load', handleLoad);

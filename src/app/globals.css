@@ -11,7 +11,7 @@
 @layer base {
   :root {
     /* Rich Creme Grey White - High Contrast */
-    --background: 48 20% 94%; /* Richer Creme */
+    --background: 48 20% 94%; 
     --foreground: 222 47% 5%; /* Deep Charcoal for High Contrast */
     
     --card: 0 0% 100%;
