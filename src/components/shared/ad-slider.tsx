@@ -65,34 +65,49 @@ export default function AdSlider() {
     pathname === '/register';
 
   useEffect(() => {
-    if (isDashboardPage || ads.length === 0) {
+    // Immediate return if dashboard or user previously closed it in this session
+    if (isDashboardPage || ads.length === 0 || sessionStorage.getItem('adSliderClosed') === 'true') {
         return;
     }
 
-    // Reset flag if needed or just run - we want it to run for the user
+    // Wait for 5 seconds after load to show the first ad
     const initialTimeout = setTimeout(() => {
-      setIsPanelOpen(true);
-    }, 2000);
+      if (sessionStorage.getItem('adSliderClosed') !== 'true') {
+        setIsPanelOpen(true);
+      }
+    }, 5000);
 
-    const interval = setInterval(() => {
+    // Run interval every 47 seconds to cycle through ads
+    const cycleInterval = setInterval(() => {
+        // If user has closed it, clear the interval entirely
+        if (sessionStorage.getItem('adSliderClosed') === 'true') {
+            clearInterval(cycleInterval);
+            return;
+        }
+
+        // Smooth slide out before switching
         setIsPanelOpen(false); 
 
         setTimeout(() => {
             setCurrentAdIndex(prevIndex => (prevIndex + 1) % ads.length);
-            setIsPanelOpen(true);
-        }, 600);
+            
+            // Re-open if not closed by user
+            if (sessionStorage.getItem('adSliderClosed') !== 'true') {
+                setIsPanelOpen(true);
+            }
+        }, 1000); // 1s transition buffer
 
-    }, 15000);
+    }, 47000);
 
     return () => {
       clearTimeout(initialTimeout);
-      clearInterval(interval);
+      clearInterval(cycleInterval);
     };
   }, [isDashboardPage]);
   
   const handleClose = () => {
     setIsPanelOpen(false);
-    // Persistent close for this session only if manually closed
+    // User explicitly closed it, so stop showing it for this session
     sessionStorage.setItem('adSliderClosed', 'true');
   };
 
