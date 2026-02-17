@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect, useRef } from 'react';
@@ -64,7 +65,7 @@ export default function HiredNotification() {
                   <Sparkles className="h-3 w-3 text-white" />
                 </div>
               </div>
-              <div>
+              <div className="flex-1">
                 <p className="font-bold text-sm flex items-center gap-1.5 text-white">
                   {`${example.name.split(' ')[0]} was hired!`} 
                   <PartyPopper className="h-4 w-4 text-yellow-400" />
@@ -79,30 +80,26 @@ export default function HiredNotification() {
               onClick={stopNotifications}
               className="text-xs h-7"
             >
-              Stop alerts
+              Stop
             </ToastAction>
           ),
           duration: 8000,
         });
       };
 
-      // Start the cycle 4 seconds after initial load
+      // Start the cycle 4 seconds after initial load for that "flash" feel
       initialTimeout = setTimeout(() => {
         if (sessionStorage.getItem('hiredNotificationsStopped') !== 'true') {
           showRandomHiredNotification();
-          // Cycle every 25 seconds for a "flash" frequency
+          // Cycle every 25 seconds
           intervalRef.current = setInterval(showRandomHiredNotification, 25000);
         }
       }, 4000);
     }
 
     return () => {
-      if (initialTimeout) {
-        clearTimeout(initialTimeout);
-      }
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
+      if (initialTimeout) clearTimeout(initialTimeout);
+      if (intervalRef.current) clearInterval(intervalRef.current);
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [toast, dismiss, isDashboardPage]);

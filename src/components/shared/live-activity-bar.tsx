@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Newspaper, Briefcase, GraduationCap, Trophy } from 'lucide-react';
