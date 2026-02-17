@@ -6,7 +6,7 @@ import { CheckCircle } from 'lucide-react';
 
 export default function HiringSection() {
   const hiringImage = PlaceHolderImages.find((p) => p.id === 'hiring-main');
-  const bgImage = PlaceHolderImages.find((p) => p.id['top-companies-bg']);
+  const bgImage = PlaceHolderImages.find((p) => p.id === 'top-companies-bg');
   
   const benefits = [
     'Explore a vast pool of qualified candidates.',

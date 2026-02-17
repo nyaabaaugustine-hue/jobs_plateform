@@ -33,7 +33,7 @@ export default function HiredNotification() {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
     }
-    dismiss();
+    dismiss(); // Clear all active toasts
   };
 
   useEffect(() => {
@@ -48,10 +48,10 @@ export default function HiredNotification() {
 
         toast({
           variant: 'black',
-          className: 'p-4 pr-10 border-l-4 border-l-primary animate-in slide-in-from-bottom-full duration-500',
+          className: 'p-4 pr-10 border-l-4 border-l-primary animate-in slide-in-from-left-full duration-500',
           description: (
-            <div className="flex items-center gap-3">
-              <div className="relative">
+            <div className="flex items-center gap-3 text-left">
+              <div className="relative shrink-0">
                 <Avatar className="h-10 w-10 border-2 border-white/20">
                   {userAvatar && <AvatarImage src={userAvatar.imageUrl} alt={example.name} />}
                   <AvatarFallback>{example.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
@@ -60,20 +60,23 @@ export default function HiredNotification() {
                   <Sparkles className="h-3 w-3 text-white" />
                 </div>
               </div>
-              <div className="flex-1">
-                <p className="font-bold text-sm flex items-center gap-1.5 text-white">
+              <div className="flex-1 min-w-0">
+                <p className="font-bold text-sm flex items-center gap-1.5 text-white truncate">
                   {`${example.name.split(' ')[0]} was hired!`} 
-                  <PartyPopper className="h-4 w-4 text-yellow-400" />
+                  <PartyPopper className="h-4 w-4 text-yellow-400 shrink-0" />
                 </p>
-                <p className="text-xs text-white/80 font-medium">{`New ${example.job} role filled.`}</p>
+                <p className="text-xs text-white/80 font-medium truncate">{`New ${example.job} role filled.`}</p>
               </div>
             </div>
           ),
           action: (
             <ToastAction
               altText="Stop alerts"
-              onClick={stopNotifications}
-              className="text-xs h-7"
+              onClick={(e) => {
+                e.preventDefault();
+                stopNotifications();
+              }}
+              className="text-xs h-7 ml-4"
             >
               Stop
             </ToastAction>
