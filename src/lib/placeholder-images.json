@@ -103,15 +103,15 @@
       "imageHint": "company logo"
     },
     {
-      "id": "company-logo-12",
-      "description": "Logo for Nyaho Medical Centre.",
-      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771236535/nyhaho_rznhuo.png",
-      "imageHint": "company logo"
-    },
-    {
       "id": "company-logo-11",
       "description": "Logo for Ashesi University.",
       "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771235542/facebook-cover-y_cpver4.png",
+      "imageHint": "company logo"
+    },
+    {
+      "id": "company-logo-12",
+      "description": "Logo for Nyaho Medical Centre.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771236535/nyhaho_rznhuo.png",
       "imageHint": "company logo"
     },
     {
@@ -285,7 +285,7 @@
     {
       "id": "location-takoradi",
       "description": "Fishing boats at a harbour in Takoradi, Ghana.",
-      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771014879/tadi_lpiggo.jpg",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771014157/tadi_uemdqo.jpg",
       "imageHint": "Takoradi harbour"
     },
     {
@@ -350,9 +350,9 @@
     },
     {
       "id": "top-companies-bg",
-      "description": "A modern and professional office background.",
-      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771111377/3124_lsxwt6.jpg",
-      "imageHint": "office background"
+      "description": "A vibrant market scene in Accra, Ghana.",
+      "imageUrl": "https://images.unsplash.com/photo-1618925480413-5858d4a0445d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
+      "imageHint": "Ghana market"
     },
     {
       "id": "latest-news-bg",
@@ -361,10 +361,28 @@
       "imageHint": "news reading"
     },
     {
-      "id": "resume-doc",
-      "description": "A placeholder image for a resume document.",
-      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771239121/resume_w55gvy.png",
-      "imageHint": "resume document"
+      "id": "paystack-logo",
+      "description": "Paystack logo",
+      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAiIGhlaWdodD0iMjUiIHZpZXdCb3g9IjAgMCAxMDAgMjUiPjxyZWN0IHdpZHRoPSIxMDAiIGhlaWdodD0iMjUiIGZpbGw9IiMwMDAwMDAiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiNGRkZGRkYiPlBheXN0YWNrPC90ZXh0Pjwvc3ZnPg==",
+      "imageHint": "Paystack logo"
+    },
+    {
+      "id": "visa-logo",
+      "description": "Visa logo",
+      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSIyNSIgdmlld0JveD0iMCAwIDUwIDI1Ij48cmVjdCB3aWR0aD0iNTAiIGhlaWdodD0iMjUiIGZpbGw9IiMxQTFGNzEiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnSyc2VyaWYiIGZvbnQtc2l6ZT0iMTQiIGZpbGw9IiNGRkZGRkYiPlZJU0E8L3RleHQ+PC9zdmc+",
+      "imageHint": "Visa logo"
+    },
+    {
+      "id": "mastercard-logo",
+      "description": "Mastercard logo",
+      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI1MCIgaGVpZ2h0PSIyNSIgdmlld0JveD0iMCAwIDUwIDI1Ij48cmVjdCB3aWR0aD0iNTAiIGhlaWdodD0iMjUiIGZpbGw9IiNFQjAwMUIiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC-YW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJzYW5zLXNlcmlmIiBmb250LXNpemU9IjE0IiBmaWxsPSIjRkZGRkZGIj5NQzwvdGV4dD48L3N2Zz4=",
+      "imageHint": "Mastercard logo"
+    },
+    {
+      "id": "ssl-badge",
+      "description": "SSL Secure badge",
+      "imageUrl": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCAxMjAgNDAiPjxyZWN0IHdpZHRoPSIxMjAiIGhlaWdodD0iNDAiIGZpbGw9IiMyMmM1NWMiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZG9taW5hbnQtYmFzZWxpbmU9Im1pZGRsZSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9InNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTYiIGZpbGw9IiNmZmZmZmYiPlNlY3VyZSBTU0w8L3RleHQ+PC9zdmc+",
+      "imageHint": "secure ssl"
     },
     {
       "id": "pricing-basic",
@@ -385,9 +403,15 @@
       "imageHint": "corporate office"
     },
     {
+      "id": "resume-doc",
+      "description": "A placeholder image for a resume document.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771239121/resume_w55gvy.png",
+      "imageHint": "resume document"
+    },
+    {
       "id": "contact-map",
       "description": "A vibrant, stylized map of Accra.",
-      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771148872/Screenshot_156_cdc4ns.png",
+      "imageUrl": "https://images.unsplash.com/photo-1618422159590-c5f21224f8d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80",
       "imageHint": "Accra map"
     },
     {
