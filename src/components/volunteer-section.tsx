@@ -29,7 +29,7 @@ export default function VolunteerSection() {
               className="block group h-full"
             >
               <Card 
-                className="relative h-full bg-card/40 backdrop-blur-md border border-border/50 shadow-lg group-hover:shadow-glow group-hover:ring-2 group-hover:ring-gold transition-all duration-500 hover:-translate-y-2 rounded-[2rem] p-8 overflow-hidden" 
+                className="relative h-full bg-card/40 backdrop-blur-md border border-border/50 shadow-lg group-hover:shadow-glow group-hover:ring-2 group-hover:ring-gold transition-all duration-500 hover:-translate-y-2 rounded-[2.5rem] p-8 overflow-hidden" 
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Subtle Gradient Background */}
@@ -59,9 +59,9 @@ export default function VolunteerSection() {
         </div>
         
         <div className="mt-20 text-center animate-in fade-in duration-1000 delay-500">
-          <Button asChild size="lg" className="font-black px-12 shadow-2xl bg-primary hover:bg-primary/90 transition-all rounded-2xl h-16 text-sm uppercase tracking-widest">
+          <Button asChild size="lg" className="font-black px-12 shadow-2xl bg-primary hover:bg-gold hover:text-black transition-all rounded-2xl h-16 text-sm uppercase tracking-widest group">
             <Link href="/opportunities" className="flex items-center gap-3">
-              View All Opportunities <ArrowUpRight className="h-5 w-5" />
+              View All Opportunities <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </Link>
           </Button>
         </div>

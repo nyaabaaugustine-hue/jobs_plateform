@@ -17,7 +17,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Skeleton } from '@/components/ui/skeleton';
 
-// Use dynamic import with ssr: false to resolve hydration mismatch in complex client components
+// Bulletproof Dynamic Rendering to avoid hydration mismatches
 const Testimonials = dynamic(() => import('@/components/testimonials'), { 
   ssr: false,
   loading: () => <div className="h-[600px] w-full bg-background animate-pulse" />

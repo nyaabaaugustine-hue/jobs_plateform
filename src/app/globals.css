@@ -14,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
-    --primary: 221 83% 53%; /* #2563EB */
+    --primary: 221 83% 53%; /* #2563EB - BRAND BLUE */
     --primary-foreground: 0 0% 100%; 
     
     --secondary: 210 40% 96%;
@@ -55,7 +55,7 @@
     --popover: 222 47% 11%;
     --popover-foreground: 214 32% 91%;
 
-    --primary: 221 83% 53%; /* #2563EB */
+    --primary: 221 83% 53%; /* #2563EB - BRAND BLUE */
     --primary-foreground: 0 0% 100%; 
     
     --secondary: 217 33% 17%;
@@ -90,7 +90,7 @@
     --popover: 222 48% 8%;
     --popover-foreground: 210 40% 96%;
 
-    --primary: 217 91% 60%; /* #3B82F6 */
+    --primary: 221 83% 53%; /* #2563EB - BRAND BLUE */
     --primary-foreground: 0 0% 100%; 
     
     --secondary: 222 47% 11%;
@@ -107,7 +107,7 @@
     
     --border: 215 28% 17%; /* #1F2937 */
     --input: 215 28% 17%;
-    --ring: 217 91% 60%;
+    --ring: 221 83% 53%;
     --burgundy: 349 89% 45%;
     
     --bg-surface: 222 47% 11%;
