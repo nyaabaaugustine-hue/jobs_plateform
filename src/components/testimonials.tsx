@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import type { Review, User } from '@/lib/types';
+import type { Review } from '@/lib/types';
 import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -24,23 +24,42 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
 
+const GoogleLogo = () => (
+  <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg" className="shrink-0">
+    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c1.61-3.39 2.54-7.31 2.54-11.09z" fill="#4285F4"/>
+    <path d="M12 23c3.11 0 5.72-1.03 7.63-2.79l-3.57-2.77c-.99.66-2.23 1.06-4.06 1.06-3.53 0-6.52-2.39-7.59-5.6H.83v2.9C2.73 19.5 7.04 23 12 23z" fill="#34A853"/>
+    <path d="M4.41 12.91c-.27-.81-.42-1.67-.42-2.56s.15-1.75.42-2.56V4.89H.83C.3 6.03 0 7.29 0 8.62s.3 2.59.83 3.73l3.58-2.82z" fill="#FBBC05"/>
+    <path d="M12 4.41c1.69 0 3.21.58 4.41 1.71l3.31-3.31C17.71 1.03 15.1 0 12 0 7.04 0 2.73 3.5.83 7.29l3.58 2.82c1.07-3.21 4.06-5.6 7.59-5.6z" fill="#EA4335"/>
+  </svg>
+);
+
 const TestimonialCard = ({ review }: { review: Review }) => {
     const userAvatar = PlaceHolderImages.find((img) => img.id === review.user.avatar);
     return (
         <Card className="flex flex-col bg-[#151C2B] border border-white/5 p-8 rounded-2xl shadow-2xl transition-all hover:border-white/10 h-full w-[450px] shrink-0">
             <CardContent className="p-0 mb-6 relative">
+                <div className="flex items-center justify-between mb-4">
+                  <StarRating rating={5} />
+                  <div className="flex items-center gap-2 px-2 py-1 rounded bg-white/5 border border-white/10">
+                    <GoogleLogo />
+                    <span className="text-[10px] font-black uppercase tracking-tighter text-white/40">Review</span>
+                  </div>
+                </div>
                 <Quote className="absolute -top-2 -left-2 h-8 w-8 text-primary/10 -z-10" />
-                <StarRating rating={5} className="mb-4" />
-                <p className="text-[#F3F4F6] italic leading-relaxed text-base font-medium">"{review.comment}"</p>
+                <div className="min-h-[80px]">
+                  <p className="text-[#F3F4F6] italic leading-relaxed text-base font-medium break-words whitespace-normal">
+                    "{review.comment}"
+                  </p>
+                </div>
             </CardContent>
             <div className="flex items-center gap-4 mt-auto pt-6 border-t border-white/5">
                 <Avatar className="h-12 w-12 border-2 border-white/10 shadow-lg">
                     {userAvatar && <AvatarImage src={userAvatar.imageUrl} alt={review.user.name} />}
                     <AvatarFallback className="bg-primary/20 text-primary">{review.user.name?.charAt(0)}</AvatarFallback>
                 </Avatar>
-                <div>
-                    <p className="font-bold text-white text-sm">{review.user.name}</p>
-                    <p className="text-[11px] text-muted-foreground uppercase font-black tracking-widest">{review.user.professionalTitle}</p>
+                <div className="flex-1 min-w-0">
+                    <p className="font-bold text-white text-sm truncate">{review.user.name}</p>
+                    <p className="text-[11px] text-muted-foreground uppercase font-black tracking-widest truncate">{review.user.professionalTitle}</p>
                 </div>
             </div>
         </Card>
@@ -54,7 +73,6 @@ export default function Testimonials() {
   const [hoverRating, setHoverRating] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
 
-  // Manual list to match user request exactly
   const allReviews: Review[] = [
     {
         id: '1',
@@ -94,9 +112,8 @@ export default function Testimonials() {
     }
   ];
 
-  // Split into two rows for the marquee
-  const row1 = allReviews.slice(0, 3);
-  const row2 = allReviews.slice(3, 6);
+  const row1 = [...allReviews];
+  const row2 = [...allReviews].reverse();
 
   const handleSubmitReview = (e: React.FormEvent) => {
     e.preventDefault();
@@ -122,16 +139,24 @@ export default function Testimonials() {
             
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
               <DialogTrigger asChild>
-                <Button variant="outline" className="border-white/10 text-white hover:bg-white/5 rounded-xl h-12 px-6 font-bold shadow-lg transition-all hover:scale-105">
-                    <PlusCircle className="mr-2 h-4 w-4" /> Add a review
+                <Button variant="outline" className="border-white/10 text-white hover:bg-white/5 rounded-xl h-14 px-8 font-black text-sm shadow-2xl transition-all hover:scale-105 group relative overflow-hidden">
+                    <span className="relative z-10 flex items-center gap-2">
+                      <PlusCircle className="h-5 w-5 text-primary" /> Add a review
+                    </span>
+                    <div className="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors" />
                 </Button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-[500px] bg-[#111827] border-white/5 text-white p-0 overflow-hidden rounded-3xl shadow-2xl">
-                <div className="bg-gradient-to-r from-primary/20 to-accent/20 p-8 border-b border-white/5">
+                <div className="bg-gradient-to-r from-primary/20 via-background to-accent/20 p-8 border-b border-white/5 relative">
+                  <div className="absolute top-4 right-4 opacity-50">
+                    <GoogleLogo />
+                  </div>
                   <DialogHeader>
-                    <DialogTitle className="text-2xl font-black font-headline text-white">Share Your Experience</DialogTitle>
-                    <DialogDescription className="text-white/60 font-medium">
-                      Help others discover the power of Chapel Hill with your honest review.
+                    <DialogTitle className="text-2xl font-black font-headline text-white flex items-center gap-3">
+                      Share Your Experience
+                    </DialogTitle>
+                    <DialogDescription className="text-white/60 font-medium pt-2">
+                      Help others discover the power of Chapel Hill with an authoritative review.
                     </DialogDescription>
                   </DialogHeader>
                 </div>
@@ -174,7 +199,7 @@ export default function Testimonials() {
                         id="rev-name" 
                         placeholder="e.g. John Doe" 
                         required 
-                        className="bg-white/5 border-white/10 text-white placeholder:text-white/20 h-12 rounded-xl focus:ring-primary"
+                        className="bg-white/5 border-white/10 text-white placeholder:text-white/20 h-12 rounded-xl focus:ring-primary focus:bg-white/10 transition-all"
                       />
                     </div>
                     <div className="space-y-2">
@@ -185,7 +210,7 @@ export default function Testimonials() {
                         id="rev-title" 
                         placeholder="e.g. Senior Developer" 
                         required 
-                        className="bg-white/5 border-white/10 text-white placeholder:text-white/20 h-12 rounded-xl focus:ring-primary"
+                        className="bg-white/5 border-white/10 text-white placeholder:text-white/20 h-12 rounded-xl focus:ring-primary focus:bg-white/10 transition-all"
                       />
                     </div>
                   </div>
@@ -197,19 +222,19 @@ export default function Testimonials() {
                     <Textarea 
                       id="rev-text" 
                       placeholder="Tell us how Chapel Hill helped your career..." 
-                      className="bg-white/5 border-white/10 text-white placeholder:text-white/20 min-h-[120px] rounded-xl focus:ring-primary p-4 resize-none"
+                      className="bg-white/5 border-white/10 text-white placeholder:text-white/20 min-h-[140px] rounded-xl focus:ring-primary p-4 resize-none focus:bg-white/10 transition-all leading-relaxed"
                       required
                     />
                   </div>
 
                   <DialogFooter className="pt-4">
                     <DialogClose asChild>
-                      <Button type="button" variant="ghost" className="text-white/40 hover:text-white hover:bg-white/5">Cancel</Button>
+                      <Button type="button" variant="ghost" className="text-white/40 hover:text-white hover:bg-white/5 rounded-xl h-12 px-6">Cancel</Button>
                     </DialogClose>
                     <Button 
                       type="submit" 
                       disabled={isSubmitting || rating === 0}
-                      className="bg-primary text-white font-black rounded-xl h-12 px-10 hover:brightness-110 shadow-xl shadow-primary/20"
+                      className="bg-primary text-white font-black rounded-xl h-12 px-10 hover:brightness-110 shadow-xl shadow-primary/20 transition-all hover:-translate-y-0.5"
                     >
                       {isSubmitting ? (
                         <>
@@ -225,7 +250,6 @@ export default function Testimonials() {
       </div>
 
       <div className="space-y-8 relative">
-        {/* Row 1: Left-to-Right Marquee */}
         <div className="flex w-full overflow-hidden">
             <div className="flex animate-marquee-rtl gap-8 py-4 whitespace-nowrap">
                 {[...row1, ...row1, ...row1].map((review, idx) => (
@@ -234,7 +258,6 @@ export default function Testimonials() {
             </div>
         </div>
 
-        {/* Row 2: Right-to-Left Marquee */}
         <div className="flex w-full overflow-hidden">
             <div className="flex animate-marquee-ltr gap-8 py-4 whitespace-nowrap">
                 {[...row2, ...row2, ...row2].map((review, idx) => (
@@ -243,7 +266,6 @@ export default function Testimonials() {
             </div>
         </div>
 
-        {/* Gradient Fades */}
         <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0B0F17] to-transparent z-10" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0B0F17] to-transparent z-10" />
       </div>
