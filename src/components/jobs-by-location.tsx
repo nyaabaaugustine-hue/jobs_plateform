@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from '@/components/ui/card';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,35 +13,36 @@ type Location = {
 
 export default function JobsByLocation({ locations }: { locations: Location[] }) {
   return (
-    <section className="py-20 bg-background">
+    <section className="py-24 bg-[#0B0F17]">
       <div className="container mx-auto max-w-7xl px-6 lg:px-12">
-        <div className="mb-12 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">Jobs by Location</h2>
+        <div className="mb-16 text-center">
+          <h2 className="font-headline text-[48px] font-black text-white leading-tight">Jobs by Location</h2>
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {locations.map((location, index) => {
             const locationImage = PlaceHolderImages.find((img) => img.id === location.imageId);
             return (
-              <Link key={location.name} href="#" className="block group animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: `${200 + index * 75}ms` }}>
-                <Card className="overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl bg-card">
+              <Link key={location.name} href="#" className="block group animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: `${index * 75}ms` }}>
+                <Card className="overflow-hidden transition-all duration-300 border-none bg-[#151C2B] rounded-2xl shadow-xl">
                   {locationImage && (
-                    <Image
-                      src={locationImage.imageUrl}
-                      alt={location.name}
-                      width={600}
-                      height={400}
-                      className="w-full object-cover aspect-[3/2] transition-transform duration-300 group-hover:scale-105"
-                      data-ai-hint={locationImage.imageHint}
-                    />
+                    <div className="relative aspect-[3/2] overflow-hidden">
+                        <Image
+                        src={locationImage.imageUrl}
+                        alt={location.name}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        data-ai-hint={locationImage.imageHint}
+                        />
+                    </div>
                   )}
-                  <CardContent className="p-4">
-                    <h3 className="font-semibold text-lg group-hover:text-primary transition-colors">{location.name}</h3>
-                    <div className="flex justify-between items-center text-sm text-muted-foreground mt-2">
+                  <CardContent className="p-5">
+                    <h3 className="font-bold text-xl text-white group-hover:text-primary transition-colors">{location.name}</h3>
+                    <div className="flex items-center gap-6 text-sm text-muted-foreground mt-3">
                        <span className="flex items-center gap-2">
-                          <Briefcase className="h-4 w-4" /> {location.jobs} Jobs
+                          <Briefcase className="h-4 w-4 text-primary" /> {location.jobs} Jobs
                        </span>
                         <span className="flex items-center gap-2">
-                            <Building className="h-4 w-4" /> {location.companies} Companies
+                            <Building className="h-4 w-4 text-primary" /> {location.companies} Companies
                         </span>
                     </div>
                   </CardContent>

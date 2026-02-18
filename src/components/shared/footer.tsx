@@ -24,46 +24,9 @@ export default function Footer() {
     return null;
   }
 
-  const navSections = [
-    {
-      title: 'For Candidates',
-      links: [
-        { href: '/jobs', label: 'Browse Jobs' },
-        { href: '/dashboard', label: 'Candidate Dashboard' },
-        { href: '/dashboard/settings', label: 'Job Alerts' },
-        { href: '/dashboard/applications', label: 'My Applications' },
-      ],
-    },
-    {
-      title: 'For Employers',
-      links: [
-        { href: '/employer', label: 'Employer Dashboard' },
-        { href: '/employer/jobs/new', label: 'Post a Job' },
-        { href: '/browse-candidates', label: 'Browse Candidates' },
-        { href: '/pricing', label: 'Pricing' },
-      ],
-    },
-    {
-      title: 'Community',
-      links: [
-        { href: '/blog', label: 'News & Blog' },
-        { href: '/guidelines', label: 'Guidelines' },
-        { href: '/opportunities', label: 'Opportunities' },
-      ],
-    },
-    {
-      title: 'Company',
-      links: [
-        { href: '/contacts', label: 'Contact Us' },
-        { href: '/careers', label: 'Careers' },
-      ],
-    },
-  ];
-
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
-
     toast({
       title: 'Subscription Successful!',
       description: `Thank you for subscribing, ${email}.`,
@@ -73,89 +36,82 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-card border-t border-border/5">
-      <div className="container mx-auto px-4 py-16 md:px-6">
-        <div className="grid gap-12 lg:grid-cols-12">
-          {/* Logo, Description, Socials */}
-          <div className="lg:col-span-3 space-y-4">
-            <Logo />
-            <p className="text-sm text-muted-foreground">
-              Chapel Hill is the heart of the professional community and the best resource to discover and connect with talent and jobs worldwide.
+    <footer className="bg-[#0B0F17] border-t border-white/5 pt-20 pb-10">
+      <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+        <div className="grid gap-12 lg:grid-cols-12 mb-16">
+          {/* Brand Column */}
+          <div className="lg:col-span-4 space-y-6">
+            <Logo className="w-40" />
+            <p className="text-muted-foreground leading-relaxed font-medium">
+              Chapel Hill is the heart of the professional community and the premier resource to discover top talent and elite opportunities globally.
             </p>
-            <div className="flex space-x-1">
-              <Button variant="ghost" size="icon" asChild>
-                <Link href="#" className="text-muted-foreground hover:text-primary">
-                  <Facebook />
-                </Link>
+            <div className="flex gap-3">
+              <Button variant="outline" size="icon" className="rounded-xl border-white/10 hover:bg-white/5 text-white" asChild>
+                <Link href="#"><Facebook className="h-5 w-5" /></Link>
               </Button>
-              <Button variant="ghost" size="icon" asChild>
-                <Link href="#" className="text-muted-foreground hover:text-primary">
-                  <Linkedin />
-                </Link>
+              <Button variant="outline" size="icon" className="rounded-xl border-white/10 hover:bg-white/5 text-white" asChild>
+                <Link href="#"><Linkedin className="h-5 w-5" /></Link>
               </Button>
-              <Button variant="ghost" size="icon" asChild>
-                <Link href="#" className="text-muted-foreground hover:text-primary">
-                  <Twitter />
-                </Link>
+              <Button variant="outline" size="icon" className="rounded-xl border-white/10 hover:bg-white/5 text-white" asChild>
+                <Link href="#"><Twitter className="h-5 w-5" /></Link>
               </Button>
             </div>
           </div>
 
-          {/* Links */}
-          <div className="lg:col-span-6 grid grid-cols-2 md:grid-cols-4 gap-8">
-            {navSections.map((section) => (
-              <div key={section.title}>
-                <h3 className="font-headline font-semibold text-foreground">{section.title}</h3>
-                <ul className="mt-4 space-y-3">
-                  {section.links.map((link) => (
-                    <li key={link.label}>
-                      <Link
-                        href={link.href}
-                        className="text-sm text-muted-foreground transition-colors hover:text-primary"
-                      >
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          {/* Links Columns */}
+          <div className="lg:col-span-5 grid grid-cols-2 md:grid-cols-3 gap-8">
+            <div className="space-y-4">
+              <h3 className="font-bold text-white uppercase text-xs tracking-widest">Candidates</h3>
+              <ul className="space-y-3">
+                <li><Link href="/jobs" className="text-sm text-muted-foreground hover:text-primary transition-colors">Browse Jobs</Link></li>
+                <li><Link href="/dashboard" className="text-sm text-muted-foreground hover:text-primary transition-colors">Dashboard</Link></li>
+                <li><Link href="/opportunities" className="text-sm text-muted-foreground hover:text-primary transition-colors">Opportunities</Link></li>
+              </ul>
+            </div>
+            <div className="space-y-4">
+              <h3 className="font-bold text-white uppercase text-xs tracking-widest">Employers</h3>
+              <ul className="space-y-3">
+                <li><Link href="/employer" className="text-sm text-muted-foreground hover:text-primary transition-colors">Employer Portal</Link></li>
+                <li><Link href="/pricing" className="text-sm text-muted-foreground hover:text-primary transition-colors">Pricing Plans</Link></li>
+                <li><Link href="/employer/jobs/new" className="text-sm text-muted-foreground hover:text-primary transition-colors">Post a Job</Link></li>
+              </ul>
+            </div>
+            <div className="space-y-4">
+              <h3 className="font-bold text-white uppercase text-xs tracking-widest">Company</h3>
+              <ul className="space-y-3">
+                <li><Link href="/about" className="text-sm text-muted-foreground hover:text-primary transition-colors">About Us</Link></li>
+                <li><Link href="/contacts" className="text-sm text-muted-foreground hover:text-primary transition-colors">Contact</Link></li>
+                <li><Link href="/blog" className="text-sm text-muted-foreground hover:text-primary transition-colors">News</Link></li>
+              </ul>
+            </div>
           </div>
 
-          {/* Newsletter */}
-          <div className="lg:col-span-3">
-            <h3 className="font-headline font-semibold text-foreground">Stay Updated</h3>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Subscribe to our newsletter to get the latest job postings and career tips.
-            </p>
-            <form onSubmit={handleSubscribe} className="mt-4 space-y-2">
-              <div className="relative">
-                <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-                <Input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="pl-10"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </div>
-              <Button type="submit" className="w-full bg-accent-gradient">
+          {/* Newsletter Column */}
+          <div className="lg:col-span-3 space-y-6">
+            <h3 className="font-bold text-white uppercase text-xs tracking-widest">Stay Updated</h3>
+            <form onSubmit={handleSubscribe} className="space-y-3">
+              <Input 
+                placeholder="Email address" 
+                className="bg-white/5 border-white/10 text-white rounded-xl h-12 focus:ring-primary"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <Button type="submit" className="w-full bg-yellow-500 hover:bg-yellow-400 text-black font-black rounded-xl h-12">
                 Subscribe
               </Button>
             </form>
           </div>
         </div>
 
-        <Separator className="my-12 bg-border/10" />
+        <Separator className="bg-white/5 mb-8" />
 
-        <div className="flex flex-col md:flex-row justify-between items-center text-sm text-muted-foreground">
-          <p className="text-center md:text-left mb-4 md:mb-0">
-            &copy; {new Date().getFullYear()} Chapel Hill. All rights reserved. <span className="text-muted-foreground">Developed By</span> <span className="font-semibold text-accent">TGNE Solutions</span>
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-sm text-muted-foreground font-medium">
+            &copy; {new Date().getFullYear()} Chapel Hill. Developed By <span className="text-yellow-500 font-bold">TGNE Solutions</span>
           </p>
-          <div className='flex gap-6'>
-             <Link href="#" className="text-accent hover:underline">Terms & Conditions</Link>
-             <Link href="#" className="text-accent hover:underline">Privacy Policy</Link>
+          <div className="flex gap-8">
+            <Link href="#" className="text-xs text-muted-foreground hover:text-yellow-500 underline underline-offset-4">Terms & Conditions</Link>
+            <Link href="#" className="text-xs text-muted-foreground hover:text-yellow-500 underline underline-offset-4">Privacy Policy</Link>
           </div>
         </div>
       </div>

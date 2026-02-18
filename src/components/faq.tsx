@@ -1,10 +1,11 @@
+'use client';
+
 import {
     Accordion,
     AccordionContent,
     AccordionItem,
     AccordionTrigger,
   } from "@/components/ui/accordion"
-  import SectionHeader from "./shared/section-header"
   import Image from "next/image"
   import { PlaceHolderImages } from "@/lib/placeholder-images"
   
@@ -37,30 +38,19 @@ import {
   ]
   
   export default function Faq() {
-    const faqImage = PlaceHolderImages.find((p) => p.id === 'blog-post-9');
+    const faqImage = PlaceHolderImages.find((p) => p.id === 'contact-form-bg');
   
     return (
-      <section className="py-24 bg-[#0B0F17] relative overflow-hidden">
-        {/* Background Image at 20% Opacity */}
-        {faqImage && (
-          <Image
-            src={faqImage.imageUrl}
-            alt={faqImage.description}
-            fill
-            className="object-cover z-0 opacity-20"
-            data-ai-hint={faqImage.imageHint}
-          />
-        )}
-        <div className="absolute inset-0 bg-[#0B0F17]/80 z-10" />
-
+      <section className="py-24 bg-[#0B0F17] relative">
         <div className="container mx-auto max-w-7xl px-6 lg:px-12 relative z-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Image Column */}
             <div className="animate-in fade-in slide-in-from-left-12 duration-1000 hidden lg:block">
               {faqImage && (
                 <div className="relative rounded-[2rem] overflow-hidden shadow-2xl aspect-[4/5] border border-white/5">
                   <Image
                     src={faqImage.imageUrl}
-                    alt={faqImage.description}
+                    alt="FAQ illustration"
                     fill
                     className="object-cover"
                     data-ai-hint={faqImage.imageHint}
@@ -68,20 +58,21 @@ import {
                 </div>
               )}
             </div>
+            
+            {/* Content Column */}
             <div className="animate-in fade-in slide-in-from-right-12 duration-1000">
-              <SectionHeader
-                title="Frequently Asked Questions"
-                subtitle="Have questions? We're here to help."
-                isCentered={false}
-                className="mb-12"
-              />
+              <div className="mb-12">
+                <h2 className="font-headline text-[48px] font-black text-white leading-tight">Frequently Asked Questions</h2>
+                <p className="mt-4 text-lg text-muted-foreground font-medium">Have questions? We're here to help you navigate your journey.</p>
+              </div>
+              
               <Accordion type="single" collapsible className="w-full space-y-4">
                 {faqs.map((faq, index) => (
                   <AccordionItem value={`item-${index}`} key={index} className="border-white/10 px-6 rounded-xl bg-[#111827]">
                     <AccordionTrigger className="text-left font-semibold text-lg hover:no-underline py-6 text-white">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground pb-6">
+                    <AccordionContent className="text-muted-foreground pb-6 text-base leading-relaxed">
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>

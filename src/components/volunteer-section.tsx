@@ -11,10 +11,13 @@ export default function VolunteerSection() {
   return (
     <section className="relative py-24 overflow-hidden bg-[#0B0F17]">
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
-        <SectionHeader
-          title="Start Your Next Chapter."
-          subtitle="Explore volunteer and attachment opportunities designed for growth."
-        />
+        <div className="text-center mb-16">
+            <h2 className="font-headline text-[48px] font-black text-white leading-tight">Kickstart Your Career</h2>
+            <p className="mt-4 text-[18px] text-muted-foreground font-medium font-headline tracking-wide max-w-2xl mx-auto">
+                Explore volunteer and attachment opportunities designed for growth and hands-on experience.
+            </p>
+        </div>
+        
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {DUMMY_OPPORTUNITIES.map((opportunity, index) => (
             <Card 
@@ -23,8 +26,8 @@ export default function VolunteerSection() {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardHeader className="items-center pb-2">
-                <div className={cn("flex h-20 w-20 items-center justify-center rounded-2xl shadow-inner", opportunity.iconBg)}>
-                  <opportunity.icon className={cn("h-10 w-10", opportunity.iconColor)} />
+                <div className={cn("flex h-20 w-20 items-center justify-center rounded-2xl shadow-inner bg-primary/10")}>
+                  <opportunity.icon className={cn("h-10 w-10 text-primary")} />
                 </div>
               </CardHeader>
               <CardContent className="pt-4">
@@ -35,7 +38,7 @@ export default function VolunteerSection() {
           ))}
         </div>
         <div className="mt-16 text-center">
-          <Button asChild size="lg" className="font-bold px-10 shadow-xl bg-primary hover:brightness-110 transition-all rounded-xl">
+          <Button asChild size="lg" className="font-bold px-10 shadow-xl bg-primary hover:brightness-110 transition-all rounded-xl h-14">
             <Link href="/opportunities">Explore Opportunities</Link>
           </Button>
         </div>

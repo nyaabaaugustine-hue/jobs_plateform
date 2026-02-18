@@ -1,4 +1,3 @@
-
 'use client';
 
 import Image from 'next/image';
@@ -12,7 +11,6 @@ import { useState } from 'react';
 export default function SubscriptionSection() {
     const { toast } = useToast();
     const [email, setEmail] = useState('');
-    const bgImage = PlaceHolderImages.find((p) => p.id === 'featured-jobs-bg');
     
     const handleSubscribe = (e: React.FormEvent) => {
         e.preventDefault();
@@ -27,43 +25,32 @@ export default function SubscriptionSection() {
     };
 
   return (
-    <section className="py-20 bg-secondary/50 relative overflow-hidden">
-      {/* Background Image at 20% Opacity */}
-      {bgImage && (
-        <Image
-          src={bgImage.imageUrl}
-          alt={bgImage.description}
-          fill
-          className="object-cover z-0 opacity-20"
-          data-ai-hint={bgImage.imageHint}
-        />
-      )}
-      <div className="absolute inset-0 bg-secondary/80 z-10" />
-      <div className="container mx-auto max-w-7xl px-6 lg:px-12 relative z-20">
-        <div className="relative rounded-3xl bg-card p-10 md:p-16 lg:p-20 text-center text-foreground overflow-hidden animate-in fade-in zoom-in-95 duration-700 border border-border/50">
-          <div className="relative z-20">
-            <h2 className="font-headline text-3xl font-extrabold tracking-tight sm:text-4xl text-foreground">
+    <section className="py-24 bg-[#0B0F17]">
+      <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+        <div className="relative rounded-[3rem] bg-[#151C2B] p-12 md:p-20 text-center overflow-hidden border border-white/5">
+          <div className="relative z-20 max-w-3xl mx-auto">
+            <h2 className="font-headline text-[48px] font-black text-white leading-tight">
               Get Job Alerts
             </h2>
-             <p className="mt-4 max-w-2xl mx-auto text-lg font-bold text-slate-500">
-              Subscribe to our newsletter to receive the latest job postings.
+             <p className="mt-4 text-xl font-medium text-muted-foreground">
+              Subscribe to our newsletter to receive the latest job postings and career insights.
             </p>
-            <form onSubmit={handleSubscribe} className="mt-8 max-w-xl mx-auto">
-                <div className="flex items-center gap-2 bg-background p-2 rounded-xl border-2 border-gold/30 focus-within:border-gold transition-colors">
-                    <Button type="submit" size="lg" className="rounded-lg bg-gold text-black font-black font-headline px-6 hover:bg-gold/90">
+            <form onSubmit={handleSubscribe} className="mt-12">
+                <div className="flex flex-col sm:flex-row items-center gap-3 bg-[#0B0F17] p-2.5 rounded-2xl border border-white/10 shadow-2xl focus-within:border-primary/50 transition-all">
+                    <Button type="submit" size="lg" className="w-full sm:w-auto rounded-xl bg-yellow-500 text-black font-black font-headline px-10 h-14 hover:bg-yellow-400">
                         Subscribe
                     </Button>
                     <Input
                       type="email"
                       placeholder="Enter your email address"
-                      className="flex-1 bg-transparent border-none focus-visible:ring-0 text-foreground font-bold placeholder:text-slate-400"
+                      className="flex-1 bg-transparent border-none focus-visible:ring-0 text-white font-bold placeholder:text-gray-500 h-14"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
                     />
-                    <Mail className="h-5 w-5 text-gold mr-2 shrink-0" />
+                    <Mail className="hidden sm:block h-6 w-6 text-yellow-500 mr-4 shrink-0" />
                 </div>
-                 <p className="mt-2 text-xs font-bold text-slate-400">No spam. Unsubscribe anytime.</p>
+                 <p className="mt-4 text-xs font-bold text-gray-500">We respect your privacy. Unsubscribe anytime.</p>
             </form>
           </div>
         </div>
