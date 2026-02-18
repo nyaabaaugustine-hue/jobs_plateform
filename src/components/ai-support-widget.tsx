@@ -58,7 +58,7 @@ export default function AISupportWidget() {
     const abenaAvatar = "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771168493/eds_bjytks.png";
     const introImage = "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771205327/straight_yqwg78.png";
     
-    const isDashboardPage = pathname.startsWith('/admin') || pathname.startsWith('/dashboard') || pathname.startsWith('/employer') || pathname === '/hilladmin';
+    const isDashboardPage = pathname.startsWith('/admin') || pathname.startsWith('/dashboard') || pathname.startsWith('/employer') || pathname === '/hilladmin' || pathname === '/login' || pathname === '/register';
 
     useEffect(() => { setMounted(true); }, []);
 
@@ -155,8 +155,15 @@ export default function AISupportWidget() {
                             {messages.map((m) => (
                                 <div key={m.id} className={cn("flex flex-col", m.sender === 'user' ? "items-end" : "items-start")}>
                                     {m.image && (
-                                        <div className="mb-3 w-full max-w-[220px] rounded-xl overflow-hidden border border-white/10 shadow-lg">
-                                            <Image src={m.image} alt="Assistant Intro" width={220} height={140} className="w-full object-cover aspect-video" />
+                                        <div className="mb-3 w-full max-w-[200px] rounded-xl overflow-hidden border border-white/10 shadow-lg bg-black/20">
+                                            <Image 
+                                                src={m.image} 
+                                                alt="Assistant Intro" 
+                                                width={200} 
+                                                height={112} 
+                                                className="w-full h-auto object-cover aspect-video" 
+                                                priority
+                                            />
                                         </div>
                                     )}
                                     <div className={cn(
