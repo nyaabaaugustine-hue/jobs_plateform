@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    /* 🥇 Theme 3: LIGHT (Modern Clean SaaS Light) */
+    /* 🥇 Unified Executive Brand Identity */
     --background: 210 40% 98%; 
     --foreground: 222 47% 11%; 
     
@@ -14,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
-    /* Unified Very Light Brand Blue (#93C5FD) */
+    /* Very Light Blue Branding (#93C5FD) */
     --primary: 212 96% 78%; 
     --primary-foreground: 222 47% 11%; 
     
@@ -51,7 +51,7 @@
   }
 
   .dark {
-    /* 🥈 Theme 2: DARK (Professional Corporate Dark) */
+    /* Professional Corporate Dark */
     --background: 222 47% 11%; 
     --foreground: 210 40% 98%;
     
@@ -87,7 +87,7 @@
   }
 
   .midnight {
-    /* 🥇 Theme 1: MIDNIGHT SLATE (Signature Premium Theme) */
+    /* Signature Premium Theme */
     --background: 222 48% 8%; 
     --foreground: 210 40% 96%;
     

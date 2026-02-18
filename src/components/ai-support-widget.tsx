@@ -62,7 +62,12 @@ export default function AISupportWidget() {
 
     useEffect(() => { setMounted(true); }, []);
 
-    const scrollToBottom = () => { messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' }); };
+    const scrollToBottom = () => {
+        // Use a timeout to ensure DOM content (like images) has loaded/settled
+        setTimeout(() => {
+            messagesEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        }, 100);
+    };
 
     const handleSendMessage = async (text: string) => {
         if (!text.trim()) return;
@@ -111,10 +116,17 @@ export default function AISupportWidget() {
                 text: welcomeText,
                 image: introImage
             }]);
+            
+            // Auto-scroll on initial load to ensure Abena's image is fully visible
+            scrollToBottom();
         }
     }, [isOpen, user, messages.length]);
 
-    useEffect(scrollToBottom, [messages, isTyping]);
+    useEffect(() => {
+        if (isOpen) {
+            scrollToBottom();
+        }
+    }, [messages, isTyping, isOpen]);
 
     if (!mounted || isDashboardPage) return null;
 
@@ -184,7 +196,7 @@ export default function AISupportWidget() {
                                     </div>
                                 </div>
                             )}
-                            <div ref={messagesEndRef} />
+                            <div ref={messagesEndRef} className="h-px" />
                         </div>
 
                         {/* Action Deck Panel */}

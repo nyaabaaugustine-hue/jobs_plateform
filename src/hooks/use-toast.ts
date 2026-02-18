@@ -1,4 +1,3 @@
-
 "use client"
 
 import * as React from "react"
@@ -138,7 +137,10 @@ function dispatch(action: Action) {
   })
 }
 
-function toast({ ...props }: Omit<ToasterToast, "id">) {
+/**
+ * Stable toast function exported for use components.
+ */
+export function toast({ ...props }: Omit<ToasterToast, "id">) {
   const id = genId()
 
   const update = (props: ToasterToast) =>
@@ -167,7 +169,10 @@ function toast({ ...props }: Omit<ToasterToast, "id">) {
   }
 }
 
-const dismiss = (toastId?: string) => {
+/**
+ * Stable dismiss function for stopping cycles.
+ */
+export const dismiss = (toastId?: string) => {
   dispatch({ type: "DISMISS_TOAST", toastId })
 }
 
@@ -191,4 +196,4 @@ function useToast() {
   }
 }
 
-export { useToast, toast, dismiss }
+export { useToast }
