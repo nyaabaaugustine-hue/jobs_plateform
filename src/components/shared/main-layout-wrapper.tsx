@@ -1,4 +1,3 @@
-
 'use client';
 
 import Header from '@/components/shared/header';
@@ -6,6 +5,7 @@ import Footer from '@/components/shared/footer';
 import LiveActivityBar from '@/components/shared/live-activity-bar';
 import React, { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function MainLayoutWrapper({
   children,
@@ -25,15 +25,24 @@ export default function MainLayoutWrapper({
     pathname.startsWith('/employer') ||
     pathname === '/hilladmin';
 
-  // To prevent hydration errors, we must ensure the server-rendered HTML
-  // matches the initial client-side render perfectly.
   return (
     <>
       <div className={(!mounted || isDashboardPage) ? 'hidden' : 'sticky top-0 z-50'}>
         <Header />
         <LiveActivityBar />
       </div>
-      <div className="flex-1">{children}</div>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={pathname}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="flex-1 flex flex-col"
+        >
+          {children}
+        </motion.div>
+      </AnimatePresence>
       <div className={(!mounted || isDashboardPage) ? 'hidden' : 'block'}>
         <Footer />
       </div>

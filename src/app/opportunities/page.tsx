@@ -10,6 +10,10 @@ import PageHero from '@/components/shared/page-hero';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import EmptyState from '@/components/shared/empty-state';
+import { ArrowUpRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export default function OpportunitiesPage() {
   const [filter, setFilter] = useState<'all' | 'internship' | 'volunteer'>('all');
@@ -71,21 +75,21 @@ export default function OpportunitiesPage() {
                 key={index}
                 onClick={() => setFilter(opportunity.filterValue as any)}
                 className={cn(
-                    "text-center h-full transition-all duration-300 cursor-pointer group",
+                    "text-center h-full transition-all duration-300 cursor-pointer group rounded-[2.5rem] p-4",
                     filter === opportunity.filterValue 
-                        ? 'ring-2 ring-primary shadow-xl -translate-y-1' 
-                        : 'hover:shadow-xl hover:-translate-y-1',
+                        ? 'ring-2 ring-primary shadow-xl -translate-y-1 bg-card' 
+                        : 'hover:shadow-xl hover:-translate-y-1 bg-card/40 backdrop-blur-md',
                     filter !== 'all' && filter !== opportunity.filterValue && 'opacity-60 scale-95'
                 )}
               >
                 <CardHeader className="items-center">
-                  <div className={cn("flex h-16 w-16 items-center justify-center rounded-full transition-colors", opportunity.iconBg, filter === opportunity.filterValue && 'bg-primary/20')}>
+                  <div className={cn("flex h-16 w-16 items-center justify-center rounded-2xl transition-colors", opportunity.iconBg, filter === opportunity.filterValue && 'bg-primary/20')}>
                     <opportunity.icon className={cn("h-8 w-8 transition-colors", opportunity.iconColor, filter === opportunity.filterValue && 'text-primary')} />
                   </div>
                 </CardHeader>
                 <CardContent>
                   <CardTitle className={cn("mb-2 text-xl transition-colors", filter === opportunity.filterValue && 'text-primary')}>{opportunity.title}</CardTitle>
-                  <p className="text-muted-foreground">{opportunity.description}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">{opportunity.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -104,11 +108,25 @@ export default function OpportunitiesPage() {
                   </div>
                 ))
               ) : (
-                <div className="md:col-span-3 text-center text-muted-foreground p-8 bg-secondary rounded-lg">
-                    <p>No {filter} opportunities found at the moment.</p>
+                <div className="md:col-span-3">
+                    <EmptyState 
+                      title={`No ${filter} roles found`}
+                      description={`We currently don't have any open ${filter} positions. Please check back later or browse our full job board.`}
+                      icon="file"
+                      actionLabel="Browse All Jobs"
+                      actionHref="/jobs"
+                    />
                 </div>
               )}
             </div>
+          </div>
+          
+          <div className="mt-20 text-center">
+            <Button asChild size="lg" className="font-black px-12 shadow-2xl bg-primary text-primary-foreground border-2 border-gold hover:bg-gold hover:text-black transition-all rounded-2xl h-16 text-sm uppercase tracking-widest group">
+              <Link href="/jobs" className="flex items-center gap-3">
+                Explore Full Job Board <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </Link>
+            </Button>
           </div>
         </div>
       </main>

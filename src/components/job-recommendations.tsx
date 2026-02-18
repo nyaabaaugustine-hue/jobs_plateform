@@ -1,12 +1,12 @@
-
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Lightbulb, Loader, ServerCrash } from 'lucide-react';
+import { Lightbulb, ServerCrash } from 'lucide-react';
 import { fetchAiJobRecommendations } from '@/lib/actions';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Badge } from './ui/badge';
 import { Progress } from './ui/progress';
+import { Skeleton } from './ui/skeleton';
 import type { AiJobRecommendationsOutput } from '@/lib/ai-types';
 
 const mockUserProfile = {
@@ -42,17 +42,27 @@ export default function JobRecommendations() {
 
   if (isLoading) {
     return (
-      <Card>
+      <Card className="bg-secondary/20 border-dashed">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Lightbulb className="text-primary" />
-            <span>Jobs You Might Like</span>
-          </CardTitle>
-          <CardDescription>Our AI is finding the best matches for you...</CardDescription>
+          <div className="flex items-center gap-2">
+            <Skeleton className="h-5 w-5 rounded-full" />
+            <Skeleton className="h-6 w-48" />
+          </div>
+          <Skeleton className="h-4 w-64 mt-2" />
         </CardHeader>
-        <CardContent className="flex items-center justify-center space-x-2 py-8">
-          <Loader className="h-6 w-6 animate-spin" />
-          <p>Analyzing your profile...</p>
+        <CardContent className="space-y-6">
+          <div className="space-y-2">
+            <Skeleton className="h-4 w-32" />
+            <div className="flex gap-2">
+              <Skeleton className="h-6 w-20 rounded-full" />
+              <Skeleton className="h-6 w-24 rounded-full" />
+              <Skeleton className="h-6 w-16 rounded-full" />
+            </div>
+          </div>
+          <div className="space-y-2">
+            <Skeleton className="h-4 w-40" />
+            <Skeleton className="h-8 w-full rounded-lg" />
+          </div>
         </CardContent>
       </Card>
     );
@@ -60,60 +70,57 @@ export default function JobRecommendations() {
 
   if (error) {
     return (
-      <Card className="border-destructive">
+      <Card className="border-destructive/50 bg-destructive/5">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-destructive">
-            <ServerCrash />
-            <span>AI Recommendations</span>
+          <CardTitle className="flex items-center gap-2 text-destructive text-base">
+            <ServerCrash className="h-5 w-5" />
+            <span>AI Recommendations Error</span>
           </CardTitle>
         </CardHeader>
-        <CardContent className="text-center">
-          <p>{error}</p>
+        <CardContent className="text-center pb-6">
+          <p className="text-sm text-muted-foreground">{error}</p>
         </CardContent>
       </Card>
     );
   }
 
   if (!recommendations) {
-    return null; // Don't show the card if AI decides not to recommend
+    return null;
   }
 
   return (
-    <Card className="bg-secondary/50 h-full">
+    <Card className="bg-secondary/50 h-full border-primary/10 transition-all hover:border-primary/20">
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <Lightbulb className="text-primary" />
+        <CardTitle className="flex items-center gap-2 text-lg">
+          <Lightbulb className="text-primary h-5 w-5" />
           <span>Jobs You Might Like</span>
         </CardTitle>
-        <CardDescription>AI-powered suggestions.</CardDescription>
+        <CardDescription>AI-powered suggestions based on your profile.</CardDescription>
       </CardHeader>
-      <CardContent className="grid gap-4">
+      <CardContent className="grid gap-6">
         <div>
-          <h3 className="font-semibold mb-2 text-sm">Recommended Job Titles</h3>
+          <h3 className="font-bold mb-3 text-xs uppercase tracking-widest text-muted-foreground">Recommended Job Titles</h3>
           <div className="flex flex-wrap gap-2">
             {recommendations.recommendedJobs.slice(0, 3).map((job, index) => (
-              <Badge key={index} variant="default">{job}</Badge>
+              <Badge key={index} variant="secondary" className="bg-primary/10 text-primary border-primary/20">{job}</Badge>
             ))}
           </div>
         </div>
         <div>
-          <h3 className="font-semibold mb-2 text-sm">Skill Gap Suggestions</h3>
+          <h3 className="font-bold mb-3 text-xs uppercase tracking-widest text-muted-foreground">Skill Gap Suggestions</h3>
           <div className="flex flex-wrap gap-2">
             {recommendations.skillGapSuggestions?.slice(0, 3).map((skill, index) => (
-              <Badge key={index} variant="outline">{skill}</Badge>
+              <Badge key={index} variant="outline" className="font-medium">{skill}</Badge>
             ))}
           </div>
         </div>
         {recommendations.resumeMatchingScore && (
-          <div>
-            <h3 className="font-semibold mb-2 text-sm">Resume Matching Score</h3>
-            <div className="space-y-2">
-               <div className="flex justify-between">
-                <p className="font-medium text-xs text-muted-foreground">Match for recommended roles</p>
-                <p className="font-medium text-sm text-primary">{recommendations.resumeMatchingScore}%</p>
-              </div>
-              <Progress value={recommendations.resumeMatchingScore} />
+          <div className="pt-2">
+            <div className="flex justify-between items-center mb-2">
+              <h3 className="font-bold text-xs uppercase tracking-widest text-muted-foreground">Resume Matching Score</h3>
+              <p className="font-black text-sm text-primary">{recommendations.resumeMatchingScore}%</p>
             </div>
+            <Progress value={recommendations.resumeMatchingScore} className="h-2" />
           </div>
         )}
       </CardContent>

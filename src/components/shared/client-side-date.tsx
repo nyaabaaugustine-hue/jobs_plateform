@@ -36,9 +36,13 @@ export default function ClientSideDate({
   }, [dateString, formatType]);
 
   // Use a stable span fallback during hydration to prevent mismatches.
+  // We avoid using a <div> based Skeleton here because this component is often
+  // nested inside <p> or <span> tags in the parent.
   if (!formattedDate) {
-    return <span className={className}>&nbsp;</span>;
+    return <span className={cn("animate-pulse bg-muted rounded inline-block min-w-[80px]", className)}>&nbsp;</span>;
   }
 
   return <span className={className}>{formattedDate}</span>;
 }
+
+import { cn } from '@/lib/utils';
