@@ -11,10 +11,10 @@ export default function Header() {
   const pathname = usePathname();
 
   const navLinks = [
-    { href: '/jobs', label: 'Find Jobs' },
-    { href: '/companies', label: 'Companies' },
-    { href: '/browse-candidates', label: 'Browse Candidates' },
-    { href: '/pricing', label: 'Pricing' },
+    { href: '/', label: 'Home' },
+    { href: '/jobs', label: 'For Job Seekers' },
+    { href: '/pricing', label: 'For Employers' },
+    { href: '/blog', label: 'Resources' },
   ];
 
   return (
