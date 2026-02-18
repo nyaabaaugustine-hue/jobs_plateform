@@ -24,14 +24,14 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
           title="Featured Jobs"
         />
 
-        <div className="mb-12 flex justify-center flex-wrap gap-3">
+        <div className="mb-12 flex justify-center flex-wrap gap-2 max-w-5xl mx-auto">
             {['All', ...categories].map(category => (
                 <Button
                     key={category}
                     variant="ghost"
                     onClick={() => setSelectedCategory(category)}
                     className={cn(
-                        "rounded-full px-6 py-2 text-xs font-bold tracking-wide transition-all duration-300 h-10",
+                        "rounded-full px-4 h-9 text-[11px] font-bold tracking-tight transition-all duration-300",
                         selectedCategory === category
                             ? "bg-primary text-white shadow-xl scale-105"
                             : "bg-[#151C2B] text-muted-foreground hover:bg-[#1F2937] hover:text-white border border-white/5"
