@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Shield, Zap, BrainCircuit } from 'lucide-react';
@@ -9,22 +10,22 @@ const features = [
     icon: Zap,
     title: '2x Faster to Hire',
     description: 'Our AI-driven platform connects you with qualified candidates in under 48 hours, reducing your time-to-hire by half.',
-    iconBg: 'bg-primary/10',
-    iconColor: 'text-primary'
+    iconBg: 'bg-gold/10',
+    iconColor: 'text-gold'
   },
   {
     icon: Shield,
     title: '98% Employer Verification',
     description: 'We manually verify every employer, ensuring you only apply to legitimate, high-quality opportunities.',
-    iconBg: 'bg-accent/10',
-    iconColor: 'text-accent'
+    iconBg: 'bg-slate-100',
+    iconColor: 'text-slate-600'
   },
   {
     icon: BrainCircuit,
     title: '89% Match Accuracy',
     description: 'Our AI analyzes your profile to provide job recommendations with an 89% accuracy score, so you find the right fit, faster.',
-    iconBg: 'bg-chart-4/10',
-    iconColor: 'text-chart-4'
+    iconBg: 'bg-emerald-500/10',
+    iconColor: 'text-emerald-600'
   }
 ];
 
@@ -36,7 +37,7 @@ export default function WhyChooseUs() {
     >
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-12 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
-            <h2 className="font-headline text-4xl font-bold tracking-tight sm:text-5xl text-foreground">Why Chapel Hill?</h2>
+            <h2 className="font-headline text-4xl font-extrabold tracking-tight sm:text-5xl text-foreground">Why Chapel Hill?</h2>
         </div>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {features.map((feature, index) => (
@@ -47,8 +48,8 @@ export default function WhyChooseUs() {
                 </div>
               </CardHeader>
               <CardContent className="pt-4">
-                <CardTitle className="mb-3 text-2xl font-bold text-card-foreground">{feature.title}</CardTitle>
-                <p className="text-muted-foreground leading-relaxed font-medium">{feature.description}</p>
+                <CardTitle className="mb-3 text-2xl font-extrabold text-card-foreground">{feature.title}</CardTitle>
+                <p className="text-slate-500 leading-relaxed font-bold">{feature.description}</p>
               </CardContent>
             </Card>
           ))}

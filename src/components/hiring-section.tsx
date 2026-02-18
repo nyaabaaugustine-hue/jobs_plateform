@@ -37,14 +37,14 @@ export default function HiringSection() {
                 <h2 className="font-headline text-4xl font-extrabold tracking-tight !leading-tight text-foreground sm:text-5xl lg:text-6xl">
                   Hire Top-Tier React Talent in 48 Hours
                 </h2>
-                <p className="text-xl text-muted-foreground font-medium max-w-xl">
+                <p className="text-xl text-slate-500 font-bold max-w-xl">
                   Discover qualified professionals ready to bring your projects to life. Over 4,500+ employers trust our platform to find the best developers in the ecosystem.
                 </p>
                 <ul className="space-y-4">
                     {benefits.map((benefit, index) => (
                         <li key={index} className="flex items-center gap-4 group">
-                            <CheckCircle className="h-6 w-6 text-primary shrink-0 transition-transform group-hover:scale-110" />
-                            <span className="text-foreground/80 font-semibold text-lg">{benefit}</span>
+                            <CheckCircle className="h-6 w-6 text-gold shrink-0 transition-transform group-hover:scale-110" />
+                            <span className="text-slate-600 font-bold text-lg">{benefit}</span>
                         </li>
                     ))}
                 </ul>
@@ -52,7 +52,7 @@ export default function HiringSection() {
                     <Button 
                       asChild 
                       size="lg" 
-                      className="font-bold bg-primary text-white hover:bg-primary/90 transition-all scale-105 shadow-xl"
+                      className="font-headline font-black bg-white/90 text-slate-800 border-2 border-gold hover:bg-white hover:scale-105 transition-all shadow-xl rounded-xl"
                     >
                       <Link href="/employer/jobs/new">Post a Job</Link>
                     </Button>
@@ -60,7 +60,7 @@ export default function HiringSection() {
                       asChild 
                       size="lg" 
                       variant="outline" 
-                      className="font-bold border-primary/20 text-primary hover:bg-primary/5 transition-colors"
+                      className="font-headline font-black bg-white/50 text-slate-700 border-2 border-gold/50 hover:border-gold hover:bg-white/80 transition-all rounded-xl"
                     >
                       <Link href="/pricing">View Pricing</Link>
                     </Button>
@@ -80,7 +80,7 @@ export default function HiringSection() {
                           data-ai-hint={hiringImage.imageHint}
                       />
                     </div>
-                    <div className="absolute -inset-10 bg-primary/5 blur-[100px] -z-10 rounded-full opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
+                    <div className="absolute -inset-10 bg-gold/5 blur-[100px] -z-10 rounded-full opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
                   </div>
                 )}
             </div>

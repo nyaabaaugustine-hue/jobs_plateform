@@ -42,28 +42,28 @@ export default function SubscriptionSection() {
       <div className="container mx-auto max-w-7xl px-6 lg:px-12 relative z-20">
         <div className="relative rounded-3xl bg-card p-10 md:p-16 lg:p-20 text-center text-foreground overflow-hidden animate-in fade-in zoom-in-95 duration-700 border border-border/50">
           <div className="relative z-20">
-            <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-foreground">
+            <h2 className="font-headline text-3xl font-extrabold tracking-tight sm:text-4xl text-foreground">
               Get Job Alerts
             </h2>
-             <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
+             <p className="mt-4 max-w-2xl mx-auto text-lg font-bold text-slate-500">
               Subscribe to our newsletter to receive the latest job postings.
             </p>
             <form onSubmit={handleSubscribe} className="mt-8 max-w-xl mx-auto">
-                <div className="flex items-center gap-2 bg-background p-2 rounded-xl border">
-                    <Button type="submit" size="lg" className="rounded-lg bg-primary text-primary-foreground font-semibold px-6">
+                <div className="flex items-center gap-2 bg-background p-2 rounded-xl border-2 border-gold/30 focus-within:border-gold transition-colors">
+                    <Button type="submit" size="lg" className="rounded-lg bg-gold text-black font-black font-headline px-6 hover:bg-gold/90">
                         Subscribe
                     </Button>
                     <Input
                       type="email"
                       placeholder="Enter your email address"
-                      className="flex-1 bg-transparent border-none focus-visible:ring-0 text-foreground placeholder:text-muted-foreground"
+                      className="flex-1 bg-transparent border-none focus-visible:ring-0 text-foreground font-bold placeholder:text-slate-400"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
                     />
-                    <Mail className="h-5 w-5 text-muted-foreground mr-2 shrink-0" />
+                    <Mail className="h-5 w-5 text-gold mr-2 shrink-0" />
                 </div>
-                 <p className="mt-2 text-xs text-muted-foreground">No spam. Unsubscribe anytime.</p>
+                 <p className="mt-2 text-xs font-bold text-slate-400">No spam. Unsubscribe anytime.</p>
             </form>
           </div>
         </div>
