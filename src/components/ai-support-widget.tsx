@@ -15,7 +15,8 @@ import {
     Zap, 
     Award,
     LayoutGrid,
-    Search
+    Search,
+    MessageCircle
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -31,13 +32,14 @@ type Message = {
     text: string; 
     image?: string;
     isIntro?: boolean;
+    isWhatsApp?: boolean;
 };
 
 const QUICK_ACTIONS = [
     { label: 'Smart Job Match', icon: Search, category: 'Search', color: 'text-blue-400', bg: 'bg-blue-500/10', border: 'border-blue-500/20' },
     { label: 'Optimize My CV', icon: FileText, category: 'Resume', color: 'text-purple-400', bg: 'bg-purple-500/10', border: 'border-purple-500/20' },
     { label: 'Interview Prep', icon: Target, category: 'Growth', color: 'text-emerald-400', bg: 'bg-emerald-500/10', border: 'border-emerald-500/20' },
-    { label: 'Cover Letter', icon: Award, category: 'Resume', color: 'text-pink-400', bg: 'bg-pink-500/10', border: 'border-pink-500/20' },
+    { label: 'WhatsApp Chat', icon: MessageCircle, category: 'Direct', color: 'text-green-400', bg: 'bg-green-500/10', border: 'border-green-500/20', isWhatsApp: true },
     { label: 'Salary Insights', icon: TrendingUp, category: 'Market', color: 'text-amber-400', bg: 'bg-amber-500/10', border: 'border-amber-500/20' },
     { label: 'Career Roadmap', icon: Briefcase, category: 'Growth', color: 'text-cyan-400', bg: 'bg-cyan-500/10', border: 'border-cyan-500/20' },
 ];
@@ -56,6 +58,7 @@ export default function AISupportWidget() {
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const abenaAvatar = "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771168493/eds_bjytks.png";
     const introImage = "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771205327/straight_yqwg78.png";
+    const whatsAppNumber = "+233541988383";
     
     const isDashboardPage = pathname.startsWith('/admin') || pathname.startsWith('/dashboard') || pathname.startsWith('/employer') || pathname === '/hilladmin' || pathname === '/login' || pathname === '/register';
 
@@ -74,7 +77,12 @@ export default function AISupportWidget() {
         }
     }, [isOpen]);
 
-    const handleSendMessage = async (text: string) => {
+    const handleSendMessage = async (text: string, isWhatsAppAction = false) => {
+        if (isWhatsAppAction) {
+            window.open(`https://wa.me/${whatsAppNumber.replace(/\D/g, '')}`, '_blank');
+            return;
+        }
+
         if (!text.trim()) return;
         
         const userMsg: Message = { id: Date.now(), sender: 'user', text };
@@ -237,7 +245,7 @@ export default function AISupportWidget() {
                                             {QUICK_ACTIONS.map((action, i) => (
                                                 <button
                                                     key={i}
-                                                    onClick={() => handleSendMessage(action.label)}
+                                                    onClick={() => handleSendMessage(action.label, action.isWhatsApp)}
                                                     className={cn(
                                                         "flex flex-col items-start gap-2 p-3 rounded-xl bg-white/5 border transition-all group text-left",
                                                         action.border,
