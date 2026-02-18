@@ -20,7 +20,7 @@ export default function SectionHeader({ title, subtitle, className, isCentered =
       </h2>
       {subtitle && (
         <p className={cn(
-          'mt-4 text-lg font-bold font-headline text-slate-500',
+          'mt-4 text-lg font-bold font-headline text-slate-400',
           isCentered && 'max-w-2xl mx-auto'
         )}>
           {subtitle}

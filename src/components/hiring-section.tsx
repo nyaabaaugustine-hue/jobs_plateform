@@ -37,14 +37,14 @@ export default function HiringSection() {
                 <h2 className="font-headline text-4xl font-extrabold tracking-tight !leading-tight text-foreground sm:text-5xl lg:text-6xl">
                   Hire Top-Tier React Talent in 48 Hours
                 </h2>
-                <p className="text-xl text-slate-500 font-bold max-w-xl">
+                <p className="text-xl font-bold max-w-xl" style={{ color: 'rgb(246, 244, 238)' }}>
                   Discover qualified professionals ready to bring your projects to life. Over 4,500+ employers trust our platform to find the best developers in the ecosystem.
                 </p>
                 <ul className="space-y-4">
                     {benefits.map((benefit, index) => (
                         <li key={index} className="flex items-center gap-4 group">
                             <CheckCircle className="h-6 w-6 text-gold shrink-0 transition-transform group-hover:scale-110" />
-                            <span className="text-slate-600 font-bold text-lg">{benefit}</span>
+                            <span className="text-slate-400 font-bold text-lg">{benefit}</span>
                         </li>
                     ))}
                 </ul>
