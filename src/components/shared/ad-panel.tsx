@@ -71,7 +71,7 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
           <Button
             variant="ghost"
             size="icon"
-            className="absolute top-3 right-3 rounded-full text-white bg-black/40 hover:bg-black/60 z-20 h-8 w-8 transition-colors border border-white/20"
+            className="absolute top-3 right-3 rounded-full text-white bg-red-600 hover:bg-red-700 z-20 h-[33px] w-[33px] transition-all border border-white/30 shadow-lg shadow-black/20"
             onClick={onClose}
           >
             <X className="h-4 w-4" />
