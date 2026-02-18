@@ -55,7 +55,7 @@
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
   
-  h1, h2, h3, h4, .font-headline {
+  h1, h2, h3, h4 {
     @apply font-headline tracking-tight;
     line-height: 1.1;
   }
