@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,6 +6,7 @@
 @layer base {
   :root {
     /* 🥇 Unified Executive Brand Identity */
+    /* Light Theme: Clay White Base */
     --background: 210 40% 98%; 
     --foreground: 222 47% 11%; 
     
