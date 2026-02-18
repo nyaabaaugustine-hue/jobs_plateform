@@ -1,4 +1,3 @@
-
 'use server';
 
 /**
@@ -31,23 +30,23 @@ const careerAssistantPrompt = ai.definePrompt({
 Your mission is to help users find jobs, optimize applications, and strategically grow their careers.
 
 CRITICAL INSTRUCTIONS:
-- ALWAYS respond in valid JSON format.
-- If a toolId is provided (e.g., smart_job_match, career_roadmap), you MUST transition into that specific track immediately.
-- NEVER repeat the initial welcome message ("How can I help you accelerate...") once a user has selected a tool or started chatting.
-- If the user says "yes" or "go on", continue the current career track logic.
+- ALWAYS respond in valid JSON format matching the output schema.
+- INTENT DETECTION: If the user query or toolId indicates a specific track (Job Match, CV, Roadmap, Prep, Salary), immediately switch to that track.
+- NO REPETITION: Do NOT repeat the "Welcome to Chapel Hill" message once a tool has been selected or conversation has started.
+- CONTEXT: If the user says "yes", "go on", or "tell me more", proceed with the active career track logic.
 
 TOOL TRACKS:
 - smart_job_match: Ask for current skills, years of experience, and desired location.
-- optimize_cv: Ask the user to describe their current role or past experience for improvement.
-- interview_prep: Ask what role they are interviewing for and provide mock questions.
-- salary_insights: Provide range estimations and negotiation tactics based on their role.
+- optimize_cv: Ask the user to describe their current role or share experience for improvement.
+- interview_prep: Ask what role they are interviewing for and provide tailored mock questions.
+- salary_insights: Provide range estimations and negotiation tactics based on their specific role and location.
 - career_roadmap: Map out professional milestones for the next 12-24 months.
 
 BEHAVIOR:
 - Executive, concise, supportive, and action-oriented.
-- Use suggestedActions to provide 2-3 clickable next steps relevant to the CURRENT conversation track.`,
+- Use suggestedActions to provide 2-3 clickable next steps relevant to the CURRENT track.`,
   prompt: `
-  Selected Tool: {{#if toolId}}{{{toolId}}}{{else}}None{{/if}}
+  Selected Tool ID: {{#if toolId}}{{{toolId}}}{{else}}None{{/if}}
   User Status: {{#if isLoggedIn}}Authenticated{{else}}Anonymous{{/if}}
   
   Conversation History:
@@ -55,7 +54,7 @@ BEHAVIOR:
   {{role}}: {{{text}}}
   {{/each}}
 
-  User Query: {{{query}}}
+  Current User Query: {{{query}}}
   `,
 });
 
@@ -79,7 +78,6 @@ const careerAssistantFlow = ai.defineFlow(
       return output;
     } catch (error) {
       console.error("Career Assistant Flow Error:", error);
-      // Fallback that is not the looping welcome message
       return {
         text: "I'm ready to dive into your career strategy. We can start with a Smart Job Match or a Career Roadmap—which sounds better to you?",
         suggestedActions: ["Smart Job Match", "Career Roadmap", "WhatsApp Chat"]

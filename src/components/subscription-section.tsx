@@ -1,4 +1,3 @@
-
 "use client"
 
 import { useState, useEffect } from 'react';
@@ -37,7 +36,6 @@ export default function SubscriptionSection() {
     <section className="py-20 bg-background">
       <div className="container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="relative rounded-[3rem] p-12 md:p-16 text-center overflow-hidden border-none ring-2 ring-primary shadow-[0_20px_50px_rgba(0,0,0,0.1)] bg-slate-900">
-          {/* Background Image with Overlay for Readability */}
           {bgImage && (
             <>
               <Image
@@ -59,7 +57,7 @@ export default function SubscriptionSection() {
               Subscribe to our newsletter to receive the latest job postings and career insights.
             </p>
             
-            <div className="mt-10 min-h-[80px]">
+            <div className="mt-10">
                 <form 
                   onSubmit={handleSubscribe} 
                   className={cn(
@@ -77,7 +75,7 @@ export default function SubscriptionSection() {
                           className="flex-1 bg-transparent border-none focus-visible:ring-0 text-white font-bold placeholder:text-slate-300 h-14"
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
-                          required={mounted}
+                          required
                         />
                         <Mail className="hidden sm:block h-6 w-6 text-primary mr-4 shrink-0" />
                     </div>
