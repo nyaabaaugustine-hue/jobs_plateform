@@ -258,21 +258,25 @@ export default function Testimonials() {
       </div>
 
       <div className="space-y-8 relative">
-        <div className="flex w-full overflow-hidden">
-            <div className="flex animate-marquee-rtl gap-8 py-4 whitespace-nowrap">
-                {marqueeRow1.map((review, idx) => (
-                    <TestimonialCard key={`${review.id}-r1-${idx}`} review={review} />
-                ))}
+        {isMounted && (
+          <>
+            <div className="flex w-full overflow-hidden">
+                <div className="flex animate-marquee-rtl gap-8 py-4 whitespace-nowrap">
+                    {marqueeRow1.map((review, idx) => (
+                        <TestimonialCard key={`${review.id}-r1-${idx}`} review={review} />
+                    ))}
+                </div>
             </div>
-        </div>
 
-        <div className="flex w-full overflow-hidden">
-            <div className="flex animate-marquee-ltr gap-8 py-4 whitespace-nowrap">
-                {marqueeRow2.map((review, idx) => (
-                    <TestimonialCard key={`${review.id}-r2-${idx}`} review={review} />
-                ))}
+            <div className="flex w-full overflow-hidden">
+                <div className="flex animate-marquee-ltr gap-8 py-4 whitespace-nowrap">
+                    {marqueeRow2.map((review, idx) => (
+                        <TestimonialCard key={`${review.id}-r2-${idx}`} review={review} />
+                    ))}
+                </div>
             </div>
-        </div>
+          </>
+        )}
 
         <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
