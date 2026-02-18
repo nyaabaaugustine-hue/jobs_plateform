@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
@@ -98,7 +97,7 @@ export default function AISupportWidget() {
 
             setMessages(prev => [...prev, { id: Date.now() + 1, sender: 'ai', text: response.text }]);
         } catch (error) {
-            setMessages(prev => [...prev, { id: Date.now() + 1, sender: 'ai', text: "I'm currently optimizing my responses. How else can I assist you today?" }]);
+            setMessages(prev => [...prev, { id: Date.now() + 1, sender: 'ai', text: "I'm ready to help you with your career strategy. What area would you like to explore first?" }]);
         } finally {
             setIsTyping(false);
         }
@@ -118,11 +117,16 @@ export default function AISupportWidget() {
                 isIntro: true
             }]);
         }
+        
+        if (isOpen) {
+            const timer = setTimeout(scrollToBottom, 300);
+            return () => clearTimeout(timer);
+        }
     }, [isOpen, user, messages.length]);
 
     useEffect(() => {
         if (isOpen) {
-            const timer = setTimeout(scrollToBottom, 300);
+            const timer = setTimeout(scrollToBottom, 100);
             return () => clearTimeout(timer);
         }
     }, [messages, isTyping, isOpen]);
@@ -181,27 +185,14 @@ export default function AISupportWidget() {
                                             </div>
                                         </div>
                                     ) : (
-                                        <>
-                                            {m.image && (
-                                                <div className="mb-3 w-full max-w-[220px] rounded-xl overflow-hidden border border-white/10 shadow-lg bg-black/40">
-                                                    <Image 
-                                                        src={m.image} 
-                                                        alt="AI Graphic" 
-                                                        width={220} 
-                                                        height={220} 
-                                                        className="w-full h-auto object-contain" 
-                                                    />
-                                                </div>
-                                            )}
-                                            <div className={cn(
-                                                "max-w-[90%] p-4 rounded-[1.25rem] text-[11px] leading-relaxed",
-                                                m.sender === 'user' 
-                                                    ? "bg-primary text-primary-foreground rounded-tr-none font-bold shadow-xl border border-white/10" 
-                                                    : "bg-white/5 border border-white/10 text-slate-200 rounded-tl-none font-medium"
-                                            )}>
-                                                {m.text}
-                                            </div>
-                                        </>
+                                        <div className={cn(
+                                            "max-w-[90%] p-4 rounded-[1.25rem] text-[11px] leading-relaxed",
+                                            m.sender === 'user' 
+                                                ? "bg-primary text-primary-foreground rounded-tr-none font-bold shadow-xl border border-white/10" 
+                                                : "bg-white/5 border border-white/10 text-slate-200 rounded-tl-none font-medium"
+                                        )}>
+                                            {m.text}
+                                        </div>
                                     )}
                                 </div>
                             ))}

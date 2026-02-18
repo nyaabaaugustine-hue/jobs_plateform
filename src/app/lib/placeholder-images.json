@@ -1,4 +1,3 @@
-
 {
   "placeholderImages": [
     {
@@ -273,9 +272,9 @@
     },
     {
       "id": "location-accra",
-      "description": "Map or scenic view of Accra, Ghana.",
+      "description": "High resolution screenshot of Accra location.",
       "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771148872/Screenshot_156_cdc4ns.png",
-      "imageHint": "Accra view"
+      "imageHint": "Accra screenshot"
     },
     {
       "id": "location-kumasi",
@@ -362,28 +361,16 @@
       "imageHint": "news reading"
     },
     {
-      "id": "pricing-basic",
-      "description": "Small team of Black professionals collaborating in a bright, modern startup office.",
-      "imageUrl": "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
-      "imageHint": "startup office"
+      "id": "checkout-bg",
+      "description": "A modern, professional office interior suggesting security and trust.",
+      "imageUrl": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.0.3",
+      "imageHint": "modern office"
     },
     {
-      "id": "pricing-pro",
-      "description": "A professional Ghanaian team in a conference room discussing a project on a large screen.",
-      "imageUrl": "https://images.unsplash.com/photo-1543269664-56d93c1b41a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
-      "imageHint": "business meeting"
-    },
-    {
-      "id": "pricing-enterprise",
-      "description": "A bustling, large open-plan office with Black professionals.",
-      "imageUrl": "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
-      "imageHint": "corporate office"
-    },
-    {
-      "id": "resume-doc",
-      "description": "A placeholder image for a resume document.",
-      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771239121/resume_w55gvy.png",
-      "imageHint": "resume document"
+      "id": "checkout-trusted-payment",
+      "description": "A collection of trusted payment provider logos and security seals.",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771272346/pay_yzab2c.png",
+      "imageHint": "payment security"
     },
     {
       "id": "african-pattern-bg",
