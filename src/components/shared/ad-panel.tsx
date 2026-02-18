@@ -90,8 +90,8 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
               />
             </div>
             <div className="absolute top-3 left-3 flex gap-2">
-                <div className="bg-white/95 px-3 py-1.5 rounded-sm border-l-[3px] border-burgundy shadow-lg">
-                    <span className="font-headline text-[10px] font-black tracking-[0.3em] uppercase text-burgundy">
+                <div className="bg-white/95 px-3 py-1.5 rounded-sm border-l-[3px] border-primary shadow-lg">
+                    <span className="font-headline text-[10px] font-black tracking-[0.3em] uppercase text-primary">
                         ADVERTISEMENT
                     </span>
                 </div>
@@ -119,7 +119,7 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
               <Button 
                 asChild 
                 variant="outline"
-                className="w-full h-10 bg-background text-burgundy border-2 border-burgundy font-headline font-black hover:bg-[#f6f4ee] hover:text-burgundy transition-all rounded-xl shadow-sm"
+                className="w-full h-10 bg-background text-primary border-2 border-primary font-headline font-black hover:bg-[#f6f4ee] hover:text-primary transition-all rounded-xl shadow-sm"
               >
                 <Link href="/contacts">
                   <Megaphone className="mr-2 h-4 w-4" /> Advertise

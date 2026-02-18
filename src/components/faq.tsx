@@ -40,8 +40,20 @@ import {
     const faqImage = PlaceHolderImages.find((p) => p.id === 'blog-post-9');
   
     return (
-      <section className="py-24 bg-[#0B0F17]">
-        <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+      <section className="py-24 bg-[#0B0F17] relative overflow-hidden">
+        {/* Background Image at 20% Opacity */}
+        {faqImage && (
+          <Image
+            src={faqImage.imageUrl}
+            alt={faqImage.description}
+            fill
+            className="object-cover z-0 opacity-20"
+            data-ai-hint={faqImage.imageHint}
+          />
+        )}
+        <div className="absolute inset-0 bg-[#0B0F17]/80 z-10" />
+
+        <div className="container mx-auto max-w-7xl px-6 lg:px-12 relative z-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="animate-in fade-in slide-in-from-left-12 duration-1000 hidden lg:block">
               {faqImage && (

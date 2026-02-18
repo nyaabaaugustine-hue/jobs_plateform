@@ -59,7 +59,7 @@ export default function HomePage() {
 
   return (
     <main className="flex-1 bg-background">
-      {/* 1. Hero Section */}
+      {/* 1. Hero Section - 100% Opacity */}
       <section className="relative w-full h-[700px] flex items-center justify-center text-center overflow-hidden">
         {heroImage && (
           <Image

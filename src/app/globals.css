@@ -4,48 +4,48 @@
 
 @layer base {
   :root {
-    --background: 222 47% 7%; /* #0B0F17 */
-    --foreground: 210 40% 98%; /* #F3F4F6 */
+    /* Shining Milky White Theme */
+    --background: 43 33% 95%; /* Clay White */
+    --foreground: 224 71% 10%; /* Dark Blue */
     
-    --card: 222 47% 11%; /* #111827 */
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 71% 10%;
     
-    --popover: 222 47% 7%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71% 10%;
 
-    --primary: 221 83% 53%; /* #2563EB */
-    --primary-foreground: 210 40% 98%; 
+    --primary: 204 61% 39%; /* #276F9F - Brand Blue */
+    --primary-foreground: 0 0% 100%; 
     
-    --secondary: 222 47% 13%; /* #151C2B */
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 220 14% 94%;
+    --secondary-foreground: 224 71% 10%;
     
-    --muted: 222 47% 15%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 220 14% 94%;
+    --muted-foreground: 220 9% 46%;
     
-    --accent: 45 68% 47%; /* #C9A227 - Soft Gold */
-    --accent-foreground: 222 47% 7%;
+    --accent: 45 85% 55%; /* Gold */
+    --accent-foreground: 224 71% 10%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
     
-    --border: 222 47% 15%;
-    --input: 222 47% 15%;
-    --ring: 221 83% 53%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 204 61% 39%;
 
-    --radius: 0.5rem;
-    --gold: 45 68% 47%;
-    --clay-white: 43 33% 95%;
+    --radius: 0.75rem;
+    --gold: 45 85% 55%;
 
     --chart-1: hsl(var(--primary));
     --chart-2: hsl(var(--accent));
     
-    --sidebar-background: 222 47% 4%;
+    --sidebar-background: 222 47% 11%;
     --sidebar-foreground: 210 40% 90%;
     --sidebar-primary: hsl(var(--primary));
     --sidebar-primary-foreground: hsl(var(--primary-foreground));
     --sidebar-accent: hsl(var(--primary));
     --sidebar-accent-foreground: hsl(var(--primary-foreground));
-    --sidebar-border: 222 47% 10%;
+    --sidebar-border: 222 47% 15%;
     --sidebar-ring: hsl(var(--ring));
   }
 }
@@ -57,8 +57,7 @@
   }
   
   h1, h2, h3, h4 {
-    @apply tracking-tight;
-    font-family: var(--font-space-grotesk), sans-serif;
+    @apply font-headline tracking-tight;
     line-height: 1.1;
   }
 }
@@ -68,9 +67,9 @@
     background-color: hsl(43 33% 95%);
   }
   .text-gold {
-    color: hsl(45 68% 47%);
+    color: hsl(45 85% 55%);
   }
   .border-gold {
-    border-color: hsl(45 68% 47%);
+    border-color: hsl(45 85% 55%);
   }
 }

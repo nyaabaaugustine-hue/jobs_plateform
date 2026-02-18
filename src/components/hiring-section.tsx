@@ -15,6 +15,18 @@ export default function HiringSection() {
 
   return (
     <section className="relative py-24 lg:py-32 overflow-hidden bg-[#0B0F17]">
+      {/* Background Image at 20% Opacity */}
+      {hiringImage && (
+        <Image
+          src={hiringImage.imageUrl}
+          alt={hiringImage.description}
+          fill
+          className="object-cover z-0 opacity-20"
+          data-ai-hint={hiringImage.imageHint}
+        />
+      )}
+      <div className="absolute inset-0 bg-[#0B0F17]/80 z-10" />
+
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
             <div className="flex flex-col space-y-8 animate-in fade-in slide-in-from-left duration-700">
@@ -44,7 +56,7 @@ export default function HiringSection() {
                       asChild 
                       size="lg" 
                       variant="outline" 
-                      className="font-headline font-black bg-[#f6f4ee]/50 text-white border-2 border-gold hover:border-gold hover:bg-white/10 transition-all rounded-xl"
+                      className="font-headline font-black bg-[#f6f4ee]/10 text-white border-2 border-gold hover:border-gold hover:bg-white/10 transition-all rounded-xl"
                     >
                       <Link href="/pricing">View Pricing</Link>
                     </Button>
