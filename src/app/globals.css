@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    /* Executive Dark Theme */
+    /* Executive Dark Theme - Primary Palette */
     --background: 222 47% 7%; /* #0B0F17 */
     --foreground: 210 40% 98%;
     
@@ -17,13 +17,13 @@
     --primary: 204 61% 39%; /* #276F9F - Brand Blue */
     --primary-foreground: 0 0% 100%; 
     
-    --secondary: 222 47% 11%; /* #111827 */
+    --secondary: 222 47% 11%;
     --secondary-foreground: 210 40% 98%;
     
     --muted: 222 47% 15%;
     --muted-foreground: 215 20% 65%;
     
-    --accent: 45 85% 55%; /* Gold #C9A227 */
+    --accent: 45 85% 55%; /* #C9A227 - Luxury Gold */
     --accent-foreground: 222 47% 7%;
 
     --destructive: 0 84.2% 60.2%;
@@ -56,9 +56,10 @@
     @apply bg-background text-foreground font-body antialiased;
   }
   
+  /* Fixed circular dependency by avoiding @apply font-headline on font-headline itself */
   h1, h2, h3, h4 {
     @apply tracking-tight;
-    font-family: var(--font-space-grotesk);
+    font-family: var(--font-space-grotesk), sans-serif;
     line-height: 1.1;
   }
 }
@@ -72,5 +73,8 @@
   }
   .border-gold {
     border-color: hsl(var(--accent));
+  }
+  .bg-accent-gradient {
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, #1e4e7a 100%);
   }
 }

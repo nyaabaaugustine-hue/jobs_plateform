@@ -21,9 +21,9 @@ export default function HiringSection() {
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
             <div className="flex flex-col space-y-8 animate-in fade-in slide-in-from-left duration-700">
                 <h2 className="text-4xl font-extrabold tracking-tight !leading-tight text-white sm:text-5xl lg:text-6xl">
-                  Hire Top-Tier React Talent in 48 Hours
+                  Hire Senior React Developers. Fast.
                 </h2>
-                <p className="text-lg font-medium text-white/70 max-w-xl">
+                <p className="text-lg font-medium text-[#F3F4F6]/70 max-w-xl">
                   Discover qualified professionals ready to bring your projects to life. Over 4,500+ employers trust our platform to find the best developers in the ecosystem.
                 </p>
                 <ul className="space-y-4">

@@ -55,7 +55,7 @@ export default function JobCard({ job }: JobCardProps) {
 
       <CardContent className="flex-grow p-0 space-y-4">
         <div className="flex flex-wrap gap-2">
-          <Badge variant="secondary" className="bg-yellow-500/10 text-yellow-500 border-none font-bold">
+          <Badge variant="secondary" className="bg-primary/10 text-primary border-none font-bold">
             {matchScore}% Match
           </Badge>
           <Badge variant="outline" className="border-white/10 text-white/60 font-medium">
@@ -75,7 +75,7 @@ export default function JobCard({ job }: JobCardProps) {
             <h4 className="text-[10px] font-black uppercase tracking-widest text-white/30">Top Skills</h4>
             <div className="flex flex-wrap gap-1.5">
               {job.skills.map(skill => (
-                <Badge key={skill} variant="secondary" className="bg-primary/5 border-none text-primary text-[10px] font-bold px-2 py-0.5">
+                <Badge key={skill} variant="secondary" className="bg-white/5 border-none text-white/70 text-[10px] font-bold px-2 py-0.5">
                   {skill}
                 </Badge>
               ))}
@@ -91,6 +91,7 @@ export default function JobCard({ job }: JobCardProps) {
             <span className="text-[10px] text-muted-foreground font-bold">/yearly</span>
           </div>
           <div className="flex items-center gap-1 text-[10px] font-bold text-muted-foreground uppercase mt-0.5">
+            <Clock className="h-3 w-3" />
             <ClientSideDate dateString={job.postedDate} />
           </div>
         </div>
