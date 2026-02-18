@@ -36,7 +36,7 @@ const GoogleLogo = () => (
 const TestimonialCard = ({ review }: { review: Review }) => {
     const userAvatar = PlaceHolderImages.find((img) => img.id === review.user.avatar);
     return (
-        <Card className="flex flex-col bg-[#151C2B] border border-white/5 p-8 rounded-2xl shadow-2xl transition-all hover:border-white/10 h-full w-[450px] shrink-0">
+        <Card className="flex flex-col bg-[#151C2B] border border-white/5 p-6 rounded-2xl shadow-2xl transition-all hover:border-white/10 h-full w-[360px] shrink-0">
             <CardContent className="p-0 mb-6 relative">
                 <div className="flex items-center justify-between mb-4">
                   <StarRating rating={5} />
@@ -47,19 +47,19 @@ const TestimonialCard = ({ review }: { review: Review }) => {
                 </div>
                 <Quote className="absolute -top-2 -left-2 h-8 w-8 text-primary/10 -z-10" />
                 <div className="min-h-[80px]">
-                  <p className="text-[#F3F4F6] italic leading-relaxed text-base font-medium break-words whitespace-normal">
+                  <p className="text-[#F3F4F6] italic leading-relaxed text-sm font-medium break-words whitespace-normal">
                     "{review.comment}"
                   </p>
                 </div>
             </CardContent>
             <div className="flex items-center gap-4 mt-auto pt-6 border-t border-white/5">
-                <Avatar className="h-12 w-12 border-2 border-white/10 shadow-lg">
+                <Avatar className="h-10 w-10 border-2 border-white/10 shadow-lg">
                     {userAvatar && <AvatarImage src={userAvatar.imageUrl} alt={review.user.name} />}
                     <AvatarFallback className="bg-primary/20 text-primary">{review.user.name?.charAt(0)}</AvatarFallback>
                 </Avatar>
                 <div className="flex-1 min-w-0">
-                    <p className="font-bold text-white text-sm truncate">{review.user.name}</p>
-                    <p className="text-[11px] text-muted-foreground uppercase font-black tracking-widest truncate">{review.user.professionalTitle}</p>
+                    <p className="font-bold text-white text-xs truncate">{review.user.name}</p>
+                    <p className="text-[10px] text-muted-foreground uppercase font-black tracking-widest truncate">{review.user.professionalTitle}</p>
                 </div>
             </div>
         </Card>
@@ -146,7 +146,7 @@ export default function Testimonials() {
                     <div className="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors" />
                 </Button>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-[500px] bg-[#111827] border-white/5 text-white p-0 overflow-hidden rounded-3xl shadow-2xl">
+              <DialogContent className="sm:max-w-[400px] bg-[#111827] border-white/5 text-white p-0 overflow-hidden rounded-3xl shadow-2xl">
                 <div className="bg-gradient-to-r from-primary/20 via-background to-accent/20 p-8 border-b border-white/5 relative">
                   <div className="absolute top-4 right-4 opacity-50">
                     <GoogleLogo />
