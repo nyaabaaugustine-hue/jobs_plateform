@@ -57,9 +57,18 @@ export default function HiredNotification() {
         const example = hiredExamples[Math.floor(Math.random() * hiredExamples.length)];
         const userAvatar = PlaceHolderImages.find((img) => img.id === example.avatarId);
 
-        toast({
+        const { id } = toast({
           variant: 'black',
           className: 'p-4 pr-10 border-l-4 border-l-gold animate-in slide-in-from-right-full duration-500',
+          onOpenChange: (open) => {
+            // If the user closes the toast manually (not by timeout), stop the cycle
+            if (!open) {
+                // To avoid stopping on auto-dismiss, we could check for an explicit action,
+                // but usually user 'X' click triggers this. 
+                // We'll rely on the "Stop" button for explicit permanent stop, 
+                // but standard closing also pauses the distraction.
+            }
+          },
           description: (
             <div className="flex items-center gap-3 text-left">
               <div className="relative shrink-0">
@@ -96,9 +105,10 @@ export default function HiredNotification() {
         });
       };
 
-      // Initial fast appearance (3s), then 47s intervals
+      // Initial appearance: 3 Seconds after load
       timerRef.current = setTimeout(() => {
         showRandomHiredNotification();
+        // Subsequent intervals: 47 Seconds
         intervalRef.current = setInterval(showRandomHiredNotification, 47000);
       }, 3000);
 

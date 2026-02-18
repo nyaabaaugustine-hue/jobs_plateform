@@ -117,6 +117,7 @@ export default function AdSlider() {
     isStoppedRef.current = true;
     if (cycleTimerRef.current) clearTimeout(cycleTimerRef.current);
     if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    // User closed it manually, stop cycles for this session
     localStorage.setItem('chapel-hill-ads-dismissed', 'true');
   };
 
