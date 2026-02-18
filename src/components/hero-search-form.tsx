@@ -3,9 +3,11 @@
 
 import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { Search, MapPin } from 'lucide-react';
+import { Search, MapPin, Briefcase } from 'lucide-react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function HeroSearchForm() {
   const router = useRouter();
@@ -21,31 +23,35 @@ export default function HeroSearchForm() {
     router.push(`/jobs?${query.toString()}`);
   };
 
+  const avatars = ['avatar-1', 'avatar-3', 'avatar-7'];
+
   return (
-    <div className="w-full">
+    <div className="w-full flex flex-col items-center gap-6">
       <form 
         onSubmit={handleSearch} 
-        className="flex flex-col sm:flex-row gap-4 w-full items-stretch"
+        className="w-full max-w-4xl bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl p-2 flex flex-col sm:flex-row items-center gap-2 shadow-2xl"
       >
-        <div className="flex-1 relative group">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground z-10 transition-colors group-focus-within:text-primary" />
+        <div className="flex-1 flex items-center relative group px-4">
+          <Briefcase className="h-5 w-5 text-white/60 shrink-0" />
           <Input
             id="job-title"
             type="search"
             placeholder="Job title, keyword"
-            className="h-14 w-full bg-white dark:bg-card border-border rounded-xl pl-12 pr-4 text-foreground font-medium text-lg shadow-sm focus-visible:ring-primary"
+            className="h-12 w-full bg-transparent border-none text-white placeholder:text-white/60 focus-visible:ring-0 text-base"
             value={jobTitle}
             onChange={(e) => setJobTitle(e.target.value)}
           />
         </div>
         
-        <div className="flex-1 relative group">
-          <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground z-10 transition-colors group-focus-within:text-primary" />
+        <div className="hidden sm:block w-px h-8 bg-white/10" />
+
+        <div className="flex-1 flex items-center relative group px-4">
+          <MapPin className="h-5 w-5 text-white/60 shrink-0" />
           <Input
             id="location"
             type="search"
             placeholder="City or zip code"
-            className="h-14 w-full bg-white dark:bg-card border-border rounded-xl pl-12 pr-4 text-foreground font-medium text-lg shadow-sm focus-visible:ring-primary"
+            className="h-12 w-full bg-transparent border-none text-white placeholder:text-white/60 focus-visible:ring-0 text-base"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
           />
@@ -54,11 +60,29 @@ export default function HeroSearchForm() {
         <Button
           type="submit"
           size="lg"
-          className="h-14 bg-primary text-white font-bold text-lg rounded-xl px-10 hover:bg-primary/90 transition-all shadow-lg hover:scale-[1.02] active:scale-[0.98]"
+          className="h-12 w-full sm:w-auto bg-transparent border border-white text-white font-headline font-bold text-base rounded-xl px-8 hover:bg-white/10 transition-all shadow-lg"
         >
           Find Jobs
         </Button>
       </form>
+
+      {/* Social Proof Section */}
+      <div className="flex items-center gap-3 animate-in fade-in duration-1000 delay-500">
+        <div className="flex -space-x-3">
+          {avatars.map((id, i) => {
+            const img = PlaceHolderImages.find(p => p.id === id);
+            return (
+              <Avatar key={id} className="h-8 w-8 border-2 border-background ring-2 ring-black/20">
+                {img && <AvatarImage src={img.imageUrl} alt="User" />}
+                <AvatarFallback>U</AvatarFallback>
+              </Avatar>
+            )
+          })}
+        </div>
+        <p className="text-white/90 text-sm font-semibold tracking-tight">
+          <span className="font-bold text-white">1,500+</span> people got jobs
+        </p>
+      </div>
     </div>
   );
 }

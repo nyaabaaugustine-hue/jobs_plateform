@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -26,19 +27,20 @@ export default function SubscriptionSection() {
     };
 
   return (
-    <section className="py-20 bg-secondary">
-      <div className="container mx-auto max-w-7xl px-6 lg:px-12">
-        <div className="relative rounded-3xl bg-card p-10 md:p-16 lg:p-20 text-center text-foreground overflow-hidden animate-in fade-in zoom-in-95 duration-700">
-          {/* Background Image at 25% Opacity */}
-          {bgImage && (
-            <Image
-              src={bgImage.imageUrl}
-              alt={bgImage.description}
-              fill
-              className="object-cover z-0 opacity-25"
-              data-ai-hint={bgImage.imageHint}
-            />
-          )}
+    <section className="py-20 bg-secondary/50 relative overflow-hidden">
+      {/* Background Image at 25% Opacity */}
+      {bgImage && (
+        <Image
+          src={bgImage.imageUrl}
+          alt={bgImage.description}
+          fill
+          className="object-cover z-0 opacity-25"
+          data-ai-hint={bgImage.imageHint}
+        />
+      )}
+      <div className="absolute inset-0 bg-secondary/80 z-10" />
+      <div className="container mx-auto max-w-7xl px-6 lg:px-12 relative z-20">
+        <div className="relative rounded-3xl bg-card p-10 md:p-16 lg:p-20 text-center text-foreground overflow-hidden animate-in fade-in zoom-in-95 duration-700 border border-border/50">
           <div className="relative z-20">
             <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-foreground">
               Get Job Alerts

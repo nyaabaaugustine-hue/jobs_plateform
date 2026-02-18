@@ -25,8 +25,8 @@ export default function HomePage() {
   
   return (
     <main className="flex-1 bg-background">
-      {/* Hero Section - 100% Opacity */}
-      <section className="relative w-full h-[700px] flex items-center justify-center text-center overflow-hidden">
+      {/* Hero Section - 100% Opacity Image */}
+      <section className="relative w-full h-[750px] flex items-center justify-center text-center overflow-hidden">
         {heroImage && (
             <Image
               src={heroImage.imageUrl}
@@ -38,14 +38,17 @@ export default function HomePage() {
               sizes="100vw"
             />
           )}
-        <div className="absolute inset-0 bg-background/5 z-10" />
-        <div className="relative z-20 container mx-auto px-6 max-w-4xl">
-          <div className="flex flex-col justify-center space-y-8">
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-6xl !leading-tight font-headline text-foreground animate-in fade-in slide-in-from-bottom-4 duration-700">
-              Find Your Next Job, <span className="text-primary">Faster.</span>
+        <div className="absolute inset-0 bg-black/40 z-10" />
+        <div className="relative z-20 container mx-auto px-6 max-w-5xl">
+          <div className="flex flex-col justify-center space-y-6">
+            <h1 className="text-5xl font-extrabold tracking-tight sm:text-7xl !leading-tight font-headline text-white animate-in fade-in slide-in-from-bottom-4 duration-700">
+              Find Your Next Job, Faster.
             </h1>
+            <p className="text-xl sm:text-2xl text-white/90 font-medium max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
+              Discover your next career move with verified employers and salary transparency.
+            </p>
             
-            <div className="max-w-4xl w-full mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '300ms'}}>
+            <div className="w-full mt-8 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">
               <HeroSearchForm />
             </div>
           </div>

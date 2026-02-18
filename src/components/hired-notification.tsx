@@ -85,13 +85,17 @@ export default function HiredNotification() {
         });
       };
 
-      // RUN ONCE EVERY 30 SECONDS
-      intervalRef.current = setInterval(showRandomHiredNotification, 30000);
-    }
+      // Initial run 4 seconds after mount
+      const initialDelay = setTimeout(showRandomHiredNotification, 4000);
 
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current);
-    };
+      // Repeat exactly every 30 seconds
+      intervalRef.current = setInterval(showRandomHiredNotification, 30000);
+
+      return () => {
+        clearTimeout(initialDelay);
+        if (intervalRef.current) clearInterval(intervalRef.current);
+      };
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [toast, dismiss, isDashboardPage, isStopped]);
 

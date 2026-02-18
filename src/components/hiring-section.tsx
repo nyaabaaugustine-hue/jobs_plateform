@@ -64,9 +64,6 @@ export default function HiringSection() {
                     >
                       <Link href="/pricing">View Pricing</Link>
                     </Button>
-                     <Button asChild variant="link" className="text-primary hover:text-primary/80 font-semibold">
-                      <Link href="/contacts">Advertise with us</Link>
-                    </Button>
                 </div>
             </div>
             

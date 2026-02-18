@@ -39,7 +39,7 @@ export default function VolunteerSection() {
           {DUMMY_OPPORTUNITIES.map((opportunity, index) => (
             <Card 
               key={index} 
-              className="text-center animate-in fade-in slide-in-from-bottom-4 duration-700 bg-card/80 backdrop-blur-md border border-border shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1" 
+              className="text-center animate-in fade-in slide-in-from-bottom-4 duration-700 bg-card/80 backdrop-blur-md border border-border/50 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1" 
               style={{ animationDelay: `${200 + index * 100}ms` }}
             >
               <CardHeader className="items-center pb-2">
