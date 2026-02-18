@@ -16,16 +16,19 @@ export default function MainLayoutWrapper({
   const isDashboardPage =
     pathname.startsWith('/admin') ||
     pathname.startsWith('/dashboard') ||
-    pathname.startsWith('/employer');
+    pathname.startsWith('/employer') ||
+    pathname === '/hilladmin';
 
   return (
     <>
-      <div className="sticky top-0 z-50">
-        <Header />
-        {!isDashboardPage && <LiveActivityBar />}
-      </div>
+      {!isDashboardPage && (
+        <div className="sticky top-0 z-50">
+          <Header />
+          <LiveActivityBar />
+        </div>
+      )}
       <div className="flex-1">{children}</div>
-      <Footer />
+      {!isDashboardPage && <Footer />}
     </>
   );
 }
