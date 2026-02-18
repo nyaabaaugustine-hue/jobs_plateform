@@ -7,17 +7,21 @@ import {
 import {
   moderateJobPost,
 } from '@/ai/flows/admin-job-moderation';
+import {
+  runCareerAssistant as runCareerAssistantFlow,
+} from '@/ai/flows/career-assistant-flow';
 import type { 
   AiJobRecommendationsInput,
   AiJobRecommendationsOutput,
   ModerateJobPostInput,
   ModerateJobPostOutput,
+  CareerAssistantInput,
+  CareerAssistantOutput,
 } from './ai-types';
 
 export const fetchAiJobRecommendations = async (input: AiJobRecommendationsInput): Promise<AiJobRecommendationsOutput> => {
   if (!process.env.GEMINI_API_KEY && !process.env.GOOGLE_API_KEY) {
     console.warn("AI recommendations skipped: GEMINI_API_KEY or GOOGLE_API_KEY not set.");
-    // Return a payload that indicates no recommendations should be shown.
     return {
       shouldRecommend: false,
       recommendedJobs: [],
@@ -52,6 +56,25 @@ export const runJobModeration = async (input: ModerateJobPostInput): Promise<Mod
     return {
       isSpam: false,
       reason: 'AI moderation failed. Please review manually.',
+    };
+  }
+};
+
+export const runCareerAssistant = async (input: CareerAssistantInput): Promise<CareerAssistantOutput> => {
+  if (!process.env.GEMINI_API_KEY && !process.env.GOOGLE_API_KEY) {
+    return {
+      text: "I'm sorry, my AI services are currently being initialized. Please try again in a few moments!",
+      suggestedActions: ["Try again later", "Sign In"]
+    };
+  }
+
+  try {
+    return await runCareerAssistantFlow(input);
+  } catch (error) {
+    console.error('Career Assistant error:', error);
+    return {
+      text: "I encountered a minor glitch while processing your request. How else can I help you today?",
+      suggestedActions: ["Job Search", "Career Tips"]
     };
   }
 };

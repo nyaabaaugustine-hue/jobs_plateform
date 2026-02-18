@@ -50,3 +50,26 @@ export const AiJobRecommendationsOutputSchema = z.object({
     ),
 });
 export type AiJobRecommendationsOutput = z.infer<typeof AiJobRecommendationsOutputSchema>;
+
+// Career Assistant Types
+export const CareerAssistantInputSchema = z.object({
+  query: z.string(),
+  isLoggedIn: z.boolean(),
+  userData: z.object({
+    name: z.string().optional(),
+    professionalTitle: z.string().optional(),
+    skills: z.array(z.string()).optional(),
+    experience: z.array(z.any()).optional(),
+  }).optional(),
+  history: z.array(z.object({
+    role: z.enum(['user', 'ai']),
+    text: z.string(),
+  })).optional(),
+});
+export type CareerAssistantInput = z.infer<typeof CareerAssistantInputSchema>;
+
+export const CareerAssistantOutputSchema = z.object({
+  text: z.string(),
+  suggestedActions: z.array(z.string()).optional(),
+});
+export type CareerAssistantOutput = z.infer<typeof CareerAssistantOutputSchema>;

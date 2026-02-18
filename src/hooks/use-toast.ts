@@ -1,3 +1,4 @@
+
 "use client"
 
 import * as React from "react"
@@ -145,7 +146,7 @@ function toast({ ...props }: Omit<ToasterToast, "id">) {
       type: "UPDATE_TOAST",
       toast: { ...props, id },
     })
-  const dismissSelf = () => dispatch({ type: "DISMISS_TOAST", toastId: id })
+  const dismiss = () => dispatch({ type: "DISMISS_TOAST", toastId: id })
 
   dispatch({
     type: "ADD_TOAST",
@@ -161,12 +162,11 @@ function toast({ ...props }: Omit<ToasterToast, "id">) {
 
   return {
     id: id,
-    dismiss: dismissSelf,
+    dismiss,
     update,
   }
 }
 
-// Fixed: stable dismiss reference for reliability in effects
 const dismiss = (toastId?: string) => {
   dispatch({ type: "DISMISS_TOAST", toastId })
 }
