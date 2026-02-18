@@ -24,6 +24,9 @@ export default function HiredNotification() {
   const pathname = usePathname();
   const [isStopped, setIsStopped] = useState(false);
 
+  // Use a ref to track stop state synchronously across callbacks
+  const isStoppedRef = useRef(false);
+
   const isDashboardPage =
     pathname.startsWith('/admin') ||
     pathname.startsWith('/dashboard') ||
@@ -31,6 +34,7 @@ export default function HiredNotification() {
 
   const stopNotifications = () => {
     setIsStopped(true);
+    isStoppedRef.current = true;
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
       intervalRef.current = null;
@@ -41,14 +45,26 @@ export default function HiredNotification() {
   useEffect(() => {
     if (!isDashboardPage && !isStopped) {
       const showRandomHiredNotification = () => {
-        if (isStopped) return;
+        if (isStoppedRef.current) return;
         
         const example = hiredExamples[Math.floor(Math.random() * hiredExamples.length)];
         const userAvatar = PlaceHolderImages.find((img) => img.id === example.avatarId);
 
+        const startTime = Date.now();
+
         toast({
           variant: 'black',
           className: 'p-4 pr-10 border-l-4 border-l-primary animate-in slide-in-from-left-full duration-500',
+          onOpenChange: (open) => {
+            // When the toast is closed
+            if (!open) {
+              const elapsed = Date.now() - startTime;
+              // Heuristic: if closed manually (usually before 8s timeout)
+              if (elapsed < 7800) {
+                stopNotifications();
+              }
+            }
+          },
           description: (
             <div className="flex items-center gap-3 text-left">
               <div className="relative shrink-0">
