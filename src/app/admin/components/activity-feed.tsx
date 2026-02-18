@@ -7,7 +7,7 @@ import React from 'react';
 import { cn } from '@/lib/utils';
 
 const activities = [
-  { icon: Briefcase, text: 'New job posted: "Senior Backend Dev"', time: '2 minutes ago', color: 'blue' },
+  { icon: Briefcase, text: 'New job posted: "Senior Backend Dev"', time: '2 minutes ago', color: 'primary' },
   { icon: Building, text: 'New company registered: DevWorks Ltd', time: '15 minutes ago', color: 'green' },
   { icon: ShieldCheck, text: 'New employer subscription: Pro Plan', time: '1 hour ago', color: 'purple' },
   { icon: FileWarning, text: 'Job awaiting moderation: "UI/UX Intern"', time: '3 hours ago', color: 'yellow' },
@@ -18,7 +18,7 @@ const activities = [
 ];
 
 const colorClasses = {
-    blue: { bg: 'bg-blue-500/10', text: 'text-blue-500' },
+    primary: { bg: 'bg-primary/10', text: 'text-primary' },
     green: { bg: 'bg-green-500/10', text: 'text-green-500' },
     purple: { bg: 'bg-purple-500/10', text: 'text-purple-500' },
     yellow: { bg: 'bg-yellow-500/10', text: 'text-yellow-500' },
@@ -39,7 +39,7 @@ export default function ActivityFeed() {
               <div className="absolute left-4 top-1 h-full w-px bg-border"></div>
               <div className="space-y-8">
                 {activities.map((activity, index) => {
-                  const colors = colorClasses[activity.color as keyof typeof colorClasses] || colorClasses.blue;
+                  const colors = colorClasses[activity.color as keyof typeof colorClasses] || colorClasses.primary;
                   const Icon = activity.icon;
                   return (
                     <div key={index} className="flex items-start gap-4 relative">

@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -12,7 +11,7 @@ import { cn } from '@/lib/utils';
 
 // Define the UI columns and their properties in a single config object.
 const statusColumnConfig = [
-    { id: 'APPLIED', label: 'Applied', icon: FileText, textColor: 'text-blue-600 dark:text-blue-400', bgColor: 'bg-blue-500/5', borderColor: 'border-blue-500/20' },
+    { id: 'APPLIED', label: 'Applied', icon: FileText, textColor: 'text-primary dark:text-primary', bgColor: 'bg-primary/5', borderColor: 'border-primary/20' },
     { id: 'SCREENING', label: 'Screening', icon: Eye, textColor: 'text-yellow-600 dark:text-yellow-400', bgColor: 'bg-yellow-500/5', borderColor: 'border-yellow-500/20' },
     { id: 'INTERVIEW', label: 'Interview', icon: MessageSquare, textColor: 'text-purple-600 dark:text-purple-400', bgColor: 'bg-purple-500/5', borderColor: 'border-purple-500/20' },
     { id: 'OFFER', label: 'Offer', icon: Award, textColor: 'text-orange-600 dark:text-orange-400', bgColor: 'bg-orange-500/5', borderColor: 'border-orange-500/20' },

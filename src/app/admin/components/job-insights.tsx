@@ -8,14 +8,14 @@ import { cn } from '@/lib/utils';
 import React from 'react';
 
 const insights = [
-    { icon: FileText, title: 'Most Applied Job', value: 'Senior React Developer', meta: '342 Applications', color: 'blue' },
+    { icon: FileText, title: 'Most Applied Job', value: 'Senior React Developer', meta: '342 Applications', color: 'primary' },
     { icon: Eye, title: 'Most Viewed Job', value: 'Full-stack Engineer', meta: '2.1k Views', color: 'purple' },
     { icon: Briefcase, title: 'Top Category', value: 'Software Development', meta: '450 Listings', color: 'green' },
     { icon: Wallet, title: 'Average Salary', value: 'GH₵115k/year', meta: 'Across all jobs', color: 'orange' },
 ]
 
 const colorClasses = {
-    blue: { bg: 'bg-blue-500/10', text: 'text-blue-500' },
+    primary: { bg: 'bg-primary/10', text: 'text-primary' },
     purple: { bg: 'bg-purple-500/10', text: 'text-purple-500' },
     green: { bg: 'bg-green-500/10', text: 'text-green-500' },
     orange: { bg: 'bg-orange-500/10', text: 'text-orange-500' },
@@ -37,7 +37,7 @@ export default function JobInsights() {
       <CardContent className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {insights.map(insight => {
-                const colors = colorClasses[insight.color as keyof typeof colorClasses] || colorClasses.blue;
+                const colors = colorClasses[insight.color as keyof typeof colorClasses] || colorClasses.primary;
                 const Icon = insight.icon;
                 return (
                     <div key={insight.title} className={cn("p-4 rounded-lg", colors.bg)}>

@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
@@ -9,7 +8,7 @@ import { cn } from "@/lib/utils";
 import React from 'react';
 
 const notificationSettings = [
-  { id: 'newUser', icon: UserPlus, title: 'New User Registration', description: 'When a new job seeker or employer signs up.', defaultChecked: true, color: 'blue' },
+  { id: 'newUser', icon: UserPlus, title: 'New User Registration', description: 'When a new job seeker or employer signs up.', defaultChecked: true, color: 'primary' },
   { id: 'newSubscription', icon: CreditCard, title: 'New Employer Subscription', description: 'When an employer purchases or upgrades a plan.', defaultChecked: true, color: 'purple' },
   { id: 'newJobPost', icon: Briefcase, title: 'New Job Posting', description: 'When a new job is submitted by an employer.', defaultChecked: false, color: 'green' },
   { id: 'jobFlagged', icon: ShieldAlert, title: 'Job Flagged for Moderation', description: 'When a job is automatically flagged by the AI.', defaultChecked: true, color: 'yellow' },
@@ -18,16 +17,16 @@ const notificationSettings = [
 ];
 
 const recentNotifications = [
-    { id: '1', type: 'New User', text: 'New user registered: Ama Serwaa', time: '5 minutes ago', icon: UserPlus, color: 'blue' },
+    { id: '1', type: 'New User', text: 'New user registered: Ama Serwaa', time: '5 minutes ago', icon: UserPlus, color: 'primary' },
     { id: '2', type: 'Support', text: 'New support ticket #1234 submitted.', time: '30 minutes ago', icon: MessageCircleQuestion, color: 'orange' },
     { id: '3', type: 'Subscription', text: 'Innovate Inc. subscribed to Pro Plan.', time: '1 hour ago', icon: CreditCard, color: 'purple' },
     { id: '4', type: 'Moderation', text: 'Job "UI/UX Intern" flagged by AI.', time: '2 hours ago', icon: ShieldAlert, color: 'yellow' },
-    { id: '5', type: 'New User', text: 'New employer registered: DevWorks Ltd', time: '4 hours ago', icon: UserPlus, color: 'blue' },
+    { id: '5', type: 'New User', text: 'New employer registered: DevWorks Ltd', time: '4 hours ago', icon: UserPlus, color: 'primary' },
     { id: '6', type: 'New Job', text: 'Synergy Corp posted a new job.', time: '6 hours ago', icon: Briefcase, color: 'green' },
 ];
 
 const colorClasses = {
-    blue: { bg: 'bg-blue-500/10', text: 'text-blue-500' },
+    primary: { bg: 'bg-primary/10', text: 'text-primary' },
     purple: { bg: 'bg-purple-500/10', text: 'text-purple-500' },
     green: { bg: 'bg-green-500/10', text: 'text-green-500' },
     yellow: { bg: 'bg-yellow-500/10', text: 'text-yellow-600' },
@@ -53,7 +52,7 @@ export default function AdminNotificationsPage() {
                 </CardHeader>
                 <CardContent className="divide-y divide-border">
                    {notificationSettings.map((setting) => {
-                       const colors = colorClasses[setting.color as keyof typeof colorClasses] || colorClasses.blue;
+                       const colors = colorClasses[setting.color as keyof typeof colorClasses] || colorClasses.primary;
                        const Icon = setting.icon;
                        return (
                            <div key={setting.id} className="py-4 flex items-center gap-4">
@@ -88,7 +87,7 @@ export default function AdminNotificationsPage() {
                                 <div className="absolute left-4 top-1 h-full w-px bg-border -z-10"></div>
                                 <div className="space-y-8">
                                     {recentNotifications.map((notification) => {
-                                        const colors = colorClasses[notification.color as keyof typeof colorClasses] || colorClasses.blue;
+                                        const colors = colorClasses[notification.color as keyof typeof colorClasses] || colorClasses.primary;
                                         const Icon = notification.icon;
                                         return (
                                             <div key={notification.id} className="flex items-start gap-4 relative">

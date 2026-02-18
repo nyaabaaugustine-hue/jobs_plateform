@@ -1,4 +1,3 @@
-
 import { FileText, Video, Send, Users } from 'lucide-react';
 import SectionHeader from './shared/section-header';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
@@ -13,8 +12,8 @@ const routes = [
     title: 'AI-Powered CV Builder',
     description: 'Create a standout CV in minutes with our AI assistant. Tailor it to specific jobs with one click.',
     href: '#',
-    bgColor: 'bg-blue-500/10',
-    iconColor: 'text-blue-500',
+    bgColor: 'bg-primary/10',
+    iconColor: 'text-primary',
   },
   {
     icon: Video,

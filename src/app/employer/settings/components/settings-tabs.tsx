@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -43,7 +42,7 @@ const transactions = [
 ];
 
 const notificationSettings = [
-  { id: 'new-applicant', icon: FileText, title: 'New Applicant Alert', description: 'Receive an email for every new application.', defaultChecked: true, color: 'blue' },
+  { id: 'new-applicant', icon: FileText, title: 'New Applicant Alert', description: 'Receive an email for every new application.', defaultChecked: true, color: 'primary' },
   { id: 'weekly-summary', icon: Bell, title: 'Weekly Applicant Summary', description: 'Get a weekly digest of all new applicants.', defaultChecked: false, color: 'purple' },
   { id: 'message-alert', icon: MessageSquare, title: 'New Message Alert', description: 'Get notified when a candidate sends you a message.', defaultChecked: true, color: 'green' },
   { id: 'expiration-warning', icon: Clock, title: 'Job Expiration Warning', description: 'Get a warning 3 days before a job post expires.', defaultChecked: true, color: 'yellow' },
@@ -51,15 +50,15 @@ const notificationSettings = [
 ];
 
 const recentNotifications = [
-    { id: '1', icon: FileText, text: "New application for 'Senior React Developer'", time: '15 minutes ago', color: 'blue' },
+    { id: '1', icon: FileText, text: "New application for 'Senior React Developer'", time: '15 minutes ago', color: 'primary' },
     { id: '2', icon: MessageSquare, text: "New message from candidate Ama Serwaa", time: '1 hour ago', color: 'green' },
     { id: '3', icon: Clock, text: "Your job 'UI/UX Designer' will expire in 3 days.", time: '4 hours ago', color: 'yellow' },
-    { id: '4', icon: FileText, text: "New application for 'Full-stack Engineer'", time: '8 hours ago', color: 'blue' },
+    { id: '4', icon: FileText, text: "New application for 'Full-stack Engineer'", time: '8 hours ago', color: 'primary' },
     { id: '5', icon: WalletIcon, text: "Your Pro Plan subscription has been renewed.", time: '1 day ago', color: 'orange' },
 ];
 
 const colorClasses = {
-    blue: { bg: 'bg-blue-500/10', text: 'text-blue-500' },
+    primary: { bg: 'bg-primary/10', text: 'text-primary' },
     purple: { bg: 'bg-purple-500/10', text: 'text-purple-500' },
     green: { bg: 'bg-green-500/10', text: 'text-green-500' },
     yellow: { bg: 'bg-yellow-500/10', text: 'text-yellow-600' },
@@ -394,7 +393,7 @@ export default function SettingsTabs() {
                 </CardHeader>
                 <CardContent className="divide-y divide-border">
                   {notificationSettings.map((setting) => {
-                    const colors = colorClasses[setting.color as keyof typeof colorClasses] || colorClasses.blue;
+                    const colors = colorClasses[setting.color as keyof typeof colorClasses] || colorClasses.primary;
                     const Icon = setting.icon;
                     return (
                       <div key={setting.id} className="py-4 flex items-center gap-4">
@@ -433,7 +432,7 @@ export default function SettingsTabs() {
                         <div className="absolute left-4 top-1 h-full w-px bg-border -z-10"></div>
                         <div className="space-y-8">
                           {recentNotifications.map((notification) => {
-                            const colors = colorClasses[notification.color as keyof typeof colorClasses] || colorClasses.blue;
+                            const colors = colorClasses[notification.color as keyof typeof colorClasses] || colorClasses.primary;
                             const Icon = notification.icon;
                             return (
                               <div key={notification.id} className="flex items-start gap-4 relative">
@@ -460,5 +459,3 @@ export default function SettingsTabs() {
       </Tabs>
   );
 }
-
-    

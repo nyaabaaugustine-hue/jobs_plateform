@@ -136,7 +136,7 @@ export default function Header() {
   };
 
   const navLinks = [
-    { href: '/', label: 'Home', icon: Home, color: 'text-sky-500' },
+    { href: '/', label: 'Home', icon: Home, color: 'text-primary' },
     {
       label: 'For Job Seekers',
       icon: Users,
@@ -150,9 +150,9 @@ export default function Header() {
     {
       label: 'For Employers',
       icon: Building2,
-      color: 'text-indigo-500',
+      color: 'text-primary',
       subLinks: [
-        { href: '/browse-candidates', label: 'Browse Candidates', icon: Users, color: 'text-indigo-500' },
+        { href: '/browse-candidates', label: 'Browse Candidates', icon: Users, color: 'text-primary' },
         { href: '/employer/jobs/new', label: 'Post a Job', icon: PlusCircle, color: 'text-primary' },
         { href: '/pricing', label: 'Pricing', icon: CreditCard, color: 'text-rose-500' },
       ]
@@ -162,7 +162,7 @@ export default function Header() {
       icon: Info,
       color: 'text-gray-500',
       subLinks: [
-        { href: '/blog', label: 'Our News & Stories', icon: PenSquare, color: 'text-blue-500' },
+        { href: '/blog', label: 'Our News & Stories', icon: PenSquare, color: 'text-primary' },
         { href: '/features', label: 'Feature Showcase', icon: LayoutDashboard, color: 'text-teal-500' },
         { href: '/about', label: 'About Us', icon: Info, color: 'text-gray-500' },
         { href: '/contacts', label: 'Contact', icon: Mail, color: 'text-purple-500' },

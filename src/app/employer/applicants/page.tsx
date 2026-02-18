@@ -26,7 +26,7 @@ type ApplicantStatus = 'New' | 'Reviewed' | 'Shortlisted' | 'Interview' | 'Offer
 
 const getStatusBadgeClass = (status: ApplicantStatus) => {
     switch (status) {
-        case 'New': return 'bg-blue-500/10 text-blue-600 border-blue-500/20';
+        case 'New': return 'bg-primary/10 text-primary border-primary/20';
         case 'Reviewed': return 'bg-gray-500/10 text-gray-600 border-gray-500/20';
         case 'Shortlisted': return 'bg-yellow-500/10 text-yellow-600 border-yellow-500/20';
         case 'Interview': return 'bg-purple-500/10 text-purple-600 border-purple-500/20';
