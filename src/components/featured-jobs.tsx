@@ -21,12 +21,12 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
 
   return (
     <section className="relative py-20 bg-background">
-      {/* Background Image at 25% Opacity */}
+      {/* Background Image at 20% Opacity */}
       <Image
         src={bgImageUrl}
         alt="Accra Background"
         fill
-        className="object-cover z-0 opacity-25"
+        className="object-cover z-0 opacity-20"
         data-ai-hint="Accra city"
         priority
       />

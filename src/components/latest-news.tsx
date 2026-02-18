@@ -13,13 +13,13 @@ export default function LatestNews({ posts }: { posts: BlogPost[] }) {
 
   return (
     <section className="relative py-20 bg-background">
-      {/* Background Image at 25% Opacity */}
+      {/* Background Image at 20% Opacity */}
       {bgImage && (
         <Image
           src={bgImage.imageUrl}
           alt={bgImage.description}
           fill
-          className="object-cover z-0 opacity-25"
+          className="object-cover z-0 opacity-20"
           data-ai-hint={bgImage.imageHint}
         />
       )}

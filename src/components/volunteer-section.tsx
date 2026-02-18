@@ -21,7 +21,7 @@ export default function VolunteerSection() {
             src={bgImage.imageUrl}
             alt={bgImage.description}
             fill
-            className="object-cover z-0 opacity-25"
+            className="object-cover z-0 opacity-20"
             data-ai-hint={bgImage.imageHint}
             priority
           />
