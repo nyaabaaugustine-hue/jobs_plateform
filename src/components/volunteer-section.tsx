@@ -25,7 +25,7 @@ export default function VolunteerSection() {
               className="block group h-full"
             >
               <Card 
-                className="relative h-full bg-card/40 backdrop-blur-md border border-border/50 shadow-lg group-hover:shadow-glow group-hover:ring-2 group-hover:ring-gold transition-all duration-500 hover:-translate-y-2 rounded-[2.5rem] p-8 overflow-hidden" 
+                className="relative h-full bg-card/40 backdrop-blur-md border-none ring-2 ring-primary shadow-lg group-hover:shadow-glow group-hover:ring-gold transition-all duration-500 hover:-translate-y-2 rounded-[2.5rem] p-8 overflow-hidden" 
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
