@@ -141,7 +141,7 @@ export default function Testimonials() {
               <DialogTrigger asChild>
                 <Button variant="outline" className="border-accent text-foreground hover:bg-accent/10 rounded-xl h-14 px-8 font-black text-sm shadow-2xl transition-all hover:scale-105 group relative overflow-hidden">
                     <span className="relative z-10 flex items-center gap-2">
-                      <PlusCircle className="h-5 w-5 text-accent" /> Add a review
+                      <GoogleLogo /> Add a review
                     </span>
                     <div className="absolute inset-0 bg-accent/5 group-hover:bg-accent/10 transition-colors" />
                 </Button>
@@ -153,7 +153,7 @@ export default function Testimonials() {
                   </div>
                   <DialogHeader>
                     <DialogTitle className="text-2xl font-black font-headline text-foreground flex items-center gap-3">
-                      Share Your Experience
+                      <GoogleLogo /> Share Your Experience
                     </DialogTitle>
                     <DialogDescription className="text-muted-foreground font-medium pt-2">
                       Help others discover the power of Chapel Hill with an authoritative review.
