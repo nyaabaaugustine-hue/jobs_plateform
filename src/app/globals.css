@@ -4,33 +4,33 @@
 
 @layer base {
   :root {
-    /* Shining Milky White Theme */
-    --background: 43 33% 95%; /* Clay White */
-    --foreground: 224 71% 10%; /* Dark Blue */
+    /* Executive Dark Theme */
+    --background: 222 47% 7%; /* #0B0F17 */
+    --foreground: 210 40% 98%;
     
-    --card: 0 0% 100%;
-    --card-foreground: 224 71% 10%;
+    --card: 222 47% 11%; /* #151C2B */
+    --card-foreground: 210 40% 98%;
     
-    --popover: 0 0% 100%;
-    --popover-foreground: 224 71% 10%;
+    --popover: 222 47% 7%;
+    --popover-foreground: 210 40% 98%;
 
     --primary: 204 61% 39%; /* #276F9F - Brand Blue */
     --primary-foreground: 0 0% 100%; 
     
-    --secondary: 220 14% 94%;
-    --secondary-foreground: 224 71% 10%;
+    --secondary: 222 47% 11%; /* #111827 */
+    --secondary-foreground: 210 40% 98%;
     
-    --muted: 220 14% 94%;
-    --muted-foreground: 220 9% 46%;
+    --muted: 222 47% 15%;
+    --muted-foreground: 215 20% 65%;
     
-    --accent: 45 85% 55%; /* Gold */
-    --accent-foreground: 224 71% 10%;
+    --accent: 45 85% 55%; /* Gold #C9A227 approximation */
+    --accent-foreground: 222 47% 7%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive-foreground: 210 40% 98%;
     
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
+    --border: 222 47% 15%;
+    --input: 222 47% 15%;
     --ring: 204 61% 39%;
 
     --radius: 0.75rem;
@@ -39,13 +39,13 @@
     --chart-1: hsl(var(--primary));
     --chart-2: hsl(var(--accent));
     
-    --sidebar-background: 222 47% 11%;
+    --sidebar-background: 222 47% 4%;
     --sidebar-foreground: 210 40% 90%;
     --sidebar-primary: hsl(var(--primary));
     --sidebar-primary-foreground: hsl(var(--primary-foreground));
     --sidebar-accent: hsl(var(--primary));
     --sidebar-accent-foreground: hsl(var(--primary-foreground));
-    --sidebar-border: 222 47% 15%;
+    --sidebar-border: 222 47% 10%;
     --sidebar-ring: hsl(var(--ring));
   }
 }
@@ -64,12 +64,12 @@
 
 @layer utilities {
   .bg-clay-white {
-    background-color: hsl(43 33% 95%);
+    background-color: #f6f4ee;
   }
   .text-gold {
-    color: hsl(45 85% 55%);
+    color: hsl(var(--accent));
   }
   .border-gold {
-    border-color: hsl(45 85% 55%);
+    border-color: hsl(var(--accent));
   }
 }

@@ -59,7 +59,7 @@ export default function HomePage() {
 
   return (
     <main className="flex-1 bg-background">
-      {/* 1. Hero Section - 100% Opacity */}
+      {/* 1. Hero Section */}
       <section className="relative w-full h-[700px] flex items-center justify-center text-center overflow-hidden">
         {heroImage && (
           <Image
@@ -76,7 +76,7 @@ export default function HomePage() {
         <div className="relative z-20 container mx-auto px-6 max-w-4xl">
           <div className="flex flex-col space-y-6">
             <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white animate-in fade-in slide-in-from-bottom-4 duration-1000 font-headline">
-              Find Better Work
+              Find Your Next Job, Faster.
             </h1>
             <p className="text-xl text-white/80 font-bold max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200 font-headline">
               Built for serious professionals and ambitious companies.
@@ -100,13 +100,13 @@ export default function HomePage() {
       {/* 5. Why Chapel Hill */}
       <WhyChooseUs />
 
-      {/* 6. Kickstart Your Career (Student Opportunities) */}
+      {/* 6. Kickstart Your Career */}
       <VolunteerSection />
 
       {/* 7. Jobs By Location */}
       <JobsByLocation locations={DUMMY_LOCATIONS} />
 
-      {/* 8. Success Stories (Testimonials) */}
+      {/* 8. Success Stories */}
       <Testimonials />
 
       {/* 9. Our News and Stories */}

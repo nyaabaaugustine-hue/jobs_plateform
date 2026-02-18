@@ -78,7 +78,7 @@ import {
               <Accordion type="single" collapsible className="w-full space-y-4">
                 {faqs.map((faq, index) => (
                   <AccordionItem value={`item-${index}`} key={index} className="border-white/10 px-6 rounded-xl bg-[#111827]">
-                    <AccordionTrigger className="text-left font-semibold text-lg hover:no-underline py-6">
+                    <AccordionTrigger className="text-left font-semibold text-lg hover:no-underline py-6 text-white">
                       {faq.question}
                     </AccordionTrigger>
                     <AccordionContent className="text-muted-foreground pb-6">
