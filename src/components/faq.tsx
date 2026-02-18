@@ -1,4 +1,3 @@
-
 'use client';
 
 import {
@@ -9,6 +8,7 @@ import {
   } from "@/components/ui/accordion"
   import Image from "next/image"
   import { PlaceHolderImages } from "@/lib/placeholder-images"
+  import { cn } from "@/lib/utils"
   
   const faqs = [
     {
@@ -74,7 +74,7 @@ import {
                     <AccordionTrigger className="text-left font-semibold text-lg hover:no-underline py-6 text-foreground">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground pb-6 text-base leading-relaxed">
+                    <AccordionContent className="pb-6 text-base leading-relaxed font-semibold text-gold/80">
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>
