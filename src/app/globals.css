@@ -6,9 +6,9 @@
   :root {
     /* 🥇 Theme 3: LIGHT (Modern Clean SaaS Light) */
     --background: 210 40% 98%; /* #F8FAFC */
-    --foreground: 222 47% 11%; /* #0F172A - High Contrast Heading */
+    --foreground: 222 47% 11%; /* #0F172A */
     
-    --card: 0 0% 100%; /* #FFFFFF - Surface */
+    --card: 0 0% 100%;
     --card-foreground: 222 47% 11%;
     
     --popover: 0 0% 100%;
@@ -18,19 +18,19 @@
     --primary: 212 91% 78%; 
     --primary-foreground: 222 47% 11%; 
     
-    --secondary: 210 40% 96%; /* #F1F5F9 - Elevated */
+    --secondary: 210 40% 96%;
     --secondary-foreground: 222 47% 11%;
     
     --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%; /* #64748B */
+    --muted-foreground: 215 16% 47%;
     
-    --accent: 199 89% 60%; /* #38BDF8 */
+    --accent: 199 89% 60%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     
-    --border: 214 32% 91%; /* #E2E8F0 */
+    --border: 214 32% 91%;
     --input: 214 32% 91%;
     --ring: 212 91% 78%;
 
@@ -38,9 +38,6 @@
     --gold: 45 85% 55%;
     --burgundy: 349 89% 36%;
 
-    --chart-1: hsl(var(--primary));
-    --chart-2: hsl(var(--accent));
-    
     --bg-base: 210 40% 98%;
     --bg-surface: 0 0% 100%;
     --bg-elevated: 210 40% 96%;
@@ -49,9 +46,9 @@
   .dark {
     /* 🥈 Theme 2: DARK (Professional Corporate Dark) */
     --background: 222 47% 11%; /* #0F172A */
-    --foreground: 210 40% 98%; /* Soft White */
+    --foreground: 210 40% 98%;
     
-    --card: 217 33% 17%; /* #1E293B - Surface */
+    --card: 217 33% 17%;
     --card-foreground: 210 40% 98%;
     
     --popover: 222 47% 11%;
@@ -60,19 +57,19 @@
     --primary: 212 91% 78%; 
     --primary-foreground: 222 47% 11%; 
     
-    --secondary: 215 25% 27%; /* #334155 - Elevated */
+    --secondary: 215 25% 27%;
     --secondary-foreground: 210 40% 98%;
     
     --muted: 217 33% 20%;
-    --muted-foreground: 215 20% 65%; /* #94A3B8 */
+    --muted-foreground: 215 20% 65%;
     
-    --accent: 199 89% 60%; /* #38BDF8 */
+    --accent: 199 89% 60%;
     --accent-foreground: 222 47% 7%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     
-    --border: 215 25% 27%; /* #334155 */
+    --border: 215 25% 27%;
     --input: 215 25% 27%;
     --ring: 212 91% 78%;
     --burgundy: 349 89% 45%;
@@ -85,9 +82,9 @@
   .midnight {
     /* 🥇 Theme 1: MIDNIGHT SLATE (Signature Premium Theme) */
     --background: 222 48% 8%; /* #0B1220 */
-    --foreground: 210 40% 96%; /* #F3F4F6 */
+    --foreground: 210 40% 96%;
     
-    --card: 222 47% 11%; /* #111827 - Surface */
+    --card: 222 47% 11%;
     --card-foreground: 210 40% 96%;
     
     --popover: 222 48% 8%;
@@ -96,19 +93,19 @@
     --primary: 212 91% 78%; 
     --primary-foreground: 222 47% 11%; 
     
-    --secondary: 216 40% 15%; /* #162133 - Elevated */
+    --secondary: 216 40% 15%;
     --secondary-foreground: 210 40% 98%;
     
     --muted: 222 47% 15%;
-    --muted-foreground: 218 11% 65%; /* #9CA3AF */
+    --muted-foreground: 218 11% 65%;
     
-    --accent: 187 86% 53%; /* #22D3EE - Cyan */
+    --accent: 187 86% 53%;
     --accent-foreground: 222 47% 7%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     
-    --border: 215 28% 17%; /* #1F2937 - Overlay */
+    --border: 215 28% 17%;
     --input: 215 28% 17%;
     --ring: 212 91% 78%;
     --burgundy: 349 89% 45%;
@@ -138,10 +135,10 @@
     background-color: #f6f4ee;
   }
   .text-gold {
-    color: hsl(var(--accent));
+    color: hsl(var(--gold));
   }
   .border-gold {
-    border-color: hsl(var(--accent));
+    border-color: hsl(var(--gold));
   }
   .bg-accent-gradient {
     background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);

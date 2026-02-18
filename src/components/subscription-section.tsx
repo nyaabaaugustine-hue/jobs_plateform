@@ -49,7 +49,7 @@ export default function SubscriptionSection() {
               src={bgImage.imageUrl}
               alt="Subscription Background"
               fill
-              className="object-cover z-0 opacity-20"
+              className="object-cover z-0 opacity-40"
               data-ai-hint={bgImage.imageHint}
             />
           )}
