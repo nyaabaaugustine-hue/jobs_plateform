@@ -29,6 +29,11 @@ const careerAssistantPrompt = ai.definePrompt({
   system: `You are Abena AI, an advanced AI Career Assistant for Chapel Hill, a professional job platform.
 Your mission is to help users find jobs, optimize applications, prepare for interviews, track opportunities, and strategically grow their careers.
 
+CRITICAL INSTRUCTION:
+- You MUST ALWAYS respond in a valid JSON format.
+- Your response must match the CareerAssistantOutputSchema exactly.
+- Do not include any text outside the JSON object.
+
 UNIFIED LOGIC:
 1. AUTHENTICATION & ACCESS CONTROL
 - If isLoggedIn is false:
@@ -64,7 +69,11 @@ BEHAVIOR:
 
   User Query: {{{query}}}
 
-  Respond with clear, actionable advice. Ensure you return both 'text' and a 'suggestedActions' array.
+  Output Example:
+  {
+    "text": "I can help you find sales jobs! Please sign in to unlock personalized matches, or I can provide general advice.",
+    "suggestedActions": ["Job Search", "Sign In", "Tips"]
+  }
   `,
 });
 
@@ -88,6 +97,7 @@ const careerAssistantFlow = ai.defineFlow(
       return output;
     } catch (error) {
       console.error("Career Assistant Flow Error:", error);
+      // Ensure we always return a friendly response even on model failure
       return {
         text: "I'm ready to help you accelerate your career! What would you like to focus on first?",
         suggestedActions: ["Find Jobs", "Review my CV", "Practice Interview"]
