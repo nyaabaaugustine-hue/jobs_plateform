@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -69,7 +70,7 @@ const TestimonialCard = ({ review }: { review: Review }) => {
 export default function Testimonials() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState(5); // Start with 5 stars as requested
   const [hoverRating, setHoverRating] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -122,7 +123,7 @@ export default function Testimonials() {
     setTimeout(() => {
       setIsSubmitting(false);
       setIsOpen(false);
-      setRating(0);
+      setRating(5);
       toast({
         title: "Review Submitted!",
         description: "Thank you for your feedback. It will be live after a quick verification.",
