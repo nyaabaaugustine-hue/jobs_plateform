@@ -10,7 +10,7 @@ import MainLayoutWrapper from '@/components/shared/main-layout-wrapper';
 import { Toaster } from '@/components/ui/toaster';
 import React from 'react';
 
-// Stabilized dynamic import to fix ChunkLoadError
+// Resolved dynamic import to fix ChunkLoadError by ensuring stable chunk resolution
 const DynamicWidgetsWrapper = dynamic(() => import('@/components/shared/dynamic-widgets-wrapper'), { 
   ssr: false,
   loading: () => null

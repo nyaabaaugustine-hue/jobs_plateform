@@ -36,8 +36,7 @@ export default function ClientSideDate({
     }
   }, [dateString, formatType]);
 
-  // Use a stable span fallback during hydration to prevent mismatches.
-  // Standardizing to <span> prevents ChunkLoadError related to invalid DOM nesting.
+  // Unified span fallback to prevent hydration error (no div nesting in text blocks)
   if (!formattedDate) {
     return <span className={cn("animate-pulse bg-muted rounded inline-block min-w-[80px]", className)}>&nbsp;</span>;
   }

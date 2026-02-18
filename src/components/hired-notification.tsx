@@ -88,11 +88,11 @@ export default function HiredNotification() {
   useEffect(() => {
     if (isDashboardPage || isStopped) return;
 
-    // Set initial timer
+    // Initial trigger
     timerRef.current = setTimeout(() => {
       if (!isStopped) {
         showRandomHiredNotification();
-        // Set fixed 50s interval
+        // Fixed 50s interval per user request
         intervalRef.current = setInterval(showRandomHiredNotification, 50000);
       }
     }, 5000);
