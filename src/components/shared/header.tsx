@@ -61,7 +61,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-white/5 bg-background/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-6 lg:px-12">
         <div className="flex items-center gap-12">
           <Link href="/">
@@ -75,19 +75,21 @@ export default function Header() {
                     className={cn(
                       'text-sm font-black transition-all relative py-1 flex items-center gap-1 group font-headline uppercase tracking-widest',
                       'after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all hover:after:w-full',
-                      pathname === link.href ? 'text-[#f6f4ee]' : 'text-slate-300 hover:text-[#f6f4ee]'
+                      pathname === link.href 
+                        ? 'text-primary dark:text-[#f6f4ee]' 
+                        : 'text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-[#f6f4ee]'
                     )}
                   >
                     {link.label}
                     <ChevronDown className="h-3 w-3 opacity-50 group-hover:opacity-100 transition-opacity" />
                   </button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="start" className="w-56 bg-card/95 backdrop-blur-xl border-white/10 p-2 rounded-xl shadow-2xl">
+                <DropdownMenuContent align="start" className="w-56 bg-card/95 backdrop-blur-xl border-border p-2 rounded-xl shadow-2xl">
                   {link.subItems.map((subItem) => (
                     <DropdownMenuItem key={subItem.label} asChild>
                       <Link 
                         href={subItem.href} 
-                        className="cursor-pointer w-full text-slate-300 hover:text-[#f6f4ee] hover:bg-white/5 font-bold py-2.5 px-4 rounded-lg transition-colors text-xs uppercase tracking-wider"
+                        className="cursor-pointer w-full text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-[#f6f4ee] hover:bg-primary/5 dark:hover:bg-white/5 font-bold py-2.5 px-4 rounded-lg transition-colors text-xs uppercase tracking-wider"
                       >
                         {subItem.label}
                       </Link>
@@ -101,7 +103,7 @@ export default function Header() {
 
         <div className="flex items-center gap-4">
           <ThemeToggle />
-          <Button variant="ghost" className="text-slate-300 hover:text-[#f6f4ee] font-black uppercase tracking-widest text-[10px]" asChild>
+          <Button variant="ghost" className="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-[#f6f4ee] font-black uppercase tracking-widest text-[10px]" asChild>
             <Link href="/login">Sign In</Link>
           </Button>
           <Button className="bg-primary text-white font-black rounded-lg px-6 hover:brightness-110 transition-all uppercase tracking-widest text-[10px] h-10 shadow-lg" asChild>
