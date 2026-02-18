@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Search, MapPin, Briefcase } from 'lucide-react';
 import { Input } from '@/components/ui/input';
@@ -10,6 +10,11 @@ export default function HeroSearchForm() {
   const router = useRouter();
   const [jobTitle, setJobTitle] = useState('');
   const [location, setLocation] = useState('');
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,6 +23,10 @@ export default function HeroSearchForm() {
     if (location) query.set('loc', location);
     router.push(`/jobs?${query.toString()}`);
   };
+
+  if (!mounted) {
+    return <div className="h-16 w-full max-w-4xl mx-auto bg-white/10 rounded-xl animate-pulse" />;
+  }
 
   return (
     <div className="w-full max-w-4xl mx-auto bg-[#f6f4ee] rounded-xl p-1.5 flex flex-col sm:flex-row items-center gap-1 border border-slate-300 shadow-2xl">
@@ -46,7 +55,7 @@ export default function HeroSearchForm() {
       <Button
         onClick={handleSearch}
         size="lg"
-        className="h-12 w-full sm:w-auto bg-black text-white font-black font-headline rounded-lg px-10 hover:bg-slate-800 transition-all shadow-lg"
+        className="h-12 w-full sm:w-auto bg-primary text-white font-black font-headline rounded-lg px-10 hover:brightness-110 transition-all shadow-lg"
       >
         Find Jobs
       </Button>

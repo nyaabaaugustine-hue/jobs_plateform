@@ -6,20 +6,16 @@ import { Button } from './ui/button';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { ArrowUpRight } from 'lucide-react';
+import SectionHeader from './shared/section-header';
 
 export default function VolunteerSection() {
   return (
     <section className="relative py-24 overflow-hidden bg-background">
-      {/* Radial Glow Overlay for Midnight Theme */}
-      <div className="absolute inset-0 bg-hero-radial opacity-50 pointer-events-none" />
-      
       <div className="relative z-10 container mx-auto max-w-7xl px-6 lg:px-12">
-        <div className="text-center mb-20 animate-in fade-in slide-in-from-bottom-4 duration-1000">
-            <h2 className="font-headline text-[48px] font-black text-foreground leading-tight">Kickstart Your Career</h2>
-            <p className="mt-4 text-[18px] text-muted-foreground font-medium font-headline tracking-wide max-w-2xl mx-auto uppercase tracking-[0.1em]">
-                Elite paths for emerging talent and hands-on institutional growth.
-            </p>
-        </div>
+        <SectionHeader 
+          title="Kickstart Your Career"
+          subtitle="Explore volunteer and attachment opportunities designed for growth and hands-on experience."
+        />
         
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {DUMMY_OPPORTUNITIES.map((opportunity, index) => (
@@ -32,12 +28,11 @@ export default function VolunteerSection() {
                 className="relative h-full bg-card/40 backdrop-blur-md border border-border/50 shadow-lg group-hover:shadow-glow group-hover:ring-2 group-hover:ring-gold transition-all duration-500 hover:-translate-y-2 rounded-[2.5rem] p-8 overflow-hidden" 
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                {/* Subtle Gradient Background */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 <CardHeader className="items-center pb-2 relative z-10">
-                  <div className={cn("flex h-24 w-24 items-center justify-center rounded-[1.5rem] shadow-inner bg-primary/10 group-hover:bg-primary/20 transition-colors duration-500")}>
-                    <opportunity.icon className={cn("h-12 w-12 text-primary")} />
+                  <div className={cn("flex h-20 w-20 items-center justify-center rounded-[1.5rem] shadow-inner bg-primary/10 group-hover:bg-primary/20 transition-colors duration-500")}>
+                    <opportunity.icon className={cn("h-10 w-10 text-primary")} />
                   </div>
                 </CardHeader>
                 
@@ -58,7 +53,7 @@ export default function VolunteerSection() {
           ))}
         </div>
         
-        <div className="mt-20 text-center animate-in fade-in duration-1000 delay-500">
+        <div className="mt-20 text-center">
           <Button asChild size="lg" className="font-black px-12 shadow-2xl bg-primary hover:bg-gold hover:text-black transition-all rounded-2xl h-16 text-sm uppercase tracking-widest group">
             <Link href="/opportunities" className="flex items-center gap-3">
               View All Opportunities <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />

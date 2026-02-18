@@ -1,18 +1,23 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Mail } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { useToast } from '@/hooks/use-toast';
-import { useState } from 'react';
 
 export default function SubscriptionSection() {
     const { toast } = useToast();
     const [email, setEmail] = useState('');
+    const [mounted, setMounted] = useState(false);
     const bgImage = PlaceHolderImages.find((p) => p.id === 'african-pattern-bg');
     
+    useEffect(() => {
+        setMounted(true);
+    }, []);
+
     const handleSubscribe = (e: React.FormEvent) => {
         e.preventDefault();
         if (!email) return;
@@ -24,6 +29,8 @@ export default function SubscriptionSection() {
         });
         setEmail('');
     };
+
+    if (!mounted) return null;
 
   return (
     <section className="py-20 bg-background">
@@ -41,7 +48,7 @@ export default function SubscriptionSection() {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background/80 z-10" />
           
           <div className="relative z-20 max-w-3xl mx-auto">
-            <h2 className="font-headline text-[48px] font-black text-foreground leading-tight">
+            <h2 className="font-headline text-[40px] md:text-[48px] font-black text-foreground leading-tight">
               Get Job Alerts
             </h2>
              <p className="mt-4 text-xl font-medium text-muted-foreground">

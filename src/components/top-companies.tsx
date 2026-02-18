@@ -1,9 +1,10 @@
+'use client';
 
 import Link from 'next/link';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card } from '@/components/ui/card';
-import { MapPin } from 'lucide-react';
+import { MapPin, Building } from 'lucide-react';
 import type { Company } from '@/lib/types';
 import SectionHeader from './shared/section-header';
 import StarRating from './shared/star-rating';
@@ -33,7 +34,7 @@ export default function TopCompanies({ companies }: { companies: Company[] }) {
                         />
                     </div>
                   )}
-                  <h3 className="font-bold text-sm text-foreground mb-1">{company.name}</h3>
+                  <h3 className="font-bold text-sm text-foreground mb-1 group-hover:text-primary transition-colors">{company.name}</h3>
                   <div className="mb-2">
                     <StarRating rating={company.rating || 5} />
                   </div>

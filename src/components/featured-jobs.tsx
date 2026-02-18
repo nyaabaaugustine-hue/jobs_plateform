@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from 'react';
@@ -23,6 +22,7 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
       <div className="relative z-10 container mx-auto max-w-7xl px-6 lg:px-12">
         <SectionHeader 
           title="Featured Jobs"
+          subtitle="Explore the latest roles from top-tier tech companies."
         />
 
         <div className="mb-12 flex justify-center flex-wrap gap-2 max-w-5xl mx-auto">
