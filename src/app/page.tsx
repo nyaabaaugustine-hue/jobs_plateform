@@ -1,6 +1,6 @@
 'use client';
 
-import { DUMMY_JOBS, DUMMY_COMPANIES, DUMMY_LOCATIONS, JOB_CATEGORIES } from '@/lib/data';
+import { DUMMY_JOBS, DUMMY_COMPANIES, DUMMY_LOCATIONS, JOB_CATEGORIES, DUMMY_USERS } from '@/lib/data';
 import HeroSearchForm from '@/components/hero-search-form';
 import TopCompanies from '@/components/top-companies';
 import FeaturedJobs from '@/components/featured-jobs';
@@ -26,13 +26,35 @@ export default function HomePage() {
       id: '1',
       slug: 'mastering-react-hooks',
       title: 'Mastering React Hooks: A Deep Dive',
-      excerpt: 'Learn how to leverage React Hooks to write cleaner code.',
-      content: '',
+      excerpt: 'Learn how to leverage React Hooks to write cleaner, more efficient code in your Next.js applications.',
+      content: '<p>React Hooks are essential for modern web development. From state management to side effects, we cover the core concepts every developer should master.</p>',
       image: 'blog-post-2',
       date: '2024-07-15T12:00:00Z',
-      author: { id: '1', name: 'Ama Mensah', avatar: 'avatar-1', role: 'jobSeeker' },
+      author: DUMMY_USERS[0],
       status: 'Published' as const,
     },
+    {
+      id: '2',
+      slug: 'career-growth-tips',
+      title: 'Accelerate Your Career in 2024',
+      excerpt: 'Strategic advice for professionals looking to make their next big move in the tech industry.',
+      content: '',
+      image: 'blog-post-1',
+      date: '2024-07-18T10:00:00Z',
+      author: DUMMY_USERS[1],
+      status: 'Published' as const,
+    },
+    {
+      id: '3',
+      slug: 'remote-work-culture',
+      title: 'Thriving in a Remote-First World',
+      excerpt: 'Best practices for staying productive and maintaining a healthy work-life balance while working from home.',
+      content: '',
+      image: 'blog-post-6',
+      date: '2024-07-20T09:00:00Z',
+      author: DUMMY_USERS[2],
+      status: 'Published' as const,
+    }
   ];
 
   const heroImage = PlaceHolderImages.find(p => p.id === 'hero-main');
