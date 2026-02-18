@@ -73,9 +73,9 @@ export default function Header() {
                 <DropdownMenuTrigger asChild>
                   <button
                     className={cn(
-                      'text-sm font-medium transition-all relative py-1 flex items-center gap-1 group',
-                      'after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-primary after:transition-all hover:after:w-full',
-                      pathname === link.href ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
+                      'text-sm font-bold transition-all relative py-1 flex items-center gap-1 group font-headline uppercase tracking-wide',
+                      'after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all hover:after:w-full',
+                      pathname === link.href ? 'text-[#f6f4ee]' : 'text-slate-400 hover:text-[#f6f4ee]'
                     )}
                   >
                     {link.label}
@@ -85,7 +85,7 @@ export default function Header() {
                 <DropdownMenuContent align="start" className="w-48 bg-card border-white/10">
                   {link.subItems.map((subItem) => (
                     <DropdownMenuItem key={subItem.label} asChild>
-                      <Link href={subItem.href} className="cursor-pointer w-full">
+                      <Link href={subItem.href} className="cursor-pointer w-full text-slate-300 hover:text-[#f6f4ee] font-medium">
                         {subItem.label}
                       </Link>
                     </DropdownMenuItem>
@@ -98,10 +98,10 @@ export default function Header() {
 
         <div className="flex items-center gap-4">
           <ThemeToggle />
-          <Button variant="ghost" className="text-muted-foreground hover:text-foreground font-medium" asChild>
+          <Button variant="ghost" className="text-slate-400 hover:text-[#f6f4ee] font-bold uppercase tracking-wider text-xs" asChild>
             <Link href="/login">Sign In</Link>
           </Button>
-          <Button className="bg-primary text-white font-bold rounded-lg px-6 hover:brightness-110 transition-all" asChild>
+          <Button className="bg-primary text-white font-black rounded-lg px-6 hover:brightness-110 transition-all uppercase tracking-widest text-xs" asChild>
             <Link href="/register">Get Started</Link>
           </Button>
         </div>
