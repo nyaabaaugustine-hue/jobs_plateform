@@ -12,7 +12,7 @@ import { Badge } from './ui/badge';
 export default function TopCompanies({ companies }: { companies: Company[] }) {
   return (
     <section className="relative py-20 bg-[#F6F4EE] overflow-hidden">
-      <div className="relative z-10 container mx-auto max-w-7xl px-6 lg:px-12">
+      <div className="relative z-10 container mx-auto max-w-7xl px-6 lg:px-12 opacity-70">
         <SectionHeader 
           title="Top Companies Hiring" 
           subtitle="Direct partnerships with world-class engineering teams."
