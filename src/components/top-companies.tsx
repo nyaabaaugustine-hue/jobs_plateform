@@ -10,24 +10,13 @@ import StarRating from './shared/star-rating';
 import { Badge } from './ui/badge';
 
 export default function TopCompanies({ companies }: { companies: Company[] }) {
-  const bgImage = PlaceHolderImages.find((p) => p.id === 'top-companies-bg');
-
   return (
-    <section className="relative py-20 bg-background overflow-hidden">
-      {bgImage && (
-        <Image
-          src={bgImage.imageUrl}
-          alt=""
-          fill
-          className="object-cover opacity-[0.15] z-0"
-          data-ai-hint={bgImage.imageHint}
-        />
-      )}
+    <section className="relative py-20 bg-[#F6F4EE] overflow-hidden">
       <div className="relative z-10 container mx-auto max-w-7xl px-6 lg:px-12">
         <SectionHeader 
           title="Top Companies Hiring" 
           subtitle="Direct partnerships with world-class engineering teams."
-          silver
+          dark
         />
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
           {companies.map((company) => {
