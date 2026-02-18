@@ -1,3 +1,4 @@
+
 'use client';
 
 import {
@@ -41,7 +42,7 @@ import {
     const faqImage = PlaceHolderImages.find((p) => p.id === 'contact-form-bg');
   
     return (
-      <section className="py-20 bg-background relative">
+      <section className="py-20 bg-background relative" id="faq">
         <div className="container mx-auto max-w-7xl px-6 lg:px-12 relative z-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Image Column */}
