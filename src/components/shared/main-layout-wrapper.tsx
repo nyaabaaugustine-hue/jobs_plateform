@@ -18,6 +18,13 @@ export default function MainLayoutWrapper({
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  // Always start page from top/hero section on every navigation
+  useEffect(() => {
+    if (mounted) {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    }
+  }, [pathname, mounted]);
   
   const isDashboardPage =
     pathname.startsWith('/admin') ||
