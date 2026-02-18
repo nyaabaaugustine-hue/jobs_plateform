@@ -46,7 +46,7 @@ export default function BlogPage() {
       <div className="bg-secondary/30 border-y border-border/50 py-4">
         <div className="container mx-auto max-w-7xl px-6 lg:px-12 flex flex-wrap items-center justify-between gap-4">
             <div className="flex items-center gap-6 text-sm font-black font-headline uppercase tracking-widest text-muted-foreground">
-                <span className="flex items-center gap-2 text-primary"><TrendingUp className="h-4 w-4" /> Trending Topics:</span>
+                <span className="flex items-center gap-2 text-gold"><TrendingUp className="h-4 w-4" /> Trending Topics:</span>
                 <span className="hover:text-foreground cursor-pointer transition-colors">Server Components</span>
                 <span className="hover:text-foreground cursor-pointer transition-colors">AI Agents</span>
                 <span className="hover:text-foreground cursor-pointer transition-colors">Career Pivot</span>
@@ -69,7 +69,7 @@ export default function BlogPage() {
           {/* Featured Post - Innovative Design */}
           {featuredPost && (
             <section className="mb-20">
-                <div className="relative group overflow-hidden rounded-[2.5rem] bg-[#151C2B] border border-white/5 shadow-2xl transition-all duration-500 hover:border-primary/20">
+                <div className="relative group overflow-hidden rounded-[2.5rem] bg-[#151C2B] border border-white/5 shadow-2xl transition-all duration-500 hover:border-gold/20">
                     <div className="grid grid-cols-1 lg:grid-cols-2">
                         <div className="relative aspect-video lg:aspect-auto overflow-hidden">
                             {featuredImage && (
@@ -83,20 +83,20 @@ export default function BlogPage() {
                             )}
                             <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
                             <div className="absolute top-8 left-8">
-                                <span className="bg-primary px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-white flex items-center gap-2 shadow-xl">
+                                <span className="bg-gold px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-black flex items-center gap-2 shadow-xl">
                                     <Sparkles className="h-3 w-3" /> Featured Post
                                 </span>
                             </div>
                         </div>
                         <div className="p-10 lg:p-16 flex flex-col justify-center space-y-6">
-                            <h2 className="text-3xl lg:text-5xl font-black font-headline text-white !leading-tight tracking-tight hover:text-primary transition-colors">
+                            <h2 className="text-3xl lg:text-5xl font-black font-headline text-white !leading-tight tracking-tight hover:text-gold transition-colors">
                                 <Link href={`/blog/${featuredPost.slug}`}>{featuredPost.title}</Link>
                             </h2>
-                            <p className="text-lg text-white/70 font-medium leading-relaxed">
+                            <p className="text-white/70 font-medium leading-relaxed">
                                 {featuredPost.excerpt}
                             </p>
                             <div className="flex items-center gap-4 pt-4 border-t border-white/10">
-                                <Avatar className="h-12 w-12 border-2 border-primary/30">
+                                <Avatar className="h-12 w-12 border-2 border-gold/30">
                                     {authorAvatar && <AvatarImage src={authorAvatar.imageUrl} />}
                                     <AvatarFallback>{featuredPost.author.name[0]}</AvatarFallback>
                                 </Avatar>
@@ -127,7 +127,7 @@ export default function BlogPage() {
                             className={cn(
                                 "px-6 py-2 rounded-xl text-sm font-bold transition-all border",
                                 selectedCategory === cat
-                                    ? "bg-primary text-white border-primary shadow-xl scale-105"
+                                    ? "bg-gold text-black border-gold shadow-xl scale-105"
                                     : "bg-white/5 text-muted-foreground border-white/10 hover:bg-white/10"
                             )}
                         >
@@ -136,7 +136,7 @@ export default function BlogPage() {
                     ))}
                 </div>
                 <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-muted-foreground bg-secondary/50 px-4 py-2 rounded-lg border border-border/50">
-                    <Lightbulb className="h-3 w-3 text-primary" /> {filteredPosts.length + (selectedCategory === 'All' ? 1 : 0)} Innovation Insights
+                    <Lightbulb className="h-3 w-3 text-gold" /> {filteredPosts.length + (selectedCategory === 'All' ? 1 : 0)} Innovation Insights
                 </div>
             </div>
 
@@ -151,7 +151,7 @@ export default function BlogPage() {
             {filteredPosts.length === 0 && selectedCategory !== 'All' && (
                 <div className="text-center py-20 bg-secondary/20 rounded-[2rem] border border-dashed border-border/50">
                     <p className="text-muted-foreground font-bold font-headline text-xl">No articles found in this category.</p>
-                    <Button variant="link" onClick={() => setSelectedCategory('All')} className="mt-2 text-primary">View all insights</Button>
+                    <Button variant="link" onClick={() => setSelectedCategory('All')} className="mt-2 text-gold">View all insights</Button>
                 </div>
             )}
           </section>

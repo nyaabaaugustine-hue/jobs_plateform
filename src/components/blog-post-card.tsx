@@ -34,7 +34,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
         </Link>
       <CardContent className="p-6 flex flex-col flex-grow space-y-4">
         <div className="flex items-center gap-2">
-            <span className="bg-primary/10 text-primary text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-md border border-primary/20">
+            <span className="bg-gold/10 text-gold text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-md border border-gold/20">
                 Innovation
             </span>
             <span className="flex items-center gap-1.5 text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
@@ -43,7 +43,7 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
         </div>
         
         <Link href={`/blog/${post.slug}`}>
-          <h3 className="font-headline text-xl font-bold text-white leading-tight group-hover:text-primary transition-colors">
+          <h3 className="font-headline text-xl font-bold text-white leading-tight group-hover:text-gold transition-colors">
             {post.title}
           </h3>
         </Link>
@@ -54,17 +54,17 @@ export default function BlogPostCard({ post }: BlogPostCardProps) {
         
         <div className="pt-6 border-t border-white/5 flex items-center justify-between">
            <div className="flex items-center gap-3">
-              <Avatar className="h-9 w-9 border border-white/10 ring-2 ring-primary/20">
+              <Avatar className="h-9 w-9 border border-white/10 ring-2 ring-gold/20">
                 {authorAvatar && <AvatarImage src={authorAvatar.imageUrl} alt={post.author.name} />}
-                <AvatarFallback className="bg-secondary text-primary font-bold">{post.author.name?.charAt(0)}</AvatarFallback>
+                <AvatarFallback className="bg-secondary text-gold font-bold">{post.author.name?.charAt(0)}</AvatarFallback>
               </Avatar>
               <div>
                 <p className="text-xs font-bold text-white">{post.author.name}</p>
                 <ClientSideDate dateString={post.date} formatType="long" className="text-[10px] text-white/40 uppercase font-black tracking-tighter" />
               </div>
             </div>
-            <div className="h-8 w-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-primary group-hover:border-primary transition-all">
-                <User className="h-4 w-4 text-white/40 group-hover:text-white" />
+            <div className="h-8 w-8 rounded-full bg-white/5 flex items-center justify-center border border-white/10 group-hover:bg-gold group-hover:border-gold transition-all">
+                <User className="h-4 w-4 text-white/40 group-hover:text-black" />
             </div>
         </div>
       </CardContent>
