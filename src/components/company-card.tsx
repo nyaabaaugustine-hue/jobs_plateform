@@ -1,4 +1,3 @@
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { Building, MapPin, Briefcase } from 'lucide-react';
@@ -50,8 +49,8 @@ export default function CompanyCard({ company }: CompanyCardProps) {
             </div>
         </CardContent>
       <CardFooter className="flex-col items-start gap-4 border-t bg-secondary/50 p-4">
-        <Badge variant="secondary" className="bg-burgundy/10 text-burgundy border-none font-semibold w-full justify-center">
-           <Briefcase className="mr-2 h-4 w-4 text-burgundy" /> {company.activeJobs} Open Positions
+        <Badge variant="secondary" className="bg-primary/10 text-primary border-none font-semibold w-full justify-center">
+           <Briefcase className="mr-2 h-4 w-4 text-primary" /> {company.activeJobs} Open Positions
         </Badge>
         <Button asChild variant="outline" className="w-full">
           <Link href={`/companies/${company.id}`}>
