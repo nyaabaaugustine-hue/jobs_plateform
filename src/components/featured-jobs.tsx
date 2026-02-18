@@ -1,7 +1,7 @@
-
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import type { Job } from '@/lib/types';
 import JobCard from './job-card';
 import { Button } from './ui/button';
@@ -9,9 +9,11 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import SectionHeader from './shared/section-header';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], categories: string[] }) {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const bgImage = PlaceHolderImages.find((p) => p.id === 'featured-jobs-bg');
 
   const featuredJobs = jobs.filter(job => {
     if (selectedCategory === 'All') return true;
@@ -19,8 +21,17 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
   }).slice(0, 9);
 
   return (
-    <section className="relative py-20 bg-background">
-      <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
+    <section className="relative py-20 bg-background overflow-hidden">
+      {bgImage && (
+        <Image
+          src={bgImage.imageUrl}
+          alt=""
+          fill
+          className="object-cover opacity-25 z-0"
+          data-ai-hint={bgImage.imageHint}
+        />
+      )}
+      <div className="relative z-10 container mx-auto max-w-7xl px-6 lg:px-12">
         <SectionHeader 
           title="Featured Jobs"
         />
@@ -35,7 +46,7 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
                         "hover:scale-105 hover:shadow-xl hover:shadow-primary/10",
                         selectedCategory === category
                             ? "bg-primary text-primary-foreground border-primary shadow-xl scale-105"
-                            : "bg-secondary text-muted-foreground hover:bg-secondary/80 border-border"
+                            : "bg-secondary/80 backdrop-blur-sm text-muted-foreground hover:bg-secondary border-border"
                     )}
                 >
                     {category}
@@ -52,7 +63,7 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
         </div>
         
         <div className="mt-16 text-center">
-          <Button asChild size="lg" variant="outline" className="rounded-xl border-border text-foreground hover:bg-secondary font-black px-12 h-14 text-sm group transition-all">
+          <Button asChild size="lg" variant="outline" className="rounded-xl border-border text-foreground bg-background/50 backdrop-blur-sm hover:bg-secondary font-black px-12 h-14 text-sm group transition-all">
             <Link href="/jobs" className="flex items-center gap-3">
               View All Jobs <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>

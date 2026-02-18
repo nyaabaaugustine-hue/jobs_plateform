@@ -9,9 +9,20 @@ import StarRating from './shared/star-rating';
 import { Badge } from './ui/badge';
 
 export default function TopCompanies({ companies }: { companies: Company[] }) {
+  const bgImage = PlaceHolderImages.find((p) => p.id === 'top-companies-bg');
+
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+    <section className="relative py-20 bg-background overflow-hidden">
+      {bgImage && (
+        <Image
+          src={bgImage.imageUrl}
+          alt=""
+          fill
+          className="object-cover opacity-25 z-0"
+          data-ai-hint={bgImage.imageHint}
+        />
+      )}
+      <div className="relative z-10 container mx-auto max-w-7xl px-6 lg:px-12">
         <SectionHeader 
           title="Top Companies Hiring" 
           subtitle="Direct partnerships with world-class engineering teams."
@@ -21,7 +32,7 @@ export default function TopCompanies({ companies }: { companies: Company[] }) {
             const companyLogo = PlaceHolderImages.find((img) => img.id === company.logo);
             return (
               <Link key={company.id} href={`/companies/${company.id}`} className="block group">
-                <Card className="h-full p-6 text-center border border-border/50 bg-card hover:bg-secondary/50 transition-all rounded-2xl flex flex-col items-center justify-center shadow-sm hover:shadow-lg">
+                <Card className="h-full p-6 text-center border border-border/50 bg-card/80 backdrop-blur-sm hover:bg-secondary/50 transition-all rounded-2xl flex flex-col items-center justify-center shadow-sm hover:shadow-lg">
                   {companyLogo && (
                     <div className="relative mb-4 h-16 w-16">
                         <Image

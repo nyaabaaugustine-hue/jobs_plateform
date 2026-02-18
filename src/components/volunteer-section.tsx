@@ -1,16 +1,29 @@
 'use client';
 
+import Image from 'next/image';
 import { DUMMY_OPPORTUNITIES } from '@/lib/data';
 import SectionHeader from './shared/section-header';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function VolunteerSection() {
+  const bgImage = PlaceHolderImages.find((p) => p.id === 'pricing-enterprise');
+
   return (
     <section className="relative py-20 overflow-hidden bg-background">
-      <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
+      {bgImage && (
+        <Image
+          src={bgImage.imageUrl}
+          alt=""
+          fill
+          className="object-cover opacity-25 z-0"
+          data-ai-hint={bgImage.imageHint}
+        />
+      )}
+      <div className="relative z-10 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="text-center mb-16">
             <h2 className="font-headline text-[48px] font-black text-foreground leading-tight">Kickstart Your Career</h2>
             <p className="mt-4 text-[18px] text-muted-foreground font-medium font-headline tracking-wide max-w-2xl mx-auto">
@@ -22,7 +35,7 @@ export default function VolunteerSection() {
           {DUMMY_OPPORTUNITIES.map((opportunity, index) => (
             <Card 
               key={index} 
-              className="text-center bg-card border border-border/50 shadow-2xl hover:shadow-primary/5 transition-all hover:-translate-y-1 rounded-2xl p-6" 
+              className="text-center bg-card/80 backdrop-blur-sm border border-border/50 shadow-2xl hover:shadow-primary/5 transition-all hover:-translate-y-1 rounded-2xl p-6" 
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardHeader className="items-center pb-2">

@@ -1,9 +1,11 @@
 'use client';
 
+import Image from 'next/image';
 import { Shield, Zap, BrainCircuit } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import SectionHeader from './shared/section-header';
 import { cn } from '@/lib/utils';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const features = [
   {
@@ -30,13 +32,24 @@ const features = [
 ];
 
 export default function WhyChooseUs() {
+  const bgImage = PlaceHolderImages.find((p) => p.id === 'category-bg');
+
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+    <section className="relative py-20 bg-background overflow-hidden">
+      {bgImage && (
+        <Image
+          src={bgImage.imageUrl}
+          alt=""
+          fill
+          className="object-cover opacity-25 z-0"
+          data-ai-hint={bgImage.imageHint}
+        />
+      )}
+      <div className="relative z-10 container mx-auto max-w-7xl px-6 lg:px-12">
         <SectionHeader title="Why Chapel Hill?" />
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {features.map((feature, index) => (
-            <Card key={index} className="bg-card border border-border/50 p-10 rounded-2xl shadow-lg text-center hover:scale-[1.02] transition-transform duration-300">
+            <Card key={index} className="bg-card/80 backdrop-blur-sm border border-border/50 p-10 rounded-2xl shadow-lg text-center hover:scale-[1.02] transition-transform duration-300">
               <CardHeader className="items-center pb-6">
                 <div className={cn("flex h-16 w-16 items-center justify-center rounded-2xl border border-border/50", feature.iconBg)}>
                   <feature.icon className={cn("h-8 w-8", feature.iconColor)} />
