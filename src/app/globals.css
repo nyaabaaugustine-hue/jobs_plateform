@@ -41,6 +41,13 @@
     --bg-base: 210 40% 98%;
     --bg-surface: 0 0% 100%;
     --bg-elevated: 210 40% 96%;
+
+    /* Chart colors */
+    --chart-1: hsl(var(--primary));
+    --chart-2: hsl(var(--accent));
+    --chart-3: 180 50% 45%; 
+    --chart-4: 260 50% 60%;
+    --chart-5: 15 80% 55%;
   }
 
   .dark {
@@ -124,7 +131,7 @@
   }
   
   h1, h2, h3, h4 {
-    @apply tracking-tight font-headline;
+    @apply tracking-tight font-headline text-foreground;
     line-height: 1.1;
   }
 }
