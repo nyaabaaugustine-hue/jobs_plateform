@@ -16,13 +16,13 @@ export default function HiringSection() {
 
   return (
     <section className="relative py-24 lg:py-32 overflow-hidden bg-background">
-      {/* 93% Opacity Background Image */}
+      {/* Very Low Image Opacity (10%) for Background Image */}
       {bgImage && (
         <Image
           src={bgImage.imageUrl}
           alt={bgImage.description}
           fill
-          className="object-cover z-0 opacity-[0.93]"
+          className="object-cover z-0 opacity-10"
           data-ai-hint={bgImage.imageHint}
           priority
         />

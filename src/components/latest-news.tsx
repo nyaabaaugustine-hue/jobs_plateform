@@ -17,7 +17,7 @@ export default function LatestNews({ posts }: { posts: BlogPost[] }) {
           src={bgImage.imageUrl}
           alt={bgImage.description}
           fill
-          className="object-cover z-0 opacity-[0.93]"
+          className="object-cover z-0 opacity-10"
           data-ai-hint={bgImage.imageHint}
         />
       )}

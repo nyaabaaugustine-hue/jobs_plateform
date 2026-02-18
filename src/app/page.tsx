@@ -24,14 +24,14 @@ export default function HomePage() {
   
   return (
     <main className="flex-1 bg-background">
-      {/* Hero Section - 93% Opacity */}
+      {/* Hero Section - Very Low Image Opacity (10%) */}
       <section className="relative w-full h-[700px] flex items-center justify-center text-center overflow-hidden">
         {heroImage && (
             <Image
               src={heroImage.imageUrl}
               alt={heroImage.description}
               fill
-              className="object-cover z-0 opacity-[0.93]"
+              className="object-cover z-0 opacity-10"
               data-ai-hint={heroImage.imageHint}
               priority
               sizes="100vw"

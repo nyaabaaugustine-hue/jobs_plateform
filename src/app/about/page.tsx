@@ -1,4 +1,3 @@
-
 'use client';
 
 import PageHero from '@/components/shared/page-hero';
@@ -112,7 +111,7 @@ export default function AboutPage() {
                     src={categoryBgImage.imageUrl}
                     alt={categoryBgImage.description}
                     fill
-                    className="object-cover z-0"
+                    className="object-cover z-0 opacity-10"
                     data-ai-hint={categoryBgImage.imageHint}
                 />
             )}
