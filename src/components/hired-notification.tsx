@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState, useCallback } from 'react';
-import { useToast } from '@/hooks/use-toast';
+import { useToast, dismiss } from '@/hooks/use-toast';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { PartyPopper, Sparkles } from 'lucide-react';
@@ -34,8 +34,11 @@ export default function HiredNotification() {
 
   const stopNotifications = useCallback(() => {
     setIsStopped(true);
+    // 1. Immediately clear timers
     if (intervalRef.current) clearInterval(intervalRef.current);
     if (timerRef.current) clearTimeout(timerRef.current);
+    // 2. Remove any active toast immediately
+    dismiss();
   }, []);
 
   const showRandomHiredNotification = useCallback(() => {
@@ -70,11 +73,12 @@ export default function HiredNotification() {
       action: (
         <ToastAction
           altText="Stop alerts"
+          variant="black"
           onClick={(e) => {
             e.preventDefault();
             stopNotifications();
           }}
-          className="text-xs h-7 ml-4 font-black font-headline"
+          className="text-xs h-7 ml-4 font-black font-headline border-white/30 text-white hover:bg-white/10"
         >
           Stop
         </ToastAction>
@@ -88,9 +92,11 @@ export default function HiredNotification() {
 
     // Start running after a short initial delay to allow hydration
     timerRef.current = setTimeout(() => {
-      showRandomHiredNotification();
-      // Set interval to 50 seconds as requested
-      intervalRef.current = setInterval(showRandomHiredNotification, 50000);
+      if (!isStopped) {
+        showRandomHiredNotification();
+        // Set interval to 50 seconds
+        intervalRef.current = setInterval(showRandomHiredNotification, 50000);
+      }
     }, 5000);
 
     return () => {
