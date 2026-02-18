@@ -31,7 +31,7 @@ const features = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="py-16 bg-[#0B0F17]">
+    <section className="py-20 bg-[#0B0F17]">
       <div className="container mx-auto max-w-7xl px-6 lg:px-12">
         <SectionHeader title="Why Chapel Hill?" />
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">

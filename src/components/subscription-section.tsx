@@ -26,7 +26,7 @@ export default function SubscriptionSection() {
     };
 
   return (
-    <section className="py-16 bg-[#0B0F17]">
+    <section className="py-20 bg-[#0B0F17]">
       <div className="container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="relative rounded-[3rem] bg-[#151C2B] p-12 md:p-16 text-center overflow-hidden border border-white/5 shadow-2xl">
           {bgImage && (

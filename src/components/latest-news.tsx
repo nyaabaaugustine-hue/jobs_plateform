@@ -9,7 +9,7 @@ export default function LatestNews({ posts }: { posts: BlogPost[] }) {
   const displayPosts = posts.slice(0, 3);
 
   return (
-    <section className="relative py-16 bg-[#0B0F17]">
+    <section className="relative py-20 bg-[#0B0F17]">
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-12 text-center">
           <h2 className="font-headline text-[48px] font-black text-white leading-tight">Our News and Stories</h2>

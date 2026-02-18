@@ -132,7 +132,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="py-16 bg-[#0B0F17] overflow-hidden">
+    <section className="py-20 bg-[#0B0F17] overflow-hidden">
       <div className="container mx-auto max-w-7xl px-6 lg:px-12 mb-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <h2 className="font-headline text-[48px] font-black text-white leading-tight">What Our Users Say</h2>

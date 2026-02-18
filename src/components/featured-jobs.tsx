@@ -18,7 +18,7 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
   }).slice(0, 9);
 
   return (
-    <section className="relative py-16 bg-[#0B0F17]">
+    <section className="relative py-20 bg-[#0B0F17]">
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <SectionHeader 
           title="Featured Jobs"
