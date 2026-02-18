@@ -80,7 +80,7 @@ const careerAssistantFlow = ai.defineFlow(
       console.error("Career Assistant Flow Error:", error);
       return {
         text: "I'm ready to dive into your career strategy. We can start with a Smart Job Match or a Career Roadmap—which sounds better to you?",
-        suggestedActions: ["Smart Job Match", "Career Roadmap", "WhatsApp Chat"]
+        suggestedActions: ["Smart Job Match", "Career Roadmap"]
       };
     }
   }

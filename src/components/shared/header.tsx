@@ -53,7 +53,7 @@ export default function Header() {
       href: '/blog',
       subItems: [
         { label: 'News & Blog', href: '/blog' },
-        { label: 'Careers', href: '/careers' },
+        { label: 'Careers', href: '/about' },
         { label: 'Homepage Features', href: '/features' },
         { label: 'API Status', href: '/admin/api-status' },
       ]
