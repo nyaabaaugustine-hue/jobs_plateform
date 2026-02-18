@@ -1,3 +1,4 @@
+
 import { DUMMY_COMPANIES } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
@@ -5,7 +6,7 @@ import Link from 'next/link';
 import SectionHeader from './shared/section-header';
 
 export default function OurPartners() {
-  const partners = DUMMY_COMPANIES.slice(0, 12); // Use first 12 companies as partners
+  const partners = DUMMY_COMPANIES.slice(0, 12); 
   const firstRow = partners.slice(0, 6);
   const secondRow = partners.slice(6, 12);
   const bgImage = PlaceHolderImages.find((p) => p.id === 'hero-main');

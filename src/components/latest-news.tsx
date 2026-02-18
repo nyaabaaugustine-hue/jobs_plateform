@@ -1,3 +1,4 @@
+
 'use client';
 
 import type { BlogPost } from '@/lib/types';
@@ -35,7 +36,7 @@ export default function LatestNews({ posts }: { posts: BlogPost[] }) {
             ))}
         </div>
         <div className="mt-12 text-center animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '500ms' }}>
-            <Button asChild size="lg" variant="outline">
+            <Button asChild size="lg" variant="outline" className="border-2 border-black font-black">
                 <Link href="/blog">
                     Show More
                 </Link>

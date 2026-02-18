@@ -1,3 +1,4 @@
+
 'use client';
 
 import { DUMMY_OPPORTUNITIES } from '@/lib/data';
@@ -24,8 +25,8 @@ export default function VolunteerSection() {
             data-ai-hint={bgImage.imageHint}
             priority
           />
-          {/* Half transparent shining milky white background */}
-          <div className="absolute inset-0 z-10" style={{ backgroundColor: 'hsla(210, 10%, 98%, 0.5)' }} />
+          {/* Luminous Shining Milky White overlay */}
+          <div className="absolute inset-0 z-10 bg-background/70" />
         </>
       )}
 
@@ -55,7 +56,7 @@ export default function VolunteerSection() {
           ))}
         </div>
         <div className="mt-16 text-center animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '500ms' }}>
-          <Button asChild size="lg" variant="outline" className="font-bold px-10 shadow-lg scale-110 border-gold text-gold hover:bg-gold/10 hover:text-gold transition-all duration-300">
+          <Button asChild size="lg" variant="outline" className="font-bold px-10 shadow-lg scale-110 border-2 border-black text-black hover:bg-black hover:text-white transition-all duration-300">
             <Link href="/opportunities">Explore Opportunities</Link>
           </Button>
         </div>

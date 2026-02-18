@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
@@ -34,7 +35,7 @@ export default function HiredNotification() {
       clearInterval(intervalRef.current);
       intervalRef.current = null;
     }
-    dismiss(); // Clear all active toasts immediately
+    dismiss(); 
   };
 
   useEffect(() => {

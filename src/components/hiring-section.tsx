@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from './ui/button';
@@ -69,7 +70,6 @@ export default function HiringSection() {
                 </div>
             </div>
             
-            {/* LARGE ORIGINAL IMPACT IMAGE RETAINED */}
             <div className="relative flex items-center justify-center animate-in fade-in slide-in-from-right duration-1000">
                 {hiringImage && (
                   <div className="relative group w-full max-w-[600px]">

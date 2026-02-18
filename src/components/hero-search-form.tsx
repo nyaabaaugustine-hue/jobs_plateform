@@ -1,10 +1,10 @@
+
 'use client';
 
 import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { Briefcase, MapPin } from 'lucide-react';
+import { Search, MapPin } from 'lucide-react';
 import { Input } from '@/components/ui/input';
-import { Separator } from '@/components/ui/separator';
 import { Button } from '@/components/ui/button';
 
 export default function HeroSearchForm() {
@@ -22,38 +22,39 @@ export default function HeroSearchForm() {
   };
 
   return (
-    <div className="rounded-2xl bg-black/30 p-2 border border-white/20 backdrop-blur-lg shadow-2xl shadow-black/30">
+    <div className="w-full">
       <form 
         onSubmit={handleSearch} 
-        className="flex items-center flex-col sm:flex-row gap-2"
+        className="flex flex-col sm:flex-row gap-4 w-full items-stretch"
       >
-        <div className="flex w-full items-center">
-          <Briefcase className="h-5 w-5 text-white/90 mx-3" />
+        <div className="flex-1 relative group">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-black z-10 transition-transform group-focus-within:scale-110" />
           <Input
             id="job-title"
             type="search"
             placeholder="Job title, keyword"
-            className="border-none focus-visible:ring-0 text-base h-12 bg-transparent text-white placeholder:text-white/70"
+            className="h-14 w-full bg-transparent border-2 border-black rounded-xl pl-12 pr-4 text-black font-bold text-lg placeholder:text-black/60 focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-black transition-all"
             value={jobTitle}
             onChange={(e) => setJobTitle(e.target.value)}
           />
         </div>
-        <Separator orientation="vertical" className="h-8 hidden sm:block bg-white/20" />
-        <div className="flex w-full items-center">
-          <MapPin className="h-5 w-5 text-white/90 mx-3" />
+        
+        <div className="flex-1 relative group">
+          <MapPin className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-black z-10 transition-transform group-focus-within:scale-110" />
           <Input
             id="location"
             type="search"
             placeholder="City or zip code"
-            className="border-none focus-visible:ring-0 text-base h-12 bg-transparent text-white placeholder:text-white/70"
+            className="h-14 w-full bg-transparent border-2 border-black rounded-xl pl-12 pr-4 text-black font-bold text-lg placeholder:text-black/60 focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-black transition-all"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
           />
         </div>
+
         <Button
           type="submit"
           size="lg"
-          className="bg-accent-gradient font-semibold text-base w-full sm:w-auto h-12 rounded-xl"
+          className="h-14 bg-transparent border-2 border-black text-black font-black text-base uppercase tracking-widest rounded-xl px-10 hover:bg-black hover:text-white transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
         >
           Find Jobs
         </Button>

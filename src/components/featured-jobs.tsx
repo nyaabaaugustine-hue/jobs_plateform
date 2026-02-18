@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -68,7 +69,7 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
         )}
 
         <div className="mt-10 text-center animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '500ms' }}>
-          <Button asChild variant="outline" size="lg">
+          <Button asChild variant="outline" size="lg" className="border-2 border-black font-black">
             <Link href="/jobs">
               View All Jobs <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
