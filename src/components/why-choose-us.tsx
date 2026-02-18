@@ -1,4 +1,3 @@
-
 'use client';
 
 import Image from 'next/image';
@@ -50,7 +49,7 @@ export default function WhyChooseUs() {
         <SectionHeader title="Why Chapel Hill?" />
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {features.map((feature, index) => (
-            <Card key={index} className="bg-card/80 backdrop-blur-sm border border-border/50 p-10 rounded-2xl shadow-lg text-center hover:scale-[1.02] transition-transform duration-300">
+            <Card key={index} className="bg-card/80 backdrop-blur-sm border-none ring-2 ring-primary p-10 rounded-2xl shadow-lg text-center hover:scale-[1.02] transition-transform duration-300">
               <CardHeader className="items-center pb-6">
                 <div className={cn("flex h-16 w-16 items-center justify-center rounded-2xl border border-border/50", feature.iconBg)}>
                   <feature.icon className={cn("h-8 w-8", feature.iconColor)} />

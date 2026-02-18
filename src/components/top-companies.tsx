@@ -43,7 +43,7 @@ export default function TopCompanies({ companies }: { companies: Company[] }) {
                     <span>{company.location}</span>
                   </div>
                   <div className="mt-4">
-                    <Badge variant="secondary" className="bg-primary/10 text-primary-foreground border-none text-[10px] font-black uppercase">
+                    <Badge variant="secondary" className="bg-gold/10 text-gold border-gold/20 text-[10px] font-black uppercase tracking-wider">
                       {company.activeJobs || 0} Openings
                     </Badge>
                   </div>
