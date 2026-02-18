@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -31,6 +32,7 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
                     onClick={() => setSelectedCategory(category)}
                     className={cn(
                         "rounded-full px-4 h-9 text-[11px] font-bold tracking-tight transition-all duration-300 border shadow-sm",
+                        "hover:scale-105 hover:shadow-xl hover:shadow-primary/10",
                         selectedCategory === category
                             ? "bg-primary text-primary-foreground border-primary shadow-xl scale-105"
                             : "bg-secondary text-muted-foreground hover:bg-secondary/80 border-border"

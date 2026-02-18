@@ -69,7 +69,6 @@ export default function JobDetailPage({ params }: JobDetailPageProps) {
   }
 
   const handleApply = () => {
-    // Create new application for candidate dashboard
     const newApplication: Application = {
         id: `app-${Date.now()}`,
         job: job,
@@ -83,7 +82,6 @@ export default function JobDetailPage({ params }: JobDetailPageProps) {
         employerId: job.company.employerId,
     };
     
-    // Create new applicant record for employer dashboard
     const newApplicant: Applicant = {
         id: `applicant-${Date.now()}`,
         userId: currentUser.id,
@@ -91,8 +89,8 @@ export default function JobDetailPage({ params }: JobDetailPageProps) {
         email: currentUser.email,
         avatar: currentUser.avatar,
         jobId: job.id,
-        skillMatch: Math.floor(Math.random() * (98 - 75 + 1)) + 75, // Random score
-        experience: 5, // Dummy experience
+        skillMatch: Math.floor(Math.random() * (98 - 75 + 1)) + 75,
+        experience: 5,
         status: 'New',
         coverLetter: coverLetter,
     };
@@ -172,18 +170,18 @@ export default function JobDetailPage({ params }: JobDetailPageProps) {
                 <CardContent>
                     <Separator className="my-6" />
                     <h2 className="font-headline text-xl font-bold mb-4">Job Description</h2>
-                    <div className="prose prose-sm dark:prose-invert max-w-none text-muted-foreground space-y-4">
+                    <div className="prose prose-sm dark:prose-invert max-w-none text-[#f6f4ee]/80 space-y-4">
                         <p>{job.description}</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                         <h3 className="font-semibold text-foreground">Responsibilities:</h3>
-                        <ul className="list-disc list-inside">
+                        <ul className="list-disc list-inside text-[#f6f4ee]/80">
                             <li>Develop and maintain web applications using React and Next.js.</li>
                             <li>Collaborate with cross-functional teams to define, design, and ship new features.</li>
                             <li>Ensure the performance, quality, and responsiveness of applications.</li>
                             <li>Identify and correct bottlenecks and fix bugs.</li>
                         </ul>
                          <h3 className="font-semibold text-foreground">Qualifications:</h3>
-                         <ul className="list-disc list-inside">
+                         <ul className="list-disc list-inside text-[#f6f4ee]/80">
                             <li>Proven experience as a React Developer.</li>
                             <li>Strong proficiency in JavaScript, including DOM manipulation and the JavaScript object model.</li>
                             <li>Thorough understanding of React.js and its core principles.</li>

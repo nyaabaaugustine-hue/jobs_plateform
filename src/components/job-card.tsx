@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -66,7 +67,7 @@ export default function JobCard({ job }: JobCardProps) {
           </Badge>
         </div>
 
-        <p className="text-muted-foreground leading-relaxed line-clamp-2 text-[13px]">
+        <p className="text-[#f6f4ee]/80 leading-relaxed line-clamp-2 text-[13px]">
           {job.description}
         </p>
         
