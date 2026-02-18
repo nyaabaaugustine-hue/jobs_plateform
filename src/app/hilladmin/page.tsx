@@ -103,11 +103,11 @@ export default function AdminLoginPage() {
           )}
         <div className="absolute inset-0 bg-black/60 z-10" />
         <div className="relative z-20 w-full">
-            <Card className="w-full max-w-lg mx-auto shadow-lg">
+            <Card className="w-full max-w-lg mx-auto shadow-lg bg-card/50 backdrop-blur-lg border border-white/10">
             <CardHeader className="text-center">
-                <CardTitle className="text-2xl">Admin Portal</CardTitle>
-                <CardDescription>
-                  Enter your credentials to access the Executive Dashboard.
+                <CardTitle className="text-2xl font-black font-headline text-white uppercase tracking-wider">Admin Portal</CardTitle>
+                <CardDescription className="text-[#f6f4ee]/80 font-bold font-headline mt-2 leading-relaxed">
+                  Enter your credentials to access the Executive Dashboard. Access is restricted to authorized personnel only.
                 </CardDescription>
             </CardHeader>
             <CardContent>
@@ -133,8 +133,8 @@ export default function AdminLoginPage() {
                         </div>
                         <Input id="password" type="password" required value={password} onChange={e => setPassword(e.target.value)} />
                     </div>
-                    <Button type="submit" className="w-full bg-accent-gradient" disabled={isLoading}>
-                        {isLoading ? 'Logging in...' : 'Login'}
+                    <Button type="submit" className="w-full bg-primary font-black uppercase tracking-widest h-12" disabled={isLoading}>
+                        {isLoading ? 'Logging in...' : 'Login to Console'}
                     </Button>
                     </div>
                 </form>

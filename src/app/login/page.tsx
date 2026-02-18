@@ -244,8 +244,8 @@ export default function LoginPage() {
         <div className="relative z-20 w-full">
             <Card className="w-full max-w-lg mx-auto bg-card/50 backdrop-blur-lg border border-white/10 shadow-2xl">
             <CardHeader className="text-center">
-                <CardTitle className="text-2xl">Welcome Back</CardTitle>
-                <CardDescription>
+                <CardTitle className="text-2xl font-black font-headline text-white uppercase tracking-wider">Welcome Back</CardTitle>
+                <CardDescription className="text-[#f6f4ee]/80 font-bold font-headline mt-2 leading-relaxed">
                   Sign in to access your dashboard. Use the form below or the one-click login buttons for demo purposes.
                 </CardDescription>
             </CardHeader>
@@ -272,7 +272,7 @@ export default function LoginPage() {
                         </div>
                         <Input id="password" type="password" required value={password} onChange={e => setPassword(e.target.value)} />
                     </div>
-                    <Button type="submit" className="w-full bg-primary" disabled={isLoading}>
+                    <Button type="submit" className="w-full bg-primary font-black uppercase tracking-widest h-12" disabled={isLoading}>
                         {isLoading ? 'Logging in...' : 'Login'}
                     </Button>
                     </div>
@@ -280,22 +280,22 @@ export default function LoginPage() {
 
                  <div className="relative my-4">
                     <div className="absolute inset-0 flex items-center">
-                        <span className="w-full border-t" />
+                        <span className="w-full border-t border-white/10" />
                     </div>
-                    <div className="relative flex justify-center text-xs uppercase">
-                        <span className="bg-card px-2 text-muted-foreground">Or use one-click login</span>
+                    <div className="relative flex justify-center text-[10px] uppercase font-black tracking-widest">
+                        <span className="bg-[#151C2B] px-2 text-muted-foreground">Or use one-click login</span>
                     </div>
                 </div>
 
                 <div className="space-y-2 text-center">
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
-                        <Button variant="outline" onClick={() => handleOneClickLogin('jobSeeker')} disabled={isLoading}>
+                        <Button variant="outline" className="border-white/10 hover:bg-white/5 font-bold" onClick={() => handleOneClickLogin('jobSeeker')} disabled={isLoading}>
                             Job Seeker
                         </Button>
-                        <Button variant="outline" onClick={() => handleOneClickLogin('employer')} disabled={isLoading}>
+                        <Button variant="outline" className="border-white/10 hover:bg-white/5 font-bold" onClick={() => handleOneClickLogin('employer')} disabled={isLoading}>
                             Employer
                         </Button>
-                        <Button variant="outline" onClick={() => handleOneClickLogin('admin')} disabled={isLoading}>
+                        <Button variant="outline" className="border-white/10 hover:bg-white/5 font-bold" onClick={() => handleOneClickLogin('admin')} disabled={isLoading}>
                             Admin
                         </Button>
                     </div>
@@ -303,20 +303,20 @@ export default function LoginPage() {
 
                 <div className="relative my-4">
                     <div className="absolute inset-0 flex items-center">
-                        <span className="w-full border-t" />
+                        <span className="w-full border-t border-white/10" />
                     </div>
-                    <div className="relative flex justify-center text-xs uppercase">
-                        <span className="bg-card px-2 text-muted-foreground">Or continue with</span>
+                    <div className="relative flex justify-center text-[10px] uppercase font-black tracking-widest">
+                        <span className="bg-[#151C2B] px-2 text-muted-foreground">Or continue with</span>
                     </div>
                 </div>
                 
-                <Button variant="outline" className="w-full" type="button" disabled={isLoading} onClick={() => handleSocialLogin('Google')}>
+                <Button variant="outline" className="w-full border-white/10 hover:bg-white/5 font-bold h-12" type="button" disabled={isLoading} onClick={() => handleSocialLogin('Google')}>
                     Login with Google
                 </Button>
 
-                <div className="mt-6 text-center text-sm">
+                <div className="mt-6 text-center text-sm font-medium text-white/60">
                 Don&apos;t have an account?{" "}
-                <Link href="/register" className="font-semibold text-primary hover:underline">
+                <Link href="/register" className="font-black text-primary hover:underline uppercase tracking-wider">
                     Sign Up
                 </Link>
                 </div>

@@ -120,9 +120,9 @@ export default function RegisterPage() {
         <div className="relative z-20 w-full">
             <Card className="w-full max-w-lg mx-auto bg-card/50 backdrop-blur-lg border border-white/10 shadow-2xl">
             <CardHeader className="text-center">
-                <CardTitle className="text-2xl">Create an Account</CardTitle>
-                <CardDescription>
-                Join our community of professionals and employers
+                <CardTitle className="text-2xl font-black font-headline text-white uppercase tracking-wider">Create an Account</CardTitle>
+                <CardDescription className="text-[#f6f4ee]/80 font-bold font-headline mt-2 leading-relaxed">
+                  Join our community of professionals and employers. Build your profile and start applying today.
                 </CardDescription>
             </CardHeader>
             <CardContent>
@@ -153,25 +153,25 @@ export default function RegisterPage() {
                             <Label htmlFor="password">Password</Label>
                             <Input id="password" type="password" required value={password} onChange={e => setPassword(e.target.value)} />
                         </div>
-                        <Button type="submit" className="w-full bg-primary" disabled={isLoading}>
+                        <Button type="submit" className="w-full bg-primary font-black uppercase tracking-widest h-12" disabled={isLoading}>
                             {isLoading ? 'Creating Account...' : 'Create an account'}
                         </Button>
                         <div className="relative my-2">
                             <div className="absolute inset-0 flex items-center">
-                                <span className="w-full border-t" />
+                                <span className="w-full border-t border-white/10" />
                             </div>
-                            <div className="relative flex justify-center text-xs uppercase">
-                                <span className="bg-card px-2 text-muted-foreground">Or continue with</span>
+                            <div className="relative flex justify-center text-[10px] uppercase font-black tracking-widest">
+                                <span className="bg-[#151C2B] px-2 text-muted-foreground">Or continue with</span>
                             </div>
                         </div>
-                        <Button variant="outline" type="button" className="w-full" onClick={() => handleSocialSignUp('Google')} disabled={isLoading}>
+                        <Button variant="outline" type="button" className="w-full border-white/10 hover:bg-white/5 font-bold h-12" onClick={() => handleSocialSignUp('Google')} disabled={isLoading}>
                             Sign up with Google
                         </Button>
                     </div>
                 </form>
-                <div className="mt-4 text-center text-sm">
+                <div className="mt-4 text-center text-sm font-medium text-white/60">
                 Already have an account?{" "}
-                <Link href="/login" className="font-semibold text-primary hover:underline">
+                <Link href="/login" className="font-black text-primary hover:underline uppercase tracking-wider">
                     Sign in
                 </Link>
                 </div>
