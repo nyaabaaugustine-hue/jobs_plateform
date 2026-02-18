@@ -44,7 +44,7 @@ export default function HiringSection() {
                     {benefits.map((benefit, index) => (
                         <li key={index} className="flex items-center gap-4 group">
                             <CheckCircle className="h-6 w-6 text-gold shrink-0 transition-transform group-hover:scale-110" />
-                            <span className="text-slate-400 font-bold text-lg">{benefit}</span>
+                            <span className="font-bold text-lg" style={{ color: 'rgb(246, 244, 238)' }}>{benefit}</span>
                         </li>
                     ))}
                 </ul>

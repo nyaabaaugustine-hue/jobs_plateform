@@ -57,7 +57,7 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
 
       <aside
         className={cn(
-          'fixed bottom-6 left-6 z-[100] w-[calc(100vw-3rem)] max-w-[340px] transition-all duration-700 ease-in-out',
+          'fixed bottom-6 left-6 z-[100] w-[calc(100vw-3rem)] max-w-[300px] transition-all duration-700 ease-in-out',
           isOpen
             ? 'opacity-100 translate-x-0 scale-100'
             : 'opacity-0 -translate-x-full scale-95 pointer-events-none'
@@ -108,7 +108,6 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
             </p>
             
             <div className="pt-5 mt-5 border-t border-border/50 flex flex-col gap-3">
-              {/* Premium Milky White button with Black border and Gold ring */}
               <Button 
                 asChild 
                 className="w-full h-12 bg-white text-black border-2 border-black ring-2 ring-gold ring-offset-0 font-headline font-black tracking-wide hover:bg-white/90 hover:scale-[1.02] transition-all rounded-xl shadow-lg"
@@ -118,7 +117,6 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
                 </Link>
               </Button>
 
-              {/* Milky Clay White with Red (Burgundy) outline */}
               <Button 
                 asChild 
                 variant="outline"
