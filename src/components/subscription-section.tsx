@@ -12,12 +12,12 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 export default function SubscriptionSection() {
     const { toast } = useToast();
     const [email, setEmail] = useState('');
-    const [mounted, setMounted] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
     
     const bgImage = PlaceHolderImages.find(p => p.id === 'african-pattern-bg');
 
     useEffect(() => {
-        setMounted(true);
+        setIsMounted(true);
     }, []);
 
     const handleSubscribe = (e: React.FormEvent) => {
@@ -62,7 +62,7 @@ export default function SubscriptionSection() {
                   onSubmit={handleSubscribe} 
                   className={cn(
                     "transition-all duration-700",
-                    !mounted ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"
+                    !isMounted ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"
                   )}
                 >
                     <div className="flex flex-col sm:flex-row items-center gap-3 bg-white/10 backdrop-blur-xl p-2.5 rounded-2xl border border-white/20 focus-within:border-primary transition-all shadow-2xl">
