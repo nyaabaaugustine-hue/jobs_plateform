@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
@@ -53,7 +54,7 @@ export default function HiredNotification() {
 
         toast({
           variant: 'black',
-          className: 'p-4 pr-10 border-l-4 border-l-primary animate-in slide-in-from-left-full duration-500',
+          className: 'p-4 pr-10 border-l-4 border-l-primary animate-in slide-in-from-right-full duration-500',
           onOpenChange: (open) => {
             // When the toast is closed
             if (!open) {
@@ -100,10 +101,8 @@ export default function HiredNotification() {
         });
       };
 
-      // Initial run 40 minutes after mount (2,400,000ms)
+      // Exactly 40 minutes delay and interval
       const initialDelay = setTimeout(showRandomHiredNotification, 2400000);
-
-      // Repeat exactly every 40 minutes
       intervalRef.current = setInterval(showRandomHiredNotification, 2400000);
 
       return () => {
@@ -111,7 +110,6 @@ export default function HiredNotification() {
         if (intervalRef.current) clearInterval(intervalRef.current);
       };
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [toast, dismiss, isDashboardPage, isStopped]);
 
   return null;

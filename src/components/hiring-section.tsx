@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from './ui/button';
@@ -51,7 +52,7 @@ export default function HiringSection() {
                     <Button 
                       asChild 
                       size="lg" 
-                      className="font-headline font-black bg-white/90 text-slate-800 border-2 border-gold hover:bg-white hover:scale-105 transition-all shadow-xl rounded-xl"
+                      className="font-headline font-black bg-[#f6f4ee] text-slate-800 border-2 border-gold hover:bg-white hover:scale-105 transition-all shadow-xl rounded-xl"
                     >
                       <Link href="/employer/jobs/new">Post a Job</Link>
                     </Button>
@@ -59,7 +60,7 @@ export default function HiringSection() {
                       asChild 
                       size="lg" 
                       variant="outline" 
-                      className="font-headline font-black bg-white/50 text-slate-700 border-2 border-gold/50 hover:border-gold hover:bg-white/80 transition-all rounded-xl"
+                      className="font-headline font-black bg-[#f6f4ee]/50 text-slate-700 border-2 border-gold hover:border-gold hover:bg-white transition-all rounded-xl"
                     >
                       <Link href="/pricing">View Pricing</Link>
                     </Button>

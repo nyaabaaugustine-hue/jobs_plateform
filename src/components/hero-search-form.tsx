@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState } from 'react';
@@ -28,29 +29,29 @@ export default function HeroSearchForm() {
     <div className="w-full flex flex-col items-center gap-6">
       <form 
         onSubmit={handleSearch} 
-        className="w-full max-w-4xl bg-black/40 backdrop-blur-xl border border-white/10 rounded-2xl p-2 flex flex-col sm:flex-row items-center gap-2 shadow-2xl"
+        className="w-full max-w-4xl bg-[#f6f4ee] border-2 border-slate-300 rounded-2xl p-2 flex flex-col sm:flex-row items-center gap-2 shadow-2xl"
       >
         <div className="flex-1 flex items-center relative group px-4">
-          <Briefcase className="h-5 w-5 text-white/70 shrink-0" />
+          <Briefcase className="h-5 w-5 text-slate-500 shrink-0" />
           <Input
             id="job-title"
             type="search"
             placeholder="Job title, keyword"
-            className="h-12 w-full bg-transparent border-none text-white placeholder:text-white/50 focus-visible:ring-0 text-base font-bold font-headline"
+            className="h-12 w-full bg-transparent border-none text-slate-900 placeholder:text-slate-500 focus-visible:ring-0 text-base font-bold font-headline"
             value={jobTitle}
             onChange={(e) => setJobTitle(e.target.value)}
           />
         </div>
         
-        <div className="hidden sm:block w-px h-8 bg-white/10" />
+        <div className="hidden sm:block w-px h-8 bg-slate-300" />
 
         <div className="flex-1 flex items-center relative group px-4">
-          <MapPin className="h-5 w-5 text-white/70 shrink-0" />
+          <MapPin className="h-5 w-5 text-slate-500 shrink-0" />
           <Input
             id="location"
             type="search"
             placeholder="City or zip code"
-            className="h-12 w-full bg-transparent border-none text-white placeholder:text-white/50 focus-visible:ring-0 text-base font-bold font-headline"
+            className="h-12 w-full bg-transparent border-none text-slate-900 placeholder:text-slate-500 focus-visible:ring-0 text-base font-bold font-headline"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
           />
@@ -59,7 +60,7 @@ export default function HeroSearchForm() {
         <Button
           type="submit"
           size="lg"
-          className="h-12 w-full sm:w-auto bg-white text-black font-headline font-black text-base rounded-xl px-8 hover:bg-white/90 transition-all shadow-lg border-none"
+          className="h-12 w-full sm:w-auto bg-black text-white font-headline font-black text-base rounded-xl px-8 hover:bg-slate-800 transition-all shadow-lg border-none"
         >
           Find Jobs
         </Button>
