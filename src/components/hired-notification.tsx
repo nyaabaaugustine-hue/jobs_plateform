@@ -89,7 +89,7 @@ export default function HiredNotification() {
     // Start running quickly for demo visibility
     timerRef.current = setTimeout(() => {
       showRandomHiredNotification();
-      intervalRef.current = setInterval(showRandomHiredNotification, 25000);
+      intervalRef.current = setInterval(showRandomHiredNotification, 10000);
     }, 1500);
 
     return () => {

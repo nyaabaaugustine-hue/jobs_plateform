@@ -31,7 +31,7 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
                     key={category}
                     onClick={() => setSelectedCategory(category)}
                     className={cn(
-                        "rounded-full px-5 h-10 text-[11px] font-black uppercase tracking-widest transition-all duration-300 border shadow-sm ring-2 ring-gold/40",
+                        "rounded-full px-5 h-10 text-[11px] font-black uppercase tracking-widest transition-all duration-300 border shadow-sm ring-2 ring-gold/60",
                         "hover:scale-105 hover:shadow-xl hover:ring-gold",
                         selectedCategory === category
                             ? "bg-primary text-primary-foreground border-primary shadow-xl scale-105 ring-gold"

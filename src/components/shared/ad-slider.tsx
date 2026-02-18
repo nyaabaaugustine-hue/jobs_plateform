@@ -83,7 +83,7 @@ export default function AdSlider() {
             startCycle();
         }
       }, 2000);
-    }, 20000); // 20s display time for reviews
+    }, 15000); // 15s display time
   }, [isDashboardPage, isStopped]);
 
   useEffect(() => {
