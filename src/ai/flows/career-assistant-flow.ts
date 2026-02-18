@@ -31,9 +31,10 @@ const careerAssistantPrompt = ai.definePrompt({
 Your mission is to help users find jobs, optimize applications, and strategically grow their careers.
 
 CRITICAL INSTRUCTIONS:
-- ALWAYS respond in valid JSON format matching the CareerAssistantOutputSchema.
-- If a toolId is provided, transition IMMEDIATELY into that specific diagnostic track.
-- Do NOT repeat the initial welcome message once a track has started.
+- ALWAYS respond in valid JSON format.
+- If a toolId is provided (e.g., smart_job_match, career_roadmap), you MUST transition into that specific track immediately.
+- NEVER repeat the initial welcome message ("How can I help you accelerate...") once a user has selected a tool or started chatting.
+- If the user says "yes" or "go on", continue the current career track logic.
 
 TOOL TRACKS:
 - smart_job_match: Ask for current skills, years of experience, and desired location.
@@ -44,9 +45,9 @@ TOOL TRACKS:
 
 BEHAVIOR:
 - Executive, concise, supportive, and action-oriented.
-- Use suggestedActions to provide 2-3 clickable next steps relevant to the CURRENT track.`,
+- Use suggestedActions to provide 2-3 clickable next steps relevant to the CURRENT conversation track.`,
   prompt: `
-  Selected Tool: {{{toolId}}}
+  Selected Tool: {{#if toolId}}{{{toolId}}}{{else}}None{{/if}}
   User Status: {{#if isLoggedIn}}Authenticated{{else}}Anonymous{{/if}}
   
   Conversation History:
@@ -70,16 +71,17 @@ const careerAssistantFlow = ai.defineFlow(
       
       if (!output) {
         return {
-          text: "I'm currently analyzing our databases to give you the best strategic advice. What area of your career would you like to focus on first?",
-          suggestedActions: ["Smart Job Match", "Optimize My CV", "Interview Prep"]
+          text: "I'm analyzing the best strategy for your career path. What specific area would you like to explore first?",
+          suggestedActions: ["Smart Job Match", "Optimize My CV", "Career Roadmap"]
         };
       }
       
       return output;
     } catch (error) {
       console.error("Career Assistant Flow Error:", error);
+      // Fallback that is not the looping welcome message
       return {
-        text: "I'm ready to help you accelerate your growth. Would you like to start with a Smart Job Match or a Career Roadmap?",
+        text: "I'm ready to dive into your career strategy. We can start with a Smart Job Match or a Career Roadmap—which sounds better to you?",
         suggestedActions: ["Smart Job Match", "Career Roadmap", "WhatsApp Chat"]
       };
     }

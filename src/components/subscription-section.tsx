@@ -44,10 +44,10 @@ export default function SubscriptionSection() {
                 src={bgImage.imageUrl}
                 alt={bgImage.description}
                 fill
-                className="object-cover z-0 opacity-50"
+                className="object-cover z-0 opacity-60"
                 data-ai-hint={bgImage.imageHint}
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60 z-10" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70 z-10" />
             </>
           )}
           
@@ -60,10 +60,6 @@ export default function SubscriptionSection() {
             </p>
             
             <div className="mt-10 min-h-[80px]">
-                {/* 
-                  Stable structure for hydration: Always render the form, 
-                  but hide content visually until mounted to ensure SSR match.
-                */}
                 <form 
                   onSubmit={handleSubscribe} 
                   className={cn(
