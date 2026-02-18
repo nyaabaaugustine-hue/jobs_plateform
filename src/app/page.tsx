@@ -13,7 +13,6 @@ import Faq from '@/components/faq';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Skeleton } from '@/components/ui/skeleton';
 
 // Bulletproof Dynamic Rendering to solve hydration mismatches
 const HeroSearchForm = dynamic(() => import('@/components/hero-search-form'), {
@@ -23,11 +22,24 @@ const HeroSearchForm = dynamic(() => import('@/components/hero-search-form'), {
 
 const SubscriptionSection = dynamic(() => import('@/components/subscription-section'), {
   ssr: false,
+  loading: () => (
+    <section className="py-20 bg-background">
+      <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+        <div className="h-64 w-full bg-muted animate-pulse rounded-[3rem]" />
+      </div>
+    </section>
+  )
 });
 
 const Testimonials = dynamic(() => import('@/components/testimonials'), { 
   ssr: false,
-  loading: () => <div className="h-[600px] w-full bg-background animate-pulse" />
+  loading: () => (
+    <section className="py-20 bg-background">
+      <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+        <div className="h-[600px] w-full bg-muted animate-pulse rounded-3xl" />
+      </div>
+    </section>
+  )
 });
 
 export default function HomePage() {
@@ -49,23 +61,23 @@ export default function HomePage() {
     },
     {
       id: '2',
-      slug: 'career-growth-tips',
-      title: 'Accelerate Your Career in 2024',
-      excerpt: 'Strategic advice for professionals looking to make their next big move in the tech industry.',
+      slug: 'innovation-in-african-fintech',
+      title: 'The Future of Innovation in African Fintech',
+      excerpt: 'Exploring how mobile-first solutions are reshaping the financial landscape across the continent.',
       content: '',
-      image: 'blog-post-1',
-      date: '2024-07-18T10:00:00Z',
+      image: 'ad-hubtel',
+      date: '2024-07-20T10:00:00Z',
       author: DUMMY_USERS[1],
       status: 'Published' as const,
     },
     {
       id: '3',
-      slug: 'remote-work-culture',
-      title: 'Thriving in a Remote-First World',
-      excerpt: 'Best practices for staying productive and maintaining a healthy work-life balance while working from home.',
+      slug: 'ai-career-matching-strategy',
+      title: 'AI Career Matching: The New Recruitment Frontier',
+      excerpt: 'How artificial intelligence is helping top talent find their perfect professional home faster than ever.',
       content: '',
-      image: 'blog-post-6',
-      date: '2024-07-20T09:00:00Z',
+      image: 'blog-post-4',
+      date: '2024-07-22T09:00:00Z',
       author: DUMMY_USERS[2],
       status: 'Published' as const,
     }

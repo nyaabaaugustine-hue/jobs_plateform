@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { Review } from '@/lib/types';
 import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -111,6 +111,21 @@ export default function Testimonials() {
   const [rating, setRating] = useState(5);
   const [hoverRating, setHoverRating] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return (
+      <section className="py-20 bg-background">
+        <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+          <div className="h-[600px] w-full bg-muted animate-pulse rounded-3xl" />
+        </div>
+      </section>
+    );
+  }
 
   const marqueeRow1 = [...allReviews, ...allReviews, ...allReviews];
   const marqueeRow2 = [...allReviews, ...allReviews, ...allReviews].reverse();

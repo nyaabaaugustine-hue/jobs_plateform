@@ -18,6 +18,16 @@ export default function SubscriptionSection() {
         setIsMounted(true);
     }, []);
 
+    if (!isMounted) {
+      return (
+        <section className="py-20 bg-background">
+          <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+            <div className="h-64 w-full bg-muted animate-pulse rounded-[3rem]" />
+          </div>
+        </section>
+      );
+    }
+
     const handleSubscribe = (e: React.FormEvent) => {
         e.preventDefault();
         if (!email) return;
@@ -29,16 +39,6 @@ export default function SubscriptionSection() {
         });
         setEmail('');
     };
-
-    if (!isMounted) {
-      return (
-        <section className="py-20 bg-background">
-          <div className="container mx-auto max-w-7xl px-6 lg:px-12">
-            <div className="h-64 w-full bg-muted animate-pulse rounded-[3rem]" />
-          </div>
-        </section>
-      );
-    }
 
   return (
     <section className="py-20 bg-background">
