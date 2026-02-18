@@ -42,7 +42,7 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-4 space-y-6">
             <Logo className="w-40" />
-            <p className="text-muted-foreground leading-relaxed font-medium">
+            <p className="text-slate-300 leading-relaxed font-headline font-medium tracking-wide">
               Chapel Hill is the heart of the professional community and the premier resource to discover top talent and elite opportunities globally.
             </p>
             <div className="flex gap-3">
