@@ -145,7 +145,7 @@ function toast({ ...props }: Omit<ToasterToast, "id">) {
       type: "UPDATE_TOAST",
       toast: { ...props, id },
     })
-  const dismiss = () => dispatch({ type: "DISMISS_TOAST", toastId: id })
+  const dismissSelf = () => dispatch({ type: "DISMISS_TOAST", toastId: id })
 
   dispatch({
     type: "ADD_TOAST",
@@ -161,7 +161,7 @@ function toast({ ...props }: Omit<ToasterToast, "id">) {
 
   return {
     id: id,
-    dismiss,
+    dismiss: dismissSelf,
     update,
   }
 }

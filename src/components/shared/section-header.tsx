@@ -28,4 +28,5 @@ export default function SectionHeader({ title, subtitle, className, isCentered =
         </p>
       )}
     </div>
-  )
+  );
+}

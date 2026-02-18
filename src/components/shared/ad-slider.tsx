@@ -52,6 +52,8 @@ const ads: Ad[] = [
     }
 ].filter(ad => ad.company && ad.image);
 
+const DISMISSED_KEY = 'chapel-hill-ads-dismissed';
+
 export default function AdSlider() {
   const pathname = usePathname();
   const [currentAdIndex, setCurrentAdIndex] = useState(0);
@@ -59,7 +61,6 @@ export default function AdSlider() {
   const [isStopped, setIsStopped] = useState(false);
   
   const cycleTimerRef = useRef<NodeJS.Timeout | null>(null);
-  const closeTimerRef = useRef<NodeJS.Timeout | null>(null);
   const initialDelayRef = useRef<NodeJS.Timeout | null>(null);
   
   const isDashboardPage =
@@ -71,37 +72,33 @@ export default function AdSlider() {
     pathname === '/register';
 
   const startCycle = useCallback(() => {
-    const isDismissed = sessionStorage.getItem('chapel-hill-ads-dismissed') === 'true';
+    const isDismissed = sessionStorage.getItem(DISMISSED_KEY) === 'true';
     if (isStopped || isDashboardPage || isDismissed) return;
 
-    // Open the ad
     setIsPanelOpen(true);
     
-    // Auto-close after 10 seconds of display
-    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
-    closeTimerRef.current = setTimeout(() => {
-      setIsPanelOpen(false);
-    }, 10000);
-    
-    // Schedule the next cycle start every 50 seconds
+    // Cycle every 50 seconds
     if (cycleTimerRef.current) clearTimeout(cycleTimerRef.current);
     cycleTimerRef.current = setTimeout(() => {
-      setCurrentAdIndex(prev => (prev + 1) % ads.length);
-      startCycle();
+      setIsPanelOpen(false);
+      // Wait a bit before showing the next one
+      setTimeout(() => {
+        setCurrentAdIndex(prev => (prev + 1) % ads.length);
+        startCycle();
+      }, 2000);
     }, 50000);
   }, [isDashboardPage, isStopped]);
 
   useEffect(() => {
-    const isDismissed = sessionStorage.getItem('chapel-hill-ads-dismissed') === 'true';
+    const isDismissed = sessionStorage.getItem(DISMISSED_KEY) === 'true';
     if (isDashboardPage || ads.length === 0 || isDismissed || isStopped) return;
 
-    // Initial Appearance: 2 Seconds after load
+    // Initial appearance after 2 seconds
     initialDelayRef.current = setTimeout(startCycle, 2000);
 
     return () => {
         if (initialDelayRef.current) clearTimeout(initialDelayRef.current);
         if (cycleTimerRef.current) clearTimeout(cycleTimerRef.current);
-        if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
     };
   }, [isDashboardPage, isStopped, startCycle]);
   
@@ -110,8 +107,7 @@ export default function AdSlider() {
     setIsStopped(true);
     if (initialDelayRef.current) clearTimeout(initialDelayRef.current);
     if (cycleTimerRef.current) clearTimeout(cycleTimerRef.current);
-    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
-    sessionStorage.setItem('chapel-hill-ads-dismissed', 'true');
+    sessionStorage.setItem(DISMISSED_KEY, 'true');
   };
 
   if (isDashboardPage || ads.length === 0 || isStopped) {

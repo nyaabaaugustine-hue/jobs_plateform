@@ -17,6 +17,8 @@ const hiredExamples = [
   { name: 'Akua Asare', job: 'Content Strategist', avatarId: 'avatar-6' },
 ];
 
+const DISMISSED_KEY = 'chapel-hill-hired-dismissed';
+
 export default function HiredNotification() {
   const { toast } = useToast();
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -37,11 +39,12 @@ export default function HiredNotification() {
     if (intervalRef.current) clearInterval(intervalRef.current);
     if (timerRef.current) clearTimeout(timerRef.current);
     dismiss(); 
-    sessionStorage.setItem('chapel-hill-hired-dismissed', 'true');
+    sessionStorage.setItem(DISMISSED_KEY, 'true');
   }, []);
 
   const showRandomHiredNotification = useCallback(() => {
-    if (isDashboardPage || sessionStorage.getItem('chapel-hill-hired-dismissed') === 'true') return;
+    const isDismissed = sessionStorage.getItem(DISMISSED_KEY) === 'true';
+    if (isDashboardPage || isStopped || isDismissed) return;
     
     const example = hiredExamples[Math.floor(Math.random() * hiredExamples.length)];
     const userAvatar = PlaceHolderImages.find((img) => img.id === example.avatarId);
@@ -83,16 +86,16 @@ export default function HiredNotification() {
       ),
       duration: 8000,
     });
-  }, [isDashboardPage, toast, stopNotifications]);
+  }, [isDashboardPage, isStopped, toast, stopNotifications]);
 
   useEffect(() => {
-    const isDismissed = sessionStorage.getItem('chapel-hill-hired-dismissed') === 'true';
-    if (isDashboardPage || isDismissed) return;
+    const isDismissed = sessionStorage.getItem(DISMISSED_KEY) === 'true';
+    if (isDashboardPage || isDismissed || isStopped) return;
 
-    // Initial appearance: 3 Seconds after load
+    // Initial appearance after 3 seconds
     timerRef.current = setTimeout(() => {
       showRandomHiredNotification();
-      // Subsequent intervals: 47 Seconds
+      // Repeat every 47 seconds
       intervalRef.current = setInterval(showRandomHiredNotification, 47000);
     }, 3000);
 
@@ -100,7 +103,7 @@ export default function HiredNotification() {
       if (timerRef.current) clearTimeout(timerRef.current);
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
-  }, [isDashboardPage, showRandomHiredNotification]);
+  }, [isDashboardPage, showRandomHiredNotification, isStopped]);
 
   return null;
 }
