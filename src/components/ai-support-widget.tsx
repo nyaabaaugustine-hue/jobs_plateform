@@ -31,6 +31,7 @@ type Message = {
     sender: 'user' | 'ai'; 
     text: string; 
     image?: string;
+    isIntro?: boolean;
 };
 
 const QUICK_ACTIONS = [
@@ -63,10 +64,9 @@ export default function AISupportWidget() {
     useEffect(() => { setMounted(true); }, []);
 
     const scrollToBottom = () => {
-        // Use a timeout to ensure DOM content (like images) has loaded/settled
         setTimeout(() => {
             messagesEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
-        }, 100);
+        }, 150);
     };
 
     const handleSendMessage = async (text: string) => {
@@ -114,10 +114,10 @@ export default function AISupportWidget() {
                 id: 1, 
                 sender: 'ai', 
                 text: welcomeText,
-                image: introImage
+                image: introImage,
+                isIntro: true
             }]);
             
-            // Auto-scroll on initial load to ensure Abena's image is fully visible
             scrollToBottom();
         }
     }, [isOpen, user, messages.length]);
@@ -166,26 +166,45 @@ export default function AISupportWidget() {
                         <div className="flex-1 overflow-y-auto p-6 space-y-6 scrollbar-hide">
                             {messages.map((m) => (
                                 <div key={m.id} className={cn("flex flex-col", m.sender === 'user' ? "items-end" : "items-start")}>
-                                    {m.image && (
-                                        <div className="mb-3 w-full max-w-[220px] rounded-xl overflow-hidden border border-white/10 shadow-lg bg-black/40">
+                                    {m.isIntro && m.image ? (
+                                        <div className="relative mb-3 w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black/40 group">
                                             <Image 
                                                 src={m.image} 
                                                 alt="Assistant Intro" 
-                                                width={220} 
-                                                height={220} 
-                                                className="w-full h-auto object-contain" 
+                                                width={280} 
+                                                height={280} 
+                                                className="w-full h-auto object-contain scale-105" 
                                                 priority
                                             />
+                                            <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F17]/95 via-[#0B0F17]/20 to-transparent flex flex-col justify-end p-4">
+                                                <p className="text-white text-[11px] font-bold leading-relaxed drop-shadow-md">
+                                                    {m.text}
+                                                </p>
+                                            </div>
                                         </div>
+                                    ) : (
+                                        <>
+                                            {m.image && (
+                                                <div className="mb-3 w-full max-w-[220px] rounded-xl overflow-hidden border border-white/10 shadow-lg bg-black/40">
+                                                    <Image 
+                                                        src={m.image} 
+                                                        alt="AI Graphic" 
+                                                        width={220} 
+                                                        height={220} 
+                                                        className="w-full h-auto object-contain" 
+                                                    />
+                                                </div>
+                                            )}
+                                            <div className={cn(
+                                                "max-w-[90%] p-4 rounded-[1.25rem] text-[11px] leading-relaxed",
+                                                m.sender === 'user' 
+                                                    ? "bg-primary text-primary-foreground rounded-tr-none font-bold shadow-xl border border-white/10" 
+                                                    : "bg-white/5 border border-white/10 text-slate-200 rounded-tl-none font-medium"
+                                            )}>
+                                                {m.text}
+                                            </div>
+                                        </>
                                     )}
-                                    <div className={cn(
-                                        "max-w-[90%] p-4 rounded-[1.25rem] text-[11px] leading-relaxed",
-                                        m.sender === 'user' 
-                                            ? "bg-primary text-primary-foreground rounded-tr-none font-bold shadow-xl border border-white/10" 
-                                            : "bg-white/5 border border-white/10 text-slate-200 rounded-tl-none font-medium"
-                                    )}>
-                                        {m.text}
-                                    </div>
                                 </div>
                             ))}
                             {isTyping && (
