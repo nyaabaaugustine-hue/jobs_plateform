@@ -106,7 +106,7 @@ export default function AISupportWidget() {
 
     useEffect(() => {
         if (isOpen && messages.length === 0) {
-            const welcomeText = "Welcome to Chapel Hill! I'm Abena, your AI executive assistant. How can I help you accelerate your career growth today?";
+            const welcomeText = "Welcome to Chapel Hill! I'm Abena, your AI career strategist. How can I help you accelerate your growth today?";
             
             setMessages([{ 
                 id: 1, 
@@ -154,7 +154,7 @@ export default function AISupportWidget() {
                                     <h3 className="font-headline font-black text-white text-base tracking-tight">Abena AI</h3>
                                     <div className="flex items-center gap-1">
                                         <Sparkles className="h-2.5 w-2.5 text-gold" />
-                                        <p className="text-[8px] uppercase font-black tracking-[0.2em] text-primary">Executive Assistant</p>
+                                        <p className="text-[8px] uppercase font-black tracking-[0.2em] text-primary">Career Strategist</p>
                                     </div>
                                 </div>
                             </div>
@@ -187,7 +187,7 @@ export default function AISupportWidget() {
                                         <div className={cn(
                                             "max-w-[90%] p-4 rounded-[1.25rem] text-[11px] leading-relaxed",
                                             m.sender === 'user' 
-                                                ? "bg-primary text-primary-foreground rounded-tr-none font-bold shadow-xl border border-white/10" 
+                                                ? "bg-primary text-black rounded-tr-none font-bold shadow-xl border border-white/10" 
                                                 : "bg-white/5 border border-white/10 text-slate-200 rounded-tl-none font-medium"
                                         )}>
                                             {m.text}
