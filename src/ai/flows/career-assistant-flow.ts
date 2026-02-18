@@ -27,46 +27,34 @@ const careerAssistantPrompt = ai.definePrompt({
     model: googleAI.model('gemini-1.5-flash'),
     temperature: 0.7,
   },
-  system: `You are Abena AI, an advanced AI Career Assistant for Chapel Hill, a professional job platform.
-Your mission is to help users find jobs, optimize applications, prepare for interviews, track opportunities, and strategically grow their careers.
+  system: `You are Abena AI, an advanced AI Career Strategist for Chapel Hill.
+Your mission is to help users find jobs, optimize applications, and strategically grow their careers.
 
-CRITICAL INSTRUCTION:
-- You MUST ALWAYS respond in a valid JSON format.
-- Your response must match the CareerAssistantOutputSchema exactly.
-- Do not include any text outside the JSON object.
+CRITICAL INSTRUCTIONS:
+- ALWAYS respond in valid JSON format matching the CareerAssistantOutputSchema.
+- Do NOT repeat the welcome message if a specific tool or topic has been chosen.
+- If a toolId is provided, transition immediately into that specific diagnostic flow.
 
-CORE CAPABILITIES
-- Job Search & Smart Matching
-- Resume/CV Optimization
-- Cover Letter Generator
-- Interview Prep
-- Skill Gap Analysis
-- Salary Insights & Negotiation
+TOOL TRACKS:
+- smart_job_match: Ask for current skills, years of experience, and desired location.
+- optimize_cv: Ask the user to describe their current role or past experience for improvement.
+- interview_prep: Ask what role they are interviewing for and provide mock questions.
+- salary_insights: Provide range estimations and negotiation tactics.
+- career_roadmap: Map out professional milestones for the next 12-24 months.
 
 BEHAVIOR:
-- Professional, concise, supportive, and action-oriented.
-- Use suggestedActions to provide 2-3 clickable next steps.`,
+- Executive, concise, supportive, and action-oriented.
+- Use suggestedActions to provide 2-3 clickable next steps relevant to the CURRENT track.`,
   prompt: `
+  Selected Tool: {{{toolId}}}
   User Status: {{#if isLoggedIn}}Authenticated{{else}}Anonymous{{/if}}
-  {{#if userData}}
-  User Profile:
-  Name: {{{userData.name}}}
-  Title: {{{userData.professionalTitle}}}
-  Skills: {{{userData.skills}}}
-  {{/if}}
-
+  
   Conversation History:
   {{#each history}}
   {{role}}: {{{text}}}
   {{/each}}
 
   User Query: {{{query}}}
-
-  Output Example:
-  {
-    "text": "I can help you find sales jobs! I can provide general advice or help you refine your search criteria.",
-    "suggestedActions": ["Job Search", "Resume Tips", "Salary Advice"]
-  }
   `,
 });
 
@@ -82,18 +70,17 @@ const careerAssistantFlow = ai.defineFlow(
       
       if (!output) {
         return {
-          text: "I'm currently analyzing our career databases to give you the best advice. Could you please rephrase your request?",
-          suggestedActions: ["Job Search", "Resume Tips", "Interview Prep"]
+          text: "I'm currently analyzing our databases to give you the best strategic advice. What area of your career would you like to focus on first?",
+          suggestedActions: ["Smart Job Match", "Optimize My CV", "Interview Prep"]
         };
       }
       
       return output;
     } catch (error) {
       console.error("Career Assistant Flow Error:", error);
-      // Ensure we always return a friendly response even on model failure
       return {
-        text: "I'm ready to help you accelerate your career! What would you like to focus on first?",
-        suggestedActions: ["Find Jobs", "Review my CV", "Practice Interview"]
+        text: "I'm ready to help you accelerate your growth. Would you like to start with a Smart Job Match or a Career Roadmap?",
+        suggestedActions: ["Smart Job Match", "Career Roadmap", "WhatsApp Chat"]
       };
     }
   }

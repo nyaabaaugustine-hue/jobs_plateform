@@ -55,6 +55,7 @@ export type AiJobRecommendationsOutput = z.infer<typeof AiJobRecommendationsOutp
 export const CareerAssistantInputSchema = z.object({
   query: z.string(),
   isLoggedIn: z.boolean(),
+  toolId: z.string().optional().describe('The specific career tool selected by the user.'),
   userData: z.object({
     name: z.string().optional(),
     professionalTitle: z.string().optional(),

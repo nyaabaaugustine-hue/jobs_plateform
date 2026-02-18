@@ -35,12 +35,12 @@ type Message = {
 };
 
 const QUICK_ACTIONS = [
-    { label: 'Smart Job Match', icon: Search, category: 'Search', color: 'text-blue-400', bg: 'bg-blue-500/10', border: 'border-blue-500/20' },
-    { label: 'Optimize My CV', icon: FileText, category: 'Resume', color: 'text-purple-400', bg: 'bg-purple-500/10', border: 'border-purple-500/20' },
-    { label: 'Interview Prep', icon: Target, category: 'Growth', color: 'text-emerald-400', bg: 'bg-emerald-500/10', border: 'border-emerald-500/20' },
-    { label: 'WhatsApp Chat', icon: MessageCircle, category: 'Direct', color: 'text-green-400', bg: 'bg-green-500/10', border: 'border-green-500/20', isWhatsApp: true },
-    { label: 'Salary Insights', icon: TrendingUp, category: 'Market', color: 'text-amber-400', bg: 'bg-amber-500/10', border: 'border-amber-500/20' },
-    { label: 'Career Roadmap', icon: Briefcase, category: 'Growth', color: 'text-cyan-400', bg: 'bg-cyan-500/10', border: 'border-cyan-500/20' },
+    { id: 'smart_job_match', label: 'Smart Job Match', icon: Search, category: 'Search', color: 'text-blue-400', bg: 'bg-blue-500/10', border: 'border-blue-500/20' },
+    { id: 'optimize_cv', label: 'Optimize My CV', icon: FileText, category: 'Resume', color: 'text-purple-400', bg: 'bg-purple-500/10', border: 'border-purple-500/20' },
+    { id: 'interview_prep', label: 'Interview Prep', icon: Target, category: 'Growth', color: 'text-emerald-400', bg: 'bg-emerald-500/10', border: 'border-emerald-500/20' },
+    { id: 'whatsapp_chat', label: 'WhatsApp Chat', icon: MessageCircle, category: 'Direct', color: 'text-green-400', bg: 'bg-green-500/10', border: 'border-green-500/20', isWhatsApp: true },
+    { id: 'salary_insights', label: 'Salary Insights', icon: TrendingUp, category: 'Market', color: 'text-amber-400', bg: 'bg-amber-500/10', border: 'border-amber-500/20' },
+    { id: 'career_roadmap', label: 'Career Roadmap', icon: Briefcase, category: 'Growth', color: 'text-cyan-400', bg: 'bg-cyan-500/10', border: 'border-cyan-500/20' },
 ];
 
 export default function AISupportWidget() {
@@ -68,7 +68,7 @@ export default function AISupportWidget() {
         messagesEndRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
     };
 
-    const handleSendMessage = async (text: string, isWhatsAppAction = false) => {
+    const handleSendMessage = async (text: string, toolId?: string, isWhatsAppAction = false) => {
         if (isWhatsAppAction) {
             window.open(`https://wa.me/${whatsAppNumber.replace(/\D/g, '')}`, '_blank');
             return;
@@ -82,11 +82,15 @@ export default function AISupportWidget() {
         setIsTyping(true);
         setShowActions(false);
 
-        const history = messages.map(m => ({ role: m.sender, text: m.text }));
+        const history = messages.map(m => ({ 
+            role: m.sender === 'ai' ? 'ai' as const : 'user' as const, 
+            text: m.text 
+        }));
 
         try {
             const response = await runCareerAssistant({
                 query: text,
+                toolId: toolId,
                 isLoggedIn: !!user,
                 userData: user ? {
                     name: user.displayName || undefined,
@@ -225,7 +229,7 @@ export default function AISupportWidget() {
                                             {QUICK_ACTIONS.map((action, i) => (
                                                 <button
                                                     key={i}
-                                                    onClick={() => handleSendMessage(action.label, action.isWhatsApp)}
+                                                    onClick={() => handleSendMessage(action.label, action.id, action.isWhatsApp)}
                                                     className={cn(
                                                         "flex flex-col items-start gap-2 p-3 rounded-xl bg-white/5 border transition-all group text-left",
                                                         action.border,
