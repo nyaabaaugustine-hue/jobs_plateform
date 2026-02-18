@@ -169,6 +169,13 @@ function toast({ ...props }: Toast) {
   }
 }
 
+/**
+ * Stable dismiss function defined outside the hook to prevent cascading dependency re-runs.
+ */
+function dismiss(toastId?: string) {
+  dispatch({ type: "DISMISS_TOAST", toastId })
+}
+
 function useToast() {
   const [state, setState] = React.useState<State>(memoryState)
 
@@ -185,8 +192,8 @@ function useToast() {
   return {
     ...state,
     toast,
-    dismiss: (toastId?: string) => dispatch({ type: "DISMISS_TOAST", toastId }),
+    dismiss,
   }
 }
 
-export { useToast, toast }
+export { useToast, toast, dismiss }

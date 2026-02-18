@@ -92,7 +92,7 @@ export default function AdSlider() {
   }, [isDashboardPage]);
 
   useEffect(() => {
-    // Session-based dismissal
+    // Session-based dismissal check
     const dismissed = sessionStorage.getItem('chapel-hill-ads-dismissed');
     if (dismissed === 'true') {
         setIsStopped(true);

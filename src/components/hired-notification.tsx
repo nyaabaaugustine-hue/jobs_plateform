@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState, useCallback } from 'react';
-import { useToast } from '@/hooks/use-toast';
+import { useToast, dismiss } from '@/hooks/use-toast';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { PartyPopper, Sparkles } from 'lucide-react';
@@ -18,7 +18,7 @@ const hiredExamples = [
 ];
 
 export default function HiredNotification() {
-  const { toast, dismiss } = useToast();
+  const { toast } = useToast();
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const pathname = usePathname();
@@ -40,7 +40,7 @@ export default function HiredNotification() {
     if (timerRef.current) clearTimeout(timerRef.current);
     dismiss(); 
     sessionStorage.setItem('chapel-hill-hired-dismissed', 'true');
-  }, [dismiss]);
+  }, []);
 
   const showRandomHiredNotification = useCallback(() => {
     if (isStoppedRef.current || isDashboardPage) return;
@@ -52,10 +52,10 @@ export default function HiredNotification() {
       variant: 'black',
       className: 'p-4 pr-10 border-l-4 border-l-gold animate-in slide-in-from-right-full duration-500',
       onOpenChange: (open) => {
-        // If the user manually closes it (open becomes false), we treat it as a request to stop distraction
+        // If the user manually closes it, we treat it as a request to stop distraction for the session
         if (!open && !isStoppedRef.current) {
-          // Standard closure also triggers session-stop to respect user focus
-          stopNotifications();
+          // Check if this was a manual close vs auto-dismissal is complex, 
+          // so we rely on the explicit 'Stop' button for the user to halt the cycle.
         }
       },
       description: (
@@ -95,7 +95,7 @@ export default function HiredNotification() {
   }, [isDashboardPage, toast, stopNotifications]);
 
   useEffect(() => {
-    // Session-based dismissal so it resets on refresh but stays off while browsing
+    // Session-based dismissal check
     const dismissed = sessionStorage.getItem('chapel-hill-hired-dismissed');
     if (dismissed === 'true') {
         setIsStopped(true);
