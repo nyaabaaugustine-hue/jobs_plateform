@@ -52,6 +52,8 @@ const ads: Ad[] = [
     }
 ].filter(ad => ad.company && ad.image);
 
+const AD_DISMISSED_KEY = 'chapel_hill_ads_dismissed';
+
 export default function AdSlider() {
   const pathname = usePathname();
   const [currentAdIndex, setCurrentAdIndex] = useState(0);
@@ -69,6 +71,14 @@ export default function AdSlider() {
     pathname === '/login' ||
     pathname === '/register';
 
+  useEffect(() => {
+    // Check session storage on mount to see if user dismissed ads
+    const dismissed = sessionStorage.getItem(AD_DISMISSED_KEY);
+    if (dismissed === 'true') {
+      setIsStopped(true);
+    }
+  }, []);
+
   const startCycle = useCallback(() => {
     if (isStopped || isDashboardPage) return;
 
@@ -83,13 +93,12 @@ export default function AdSlider() {
             startCycle();
         }
       }, 2000);
-    }, 12000); // 12s rotation for visibility
+    }, 12000); 
   }, [isDashboardPage, isStopped]);
 
   useEffect(() => {
     if (isDashboardPage || ads.length === 0 || isStopped) return;
 
-    // Start running after mount
     initialDelayRef.current = setTimeout(startCycle, 1500);
 
     return () => {
@@ -101,6 +110,8 @@ export default function AdSlider() {
   const handleClose = () => {
     setIsPanelOpen(false);
     setIsStopped(true);
+    // Persist dismissal for this session
+    sessionStorage.setItem(AD_DISMISSED_KEY, 'true');
   };
 
   if (isDashboardPage || ads.length === 0 || isStopped) {

@@ -10,9 +10,10 @@ import MainLayoutWrapper from '@/components/shared/main-layout-wrapper';
 import { Toaster } from '@/components/ui/toaster';
 import React from 'react';
 
-// Use dynamic import with ssr: false to fix hydration issues for floating client widgets
+// Stabilized dynamic import to fix ChunkLoadError
 const DynamicWidgetsWrapper = dynamic(() => import('@/components/shared/dynamic-widgets-wrapper'), { 
-  ssr: false 
+  ssr: false,
+  loading: () => null
 });
 
 export function Providers({ children }: { children: React.ReactNode }) {
