@@ -11,7 +11,7 @@ import { useState } from 'react';
 export default function SubscriptionSection() {
     const { toast } = useToast();
     const [email, setEmail] = useState('');
-    const bgImage = PlaceHolderImages.find((p) => p.id === 'subscription-1');
+    const bgImage = PlaceHolderImages.find((p) => p.id === 'african-pattern-bg');
     
     const handleSubscribe = (e: React.FormEvent) => {
         e.preventDefault();
