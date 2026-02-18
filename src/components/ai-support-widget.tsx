@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
@@ -23,7 +24,6 @@ import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
 import { useToast } from '@/hooks/use-toast';
 import { usePathname } from 'next/navigation';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { useFirebase } from '@/firebase/provider';
 import { runCareerAssistant } from '@/lib/actions';
 
@@ -106,7 +106,6 @@ export default function AISupportWidget() {
                 ? `Hello ${user.displayName || 'there'}! I'm Abena, your AI executive assistant. How can I accelerate your career today?`
                 : "Welcome to Chapel Hill! I'm Abena. Sign in to unlock my personalized career features, or ask me for general career advice!";
             
-            // First introduction with image
             setMessages([{ 
                 id: 1, 
                 sender: 'ai', 
@@ -256,11 +255,10 @@ export default function AISupportWidget() {
                 )}
             </AnimatePresence>
 
-            {/* Reduced Orb Trigger */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 className={cn(
-                    "group relative w-[60px] h-[60px] rounded-full flex items-center justify-center transition-all duration-700",
+                    "group relative w-[45px] h-[45px] rounded-full flex items-center justify-center transition-all duration-700",
                     isOpen ? "rotate-90" : "hover:scale-110 active:scale-95 shadow-[0_0_40px_rgba(147,197,253,0.3)]"
                 )}
             >
@@ -268,16 +266,16 @@ export default function AISupportWidget() {
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary via-accent to-gold rounded-full shadow-[0_0_30px_rgba(147,197,253,0.6)]" />
                 <div className="relative z-10 text-black">
                     {isOpen ? (
-                        <X className="h-8 w-8 stroke-[3]" />
+                        <X className="h-6 w-6 stroke-[3]" />
                     ) : (
-                        <div className="w-8 h-8 rounded-full overflow-hidden border border-black/10">
-                            <Image src={abenaAvatar} alt="AI" width={32} height={32} className="object-contain" />
+                        <div className="w-7 h-7 rounded-full overflow-hidden border border-black/10">
+                            <Image src={abenaAvatar} alt="AI" width={28} height={28} className="object-contain" />
                         </div>
                     )}
                 </div>
                 {!isOpen && (
-                    <div className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 border-2 border-[#0B0F17] rounded-full flex items-center justify-center animate-bounce shadow-xl">
-                        <span className="text-[9px] font-black text-white">1</span>
+                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 border-2 border-[#0B0F17] rounded-full flex items-center justify-center animate-bounce shadow-xl">
+                        <span className="text-[8px] font-black text-white">1</span>
                     </div>
                 )}
             </button>

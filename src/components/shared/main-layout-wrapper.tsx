@@ -1,9 +1,10 @@
+
 'use client';
 
 import Header from '@/components/shared/header';
 import Footer from '@/components/shared/footer';
 import LiveActivityBar from '@/components/shared/live-activity-bar';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 
 export default function MainLayoutWrapper({
@@ -12,6 +13,11 @@ export default function MainLayoutWrapper({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   
   const isDashboardPage =
     pathname.startsWith('/admin') ||
@@ -21,14 +27,14 @@ export default function MainLayoutWrapper({
 
   return (
     <>
-      {!isDashboardPage && (
+      {mounted && !isDashboardPage && (
         <div className="sticky top-0 z-50">
           <Header />
           <LiveActivityBar />
         </div>
       )}
       <div className="flex-1">{children}</div>
-      {!isDashboardPage && <Footer />}
+      {mounted && !isDashboardPage && <Footer />}
     </>
   );
 }
