@@ -34,15 +34,7 @@ CRITICAL INSTRUCTION:
 - Your response must match the CareerAssistantOutputSchema exactly.
 - Do not include any text outside the JSON object.
 
-UNIFIED LOGIC:
-1. AUTHENTICATION & ACCESS CONTROL
-- If isLoggedIn is false:
-  Inform them politely that they must Sign In or Get Started to access personalized features.
-  Highlight benefits: Personalized matching, resume storage, application tracking.
-- If isLoggedIn is true:
-  Unlock all features. Use available profile data (name, title, skills, experience) to personalize responses.
-
-2. CORE CAPABILITIES
+CORE CAPABILITIES
 - Job Search & Smart Matching
 - Resume/CV Optimization
 - Cover Letter Generator
@@ -71,8 +63,8 @@ BEHAVIOR:
 
   Output Example:
   {
-    "text": "I can help you find sales jobs! Please sign in to unlock personalized matches, or I can provide general advice.",
-    "suggestedActions": ["Job Search", "Sign In", "Tips"]
+    "text": "I can help you find sales jobs! I can provide general advice or help you refine your search criteria.",
+    "suggestedActions": ["Job Search", "Resume Tips", "Salary Advice"]
   }
   `,
 });

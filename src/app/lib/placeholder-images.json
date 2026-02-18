@@ -272,9 +272,9 @@
     },
     {
       "id": "location-accra",
-      "description": "High resolution screenshot of Accra location.",
+      "description": "High-resolution screenshot of location results.",
       "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771148872/Screenshot_156_cdc4ns.png",
-      "imageHint": "Accra screenshot"
+      "imageHint": "Accra results"
     },
     {
       "id": "location-kumasi",
@@ -298,7 +298,7 @@
       "id": "location-tamale",
       "description": "The central mosque in Tamale, Ghana.",
       "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771014264/tamale_stnlm1.jpg",
-      "imageHint": "Tamale mosque"
+      "imageHint": "Takoradi mosque"
     },
     {
       "id": "location-tema",

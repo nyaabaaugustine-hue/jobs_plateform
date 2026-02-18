@@ -107,7 +107,7 @@ export default function AISupportWidget() {
         if (isOpen && messages.length === 0) {
             const welcomeText = user 
                 ? `Hello ${user.displayName || 'there'}! I'm Abena, your AI executive assistant. How can I accelerate your career today?`
-                : "Welcome to Chapel Hill! I'm Abena. Sign in to unlock my personalized features, or ask me for general career advice!";
+                : "Welcome to Chapel Hill! I'm Abena, your AI executive assistant. How can I help you accelerate your career growth today?";
             
             setMessages([{ 
                 id: 1, 

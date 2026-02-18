@@ -106,7 +106,7 @@ export default function Header() {
           <Button variant="ghost" className="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-[#f6f4ee] font-black uppercase tracking-widest text-[10px]" asChild>
             <Link href="/login">Sign In</Link>
           </Button>
-          <Button className="bg-primary text-white font-black rounded-lg px-6 hover:brightness-110 transition-all uppercase tracking-widest text-[10px] h-10 shadow-lg" asChild>
+          <Button className="bg-primary text-white font-black rounded-lg px-6 hover:brightness-110 transition-all uppercase tracking-widest text-[10px] h-10 shadow-lg border-2 border-gold ring-2 ring-gold/20" asChild>
             <Link href="/register">Get Started</Link>
           </Button>
         </div>
