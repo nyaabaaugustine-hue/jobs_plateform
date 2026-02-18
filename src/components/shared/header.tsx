@@ -6,15 +6,58 @@ import Logo from './logo';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { ThemeToggle } from '../theme-toggle';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { ChevronDown } from 'lucide-react';
 
 export default function Header() {
   const pathname = usePathname();
 
   const navLinks = [
-    { href: '/', label: 'Home' },
-    { href: '/jobs', label: 'For Job Seekers' },
-    { href: '/pricing', label: 'For Employers' },
-    { href: '/blog', label: 'Resources' },
+    { 
+      label: 'Home', 
+      href: '/',
+      subItems: [
+        { label: 'About Us', href: '/about' },
+        { label: 'Contact Us', href: '/contacts' },
+        { label: 'Guidelines', href: '/guidelines' },
+        { label: 'FAQ', href: '/#faq' },
+      ]
+    },
+    { 
+      label: 'For Job Seekers', 
+      href: '/jobs',
+      subItems: [
+        { label: 'Browse Jobs', href: '/jobs' },
+        { label: 'Top Companies', href: '/companies' },
+        { label: 'Student Opportunities', href: '/opportunities' },
+        { label: 'My Dashboard', href: '/dashboard' },
+      ]
+    },
+    { 
+      label: 'For Employers', 
+      href: '/pricing',
+      subItems: [
+        { label: 'Post a Job', href: '/employer/jobs/new' },
+        { label: 'Browse Candidates', href: '/browse-candidates' },
+        { label: 'Pricing Plans', href: '/pricing' },
+        { label: 'Employer Portal', href: '/employer' },
+      ]
+    },
+    { 
+      label: 'Resources', 
+      href: '/blog',
+      subItems: [
+        { label: 'News & Blog', href: '/blog' },
+        { label: 'Careers', href: '/careers' },
+        { label: 'Homepage Features', href: '/features' },
+        { label: 'API Status', href: '/admin/api-status' },
+      ]
+    },
   ];
 
   return (
@@ -24,26 +67,38 @@ export default function Header() {
           <Link href="/">
             <Logo />
           </Link>
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={cn(
-                  'text-sm font-medium transition-all relative py-1',
-                  'after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-primary after:transition-all hover:after:w-full',
-                  pathname === link.href ? 'text-white' : 'text-muted-foreground hover:text-white'
-                )}
-              >
-                {link.label}
-              </Link>
+              <DropdownMenu key={link.label}>
+                <DropdownMenuTrigger asChild>
+                  <button
+                    className={cn(
+                      'text-sm font-medium transition-all relative py-1 flex items-center gap-1 group',
+                      'after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 after:bg-primary after:transition-all hover:after:w-full',
+                      pathname === link.href ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
+                    )}
+                  >
+                    {link.label}
+                    <ChevronDown className="h-3 w-3 opacity-50 group-hover:opacity-100 transition-opacity" />
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="start" className="w-48 bg-card border-white/10">
+                  {link.subItems.map((subItem) => (
+                    <DropdownMenuItem key={subItem.label} asChild>
+                      <Link href={subItem.href} className="cursor-pointer w-full">
+                        {subItem.label}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
             ))}
           </nav>
         </div>
 
         <div className="flex items-center gap-4">
           <ThemeToggle />
-          <Button variant="ghost" className="text-muted-foreground hover:text-white font-medium" asChild>
+          <Button variant="ghost" className="text-muted-foreground hover:text-foreground font-medium" asChild>
             <Link href="/login">Sign In</Link>
           </Button>
           <Button className="bg-primary text-white font-bold rounded-lg px-6 hover:brightness-110 transition-all" asChild>
