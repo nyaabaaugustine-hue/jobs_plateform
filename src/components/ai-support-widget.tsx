@@ -94,11 +94,7 @@ export default function AISupportWidget() {
 
             setMessages(prev => [...prev, { id: Date.now() + 1, sender: 'ai', text: response.text }]);
         } catch (error) {
-            toast({
-                title: "Assistant Error",
-                description: "Failed to connect to AI services.",
-                variant: "destructive"
-            });
+            setIsTyping(false);
         } finally {
             setIsTyping(false);
         }
@@ -139,7 +135,6 @@ export default function AISupportWidget() {
                         exit={{ opacity: 0, scale: 0.9, y: 20 }}
                         className="mb-4 w-[320px] h-[520px] flex flex-col bg-[#0B0F17]/95 backdrop-blur-3xl border border-white/10 rounded-[2rem] shadow-[0_30px_100px_rgba(0,0,0,0.6)] overflow-hidden"
                     >
-                        {/* Executive Header */}
                         <div className="p-6 bg-gradient-to-br from-primary/20 via-transparent to-accent/5 border-b border-white/5 flex items-center justify-between">
                             <div className="flex items-center gap-3">
                                 <div className="relative">
@@ -161,7 +156,6 @@ export default function AISupportWidget() {
                             </button>
                         </div>
 
-                        {/* Intelligent Feed */}
                         <div className="flex-1 overflow-y-auto p-6 space-y-6 scrollbar-hide">
                             {messages.map((m) => (
                                 <div key={m.id} className={cn("flex flex-col", m.sender === 'user' ? "items-end" : "items-start")}>
@@ -174,7 +168,6 @@ export default function AISupportWidget() {
                                                 className="object-contain scale-105" 
                                                 priority
                                             />
-                                            {/* Text Overlay Innovation */}
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-5">
                                                 <div className="bg-white/10 backdrop-blur-md border border-white/10 p-3 rounded-xl">
                                                     <p className="text-white text-[11px] font-bold leading-relaxed shadow-lg">
@@ -219,7 +212,6 @@ export default function AISupportWidget() {
                             <div ref={messagesEndRef} className="h-px w-full" />
                         </div>
 
-                        {/* Action Deck Panel */}
                         <div className="relative">
                             <AnimatePresence>
                                 {showActions && (
@@ -260,7 +252,6 @@ export default function AISupportWidget() {
                                 )}
                             </AnimatePresence>
 
-                            {/* Interaction Bar */}
                             <div className="p-6 border-t border-white/5 bg-black/40">
                                 <div className="flex flex-col gap-3">
                                     <button 

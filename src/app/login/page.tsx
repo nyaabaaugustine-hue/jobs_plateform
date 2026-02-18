@@ -1,3 +1,4 @@
+
 'use client';
 
 import { Button } from "@/components/ui/button"
@@ -7,7 +8,7 @@ import { Label } from "@/components/ui/label"
 import Link from "next/link"
 import Image from "next/image"
 import { PlaceHolderImages } from "@/lib/placeholder-images"
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useToast } from '@/hooks/use-toast';
 import { useFirebase } from '@/firebase/provider';
@@ -23,14 +24,21 @@ export default function LoginPage() {
 
     const router = useRouter();
     const { toast } = useToast();
-    const { auth, firestore } = useFirebase();
+    const { auth, firestore, user: currentUser } = useFirebase();
+
+    // Prevent "frozen" state by redirecting if already logged in
+    useEffect(() => {
+        if (currentUser && !isLoading) {
+            router.push('/dashboard');
+        }
+    }, [currentUser, isLoading, router]);
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!auth || !firestore) {
             toast({
-                title: 'Error',
-                description: 'Firebase is not initialized. Please try again later.',
+                title: 'Initialization Error',
+                description: 'Firebase services are not ready. Please refresh.',
                 variant: 'destructive',
             });
             return;
@@ -42,60 +50,39 @@ export default function LoginPage() {
             const user = userCredential.user;
 
             toast({
-                title: 'Login Successful',
-                description: 'Redirecting to your dashboard...',
+                title: 'Identity Verified',
+                description: 'Authenticating your role...',
                 variant: 'vibrant',
             });
 
-            // Fetch user role from Firestore to redirect correctly
             const userDocRef = doc(firestore, "users", user.uid);
             const userDoc = await getDoc(userDocRef);
 
-            let destination = '/dashboard'; // Default
+            let destination = '/dashboard';
             if (userDoc.exists()) {
                 const userData = userDoc.data();
                 switch (userData.role) {
-                    case 'admin':
-                        destination = '/admin';
-                        break;
+                    case 'admin': destination = '/admin'; break;
                     case 'employer':
                     case 'recruiter':
-                    case 'hiringManager':
-                        destination = '/employer';
-                        break;
-                    case 'jobSeeker':
-                    default:
-                        destination = '/dashboard';
+                    case 'hiringManager': destination = '/employer'; break;
+                    default: destination = '/dashboard';
                 }
             } else {
-                 // Check if user is an admin by looking in roles_admin collection
                 const adminDocRef = doc(firestore, "roles_admin", user.uid);
                 const adminDoc = await getDoc(adminDocRef);
-                if (adminDoc.exists()) {
-                    destination = '/admin';
-                }
+                if (adminDoc.exists()) destination = '/admin';
             }
             
-            setIsLoading(false);
             router.push(destination);
-
+            // We keep isLoading true until the push completes or component unmounts
         } catch (error: any) {
             console.error("Login failed:", error);
             let errorMessage = "An unknown error occurred.";
-            if (error.code) {
-                switch (error.code) {
-                    case 'auth/user-not-found':
-                    case 'auth/wrong-password':
-                    case 'auth/invalid-credential':
-                        errorMessage = 'Invalid email or password. Please try again.';
-                        break;
-                    case 'auth/invalid-email':
-                        errorMessage = 'Please enter a valid email address.';
-                        break;
-                    case 'auth/too-many-requests':
-                        errorMessage = 'Access to this account has been temporarily disabled due to many failed login attempts. You can try again later.';
-                        break;
-                }
+            if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password' || error.code === 'auth/invalid-credential') {
+                errorMessage = 'Invalid email or password.';
+            } else if (error.code === 'auth/too-many-requests') {
+                errorMessage = 'Account temporarily disabled due to many attempts.';
             }
             toast({
                 title: 'Login Failed',
@@ -107,14 +94,7 @@ export default function LoginPage() {
     };
 
     const handleOneClickLogin = async (role: 'jobSeeker' | 'employer' | 'admin') => {
-        if (!auth || !firestore) {
-            toast({
-                title: 'Error',
-                description: 'Firebase is not initialized. Please try again later.',
-                variant: 'destructive',
-            });
-            return;
-        }
+        if (!auth || !firestore) return;
     
         let demoEmail = '';
         let roleName = '';
@@ -131,7 +111,6 @@ export default function LoginPage() {
                 roleName = 'Admin';
                 destination = '/admin';
                 break;
-            case 'jobSeeker':
             default:
                 demoEmail = 'jobseeker@example.com';
                 roleName = 'Job Seeker';
@@ -139,103 +118,51 @@ export default function LoginPage() {
                 break;
         }
         
-        setEmail(demoEmail);
-        setPassword('password');
         setIsLoading(true);
     
         try {
-            // First, try to sign in
             await signInWithEmailAndPassword(auth, demoEmail, 'password');
             toast({
-                title: `Logged in as ${roleName}`,
-                description: 'Redirecting to your dashboard...',
+                title: `Demo Mode: ${roleName}`,
+                description: 'Redirecting to your workspace...',
                 variant: 'vibrant',
             });
-            setIsLoading(false);
             router.push(destination);
         } catch (error: any) {
-            // If sign-in fails because the user doesn't exist, create the user
             if (error.code === 'auth/user-not-found' || error.code === 'auth/invalid-credential') {
                 try {
-                    toast({
-                        title: 'Creating Demo User...',
-                        description: `The ${roleName} demo user doesn't exist yet. Creating it for you.`,
-                    });
                     const userCredential = await createUserWithEmailAndPassword(auth, demoEmail, 'password');
                     const user = userCredential.user;
-    
-                    // Create user document in Firestore
-                    const userDocRef = doc(firestore, "users", user.uid);
-                    await setDoc(userDocRef, {
+                    await setDoc(doc(firestore, "users", user.uid), {
                         email: user.email,
-                        firstName: roleName,
-                        lastName: "User",
                         name: `${roleName} User`,
                         role: role,
                         createdAt: new Date().toISOString(),
                         avatar: `avatar-${role === 'admin' ? 2 : (role === 'employer' ? 4 : 1)}`
                     });
-    
-                    // If admin, also create admin role document
                     if (role === 'admin') {
-                        const adminDocRef = doc(firestore, "roles_admin", user.uid);
-                        await setDoc(adminDocRef, {
-                            userId: user.uid,
-                            permissions: ['all'] 
-                        });
+                        await setDoc(doc(firestore, "roles_admin", user.uid), { userId: user.uid, permissions: ['all'] });
                     }
-                    
-                    toast({
-                        title: `Logged in as ${roleName}`,
-                        description: 'Redirecting to your dashboard...',
-                        variant: 'vibrant',
-                    });
-                    setIsLoading(false);
                     router.push(destination);
-    
                 } catch (creationError: any) {
-                    toast({
-                        title: 'Demo Login Failed',
-                        description: `Could not create the demo user. Error: ${creationError.message}`,
-                        variant: 'destructive',
-                    });
+                    toast({ title: 'Setup Failed', description: creationError.message, variant: 'destructive' });
                     setIsLoading(false);
                 }
             } else {
-                // Handle other login errors
-                toast({
-                    title: 'Demo Login Failed',
-                    description: `Could not log in as ${roleName}. Error: ${error.message}`,
-                    variant: 'destructive',
-                });
+                toast({ title: 'Login Failed', description: error.message, variant: 'destructive' });
                 setIsLoading(false);
             }
         }
     };
 
-    const handleSocialLogin = (provider: string) => {
-        toast({
-            title: `Login with ${provider}`,
-            description: "Social login has not been implemented in this demo.",
-        });
-    };
-
-    const handleForgotPassword = () => {
-        toast({
-            title: "Forgot Password",
-            description: "Password reset functionality is not implemented in this demo.",
-        });
-    };
-
   return (
-      <main className="flex-1 flex items-center justify-center p-4 relative">
+      <main className="flex-1 flex items-center justify-center p-4 relative min-h-[calc(100svh-120px)]">
         {heroImage && (
             <Image
               src={heroImage.imageUrl}
               alt={heroImage.description}
               fill
               className="object-cover z-0"
-              data-ai-hint={heroImage.imageHint}
               priority
               sizes="100vw"
             />
@@ -245,8 +172,8 @@ export default function LoginPage() {
             <Card className="w-full max-w-lg mx-auto bg-card/50 backdrop-blur-lg border border-white/10 shadow-2xl">
             <CardHeader className="text-center">
                 <CardTitle className="text-2xl font-black font-headline text-white uppercase tracking-wider">Welcome Back</CardTitle>
-                <CardDescription className="text-[#f6f4ee]/80 font-bold font-headline mt-2 leading-relaxed">
-                  Sign in to access your dashboard. Use the form below or the one-click login buttons for demo purposes.
+                <CardDescription className="text-white/80 font-bold font-headline mt-2 leading-relaxed">
+                  Sign in to access your dashboard. Use the one-click buttons for demo purposes.
                 </CardDescription>
             </CardHeader>
             <CardContent>
@@ -261,19 +188,20 @@ export default function LoginPage() {
                         required
                         value={email}
                         onChange={e => setEmail(e.target.value)}
+                        disabled={isLoading}
                         />
                     </div>
                     <div className="grid gap-2">
                         <div className="flex items-center">
                         <Label htmlFor="password">Password</Label>
-                        <Link href="#" onClick={handleForgotPassword} className="ml-auto inline-block text-sm text-primary hover:underline">
-                            Forgot your password?
+                        <Link href="#" className="ml-auto inline-block text-sm text-primary hover:underline">
+                            Forgot?
                         </Link>
                         </div>
-                        <Input id="password" type="password" required value={password} onChange={e => setPassword(e.target.value)} />
+                        <Input id="password" type="password" required value={password} onChange={e => setPassword(e.target.value)} disabled={isLoading} />
                     </div>
                     <Button type="submit" className="w-full bg-primary font-black uppercase tracking-widest h-12" disabled={isLoading}>
-                        {isLoading ? 'Logging in...' : 'Login'}
+                        {isLoading ? 'Processing...' : 'Login'}
                     </Button>
                     </div>
                 </form>
@@ -283,7 +211,7 @@ export default function LoginPage() {
                         <span className="w-full border-t border-white/10" />
                     </div>
                     <div className="relative flex justify-center text-[10px] uppercase font-black tracking-widest">
-                        <span className="bg-[#151C2B] px-2 text-muted-foreground">Or use one-click login</span>
+                        <span className="bg-[#151C2B] px-2 text-muted-foreground">Demo Accounts</span>
                     </div>
                 </div>
 
@@ -300,19 +228,6 @@ export default function LoginPage() {
                         </Button>
                     </div>
                 </div>
-
-                <div className="relative my-4">
-                    <div className="absolute inset-0 flex items-center">
-                        <span className="w-full border-t border-white/10" />
-                    </div>
-                    <div className="relative flex justify-center text-[10px] uppercase font-black tracking-widest">
-                        <span className="bg-[#151C2B] px-2 text-muted-foreground">Or continue with</span>
-                    </div>
-                </div>
-                
-                <Button variant="outline" className="w-full border-white/10 hover:bg-white/5 font-bold h-12" type="button" disabled={isLoading} onClick={() => handleSocialLogin('Google')}>
-                    Login with Google
-                </Button>
 
                 <div className="mt-6 text-center text-sm font-medium text-white/60">
                 Don&apos;t have an account?{" "}
