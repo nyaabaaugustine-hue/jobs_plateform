@@ -72,7 +72,6 @@ export default function HiredNotification() {
       action: (
         <ToastAction
           altText="Stop alerts"
-          variant="black"
           onClick={(e) => {
             e.preventDefault();
             stopNotifications();

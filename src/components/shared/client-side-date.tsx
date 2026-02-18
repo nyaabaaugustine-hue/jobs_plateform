@@ -36,7 +36,6 @@ export default function ClientSideDate({
   }, [dateString, formatType]);
 
   // Use a stable span fallback during hydration to prevent mismatches.
-  // DO NOT use <div> here if the parent is a <span> or <p>.
   if (!formattedDate) {
     return <span className={className}>&nbsp;</span>;
   }
