@@ -77,11 +77,9 @@ export default function AdSlider() {
 
     setIsPanelOpen(true);
     
-    // Cycle every 50 seconds
     if (cycleTimerRef.current) clearTimeout(cycleTimerRef.current);
     cycleTimerRef.current = setTimeout(() => {
       setIsPanelOpen(false);
-      // Wait a bit before showing the next one
       setTimeout(() => {
         setCurrentAdIndex(prev => (prev + 1) % ads.length);
         startCycle();
@@ -93,7 +91,6 @@ export default function AdSlider() {
     const isDismissed = sessionStorage.getItem(DISMISSED_KEY) === 'true';
     if (isDashboardPage || ads.length === 0 || isDismissed || isStopped) return;
 
-    // Initial appearance after 2 seconds
     initialDelayRef.current = setTimeout(startCycle, 2000);
 
     return () => {

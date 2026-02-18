@@ -92,10 +92,8 @@ export default function HiredNotification() {
     const isDismissed = sessionStorage.getItem(DISMISSED_KEY) === 'true';
     if (isDashboardPage || isDismissed || isStopped) return;
 
-    // Initial appearance after 3 seconds
     timerRef.current = setTimeout(() => {
       showRandomHiredNotification();
-      // Repeat every 47 seconds
       intervalRef.current = setInterval(showRandomHiredNotification, 47000);
     }, 3000);
 
