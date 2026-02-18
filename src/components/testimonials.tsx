@@ -4,16 +4,23 @@ import type { Review } from '@/lib/types';
 import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { DUMMY_REVIEWS, DUMMY_USERS } from '@/lib/data';
-import SectionHeader from './shared/section-header';
+import { DUMMY_REVIEWS } from '@/lib/data';
 import StarRating from './shared/star-rating';
 import { Button } from './ui/button';
 import { PlusCircle } from 'lucide-react';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const TestimonialCard = ({ review }: { review: Review }) => {
     const userAvatar = PlaceHolderImages.find((img) => img.id === review.user.avatar);
     return (
-        <Card className="flex flex-col bg-[#151C2B] border border-white/5 p-8 rounded-2xl shadow-2xl transition-all hover:-translate-y-1">
+        <Card className="flex flex-col bg-[#151C2B] border border-white/5 p-8 rounded-2xl shadow-2xl transition-all hover:border-white/10 h-full">
             <CardContent className="p-0 mb-6">
                 <StarRating rating={5} className="mb-4" />
                 <p className="text-[#F3F4F6] italic leading-relaxed text-base font-medium line-clamp-4">"{review.comment}"</p>
@@ -45,11 +52,31 @@ export default function Testimonials() {
                 <PlusCircle className="mr-2 h-4 w-4" /> Add a review
             </Button>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <Carousel
+          opts={{
+            align: "start",
+            loop: true,
+          }}
+          plugins={[
+            Autoplay({
+              delay: 5000,
+            }),
+          ]}
+          className="w-full relative px-4 md:px-12"
+        >
+          <CarouselContent className="-ml-4">
             {reviews.map((review) => (
-                <TestimonialCard review={review} key={review.id} />
+              <CarouselItem key={review.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                <TestimonialCard review={review} />
+              </CarouselItem>
             ))}
-        </div>
+          </CarouselContent>
+          <div className="hidden md:block">
+            <CarouselPrevious className="absolute -left-4 top-1/2 -translate-y-1/2 bg-[#151C2B] border-white/10 hover:bg-[#1F2937] text-white" />
+            <CarouselNext className="absolute -right-4 top-1/2 -translate-y-1/2 bg-[#151C2B] border-white/10 hover:bg-[#1F2937] text-white" />
+          </div>
+        </Carousel>
       </div>
     </section>
   );
