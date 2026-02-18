@@ -7,9 +7,10 @@ type SectionHeaderProps = {
   className?: string;
   isCentered?: boolean;
   dark?: boolean;
+  silver?: boolean;
 };
 
-export default function SectionHeader({ title, subtitle, className, isCentered = true, dark = false }: SectionHeaderProps) {
+export default function SectionHeader({ title, subtitle, className, isCentered = true, dark = false, silver = false }: SectionHeaderProps) {
   return (
     <div className={cn(
       'mb-12 section-reveal',
@@ -18,14 +19,14 @@ export default function SectionHeader({ title, subtitle, className, isCentered =
     )}>
       <h2 className={cn(
         "font-headline text-[48px] font-black leading-tight",
-        dark ? "text-[#0B0F17]" : "text-white"
+        silver ? "text-slate-300" : (dark ? "text-[#0B0F17]" : "text-white")
       )}>
         {title}
       </h2>
       {subtitle && (
         <p className={cn(
           'mt-4 text-[18px] font-medium font-headline tracking-wide',
-          dark ? "text-slate-600" : "text-muted-foreground",
+          silver ? "text-slate-300" : (dark ? "text-slate-600" : "text-muted-foreground"),
           isCentered && 'max-w-2xl mx-auto'
         )}>
           {subtitle}
