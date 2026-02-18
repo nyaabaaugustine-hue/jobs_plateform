@@ -1,5 +1,3 @@
-// This file is fixed to resolve the Render build error.
-// The property name is 'baseUrl' (lowercase 'u'), not 'baseURL'.
 
 export const auth0Config = {
     clientId: process.env.AUTH0_CLIENT_ID,
