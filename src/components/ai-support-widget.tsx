@@ -34,12 +34,12 @@ type Message = {
 };
 
 const QUICK_ACTIONS = [
-    { label: 'Smart Job Match', icon: Search, category: 'Search', color: 'text-blue-400', bg: 'bg-blue-500/10' },
-    { label: 'Optimize My CV', icon: FileText, category: 'Resume', color: 'text-purple-400', bg: 'bg-purple-500/10' },
-    { label: 'Interview Prep', icon: Target, category: 'Growth', color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
-    { label: 'Cover Letter', icon: Award, category: 'Resume', color: 'text-pink-400', bg: 'bg-pink-500/10' },
-    { label: 'Salary Insights', icon: TrendingUp, category: 'Market', color: 'text-amber-400', bg: 'bg-amber-500/10' },
-    { label: 'Career Roadmap', icon: Briefcase, category: 'Growth', color: 'text-cyan-400', bg: 'bg-cyan-500/10' },
+    { label: 'Smart Job Match', icon: Search, category: 'Search', color: 'text-blue-400', bg: 'bg-blue-500/10', border: 'border-blue-500/20' },
+    { label: 'Optimize My CV', icon: FileText, category: 'Resume', color: 'text-purple-400', bg: 'bg-purple-500/10', border: 'border-purple-500/20' },
+    { label: 'Interview Prep', icon: Target, category: 'Growth', color: 'text-emerald-400', bg: 'bg-emerald-500/10', border: 'border-emerald-500/20' },
+    { label: 'Cover Letter', icon: Award, category: 'Resume', color: 'text-pink-400', bg: 'bg-pink-500/10', border: 'border-pink-500/20' },
+    { label: 'Salary Insights', icon: TrendingUp, category: 'Market', color: 'text-amber-400', bg: 'bg-amber-500/10', border: 'border-amber-500/20' },
+    { label: 'Career Roadmap', icon: Briefcase, category: 'Growth', color: 'text-cyan-400', bg: 'bg-cyan-500/10', border: 'border-cyan-500/20' },
 ];
 
 export default function AISupportWidget() {
@@ -155,13 +155,13 @@ export default function AISupportWidget() {
                             {messages.map((m) => (
                                 <div key={m.id} className={cn("flex flex-col", m.sender === 'user' ? "items-end" : "items-start")}>
                                     {m.image && (
-                                        <div className="mb-3 w-full max-w-[200px] rounded-xl overflow-hidden border border-white/10 shadow-lg bg-black/20">
+                                        <div className="mb-3 w-full max-w-[220px] rounded-xl overflow-hidden border border-white/10 shadow-lg bg-black/40">
                                             <Image 
                                                 src={m.image} 
                                                 alt="Assistant Intro" 
-                                                width={200} 
-                                                height={112} 
-                                                className="w-full h-auto object-cover aspect-video" 
+                                                width={220} 
+                                                height={220} 
+                                                className="w-full h-auto object-contain" 
                                                 priority
                                             />
                                         </div>
@@ -208,14 +208,18 @@ export default function AISupportWidget() {
                                                 <button
                                                     key={i}
                                                     onClick={() => handleSendMessage(action.label)}
-                                                    className="flex flex-col items-start gap-2 p-3 rounded-xl bg-white/5 border border-white/5 hover:border-primary/50 hover:bg-primary/10 transition-all group text-left"
+                                                    className={cn(
+                                                        "flex flex-col items-start gap-2 p-3 rounded-xl bg-white/5 border transition-all group text-left",
+                                                        action.border,
+                                                        "hover:border-primary/50 hover:bg-white/10"
+                                                    )}
                                                 >
-                                                    <div className={cn("p-1.5 rounded-lg transition-all group-hover:scale-110", action.bg, action.color)}>
+                                                    <div className={cn("p-1.5 rounded-lg transition-all group-hover:scale-110 shadow-lg", action.bg, action.color)}>
                                                         <action.icon className="h-4 w-4" />
                                                     </div>
                                                     <div>
                                                         <p className="text-[10px] font-black text-white tracking-tight">{action.label}</p>
-                                                        <p className="text-[7px] text-white/30 uppercase font-black tracking-widest mt-0.5">{action.category}</p>
+                                                        <p className={cn("text-[7px] uppercase font-black tracking-widest mt-0.5 opacity-60", action.color)}>{action.category}</p>
                                                     </div>
                                                 </button>
                                             ))}
