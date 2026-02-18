@@ -1,11 +1,11 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { DUMMY_JOBS, DUMMY_COMPANIES, DUMMY_LOCATIONS, JOB_CATEGORIES, DUMMY_USERS } from '@/lib/data';
 import HeroSearchForm from '@/components/hero-search-form';
 import TopCompanies from '@/components/top-companies';
 import FeaturedJobs from '@/components/featured-jobs';
 import WhyChooseUs from '@/components/why-choose-us';
-import Testimonials from '@/components/testimonials';
 import HiringSection from '@/components/hiring-section';
 import JobsByLocation from '@/components/jobs-by-location';
 import LatestNews from '@/components/latest-news';
@@ -15,6 +15,13 @@ import Faq from '@/components/faq';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Skeleton } from '@/components/ui/skeleton';
+
+// Use dynamic import with ssr: false to resolve hydration mismatch in complex client components
+const Testimonials = dynamic(() => import('@/components/testimonials'), { 
+  ssr: false,
+  loading: () => <div className="h-[600px] w-full bg-background animate-pulse" />
+});
 
 export default function HomePage() {
   const companies = DUMMY_COMPANIES.slice(0, 10);
@@ -63,7 +70,7 @@ export default function HomePage() {
   return (
     <main className="flex-1 bg-background">
       {/* 1. Hero Section */}
-      <section className="relative w-full h-[650px] flex items-center justify-center text-center overflow-hidden">
+      <section className="relative w-full h-[650px] flex items-center justify-center text-center overflow-hidden bg-hero-radial">
         {heroImage && (
           <Image
             src={heroImage.imageUrl}
@@ -78,8 +85,8 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-black/60 z-10" />
         <div className="relative z-20 container mx-auto px-6 max-w-4xl">
           <div className="flex flex-col space-y-6">
-            <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white animate-in fade-in slide-in-from-bottom-4 duration-1000">
-              Find Your Next Job, Faster.
+            <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white animate-in fade-in slide-in-from-bottom-4 duration-1000 font-headline">
+              Find Your Next Job, <span className="text-primary">Faster.</span>
             </h1>
             <p className="text-xl text-white/80 font-bold max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200">
               Discover your next career move with verified employers and salary transparency.

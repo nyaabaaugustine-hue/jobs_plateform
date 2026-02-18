@@ -1,7 +1,6 @@
 'use client';
 
 import { DUMMY_OPPORTUNITIES } from '@/lib/data';
-import SectionHeader from './shared/section-header';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import Link from 'next/link';
@@ -18,7 +17,7 @@ export default function VolunteerSection() {
         <div className="text-center mb-20 animate-in fade-in slide-in-from-bottom-4 duration-1000">
             <h2 className="font-headline text-[48px] font-black text-foreground leading-tight">Kickstart Your Career</h2>
             <p className="mt-4 text-[18px] text-muted-foreground font-medium font-headline tracking-wide max-w-2xl mx-auto uppercase tracking-[0.1em]">
-                Elite paths for emerging talent and hand-on institutional growth.
+                Elite paths for emerging talent and hands-on institutional growth.
             </p>
         </div>
         
@@ -30,7 +29,7 @@ export default function VolunteerSection() {
               className="block group h-full"
             >
               <Card 
-                className="relative h-full bg-card/40 backdrop-blur-md border border-border/50 shadow-lg group-hover:shadow-glow transition-all duration-500 hover:-translate-y-2 rounded-[2rem] p-8 overflow-hidden" 
+                className="relative h-full bg-card/40 backdrop-blur-md border border-border/50 shadow-lg group-hover:shadow-glow group-hover:ring-2 group-hover:ring-gold transition-all duration-500 hover:-translate-y-2 rounded-[2rem] p-8 overflow-hidden" 
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {/* Subtle Gradient Background */}

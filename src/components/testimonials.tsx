@@ -1,13 +1,13 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import type { Review } from '@/lib/types';
 import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import StarRating from './shared/star-rating';
 import { Button } from './ui/button';
-import { PlusCircle, Star, MessageSquare, User as UserIcon, Briefcase, Loader2, Quote } from 'lucide-react';
+import { Star, MessageSquare, User as UserIcon, Briefcase, Loader2, Quote } from 'lucide-react';
 import {
   Dialog,
   DialogContent,
@@ -107,15 +107,10 @@ const TestimonialCard = ({ review }: { review: Review }) => {
 
 export default function Testimonials() {
   const { toast } = useToast();
-  const [isMounted, setIsMounted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [rating, setRating] = useState(5);
   const [hoverRating, setHoverRating] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
 
   const marqueeRow1 = [...allReviews, ...allReviews, ...allReviews];
   const marqueeRow2 = [...allReviews, ...allReviews, ...allReviews].reverse();
@@ -151,131 +146,125 @@ export default function Testimonials() {
                     <div className="absolute inset-0 bg-accent/5 group-hover:bg-accent/10 transition-colors" />
                 </Button>
               </DialogTrigger>
-              {isMounted && (
-                <DialogContent className="sm:max-w-[400px] bg-card border-border/50 text-foreground p-0 overflow-hidden rounded-3xl shadow-2xl">
-                  <div className="bg-gradient-to-r from-primary/20 via-background to-accent/20 p-8 border-b border-border/50 relative">
-                    <div className="absolute top-4 right-4 opacity-50">
-                      <GoogleLogo />
-                    </div>
-                    <DialogHeader>
-                      <DialogTitle className="text-2xl font-black font-headline text-foreground flex items-center gap-3">
-                        <GoogleLogo /> Share Your Experience
-                      </DialogTitle>
-                      <DialogDescription className="text-muted-foreground font-medium pt-2">
-                        Help others discover the power of Chapel Hill with an authoritative review.
-                      </DialogDescription>
-                    </DialogHeader>
+              <DialogContent className="sm:max-w-[400px] bg-card border-border/50 text-foreground p-0 overflow-hidden rounded-3xl shadow-2xl">
+                <div className="bg-gradient-to-r from-primary/20 via-background to-accent/20 p-8 border-b border-border/50 relative">
+                  <div className="absolute top-4 right-4 opacity-50">
+                    <GoogleLogo />
                   </div>
-                  
-                  <form onSubmit={handleSubmitReview} className="p-8 space-y-6">
-                    <div className="space-y-3">
-                      <Label className="text-xs font-black uppercase tracking-widest text-muted-foreground">Overall Rating</Label>
-                      <div className="flex items-center gap-2">
-                        {[1, 2, 3, 4, 5].map((star) => (
-                          <button
-                            key={star}
-                            type="button"
-                            className="transition-transform hover:scale-110 active:scale-95"
-                            onMouseEnter={() => setHoverRating(star)}
-                            onMouseLeave={() => setHoverRating(0)}
-                            onClick={() => setRating(star)}
-                          >
-                            <Star 
-                              className={cn(
-                                "h-10 w-10 transition-colors",
-                                (hoverRating || rating) >= star 
-                                  ? "fill-yellow-400 text-yellow-400" 
-                                  : "text-muted/10 fill-muted/5"
-                              )}
-                            />
-                          </button>
-                        ))}
-                        <span className="ml-4 font-black text-xl text-yellow-400">
-                          {rating > 0 ? rating.toFixed(1) : ''}
-                        </span>
-                      </div>
+                  <DialogHeader>
+                    <DialogTitle className="text-2xl font-black font-headline text-foreground flex items-center gap-3">
+                      <GoogleLogo /> Share Your Experience
+                    </DialogTitle>
+                    <DialogDescription className="text-muted-foreground font-medium pt-2">
+                      Help others discover the power of Chapel Hill with an authoritative review.
+                    </DialogDescription>
+                  </DialogHeader>
+                </div>
+                
+                <form onSubmit={handleSubmitReview} className="p-8 space-y-6">
+                  <div className="space-y-3">
+                    <Label className="text-xs font-black uppercase tracking-widest text-muted-foreground">Overall Rating</Label>
+                    <div className="flex items-center gap-2">
+                      {[1, 2, 3, 4, 5].map((star) => (
+                        <button
+                          key={star}
+                          type="button"
+                          className="transition-transform hover:scale-110 active:scale-95"
+                          onMouseEnter={() => setHoverRating(star)}
+                          onMouseLeave={() => setHoverRating(0)}
+                          onClick={() => setRating(star)}
+                        >
+                          <Star 
+                            className={cn(
+                              "h-10 w-10 transition-colors",
+                              (hoverRating || rating) >= star 
+                                ? "fill-yellow-400 text-yellow-400" 
+                                : "text-muted/10 fill-muted/5"
+                            )}
+                          />
+                        </button>
+                      ))}
+                      <span className="ml-4 font-black text-xl text-yellow-400">
+                        {rating > 0 ? rating.toFixed(1) : ''}
+                      </span>
                     </div>
+                  </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="rev-name" className="text-xs font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-                          <UserIcon className="h-3 w-3" /> Full Name
-                        </Label>
-                        <Input 
-                          id="rev-name" 
-                          placeholder="e.g. John Doe" 
-                          required 
-                          className="bg-secondary/50 border-border text-foreground placeholder:text-muted-foreground h-12 rounded-xl focus:ring-primary transition-all"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="rev-title" className="text-xs font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-                          <Briefcase className="h-3 w-3" /> Job Title
-                        </Label>
-                        <Input 
-                          id="rev-title" 
-                          placeholder="e.g. Senior Developer" 
-                          required 
-                          className="bg-secondary/50 border-border text-foreground placeholder:text-muted-foreground h-12 rounded-xl focus:ring-primary transition-all"
-                        />
-                      </div>
-                    </div>
-
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="rev-text" className="text-xs font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-                        <MessageSquare className="h-3 w-3" /> Your Review
+                      <Label htmlFor="rev-name" className="text-xs font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                        <UserIcon className="h-3 w-3" /> Full Name
                       </Label>
-                      <Textarea 
-                        id="rev-text" 
-                        placeholder="Tell us how Chapel Hill helped your career..." 
-                        className="bg-secondary/50 border-border text-foreground placeholder:text-muted-foreground min-h-[140px] rounded-xl focus:ring-primary p-4 resize-none transition-all leading-relaxed"
-                        required
+                      <Input 
+                        id="rev-name" 
+                        placeholder="e.g. John Doe" 
+                        required 
+                        className="bg-secondary/50 border-border text-foreground placeholder:text-muted-foreground h-12 rounded-xl focus:ring-primary transition-all"
                       />
                     </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="rev-title" className="text-xs font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                        <Briefcase className="h-3 w-3" /> Job Title
+                      </Label>
+                      <Input 
+                        id="rev-title" 
+                        placeholder="e.g. Senior Developer" 
+                        required 
+                        className="bg-secondary/50 border-border text-foreground placeholder:text-muted-foreground h-12 rounded-xl focus:ring-primary transition-all"
+                      />
+                    </div>
+                  </div>
 
-                    <DialogFooter className="pt-4">
-                      <DialogClose asChild>
-                        <Button type="button" variant="ghost" className="text-muted-foreground hover:text-foreground hover:bg-secondary rounded-xl h-12 px-6">Cancel</Button>
-                      </DialogClose>
-                      <Button 
-                        type="submit" 
-                        disabled={isSubmitting || rating === 0}
-                        className="bg-primary text-primary-foreground font-black rounded-xl h-12 px-10 hover:brightness-110 shadow-xl shadow-primary/20 transition-all hover:-translate-y-0.5"
-                      >
-                        {isSubmitting ? (
-                          <>
-                            <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Submitting...
-                          </>
-                        ) : 'Post Review'}
-                      </Button>
-                    </DialogFooter>
-                  </form>
-                </DialogContent>
-              )}
+                  <div className="space-y-2">
+                    <Label htmlFor="rev-text" className="text-xs font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                      <MessageSquare className="h-3 w-3" /> Your Review
+                    </Label>
+                    <Textarea 
+                      id="rev-text" 
+                      placeholder="Tell us how Chapel Hill helped your career..." 
+                      className="bg-secondary/50 border-border text-foreground placeholder:text-muted-foreground min-h-[140px] rounded-xl focus:ring-primary p-4 resize-none transition-all leading-relaxed"
+                      required
+                    />
+                  </div>
+
+                  <DialogFooter className="pt-4">
+                    <DialogClose asChild>
+                      <Button type="button" variant="ghost" className="text-muted-foreground hover:text-foreground hover:bg-secondary rounded-xl h-12 px-6">Cancel</Button>
+                    </DialogClose>
+                    <Button 
+                      type="submit" 
+                      disabled={isSubmitting || rating === 0}
+                      className="bg-primary text-primary-foreground font-black rounded-xl h-12 px-10 hover:brightness-110 shadow-xl shadow-primary/20 transition-all hover:-translate-y-0.5"
+                    >
+                      {isSubmitting ? (
+                        <>
+                          <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Submitting...
+                        </>
+                      ) : 'Post Review'}
+                    </Button>
+                  </DialogFooter>
+                </form>
+              </DialogContent>
             </Dialog>
         </div>
       </div>
 
       <div className="space-y-8 relative">
-        {isMounted && (
-          <>
-            <div className="flex w-full overflow-hidden">
-                <div className="flex animate-marquee-rtl gap-8 py-4 whitespace-nowrap">
-                    {marqueeRow1.map((review, idx) => (
-                        <TestimonialCard key={`${review.id}-r1-${idx}`} review={review} />
-                    ))}
-                </div>
+        <div className="flex w-full overflow-hidden">
+            <div className="flex animate-marquee-rtl gap-8 py-4 whitespace-nowrap">
+                {marqueeRow1.map((review, idx) => (
+                    <TestimonialCard key={`${review.id}-r1-${idx}`} review={review} />
+                ))}
             </div>
+        </div>
 
-            <div className="flex w-full overflow-hidden">
-                <div className="flex animate-marquee-ltr gap-8 py-4 whitespace-nowrap">
-                    {marqueeRow2.map((review, idx) => (
-                        <TestimonialCard key={`${review.id}-r2-${idx}`} review={review} />
-                    ))}
-                </div>
+        <div className="flex w-full overflow-hidden">
+            <div className="flex animate-marquee-ltr gap-8 py-4 whitespace-nowrap">
+                {marqueeRow2.map((review, idx) => (
+                    <TestimonialCard key={`${review.id}-r2-${idx}`} review={review} />
+                ))}
             </div>
-          </>
-        )}
+        </div>
 
         <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
