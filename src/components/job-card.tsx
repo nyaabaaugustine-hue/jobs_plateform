@@ -20,7 +20,7 @@ export default function JobCard({ job }: JobCardProps) {
   const [matchScore, setMatchScore] = useState<number | null>(null);
 
   useEffect(() => {
-    // Generate a consistent match score for the demo based on job ID
+    // Consistent match score based on ID for demo purposes
     const score = 75 + (parseInt(job.id.split('-')[1]) * 7) % 24;
     setMatchScore(score);
   }, [job.id]);

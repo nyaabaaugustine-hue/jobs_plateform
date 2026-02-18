@@ -5,6 +5,7 @@ import { Card } from '@/components/ui/card';
 import { MapPin } from 'lucide-react';
 import type { Company } from '@/lib/types';
 import SectionHeader from './shared/section-header';
+import StarRating from './shared/star-rating';
 
 export default function TopCompanies({ companies }: { companies: Company[] }) {
   return (
@@ -31,9 +32,15 @@ export default function TopCompanies({ companies }: { companies: Company[] }) {
                     </div>
                   )}
                   <h3 className="font-bold text-base text-white mb-2">{company.name}</h3>
+                  <div className="mb-2">
+                    <StarRating rating={company.rating || 5} />
+                  </div>
                   <div className="text-xs text-muted-foreground flex items-center justify-center gap-1">
                     <MapPin className="h-3 w-3 shrink-0" />
                     <span>{company.location}</span>
+                  </div>
+                  <div className="mt-4 text-[10px] font-black uppercase tracking-tighter text-primary">
+                    {company.activeJobs || 0} Openings
                   </div>
                 </Card>
               </Link>
