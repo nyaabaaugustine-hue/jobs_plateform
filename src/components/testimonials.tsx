@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import type { Review } from '@/lib/types';
 import { Card, CardContent } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -33,6 +33,48 @@ const GoogleLogo = () => (
     <path d="M12 4.41c1.69 0 3.21.58 4.41 1.71l3.31-3.31C17.71 1.03 15.1 0 12 0 7.04 0 2.73 3.5.83 7.29l3.58 2.82c1.07-3.21 4.06-5.6 7.59-5.6z" fill="#EA4335"/>
   </svg>
 );
+
+const allReviews: Review[] = [
+  {
+      id: '1',
+      comment: "This platform helped me find my dream job in just two weeks!",
+      rating: 5,
+      user: { id: 'u1', name: 'Ama Mensah', professionalTitle: 'Software Developer', avatar: 'avatar-1', role: 'jobSeeker', email: '' }
+  },
+  {
+      id: '2',
+      comment: "This platform helped me find my dream job in just two weeks!",
+      rating: 5,
+      user: { id: 'u2', name: 'Kofi Addo', professionalTitle: 'Product Manager', avatar: 'avatar-2', role: 'jobSeeker', email: '' }
+  },
+  {
+      id: '3',
+      comment: "This platform helped me find my dream job in just two weeks!",
+      rating: 5,
+      user: { id: 'u3', name: 'Adwoa Owusu', professionalTitle: 'UX/UI Designer', avatar: 'avatar-3', role: 'jobSeeker', email: '' }
+  },
+  {
+      id: '4',
+      comment: "This platform helped me find my dream job in just two weeks!",
+      rating: 5,
+      user: { id: 'u4', name: 'Yaw Adjei', professionalTitle: 'Data Scientist', avatar: 'avatar-4', role: 'jobSeeker', email: '' }
+  },
+  {
+      id: '5',
+      comment: "This platform helped me find my dream job in just two weeks!",
+      rating: 5,
+      user: { id: 'u5', name: 'Esi Serwaa', professionalTitle: 'Marketing Manager', avatar: 'avatar-5', role: 'jobSeeker', email: '' }
+  },
+  {
+      id: '6',
+      comment: "This platform helped me find my dream job in just two weeks!",
+      rating: 5,
+      user: { id: 'u6', name: 'Kwame Boateng', professionalTitle: 'HR Specialist', avatar: 'avatar-7', role: 'jobSeeker', email: '' }
+  }
+];
+
+const marqueeRow1 = [...allReviews, ...allReviews, ...allReviews];
+const marqueeRow2 = [...allReviews, ...allReviews, ...allReviews].reverse();
 
 const TestimonialCard = ({ review }: { review: Review }) => {
     const userAvatar = PlaceHolderImages.find((img) => img.id === review.user.avatar);
@@ -69,52 +111,15 @@ const TestimonialCard = ({ review }: { review: Review }) => {
 
 export default function Testimonials() {
   const { toast } = useToast();
+  const [isMounted, setIsMounted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [rating, setRating] = useState(5); // Start with 5 stars as requested
+  const [rating, setRating] = useState(5);
   const [hoverRating, setHoverRating] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
 
-  const allReviews: Review[] = [
-    {
-        id: '1',
-        comment: "This platform helped me find my dream job in just two weeks!",
-        rating: 5,
-        user: { id: 'u1', name: 'Ama Mensah', professionalTitle: 'Software Developer', avatar: 'avatar-1', role: 'jobSeeker', email: '' }
-    },
-    {
-        id: '2',
-        comment: "This platform helped me find my dream job in just two weeks!",
-        rating: 5,
-        user: { id: 'u2', name: 'Kofi Addo', professionalTitle: 'Product Manager', avatar: 'avatar-2', role: 'jobSeeker', email: '' }
-    },
-    {
-        id: '3',
-        comment: "This platform helped me find my dream job in just two weeks!",
-        rating: 5,
-        user: { id: 'u3', name: 'Adwoa Owusu', professionalTitle: 'UX/UI Designer', avatar: 'avatar-3', role: 'jobSeeker', email: '' }
-    },
-    {
-        id: '4',
-        comment: "This platform helped me find my dream job in just two weeks!",
-        rating: 5,
-        user: { id: 'u4', name: 'Yaw Adjei', professionalTitle: 'Data Scientist', avatar: 'avatar-4', role: 'jobSeeker', email: '' }
-    },
-    {
-        id: '5',
-        comment: "This platform helped me find my dream job in just two weeks!",
-        rating: 5,
-        user: { id: 'u5', name: 'Esi Serwaa', professionalTitle: 'Marketing Manager', avatar: 'avatar-5', role: 'jobSeeker', email: '' }
-    },
-    {
-        id: '6',
-        comment: "This platform helped me find my dream job in just two weeks!",
-        rating: 5,
-        user: { id: 'u6', name: 'Kwame Boateng', professionalTitle: 'HR Specialist', avatar: 'avatar-7', role: 'jobSeeker', email: '' }
-    }
-  ];
-
-  const row1 = [...allReviews];
-  const row2 = [...allReviews].reverse();
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const handleSubmitReview = (e: React.FormEvent) => {
     e.preventDefault();
@@ -147,105 +152,107 @@ export default function Testimonials() {
                     <div className="absolute inset-0 bg-accent/5 group-hover:bg-accent/10 transition-colors" />
                 </Button>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-[400px] bg-card border-border/50 text-foreground p-0 overflow-hidden rounded-3xl shadow-2xl">
-                <div className="bg-gradient-to-r from-primary/20 via-background to-accent/20 p-8 border-b border-border/50 relative">
-                  <div className="absolute top-4 right-4 opacity-50">
-                    <GoogleLogo />
-                  </div>
-                  <DialogHeader>
-                    <DialogTitle className="text-2xl font-black font-headline text-foreground flex items-center gap-3">
-                      <GoogleLogo /> Share Your Experience
-                    </DialogTitle>
-                    <DialogDescription className="text-muted-foreground font-medium pt-2">
-                      Help others discover the power of Chapel Hill with an authoritative review.
-                    </DialogDescription>
-                  </DialogHeader>
-                </div>
-                
-                <form onSubmit={handleSubmitReview} className="p-8 space-y-6">
-                  <div className="space-y-3">
-                    <Label className="text-xs font-black uppercase tracking-widest text-muted-foreground">Overall Rating</Label>
-                    <div className="flex items-center gap-2">
-                      {[1, 2, 3, 4, 5].map((star) => (
-                        <button
-                          key={star}
-                          type="button"
-                          className="transition-transform hover:scale-110 active:scale-95"
-                          onMouseEnter={() => setHoverRating(star)}
-                          onMouseLeave={() => setHoverRating(0)}
-                          onClick={() => setRating(star)}
-                        >
-                          <Star 
-                            className={cn(
-                              "h-10 w-10 transition-colors",
-                              (hoverRating || rating) >= star 
-                                ? "fill-yellow-400 text-yellow-400" 
-                                : "text-muted/10 fill-muted/5"
-                            )}
-                          />
-                        </button>
-                      ))}
-                      <span className="ml-4 font-black text-xl text-yellow-400">
-                        {rating > 0 ? rating.toFixed(1) : ''}
-                      </span>
+              {isMounted && (
+                <DialogContent className="sm:max-w-[400px] bg-card border-border/50 text-foreground p-0 overflow-hidden rounded-3xl shadow-2xl">
+                  <div className="bg-gradient-to-r from-primary/20 via-background to-accent/20 p-8 border-b border-border/50 relative">
+                    <div className="absolute top-4 right-4 opacity-50">
+                      <GoogleLogo />
                     </div>
+                    <DialogHeader>
+                      <DialogTitle className="text-2xl font-black font-headline text-foreground flex items-center gap-3">
+                        <GoogleLogo /> Share Your Experience
+                      </DialogTitle>
+                      <DialogDescription className="text-muted-foreground font-medium pt-2">
+                        Help others discover the power of Chapel Hill with an authoritative review.
+                      </DialogDescription>
+                    </DialogHeader>
                   </div>
+                  
+                  <form onSubmit={handleSubmitReview} className="p-8 space-y-6">
+                    <div className="space-y-3">
+                      <Label className="text-xs font-black uppercase tracking-widest text-muted-foreground">Overall Rating</Label>
+                      <div className="flex items-center gap-2">
+                        {[1, 2, 3, 4, 5].map((star) => (
+                          <button
+                            key={star}
+                            type="button"
+                            className="transition-transform hover:scale-110 active:scale-95"
+                            onMouseEnter={() => setHoverRating(star)}
+                            onMouseLeave={() => setHoverRating(0)}
+                            onClick={() => setRating(star)}
+                          >
+                            <Star 
+                              className={cn(
+                                "h-10 w-10 transition-colors",
+                                (hoverRating || rating) >= star 
+                                  ? "fill-yellow-400 text-yellow-400" 
+                                  : "text-muted/10 fill-muted/5"
+                              )}
+                            />
+                          </button>
+                        ))}
+                        <span className="ml-4 font-black text-xl text-yellow-400">
+                          {rating > 0 ? rating.toFixed(1) : ''}
+                        </span>
+                      </div>
+                    </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="rev-name" className="text-xs font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                          <UserIcon className="h-3 w-3" /> Full Name
+                        </Label>
+                        <Input 
+                          id="rev-name" 
+                          placeholder="e.g. John Doe" 
+                          required 
+                          className="bg-secondary/50 border-border text-foreground placeholder:text-muted-foreground h-12 rounded-xl focus:ring-primary transition-all"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="rev-title" className="text-xs font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                          <Briefcase className="h-3 w-3" /> Job Title
+                        </Label>
+                        <Input 
+                          id="rev-title" 
+                          placeholder="e.g. Senior Developer" 
+                          required 
+                          className="bg-secondary/50 border-border text-foreground placeholder:text-muted-foreground h-12 rounded-xl focus:ring-primary transition-all"
+                        />
+                      </div>
+                    </div>
+
                     <div className="space-y-2">
-                      <Label htmlFor="rev-name" className="text-xs font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-                        <UserIcon className="h-3 w-3" /> Full Name
+                      <Label htmlFor="rev-text" className="text-xs font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
+                        <MessageSquare className="h-3 w-3" /> Your Review
                       </Label>
-                      <Input 
-                        id="rev-name" 
-                        placeholder="e.g. John Doe" 
-                        required 
-                        className="bg-secondary/50 border-border text-foreground placeholder:text-muted-foreground h-12 rounded-xl focus:ring-primary transition-all"
+                      <Textarea 
+                        id="rev-text" 
+                        placeholder="Tell us how Chapel Hill helped your career..." 
+                        className="bg-secondary/50 border-border text-foreground placeholder:text-muted-foreground min-h-[140px] rounded-xl focus:ring-primary p-4 resize-none transition-all leading-relaxed"
+                        required
                       />
                     </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="rev-title" className="text-xs font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-                        <Briefcase className="h-3 w-3" /> Job Title
-                      </Label>
-                      <Input 
-                        id="rev-title" 
-                        placeholder="e.g. Senior Developer" 
-                        required 
-                        className="bg-secondary/50 border-border text-foreground placeholder:text-muted-foreground h-12 rounded-xl focus:ring-primary transition-all"
-                      />
-                    </div>
-                  </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="rev-text" className="text-xs font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
-                      <MessageSquare className="h-3 w-3" /> Your Review
-                    </Label>
-                    <Textarea 
-                      id="rev-text" 
-                      placeholder="Tell us how Chapel Hill helped your career..." 
-                      className="bg-secondary/50 border-border text-foreground placeholder:text-muted-foreground min-h-[140px] rounded-xl focus:ring-primary p-4 resize-none transition-all leading-relaxed"
-                      required
-                    />
-                  </div>
-
-                  <DialogFooter className="pt-4">
-                    <DialogClose asChild>
-                      <Button type="button" variant="ghost" className="text-muted-foreground hover:text-foreground hover:bg-secondary rounded-xl h-12 px-6">Cancel</Button>
-                    </DialogClose>
-                    <Button 
-                      type="submit" 
-                      disabled={isSubmitting || rating === 0}
-                      className="bg-primary text-primary-foreground font-black rounded-xl h-12 px-10 hover:brightness-110 shadow-xl shadow-primary/20 transition-all hover:-translate-y-0.5"
-                    >
-                      {isSubmitting ? (
-                        <>
-                          <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Submitting...
-                        </>
-                      ) : 'Post Review'}
-                    </Button>
-                  </DialogFooter>
-                </form>
-              </DialogContent>
+                    <DialogFooter className="pt-4">
+                      <DialogClose asChild>
+                        <Button type="button" variant="ghost" className="text-muted-foreground hover:text-foreground hover:bg-secondary rounded-xl h-12 px-6">Cancel</Button>
+                      </DialogClose>
+                      <Button 
+                        type="submit" 
+                        disabled={isSubmitting || rating === 0}
+                        className="bg-primary text-primary-foreground font-black rounded-xl h-12 px-10 hover:brightness-110 shadow-xl shadow-primary/20 transition-all hover:-translate-y-0.5"
+                      >
+                        {isSubmitting ? (
+                          <>
+                            <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Submitting...
+                          </>
+                        ) : 'Post Review'}
+                      </Button>
+                    </DialogFooter>
+                  </form>
+                </DialogContent>
+              )}
             </Dialog>
         </div>
       </div>
@@ -253,7 +260,7 @@ export default function Testimonials() {
       <div className="space-y-8 relative">
         <div className="flex w-full overflow-hidden">
             <div className="flex animate-marquee-rtl gap-8 py-4 whitespace-nowrap">
-                {[...row1, ...row1, ...row1].map((review, idx) => (
+                {marqueeRow1.map((review, idx) => (
                     <TestimonialCard key={`${review.id}-r1-${idx}`} review={review} />
                 ))}
             </div>
@@ -261,7 +268,7 @@ export default function Testimonials() {
 
         <div className="flex w-full overflow-hidden">
             <div className="flex animate-marquee-ltr gap-8 py-4 whitespace-nowrap">
-                {[...row2, ...row2, ...row2].map((review, idx) => (
+                {marqueeRow2.map((review, idx) => (
                     <TestimonialCard key={`${review.id}-r2-${idx}`} review={review} />
                 ))}
             </div>
