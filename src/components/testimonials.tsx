@@ -75,9 +75,9 @@ const allReviews: Review[] = [
 const TestimonialCard = ({ review }: { review: Review }) => {
     const userAvatar = PlaceHolderImages.find((img) => img.id === review.user.avatar);
     return (
-        <Card className="flex flex-col bg-card border border-border/50 p-6 rounded-2xl shadow-2xl transition-all hover:border-primary/20 h-full w-[360px] shrink-0">
-            <CardContent className="p-0 mb-6 relative">
-                <div className="flex items-center justify-between mb-4">
+        <Card className="flex flex-col bg-card border border-border/50 p-5 rounded-2xl shadow-2xl transition-all hover:border-primary/20 h-full w-[360px] shrink-0">
+            <CardContent className="p-0 mb-4 relative">
+                <div className="flex items-center justify-between mb-3">
                   <StarRating rating={5} />
                   <div className="flex items-center gap-2 px-2 py-1 rounded bg-secondary border border-border/50">
                     <GoogleLogo />
@@ -85,13 +85,13 @@ const TestimonialCard = ({ review }: { review: Review }) => {
                   </div>
                 </div>
                 <Quote className="absolute -top-2 -left-2 h-8 w-8 text-primary/10 -z-10" />
-                <div className="min-h-[80px]">
+                <div className="min-h-[68px]">
                   <p className="text-foreground italic leading-relaxed text-sm font-medium break-words whitespace-normal">
                     "{review.comment}"
                   </p>
                 </div>
             </CardContent>
-            <div className="flex items-center gap-4 mt-auto pt-6 border-t border-border/50">
+            <div className="flex items-center gap-4 mt-auto pt-4 border-t border-border/50">
                 <Avatar className="h-10 w-10 border-2 border-border shadow-lg">
                     {userAvatar && <AvatarImage src={userAvatar.imageUrl} alt={review.user.name} />}
                     <AvatarFallback className="bg-primary/20 text-primary">{review.user.name?.charAt(0)}</AvatarFallback>

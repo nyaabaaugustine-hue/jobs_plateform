@@ -19,7 +19,7 @@ export default function MainLayoutWrapper({
     setMounted(true);
   }, []);
 
-  // Always start page from top/hero section on every navigation
+  // Always start page from top/hero section on every navigation or mount
   useEffect(() => {
     if (mounted) {
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
