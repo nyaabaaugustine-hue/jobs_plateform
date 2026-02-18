@@ -14,7 +14,7 @@ export default function VolunteerSection() {
   const bgImage = PlaceHolderImages.find((p) => p.id === 'freedom-justice');
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-24 overflow-hidden bg-background">
       {bgImage && (
         <>
           <Image
@@ -25,8 +25,7 @@ export default function VolunteerSection() {
             data-ai-hint={bgImage.imageHint}
             priority
           />
-          {/* Luminous Shining Milky White overlay */}
-          <div className="absolute inset-0 z-10 bg-background/70" />
+          <div className="absolute inset-0 z-10 bg-background/75" />
         </>
       )}
 
@@ -56,7 +55,7 @@ export default function VolunteerSection() {
           ))}
         </div>
         <div className="mt-16 text-center animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '500ms' }}>
-          <Button asChild size="lg" variant="outline" className="font-bold px-10 shadow-lg scale-110 border-2 border-black text-black hover:bg-black hover:text-white transition-all duration-300">
+          <Button asChild size="lg" className="font-bold px-10 shadow-xl bg-primary hover:bg-primary/90 hover:scale-[1.05] transition-all duration-300 rounded-xl">
             <Link href="/opportunities">Explore Opportunities</Link>
           </Button>
         </div>

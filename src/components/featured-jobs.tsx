@@ -12,7 +12,6 @@ import Image from 'next/image';
 
 export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], categories: string[] }) {
   const [selectedCategory, setSelectedCategory] = useState('All');
-  // Specific background image requested by user
   const bgImageUrl = "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771012629/Acca_jgvugd.jpg";
 
   const featuredJobs = jobs.filter(job => {
@@ -21,8 +20,8 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
   }).slice(0, 9);
 
   return (
-    <section className="relative py-20">
-      {/* Background Image at 25% Opacity as per previous instruction */}
+    <section className="relative py-20 bg-background">
+      {/* Background Image at 25% Opacity */}
       <Image
         src={bgImageUrl}
         alt="Accra Background"
@@ -31,7 +30,7 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
         data-ai-hint="Accra city"
         priority
       />
-      <div className="absolute inset-0 bg-background/20 z-10" />
+      <div className="absolute inset-0 bg-background/80 z-10" />
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-10 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
           <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-foreground">Featured Jobs</h2>
@@ -67,8 +66,8 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
             <p className="text-center text-muted-foreground mt-8">No jobs found for this category.</p>
         )}
 
-        <div className="mt-10 text-center animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '500ms' }}>
-          <Button asChild variant="outline" size="lg" className="border-2 border-black font-black bg-transparent text-black hover:bg-black hover:text-white transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none">
+        <div className="mt-12 text-center animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '500ms' }}>
+          <Button asChild variant="outline" size="lg" className="rounded-xl px-8 shadow-sm hover:bg-primary/5 hover:text-primary border-primary/20 transition-all">
             <Link href="/jobs">
               View All Jobs <ArrowRight className="ml-2 h-4 w-4" />
             </Link>

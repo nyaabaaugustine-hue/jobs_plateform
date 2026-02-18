@@ -12,7 +12,7 @@ export default function LatestNews({ posts }: { posts: BlogPost[] }) {
   const bgImage = PlaceHolderImages.find((p) => p.id === 'latest-news-bg');
 
   return (
-    <section className="relative py-20">
+    <section className="relative py-20 bg-background">
       {/* Background Image at 25% Opacity */}
       {bgImage && (
         <Image
@@ -23,7 +23,7 @@ export default function LatestNews({ posts }: { posts: BlogPost[] }) {
           data-ai-hint={bgImage.imageHint}
         />
       )}
-      <div className="absolute inset-0 bg-background/20 z-10" />
+      <div className="absolute inset-0 bg-background/80 z-10" />
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-12 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
           <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-foreground">Our News and Stories</h2>
@@ -36,7 +36,7 @@ export default function LatestNews({ posts }: { posts: BlogPost[] }) {
             ))}
         </div>
         <div className="mt-12 text-center animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '500ms' }}>
-            <Button asChild size="lg" variant="outline" className="border-2 border-black font-black">
+            <Button asChild size="lg" variant="outline" className="rounded-xl border-primary/20 hover:bg-primary/5 hover:text-primary transition-all px-8">
                 <Link href="/blog">
                     Show More
                 </Link>

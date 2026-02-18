@@ -108,6 +108,7 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
             </p>
             
             <div className="pt-5 mt-5 border-t border-border/50 flex flex-col gap-3">
+              {/* Premium Milky White button with Black border and Gold ring */}
               <Button 
                 asChild 
                 className="w-full h-12 bg-white text-black border-2 border-black ring-2 ring-gold ring-offset-0 font-black tracking-wide hover:bg-white/90 hover:scale-[1.02] transition-all rounded-xl shadow-lg"
@@ -117,6 +118,7 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
                 </Link>
               </Button>
 
+              {/* Milky Clay White with Red (Burgundy) outline */}
               <Button 
                 asChild 
                 variant="outline"
