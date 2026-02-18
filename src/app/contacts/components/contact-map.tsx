@@ -11,7 +11,7 @@ export default function ContactMap() {
     <Card className="shadow-2xl overflow-hidden group border-2 border-white/10 bg-card/50 backdrop-blur-xl rounded-3xl animate-in fade-in duration-1000 relative">
         <div className="relative aspect-[16/7] w-full grayscale-[0.2] contrast-[1.1] brightness-[0.9] hover:grayscale-0 transition-all duration-700">
             <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.335802614166!2d-0.018509100000000004!3d5.6644858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf816a29cb20fb%3A0x359b1bc469c4f805!2schapel%20Hill%20Managers%20and%20Consulting!5e0!3m2!1sen!2sgh!4v1771444554661!5m2!1sen!2sgh" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.335802614166!2d-0.018509100000000004!3d5.6644858!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf816a29cb20fb:0x359b1bc469c4f805!2schapel%20Hill%20Managers%20and%20Consulting!5e0!3m2!1sen!2sgh!4v1771444554661!5m2!1sen!2sgh" 
                 width="100%" 
                 height="100%" 
                 style={{ border: 0 }} 
@@ -21,7 +21,6 @@ export default function ContactMap() {
                 className="opacity-90 hover:opacity-100 transition-opacity"
             />
             
-            {/* Clickable Overlay to transition to full Google Maps */}
             <a 
               href={mapUrl} 
               target="_blank" 
@@ -38,7 +37,7 @@ export default function ContactMap() {
             <div className="absolute top-6 right-6 z-20">
                 <Button asChild size="sm" className="bg-white text-black font-black rounded-xl shadow-xl border border-white/20 hover:bg-gold hover:text-black transition-all">
                     <a href={mapUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="mr-2 h-4 w-4" /> Go to Google Maps
+                        <ExternalLink className="mr-2 h-4 w-4" /> Open Google Maps
                     </a>
                 </Button>
             </div>
