@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card } from '@/components/ui/card';
-import { MapPin, Building } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 import type { Company } from '@/lib/types';
 import SectionHeader from './shared/section-header';
 import StarRating from './shared/star-rating';
@@ -43,7 +43,7 @@ export default function TopCompanies({ companies }: { companies: Company[] }) {
                     <span>{company.location}</span>
                   </div>
                   <div className="mt-4">
-                    <Badge variant="secondary" className="bg-primary/10 text-primary border-none text-[10px] font-black uppercase">
+                    <Badge variant="secondary" className="bg-primary/10 text-primary-foreground border-none text-[10px] font-black uppercase">
                       {company.activeJobs || 0} Openings
                     </Badge>
                   </div>

@@ -10,10 +10,10 @@ export default function HeroSearchForm() {
   const router = useRouter();
   const [jobTitle, setJobTitle] = useState('');
   const [location, setLocation] = useState('');
-  const [mounted, setMounted] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    setIsMounted(true);
   }, []);
 
   const handleSearch = (e: React.FormEvent) => {
@@ -24,8 +24,8 @@ export default function HeroSearchForm() {
     router.push(`/jobs?${query.toString()}`);
   };
 
-  if (!mounted) {
-    return <div className="h-16 w-full max-w-4xl mx-auto bg-white/10 rounded-xl animate-pulse" />;
+  if (!isMounted) {
+    return <div className="h-16 w-full max-w-4xl mx-auto bg-muted animate-pulse rounded-xl" />;
   }
 
   return (
@@ -55,7 +55,7 @@ export default function HeroSearchForm() {
       <Button
         onClick={handleSearch}
         size="lg"
-        className="h-12 w-full sm:w-auto bg-primary text-white font-black font-headline rounded-lg px-10 hover:brightness-110 transition-all shadow-lg"
+        className="h-12 w-full sm:w-auto bg-primary text-primary-foreground font-black font-headline rounded-lg px-10 hover:brightness-110 transition-all shadow-lg"
       >
         Find Jobs
       </Button>

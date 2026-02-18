@@ -11,11 +11,11 @@ import { useToast } from '@/hooks/use-toast';
 export default function SubscriptionSection() {
     const { toast } = useToast();
     const [email, setEmail] = useState('');
-    const [mounted, setMounted] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
     const bgImage = PlaceHolderImages.find((p) => p.id === 'african-pattern-bg');
     
     useEffect(() => {
-        setMounted(true);
+        setIsMounted(true);
     }, []);
 
     const handleSubscribe = (e: React.FormEvent) => {
@@ -30,7 +30,15 @@ export default function SubscriptionSection() {
         setEmail('');
     };
 
-    if (!mounted) return null;
+    if (!isMounted) {
+      return (
+        <section className="py-20 bg-background">
+          <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+            <div className="h-64 w-full bg-muted animate-pulse rounded-[3rem]" />
+          </div>
+        </section>
+      );
+    }
 
   return (
     <section className="py-20 bg-background">

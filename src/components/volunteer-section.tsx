@@ -54,7 +54,7 @@ export default function VolunteerSection() {
         </div>
         
         <div className="mt-20 text-center">
-          <Button asChild size="lg" className="font-black px-12 shadow-2xl bg-primary hover:bg-gold hover:text-black transition-all rounded-2xl h-16 text-sm uppercase tracking-widest group">
+          <Button asChild size="lg" className="font-black px-12 shadow-2xl bg-primary text-primary-foreground hover:bg-gold hover:text-black transition-all rounded-2xl h-16 text-sm uppercase tracking-widest group">
             <Link href="/opportunities" className="flex items-center gap-3">
               View All Opportunities <ArrowUpRight className="h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </Link>

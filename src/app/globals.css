@@ -6,7 +6,7 @@
   :root {
     /* 🥇 Theme 3: LIGHT (Modern Clean SaaS Light) */
     --background: 210 40% 98%; /* #F8FAFC */
-    --foreground: 222 47% 11%; /* #0F172A */
+    --foreground: 222 47% 11%; /* #0F172A - High Contrast Heading */
     
     --card: 0 0% 100%; /* #FFFFFF - Surface */
     --card-foreground: 222 47% 11%;
@@ -14,8 +14,9 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
-    --primary: 217 91% 60%; /* #3B82F6 - VIBRANT LIGHT BLUE */
-    --primary-foreground: 0 0% 100%; 
+    /* Brand: Very Light Blue (#93C5FD) */
+    --primary: 212 91% 78%; 
+    --primary-foreground: 222 47% 11%; 
     
     --secondary: 210 40% 96%; /* #F1F5F9 - Elevated */
     --secondary-foreground: 222 47% 11%;
@@ -31,7 +32,7 @@
     
     --border: 214 32% 91%; /* #E2E8F0 */
     --input: 214 32% 91%;
-    --ring: 217 91% 60%;
+    --ring: 212 91% 78%;
 
     --radius: 1rem;
     --gold: 45 85% 55%;
@@ -56,8 +57,8 @@
     --popover: 222 47% 11%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 217 91% 60%; /* #3B82F6 - VIBRANT LIGHT BLUE */
-    --primary-foreground: 0 0% 100%; 
+    --primary: 212 91% 78%; 
+    --primary-foreground: 222 47% 11%; 
     
     --secondary: 215 25% 27%; /* #334155 - Elevated */
     --secondary-foreground: 210 40% 98%;
@@ -73,7 +74,7 @@
     
     --border: 215 25% 27%; /* #334155 */
     --input: 215 25% 27%;
-    --ring: 217 91% 60%;
+    --ring: 212 91% 78%;
     --burgundy: 349 89% 45%;
     
     --bg-base: 222 47% 11%;
@@ -92,8 +93,8 @@
     --popover: 222 48% 8%;
     --popover-foreground: 210 40% 96%;
 
-    --primary: 217 91% 60%; /* #3B82F6 - VIBRANT LIGHT BLUE */
-    --primary-foreground: 0 0% 100%; 
+    --primary: 212 91% 78%; 
+    --primary-foreground: 222 47% 11%; 
     
     --secondary: 216 40% 15%; /* #162133 - Elevated */
     --secondary-foreground: 210 40% 98%;
@@ -109,7 +110,7 @@
     
     --border: 215 28% 17%; /* #1F2937 - Overlay */
     --input: 215 28% 17%;
-    --ring: 217 91% 60%;
+    --ring: 212 91% 78%;
     --burgundy: 349 89% 45%;
     
     --bg-base: 222 48% 8%;
