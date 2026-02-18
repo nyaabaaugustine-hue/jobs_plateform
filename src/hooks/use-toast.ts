@@ -93,8 +93,6 @@ export const reducer = (state: State, action: Action): State => {
     case "DISMISS_TOAST": {
       const { toastId } = action
 
-      // ! Side effects ! - This could be extracted into a dismissToast() action,
-      // but I'll keep it here for simplicity
       if (toastId) {
         addToRemoveQueue(toastId)
       } else {
@@ -184,10 +182,14 @@ function useToast() {
     }
   }, [state])
 
+  const dismiss = React.useCallback((toastId?: string) => {
+    dispatch({ type: "DISMISS_TOAST", toastId })
+  }, []);
+
   return {
     ...state,
     toast,
-    dismiss: (toastId?: string) => dispatch({ type: "DISMISS_TOAST", toastId }),
+    dismiss,
   }
 }
 

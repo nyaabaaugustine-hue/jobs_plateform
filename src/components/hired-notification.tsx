@@ -20,31 +20,29 @@ const hiredExamples = [
 export default function HiredNotification() {
   const { toast, dismiss } = useToast();
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const timerRef = useRef<NodeJS.Timeout | null>(null);
   const pathname = usePathname();
   const [isStopped, setIsStopped] = useState(false);
-
-  // Use a ref to track stop state synchronously across callbacks
   const isStoppedRef = useRef(false);
 
   const isDashboardPage =
     pathname.startsWith('/admin') ||
     pathname.startsWith('/dashboard') ||
-    pathname.startsWith('/employer');
+    pathname.startsWith('/employer') ||
+    pathname === '/hilladmin' ||
+    pathname === '/login' ||
+    pathname === '/register';
 
   const stopNotifications = () => {
     setIsStopped(true);
     isStoppedRef.current = true;
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-      intervalRef.current = null;
-    }
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    if (timerRef.current) clearTimeout(timerRef.current);
     dismiss(); 
-    // Remember dismissal forever
     localStorage.setItem('chapel-hill-hired-dismissed', 'true');
   };
 
   useEffect(() => {
-    // Check if previously dismissed forever
     const dismissed = localStorage.getItem('chapel-hill-hired-dismissed');
     if (dismissed === 'true') {
         setIsStopped(true);
@@ -58,17 +56,15 @@ export default function HiredNotification() {
         
         const example = hiredExamples[Math.floor(Math.random() * hiredExamples.length)];
         const userAvatar = PlaceHolderImages.find((img) => img.id === example.avatarId);
-
         const startTime = Date.now();
 
         toast({
           variant: 'black',
           className: 'p-4 pr-10 border-l-4 border-l-gold animate-in slide-in-from-right-full duration-500',
           onOpenChange: (open) => {
-            // When the toast is closed
             if (!open) {
               const elapsed = Date.now() - startTime;
-              // Heuristic: if closed manually (usually before 8s timeout)
+              // If closed manually before auto-timeout
               if (elapsed < 7800) {
                 stopNotifications();
               }
@@ -78,7 +74,7 @@ export default function HiredNotification() {
             <div className="flex items-center gap-3 text-left">
               <div className="relative shrink-0">
                 <Avatar className="h-10 w-10 border-2 border-white/20">
-                  {userAvatar && <AvatarImage src={userAvatar.imageUrl} alt={example.name} />}
+                  {userAvatar && <AvatarImage src={userAvatar.imageUrl} alt={example.name} data-ai-hint="professional portrait" />}
                   <AvatarFallback>{example.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                 </Avatar>
                 <div className="absolute -bottom-1 -right-1 bg-gold rounded-full p-0.5">
@@ -110,16 +106,18 @@ export default function HiredNotification() {
         });
       };
 
-      // Set to run every 47 seconds (as requested)
-      const initialDelay = setTimeout(showRandomHiredNotification, 10000); // 10s after load
-      intervalRef.current = setInterval(showRandomHiredNotification, 47000);
+      // Initial fast appearance (3s), then 47s intervals
+      timerRef.current = setTimeout(() => {
+        showRandomHiredNotification();
+        intervalRef.current = setInterval(showRandomHiredNotification, 47000);
+      }, 3000);
 
       return () => {
-        clearTimeout(initialDelay);
+        if (timerRef.current) clearTimeout(timerRef.current);
         if (intervalRef.current) clearInterval(intervalRef.current);
       };
     }
-  }, [toast, dismiss, isDashboardPage, isStopped]);
+  }, [isDashboardPage, isStopped, toast, dismiss]);
 
   return null;
 }
