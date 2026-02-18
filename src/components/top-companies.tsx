@@ -12,11 +12,10 @@ import { Badge } from './ui/badge';
 export default function TopCompanies({ companies }: { companies: Company[] }) {
   return (
     <section className="relative py-20 bg-transparent overflow-hidden">
-      <div className="relative z-10 container mx-auto max-w-7xl px-6 lg:px-12 opacity-70">
+      <div className="relative z-10 container mx-auto max-w-7xl px-6 lg:px-12">
         <SectionHeader 
           title="Top Companies Hiring" 
           subtitle="Direct partnerships with world-class engineering teams."
-          silver
         />
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
           {companies.map((company) => {
