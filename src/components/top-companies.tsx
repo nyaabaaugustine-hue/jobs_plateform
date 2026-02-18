@@ -21,7 +21,7 @@ export default function TopCompanies({ companies }: { companies: Company[] }) {
             const companyLogo = PlaceHolderImages.find((img) => img.id === company.logo);
             return (
               <Link key={company.id} href={`/companies/${company.id}`} className="block group">
-                <Card className="h-full p-6 text-center border border-border/50 bg-card hover:bg-secondary/50 transition-all rounded-2xl flex flex-col items-center justify-center shadow-md hover:shadow-xl">
+                <Card className="h-full p-6 text-center border border-border/50 bg-card hover:bg-secondary/50 transition-all rounded-2xl flex flex-col items-center justify-center shadow-sm hover:shadow-lg">
                   {companyLogo && (
                     <div className="relative mb-4 h-16 w-16">
                         <Image

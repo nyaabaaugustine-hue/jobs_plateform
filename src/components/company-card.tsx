@@ -16,7 +16,7 @@ export default function CompanyCard({ company }: CompanyCardProps) {
   const companyLogo = PlaceHolderImages.find((img) => img.id === company.logo);
 
   return (
-    <Card className="group flex h-full flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl">
+    <Card className="group flex h-full flex-col overflow-hidden transition-all duration-300 hover:-translate-y-1.5 shadow-sm hover:shadow-lg">
         <CardHeader className="flex-row items-center gap-4 p-6">
             {companyLogo && (
                 <div className="relative h-16 w-16 shrink-0 rounded-lg border p-1 bg-white">

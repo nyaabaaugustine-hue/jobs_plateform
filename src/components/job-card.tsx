@@ -19,7 +19,7 @@ export default function JobCard({ job }: JobCardProps) {
   const matchScore = job.aiPriorityScore || 85;
 
   return (
-    <Card className="bg-[#151C2B] rounded-2xl p-6 border border-white/5 hover:border-white/10 transition-all duration-300 flex h-full flex-col overflow-hidden group hover:-translate-y-1 shadow-2xl relative">
+    <Card className="bg-[#151C2B] rounded-2xl p-6 border border-white/5 hover:border-white/10 transition-all duration-300 flex h-full flex-col overflow-hidden group hover:-translate-y-1 shadow-lg hover:shadow-xl relative">
       <CardHeader className="flex flex-row items-start justify-between p-0 mb-4">
         <div className="flex items-start gap-4">
           {companyLogo && (
