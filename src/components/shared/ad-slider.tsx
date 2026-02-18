@@ -76,11 +76,13 @@ export default function AdSlider() {
     setIsPanelOpen(true);
     
     // Auto-close after 10 seconds of display
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
     closeTimerRef.current = setTimeout(() => {
       if (!isStoppedRef.current) setIsPanelOpen(false);
     }, 10000);
     
     // Schedule the next cycle start every 50 seconds
+    if (cycleTimerRef.current) clearTimeout(cycleTimerRef.current);
     cycleTimerRef.current = setTimeout(() => {
       if (!isStoppedRef.current) {
           setCurrentAdIndex(prev => (prev + 1) % ads.length);

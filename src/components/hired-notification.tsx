@@ -56,20 +56,10 @@ export default function HiredNotification() {
         
         const example = hiredExamples[Math.floor(Math.random() * hiredExamples.length)];
         const userAvatar = PlaceHolderImages.find((img) => img.id === example.avatarId);
-        const startTime = Date.now();
 
         toast({
           variant: 'black',
           className: 'p-4 pr-10 border-l-4 border-l-gold animate-in slide-in-from-right-full duration-500',
-          onOpenChange: (open) => {
-            if (!open) {
-              const elapsed = Date.now() - startTime;
-              // If closed manually before auto-timeout
-              if (elapsed < 7800) {
-                stopNotifications();
-              }
-            }
-          },
           description: (
             <div className="flex items-center gap-3 text-left">
               <div className="relative shrink-0">

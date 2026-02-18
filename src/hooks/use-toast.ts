@@ -157,7 +157,7 @@ function toast({ ...props }: Toast) {
       id,
       open: true,
       onOpenChange: (open) => {
-        if (!open) dismiss()
+        if (!open) dispatch({ type: "DISMISS_TOAST", toastId: id })
       },
     },
   })
@@ -182,14 +182,10 @@ function useToast() {
     }
   }, [])
 
-  const dismiss = React.useCallback((toastId?: string) => {
-    dispatch({ type: "DISMISS_TOAST", toastId })
-  }, []);
-
   return {
     ...state,
     toast,
-    dismiss,
+    dismiss: (toastId?: string) => dispatch({ type: "DISMISS_TOAST", toastId }),
   }
 }
 
