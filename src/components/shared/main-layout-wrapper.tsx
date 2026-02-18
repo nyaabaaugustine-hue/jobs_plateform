@@ -1,3 +1,4 @@
+
 'use client';
 
 import Header from '@/components/shared/header';
@@ -24,16 +25,18 @@ export default function MainLayoutWrapper({
     pathname.startsWith('/employer') ||
     pathname === '/hilladmin';
 
+  // To prevent hydration errors, we must ensure the server-rendered HTML
+  // matches the initial client-side render perfectly.
   return (
     <>
-      {mounted && !isDashboardPage && (
-        <div className="sticky top-0 z-50">
-          <Header />
-          <LiveActivityBar />
-        </div>
-      )}
+      <div className={(!mounted || isDashboardPage) ? 'hidden' : 'sticky top-0 z-50'}>
+        <Header />
+        <LiveActivityBar />
+      </div>
       <div className="flex-1">{children}</div>
-      {mounted && !isDashboardPage && <Footer />}
+      <div className={(!mounted || isDashboardPage) ? 'hidden' : 'block'}>
+        <Footer />
+      </div>
     </>
   );
 }

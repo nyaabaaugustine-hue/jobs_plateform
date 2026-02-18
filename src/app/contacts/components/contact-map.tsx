@@ -23,7 +23,7 @@ export default function ContactMap() {
             />
             <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/20 to-transparent" />
             
-            {/* Overlay link to Google Maps */}
+            {/* Direct Link to Google Maps Overlay */}
             <a 
               href={mapUrl} 
               target="_blank" 

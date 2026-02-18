@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useEffect } from 'react';
@@ -15,7 +16,7 @@ export default function ClientSideDate({
   dateString,
   formatType = 'distance',
   className,
-  skeletonClassName = "h-4 w-24",
+  skeletonClassName = "h-4 w-24 inline-block",
 }: ClientSideDateProps) {
   const [formattedDate, setFormattedDate] = useState<string | null>(null);
 
@@ -38,8 +39,9 @@ export default function ClientSideDate({
     }
   }, [dateString, formatType]);
 
+  // Use a span for the skeleton to prevent block vs inline hydration errors
   if (!formattedDate) {
-    return <Skeleton className={skeletonClassName} />;
+    return <span className={skeletonClassName}><Skeleton className="h-full w-full" /></span>;
   }
 
   return <span className={className}>{formattedDate}</span>;
