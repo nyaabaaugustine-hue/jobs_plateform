@@ -4,17 +4,54 @@
 
 @layer base {
   :root {
-    /* Executive Dark Theme - Primary Palette */
-    --background: 222 47% 7%; /* #0B0F17 */
+    /* Theme 1: Light (Executive Ivory) */
+    --background: 43 33% 95%; 
+    --foreground: 222 47% 7%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 7%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 7%;
+
+    --primary: 204 61% 39%; 
+    --primary-foreground: 0 0% 100%; 
+    
+    --secondary: 222 47% 90%;
+    --secondary-foreground: 222 47% 7%;
+    
+    --muted: 222 47% 85%;
+    --muted-foreground: 215 20% 45%;
+    
+    --accent: 204 61% 39%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 222 47% 85%;
+    --input: 222 47% 85%;
+    --ring: 204 61% 39%;
+
+    --radius: 0.75rem;
+    --gold: 45 85% 55%;
+
+    --chart-1: hsl(var(--primary));
+    --chart-2: hsl(var(--accent));
+  }
+
+  .dark {
+    /* Theme 2: Executive Dark (Legacy Default) */
+    --background: 222 47% 7%; 
     --foreground: 210 40% 98%;
     
-    --card: 222 47% 11%; /* #151C2B */
+    --card: 222 47% 11%;
     --card-foreground: 210 40% 98%;
     
     --popover: 222 47% 7%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 204 61% 39%; /* #276F9F - Brand Blue */
+    --primary: 204 61% 39%;
     --primary-foreground: 0 0% 100%; 
     
     --secondary: 222 47% 11%;
@@ -23,7 +60,7 @@
     --muted: 222 47% 15%;
     --muted-foreground: 215 20% 65%;
     
-    --accent: 45 85% 55%; /* #C9A227 - Luxury Gold */
+    --accent: 45 85% 55%; /* Gold */
     --accent-foreground: 222 47% 7%;
 
     --destructive: 0 84.2% 60.2%;
@@ -32,21 +69,37 @@
     --border: 222 47% 15%;
     --input: 222 47% 15%;
     --ring: 204 61% 39%;
+  }
 
-    --radius: 0.75rem;
-    --gold: 45 85% 55%;
-
-    --chart-1: hsl(var(--primary));
-    --chart-2: hsl(var(--accent));
+  .midnight {
+    /* Theme 3: Midnight Slate (New High-Trust Theme) */
+    --background: 215 25% 12%; 
+    --foreground: 210 40% 98%;
     
-    --sidebar-background: 222 47% 4%;
-    --sidebar-foreground: 210 40% 90%;
-    --sidebar-primary: hsl(var(--primary));
-    --sidebar-primary-foreground: hsl(var(--primary-foreground));
-    --sidebar-accent: hsl(var(--primary));
-    --sidebar-accent-foreground: hsl(var(--primary-foreground));
-    --sidebar-border: 222 47% 10%;
-    --sidebar-ring: hsl(var(--ring));
+    --card: 215 25% 18%;
+    --card-foreground: 210 40% 98%;
+    
+    --popover: 215 25% 12%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 204 61% 39%;
+    --primary-foreground: 0 0% 100%; 
+    
+    --secondary: 215 25% 18%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --muted: 215 25% 25%;
+    --muted-foreground: 215 20% 75%;
+    
+    --accent: 180 100% 35%; /* Teal */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 215 25% 25%;
+    --input: 215 25% 25%;
+    --ring: 180 100% 35%;
   }
 }
 

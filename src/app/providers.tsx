@@ -1,4 +1,3 @@
-
 'use client';
 
 import { ThemeProvider } from '@/components/theme-provider';
@@ -16,7 +15,8 @@ export function Providers({ children }: { children: React.ReactNode }) {
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-          enableSystem
+          themes={['light', 'dark', 'midnight']}
+          enableSystem={false}
           disableTransitionOnChange
         >
           <FirebaseClientProvider>

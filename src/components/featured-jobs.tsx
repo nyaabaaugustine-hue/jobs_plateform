@@ -18,7 +18,7 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
   }).slice(0, 9);
 
   return (
-    <section className="relative py-20 bg-[#0B0F17]">
+    <section className="relative py-20 bg-background">
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <SectionHeader 
           title="Featured Jobs"
@@ -32,8 +32,8 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
                     className={cn(
                         "rounded-full px-4 h-9 text-[11px] font-bold tracking-tight transition-all duration-300 border shadow-sm",
                         selectedCategory === category
-                            ? "bg-primary text-white border-primary shadow-xl scale-105"
-                            : "bg-white/5 text-white/60 hover:bg-white/10 border-white/10"
+                            ? "bg-primary text-primary-foreground border-primary shadow-xl scale-105"
+                            : "bg-secondary text-muted-foreground hover:bg-secondary/80 border-border"
                     )}
                 >
                     {category}
@@ -50,7 +50,7 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
         </div>
         
         <div className="mt-16 text-center">
-          <Button asChild size="lg" variant="outline" className="rounded-xl border-white/10 text-white hover:bg-white/5 font-black px-12 h-14 text-sm group transition-all">
+          <Button asChild size="lg" variant="outline" className="rounded-xl border-border text-foreground hover:bg-secondary font-black px-12 h-14 text-sm group transition-all">
             <Link href="/jobs" className="flex items-center gap-3">
               View All Jobs <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>

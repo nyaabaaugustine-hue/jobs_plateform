@@ -9,10 +9,10 @@ export default function LatestNews({ posts }: { posts: BlogPost[] }) {
   const displayPosts = posts.slice(0, 3);
 
   return (
-    <section className="relative py-20 bg-[#0B0F17]">
+    <section className="relative py-20 bg-background">
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-12 text-center">
-          <h2 className="font-headline text-[48px] font-black text-white leading-tight">Our News and Stories</h2>
+          <h2 className="font-headline text-[48px] font-black text-foreground leading-tight">Our News and Stories</h2>
         </div>
         
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
@@ -24,7 +24,7 @@ export default function LatestNews({ posts }: { posts: BlogPost[] }) {
         </div>
         
         <div className="mt-12 text-center">
-            <Button asChild size="lg" variant="outline" className="rounded-xl border-white/10 text-white hover:bg-white/5 transition-all px-12 h-14 font-bold">
+            <Button asChild size="lg" variant="outline" className="rounded-xl border-border text-foreground hover:bg-secondary transition-all px-12 h-14 font-bold">
                 <Link href="/blog">
                     View More Articles
                 </Link>

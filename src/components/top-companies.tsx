@@ -10,7 +10,7 @@ import { Badge } from './ui/badge';
 
 export default function TopCompanies({ companies }: { companies: Company[] }) {
   return (
-    <section className="py-20 bg-[#0B0F17]">
+    <section className="py-20 bg-background">
       <div className="container mx-auto max-w-7xl px-6 lg:px-12">
         <SectionHeader 
           title="Top Companies Hiring" 
@@ -21,7 +21,7 @@ export default function TopCompanies({ companies }: { companies: Company[] }) {
             const companyLogo = PlaceHolderImages.find((img) => img.id === company.logo);
             return (
               <Link key={company.id} href={`/companies/${company.id}`} className="block group">
-                <Card className="h-full p-6 text-center border border-white/5 bg-[#151C2B] hover:bg-white/5 transition-all rounded-2xl flex flex-col items-center justify-center shadow-md hover:shadow-xl">
+                <Card className="h-full p-6 text-center border border-border/50 bg-card hover:bg-secondary/50 transition-all rounded-2xl flex flex-col items-center justify-center shadow-md hover:shadow-xl">
                   {companyLogo && (
                     <div className="relative mb-4 h-16 w-16">
                         <Image
@@ -32,7 +32,7 @@ export default function TopCompanies({ companies }: { companies: Company[] }) {
                         />
                     </div>
                   )}
-                  <h3 className="font-bold text-sm text-white mb-1">{company.name}</h3>
+                  <h3 className="font-bold text-sm text-foreground mb-1">{company.name}</h3>
                   <div className="mb-2">
                     <StarRating rating={company.rating || 5} />
                   </div>

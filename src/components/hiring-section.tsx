@@ -16,21 +16,21 @@ export default function HiringSection() {
   ];
 
   return (
-    <section className="relative py-20 overflow-hidden bg-[#0B0F17]">
+    <section className="relative py-20 overflow-hidden bg-background">
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
             <div className="flex flex-col space-y-8 animate-in fade-in slide-in-from-left duration-700">
-                <h2 className="text-4xl font-extrabold tracking-tight !leading-tight text-white sm:text-5xl lg:text-6xl">
+                <h2 className="text-4xl font-extrabold tracking-tight !leading-tight text-foreground sm:text-5xl lg:text-6xl">
                   Hire Senior React Developers. Fast.
                 </h2>
-                <p className="text-lg font-medium text-[#F3F4F6]/70 max-w-xl">
+                <p className="text-lg font-medium text-muted-foreground max-w-xl">
                   Discover qualified professionals ready to bring your projects to life. Over 4,500+ employers trust our platform to find the best developers in the ecosystem.
                 </p>
                 <ul className="space-y-4">
                     {benefits.map((benefit, index) => (
                         <li key={index} className="flex items-center gap-4 group">
-                            <CheckCircle className="h-6 w-6 text-gold shrink-0 transition-transform group-hover:scale-110" />
-                            <span className="font-bold text-white/90">{benefit}</span>
+                            <CheckCircle className="h-6 w-6 text-accent shrink-0 transition-transform group-hover:scale-110" />
+                            <span className="font-bold text-foreground/90">{benefit}</span>
                         </li>
                     ))}
                 </ul>
@@ -38,7 +38,7 @@ export default function HiringSection() {
                     <Button 
                       asChild 
                       size="lg" 
-                      className="bg-white text-black font-black hover:bg-white/90 transition-all rounded-xl px-8"
+                      className="bg-primary text-primary-foreground font-black hover:brightness-110 transition-all rounded-xl px-8"
                     >
                       <Link href="/employer/jobs/new">Post a Job</Link>
                     </Button>
@@ -46,7 +46,7 @@ export default function HiringSection() {
                       asChild 
                       size="lg" 
                       variant="outline" 
-                      className="bg-transparent text-white border-white/20 hover:bg-white/5 transition-all rounded-xl px-8"
+                      className="bg-transparent text-foreground border-border hover:bg-secondary transition-all rounded-xl px-8"
                     >
                       <Link href="/pricing">View Pricing</Link>
                     </Button>
@@ -56,7 +56,7 @@ export default function HiringSection() {
             <div className="relative flex items-center justify-center animate-in fade-in slide-in-from-right duration-1000">
                 {hiringImage && (
                   <div className="relative w-full max-w-[550px]">
-                    <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl border border-white/10">
+                    <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl border border-border/10">
                       <Image
                           src={hiringImage.imageUrl}
                           alt={hiringImage.description}

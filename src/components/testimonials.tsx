@@ -36,29 +36,29 @@ const GoogleLogo = () => (
 const TestimonialCard = ({ review }: { review: Review }) => {
     const userAvatar = PlaceHolderImages.find((img) => img.id === review.user.avatar);
     return (
-        <Card className="flex flex-col bg-[#151C2B] border border-white/5 p-6 rounded-2xl shadow-2xl transition-all hover:border-white/10 h-full w-[360px] shrink-0">
+        <Card className="flex flex-col bg-card border border-border/50 p-6 rounded-2xl shadow-2xl transition-all hover:border-primary/20 h-full w-[360px] shrink-0">
             <CardContent className="p-0 mb-6 relative">
                 <div className="flex items-center justify-between mb-4">
                   <StarRating rating={5} />
-                  <div className="flex items-center gap-2 px-2 py-1 rounded bg-white/5 border border-white/10">
+                  <div className="flex items-center gap-2 px-2 py-1 rounded bg-secondary border border-border/50">
                     <GoogleLogo />
-                    <span className="text-[10px] font-black uppercase tracking-tighter text-white/40">Review</span>
+                    <span className="text-[10px] font-black uppercase tracking-tighter text-muted-foreground">Review</span>
                   </div>
                 </div>
                 <Quote className="absolute -top-2 -left-2 h-8 w-8 text-primary/10 -z-10" />
                 <div className="min-h-[80px]">
-                  <p className="text-[#F3F4F6] italic leading-relaxed text-sm font-medium break-words whitespace-normal">
+                  <p className="text-foreground italic leading-relaxed text-sm font-medium break-words whitespace-normal">
                     "{review.comment}"
                   </p>
                 </div>
             </CardContent>
-            <div className="flex items-center gap-4 mt-auto pt-6 border-t border-white/5">
-                <Avatar className="h-10 w-10 border-2 border-white/10 shadow-lg">
+            <div className="flex items-center gap-4 mt-auto pt-6 border-t border-border/50">
+                <Avatar className="h-10 w-10 border-2 border-border shadow-lg">
                     {userAvatar && <AvatarImage src={userAvatar.imageUrl} alt={review.user.name} />}
                     <AvatarFallback className="bg-primary/20 text-primary">{review.user.name?.charAt(0)}</AvatarFallback>
                 </Avatar>
                 <div className="flex-1 min-w-0">
-                    <p className="font-bold text-white text-xs truncate">{review.user.name}</p>
+                    <p className="font-bold text-foreground text-xs truncate">{review.user.name}</p>
                     <p className="text-[10px] text-muted-foreground uppercase font-black tracking-widest truncate">{review.user.professionalTitle}</p>
                 </div>
             </div>
@@ -132,30 +132,30 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="py-20 bg-[#0B0F17] overflow-hidden">
+    <section className="py-20 bg-background overflow-hidden">
       <div className="container mx-auto max-w-7xl px-6 lg:px-12 mb-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <h2 className="font-headline text-[48px] font-black text-white leading-tight">What Our Users Say</h2>
+            <h2 className="font-headline text-[48px] font-black text-foreground leading-tight">What Our Users Say</h2>
             
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
               <DialogTrigger asChild>
-                <Button variant="outline" className="border-yellow-400 text-white hover:bg-yellow-400/10 rounded-xl h-14 px-8 font-black text-sm shadow-2xl transition-all hover:scale-105 group relative overflow-hidden">
+                <Button variant="outline" className="border-accent text-foreground hover:bg-accent/10 rounded-xl h-14 px-8 font-black text-sm shadow-2xl transition-all hover:scale-105 group relative overflow-hidden">
                     <span className="relative z-10 flex items-center gap-2">
-                      <PlusCircle className="h-5 w-5 text-yellow-400" /> Add a review
+                      <PlusCircle className="h-5 w-5 text-accent" /> Add a review
                     </span>
-                    <div className="absolute inset-0 bg-yellow-400/5 group-hover:bg-yellow-400/10 transition-colors" />
+                    <div className="absolute inset-0 bg-accent/5 group-hover:bg-accent/10 transition-colors" />
                 </Button>
               </DialogTrigger>
-              <DialogContent className="sm:max-w-[400px] bg-[#111827] border-white/5 text-white p-0 overflow-hidden rounded-3xl shadow-2xl">
-                <div className="bg-gradient-to-r from-primary/20 via-background to-accent/20 p-8 border-b border-white/5 relative">
+              <DialogContent className="sm:max-w-[400px] bg-card border-border/50 text-foreground p-0 overflow-hidden rounded-3xl shadow-2xl">
+                <div className="bg-gradient-to-r from-primary/20 via-background to-accent/20 p-8 border-b border-border/50 relative">
                   <div className="absolute top-4 right-4 opacity-50">
                     <GoogleLogo />
                   </div>
                   <DialogHeader>
-                    <DialogTitle className="text-2xl font-black font-headline text-white flex items-center gap-3">
+                    <DialogTitle className="text-2xl font-black font-headline text-foreground flex items-center gap-3">
                       Share Your Experience
                     </DialogTitle>
-                    <DialogDescription className="text-white/60 font-medium pt-2">
+                    <DialogDescription className="text-muted-foreground font-medium pt-2">
                       Help others discover the power of Chapel Hill with an authoritative review.
                     </DialogDescription>
                   </DialogHeader>
@@ -163,7 +163,7 @@ export default function Testimonials() {
                 
                 <form onSubmit={handleSubmitReview} className="p-8 space-y-6">
                   <div className="space-y-3">
-                    <Label className="text-xs font-black uppercase tracking-widest text-white/40">Overall Rating</Label>
+                    <Label className="text-xs font-black uppercase tracking-widest text-muted-foreground">Overall Rating</Label>
                     <div className="flex items-center gap-2">
                       {[1, 2, 3, 4, 5].map((star) => (
                         <button
@@ -179,7 +179,7 @@ export default function Testimonials() {
                               "h-10 w-10 transition-colors",
                               (hoverRating || rating) >= star 
                                 ? "fill-yellow-400 text-yellow-400" 
-                                : "text-white/10 fill-white/5"
+                                : "text-muted/10 fill-muted/5"
                             )}
                           />
                         </button>
@@ -192,49 +192,49 @@ export default function Testimonials() {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="rev-name" className="text-xs font-black uppercase tracking-widest text-white/40 flex items-center gap-2">
+                      <Label htmlFor="rev-name" className="text-xs font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
                         <UserIcon className="h-3 w-3" /> Full Name
                       </Label>
                       <Input 
                         id="rev-name" 
                         placeholder="e.g. John Doe" 
                         required 
-                        className="bg-white/5 border-white/10 text-white placeholder:text-white/20 h-12 rounded-xl focus:ring-primary focus:bg-white/10 transition-all"
+                        className="bg-secondary/50 border-border text-foreground placeholder:text-muted-foreground h-12 rounded-xl focus:ring-primary transition-all"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="rev-title" className="text-xs font-black uppercase tracking-widest text-white/40 flex items-center gap-2">
+                      <Label htmlFor="rev-title" className="text-xs font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
                         <Briefcase className="h-3 w-3" /> Job Title
                       </Label>
                       <Input 
                         id="rev-title" 
                         placeholder="e.g. Senior Developer" 
                         required 
-                        className="bg-white/5 border-white/10 text-white placeholder:text-white/20 h-12 rounded-xl focus:ring-primary focus:bg-white/10 transition-all"
+                        className="bg-secondary/50 border-border text-foreground placeholder:text-muted-foreground h-12 rounded-xl focus:ring-primary transition-all"
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="rev-text" className="text-xs font-black uppercase tracking-widest text-white/40 flex items-center gap-2">
+                    <Label htmlFor="rev-text" className="text-xs font-black uppercase tracking-widest text-muted-foreground flex items-center gap-2">
                       <MessageSquare className="h-3 w-3" /> Your Review
                     </Label>
                     <Textarea 
                       id="rev-text" 
                       placeholder="Tell us how Chapel Hill helped your career..." 
-                      className="bg-white/5 border-white/10 text-white placeholder:text-white/20 min-h-[140px] rounded-xl focus:ring-primary p-4 resize-none focus:bg-white/10 transition-all leading-relaxed"
+                      className="bg-secondary/50 border-border text-foreground placeholder:text-muted-foreground min-h-[140px] rounded-xl focus:ring-primary p-4 resize-none transition-all leading-relaxed"
                       required
                     />
                   </div>
 
                   <DialogFooter className="pt-4">
                     <DialogClose asChild>
-                      <Button type="button" variant="ghost" className="text-white/40 hover:text-white hover:bg-white/5 rounded-xl h-12 px-6">Cancel</Button>
+                      <Button type="button" variant="ghost" className="text-muted-foreground hover:text-foreground hover:bg-secondary rounded-xl h-12 px-6">Cancel</Button>
                     </DialogClose>
                     <Button 
                       type="submit" 
                       disabled={isSubmitting || rating === 0}
-                      className="bg-primary text-white font-black rounded-xl h-12 px-10 hover:brightness-110 shadow-xl shadow-primary/20 transition-all hover:-translate-y-0.5"
+                      className="bg-primary text-primary-foreground font-black rounded-xl h-12 px-10 hover:brightness-110 shadow-xl shadow-primary/20 transition-all hover:-translate-y-0.5"
                     >
                       {isSubmitting ? (
                         <>
@@ -266,8 +266,8 @@ export default function Testimonials() {
             </div>
         </div>
 
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-[#0B0F17] to-transparent z-10" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#0B0F17] to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent z-10" />
       </div>
     </section>
   );

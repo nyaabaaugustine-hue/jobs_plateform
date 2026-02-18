@@ -9,10 +9,10 @@ import { cn } from '@/lib/utils';
 
 export default function VolunteerSection() {
   return (
-    <section className="relative py-20 overflow-hidden bg-[#0B0F17]">
+    <section className="relative py-20 overflow-hidden bg-background">
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="text-center mb-16">
-            <h2 className="font-headline text-[48px] font-black text-white leading-tight">Kickstart Your Career</h2>
+            <h2 className="font-headline text-[48px] font-black text-foreground leading-tight">Kickstart Your Career</h2>
             <p className="mt-4 text-[18px] text-muted-foreground font-medium font-headline tracking-wide max-w-2xl mx-auto">
                 Explore volunteer and attachment opportunities designed for growth and hands-on experience.
             </p>
@@ -22,7 +22,7 @@ export default function VolunteerSection() {
           {DUMMY_OPPORTUNITIES.map((opportunity, index) => (
             <Card 
               key={index} 
-              className="text-center bg-[#151C2B] border border-white/5 shadow-2xl hover:shadow-primary/5 transition-all hover:-translate-y-1 rounded-2xl p-6" 
+              className="text-center bg-card border border-border/50 shadow-2xl hover:shadow-primary/5 transition-all hover:-translate-y-1 rounded-2xl p-6" 
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardHeader className="items-center pb-2">
@@ -31,7 +31,7 @@ export default function VolunteerSection() {
                 </div>
               </CardHeader>
               <CardContent className="pt-4">
-                <CardTitle className="mb-3 text-2xl font-bold text-white">{opportunity.title}</CardTitle>
+                <CardTitle className="mb-3 text-2xl font-bold text-foreground">{opportunity.title}</CardTitle>
                 <p className="text-muted-foreground leading-relaxed font-medium text-sm">{opportunity.description}</p>
               </CardContent>
             </Card>
