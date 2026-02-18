@@ -100,10 +100,10 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
           </div>
 
           <CardContent className="p-6 flex flex-col">
-              <h3 id="ad-panel-headline" className="font-headline text-xl font-bold text-foreground leading-tight group-hover:text-primary transition-colors">
+              <h3 id="ad-panel-headline" className="font-headline text-xl font-black text-foreground leading-tight group-hover:text-primary transition-colors">
                 {ad.headline}
               </h3>
-            <p className="text-muted-foreground text-sm mt-3 line-clamp-2 font-medium">
+            <p className="text-muted-foreground text-sm mt-3 line-clamp-2 font-bold font-headline">
                 {ad.description}
             </p>
             
@@ -111,7 +111,7 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
               {/* Premium Milky White button with Black border and Gold ring */}
               <Button 
                 asChild 
-                className="w-full h-12 bg-white text-black border-2 border-black ring-2 ring-gold ring-offset-0 font-black tracking-wide hover:bg-white/90 hover:scale-[1.02] transition-all rounded-xl shadow-lg"
+                className="w-full h-12 bg-white text-black border-2 border-black ring-2 ring-gold ring-offset-0 font-headline font-black tracking-wide hover:bg-white/90 hover:scale-[1.02] transition-all rounded-xl shadow-lg"
               >
                 <Link href={`/companies/${ad.company.id}`}>
                   Visit Website <ArrowUpRight className="ml-2 h-4 w-4"/>
@@ -122,7 +122,7 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
               <Button 
                 asChild 
                 variant="outline"
-                className="w-full h-12 bg-background text-burgundy border-2 border-burgundy font-black hover:bg-burgundy/5 transition-all rounded-xl shadow-sm"
+                className="w-full h-12 bg-background text-burgundy border-2 border-burgundy font-headline font-black hover:bg-burgundy/5 transition-all rounded-xl shadow-sm"
               >
                 <Link href="/contacts">
                   <Megaphone className="mr-2 h-4 w-4" /> Advertise with us

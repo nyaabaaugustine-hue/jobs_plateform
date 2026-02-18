@@ -26,10 +26,10 @@ export default function PageHero({ title, subtitle }: PageHeroProps) {
       <div className="absolute inset-0 bg-black/50 z-10" />
       <div className="relative z-20 container mx-auto px-6 max-w-4xl">
         <div className="flex flex-col justify-center space-y-4">
-          <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl !leading-tight font-headline">
+          <h1 className="text-4xl font-black tracking-tight text-white sm:text-5xl !leading-tight font-headline">
             {title}
           </h1>
-          <p className="max-w-3xl mx-auto text-lg text-gray-200">
+          <p className="max-w-3xl mx-auto text-lg font-bold font-headline text-white/80">
             {subtitle}
           </p>
         </div>

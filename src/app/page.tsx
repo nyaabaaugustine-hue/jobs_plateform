@@ -41,11 +41,11 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-black/40 z-10" />
         <div className="relative z-20 container mx-auto px-6 max-w-5xl">
           <div className="flex flex-col justify-center space-y-6">
-            <h1 className="text-5xl font-extrabold tracking-tight sm:text-7xl !leading-tight font-headline text-white animate-in fade-in slide-in-from-bottom-4 duration-700">
+            <h1 className="text-5xl font-black tracking-tight sm:text-7xl !leading-tight font-headline text-white animate-in fade-in slide-in-from-bottom-4 duration-700">
               Find Your Next Job, Faster.
             </h1>
-            <p className="text-xl sm:text-2xl text-white/90 font-medium max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
-              Discover your next career move with verified employers and salary transparency.
+            <p className="text-xl sm:text-2xl text-white/90 font-bold font-headline max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-700 delay-150">
+              <span className="text-white">Discover your next career move</span> <span className="text-white/70">with verified employers and salary transparency.</span>
             </p>
             
             <div className="w-full mt-8 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-300">

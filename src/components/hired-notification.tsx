@@ -61,11 +61,11 @@ export default function HiredNotification() {
                 </div>
               </div>
               <div className="flex-1 min-w-0">
-                <p className="font-bold text-sm flex items-center gap-1.5 text-white truncate">
+                <p className="font-black font-headline text-sm flex items-center gap-1.5 text-white truncate">
                   {`${example.name.split(' ')[0]} was hired!`} 
                   <PartyPopper className="h-4 w-4 text-yellow-400 shrink-0" />
                 </p>
-                <p className="text-xs text-white/80 font-medium truncate">{`New ${example.job} role filled.`}</p>
+                <p className="text-xs text-white/70 font-bold font-headline truncate">{`New ${example.job} role filled.`}</p>
               </div>
             </div>
           ),
@@ -76,7 +76,7 @@ export default function HiredNotification() {
                 e.preventDefault();
                 stopNotifications();
               }}
-              className="text-xs h-7 ml-4"
+              className="text-xs h-7 ml-4 font-black font-headline"
             >
               Stop
             </ToastAction>
