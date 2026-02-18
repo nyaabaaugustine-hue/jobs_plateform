@@ -1,4 +1,3 @@
-
 import { DUMMY_BLOG_POSTS } from '@/lib/data';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -10,6 +9,7 @@ import { CalendarDays, Clock } from 'lucide-react';
 import RelatedPosts from '@/components/related-posts';
 import SocialShareButtons from '@/components/shared/social-share-buttons';
 import ClientSideDate from '@/components/shared/client-side-date';
+import DOMPurify from 'isomorphic-dompurify';
 
 interface BlogPostPageProps {
   params: { slug: string };
@@ -27,6 +27,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const authorAvatar = PlaceHolderImages.find((img) => img.id === postData.author.avatar);
 
   const post = postData;
+  const sanitizedContent = DOMPurify.sanitize(post.content);
   
   const tags = ['React', 'Web Development', 'Career', 'Interview Tips'];
 
@@ -53,12 +54,12 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     className="w-full object-cover rounded-lg aspect-video mb-8 shadow-lg"
                     data-ai-hint={postImage.imageHint}
                     priority
-                    sizes="100vw"
+                    sizes="(max-width: 768px) 100vw, 800px"
                 />
                 )}
                 <div 
                     className="prose prose-lg dark:prose-invert max-w-none mx-auto"
-                    dangerouslySetInnerHTML={{ __html: post.content }}
+                    dangerouslySetInnerHTML={{ __html: sanitizedContent }}
                 />
             </article>
 

@@ -1,16 +1,15 @@
-
 'use client';
 
 import { useState } from 'react';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Save, Image as ImageIcon, Loader2 } from 'lucide-react';
+import DOMPurify from 'isomorphic-dompurify';
 
 export default function HeroEditor() {
   const { toast } = useToast();
@@ -44,6 +43,12 @@ export default function HeroEditor() {
         toast({ title: 'Image Updated', variant: 'vibrant' });
     }, 1500);
   }
+
+  // Sanitize the title for live preview to prevent XSS while allowing styling spans
+  const sanitizedTitle = DOMPurify.sanitize(title.replace(/class="text-primary"/g, 'style="color:hsl(var(--primary))"'), {
+    ALLOWED_TAGS: ['span'],
+    ALLOWED_ATTR: ['style']
+  });
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -95,7 +100,7 @@ export default function HeroEditor() {
           )}
           <div className="absolute inset-0 bg-black/60 z-10" />
           <div className="relative z-20 flex flex-col h-full items-center justify-center text-center p-4">
-            <h1 className="text-4xl font-extrabold text-white !leading-tight font-headline" dangerouslySetInnerHTML={{ __html: title.replace(/class="text-primary"/g, 'style="color:hsl(var(--primary))"') }} />
+            <h1 className="text-4xl font-extrabold text-white !leading-tight font-headline" dangerouslySetInnerHTML={{ __html: sanitizedTitle }} />
             <p className="max-w-md mx-auto text-lg text-gray-200 mt-4">{subtitle}</p>
           </div>
         </div>

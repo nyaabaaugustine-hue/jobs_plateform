@@ -60,7 +60,7 @@ Toast.displayName = "Toast"
 
 interface ToastActionProps
   extends React.ComponentPropsWithoutRef<typeof ToastPrimitives.Action> {
-  variant?: "default" | "destructive" | "black"
+  variant?: "default" | "destructive" | "vibrant" | "black"
 }
 
 const ToastAction = React.forwardRef<
