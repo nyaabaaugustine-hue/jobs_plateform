@@ -89,7 +89,7 @@ export const DUMMY_JOBS: Job[] = [
         isUrgent: true,
         postedDate: new Date(Date.now() - 86400000).toISOString(),
         category: 'Technology',
-        aiPriorityScore: 87
+        aiPriorityScore: 86
     },
     {
         id: 'job-2',
@@ -104,7 +104,7 @@ export const DUMMY_JOBS: Job[] = [
         isUrgent: false,
         postedDate: new Date(Date.now() - 259200000).toISOString(),
         category: 'Marketing',
-        aiPriorityScore: 84
+        aiPriorityScore: 93
     },
     {
         id: 'job-3',
@@ -164,7 +164,7 @@ export const DUMMY_JOBS: Job[] = [
         isUrgent: true,
         postedDate: new Date(Date.now() - 950400000).toISOString(),
         category: 'Software',
-        aiPriorityScore: 93
+        aiPriorityScore: 92
     },
     {
         id: 'job-7',
@@ -179,7 +179,7 @@ export const DUMMY_JOBS: Job[] = [
         isUrgent: false,
         postedDate: new Date(Date.now() - 1123200000).toISOString(),
         category: 'Healthcare',
-        aiPriorityScore: 88
+        aiPriorityScore: 93
     },
     {
         id: 'job-8',
@@ -194,7 +194,7 @@ export const DUMMY_JOBS: Job[] = [
         isUrgent: false,
         postedDate: new Date(Date.now() - 1296000000).toISOString(),
         category: 'Education',
-        aiPriorityScore: 82
+        aiPriorityScore: 85
     },
     {
         id: 'job-9',
@@ -209,7 +209,7 @@ export const DUMMY_JOBS: Job[] = [
         isUrgent: false,
         postedDate: new Date(Date.now() - 1468800000).toISOString(),
         category: 'Data Science',
-        aiPriorityScore: 85
+        aiPriorityScore: 91
     }
 ];
 
