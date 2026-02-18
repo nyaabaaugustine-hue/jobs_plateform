@@ -64,9 +64,8 @@ export default function AISupportWidget() {
     useEffect(() => { setMounted(true); }, []);
 
     const scrollToBottom = () => {
-        setTimeout(() => {
-            messagesEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
-        }, 150);
+        if (!messagesEndRef.current) return;
+        messagesEndRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
     };
 
     const handleSendMessage = async (text: string) => {
@@ -117,14 +116,13 @@ export default function AISupportWidget() {
                 image: introImage,
                 isIntro: true
             }]);
-            
-            scrollToBottom();
         }
     }, [isOpen, user, messages.length]);
 
     useEffect(() => {
         if (isOpen) {
-            scrollToBottom();
+            const timer = setTimeout(scrollToBottom, 300);
+            return () => clearTimeout(timer);
         }
     }, [messages, isTyping, isOpen]);
 
@@ -167,19 +165,21 @@ export default function AISupportWidget() {
                             {messages.map((m) => (
                                 <div key={m.id} className={cn("flex flex-col", m.sender === 'user' ? "items-end" : "items-start")}>
                                     {m.isIntro && m.image ? (
-                                        <div className="relative mb-3 w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black/40 group">
+                                        <div className="relative mb-3 w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black group aspect-square">
                                             <Image 
                                                 src={m.image} 
                                                 alt="Assistant Intro" 
-                                                width={280} 
-                                                height={280} 
-                                                className="w-full h-auto object-contain scale-105" 
+                                                fill 
+                                                className="object-contain scale-105" 
                                                 priority
                                             />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-[#0B0F17]/95 via-[#0B0F17]/20 to-transparent flex flex-col justify-end p-4">
-                                                <p className="text-white text-[11px] font-bold leading-relaxed drop-shadow-md">
-                                                    {m.text}
-                                                </p>
+                                            {/* Text Overlay Innovation */}
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-5">
+                                                <div className="bg-white/10 backdrop-blur-md border border-white/10 p-3 rounded-xl">
+                                                    <p className="text-white text-[11px] font-bold leading-relaxed shadow-lg">
+                                                        {m.text}
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
                                     ) : (
@@ -215,7 +215,7 @@ export default function AISupportWidget() {
                                     </div>
                                 </div>
                             )}
-                            <div ref={messagesEndRef} className="h-px" />
+                            <div ref={messagesEndRef} className="h-px w-full" />
                         </div>
 
                         {/* Action Deck Panel */}

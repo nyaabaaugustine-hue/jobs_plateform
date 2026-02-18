@@ -1,4 +1,3 @@
-
 'use server';
 
 /**
@@ -7,6 +6,7 @@
  */
 
 import { ai } from '@/ai/genkit';
+import { googleAI } from '@genkit-ai/google-genai';
 import { 
   CareerAssistantInputSchema, 
   type CareerAssistantInput, 
@@ -23,7 +23,7 @@ const careerAssistantPrompt = ai.definePrompt({
   input: { schema: CareerAssistantInputSchema },
   output: { schema: CareerAssistantOutputSchema },
   config: {
-    model: 'gemini-1.5-flash',
+    model: googleAI.model('gemini-1.5-flash'),
   },
   system: `You are Abena AI, an advanced AI Career Assistant for Chapel Hill, a professional job platform.
 Your mission is to help users find jobs, optimize applications, prepare for interviews, track opportunities, and strategically grow their careers.

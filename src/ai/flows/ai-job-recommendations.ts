@@ -1,4 +1,3 @@
-
 'use server';
 
 /**
@@ -8,6 +7,7 @@
  */
 
 import { ai } from '@/ai/genkit';
+import { googleAI } from '@genkit-ai/google-genai';
 import {
   AiJobRecommendationsInputSchema,
   type AiJobRecommendationsInput,
@@ -27,7 +27,7 @@ const aiJobRecommendationsPrompt = ai.definePrompt({
     input: { schema: AiJobRecommendationsInputSchema },
     output: { schema: AiJobRecommendationsOutputSchema },
     config: {
-        model: 'gemini-pro',
+        model: googleAI.model('gemini-1.5-flash'),
         safetySettings: [
           {
             category: 'HARM_CATEGORY_DANGEROUS_CONTENT',

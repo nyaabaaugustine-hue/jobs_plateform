@@ -1,4 +1,3 @@
-
 'use server';
 
 /**
@@ -9,6 +8,7 @@
  */
 
 import { ai } from '@/ai/genkit';
+import { googleAI } from '@genkit-ai/google-genai';
 import { 
   ModerateJobPostInputSchema, 
   type ModerateJobPostInput, 
@@ -25,7 +25,7 @@ const moderateJobPostPrompt = ai.definePrompt({
   input: { schema: ModerateJobPostInputSchema },
   output: { schema: ModerateJobPostOutputSchema },
   config: {
-    model: 'gemini-pro',
+    model: googleAI.model('gemini-1.5-flash'),
   },
   prompt: `You are an expert job post moderator. Your task is to analyze the provided job post and determine if it is potentially fraudulent or spam.
 
