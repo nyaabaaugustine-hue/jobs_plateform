@@ -2,7 +2,6 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import type { Job } from '@/lib/types';
 import JobCard from './job-card';
 import { Button } from './ui/button';
@@ -10,11 +9,9 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import SectionHeader from './shared/section-header';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], categories: string[] }) {
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const bgImage = PlaceHolderImages.find((p) => p.id === 'featured-jobs-bg');
 
   const featuredJobs = jobs.filter(job => {
     if (selectedCategory === 'All') return true;
@@ -23,15 +20,6 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
 
   return (
     <section className="relative py-20 bg-background overflow-hidden">
-      {bgImage && (
-        <Image
-          src={bgImage.imageUrl}
-          alt=""
-          fill
-          className="object-cover opacity-25 z-0"
-          data-ai-hint={bgImage.imageHint}
-        />
-      )}
       <div className="relative z-10 container mx-auto max-w-7xl px-6 lg:px-12">
         <SectionHeader 
           title="Featured Jobs"
