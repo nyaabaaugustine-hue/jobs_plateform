@@ -1,4 +1,3 @@
-
 'use server';
 
 import {
@@ -19,9 +18,16 @@ import type {
   CareerAssistantOutput,
 } from './ai-types';
 
+/**
+ * Checks if a valid Google/Gemini API key is available in the environment.
+ */
+const checkAiConfig = () => {
+  return !!(process.env.GOOGLE_API_KEY || process.env.GEMINI_API_KEY || process.env.GOOGLE_GENAI_API_KEY);
+};
+
 export const fetchAiJobRecommendations = async (input: AiJobRecommendationsInput): Promise<AiJobRecommendationsOutput> => {
-  if (!process.env.GEMINI_API_KEY && !process.env.GOOGLE_API_KEY) {
-    console.warn("AI recommendations skipped: GEMINI_API_KEY or GOOGLE_API_KEY not set.");
+  if (!checkAiConfig()) {
+    console.warn("AI recommendations skipped: API key not set.");
     return {
       shouldRecommend: false,
       recommendedJobs: [],
@@ -40,8 +46,8 @@ export const fetchAiJobRecommendations = async (input: AiJobRecommendationsInput
 };
 
 export const runJobModeration = async (input: ModerateJobPostInput): Promise<ModerateJobPostOutput> => {
-  if (!process.env.GEMINI_API_KEY && !process.env.GOOGLE_API_KEY) {
-    console.warn("AI moderation skipped: GEMINI_API_KEY or GOOGLE_API_KEY not set.");
+  if (!checkAiConfig()) {
+    console.warn("AI moderation skipped: API key not set.");
     return {
       isSpam: false,
       reason: 'AI moderation is not configured. Please add an API key to enable this feature.',
@@ -61,10 +67,10 @@ export const runJobModeration = async (input: ModerateJobPostInput): Promise<Mod
 };
 
 export const runCareerAssistant = async (input: CareerAssistantInput): Promise<CareerAssistantOutput> => {
-  if (!process.env.GEMINI_API_KEY && !process.env.GOOGLE_API_KEY) {
+  if (!checkAiConfig()) {
     return {
-      text: "I'm sorry, my AI services are currently being initialized. Please try again in a few moments!",
-      suggestedActions: ["Try again later", "Sign In"]
+      text: "I'm sorry, my high-speed AI services are currently being initialized. Please try again in a few moments or sign in to access personalized features!",
+      suggestedActions: ["Try again later", "Sign In", "Get Started"]
     };
   }
 
@@ -73,8 +79,8 @@ export const runCareerAssistant = async (input: CareerAssistantInput): Promise<C
   } catch (error) {
     console.error('Career Assistant error:', error);
     return {
-      text: "I encountered a minor glitch while processing your request. How else can I help you today?",
-      suggestedActions: ["Job Search", "Career Tips"]
+      text: "I'm ready to help you with your career strategy. What area would you like to explore first?",
+      suggestedActions: ["Job Search", "CV Optimization", "Interview Prep"]
     };
   }
 };

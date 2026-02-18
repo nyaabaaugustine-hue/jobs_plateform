@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
@@ -22,7 +21,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
-import { useToast } from '@/hooks/use-toast';
 import { usePathname } from 'next/navigation';
 import { useFirebase } from '@/firebase/provider';
 import { runCareerAssistant } from '@/lib/actions';
@@ -48,7 +46,6 @@ export default function AISupportWidget() {
     const [mounted, setMounted] = useState(false);
     const { user } = useFirebase();
     const pathname = usePathname();
-    const { toast } = useToast();
     
     const [isOpen, setIsOpen] = useState(false);
     const [showActions, setShowActions] = useState(false);
@@ -135,7 +132,7 @@ export default function AISupportWidget() {
                         exit={{ opacity: 0, scale: 0.9, y: 20 }}
                         className="mb-4 w-[320px] h-[520px] flex flex-col bg-[#0B0F17]/95 backdrop-blur-3xl border border-white/10 rounded-[2rem] shadow-[0_30px_100px_rgba(0,0,0,0.6)] overflow-hidden"
                     >
-                        <div className="p-6 bg-gradient-to-br from-primary/20 via-transparent to-accent/5 border-b border-white/5 flex items-center justify-between">
+                        <div className="p-6 bg-gradient-to-br from-primary/20 via-transparent to-accent/5 border-b border-white/5 flex items-center justify-between shrink-0">
                             <div className="flex items-center gap-3">
                                 <div className="relative">
                                     <div className="w-10 h-10 rounded-full overflow-hidden border border-primary/40 p-0.5 bg-white/5 shadow-inner">
@@ -160,16 +157,16 @@ export default function AISupportWidget() {
                             {messages.map((m) => (
                                 <div key={m.id} className={cn("flex flex-col", m.sender === 'user' ? "items-end" : "items-start")}>
                                     {m.isIntro && m.image ? (
-                                        <div className="relative mb-3 w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black group aspect-square">
+                                        <div className="relative mb-3 w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black aspect-[4/5] group">
                                             <Image 
                                                 src={m.image} 
                                                 alt="Assistant Intro" 
                                                 fill 
-                                                className="object-contain scale-105" 
+                                                className="object-contain bg-[#0B0F17]" 
                                                 priority
                                             />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-5">
-                                                <div className="bg-white/10 backdrop-blur-md border border-white/10 p-3 rounded-xl">
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end">
+                                                <div className="bg-white/10 backdrop-blur-xl border-t border-white/10 p-5">
                                                     <p className="text-white text-[11px] font-bold leading-relaxed shadow-lg">
                                                         {m.text}
                                                     </p>
@@ -212,7 +209,7 @@ export default function AISupportWidget() {
                             <div ref={messagesEndRef} className="h-px w-full" />
                         </div>
 
-                        <div className="relative">
+                        <div className="relative shrink-0">
                             <AnimatePresence>
                                 {showActions && (
                                     <motion.div
