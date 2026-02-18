@@ -14,12 +14,12 @@ export default function SectionHeader({ title, subtitle, className, isCentered =
       isCentered && 'text-center',
       className
     )}>
-      <h2 className="font-headline text-[36px] font-bold text-foreground">
+      <h2 className="font-headline text-[36px] font-extrabold text-foreground">
         {title}
       </h2>
       {subtitle && (
         <p className={cn(
-          'mt-4 text-[18px] text-muted-foreground font-medium',
+          'mt-4 text-[18px] text-muted-foreground font-bold font-headline',
           isCentered && 'max-w-2xl mx-auto'
         )}>
           {subtitle}

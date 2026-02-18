@@ -20,24 +20,24 @@ export default function HeroSearchForm() {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto glass-surface rounded-xl p-1.5 flex flex-col sm:flex-row items-center gap-1">
+    <div className="w-full max-w-4xl mx-auto bg-[#f6f4ee] rounded-xl p-1.5 flex flex-col sm:flex-row items-center gap-1 border border-slate-300 shadow-2xl">
       <div className="flex-1 flex items-center px-4">
-        <Briefcase className="h-4 w-4 text-muted-foreground shrink-0" />
+        <Briefcase className="h-5 w-5 text-slate-900 shrink-0" />
         <Input
           placeholder="Role or keyword"
-          className="h-12 w-full bg-transparent border-none text-foreground placeholder:text-muted-foreground/60 focus-visible:ring-0 text-base font-medium"
+          className="h-12 w-full bg-transparent border-none text-slate-900 placeholder:text-slate-500 focus-visible:ring-0 text-base font-bold font-headline"
           value={jobTitle}
           onChange={(e) => setJobTitle(e.target.value)}
         />
       </div>
       
-      <div className="hidden sm:block w-px h-6 bg-white/10" />
+      <div className="hidden sm:block w-px h-8 bg-slate-300 mx-2" />
 
       <div className="flex-1 flex items-center px-4">
-        <MapPin className="h-4 w-4 text-muted-foreground shrink-0" />
+        <MapPin className="h-5 w-5 text-slate-900 shrink-0" />
         <Input
           placeholder="Location"
-          className="h-12 w-full bg-transparent border-none text-foreground placeholder:text-muted-foreground/60 focus-visible:ring-0 text-base font-medium"
+          className="h-12 w-full bg-transparent border-none text-slate-900 placeholder:text-slate-500 focus-visible:ring-0 text-base font-bold font-headline"
           value={location}
           onChange={(e) => setLocation(e.target.value)}
         />
@@ -46,9 +46,9 @@ export default function HeroSearchForm() {
       <Button
         onClick={handleSearch}
         size="lg"
-        className="h-12 w-full sm:w-auto bg-primary text-white font-bold rounded-lg px-8 hover:bg-primary/90 transition-all"
+        className="h-12 w-full sm:w-auto bg-black text-white font-black font-headline rounded-lg px-10 hover:brightness-110 transition-all shadow-lg"
       >
-        Search
+        Find Jobs
       </Button>
     </div>
   );

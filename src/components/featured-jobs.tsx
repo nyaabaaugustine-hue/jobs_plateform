@@ -32,7 +32,7 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
       <div className="absolute inset-0 bg-background/80 z-10" />
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-10 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-foreground">Featured Jobs</h2>
+          <h2 className="font-headline text-3xl font-extrabold tracking-tight sm:text-4xl text-foreground">Featured Jobs</h2>
         </div>
 
         <div className="mb-8 flex justify-center flex-wrap gap-3 animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '150ms' }}>
@@ -42,7 +42,7 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
                     variant="ghost"
                     onClick={() => setSelectedCategory(category)}
                     className={cn(
-                        "rounded-full px-4 py-2 text-sm font-medium transition-all duration-300",
+                        "rounded-full px-4 py-2 text-sm font-bold transition-all duration-300 font-headline",
                         selectedCategory === category
                             ? "bg-primary text-primary-foreground shadow-lg"
                             : "bg-card/70 backdrop-blur-sm text-foreground ring-1 ring-border/50 hover:bg-primary/10 hover:ring-primary/50 hover:text-primary"
@@ -62,11 +62,11 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
         </div>
         
         {featuredJobs.length === 0 && (
-            <p className="text-center text-muted-foreground mt-8">No jobs found for this category.</p>
+            <p className="text-center text-muted-foreground mt-8 font-bold">No jobs found for this category.</p>
         )}
 
         <div className="mt-12 text-center animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '500ms' }}>
-          <Button asChild variant="outline" size="lg" className="rounded-xl px-8 shadow-sm hover:bg-primary/5 hover:text-primary border-primary/20 transition-all">
+          <Button asChild variant="outline" size="lg" className="rounded-xl px-8 shadow-sm hover:bg-primary/5 hover:text-primary border-primary/20 transition-all font-black font-headline">
             <Link href="/jobs">
               View All Jobs <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
