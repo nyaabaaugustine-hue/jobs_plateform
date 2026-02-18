@@ -56,7 +56,7 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
 
       <aside
         className={cn(
-          'fixed bottom-6 left-6 z-[100] w-[calc(100vw-3rem)] max-w-[400px] transition-all duration-700 ease-in-out',
+          'fixed bottom-6 left-6 z-[100] w-[calc(100vw-3rem)] lg:w-[15vw] lg:min-w-[300px] transition-all duration-700 ease-in-out',
           isOpen
             ? 'opacity-100 translate-x-0 scale-100'
             : 'opacity-0 -translate-x-full scale-95 pointer-events-none'
@@ -86,7 +86,7 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
                   fill
                   className="w-full object-cover transition-transform duration-1000 group-hover:scale-110"
                   data-ai-hint={ad.image.imageHint}
-                  sizes="(max-width: 768px) 100vw, 30vw"
+                  sizes="(max-width: 768px) 100vw, 15vw"
               />
             </div>
             <div className="absolute top-3 left-3 flex gap-2">
@@ -99,17 +99,17 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
           </div>
 
           <CardContent className="p-6 flex flex-col">
-              <h3 id="ad-panel-headline" className="font-headline text-xl font-black text-foreground leading-tight group-hover:text-primary transition-colors">
+              <h3 id="ad-panel-headline" className="font-headline text-lg font-black text-foreground leading-tight group-hover:text-primary transition-colors">
                 {ad.headline}
               </h3>
-            <p className="text-muted-foreground text-sm mt-3 line-clamp-2 font-bold font-headline">
+            <p className="text-muted-foreground text-xs mt-2 line-clamp-2 font-bold font-headline">
                 {ad.description}
             </p>
             
-            <div className="pt-5 mt-5 border-t border-border/50 flex flex-col gap-3">
+            <div className="pt-4 mt-4 border-t border-border/50 flex flex-col gap-2">
               <Button 
                 asChild 
-                className="w-full h-12 bg-white text-black border-2 border-black ring-2 ring-gold ring-offset-0 font-headline font-black tracking-wide hover:bg-white/90 hover:scale-[1.02] transition-all rounded-xl shadow-lg"
+                className="w-full h-10 bg-white text-black border-2 border-black ring-2 ring-gold ring-offset-0 font-headline font-black tracking-wide hover:bg-[#f6f4ee] hover:scale-[1.02] transition-all rounded-xl shadow-lg"
               >
                 <Link href={`/companies/${ad.company.id}`}>
                   Visit Website <ArrowUpRight className="ml-2 h-4 w-4"/>
@@ -119,10 +119,10 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
               <Button 
                 asChild 
                 variant="outline"
-                className="w-full h-12 bg-background text-burgundy border-2 border-burgundy font-headline font-black hover:bg-burgundy/5 transition-all rounded-xl shadow-sm"
+                className="w-full h-10 bg-background text-burgundy border-2 border-burgundy font-headline font-black hover:bg-[#f6f4ee] hover:text-burgundy transition-all rounded-xl shadow-sm"
               >
                 <Link href="/contacts">
-                  <Megaphone className="mr-2 h-4 w-4" /> Advertise with us
+                  <Megaphone className="mr-2 h-4 w-4" /> Advertise
                 </Link>
               </Button>
             </div>
