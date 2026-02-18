@@ -11,7 +11,6 @@ import JobsByLocation from '@/components/jobs-by-location';
 import LatestNews from '@/components/latest-news';
 import SubscriptionSection from '@/components/subscription-section';
 import VolunteerSection from '@/components/volunteer-section';
-import PageHero from '@/components/shared/page-hero';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
