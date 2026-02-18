@@ -1,29 +1,15 @@
-
 'use client';
 
-import Image from 'next/image';
 import { DUMMY_OPPORTUNITIES } from '@/lib/data';
 import SectionHeader from './shared/section-header';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function VolunteerSection() {
-  const bgImage = PlaceHolderImages.find((p) => p.id === 'pricing-enterprise');
-
   return (
     <section className="relative py-20 overflow-hidden bg-background">
-      {bgImage && (
-        <Image
-          src={bgImage.imageUrl}
-          alt=""
-          fill
-          className="object-cover opacity-25 z-0"
-          data-ai-hint={bgImage.imageHint}
-        />
-      )}
       <div className="relative z-10 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="text-center mb-16">
             <h2 className="font-headline text-[48px] font-black text-foreground leading-tight">Kickstart Your Career</h2>
