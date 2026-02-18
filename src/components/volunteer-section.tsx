@@ -1,3 +1,4 @@
+
 'use client';
 
 import { DUMMY_OPPORTUNITIES } from '@/lib/data';

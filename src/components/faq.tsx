@@ -48,13 +48,14 @@ import {
             {/* Image Column */}
             <div className="animate-in fade-in slide-in-from-left-12 duration-1000 hidden lg:block">
               {faqImage && (
-                <div className="relative rounded-[2rem] overflow-hidden shadow-2xl aspect-[4/5] border border-border/50">
+                <div className="relative rounded-[2rem] overflow-hidden shadow-2xl aspect-[4/5] border border-border/10 bg-muted">
                   <Image
                     src={faqImage.imageUrl}
                     alt="FAQ illustration"
                     fill
                     className="object-cover"
                     data-ai-hint={faqImage.imageHint}
+                    priority
                   />
                 </div>
               )}
@@ -69,7 +70,7 @@ import {
               
               <Accordion type="single" collapsible className="w-full space-y-4">
                 {faqs.map((faq, index) => (
-                  <AccordionItem value={`item-${index}`} key={index} className="border-border/50 px-6 rounded-xl bg-card">
+                  <AccordionItem value={`item-${index}`} key={index} className="border-border/50 px-6 rounded-xl bg-card shadow-sm">
                     <AccordionTrigger className="text-left font-semibold text-lg hover:no-underline py-6 text-foreground">
                       {faq.question}
                     </AccordionTrigger>

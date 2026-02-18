@@ -43,38 +43,35 @@ const allReviews: Review[] = [
   },
   {
       id: '2',
-      comment: "This platform helped me find my dream job in just two weeks!",
+      comment: "The executive recruitment strategy is unmatched. Highly recommended.",
       rating: 5,
       user: { id: 'u2', name: 'Kofi Addo', professionalTitle: 'Product Manager', avatar: 'avatar-2', role: 'jobSeeker', email: '' }
   },
   {
       id: '3',
-      comment: "This platform helped me find my dream job in just two weeks!",
+      comment: "A high-authority platform for professionals looking for serious growth.",
       rating: 5,
       user: { id: 'u3', name: 'Adwoa Owusu', professionalTitle: 'UX/UI Designer', avatar: 'avatar-3', role: 'jobSeeker', email: '' }
   },
   {
       id: '4',
-      comment: "This platform helped me find my dream job in just two weeks!",
+      comment: "The AI matching accuracy is incredible. It saved me weeks of searching.",
       rating: 5,
       user: { id: 'u4', name: 'Yaw Adjei', professionalTitle: 'Data Scientist', avatar: 'avatar-4', role: 'jobSeeker', email: '' }
   },
   {
       id: '5',
-      comment: "This platform helped me find my dream job in just two weeks!",
+      comment: "Professional, clean, and efficient. The best tool for corporate hiring.",
       rating: 5,
       user: { id: 'u5', name: 'Esi Serwaa', professionalTitle: 'Marketing Manager', avatar: 'avatar-5', role: 'jobSeeker', email: '' }
   },
   {
       id: '6',
-      comment: "This platform helped me find my dream job in just two weeks!",
+      comment: "Seamless experience from profile creation to hiring. Five stars!",
       rating: 5,
       user: { id: 'u6', name: 'Kwame Boateng', professionalTitle: 'HR Specialist', avatar: 'avatar-7', role: 'jobSeeker', email: '' }
   }
 ];
-
-const marqueeRow1 = [...allReviews, ...allReviews, ...allReviews];
-const marqueeRow2 = [...allReviews, ...allReviews, ...allReviews].reverse();
 
 const TestimonialCard = ({ review }: { review: Review }) => {
     const userAvatar = PlaceHolderImages.find((img) => img.id === review.user.avatar);
@@ -120,6 +117,9 @@ export default function Testimonials() {
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
+  const marqueeRow1 = [...allReviews, ...allReviews, ...allReviews];
+  const marqueeRow2 = [...allReviews, ...allReviews, ...allReviews].reverse();
 
   const handleSubmitReview = (e: React.FormEvent) => {
     e.preventDefault();

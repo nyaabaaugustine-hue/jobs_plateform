@@ -57,7 +57,7 @@ export default function HiringSection() {
             <div className="relative flex items-center justify-center animate-in fade-in slide-in-from-right duration-1000">
                 {hiringImage && (
                   <div className="relative w-full max-w-[550px]">
-                    <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl border border-border/10">
+                    <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl border border-border/10 bg-muted">
                       <Image
                           src={hiringImage.imageUrl}
                           alt={hiringImage.description}
