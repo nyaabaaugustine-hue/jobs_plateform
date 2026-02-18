@@ -52,7 +52,7 @@ const ads: Ad[] = [
     }
 ].filter(ad => ad.company && ad.image);
 
-const STOP_KEY = 'chapel-hill-ads-stopped';
+const SESSION_STOP_KEY = 'chapel-hill-ads-stopped';
 
 export default function AdSlider() {
   const pathname = usePathname();
@@ -72,8 +72,8 @@ export default function AdSlider() {
     pathname === '/register';
 
   const startCycle = useCallback(() => {
-    const isManuallyStopped = sessionStorage.getItem(STOP_KEY) === 'true';
-    if (isStopped || isDashboardPage || isManuallyStopped) return;
+    if (typeof sessionStorage !== 'undefined' && sessionStorage.getItem(SESSION_STOP_KEY) === 'true') return;
+    if (isStopped || isDashboardPage) return;
 
     setIsPanelOpen(true);
     
@@ -81,15 +81,17 @@ export default function AdSlider() {
     cycleTimerRef.current = setTimeout(() => {
       setIsPanelOpen(false);
       setTimeout(() => {
-        setCurrentAdIndex(prev => (prev + 1) % ads.length);
-        startCycle();
+        if (!isStopped) {
+            setCurrentAdIndex(prev => (prev + 1) % ads.length);
+            startCycle();
+        }
       }, 2000);
     }, 50000);
   }, [isDashboardPage, isStopped]);
 
   useEffect(() => {
-    const isManuallyStopped = sessionStorage.getItem(STOP_KEY) === 'true';
-    if (isDashboardPage || ads.length === 0 || isManuallyStopped || isStopped) return;
+    if (typeof sessionStorage !== 'undefined' && sessionStorage.getItem(SESSION_STOP_KEY) === 'true') return;
+    if (isDashboardPage || ads.length === 0 || isStopped) return;
 
     initialDelayRef.current = setTimeout(startCycle, 2000);
 
@@ -102,7 +104,9 @@ export default function AdSlider() {
   const handleClose = () => {
     setIsPanelOpen(false);
     setIsStopped(true);
-    sessionStorage.setItem(STOP_KEY, 'true');
+    if (typeof sessionStorage !== 'undefined') {
+        sessionStorage.setItem(SESSION_STOP_KEY, 'true');
+    }
   };
 
   if (isDashboardPage || ads.length === 0 || isStopped) {

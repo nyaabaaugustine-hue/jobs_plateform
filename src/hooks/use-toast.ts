@@ -166,7 +166,8 @@ function toast({ ...props }: Omit<ToasterToast, "id">) {
   }
 }
 
-function dismiss(toastId?: string) {
+// Fixed: stable dismiss reference for reliability in effects
+const dismiss = (toastId?: string) => {
   dispatch({ type: "DISMISS_TOAST", toastId })
 }
 

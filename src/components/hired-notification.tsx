@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef, useState, useCallback } from 'react';
-import { useToast, dismiss } from '@/hooks/use-toast';
+import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { PartyPopper, Sparkles } from 'lucide-react';
@@ -17,7 +17,7 @@ const hiredExamples = [
   { name: 'Akua Asare', job: 'Content Strategist', avatarId: 'avatar-6' },
 ];
 
-const STOP_KEY = 'chapel-hill-hired-stopped';
+const SESSION_STOP_KEY = 'chapel-hill-hired-stopped';
 
 export default function HiredNotification() {
   const { toast } = useToast();
@@ -38,12 +38,12 @@ export default function HiredNotification() {
     setIsStopped(true);
     if (intervalRef.current) clearInterval(intervalRef.current);
     if (timerRef.current) clearTimeout(timerRef.current);
-    sessionStorage.setItem(STOP_KEY, 'true');
+    sessionStorage.setItem(SESSION_STOP_KEY, 'true');
   }, []);
 
   const showRandomHiredNotification = useCallback(() => {
-    const isManuallyStopped = sessionStorage.getItem(STOP_KEY) === 'true';
-    if (isDashboardPage || isStopped || isManuallyStopped) return;
+    if (typeof sessionStorage === 'undefined' || sessionStorage.getItem(SESSION_STOP_KEY) === 'true') return;
+    if (isDashboardPage || isStopped) return;
     
     const example = hiredExamples[Math.floor(Math.random() * hiredExamples.length)];
     const userAvatar = PlaceHolderImages.find((img) => img.id === example.avatarId);
@@ -84,12 +84,18 @@ export default function HiredNotification() {
         </ToastAction>
       ),
       duration: 8000,
+      onOpenChange: (open) => {
+          if (!open) {
+              // If manually closed, stop for the session
+              stopNotifications();
+          }
+      }
     });
   }, [isDashboardPage, isStopped, toast, stopNotifications]);
 
   useEffect(() => {
-    const isManuallyStopped = sessionStorage.getItem(STOP_KEY) === 'true';
-    if (isDashboardPage || isManuallyStopped || isStopped) return;
+    if (typeof sessionStorage !== 'undefined' && sessionStorage.getItem(SESSION_STOP_KEY) === 'true') return;
+    if (isDashboardPage || isStopped) return;
 
     timerRef.current = setTimeout(() => {
       showRandomHiredNotification();

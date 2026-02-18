@@ -14,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
-    /* Very Light Brand Blue (#93C5FD) */
+    /* Unified Very Light Brand Blue (#93C5FD) */
     --primary: 212 96% 78%; 
     --primary-foreground: 222 47% 11%; 
     
@@ -124,8 +124,7 @@
   }
   
   h1, h2, h3, h4 {
-    @apply tracking-tight;
-    font-family: var(--font-space-grotesk), sans-serif;
+    @apply tracking-tight font-headline;
     line-height: 1.1;
   }
 }
@@ -146,7 +145,7 @@
   .shadow-glow {
     box-shadow: 0 0 0 1px hsla(var(--primary) / 0.25), 0 10px 25px hsla(var(--primary) / 0.15);
   }
-  .midnight .bg-hero-radial {
-    background: radial-gradient(circle at 20% 30%, hsla(var(--primary) / 0.15), transparent 40%), hsl(var(--background));
+  .animate-pulse-glow {
+    animation: pulse-glow 2s infinite;
   }
 }
