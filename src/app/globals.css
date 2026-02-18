@@ -23,7 +23,7 @@
     --muted: 222 47% 15%;
     --muted-foreground: 215 20% 65%;
     
-    --accent: 45 85% 55%; /* Gold #C9A227 approximation */
+    --accent: 45 85% 55%; /* Gold #C9A227 */
     --accent-foreground: 222 47% 7%;
 
     --destructive: 0 84.2% 60.2%;
@@ -57,7 +57,7 @@
   }
   
   h1, h2, h3, h4 {
-    @apply font-headline tracking-tight;
+    @apply tracking-tight font-headline;
     line-height: 1.1;
   }
 }

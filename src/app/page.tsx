@@ -14,11 +14,12 @@ import VolunteerSection from '@/components/volunteer-section';
 import Faq from '@/components/faq';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 export default function HomePage() {
   const companies = DUMMY_COMPANIES.slice(0, 10);
   const jobs = DUMMY_JOBS;
-  const categories = ['All', 'Technology', 'Finance', 'Software', 'Management'];
+  const categories = ['All', 'Technology', 'Marketing', 'Design', 'Finance', 'Management', 'Software', 'Healthcare', 'Education', 'Data Science'];
   const latestPosts = [
     {
       id: '1',
@@ -56,11 +57,14 @@ export default function HomePage() {
   ];
 
   const heroImage = PlaceHolderImages.find(p => p.id === 'hero-main');
+  const avatar1 = PlaceHolderImages.find(p => p.id === 'avatar-1');
+  const avatar2 = PlaceHolderImages.find(p => p.id === 'avatar-2');
+  const avatar3 = PlaceHolderImages.find(p => p.id === 'avatar-3');
 
   return (
     <main className="flex-1 bg-background">
       {/* 1. Hero Section */}
-      <section className="relative w-full h-[700px] flex items-center justify-center text-center overflow-hidden">
+      <section className="relative w-full h-[750px] flex items-center justify-center text-center overflow-hidden">
         {heroImage && (
           <Image
             src={heroImage.imageUrl}
@@ -79,10 +83,27 @@ export default function HomePage() {
               Find Your Next Job, Faster.
             </h1>
             <p className="text-xl text-white/80 font-bold max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200 font-headline">
-              Built for serious professionals and ambitious companies.
+              Discover your next career move with verified employers and salary transparency.
             </p>
             <div className="w-full mt-12 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-400">
               <HeroSearchForm />
+            </div>
+            <div className="flex items-center justify-center gap-3 mt-6 animate-in fade-in duration-1000 delay-500">
+                <div className="flex -space-x-3">
+                    <Avatar className="border-2 border-white/20 h-8 w-8">
+                        {avatar1 && <AvatarImage src={avatar1.imageUrl} />}
+                        <AvatarFallback>U</AvatarFallback>
+                    </Avatar>
+                    <Avatar className="border-2 border-white/20 h-8 w-8">
+                        {avatar2 && <AvatarImage src={avatar2.imageUrl} />}
+                        <AvatarFallback>U</AvatarFallback>
+                    </Avatar>
+                    <Avatar className="border-2 border-white/20 h-8 w-8">
+                        {avatar3 && <AvatarImage src={avatar3.imageUrl} />}
+                        <AvatarFallback>U</AvatarFallback>
+                    </Avatar>
+                </div>
+                <span className="text-sm font-bold text-white/90">3400+ Job openings</span>
             </div>
           </div>
         </div>

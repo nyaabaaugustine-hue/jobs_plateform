@@ -1,3 +1,5 @@
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from './ui/button';
@@ -33,7 +35,7 @@ export default function HiringSection() {
                 <h2 className="font-headline text-4xl font-extrabold tracking-tight !leading-tight text-white sm:text-5xl lg:text-6xl">
                   Hire Top-Tier React Talent in 48 Hours
                 </h2>
-                <p className="text-xl font-bold max-w-xl text-[#F3F4F6]" style={{ color: 'rgb(246, 244, 238)' }}>
+                <p className="text-xl font-bold max-w-xl" style={{ color: 'rgb(246, 244, 238)' }}>
                   Discover qualified professionals ready to bring your projects to life. Over 4,500+ employers trust our platform to find the best developers in the ecosystem.
                 </p>
                 <ul className="space-y-4">
@@ -56,7 +58,7 @@ export default function HiringSection() {
                       asChild 
                       size="lg" 
                       variant="outline" 
-                      className="font-headline font-black bg-[#f6f4ee]/10 text-white border-2 border-gold hover:border-gold hover:bg-white/10 transition-all rounded-xl"
+                      className="font-headline font-black bg-transparent text-white border-2 border-gold hover:bg-white/10 transition-all rounded-xl"
                     >
                       <Link href="/pricing">View Pricing</Link>
                     </Button>

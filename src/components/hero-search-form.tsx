@@ -24,7 +24,7 @@ export default function HeroSearchForm() {
       <div className="flex-1 flex items-center px-4">
         <Briefcase className="h-5 w-5 text-slate-900 shrink-0" />
         <Input
-          placeholder="Role or keyword"
+          placeholder="Job title, keyword"
           className="h-12 w-full bg-transparent border-none text-slate-900 placeholder:text-slate-500 focus-visible:ring-0 text-base font-bold font-headline"
           value={jobTitle}
           onChange={(e) => setJobTitle(e.target.value)}
@@ -36,7 +36,7 @@ export default function HeroSearchForm() {
       <div className="flex-1 flex items-center px-4">
         <MapPin className="h-5 w-5 text-slate-900 shrink-0" />
         <Input
-          placeholder="Location"
+          placeholder="City or zip code"
           className="h-12 w-full bg-transparent border-none text-slate-900 placeholder:text-slate-500 focus-visible:ring-0 text-base font-bold font-headline"
           value={location}
           onChange={(e) => setLocation(e.target.value)}
@@ -46,7 +46,7 @@ export default function HeroSearchForm() {
       <Button
         onClick={handleSearch}
         size="lg"
-        className="h-12 w-full sm:w-auto bg-black text-white font-black font-headline rounded-lg px-10 hover:brightness-110 transition-all shadow-lg"
+        className="h-12 w-full sm:w-auto bg-black text-white font-black font-headline rounded-lg px-10 hover:bg-slate-800 transition-all shadow-lg"
       >
         Find Jobs
       </Button>
