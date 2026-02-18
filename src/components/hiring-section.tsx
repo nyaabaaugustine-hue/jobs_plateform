@@ -16,7 +16,7 @@ export default function HiringSection() {
 
   return (
     <section className="relative py-24 lg:py-32 overflow-hidden bg-background">
-      {/* Very Low Image Opacity (10%) for Background Image */}
+      {/* Background Image Reduced Visibility (10%) to prevent clashing with content */}
       {bgImage && (
         <Image
           src={bgImage.imageUrl}
@@ -69,7 +69,7 @@ export default function HiringSection() {
                 </div>
             </div>
             
-            {/* LARGE ORIGINAL IMPACT IMAGE */}
+            {/* LARGE ORIGINAL IMPACT IMAGE RETAINED */}
             <div className="relative flex items-center justify-center animate-in fade-in slide-in-from-right duration-1000">
                 {hiringImage && (
                   <div className="relative group w-full max-w-[600px]">

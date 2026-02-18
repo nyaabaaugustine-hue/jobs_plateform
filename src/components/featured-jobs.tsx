@@ -21,6 +21,7 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
 
   return (
     <section className="relative py-20">
+      {/* Background Image Reduced Visibility (10%) */}
       {bgImage && (
         <Image
           src={bgImage.imageUrl}

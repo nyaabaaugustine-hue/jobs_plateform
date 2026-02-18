@@ -12,6 +12,7 @@ export default function LatestNews({ posts }: { posts: BlogPost[] }) {
 
   return (
     <section className="relative py-20">
+      {/* Background Image Reduced Visibility (10%) */}
       {bgImage && (
         <Image
           src={bgImage.imageUrl}

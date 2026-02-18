@@ -86,14 +86,8 @@ export default function HiredNotification() {
         });
       };
 
-      // Initial Flash: 4 seconds after load
-      initialTimeout = setTimeout(() => {
-        if (!isStopped) {
-            showRandomHiredNotification();
-            // RECURRING CYCLE: Every 30 Seconds as requested
-            intervalRef.current = setInterval(showRandomHiredNotification, 30000);
-        }
-      }, 4000);
+      // RECURRING CYCLE: Fires exactly every 30 Seconds as requested
+      intervalRef.current = setInterval(showRandomHiredNotification, 30000);
     }
 
     return () => {

@@ -29,6 +29,7 @@ export default function SubscriptionSection() {
     <section className="py-20 bg-secondary">
       <div className="container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="relative rounded-3xl bg-card p-10 md:p-16 lg:p-20 text-center text-foreground overflow-hidden animate-in fade-in zoom-in-95 duration-700">
+          {/* Background Image Reduced Visibility (10%) */}
           {bgImage && (
             <Image
               src={bgImage.imageUrl}
