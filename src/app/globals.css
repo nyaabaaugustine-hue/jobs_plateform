@@ -56,7 +56,6 @@
     @apply bg-background text-foreground font-body antialiased;
   }
   
-  /* Fixed circular dependency by avoiding @apply font-headline on font-headline itself */
   h1, h2, h3, h4 {
     @apply tracking-tight;
     font-family: var(--font-space-grotesk), sans-serif;
