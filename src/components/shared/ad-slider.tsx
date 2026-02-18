@@ -1,4 +1,4 @@
-'use client';
+"use client"
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import AdPanel from './ad-panel';
@@ -57,9 +57,10 @@ export default function AdSlider() {
   const [currentAdIndex, setCurrentAdIndex] = useState(0);
   const [isPanelOpen, setIsPanelOpen] = useState(false);
   const [isStopped, setIsStopped] = useState(false);
-  const isStoppedRef = useRef(false);
+  
   const cycleTimerRef = useRef<NodeJS.Timeout | null>(null);
   const closeTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const initialDelayRef = useRef<NodeJS.Timeout | null>(null);
   
   const isDashboardPage =
     pathname.startsWith('/admin') ||
@@ -70,7 +71,8 @@ export default function AdSlider() {
     pathname === '/register';
 
   const startCycle = useCallback(() => {
-    if (isStoppedRef.current || isDashboardPage) return;
+    const isDismissed = sessionStorage.getItem('chapel-hill-ads-dismissed') === 'true';
+    if (isStopped || isDashboardPage || isDismissed) return;
 
     // Open the ad
     setIsPanelOpen(true);
@@ -78,35 +80,26 @@ export default function AdSlider() {
     // Auto-close after 10 seconds of display
     if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
     closeTimerRef.current = setTimeout(() => {
-      if (!isStoppedRef.current) setIsPanelOpen(false);
+      setIsPanelOpen(false);
     }, 10000);
     
-    // Schedule the next cycle start every 50 seconds (requested timing)
+    // Schedule the next cycle start every 50 seconds
     if (cycleTimerRef.current) clearTimeout(cycleTimerRef.current);
     cycleTimerRef.current = setTimeout(() => {
-      if (!isStoppedRef.current) {
-          setCurrentAdIndex(prev => (prev + 1) % ads.length);
-          startCycle();
-      }
+      setCurrentAdIndex(prev => (prev + 1) % ads.length);
+      startCycle();
     }, 50000);
-  }, [isDashboardPage]);
+  }, [isDashboardPage, isStopped]);
 
   useEffect(() => {
-    // Session-based dismissal check
-    const dismissed = sessionStorage.getItem('chapel-hill-ads-dismissed');
-    if (dismissed === 'true') {
-        setIsStopped(true);
-        isStoppedRef.current = true;
-        return;
-    }
+    const isDismissed = sessionStorage.getItem('chapel-hill-ads-dismissed') === 'true';
+    if (isDashboardPage || ads.length === 0 || isDismissed || isStopped) return;
 
-    if (isDashboardPage || ads.length === 0 || isStopped) return;
-
-    // Initial Appearance: 2 Seconds after load (requested timing)
-    const initialDelay = setTimeout(startCycle, 2000);
+    // Initial Appearance: 2 Seconds after load
+    initialDelayRef.current = setTimeout(startCycle, 2000);
 
     return () => {
-        clearTimeout(initialDelay);
+        if (initialDelayRef.current) clearTimeout(initialDelayRef.current);
         if (cycleTimerRef.current) clearTimeout(cycleTimerRef.current);
         if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
     };
@@ -115,10 +108,9 @@ export default function AdSlider() {
   const handleClose = () => {
     setIsPanelOpen(false);
     setIsStopped(true);
-    isStoppedRef.current = true;
+    if (initialDelayRef.current) clearTimeout(initialDelayRef.current);
     if (cycleTimerRef.current) clearTimeout(cycleTimerRef.current);
     if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
-    // User closed it manually, stop cycles for this session
     sessionStorage.setItem('chapel-hill-ads-dismissed', 'true');
   };
 

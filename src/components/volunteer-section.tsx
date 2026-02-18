@@ -1,4 +1,4 @@
-'use client';
+"use client"
 
 import { DUMMY_OPPORTUNITIES } from '@/lib/data';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';

@@ -1,6 +1,6 @@
-'use client';
+"use client"
 
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils"
 
 type SectionHeaderProps = {
   title: string;
@@ -28,5 +28,4 @@ export default function SectionHeader({ title, subtitle, className, isCentered =
         </p>
       )}
     </div>
-  );
-}
+  )

@@ -1,4 +1,4 @@
-'use client';
+"use client"
 
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { useToast, dismiss } from '@/hooks/use-toast';
@@ -23,7 +23,6 @@ export default function HiredNotification() {
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const pathname = usePathname();
   const [isStopped, setIsStopped] = useState(false);
-  const isStoppedRef = useRef(false);
 
   const isDashboardPage =
     pathname.startsWith('/admin') ||
@@ -35,7 +34,6 @@ export default function HiredNotification() {
 
   const stopNotifications = useCallback(() => {
     setIsStopped(true);
-    isStoppedRef.current = true;
     if (intervalRef.current) clearInterval(intervalRef.current);
     if (timerRef.current) clearTimeout(timerRef.current);
     dismiss(); 
@@ -43,7 +41,7 @@ export default function HiredNotification() {
   }, []);
 
   const showRandomHiredNotification = useCallback(() => {
-    if (isStoppedRef.current || isDashboardPage) return;
+    if (isDashboardPage || sessionStorage.getItem('chapel-hill-hired-dismissed') === 'true') return;
     
     const example = hiredExamples[Math.floor(Math.random() * hiredExamples.length)];
     const userAvatar = PlaceHolderImages.find((img) => img.id === example.avatarId);
@@ -51,13 +49,6 @@ export default function HiredNotification() {
     toast({
       variant: 'black',
       className: 'p-4 pr-10 border-l-4 border-l-gold animate-in slide-in-from-right-full duration-500',
-      onOpenChange: (open) => {
-        // If the user manually closes it, we treat it as a request to stop distraction for the session
-        if (!open && !isStoppedRef.current) {
-          // Check if this was a manual close vs auto-dismissal is complex, 
-          // so we rely on the explicit 'Stop' button for the user to halt the cycle.
-        }
-      },
       description: (
         <div className="flex items-center gap-3 text-left">
           <div className="relative shrink-0">
@@ -95,28 +86,21 @@ export default function HiredNotification() {
   }, [isDashboardPage, toast, stopNotifications]);
 
   useEffect(() => {
-    // Session-based dismissal check
-    const dismissed = sessionStorage.getItem('chapel-hill-hired-dismissed');
-    if (dismissed === 'true') {
-        setIsStopped(true);
-        isStoppedRef.current = true;
-        return;
-    }
+    const isDismissed = sessionStorage.getItem('chapel-hill-hired-dismissed') === 'true';
+    if (isDashboardPage || isDismissed) return;
 
-    if (!isDashboardPage && !isStopped) {
-      // Initial appearance: 3 Seconds after load
-      timerRef.current = setTimeout(() => {
-        showRandomHiredNotification();
-        // Subsequent intervals: 47 Seconds (requested timing)
-        intervalRef.current = setInterval(showRandomHiredNotification, 47000);
-      }, 3000);
+    // Initial appearance: 3 Seconds after load
+    timerRef.current = setTimeout(() => {
+      showRandomHiredNotification();
+      // Subsequent intervals: 47 Seconds
+      intervalRef.current = setInterval(showRandomHiredNotification, 47000);
+    }, 3000);
 
-      return () => {
-        if (timerRef.current) clearTimeout(timerRef.current);
-        if (intervalRef.current) clearInterval(intervalRef.current);
-      };
-    }
-  }, [isDashboardPage, isStopped, showRandomHiredNotification]);
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [isDashboardPage, showRandomHiredNotification]);
 
   return null;
 }

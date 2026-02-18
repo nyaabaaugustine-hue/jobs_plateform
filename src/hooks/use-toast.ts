@@ -1,6 +1,5 @@
 "use client"
 
-// Inspired by react-hot-toast library
 import * as React from "react"
 
 import type {
@@ -138,9 +137,7 @@ function dispatch(action: Action) {
   })
 }
 
-type Toast = Omit<ToasterToast, "id">
-
-function toast({ ...props }: Toast) {
+function toast({ ...props }: Omit<ToasterToast, "id">) {
   const id = genId()
 
   const update = (props: ToasterToast) =>
@@ -169,9 +166,6 @@ function toast({ ...props }: Toast) {
   }
 }
 
-/**
- * Stable dismiss function defined outside the hook to prevent cascading dependency re-runs.
- */
 function dismiss(toastId?: string) {
   dispatch({ type: "DISMISS_TOAST", toastId })
 }
