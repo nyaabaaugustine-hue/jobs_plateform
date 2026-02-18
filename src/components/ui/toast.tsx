@@ -76,7 +76,7 @@ const ToastAction = React.forwardRef<
     {...props}
   />
 ))
-ToastAction.displayName = ToastPrimitives.Action.displayName
+ToastAction.displayName = "ToastAction"
 
 const ToastClose = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Close>,
@@ -95,7 +95,7 @@ const ToastClose = React.forwardRef<
     <X className="h-4 w-4" />
   </ToastPrimitives.Close>
 ))
-ToastClose.displayName = ToastPrimitives.Close.displayName
+ToastClose.displayName = "ToastClose"
 
 const ToastTitle = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Title>,

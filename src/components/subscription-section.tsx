@@ -80,7 +80,7 @@ export default function SubscriptionSection() {
                         />
                         <Mail className="hidden sm:block h-6 w-6 text-primary mr-4 shrink-0" />
                     </div>
-                     <p className="mt-4 text-[10px] font-black uppercase tracking-widest text-slate-200 bg-black/20 inline-block px-3 py-1 rounded-full backdrop-blur-sm">
+                     <p className="mt-4 text-[10px] font-black uppercase tracking-widest text-gold bg-black/40 inline-block px-3 py-1 rounded-full backdrop-blur-sm">
                        We respect your privacy. Unsubscribe anytime.
                      </p>
                 </form>

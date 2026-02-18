@@ -34,10 +34,9 @@ export default function HiredNotification() {
 
   const stopNotifications = useCallback(() => {
     setIsStopped(true);
-    // 1. Immediately clear timers
     if (intervalRef.current) clearInterval(intervalRef.current);
     if (timerRef.current) clearTimeout(timerRef.current);
-    // 2. Remove any active toast immediately
+    // Remove any active toast immediately
     dismiss();
   }, []);
 
@@ -90,11 +89,11 @@ export default function HiredNotification() {
   useEffect(() => {
     if (isDashboardPage || isStopped) return;
 
-    // Start running after a short initial delay to allow hydration
+    // Set initial timer
     timerRef.current = setTimeout(() => {
       if (!isStopped) {
         showRandomHiredNotification();
-        // Set interval to 50 seconds
+        // Set fixed 50s interval
         intervalRef.current = setInterval(showRandomHiredNotification, 50000);
       }
     }, 5000);
