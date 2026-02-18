@@ -13,13 +13,11 @@ import {
     FileText, 
     Target, 
     Zap, 
-    Award,
     LayoutGrid,
     Search,
     MessageCircle
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
@@ -69,14 +67,6 @@ export default function AISupportWidget() {
         messagesEndRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
     };
 
-    // Auto-scroll logic when chatbox is triggered
-    useEffect(() => {
-        if (isOpen) {
-            const timer = setTimeout(scrollToBottom, 100);
-            return () => clearTimeout(timer);
-        }
-    }, [isOpen]);
-
     const handleSendMessage = async (text: string, isWhatsAppAction = false) => {
         if (isWhatsAppAction) {
             window.open(`https://wa.me/${whatsAppNumber.replace(/\D/g, '')}`, '_blank');
@@ -107,7 +97,7 @@ export default function AISupportWidget() {
 
             setMessages(prev => [...prev, { id: Date.now() + 1, sender: 'ai', text: response.text }]);
         } catch (error) {
-            setMessages(prev => [...prev, { id: Date.now() + 1, sender: 'ai', text: "I'm experiencing a high volume of requests. Let's try again in a moment!" }]);
+            setMessages(prev => [...prev, { id: Date.now() + 1, sender: 'ai', text: "I'm currently optimizing my responses. How else can I assist you today?" }]);
         } finally {
             setIsTyping(false);
         }
@@ -181,7 +171,6 @@ export default function AISupportWidget() {
                                                 className="object-contain" 
                                                 priority
                                             />
-                                            {/* Text Overlay inside the image */}
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent flex flex-col justify-end">
                                                 <div className="bg-white/10 backdrop-blur-xl border-t border-white/10 p-5">
                                                     <p className="text-white text-[11px] font-bold leading-relaxed shadow-lg">

@@ -1,31 +1,27 @@
-import Image from 'next/image';
+'use client';
+
 import { Card } from '@/components/ui/card';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
-import Link from 'next/link';
 
 export default function ContactMap() {
-  const mapImage = PlaceHolderImages.find((img) => img.id === 'contact-map');
-
   return (
-    <Link href="https://maps.app.goo.gl/CcyvL8M57nU5gWpe7" target="_blank" rel="noopener noreferrer" className="block">
-        <Card className="shadow-lg overflow-hidden group">
-        {mapImage && (
-            <div className="relative aspect-[16/6]">
-            <Image
-                src={mapImage.imageUrl}
-                alt="Our Location"
-                fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-                data-ai-hint={mapImage.imageHint}
+    <Card className="shadow-2xl overflow-hidden group border-2 border-white/10 bg-card/50 backdrop-blur-xl rounded-3xl animate-in fade-in duration-1000">
+        <div className="relative aspect-[16/7] w-full grayscale-[0.5] contrast-[1.1] brightness-[0.9] hover:grayscale-0 transition-all duration-700">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127066.2538114441!2d-0.2591244122070312!3d5.591208999999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9084b2b7a773%3A0xbed14ed8650e2dd3!2sAccra%2C%20Ghana!5e0!3m2!1sen!2sgh!4v1711200000000!5m2!1sen!2sgh" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen={true} 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                className="opacity-80 hover:opacity-100 transition-opacity"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-            <div className="absolute bottom-4 left-4">
-                    <h3 className="font-headline text-2xl font-bold text-white">Find Us Here</h3>
-                    <p className="text-gray-200 text-sm">123 Job Seeker Lane, Accra, Ghana</p>
+            <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/20 to-transparent" />
+            <div className="absolute bottom-6 left-6 pointer-events-none bg-black/40 backdrop-blur-md p-4 rounded-2xl border border-white/10 shadow-2xl animate-in slide-in-from-left duration-700 delay-300">
+                <h3 className="font-headline text-2xl font-black text-white tracking-tight">Our Headquarters</h3>
+                <p className="text-white/80 text-xs font-bold font-headline uppercase tracking-[0.2em] mt-1">Accra, Ghana</p>
             </div>
-            </div>
-        )}
-        </Card>
-    </Link>
+        </div>
+    </Card>
   );
 }
