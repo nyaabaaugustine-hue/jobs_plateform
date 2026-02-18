@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from 'react';
@@ -52,7 +51,12 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
         </div>
         
         <div className="mt-16 text-center">
-          <Button asChild size="lg" variant="outline" className="rounded-xl border-border text-foreground bg-background/50 backdrop-blur-sm hover:bg-secondary font-black px-12 h-14 text-sm group transition-all">
+          <Button 
+            asChild 
+            size="lg" 
+            variant="outline" 
+            className="rounded-xl border-border text-foreground bg-background/50 backdrop-blur-sm hover:bg-gold hover:text-black hover:border-gold font-black px-12 h-14 text-sm group transition-all duration-300 shadow-lg hover:shadow-gold/20"
+          >
             <Link href="/jobs" className="flex items-center gap-3">
               View All Jobs <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Link>
