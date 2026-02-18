@@ -5,8 +5,8 @@
 @layer base {
   :root {
     /* 🥇 Theme 3: LIGHT (Modern Clean SaaS Light) */
-    --background: 210 40% 98%; /* #F8FAFC */
-    --foreground: 222 47% 11%; /* #0F172A */
+    --background: 210 40% 98%; 
+    --foreground: 222 47% 11%; 
     
     --card: 0 0% 100%;
     --card-foreground: 222 47% 11%;
@@ -45,7 +45,7 @@
 
   .dark {
     /* 🥈 Theme 2: DARK (Professional Corporate Dark) */
-    --background: 222 47% 11%; /* #0F172A */
+    --background: 222 47% 11%; 
     --foreground: 210 40% 98%;
     
     --card: 217 33% 17%;
@@ -81,7 +81,7 @@
 
   .midnight {
     /* 🥇 Theme 1: MIDNIGHT SLATE (Signature Premium Theme) */
-    --background: 222 48% 8%; /* #0B1220 */
+    --background: 222 48% 8%; 
     --foreground: 210 40% 96%;
     
     --card: 222 47% 11%;

@@ -52,7 +52,7 @@ const ads: Ad[] = [
     }
 ].filter(ad => ad.company && ad.image);
 
-const DISMISSED_KEY = 'chapel-hill-ads-dismissed';
+const STOP_KEY = 'chapel-hill-ads-stopped';
 
 export default function AdSlider() {
   const pathname = usePathname();
@@ -72,8 +72,8 @@ export default function AdSlider() {
     pathname === '/register';
 
   const startCycle = useCallback(() => {
-    const isDismissed = sessionStorage.getItem(DISMISSED_KEY) === 'true';
-    if (isStopped || isDashboardPage || isDismissed) return;
+    const isManuallyStopped = sessionStorage.getItem(STOP_KEY) === 'true';
+    if (isStopped || isDashboardPage || isManuallyStopped) return;
 
     setIsPanelOpen(true);
     
@@ -88,8 +88,8 @@ export default function AdSlider() {
   }, [isDashboardPage, isStopped]);
 
   useEffect(() => {
-    const isDismissed = sessionStorage.getItem(DISMISSED_KEY) === 'true';
-    if (isDashboardPage || ads.length === 0 || isDismissed || isStopped) return;
+    const isManuallyStopped = sessionStorage.getItem(STOP_KEY) === 'true';
+    if (isDashboardPage || ads.length === 0 || isManuallyStopped || isStopped) return;
 
     initialDelayRef.current = setTimeout(startCycle, 2000);
 
@@ -102,9 +102,7 @@ export default function AdSlider() {
   const handleClose = () => {
     setIsPanelOpen(false);
     setIsStopped(true);
-    if (initialDelayRef.current) clearTimeout(initialDelayRef.current);
-    if (cycleTimerRef.current) clearTimeout(cycleTimerRef.current);
-    sessionStorage.setItem(DISMISSED_KEY, 'true');
+    sessionStorage.setItem(STOP_KEY, 'true');
   };
 
   if (isDashboardPage || ads.length === 0 || isStopped) {

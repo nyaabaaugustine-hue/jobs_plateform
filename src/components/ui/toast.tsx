@@ -56,7 +56,7 @@ const Toast = React.forwardRef<
     />
   )
 })
-Toast.displayName = Toast.displayName
+Toast.displayName = "Toast"
 
 const ToastAction = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Action>,

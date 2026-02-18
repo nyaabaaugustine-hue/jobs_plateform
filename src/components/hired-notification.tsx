@@ -17,7 +17,7 @@ const hiredExamples = [
   { name: 'Akua Asare', job: 'Content Strategist', avatarId: 'avatar-6' },
 ];
 
-const DISMISSED_KEY = 'chapel-hill-hired-dismissed';
+const STOP_KEY = 'chapel-hill-hired-stopped';
 
 export default function HiredNotification() {
   const { toast } = useToast();
@@ -38,13 +38,12 @@ export default function HiredNotification() {
     setIsStopped(true);
     if (intervalRef.current) clearInterval(intervalRef.current);
     if (timerRef.current) clearTimeout(timerRef.current);
-    dismiss(); 
-    sessionStorage.setItem(DISMISSED_KEY, 'true');
+    sessionStorage.setItem(STOP_KEY, 'true');
   }, []);
 
   const showRandomHiredNotification = useCallback(() => {
-    const isDismissed = sessionStorage.getItem(DISMISSED_KEY) === 'true';
-    if (isDashboardPage || isStopped || isDismissed) return;
+    const isManuallyStopped = sessionStorage.getItem(STOP_KEY) === 'true';
+    if (isDashboardPage || isStopped || isManuallyStopped) return;
     
     const example = hiredExamples[Math.floor(Math.random() * hiredExamples.length)];
     const userAvatar = PlaceHolderImages.find((img) => img.id === example.avatarId);
@@ -56,7 +55,7 @@ export default function HiredNotification() {
         <div className="flex items-center gap-3 text-left">
           <div className="relative shrink-0">
             <Avatar className="h-10 w-10 border-2 border-white/20">
-              {userAvatar && <AvatarImage src={userAvatar.imageUrl} alt={example.name} data-ai-hint="professional portrait" />}
+              {userAvatar && <AvatarImage src={userAvatar.imageUrl} alt={example.name} />}
               <AvatarFallback>{example.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
             </Avatar>
             <div className="absolute -bottom-1 -right-1 bg-gold rounded-full p-0.5">
@@ -89,8 +88,8 @@ export default function HiredNotification() {
   }, [isDashboardPage, isStopped, toast, stopNotifications]);
 
   useEffect(() => {
-    const isDismissed = sessionStorage.getItem(DISMISSED_KEY) === 'true';
-    if (isDashboardPage || isDismissed || isStopped) return;
+    const isManuallyStopped = sessionStorage.getItem(STOP_KEY) === 'true';
+    if (isDashboardPage || isManuallyStopped || isStopped) return;
 
     timerRef.current = setTimeout(() => {
       showRandomHiredNotification();
