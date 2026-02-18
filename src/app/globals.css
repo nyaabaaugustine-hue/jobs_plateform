@@ -15,7 +15,7 @@
     --popover-foreground: 222 47% 11%;
 
     /* Brand: Very Light Blue (#93C5FD) */
-    --primary: 212 91% 78%; 
+    --primary: 212 96% 78%; 
     --primary-foreground: 222 47% 11%; 
     
     --secondary: 210 40% 96%;
@@ -32,7 +32,7 @@
     
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-    --ring: 212 91% 78%;
+    --ring: 212 96% 78%;
 
     --radius: 1rem;
     --gold: 45 85% 55%;
@@ -54,7 +54,7 @@
     --popover: 222 47% 11%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 212 91% 78%; 
+    --primary: 212 96% 78%; 
     --primary-foreground: 222 47% 11%; 
     
     --secondary: 215 25% 27%;
@@ -71,7 +71,7 @@
     
     --border: 215 25% 27%;
     --input: 215 25% 27%;
-    --ring: 212 91% 78%;
+    --ring: 212 96% 78%;
     --burgundy: 349 89% 45%;
     
     --bg-base: 222 47% 11%;
@@ -90,7 +90,7 @@
     --popover: 222 48% 8%;
     --popover-foreground: 210 40% 96%;
 
-    --primary: 212 91% 78%; 
+    --primary: 212 96% 78%; 
     --primary-foreground: 222 47% 11%; 
     
     --secondary: 216 40% 15%;
@@ -107,7 +107,7 @@
     
     --border: 215 28% 17%;
     --input: 215 28% 17%;
-    --ring: 212 91% 78%;
+    --ring: 212 96% 78%;
     --burgundy: 349 89% 45%;
     
     --bg-base: 222 48% 8%;
