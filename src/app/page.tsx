@@ -1,6 +1,6 @@
 'use client';
 
-import { DUMMY_JOBS, DUMMY_COMPANIES, DUMMY_LOCATIONS } from '@/lib/data';
+import { DUMMY_JOBS, DUMMY_COMPANIES, DUMMY_LOCATIONS, JOB_CATEGORIES } from '@/lib/data';
 import HeroSearchForm from '@/components/hero-search-form';
 import TopCompanies from '@/components/top-companies';
 import FeaturedJobs from '@/components/featured-jobs';
@@ -19,47 +19,24 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 export default function HomePage() {
   const companies = DUMMY_COMPANIES.slice(0, 10);
   const jobs = DUMMY_JOBS;
-  const categories = ['All', 'Technology', 'Marketing', 'Design', 'Finance', 'Management', 'Software', 'Healthcare', 'Education', 'Data Science'];
+  const categories = JOB_CATEGORIES.map(c => c.name);
+  
   const latestPosts = [
     {
       id: '1',
       slug: 'mastering-react-hooks',
       title: 'Mastering React Hooks: A Deep Dive',
-      excerpt: 'Learn how to leverage React Hooks to write cleaner, more efficient, and more readable code in your applications.',
+      excerpt: 'Learn how to leverage React Hooks to write cleaner code.',
       content: '',
       image: 'blog-post-2',
       date: '2024-07-15T12:00:00Z',
       author: { id: '1', name: 'Ama Mensah', avatar: 'avatar-1', role: 'jobSeeker' },
       status: 'Published' as const,
     },
-    {
-      id: '2',
-      slug: 'ace-your-next-tech-interview',
-      title: 'How to Ace Your Next Tech Interview',
-      excerpt: 'A comprehensive guide on preparing for and succeeding in technical interviews, from coding challenges to system design.',
-      content: '',
-      image: 'blog-post-1',
-      date: '2024-07-10T12:00:00Z',
-      author: { id: '2', name: 'Kofi Addo', avatar: 'avatar-2', role: 'jobSeeker' },
-      status: 'Published' as const,
-    },
-    {
-      id: '3',
-      slug: 'building-a-strong-developer-portfolio',
-      title: 'Building a Strong Developer Portfolio',
-      excerpt: 'Your portfolio is your digital resume. Learn the key elements of a portfolio that will impress hiring managers.',
-      content: '',
-      image: 'blog-post-3',
-      date: '2024-07-05T12:00:00Z',
-      author: { id: '3', name: 'Adwoa Owusu', avatar: 'avatar-3', role: 'jobSeeker' },
-      status: 'Published' as const,
-    },
   ];
 
   const heroImage = PlaceHolderImages.find(p => p.id === 'hero-main');
-  const avatar1 = PlaceHolderImages.find(p => p.id === 'avatar-1');
-  const avatar2 = PlaceHolderImages.find(p => p.id === 'avatar-2');
-  const avatar3 = PlaceHolderImages.find(p => p.id === 'avatar-3');
+  const avatars = ['avatar-1', 'avatar-2', 'avatar-3'];
 
   return (
     <main className="flex-1 bg-background">
@@ -79,10 +56,10 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-black/60 z-10" />
         <div className="relative z-20 container mx-auto px-6 max-w-4xl">
           <div className="flex flex-col space-y-6">
-            <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white animate-in fade-in slide-in-from-bottom-4 duration-1000 font-headline">
+            <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white animate-in fade-in slide-in-from-bottom-4 duration-1000">
               Find Your Next Job, Faster.
             </h1>
-            <p className="text-xl text-white/80 font-bold max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200 font-headline">
+            <p className="text-xl text-white/80 font-bold max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200">
               Discover your next career move with verified employers and salary transparency.
             </p>
             <div className="w-full mt-12 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-400">
@@ -90,18 +67,15 @@ export default function HomePage() {
             </div>
             <div className="flex items-center justify-center gap-3 mt-6 animate-in fade-in duration-1000 delay-500">
                 <div className="flex -space-x-3">
-                    <Avatar className="border-2 border-white/20 h-8 w-8">
-                        {avatar1 && <AvatarImage src={avatar1.imageUrl} />}
-                        <AvatarFallback>U</AvatarFallback>
-                    </Avatar>
-                    <Avatar className="border-2 border-white/20 h-8 w-8">
-                        {avatar2 && <AvatarImage src={avatar2.imageUrl} />}
-                        <AvatarFallback>U</AvatarFallback>
-                    </Avatar>
-                    <Avatar className="border-2 border-white/20 h-8 w-8">
-                        {avatar3 && <AvatarImage src={avatar3.imageUrl} />}
-                        <AvatarFallback>U</AvatarFallback>
-                    </Avatar>
+                    {avatars.map(av => {
+                        const img = PlaceHolderImages.find(p => p.id === av);
+                        return (
+                            <Avatar key={av} className="border-2 border-white/20 h-8 w-8">
+                                {img && <AvatarImage src={img.imageUrl} />}
+                                <AvatarFallback>U</AvatarFallback>
+                            </Avatar>
+                        )
+                    })}
                 </div>
                 <span className="text-sm font-bold text-white/90">3400+ Job openings</span>
             </div>

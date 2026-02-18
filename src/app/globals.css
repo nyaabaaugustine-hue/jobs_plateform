@@ -57,7 +57,8 @@
   }
   
   h1, h2, h3, h4 {
-    @apply tracking-tight font-headline;
+    @apply tracking-tight;
+    font-family: var(--font-space-grotesk);
     line-height: 1.1;
   }
 }

@@ -6,13 +6,14 @@ import { MapPin } from 'lucide-react';
 import type { Company } from '@/lib/types';
 import SectionHeader from './shared/section-header';
 import StarRating from './shared/star-rating';
+import { Badge } from './ui/badge';
 
 export default function TopCompanies({ companies }: { companies: Company[] }) {
   return (
     <section className="py-24 bg-[#0B0F17]">
       <div className="container mx-auto max-w-7xl px-6 lg:px-12">
         <SectionHeader 
-          title="Trusted Companies" 
+          title="Top Companies Hiring" 
           subtitle="Direct partnerships with world-class engineering teams."
         />
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
@@ -20,9 +21,9 @@ export default function TopCompanies({ companies }: { companies: Company[] }) {
             const companyLogo = PlaceHolderImages.find((img) => img.id === company.logo);
             return (
               <Link key={company.id} href={`/companies/${company.id}`} className="block group">
-                <Card className="h-full p-8 text-center border border-white/5 bg-[#151C2B] hover:bg-[#1F2937] hover:border-white/10 transition-all rounded-2xl flex flex-col items-center justify-center shadow-xl">
+                <Card className="h-full p-6 text-center border border-white/5 bg-[#151C2B] hover:bg-[#1F2937] hover:border-white/10 transition-all rounded-2xl flex flex-col items-center justify-center shadow-xl">
                   {companyLogo && (
-                    <div className="relative mb-6 h-20 w-20 grayscale group-hover:grayscale-0 transition-all">
+                    <div className="relative mb-4 h-16 w-16">
                         <Image
                           src={companyLogo.imageUrl}
                           alt={`${company.name} logo`}
@@ -31,16 +32,18 @@ export default function TopCompanies({ companies }: { companies: Company[] }) {
                         />
                     </div>
                   )}
-                  <h3 className="font-bold text-base text-white mb-2">{company.name}</h3>
+                  <h3 className="font-bold text-sm text-white mb-1">{company.name}</h3>
                   <div className="mb-2">
                     <StarRating rating={company.rating || 5} />
                   </div>
-                  <div className="text-xs text-muted-foreground flex items-center justify-center gap-1">
+                  <div className="text-[10px] text-muted-foreground flex items-center justify-center gap-1">
                     <MapPin className="h-3 w-3 shrink-0" />
                     <span>{company.location}</span>
                   </div>
-                  <div className="mt-4 text-[10px] font-black uppercase tracking-tighter text-primary">
-                    {company.activeJobs || 0} Openings
+                  <div className="mt-4">
+                    <Badge variant="secondary" className="bg-primary/10 text-primary border-none text-[10px] font-black uppercase">
+                      {company.activeJobs || 0} Openings
+                    </Badge>
                   </div>
                 </Card>
               </Link>
