@@ -39,9 +39,19 @@ export default function HiredNotification() {
       intervalRef.current = null;
     }
     dismiss(); 
+    // Remember dismissal forever
+    localStorage.setItem('chapel-hill-hired-dismissed', 'true');
   };
 
   useEffect(() => {
+    // Check if previously dismissed forever
+    const dismissed = localStorage.getItem('chapel-hill-hired-dismissed');
+    if (dismissed === 'true') {
+        setIsStopped(true);
+        isStoppedRef.current = true;
+        return;
+    }
+
     if (!isDashboardPage && !isStopped) {
       const showRandomHiredNotification = () => {
         if (isStoppedRef.current) return;
@@ -100,9 +110,9 @@ export default function HiredNotification() {
         });
       };
 
-      // Set to run every 30 seconds
+      // Set to run every 47 seconds (as requested)
       const initialDelay = setTimeout(showRandomHiredNotification, 10000); // 10s after load
-      intervalRef.current = setInterval(showRandomHiredNotification, 30000);
+      intervalRef.current = setInterval(showRandomHiredNotification, 47000);
 
       return () => {
         clearTimeout(initialDelay);

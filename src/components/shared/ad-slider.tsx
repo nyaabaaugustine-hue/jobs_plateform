@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
@@ -68,6 +67,14 @@ export default function AdSlider() {
     pathname === '/register';
 
   useEffect(() => {
+    // Check if previously dismissed forever
+    const dismissed = localStorage.getItem('chapel-hill-ads-dismissed');
+    if (dismissed === 'true') {
+        setIsStopped(true);
+        isStoppedRef.current = true;
+        return;
+    }
+
     if (isDashboardPage || ads.length === 0 || isStopped) return;
 
     let cycleTimer: NodeJS.Timeout;
@@ -83,13 +90,13 @@ export default function AdSlider() {
         if (!isStoppedRef.current) setIsPanelOpen(false);
       }, 10000);
       
-      // Schedule the next cycle start every 40 seconds
+      // Schedule the next cycle start every 50 seconds (as requested)
       cycleTimer = setTimeout(() => {
         if (!isStoppedRef.current) {
             setCurrentAdIndex(prev => (prev + 1) % ads.length);
             startCycle();
         }
-      }, 40000);
+      }, 50000);
     };
 
     // Initial Appearance: 5 Seconds after load
@@ -103,8 +110,10 @@ export default function AdSlider() {
   
   const handleClose = () => {
     setIsPanelOpen(false);
-    setIsStopped(true); // Permanent close logic
+    setIsStopped(true);
     isStoppedRef.current = true;
+    // Remember dismissal forever
+    localStorage.setItem('chapel-hill-ads-dismissed', 'true');
   };
 
   if (isDashboardPage || ads.length === 0 || isStopped) {
