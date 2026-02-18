@@ -53,7 +53,7 @@ export default function HiredNotification() {
 
         toast({
           variant: 'black',
-          className: 'p-4 pr-10 border-l-4 border-l-primary animate-in slide-in-from-right-full duration-500',
+          className: 'p-4 pr-10 border-l-4 border-l-gold animate-in slide-in-from-right-full duration-500',
           onOpenChange: (open) => {
             // When the toast is closed
             if (!open) {
@@ -71,8 +71,8 @@ export default function HiredNotification() {
                   {userAvatar && <AvatarImage src={userAvatar.imageUrl} alt={example.name} />}
                   <AvatarFallback>{example.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                 </Avatar>
-                <div className="absolute -bottom-1 -right-1 bg-primary rounded-full p-0.5">
-                  <Sparkles className="h-3 w-3 text-white" />
+                <div className="absolute -bottom-1 -right-1 bg-gold rounded-full p-0.5">
+                  <Sparkles className="h-3 w-3 text-black" />
                 </div>
               </div>
               <div className="flex-1 min-w-0">
