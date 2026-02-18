@@ -34,12 +34,12 @@ type Message = {
 };
 
 const QUICK_ACTIONS = [
-    { label: 'Smart Job Match', icon: Search, category: 'Search' },
-    { label: 'Optimize My CV', icon: FileText, category: 'Resume' },
-    { label: 'Interview Prep', icon: Target, category: 'Growth' },
-    { label: 'Cover Letter', icon: Award, category: 'Resume' },
-    { label: 'Salary Insights', icon: TrendingUp, category: 'Market' },
-    { label: 'Career Roadmap', icon: Briefcase, category: 'Growth' },
+    { label: 'Smart Job Match', icon: Search, category: 'Search', color: 'text-blue-400', bg: 'bg-blue-500/10' },
+    { label: 'Optimize My CV', icon: FileText, category: 'Resume', color: 'text-purple-400', bg: 'bg-purple-500/10' },
+    { label: 'Interview Prep', icon: Target, category: 'Growth', color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
+    { label: 'Cover Letter', icon: Award, category: 'Resume', color: 'text-pink-400', bg: 'bg-pink-500/10' },
+    { label: 'Salary Insights', icon: TrendingUp, category: 'Market', color: 'text-amber-400', bg: 'bg-amber-500/10' },
+    { label: 'Career Roadmap', icon: Briefcase, category: 'Growth', color: 'text-cyan-400', bg: 'bg-cyan-500/10' },
 ];
 
 export default function AISupportWidget() {
@@ -145,9 +145,9 @@ export default function AISupportWidget() {
                                     </div>
                                 </div>
                             </div>
-                            <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)} className="rounded-full text-white/40 hover:text-white hover:bg-white/5 h-8 w-8">
+                            <button onClick={() => setIsOpen(false)} className="rounded-full text-white/40 hover:text-white hover:bg-white/5 p-1 transition-colors">
                                 <X className="h-5 w-5" />
-                            </Button>
+                            </button>
                         </div>
 
                         {/* Intelligent Feed */}
@@ -167,7 +167,7 @@ export default function AISupportWidget() {
                                         </div>
                                     )}
                                     <div className={cn(
-                                        "max-w-[90%] p-4 rounded-[1.25rem] text-xs leading-relaxed",
+                                        "max-w-[90%] p-4 rounded-[1.25rem] text-[11px] leading-relaxed",
                                         m.sender === 'user' 
                                             ? "bg-primary text-primary-foreground rounded-tr-none font-bold shadow-xl border border-white/10" 
                                             : "bg-white/5 border border-white/10 text-slate-200 rounded-tl-none font-medium"
@@ -199,9 +199,9 @@ export default function AISupportWidget() {
                                     >
                                         <div className="flex items-center justify-between mb-4">
                                             <h4 className="text-[8px] font-black uppercase tracking-[0.2em] text-white/40">Abena Tools</h4>
-                                            <Button variant="ghost" size="icon" onClick={() => setShowActions(false)} className="h-5 w-5 rounded-full text-white/40">
-                                                <X className="h-3 w-3" />
-                                            </Button>
+                                            <button onClick={() => setShowActions(false)} className="text-white/40 hover:text-white transition-colors">
+                                                <X className="h-4 w-4" />
+                                            </button>
                                         </div>
                                         <div className="grid grid-cols-2 gap-2">
                                             {QUICK_ACTIONS.map((action, i) => (
@@ -210,7 +210,7 @@ export default function AISupportWidget() {
                                                     onClick={() => handleSendMessage(action.label)}
                                                     className="flex flex-col items-start gap-2 p-3 rounded-xl bg-white/5 border border-white/5 hover:border-primary/50 hover:bg-primary/10 transition-all group text-left"
                                                 >
-                                                    <div className="p-1.5 rounded-lg bg-white/5 text-primary group-hover:scale-110 transition-transform">
+                                                    <div className={cn("p-1.5 rounded-lg transition-all group-hover:scale-110", action.bg, action.color)}>
                                                         <action.icon className="h-4 w-4" />
                                                     </div>
                                                     <div>
