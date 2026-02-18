@@ -2,11 +2,14 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { MapPin } from 'lucide-react';
+import { MapPin, Clock, Zap } from 'lucide-react';
+import { useState, useEffect } from 'react';
 import type { Job } from '@/lib/types';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardFooter, CardTitle, CardDescription } from '@/components/ui/card';
+import ClientSideDate from '@/components/shared/client-side-date';
 
 type JobCardProps = {
   job: Job;
@@ -14,6 +17,13 @@ type JobCardProps = {
 
 export default function JobCard({ job }: JobCardProps) {
   const companyLogo = PlaceHolderImages.find((img) => img.id === job.company.logo);
+  const [matchScore, setMatchScore] = useState<number | null>(null);
+
+  useEffect(() => {
+    // Generate a consistent match score for the demo based on job ID
+    const score = 75 + (parseInt(job.id.split('-')[1]) * 7) % 24;
+    setMatchScore(score);
+  }, [job.id]);
 
   return (
     <Card className="bg-[#151C2B] rounded-lg p-8 border border-white/5 hover:border-white/10 transition-all duration-300 flex h-full flex-col overflow-hidden group hover:-translate-y-1 shadow-xl">
@@ -44,11 +54,17 @@ export default function JobCard({ job }: JobCardProps) {
       </CardHeader>
       
       <CardContent className="flex-grow p-0 space-y-6">
-        <p className="text-muted-foreground leading-relaxed line-clamp-2 text-sm">
-          {job.description}
-        </p>
-        
         <div className="flex flex-wrap gap-2">
+          {job.isUrgent && (
+            <Badge variant="destructive" className="bg-red-500/10 text-red-500 border-red-500/20 px-3 py-1">
+              <Zap className="h-3 w-3 mr-1" fill="currentColor" /> Urgent
+            </Badge>
+          )}
+          {matchScore && (
+            <Badge variant="secondary" className="bg-primary/10 text-primary border-primary/20 font-bold px-3 py-1">
+              {matchScore}% Match
+            </Badge>
+          )}
           <Badge variant="secondary" className="bg-white/5 border-none text-white font-medium px-3 py-1">
             {job.type}
           </Badge>
@@ -56,18 +72,41 @@ export default function JobCard({ job }: JobCardProps) {
             {job.experienceLevel}
           </Badge>
         </div>
+
+        <p className="text-muted-foreground leading-relaxed line-clamp-3 text-sm">
+          {job.description}
+        </p>
+        
+        {job.skills && job.skills.length > 0 && (
+          <div className="space-y-3">
+            <h4 className="font-headline text-xs font-black uppercase tracking-widest text-white/40">Top Skills</h4>
+            <div className="flex flex-wrap gap-2">
+              {job.skills.map(skill => (
+                <Badge key={skill} variant="outline" className="bg-transparent border-white/10 text-white/70 text-[10px] font-bold uppercase">
+                  {skill}
+                </Badge>
+              ))}
+            </div>
+          </div>
+        )}
       </CardContent>
 
       <CardFooter className="p-0 pt-8 mt-6 border-t border-white/5 flex items-center justify-between">
-        <div className="text-[20px] font-bold text-white">
-          {job.salaryRange.split(' - ')[0]}
+        <div className="flex flex-col">
+          <div className="flex items-baseline gap-1">
+            <span className="text-[22px] font-black text-white">{job.salaryRange.split(' - ')[0]}</span>
+            <span className="text-xs text-muted-foreground font-bold">/yearly</span>
+          </div>
+          <div className="flex items-center gap-1.5 text-[10px] font-bold text-muted-foreground uppercase tracking-wider mt-1">
+            <Clock className="h-3 w-3" />
+            <ClientSideDate dateString={job.postedDate} />
+          </div>
         </div>
-        <Link 
-          href={`/jobs/${job.id}`}
-          className="text-sm font-bold text-primary hover:underline"
-        >
-          View Details
-        </Link>
+        <Button asChild className="bg-primary hover:bg-primary/90 text-white font-black rounded-lg px-6 h-11 shadow-lg transition-all hover:scale-105">
+          <Link href={`/jobs/${job.id}`}>
+            Apply Now
+          </Link>
+        </Button>
       </CardFooter>
     </Card>
   );

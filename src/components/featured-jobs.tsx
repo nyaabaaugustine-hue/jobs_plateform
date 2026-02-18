@@ -14,7 +14,7 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
 
   const featuredJobs = jobs.filter(job => {
     if (selectedCategory === 'All') return true;
-    return job.category === selectedCategory;
+    return job.category === selectedCategory || job.skills.some(s => s === selectedCategory);
   }).slice(0, 9);
 
   return (
@@ -32,9 +32,9 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
                     variant="ghost"
                     onClick={() => setSelectedCategory(category)}
                     className={cn(
-                        "rounded-full px-6 py-2 text-sm font-bold transition-all duration-300",
+                        "rounded-full px-6 py-2 text-xs font-black uppercase tracking-widest transition-all duration-300",
                         selectedCategory === category
-                            ? "bg-primary text-white shadow-xl"
+                            ? "bg-primary text-white shadow-xl scale-105"
                             : "bg-[#151C2B] text-muted-foreground hover:bg-[#1F2937] hover:text-white border border-white/5"
                     )}
                 >
@@ -52,9 +52,9 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
         </div>
         
         <div className="mt-16 text-center">
-          <Button asChild size="lg" className="rounded-xl px-10 bg-primary hover:brightness-110 transition-all font-black">
-            <Link href="/jobs">
-              Browse All Opportunities <ArrowRight className="ml-2 h-4 w-4" />
+          <Button asChild size="lg" className="rounded-xl h-14 px-10 bg-primary hover:brightness-110 transition-all font-black text-lg shadow-2xl">
+            <Link href="/jobs" className="flex items-center gap-3">
+              View All Jobs <ArrowRight className="h-5 w-5" />
             </Link>
           </Button>
         </div>
