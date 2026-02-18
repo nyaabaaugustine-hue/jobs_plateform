@@ -1,3 +1,4 @@
+
 'use client';
 
 import Image from 'next/image';
@@ -31,7 +32,7 @@ export default function JobCard({ job }: JobCardProps) {
   }, []);
 
   return (
-    <Card className="flex h-full flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-1.5 border-t-4 border-primary/10 hover:border-primary">
+    <Card className="flex h-full flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 border-t-4 border-primary/10 hover:ring-2 hover:ring-gold relative">
       <CardHeader className="flex flex-row items-start gap-4 p-4">
         {companyLogo && (
           <Link href={`/companies/${job.company.id}`} className="block">
@@ -72,7 +73,9 @@ export default function JobCard({ job }: JobCardProps) {
             <Badge variant="outline">{job.experienceLevel}</Badge>
         </div>
         
-        <p className="text-sm text-muted-foreground line-clamp-2">{job.description}</p>
+        <p className="text-[#f6f4ee]/80 leading-relaxed line-clamp-2 text-[13px]">
+          {job.description}
+        </p>
         
         {job.skills && job.skills.length > 0 && (
              <div className="space-y-2 pt-2 border-t">
