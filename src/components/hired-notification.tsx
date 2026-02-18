@@ -42,7 +42,6 @@ export default function HiredNotification() {
     
     if (!isDashboardPage && !isStopped) {
       const showRandomHiredNotification = () => {
-        // Double check stopped state inside the callback
         if (isStopped) return;
         
         const example = hiredExamples[Math.floor(Math.random() * hiredExamples.length)];
