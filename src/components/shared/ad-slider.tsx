@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import AdPanel from './ad-panel';
 import { DUMMY_COMPANIES } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -69,7 +69,7 @@ export default function AdSlider() {
     pathname === '/login' ||
     pathname === '/register';
 
-  const startCycle = () => {
+  const startCycle = useCallback(() => {
     if (isStoppedRef.current || isDashboardPage) return;
 
     // Open the ad
@@ -81,7 +81,7 @@ export default function AdSlider() {
       if (!isStoppedRef.current) setIsPanelOpen(false);
     }, 10000);
     
-    // Schedule the next cycle start every 50 seconds
+    // Schedule the next cycle start every 50 seconds (requested timing)
     if (cycleTimerRef.current) clearTimeout(cycleTimerRef.current);
     cycleTimerRef.current = setTimeout(() => {
       if (!isStoppedRef.current) {
@@ -89,10 +89,11 @@ export default function AdSlider() {
           startCycle();
       }
     }, 50000);
-  };
+  }, [isDashboardPage]);
 
   useEffect(() => {
-    const dismissed = localStorage.getItem('chapel-hill-ads-dismissed');
+    // Session-based dismissal
+    const dismissed = sessionStorage.getItem('chapel-hill-ads-dismissed');
     if (dismissed === 'true') {
         setIsStopped(true);
         isStoppedRef.current = true;
@@ -101,7 +102,7 @@ export default function AdSlider() {
 
     if (isDashboardPage || ads.length === 0 || isStopped) return;
 
-    // Initial Appearance: 2 Seconds after load
+    // Initial Appearance: 2 Seconds after load (requested timing)
     const initialDelay = setTimeout(startCycle, 2000);
 
     return () => {
@@ -109,7 +110,7 @@ export default function AdSlider() {
         if (cycleTimerRef.current) clearTimeout(cycleTimerRef.current);
         if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
     };
-  }, [isDashboardPage, isStopped]);
+  }, [isDashboardPage, isStopped, startCycle]);
   
   const handleClose = () => {
     setIsPanelOpen(false);
@@ -118,7 +119,7 @@ export default function AdSlider() {
     if (cycleTimerRef.current) clearTimeout(cycleTimerRef.current);
     if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
     // User closed it manually, stop cycles for this session
-    localStorage.setItem('chapel-hill-ads-dismissed', 'true');
+    sessionStorage.setItem('chapel-hill-ads-dismissed', 'true');
   };
 
   if (isDashboardPage || ads.length === 0 || isStopped) {

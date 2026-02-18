@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
@@ -33,17 +33,70 @@ export default function HiredNotification() {
     pathname === '/login' ||
     pathname === '/register';
 
-  const stopNotifications = () => {
+  const stopNotifications = useCallback(() => {
     setIsStopped(true);
     isStoppedRef.current = true;
     if (intervalRef.current) clearInterval(intervalRef.current);
     if (timerRef.current) clearTimeout(timerRef.current);
     dismiss(); 
-    localStorage.setItem('chapel-hill-hired-dismissed', 'true');
-  };
+    sessionStorage.setItem('chapel-hill-hired-dismissed', 'true');
+  }, [dismiss]);
+
+  const showRandomHiredNotification = useCallback(() => {
+    if (isStoppedRef.current || isDashboardPage) return;
+    
+    const example = hiredExamples[Math.floor(Math.random() * hiredExamples.length)];
+    const userAvatar = PlaceHolderImages.find((img) => img.id === example.avatarId);
+
+    toast({
+      variant: 'black',
+      className: 'p-4 pr-10 border-l-4 border-l-gold animate-in slide-in-from-right-full duration-500',
+      onOpenChange: (open) => {
+        // If the user manually closes it (open becomes false), we treat it as a request to stop distraction
+        if (!open && !isStoppedRef.current) {
+          // Standard closure also triggers session-stop to respect user focus
+          stopNotifications();
+        }
+      },
+      description: (
+        <div className="flex items-center gap-3 text-left">
+          <div className="relative shrink-0">
+            <Avatar className="h-10 w-10 border-2 border-white/20">
+              {userAvatar && <AvatarImage src={userAvatar.imageUrl} alt={example.name} data-ai-hint="professional portrait" />}
+              <AvatarFallback>{example.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+            </Avatar>
+            <div className="absolute -bottom-1 -right-1 bg-gold rounded-full p-0.5">
+              <Sparkles className="h-3 w-3 text-black" />
+            </div>
+          </div>
+          <div className="flex-1 min-w-0">
+            <p className="font-black font-headline text-sm flex items-center gap-1.5 text-white truncate">
+              {`${example.name.split(' ')[0]} was hired!`} 
+              <PartyPopper className="h-4 w-4 text-yellow-400 shrink-0" />
+            </p>
+            <p className="text-xs text-white/70 font-bold font-headline truncate">{`New ${example.job} role filled.`}</p>
+          </div>
+        </div>
+      ),
+      action: (
+        <ToastAction
+          altText="Stop alerts"
+          onClick={(e) => {
+            e.preventDefault();
+            stopNotifications();
+          }}
+          className="text-xs h-7 ml-4 font-black font-headline"
+        >
+          Stop
+        </ToastAction>
+      ),
+      duration: 8000,
+    });
+  }, [isDashboardPage, toast, stopNotifications]);
 
   useEffect(() => {
-    const dismissed = localStorage.getItem('chapel-hill-hired-dismissed');
+    // Session-based dismissal so it resets on refresh but stays off while browsing
+    const dismissed = sessionStorage.getItem('chapel-hill-hired-dismissed');
     if (dismissed === 'true') {
         setIsStopped(true);
         isStoppedRef.current = true;
@@ -51,64 +104,10 @@ export default function HiredNotification() {
     }
 
     if (!isDashboardPage && !isStopped) {
-      const showRandomHiredNotification = () => {
-        if (isStoppedRef.current) return;
-        
-        const example = hiredExamples[Math.floor(Math.random() * hiredExamples.length)];
-        const userAvatar = PlaceHolderImages.find((img) => img.id === example.avatarId);
-
-        const { id } = toast({
-          variant: 'black',
-          className: 'p-4 pr-10 border-l-4 border-l-gold animate-in slide-in-from-right-full duration-500',
-          onOpenChange: (open) => {
-            // If the user closes the toast manually (not by timeout), stop the cycle
-            if (!open) {
-                // To avoid stopping on auto-dismiss, we could check for an explicit action,
-                // but usually user 'X' click triggers this. 
-                // We'll rely on the "Stop" button for explicit permanent stop, 
-                // but standard closing also pauses the distraction.
-            }
-          },
-          description: (
-            <div className="flex items-center gap-3 text-left">
-              <div className="relative shrink-0">
-                <Avatar className="h-10 w-10 border-2 border-white/20">
-                  {userAvatar && <AvatarImage src={userAvatar.imageUrl} alt={example.name} data-ai-hint="professional portrait" />}
-                  <AvatarFallback>{example.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
-                </Avatar>
-                <div className="absolute -bottom-1 -right-1 bg-gold rounded-full p-0.5">
-                  <Sparkles className="h-3 w-3 text-black" />
-                </div>
-              </div>
-              <div className="flex-1 min-w-0">
-                <p className="font-black font-headline text-sm flex items-center gap-1.5 text-white truncate">
-                  {`${example.name.split(' ')[0]} was hired!`} 
-                  <PartyPopper className="h-4 w-4 text-yellow-400 shrink-0" />
-                </p>
-                <p className="text-xs text-white/70 font-bold font-headline truncate">{`New ${example.job} role filled.`}</p>
-              </div>
-            </div>
-          ),
-          action: (
-            <ToastAction
-              altText="Stop alerts"
-              onClick={(e) => {
-                e.preventDefault();
-                stopNotifications();
-              }}
-              className="text-xs h-7 ml-4 font-black font-headline"
-            >
-              Stop
-            </ToastAction>
-          ),
-          duration: 8000,
-        });
-      };
-
       // Initial appearance: 3 Seconds after load
       timerRef.current = setTimeout(() => {
         showRandomHiredNotification();
-        // Subsequent intervals: 47 Seconds
+        // Subsequent intervals: 47 Seconds (requested timing)
         intervalRef.current = setInterval(showRandomHiredNotification, 47000);
       }, 3000);
 
@@ -117,7 +116,7 @@ export default function HiredNotification() {
         if (intervalRef.current) clearInterval(intervalRef.current);
       };
     }
-  }, [isDashboardPage, isStopped, toast, dismiss]);
+  }, [isDashboardPage, isStopped, showRandomHiredNotification]);
 
   return null;
 }
