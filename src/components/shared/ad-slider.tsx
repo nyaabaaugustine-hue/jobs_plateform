@@ -52,8 +52,6 @@ const ads: Ad[] = [
     }
 ].filter(ad => ad.company && ad.image);
 
-const SESSION_STOP_KEY = 'chapel-hill-ads-stopped';
-
 export default function AdSlider() {
   const pathname = usePathname();
   const [currentAdIndex, setCurrentAdIndex] = useState(0);
@@ -72,7 +70,6 @@ export default function AdSlider() {
     pathname === '/register';
 
   const startCycle = useCallback(() => {
-    if (typeof sessionStorage !== 'undefined' && sessionStorage.getItem(SESSION_STOP_KEY) === 'true') return;
     if (isStopped || isDashboardPage) return;
 
     setIsPanelOpen(true);
@@ -86,14 +83,14 @@ export default function AdSlider() {
             startCycle();
         }
       }, 2000);
-    }, 50000);
+    }, 20000); // 20s display time for reviews
   }, [isDashboardPage, isStopped]);
 
   useEffect(() => {
-    if (typeof sessionStorage !== 'undefined' && sessionStorage.getItem(SESSION_STOP_KEY) === 'true') return;
     if (isDashboardPage || ads.length === 0 || isStopped) return;
 
-    initialDelayRef.current = setTimeout(startCycle, 2000);
+    // Start running quickly
+    initialDelayRef.current = setTimeout(startCycle, 1000);
 
     return () => {
         if (initialDelayRef.current) clearTimeout(initialDelayRef.current);
@@ -104,9 +101,6 @@ export default function AdSlider() {
   const handleClose = () => {
     setIsPanelOpen(false);
     setIsStopped(true);
-    if (typeof sessionStorage !== 'undefined') {
-        sessionStorage.setItem(SESSION_STOP_KEY, 'true');
-    }
   };
 
   if (isDashboardPage || ads.length === 0 || isStopped) {

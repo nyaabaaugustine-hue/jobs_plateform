@@ -62,7 +62,7 @@ export default function SubscriptionSection() {
                   onSubmit={handleSubscribe} 
                   className={cn(
                     "transition-all duration-700",
-                    !isMounted ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"
+                    isMounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                   )}
                 >
                     <div className="flex flex-col sm:flex-row items-center gap-3 bg-white/10 backdrop-blur-xl p-2.5 rounded-2xl border border-white/20 focus-within:border-primary transition-all shadow-2xl">

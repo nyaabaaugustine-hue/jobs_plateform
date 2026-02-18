@@ -17,8 +17,6 @@ const hiredExamples = [
   { name: 'Akua Asare', job: 'Content Strategist', avatarId: 'avatar-6' },
 ];
 
-const SESSION_STOP_KEY = 'chapel-hill-hired-stopped';
-
 export default function HiredNotification() {
   const { toast } = useToast();
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -38,11 +36,9 @@ export default function HiredNotification() {
     setIsStopped(true);
     if (intervalRef.current) clearInterval(intervalRef.current);
     if (timerRef.current) clearTimeout(timerRef.current);
-    sessionStorage.setItem(SESSION_STOP_KEY, 'true');
   }, []);
 
   const showRandomHiredNotification = useCallback(() => {
-    if (typeof sessionStorage === 'undefined' || sessionStorage.getItem(SESSION_STOP_KEY) === 'true') return;
     if (isDashboardPage || isStopped) return;
     
     const example = hiredExamples[Math.floor(Math.random() * hiredExamples.length)];
@@ -83,24 +79,18 @@ export default function HiredNotification() {
           Stop
         </ToastAction>
       ),
-      duration: 8000,
-      onOpenChange: (open) => {
-          if (!open) {
-              // If manually closed, stop for the session
-              stopNotifications();
-          }
-      }
+      duration: 6000,
     });
   }, [isDashboardPage, isStopped, toast, stopNotifications]);
 
   useEffect(() => {
-    if (typeof sessionStorage !== 'undefined' && sessionStorage.getItem(SESSION_STOP_KEY) === 'true') return;
     if (isDashboardPage || isStopped) return;
 
+    // Start running quickly for demo visibility
     timerRef.current = setTimeout(() => {
       showRandomHiredNotification();
-      intervalRef.current = setInterval(showRandomHiredNotification, 47000);
-    }, 3000);
+      intervalRef.current = setInterval(showRandomHiredNotification, 25000);
+    }, 1500);
 
     return () => {
       if (timerRef.current) clearTimeout(timerRef.current);
