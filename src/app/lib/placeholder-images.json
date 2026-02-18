@@ -352,7 +352,7 @@
     {
       "id": "top-companies-bg",
       "description": "Modern office interior",
-      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771111377/3124_lsxwt6.jpg",
+      "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771111377/3124_wt3naj.jpg",
       "imageHint": "office interior"
     },
     {
@@ -468,12 +468,6 @@
       "description": "A colorful African pattern with concentric circles.",
       "imageUrl": "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771288949/nbv_ptjlm8.jpg",
       "imageHint": "african pattern"
-    },
-    {
-      "id": "freedom-justice",
-      "description": "Independence Arch in Accra, Ghana, with 'Freedom and Justice' inscription.",
-      "imageUrl": "https://images.unsplash.com/photo-1590642916589-592bca10dfbf?q=80&w=2000&auto=format&fit=crop",
-      "imageHint": "Independence Arch"
     }
   ]
 }
