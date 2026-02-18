@@ -1,55 +1,43 @@
-
 'use client';
 
-import { Shield, Zap, BrainCircuit } from 'lucide-react';
+import { Shield, Target, Headphones } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
-import { cn } from '@/lib/utils';
+import SectionHeader from './shared/section-header';
 
 const features = [
   {
-    icon: Zap,
-    title: '2x Faster to Hire',
-    description: 'Our AI-driven platform connects you with qualified candidates in under 48 hours, reducing your time-to-hire by half.',
-    iconBg: 'bg-gold/10',
-    iconColor: 'text-gold'
-  },
-  {
     icon: Shield,
-    title: '98% Employer Verification',
-    description: 'We manually verify every employer, ensuring you only apply to legitimate, high-quality opportunities.',
-    iconBg: 'bg-slate-100',
-    iconColor: 'text-slate-600'
+    title: 'Verified Employers',
+    description: 'Every organization is manually vetted to ensure enterprise-grade security and job quality.'
   },
   {
-    icon: BrainCircuit,
-    title: '89% Match Accuracy',
-    description: 'Our AI analyzes your profile to provide job recommendations with an 89% accuracy score, so you find the right fit, faster.',
-    iconBg: 'bg-emerald-500/10',
-    iconColor: 'text-emerald-600'
+    icon: Target,
+    title: '94% Match Accuracy',
+    description: 'Our proprietary algorithm connects talent with roles that align with career long-term goals.'
+  },
+  {
+    icon: Headphones,
+    title: 'Dedicated Support',
+    description: 'High-touch assistance for both hiring managers and senior professionals.'
   }
 ];
 
 export default function WhyChooseUs() {
   return (
-    <section 
-      className="py-24 relative overflow-hidden" 
-      style={{ backgroundColor: 'hsla(210, 10%, 98%, 0.5)' }}
-    >
-      <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
-        <div className="mb-12 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
-            <h2 className="font-headline text-4xl font-extrabold tracking-tight sm:text-5xl text-foreground">Why Chapel Hill?</h2>
-        </div>
+    <section className="py-24 bg-background">
+      <div className="container mx-auto max-w-7xl px-6 lg:px-12">
+        <SectionHeader title="Why Chapel Hill" />
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {features.map((feature, index) => (
-            <Card key={index} className="text-center animate-in fade-in slide-in-from-bottom-4 duration-700 bg-card/80 backdrop-blur-md border border-border shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1" style={{ animationDelay: `${200 + index * 100}ms` }}>
-              <CardHeader className="items-center pb-2">
-                <div className={cn("flex h-20 w-20 items-center justify-center rounded-2xl shadow-inner", feature.iconBg)}>
-                  <feature.icon className={cn("h-10 w-10", feature.iconColor)} />
+            <Card key={index} className="bg-card border-none p-8 rounded-lg shadow-sm text-center">
+              <CardHeader className="items-center pb-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <feature.icon className="h-6 w-6" />
                 </div>
               </CardHeader>
-              <CardContent className="pt-4">
-                <CardTitle className="mb-3 text-2xl font-extrabold text-card-foreground">{feature.title}</CardTitle>
-                <p className="text-slate-500 leading-relaxed font-bold">{feature.description}</p>
+              <CardContent className="p-0">
+                <CardTitle className="mb-3 text-xl font-bold text-foreground">{feature.title}</CardTitle>
+                <p className="text-muted-foreground leading-relaxed font-medium">{feature.description}</p>
               </CardContent>
             </Card>
           ))}

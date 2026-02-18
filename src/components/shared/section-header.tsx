@@ -1,4 +1,3 @@
-
 import { cn } from '@/lib/utils';
 
 type SectionHeaderProps = {
@@ -11,16 +10,16 @@ type SectionHeaderProps = {
 export default function SectionHeader({ title, subtitle, className, isCentered = true }: SectionHeaderProps) {
   return (
     <div className={cn(
-      'mb-10',
+      'mb-12 section-reveal',
       isCentered && 'text-center',
       className
     )}>
-      <h2 className="font-headline text-3xl font-extrabold tracking-tight sm:text-4xl text-foreground">
+      <h2 className="font-headline text-[36px] font-bold text-foreground">
         {title}
       </h2>
       {subtitle && (
         <p className={cn(
-          'mt-4 text-lg font-bold font-headline text-slate-400',
+          'mt-4 text-[18px] text-muted-foreground font-medium',
           isCentered && 'max-w-2xl mx-auto'
         )}>
           {subtitle}
