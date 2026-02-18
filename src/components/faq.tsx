@@ -41,7 +41,7 @@ import {
     const faqImage = PlaceHolderImages.find((p) => p.id === 'contact-form-bg');
   
     return (
-      <section className="py-24 bg-[#0B0F17] relative">
+      <section className="py-16 bg-[#0B0F17] relative">
         <div className="container mx-auto max-w-7xl px-6 lg:px-12 relative z-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Image Column */}
@@ -61,7 +61,7 @@ import {
             
             {/* Content Column */}
             <div className="animate-in fade-in slide-in-from-right-12 duration-1000">
-              <div className="mb-12">
+              <div className="mb-8">
                 <h2 className="font-headline text-[48px] font-black text-white leading-tight">Frequently Asked Questions</h2>
                 <p className="mt-4 text-lg text-muted-foreground font-medium">Have questions? We're here to help you navigate your journey.</p>
               </div>

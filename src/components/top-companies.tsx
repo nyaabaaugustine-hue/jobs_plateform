@@ -10,7 +10,7 @@ import { Badge } from './ui/badge';
 
 export default function TopCompanies({ companies }: { companies: Company[] }) {
   return (
-    <section className="py-24 bg-[#0B0F17]">
+    <section className="py-16 bg-[#0B0F17]">
       <div className="container mx-auto max-w-7xl px-6 lg:px-12">
         <SectionHeader 
           title="Top Companies Hiring" 

@@ -16,7 +16,7 @@ export default function HiringSection() {
   ];
 
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden bg-[#0B0F17]">
+    <section className="relative py-16 lg:py-20 overflow-hidden bg-[#0B0F17]">
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
             <div className="flex flex-col space-y-8 animate-in fade-in slide-in-from-left duration-700">

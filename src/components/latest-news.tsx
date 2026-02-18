@@ -9,9 +9,9 @@ export default function LatestNews({ posts }: { posts: BlogPost[] }) {
   const displayPosts = posts.slice(0, 3);
 
   return (
-    <section className="relative py-24 bg-[#0B0F17]">
+    <section className="relative py-16 bg-[#0B0F17]">
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
-        <div className="mb-16 text-center">
+        <div className="mb-12 text-center">
           <h2 className="font-headline text-[48px] font-black text-white leading-tight">Our News and Stories</h2>
         </div>
         
@@ -23,7 +23,7 @@ export default function LatestNews({ posts }: { posts: BlogPost[] }) {
             ))}
         </div>
         
-        <div className="mt-16 text-center">
+        <div className="mt-12 text-center">
             <Button asChild size="lg" variant="outline" className="rounded-xl border-white/10 text-white hover:bg-white/5 transition-all px-12 h-14 font-bold">
                 <Link href="/blog">
                     View More Articles

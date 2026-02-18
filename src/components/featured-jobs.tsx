@@ -18,7 +18,7 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
   }).slice(0, 9);
 
   return (
-    <section className="relative py-24 bg-[#0B0F17]">
+    <section className="relative py-16 bg-[#0B0F17]">
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <SectionHeader 
           title="Featured Jobs"
@@ -50,7 +50,7 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
           ))}
         </div>
         
-        <div className="mt-20 text-center">
+        <div className="mt-16 text-center">
           <Button asChild size="lg" variant="outline" className="rounded-xl bg-[#151C2B] border border-white/10 hover:bg-[#1F2937] text-white font-black px-12 h-14 text-sm group transition-all">
             <Link href="/jobs" className="flex items-center gap-3">
               View All Jobs <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />

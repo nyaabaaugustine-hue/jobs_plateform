@@ -13,9 +13,9 @@ type Location = {
 
 export default function JobsByLocation({ locations }: { locations: Location[] }) {
   return (
-    <section className="py-24 bg-[#0B0F17]">
+    <section className="py-16 bg-[#0B0F17]">
       <div className="container mx-auto max-w-7xl px-6 lg:px-12">
-        <div className="mb-16 text-center">
+        <div className="mb-12 text-center">
           <h2 className="font-headline text-[48px] font-black text-white leading-tight">Jobs by Location</h2>
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

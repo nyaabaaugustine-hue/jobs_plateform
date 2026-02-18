@@ -132,18 +132,18 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="py-24 bg-[#0B0F17] overflow-hidden">
+    <section className="py-16 bg-[#0B0F17] overflow-hidden">
       <div className="container mx-auto max-w-7xl px-6 lg:px-12 mb-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <h2 className="font-headline text-[48px] font-black text-white leading-tight">What Our Users Say</h2>
             
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
               <DialogTrigger asChild>
-                <Button variant="outline" className="border-white/10 text-white hover:bg-white/5 rounded-xl h-14 px-8 font-black text-sm shadow-2xl transition-all hover:scale-105 group relative overflow-hidden">
+                <Button variant="outline" className="border-yellow-400 text-white hover:bg-yellow-400/10 rounded-xl h-14 px-8 font-black text-sm shadow-2xl transition-all hover:scale-105 group relative overflow-hidden">
                     <span className="relative z-10 flex items-center gap-2">
-                      <PlusCircle className="h-5 w-5 text-primary" /> Add a review
+                      <PlusCircle className="h-5 w-5 text-yellow-400" /> Add a review
                     </span>
-                    <div className="absolute inset-0 bg-primary/5 group-hover:bg-primary/10 transition-colors" />
+                    <div className="absolute inset-0 bg-yellow-400/5 group-hover:bg-yellow-400/10 transition-colors" />
                 </Button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-[400px] bg-[#111827] border-white/5 text-white p-0 overflow-hidden rounded-3xl shadow-2xl">

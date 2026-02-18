@@ -63,7 +63,7 @@ export default function HomePage() {
   return (
     <main className="flex-1 bg-background">
       {/* 1. Hero Section */}
-      <section className="relative w-full h-[750px] flex items-center justify-center text-center overflow-hidden">
+      <section className="relative w-full h-[650px] flex items-center justify-center text-center overflow-hidden">
         {heroImage && (
           <Image
             src={heroImage.imageUrl}
@@ -84,7 +84,7 @@ export default function HomePage() {
             <p className="text-xl text-white/80 font-bold max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200">
               Discover your next career move with verified employers and salary transparency.
             </p>
-            <div className="w-full mt-12 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-400">
+            <div className="w-full mt-8 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-400">
               <HeroSearchForm />
             </div>
             <div className="flex items-center justify-center gap-3 mt-6 animate-in fade-in duration-1000 delay-500">

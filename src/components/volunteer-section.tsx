@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils';
 
 export default function VolunteerSection() {
   return (
-    <section className="relative py-24 overflow-hidden bg-[#0B0F17]">
+    <section className="relative py-16 overflow-hidden bg-[#0B0F17]">
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="text-center mb-16">
             <h2 className="font-headline text-[48px] font-black text-white leading-tight">Kickstart Your Career</h2>
@@ -37,7 +37,7 @@ export default function VolunteerSection() {
             </Card>
           ))}
         </div>
-        <div className="mt-16 text-center">
+        <div className="mt-12 text-center">
           <Button asChild size="lg" className="font-bold px-10 shadow-xl bg-primary hover:brightness-110 transition-all rounded-xl h-14">
             <Link href="/opportunities">Explore Opportunities</Link>
           </Button>

@@ -26,9 +26,9 @@ export default function SubscriptionSection() {
     };
 
   return (
-    <section className="py-24 bg-[#0B0F17]">
+    <section className="py-16 bg-[#0B0F17]">
       <div className="container mx-auto max-w-7xl px-6 lg:px-12">
-        <div className="relative rounded-[3rem] bg-[#151C2B] p-12 md:p-20 text-center overflow-hidden border border-white/5 shadow-2xl">
+        <div className="relative rounded-[3rem] bg-[#151C2B] p-12 md:p-16 text-center overflow-hidden border border-white/5 shadow-2xl">
           {bgImage && (
             <Image
               src={bgImage.imageUrl}
@@ -47,7 +47,7 @@ export default function SubscriptionSection() {
              <p className="mt-4 text-xl font-medium text-[#F3F4F6]/80">
               Subscribe to our newsletter to receive the latest job postings and career insights.
             </p>
-            <form onSubmit={handleSubscribe} className="mt-12">
+            <form onSubmit={handleSubscribe} className="mt-10">
                 <div className="flex flex-col sm:flex-row items-center gap-3 bg-white/5 backdrop-blur-md p-2.5 rounded-2xl border border-white/10 shadow-2xl focus-within:border-primary/50 transition-all">
                     <Button type="submit" size="lg" className="w-full sm:w-auto rounded-xl bg-yellow-500 text-black font-black font-headline px-10 h-14 hover:bg-yellow-400">
                         Subscribe
