@@ -83,14 +83,14 @@ export default function AdSlider() {
             startCycle();
         }
       }, 2000);
-    }, 15000); // 15s display time
+    }, 12000); // 12s rotation for visibility
   }, [isDashboardPage, isStopped]);
 
   useEffect(() => {
     if (isDashboardPage || ads.length === 0 || isStopped) return;
 
-    // Start running quickly
-    initialDelayRef.current = setTimeout(startCycle, 1000);
+    // Start running after mount
+    initialDelayRef.current = setTimeout(startCycle, 1500);
 
     return () => {
         if (initialDelayRef.current) clearTimeout(initialDelayRef.current);

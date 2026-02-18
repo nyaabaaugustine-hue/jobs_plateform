@@ -35,7 +35,7 @@ export default function ClientSideDate({
     }
   }, [dateString, formatType]);
 
-  // Use a simple span fallback to prevent div-in-span hydration errors
+  // Use a simple span fallback to prevent hydration errors (div-in-span)
   if (!formattedDate) {
     return <span className={className}>...</span>;
   }
