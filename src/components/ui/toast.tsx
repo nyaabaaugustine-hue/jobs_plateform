@@ -58,10 +58,14 @@ const Toast = React.forwardRef<
 })
 Toast.displayName = "Toast"
 
+interface ExtendedToastActionProps extends React.ComponentPropsWithoutRef<typeof ToastPrimitives.Action> {
+  variant?: "default" | "destructive" | "black";
+}
+
 const ToastAction = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Action>,
-  React.ComponentPropsWithoutRef<typeof ToastPrimitives.Action>
->(({ className, ...props }, ref) => (
+  ExtendedToastActionProps
+>(({ className, variant, ...props }, ref) => (
   <ToastPrimitives.Action
     ref={ref}
     className={cn(

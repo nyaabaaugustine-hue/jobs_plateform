@@ -35,9 +35,9 @@ export default function ClientSideDate({
     }
   }, [dateString, formatType]);
 
-  // Use a simple span fallback to prevent hydration errors (div-in-span)
+  // Return a simple span during hydration to match server-side exactly
   if (!formattedDate) {
-    return <span className={className}>...</span>;
+    return <span className={className}>&nbsp;</span>;
   }
 
   return <span className={className}>{formattedDate}</span>;
