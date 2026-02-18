@@ -1,4 +1,3 @@
-
 'use client';
 
 import { useState } from 'react';
@@ -60,7 +59,7 @@ export default function HeroSearchForm() {
         <Button
           type="submit"
           size="lg"
-          className="h-12 w-full sm:w-auto bg-transparent border-2 border-white text-white font-headline font-black text-base rounded-xl px-8 hover:bg-white/10 transition-all shadow-lg"
+          className="h-12 w-full sm:w-auto bg-white text-black font-headline font-black text-base rounded-xl px-8 hover:bg-white/90 transition-all shadow-lg border-none"
         >
           Find Jobs
         </Button>

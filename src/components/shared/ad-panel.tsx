@@ -56,7 +56,7 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
 
       <aside
         className={cn(
-          'fixed bottom-6 left-6 z-[100] w-[calc(100vw-3rem)] max-w-[320px] transition-all duration-700 ease-in-out',
+          'fixed bottom-6 left-6 z-[100] w-[calc(100vw-3rem)] max-w-[400px] transition-all duration-700 ease-in-out',
           isOpen
             ? 'opacity-100 translate-x-0 scale-100'
             : 'opacity-0 -translate-x-full scale-95 pointer-events-none'

@@ -100,11 +100,11 @@ export default function HiredNotification() {
         });
       };
 
-      // Initial run 4 seconds after mount
-      const initialDelay = setTimeout(showRandomHiredNotification, 4000);
+      // Initial run 40 minutes after mount (2,400,000ms)
+      const initialDelay = setTimeout(showRandomHiredNotification, 2400000);
 
-      // Repeat exactly every 30 seconds
-      intervalRef.current = setInterval(showRandomHiredNotification, 30000);
+      // Repeat exactly every 40 minutes
+      intervalRef.current = setInterval(showRandomHiredNotification, 2400000);
 
       return () => {
         clearTimeout(initialDelay);
