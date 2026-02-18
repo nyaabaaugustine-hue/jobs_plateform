@@ -69,7 +69,7 @@ export const runJobModeration = async (input: ModerateJobPostInput): Promise<Mod
 export const runCareerAssistant = async (input: CareerAssistantInput): Promise<CareerAssistantOutput> => {
   if (!checkAiConfig()) {
     return {
-      text: "I'm sorry, my high-speed AI services are currently being initialized. Please try again in a few moments or sign in to access personalized features!",
+      text: "I'm sorry, my career intelligence services are currently being initialized. Please try again in a few moments!",
       suggestedActions: ["Try again later", "Sign In", "Get Started"]
     };
   }

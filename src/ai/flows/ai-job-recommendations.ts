@@ -1,10 +1,8 @@
-
 'use server';
 
 /**
  * @fileOverview Provides AI-driven job recommendations based on user profile and skills.
- *
- * - getAiJobRecommendations - A function that returns AI-driven job recommendations.
+ * Synchronized to Gemini 1.5 Flash.
  */
 
 import { ai } from '@/ai/genkit';
@@ -29,16 +27,6 @@ const aiJobRecommendationsPrompt = ai.definePrompt({
     output: { schema: AiJobRecommendationsOutputSchema },
     config: {
         model: googleAI.model('gemini-1.5-flash'),
-        safetySettings: [
-          {
-            category: 'HARM_CATEGORY_DANGEROUS_CONTENT',
-            threshold: 'BLOCK_ONLY_HIGH',
-          },
-          {
-            category: 'HARM_CATEGORY_HATE_SPEECH',
-            threshold: 'BLOCK_ONLY_HIGH',
-          },
-        ],
     },
     prompt: `You are an AI job recommendation expert. Given the job seeker's profile summary, job preferences, and any identified skill gaps, provide relevant job recommendations.
 
@@ -48,7 +36,7 @@ Skill Gaps: {{{skillGaps}}}
 
 Based on the profile summary, decide whether the job recommendations should be shown or not. Set shouldRecommend accordingly.
 
-Respond with a list of recommended jobs, suggestions for addressing skill gaps, and a resume matching score (a number between 70 and 100), if applicable.`
+Respond with a list of recommended jobs, suggestions for addressing skill gaps, and a resume matching score (a number between 70 and 100).`
 });
 
 const aiJobRecommendationsFlow = ai.defineFlow(

@@ -66,6 +66,14 @@ export default function AISupportWidget() {
         messagesEndRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
     };
 
+    // Auto-scroll logic when chatbox is triggered
+    useEffect(() => {
+        if (isOpen) {
+            const timer = setTimeout(scrollToBottom, 100);
+            return () => clearTimeout(timer);
+        }
+    }, [isOpen]);
+
     const handleSendMessage = async (text: string) => {
         if (!text.trim()) return;
         
@@ -91,7 +99,7 @@ export default function AISupportWidget() {
 
             setMessages(prev => [...prev, { id: Date.now() + 1, sender: 'ai', text: response.text }]);
         } catch (error) {
-            setIsTyping(false);
+            setMessages(prev => [...prev, { id: Date.now() + 1, sender: 'ai', text: "I'm experiencing a high volume of requests. Let's try again in a moment!" }]);
         } finally {
             setIsTyping(false);
         }
@@ -101,7 +109,7 @@ export default function AISupportWidget() {
         if (isOpen && messages.length === 0) {
             const welcomeText = user 
                 ? `Hello ${user.displayName || 'there'}! I'm Abena, your AI executive assistant. How can I accelerate your career today?`
-                : "Welcome to Chapel Hill! I'm Abena. Sign in to unlock my personalized career features, or ask me for general career advice!";
+                : "Welcome to Chapel Hill! I'm Abena. Sign in to unlock my personalized features, or ask me for general career advice!";
             
             setMessages([{ 
                 id: 1, 
@@ -157,15 +165,16 @@ export default function AISupportWidget() {
                             {messages.map((m) => (
                                 <div key={m.id} className={cn("flex flex-col", m.sender === 'user' ? "items-end" : "items-start")}>
                                     {m.isIntro && m.image ? (
-                                        <div className="relative mb-3 w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black aspect-[4/5] group">
+                                        <div className="relative mb-3 w-full rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-[#0B0F17] aspect-[4/5] group flex flex-col">
                                             <Image 
                                                 src={m.image} 
                                                 alt="Assistant Intro" 
                                                 fill 
-                                                className="object-contain bg-[#0B0F17]" 
+                                                className="object-contain" 
                                                 priority
                                             />
-                                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex flex-col justify-end">
+                                            {/* Text Overlay inside the image */}
+                                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent flex flex-col justify-end">
                                                 <div className="bg-white/10 backdrop-blur-xl border-t border-white/10 p-5">
                                                     <p className="text-white text-[11px] font-bold leading-relaxed shadow-lg">
                                                         {m.text}

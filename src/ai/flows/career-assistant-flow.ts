@@ -2,7 +2,7 @@
 
 /**
  * @fileOverview Abena AI - Advanced Career Assistant.
- * Handles job search, resume optimization, and career coaching using the Unified System Prompt.
+ * Synchronized to Gemini 1.5 Flash for high-speed precision.
  */
 
 import { ai } from '@/ai/genkit';
@@ -34,22 +34,20 @@ UNIFIED LOGIC:
 - If isLoggedIn is false:
   Inform them politely that they must Sign In or Get Started to access personalized features.
   Highlight benefits: Personalized matching, resume storage, application tracking.
-  Allow only general career advice.
 - If isLoggedIn is true:
   Unlock all features. Use available profile data (name, title, skills, experience) to personalize responses.
 
 2. CORE CAPABILITIES
-- Job Search & Smart Matching: Recommend jobs based on profile.
-- Resume/CV Optimization: ATS compatibility, keyword improvements.
-- Cover Letter Generator: Tone adaptation, aligning with company values.
-- Interview Prep: STAR method feedback, technical/behavioral questions.
-- Skill Gap Analysis: Comparison to job requirements, course recommendations.
-- Salary Insights & Negotiation: Estimates by role/location, negotiation scripts.
+- Job Search & Smart Matching
+- Resume/CV Optimization
+- Cover Letter Generator
+- Interview Prep
+- Skill Gap Analysis
+- Salary Insights & Negotiation
 
 BEHAVIOR:
 - Professional, concise, supportive, and action-oriented.
-- Use suggestedActions to provide 2-3 clickable next steps.
-- If data is missing (location, salary, level), ask clarifying questions.`,
+- Use suggestedActions to provide 2-3 clickable next steps.`,
   prompt: `
   User Status: {{#if isLoggedIn}}Authenticated{{else}}Anonymous{{/if}}
   {{#if userData}}
@@ -66,7 +64,7 @@ BEHAVIOR:
 
   User Query: {{{query}}}
 
-  Respond with clear, actionable advice. Ensure you return both 'text' and a 'suggestedActions' array of 2-3 strings.
+  Respond with clear, actionable advice. Ensure you return both 'text' and a 'suggestedActions' array.
   `,
 });
 
@@ -82,7 +80,7 @@ const careerAssistantFlow = ai.defineFlow(
       
       if (!output) {
         return {
-          text: "I'm currently analyzing our career databases to give you the best advice. Could you please rephrase your request slightly so I can be more precise?",
+          text: "I'm currently analyzing our career databases to give you the best advice. Could you please rephrase your request?",
           suggestedActions: ["Job Search", "Resume Tips", "Interview Prep"]
         };
       }
