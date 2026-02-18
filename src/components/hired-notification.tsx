@@ -38,8 +38,6 @@ export default function HiredNotification() {
   };
 
   useEffect(() => {
-    let initialTimeout: NodeJS.Timeout | null = null;
-    
     if (!isDashboardPage && !isStopped) {
       const showRandomHiredNotification = () => {
         if (isStopped) return;
@@ -86,12 +84,11 @@ export default function HiredNotification() {
         });
       };
 
-      // RECURRING CYCLE: Fires exactly every 30 Seconds as requested
+      // RUN ONCE EVERY 30 SECONDS
       intervalRef.current = setInterval(showRandomHiredNotification, 30000);
     }
 
     return () => {
-      if (initialTimeout) clearTimeout(initialTimeout);
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps

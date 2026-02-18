@@ -67,29 +67,27 @@ export default function AdSlider() {
   useEffect(() => {
     if (isDashboardPage || ads.length === 0) return;
 
-    // Initial Appearance: Exactly 5 Seconds after load
-    const startTimeout = setTimeout(() => {
+    let timeoutId: NodeJS.Timeout;
+
+    const startCycle = () => {
+      // Open the ad
       setIsPanelOpen(true);
-      // Auto-close after a reasonable reading time (10s)
+      // Auto-close after 10 seconds of display
       setTimeout(() => setIsPanelOpen(false), 10000);
-    }, 5000);
+      
+      // Schedule the next cycle start exactly 47 seconds from NOW
+      timeoutId = setTimeout(() => {
+        setCurrentAdIndex(prev => (prev + 1) % ads.length);
+        startCycle();
+      }, 47000);
+    };
 
-    // Cycle: Run every 47 seconds
-    const cycleInterval = setInterval(() => {
-        setIsPanelOpen(false); 
-
-        setTimeout(() => {
-            setCurrentAdIndex(prevIndex => (prevIndex + 1) % ads.length);
-            setIsPanelOpen(true);
-            // Auto-close after 10s
-            setTimeout(() => setIsPanelOpen(false), 10000);
-        }, 1000);
-
-    }, 47000);
+    // Initial Appearance: Wait exactly 5 Seconds after load
+    const initialDelay = setTimeout(startCycle, 5000);
 
     return () => {
-        clearTimeout(startTimeout);
-        clearInterval(cycleInterval);
+        clearTimeout(initialDelay);
+        clearTimeout(timeoutId);
     };
   }, [isDashboardPage]);
   

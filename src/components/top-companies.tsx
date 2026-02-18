@@ -12,12 +12,13 @@ export default function TopCompanies({ companies }: { companies: Company[] }) {
 
   return (
     <section className="relative py-20">
+       {/* Background Image at 25% Opacity */}
        {bgImage && (
         <Image
           src={bgImage.imageUrl}
           alt={bgImage.description}
           fill
-          className="object-cover z-0 opacity-10"
+          className="object-cover z-0 opacity-25"
           data-ai-hint={bgImage.imageHint}
         />
       )}
