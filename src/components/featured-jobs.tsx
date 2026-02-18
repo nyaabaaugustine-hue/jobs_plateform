@@ -9,11 +9,11 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], categories: string[] }) {
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const bgImage = PlaceHolderImages.find((p) => p.id === 'featured-jobs-bg');
+  // Specific background image requested by user
+  const bgImageUrl = "https://res.cloudinary.com/dwsl2ktt2/image/upload/v1771012629/Acca_jgvugd.jpg";
 
   const featuredJobs = jobs.filter(job => {
     if (selectedCategory === 'All') return true;
@@ -22,20 +22,19 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
 
   return (
     <section className="relative py-20">
-      {/* Background Image at 25% Opacity */}
-      {bgImage && (
-        <Image
-          src={bgImage.imageUrl}
-          alt={bgImage.description}
-          fill
-          className="object-cover z-0 opacity-25"
-          data-ai-hint={bgImage.imageHint}
-        />
-      )}
+      {/* Background Image at 25% Opacity as per previous instruction */}
+      <Image
+        src={bgImageUrl}
+        alt="Accra Background"
+        fill
+        className="object-cover z-0 opacity-25"
+        data-ai-hint="Accra city"
+        priority
+      />
       <div className="absolute inset-0 bg-background/20 z-10" />
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="mb-10 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl">Featured Jobs</h2>
+          <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-foreground">Featured Jobs</h2>
         </div>
 
         <div className="mb-8 flex justify-center flex-wrap gap-3 animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '150ms' }}>
@@ -69,7 +68,7 @@ export default function FeaturedJobs({ jobs, categories }: { jobs: Job[], catego
         )}
 
         <div className="mt-10 text-center animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '500ms' }}>
-          <Button asChild variant="outline" size="lg" className="border-2 border-black font-black">
+          <Button asChild variant="outline" size="lg" className="border-2 border-black font-black bg-transparent text-black hover:bg-black hover:text-white transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none">
             <Link href="/jobs">
               View All Jobs <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
