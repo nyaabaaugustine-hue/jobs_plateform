@@ -2,14 +2,12 @@
 
 import dynamic from 'next/dynamic';
 import { DUMMY_JOBS, DUMMY_COMPANIES, DUMMY_LOCATIONS, JOB_CATEGORIES, DUMMY_USERS } from '@/lib/data';
-import HeroSearchForm from '@/components/hero-search-form';
 import TopCompanies from '@/components/top-companies';
 import FeaturedJobs from '@/components/featured-jobs';
 import WhyChooseUs from '@/components/why-choose-us';
 import HiringSection from '@/components/hiring-section';
 import JobsByLocation from '@/components/jobs-by-location';
 import LatestNews from '@/components/latest-news';
-import SubscriptionSection from '@/components/subscription-section';
 import VolunteerSection from '@/components/volunteer-section';
 import Faq from '@/components/faq';
 import Image from 'next/image';
@@ -17,7 +15,16 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Skeleton } from '@/components/ui/skeleton';
 
-// Bulletproof Dynamic Rendering to avoid hydration mismatches
+// Bulletproof Dynamic Rendering to solve hydration mismatches
+const HeroSearchForm = dynamic(() => import('@/components/hero-search-form'), {
+  ssr: false,
+  loading: () => <div className="h-16 w-full max-w-4xl mx-auto bg-muted animate-pulse rounded-xl" />
+});
+
+const SubscriptionSection = dynamic(() => import('@/components/subscription-section'), {
+  ssr: false,
+});
+
 const Testimonials = dynamic(() => import('@/components/testimonials'), { 
   ssr: false,
   loading: () => <div className="h-[600px] w-full bg-background animate-pulse" />

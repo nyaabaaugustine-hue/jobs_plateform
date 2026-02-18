@@ -8,7 +8,7 @@
     --background: 210 40% 98%; /* #F8FAFC */
     --foreground: 222 47% 11%; /* #0F172A */
     
-    --card: 0 0% 100%;
+    --card: 0 0% 100%; /* #FFFFFF - Surface */
     --card-foreground: 222 47% 11%;
     
     --popover: 0 0% 100%;
@@ -17,11 +17,11 @@
     --primary: 221 83% 53%; /* #2563EB - BRAND BLUE */
     --primary-foreground: 0 0% 100%; 
     
-    --secondary: 210 40% 96%;
+    --secondary: 210 40% 96%; /* #F1F5F9 - Elevated */
     --secondary-foreground: 222 47% 11%;
     
     --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted-foreground: 215 16% 47%; /* #64748B */
     
     --accent: 199 89% 48%; /* #0EA5E9 */
     --accent-foreground: 0 0% 100%;
@@ -40,6 +40,7 @@
     --chart-1: hsl(var(--primary));
     --chart-2: hsl(var(--accent));
     
+    --bg-base: 210 40% 98%;
     --bg-surface: 0 0% 100%;
     --bg-elevated: 210 40% 96%;
   }
@@ -47,22 +48,22 @@
   .dark {
     /* 🥈 Theme 2: DARK (Professional Corporate Dark) */
     --background: 222 47% 11%; /* #0F172A */
-    --foreground: 214 32% 91%; /* #E2E8F0 */
+    --foreground: 210 40% 98%; /* Soft White */
     
-    --card: 217 33% 17%; /* #1E293B */
-    --card-foreground: 214 32% 91%;
+    --card: 217 33% 17%; /* #1E293B - Surface */
+    --card-foreground: 210 40% 98%;
     
     --popover: 222 47% 11%;
-    --popover-foreground: 214 32% 91%;
+    --popover-foreground: 210 40% 98%;
 
     --primary: 221 83% 53%; /* #2563EB - BRAND BLUE */
     --primary-foreground: 0 0% 100%; 
     
-    --secondary: 217 33% 17%;
+    --secondary: 215 25% 27%; /* #334155 - Elevated */
     --secondary-foreground: 210 40% 98%;
     
     --muted: 217 33% 20%;
-    --muted-foreground: 215 20% 65%;
+    --muted-foreground: 215 20% 65%; /* #94A3B8 */
     
     --accent: 199 89% 60%; /* #38BDF8 */
     --accent-foreground: 222 47% 7%;
@@ -75,8 +76,9 @@
     --ring: 221 83% 53%;
     --burgundy: 349 89% 45%;
     
+    --bg-base: 222 47% 11%;
     --bg-surface: 217 33% 17%;
-    --bg-elevated: 215 25% 35%;
+    --bg-elevated: 215 25% 27%;
   }
 
   .midnight {
@@ -84,7 +86,7 @@
     --background: 222 48% 8%; /* #0B1220 */
     --foreground: 210 40% 96%; /* #F3F4F6 */
     
-    --card: 222 47% 11%; /* #111827 */
+    --card: 222 47% 11%; /* #111827 - Surface */
     --card-foreground: 210 40% 96%;
     
     --popover: 222 48% 8%;
@@ -93,7 +95,7 @@
     --primary: 221 83% 53%; /* #2563EB - BRAND BLUE */
     --primary-foreground: 0 0% 100%; 
     
-    --secondary: 222 47% 11%;
+    --secondary: 216 40% 15%; /* #162133 - Elevated */
     --secondary-foreground: 210 40% 98%;
     
     --muted: 222 47% 15%;
@@ -105,13 +107,15 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     
-    --border: 215 28% 17%; /* #1F2937 */
+    --border: 215 28% 17%; /* #1F2937 - Overlay */
     --input: 215 28% 17%;
     --ring: 221 83% 53%;
     --burgundy: 349 89% 45%;
     
+    --bg-base: 222 48% 8%;
     --bg-surface: 222 47% 11%;
-    --bg-elevated: 216 40% 15%; /* #162133 */
+    --bg-elevated: 216 40% 15%;
+    --bg-overlay: 215 28% 17%;
   }
 }
 
@@ -142,7 +146,7 @@
     background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
   }
   .shadow-glow {
-    box-shadow: 0 0 0 1px hsla(var(--primary) / 0.2), 0 10px 30px hsla(var(--primary) / 0.15);
+    box-shadow: 0 0 0 1px hsla(var(--primary) / 0.25), 0 10px 25px hsla(var(--primary) / 0.15);
   }
   .midnight .bg-hero-radial {
     background: radial-gradient(circle at 20% 30%, hsla(var(--primary) / 0.15), transparent 40%), hsl(var(--background));
