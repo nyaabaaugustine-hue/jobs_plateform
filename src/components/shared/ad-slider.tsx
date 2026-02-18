@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import AdPanel from './ad-panel';
 import { DUMMY_COMPANIES } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -57,6 +57,8 @@ export default function AdSlider() {
   const pathname = usePathname();
   const [currentAdIndex, setCurrentAdIndex] = useState(0);
   const [isPanelOpen, setIsPanelOpen] = useState(false);
+  const [isStopped, setIsStopped] = useState(false);
+  const isStoppedRef = useRef(false);
   
   const isDashboardPage =
     pathname.startsWith('/admin') ||
@@ -66,38 +68,46 @@ export default function AdSlider() {
     pathname === '/register';
 
   useEffect(() => {
-    if (isDashboardPage || ads.length === 0) return;
+    if (isDashboardPage || ads.length === 0 || isStopped) return;
 
     let cycleTimer: NodeJS.Timeout;
 
     const startCycle = () => {
-      // Open the ad after initial 5 seconds
+      if (isStoppedRef.current) return;
+
+      // Open the ad
       setIsPanelOpen(true);
       
       // Auto-close after 10 seconds of display
-      setTimeout(() => setIsPanelOpen(false), 10000);
+      setTimeout(() => {
+        if (!isStoppedRef.current) setIsPanelOpen(false);
+      }, 10000);
       
-      // Schedule the next cycle start exactly 47 seconds from load/last start
+      // Schedule the next cycle start every 40 seconds
       cycleTimer = setTimeout(() => {
-        setCurrentAdIndex(prev => (prev + 1) % ads.length);
-        startCycle();
-      }, 47000);
+        if (!isStoppedRef.current) {
+            setCurrentAdIndex(prev => (prev + 1) % ads.length);
+            startCycle();
+        }
+      }, 40000);
     };
 
-    // Initial Appearance: Wait exactly 5 Seconds after load
+    // Initial Appearance: 5 Seconds after load
     const initialDelay = setTimeout(startCycle, 5000);
 
     return () => {
         clearTimeout(initialDelay);
-        clearTimeout(cycleTimer);
+        if (cycleTimer) clearTimeout(cycleTimer);
     };
-  }, [isDashboardPage]);
+  }, [isDashboardPage, isStopped]);
   
   const handleClose = () => {
     setIsPanelOpen(false);
+    setIsStopped(true); // Permanent close logic
+    isStoppedRef.current = true;
   };
 
-  if (isDashboardPage || ads.length === 0) {
+  if (isDashboardPage || ads.length === 0 || isStopped) {
       return null;
   }
 
