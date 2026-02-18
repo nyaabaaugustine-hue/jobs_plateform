@@ -1,4 +1,3 @@
-
 import Link from 'next/link';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
@@ -19,7 +18,7 @@ export default function TopCompanies({ companies }: { companies: Company[] }) {
           src={bgImage.imageUrl}
           alt=""
           fill
-          className="object-cover opacity-25 z-0"
+          className="object-cover opacity-[0.15] z-0"
           data-ai-hint={bgImage.imageHint}
         />
       )}
@@ -27,6 +26,7 @@ export default function TopCompanies({ companies }: { companies: Company[] }) {
         <SectionHeader 
           title="Top Companies Hiring" 
           subtitle="Direct partnerships with world-class engineering teams."
+          dark
         />
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
           {companies.map((company) => {
