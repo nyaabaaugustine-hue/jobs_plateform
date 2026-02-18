@@ -33,7 +33,7 @@ export default function HeroSearchForm() {
             id="job-title"
             type="search"
             placeholder="Job title, keyword"
-            className="h-14 w-full bg-transparent border-2 border-black rounded-xl pl-12 pr-4 text-black font-bold text-lg placeholder:text-black/60 focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-black transition-all"
+            className="h-14 w-full bg-white border-2 border-black rounded-xl pl-12 pr-4 text-black font-bold text-lg placeholder:text-black/50 focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-black transition-all shadow-lg"
             value={jobTitle}
             onChange={(e) => setJobTitle(e.target.value)}
           />
@@ -45,7 +45,7 @@ export default function HeroSearchForm() {
             id="location"
             type="search"
             placeholder="City or zip code"
-            className="h-14 w-full bg-transparent border-2 border-black rounded-xl pl-12 pr-4 text-black font-bold text-lg placeholder:text-black/60 focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-black transition-all"
+            className="h-14 w-full bg-white border-2 border-black rounded-xl pl-12 pr-4 text-black font-bold text-lg placeholder:text-black/50 focus-visible:ring-0 focus-visible:ring-offset-0 focus:border-black transition-all shadow-lg"
             value={location}
             onChange={(e) => setLocation(e.target.value)}
           />
@@ -54,7 +54,7 @@ export default function HeroSearchForm() {
         <Button
           type="submit"
           size="lg"
-          className="h-14 bg-transparent border-2 border-black text-black font-black text-base uppercase tracking-widest rounded-xl px-10 hover:bg-black hover:text-white transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
+          className="h-14 bg-black text-white border-2 border-black font-black text-base uppercase tracking-widest rounded-xl px-10 hover:bg-black/90 transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
         >
           Find Jobs
         </Button>
