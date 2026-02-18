@@ -1,3 +1,4 @@
+
 export const auth0Config = {
     clientId: process.env.AUTH0_CLIENT_ID,
     clientSecret: process.env.AUTH0_CLIENT_SECRET,
