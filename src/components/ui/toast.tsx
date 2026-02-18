@@ -1,4 +1,3 @@
-
 "use client"
 
 import * as React from "react"
@@ -62,7 +61,7 @@ Toast.displayName = "Toast"
 const ToastAction = React.forwardRef<
   React.ElementRef<typeof ToastPrimitives.Action>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitives.Action>
->(({ className, variant, ...props }, ref) => (
+>(({ className, ...props }, ref) => (
   <ToastPrimitives.Action
     ref={ref}
     className={cn(

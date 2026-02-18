@@ -2,11 +2,12 @@
 
 /**
  * @fileOverview Abena AI - Advanced Career Assistant.
- * Synchronized to Gemini 1.5 Flash for high-speed precision.
+ * Synchronized to Gemini 1.5 Flash for high-speed precision and JSON consistency.
  */
 
-import { ai } from '@/ai/genkit';
-import { googleAI } from '@genkit-ai/google-genai';
+import {ai} from '@/ai/genkit';
+import {googleAI} from '@genkit-ai/google-genai';
+import {z} from 'genkit';
 import { 
   CareerAssistantInputSchema, 
   type CareerAssistantInput, 
@@ -31,7 +32,7 @@ Your mission is to help users find jobs, optimize applications, and strategicall
 
 CRITICAL INSTRUCTIONS:
 - ALWAYS respond in valid JSON format matching the output schema.
-- INTENT DETECTION: If the user query or toolId indicates a specific track (Job Match, CV, Roadmap, Prep, Salary), immediately switch to that track.
+- INTENT DETECTION: If the user selection indicates a specific track (Job Match, CV, Roadmap, Prep, Salary), immediately switch to that track.
 - NO REPETITION: Do NOT repeat the "Welcome to Chapel Hill" message once a tool has been selected or conversation has started.
 - CONTEXT: If the user says "yes", "go on", or "tell me more", proceed with the active career track logic.
 
@@ -47,7 +48,6 @@ BEHAVIOR:
 - Use suggestedActions to provide 2-3 clickable next steps relevant to the CURRENT track.`,
   prompt: `
   Selected Tool ID: {{#if toolId}}{{{toolId}}}{{else}}None{{/if}}
-  User Status: {{#if isLoggedIn}}Authenticated{{else}}Anonymous{{/if}}
   
   Conversation History:
   {{#each history}}
