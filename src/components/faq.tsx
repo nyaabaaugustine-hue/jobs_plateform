@@ -1,4 +1,3 @@
-
 import {
     Accordion,
     AccordionContent,
@@ -38,38 +37,39 @@ import {
   ]
   
   export default function Faq() {
-    const faqImage = PlaceHolderImages.find((p) => p.id === 'hero-main');
+    const faqImage = PlaceHolderImages.find((p) => p.id === 'blog-post-9');
   
     return (
-      <section className="py-20 bg-background">
+      <section className="py-24 bg-[#0B0F17]">
         <div className="container mx-auto max-w-7xl px-6 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="animate-in fade-in slide-in-from-left-12 duration-700">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="animate-in fade-in slide-in-from-left-12 duration-1000 hidden lg:block">
               {faqImage && (
-                <Image
-                  src={faqImage.imageUrl}
-                  alt={faqImage.description}
-                  width={600}
-                  height={700}
-                  className="rounded-3xl shadow-2xl object-cover w-full aspect-[4/5]"
-                  data-ai-hint={faqImage.imageHint}
-                />
+                <div className="relative rounded-[2rem] overflow-hidden shadow-2xl aspect-[4/5] border border-white/5">
+                  <Image
+                    src={faqImage.imageUrl}
+                    alt={faqImage.description}
+                    fill
+                    className="object-cover"
+                    data-ai-hint={faqImage.imageHint}
+                  />
+                </div>
               )}
             </div>
-            <div className="animate-in fade-in slide-in-from-right-12 duration-700">
+            <div className="animate-in fade-in slide-in-from-right-12 duration-1000">
               <SectionHeader
                 title="Frequently Asked Questions"
-                subtitle="Have questions? We're here to help. If you don't see your question here, feel free to contact us."
+                subtitle="Have questions? We're here to help."
                 isCentered={false}
-                className="mb-8"
+                className="mb-12"
               />
-              <Accordion type="single" collapsible className="w-full">
+              <Accordion type="single" collapsible className="w-full space-y-4">
                 {faqs.map((faq, index) => (
-                  <AccordionItem value={`item-${index}`} key={index}>
-                    <AccordionTrigger className="text-left font-semibold text-lg hover:no-underline">
+                  <AccordionItem value={`item-${index}`} key={index} className="border-white/10 px-6 rounded-xl bg-[#111827]">
+                    <AccordionTrigger className="text-left font-semibold text-lg hover:no-underline py-6">
                       {faq.question}
                     </AccordionTrigger>
-                    <AccordionContent className="text-muted-foreground">
+                    <AccordionContent className="text-muted-foreground pb-6">
                       {faq.answer}
                     </AccordionContent>
                   </AccordionItem>

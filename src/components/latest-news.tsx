@@ -1,44 +1,30 @@
-
 'use client';
 
 import type { BlogPost } from '@/lib/types';
 import BlogPostCard from './blog-post-card';
 import { Button } from './ui/button';
 import Link from 'next/link';
-import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
+import SectionHeader from './shared/section-header';
 
 export default function LatestNews({ posts }: { posts: BlogPost[] }) {
-  const bgImage = PlaceHolderImages.find((p) => p.id === 'latest-news-bg');
-
   return (
-    <section className="relative py-20 bg-background">
-      {/* Background Image at 20% Opacity */}
-      {bgImage && (
-        <Image
-          src={bgImage.imageUrl}
-          alt={bgImage.description}
-          fill
-          className="object-cover z-0 opacity-20"
-          data-ai-hint={bgImage.imageHint}
-        />
-      )}
-      <div className="absolute inset-0 bg-background/80 z-10" />
+    <section className="relative py-24 bg-[#0B0F17]">
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
-        <div className="mb-12 text-center animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <h2 className="font-headline text-3xl font-bold tracking-tight sm:text-4xl text-foreground">Our News and Stories</h2>
-        </div>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <SectionHeader 
+          title="Our News and Stories"
+          subtitle="Insights from the edge of the professional world."
+        />
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post, index) => (
-              <div key={post.id} className="animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: `${200 + index * 100}ms` }}>
+              <div key={post.id} className="animate-in fade-in slide-in-from-bottom-4 duration-500" style={{ animationDelay: `${index * 100}ms` }}>
                 <BlogPostCard post={post} />
               </div>
             ))}
         </div>
-        <div className="mt-12 text-center animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '500ms' }}>
-            <Button asChild size="lg" variant="outline" className="rounded-xl border-primary/20 hover:bg-primary/5 hover:text-primary transition-all px-8">
+        <div className="mt-16 text-center">
+            <Button asChild size="lg" variant="outline" className="rounded-xl border-white/10 text-white hover:bg-white/5 transition-all px-10">
                 <Link href="/blog">
-                    Show More
+                    View More Articles
                 </Link>
             </Button>
         </div>

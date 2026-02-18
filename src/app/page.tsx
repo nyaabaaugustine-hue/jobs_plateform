@@ -11,6 +11,7 @@ import JobsByLocation from '@/components/jobs-by-location';
 import LatestNews from '@/components/latest-news';
 import SubscriptionSection from '@/components/subscription-section';
 import VolunteerSection from '@/components/volunteer-section';
+import Faq from '@/components/faq';
 import Image from 'next/image';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
@@ -58,7 +59,8 @@ export default function HomePage() {
 
   return (
     <main className="flex-1 bg-background">
-      <section className="relative w-full h-[600px] flex items-center justify-center text-center overflow-hidden">
+      {/* 1. Hero Section */}
+      <section className="relative w-full h-[700px] flex items-center justify-center text-center overflow-hidden">
         {heroImage && (
           <Image
             src={heroImage.imageUrl}
@@ -70,31 +72,51 @@ export default function HomePage() {
             sizes="100vw"
           />
         )}
-        <div className="absolute inset-0 bg-black/40 z-10" />
+        <div className="absolute inset-0 bg-black/60 z-10" />
         <div className="relative z-20 container mx-auto px-6 max-w-4xl">
           <div className="flex flex-col space-y-6">
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white animate-in fade-in slide-in-from-bottom-2 duration-700 font-headline">
-              Find Your Next Job, <span className="text-primary">Faster.</span>
+            <h1 className="text-5xl md:text-7xl font-black tracking-tight text-white animate-in fade-in slide-in-from-bottom-4 duration-1000 font-headline">
+              Find Better Work
             </h1>
-            <p className="text-xl text-white/90 font-bold max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-2 duration-700 delay-200 font-headline">
-              Discover your next career move with verified employers and salary transparency.
+            <p className="text-xl text-white/80 font-bold max-w-2xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-200 font-headline">
+              Built for serious professionals and ambitious companies.
             </p>
-            <div className="w-full mt-10 animate-in fade-in slide-in-from-bottom-2 duration-700 delay-400">
+            <div className="w-full mt-12 animate-in fade-in slide-in-from-bottom-4 duration-1000 delay-400">
               <HeroSearchForm />
             </div>
           </div>
         </div>
       </section>
 
-      <FeaturedJobs jobs={jobs} categories={categories} />
-      <TopCompanies companies={companies} />
+      {/* 2. Hiring Section */}
       <HiringSection />
+
+      {/* 3. Top Companies */}
+      <TopCompanies companies={companies} />
+
+      {/* 4. Featured Jobs */}
+      <FeaturedJobs jobs={jobs} categories={categories} />
+
+      {/* 5. Why Chapel Hill */}
       <WhyChooseUs />
+
+      {/* 6. Kickstart Your Career (Student Opportunities) */}
       <VolunteerSection />
+
+      {/* 7. Jobs By Location */}
       <JobsByLocation locations={DUMMY_LOCATIONS} />
-      <LatestNews posts={latestPosts} />
-      <SubscriptionSection />
+
+      {/* 8. Success Stories (Testimonials) */}
       <Testimonials />
+
+      {/* 9. Our News and Stories */}
+      <LatestNews posts={latestPosts} />
+
+      {/* 10. FAQ Section */}
+      <Faq />
+
+      {/* 11. Subscription Section */}
+      <SubscriptionSection />
     </main>
   );
 }

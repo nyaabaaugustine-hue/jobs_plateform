@@ -6,7 +6,6 @@ import { CheckCircle } from 'lucide-react';
 
 export default function HiringSection() {
   const hiringImage = PlaceHolderImages.find((p) => p.id === 'hiring-main');
-  const bgImage = PlaceHolderImages.find((p) => p.id === 'top-companies-bg');
   
   const benefits = [
     'Explore a vast pool of qualified candidates.',
@@ -15,35 +14,21 @@ export default function HiringSection() {
   ];
 
   return (
-    <section className="relative py-24 lg:py-32 overflow-hidden bg-background">
-      {/* Background Image at 20% Opacity */}
-      {bgImage && (
-        <Image
-          src={bgImage.imageUrl}
-          alt={bgImage.description}
-          fill
-          className="object-cover z-0 opacity-20"
-          data-ai-hint={bgImage.imageHint}
-          priority
-        />
-      )}
-      
-      <div className="absolute inset-0 bg-background/20 z-10" />
-
+    <section className="relative py-24 lg:py-32 overflow-hidden bg-[#0B0F17]">
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
             <div className="flex flex-col space-y-8 animate-in fade-in slide-in-from-left duration-700">
-                <h2 className="font-headline text-4xl font-extrabold tracking-tight !leading-tight text-foreground sm:text-5xl lg:text-6xl">
-                  Hire Top-Tier React Talent in 48 Hours
+                <h2 className="font-headline text-4xl font-extrabold tracking-tight !leading-tight text-white sm:text-5xl lg:text-6xl">
+                  Hire Senior React Developers. Fast.
                 </h2>
-                <p className="text-xl font-bold max-w-xl" style={{ color: 'rgb(246, 244, 238)' }}>
+                <p className="text-xl font-bold max-w-xl text-[#F3F4F6]">
                   Discover qualified professionals ready to bring your projects to life. Over 4,500+ employers trust our platform to find the best developers in the ecosystem.
                 </p>
                 <ul className="space-y-4">
                     {benefits.map((benefit, index) => (
                         <li key={index} className="flex items-center gap-4 group">
                             <CheckCircle className="h-6 w-6 text-gold shrink-0 transition-transform group-hover:scale-110" />
-                            <span className="font-bold text-lg" style={{ color: 'rgb(246, 244, 238)' }}>{benefit}</span>
+                            <span className="font-bold text-lg text-[#F3F4F6]">{benefit}</span>
                         </li>
                     ))}
                 </ul>
@@ -59,7 +44,7 @@ export default function HiringSection() {
                       asChild 
                       size="lg" 
                       variant="outline" 
-                      className="font-headline font-black bg-[#f6f4ee]/50 text-slate-700 border-2 border-gold hover:border-gold hover:bg-white transition-all rounded-xl"
+                      className="font-headline font-black bg-[#f6f4ee]/50 text-white border-2 border-gold hover:border-gold hover:bg-white/10 transition-all rounded-xl"
                     >
                       <Link href="/pricing">View Pricing</Link>
                     </Button>
@@ -69,7 +54,7 @@ export default function HiringSection() {
             <div className="relative flex items-center justify-center animate-in fade-in slide-in-from-right duration-1000">
                 {hiringImage && (
                   <div className="relative group w-full max-w-[600px]">
-                    <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.15)] border-4 border-white transition-transform duration-500 group-hover:scale-[1.03]">
+                    <div className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.5)] border-4 border-white/10 transition-transform duration-500 group-hover:scale-[1.03]">
                       <Image
                           src={hiringImage.imageUrl}
                           alt={hiringImage.description}
@@ -79,7 +64,7 @@ export default function HiringSection() {
                           data-ai-hint={hiringImage.imageHint}
                       />
                     </div>
-                    <div className="absolute -inset-10 bg-gold/5 blur-[100px] -z-10 rounded-full opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
+                    <div className="absolute -inset-10 bg-gold/10 blur-[100px] -z-10 rounded-full opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
                   </div>
                 )}
             </div>

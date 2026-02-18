@@ -1,4 +1,3 @@
-
 'use client';
 
 import { DUMMY_OPPORTUNITIES } from '@/lib/data';
@@ -7,40 +6,21 @@ import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export default function VolunteerSection() {
-  const bgImage = PlaceHolderImages.find((p) => p.id === 'freedom-justice');
-
   return (
-    <section className="relative py-24 overflow-hidden bg-background">
-      {bgImage && (
-        <>
-          <Image
-            src={bgImage.imageUrl}
-            alt={bgImage.description}
-            fill
-            className="object-cover z-0 opacity-20"
-            data-ai-hint={bgImage.imageHint}
-            priority
-          />
-          <div className="absolute inset-0 z-10 bg-background/75" />
-        </>
-      )}
-
+    <section className="relative py-24 overflow-hidden bg-[#0B0F17]">
       <div className="relative z-20 container mx-auto max-w-7xl px-6 lg:px-12">
         <SectionHeader
-          title="Kickstart Your Career"
-          subtitle="Explore volunteer and attachment opportunities designed for students to gain hands-on experience and make a difference."
-          className="animate-in fade-in slide-in-from-bottom-4 duration-700"
+          title="Start Your Next Chapter."
+          subtitle="Explore volunteer and attachment opportunities designed for growth."
         />
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {DUMMY_OPPORTUNITIES.map((opportunity, index) => (
             <Card 
               key={index} 
-              className="text-center animate-in fade-in slide-in-from-bottom-4 duration-700 bg-card/80 backdrop-blur-md border border-border/50 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1" 
-              style={{ animationDelay: `${200 + index * 100}ms` }}
+              className="text-center bg-[#151C2B] border border-white/5 shadow-2xl hover:shadow-primary/5 transition-all hover:-translate-y-1 rounded-2xl p-6" 
+              style={{ animationDelay: `${index * 100}ms` }}
             >
               <CardHeader className="items-center pb-2">
                 <div className={cn("flex h-20 w-20 items-center justify-center rounded-2xl shadow-inner", opportunity.iconBg)}>
@@ -48,14 +28,14 @@ export default function VolunteerSection() {
                 </div>
               </CardHeader>
               <CardContent className="pt-4">
-                <CardTitle className="mb-3 text-2xl font-bold">{opportunity.title}</CardTitle>
-                <p className="text-muted-foreground leading-relaxed font-medium">{opportunity.description}</p>
+                <CardTitle className="mb-3 text-2xl font-bold text-white">{opportunity.title}</CardTitle>
+                <p className="text-muted-foreground leading-relaxed font-medium text-sm">{opportunity.description}</p>
               </CardContent>
             </Card>
           ))}
         </div>
-        <div className="mt-16 text-center animate-in fade-in slide-in-from-bottom-4 duration-700" style={{ animationDelay: '500ms' }}>
-          <Button asChild size="lg" className="font-bold px-10 shadow-xl bg-primary hover:bg-primary/90 hover:scale-[1.05] transition-all duration-300 rounded-xl">
+        <div className="mt-16 text-center">
+          <Button asChild size="lg" className="font-bold px-10 shadow-xl bg-primary hover:brightness-110 transition-all rounded-xl">
             <Link href="/opportunities">Explore Opportunities</Link>
           </Button>
         </div>
