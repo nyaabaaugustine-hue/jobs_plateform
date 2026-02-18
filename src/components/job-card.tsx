@@ -87,7 +87,7 @@ export default function JobCard({ job }: JobCardProps) {
       <CardFooter className="p-0 pt-6 mt-6 border-t border-white/5 flex items-center justify-between">
         <div className="flex flex-col">
           <div className="flex items-baseline gap-1">
-            <span className="text-lg font-black text-white">{job.salaryRange.split(' - ')[0]} - {job.salaryRange.split(' - ')[1]}</span>
+            <span className="text-[15px] font-black text-white">{job.salaryRange.split(' - ')[0]} - {job.salaryRange.split(' - ')[1]}</span>
             <span className="text-[11px] text-muted-foreground font-bold">/yearly</span>
           </div>
           <div className="flex items-center gap-1.5 text-[11px] font-bold text-muted-foreground mt-1">
