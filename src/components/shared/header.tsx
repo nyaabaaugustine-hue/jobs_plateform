@@ -12,10 +12,19 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet';
+import { useState } from 'react';
 
 export default function Header() {
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
     { 
@@ -102,13 +111,62 @@ export default function Header() {
         </div>
 
         <div className="flex items-center gap-4">
-          <ThemeToggle />
-          <Button variant="ghost" className="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-[#f6f4ee] font-black uppercase tracking-widest text-[10px]" asChild>
-            <Link href="/login">Sign In</Link>
-          </Button>
-          <Button className="bg-primary text-black font-bold rounded-lg px-6 hover:brightness-110 transition-all uppercase tracking-widest text-[10px] h-10 shadow-lg border-2 border-gold ring-2 ring-gold/20" asChild>
-            <Link href="/register">Get Started</Link>
-          </Button>
+          <div className="hidden md:flex items-center gap-4">
+            <ThemeToggle />
+            <Button variant="ghost" className="text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-[#f6f4ee] font-black uppercase tracking-widest text-[10px]" asChild>
+              <Link href="/login">Sign In</Link>
+            </Button>
+            <Button className="bg-primary text-black font-bold rounded-lg px-6 hover:brightness-110 transition-all uppercase tracking-widest text-[10px] h-10 shadow-lg border-2 border-gold ring-2 ring-gold/20" asChild>
+              <Link href="/register">Get Started</Link>
+            </Button>
+          </div>
+
+          {/* Mobile Navigation */}
+          <div className="flex md:hidden items-center gap-2">
+            <ThemeToggle />
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild>
+                <Button variant="outline" size="icon" className="rounded-xl border-border/50 hover:bg-secondary">
+                  <Menu className="h-5 w-5" />
+                  <span className="sr-only">Toggle menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[300px] bg-background p-0 border-l border-border/50">
+                <SheetHeader className="p-6 border-b border-border/50 text-left">
+                  <SheetTitle><Logo /></SheetTitle>
+                </SheetHeader>
+                <div className="flex flex-col h-[calc(100vh-80px)]">
+                  <div className="flex-1 overflow-y-auto py-4">
+                    {navLinks.map((link) => (
+                      <div key={link.label} className="px-6 py-4 border-b border-border/30 last:border-0">
+                        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-muted-foreground mb-3">{link.label}</p>
+                        <div className="flex flex-col gap-2">
+                          {link.subItems.map((sub) => (
+                            <Link 
+                              key={sub.label} 
+                              href={sub.href} 
+                              onClick={() => setIsOpen(false)}
+                              className="text-sm font-bold text-foreground/80 hover:text-primary transition-colors py-1"
+                            >
+                              {sub.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="p-6 border-t border-border/50 bg-secondary/20 flex flex-col gap-3">
+                    <Button variant="outline" className="w-full h-12 font-black uppercase tracking-widest text-xs rounded-xl" asChild onClick={() => setIsOpen(false)}>
+                      <Link href="/login">Sign In</Link>
+                    </Button>
+                    <Button className="w-full bg-primary text-black h-12 font-black uppercase tracking-widest text-xs rounded-xl shadow-lg border-2 border-gold" asChild onClick={() => setIsOpen(false)}>
+                      <Link href="/register">Get Started</Link>
+                    </Button>
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </div>
     </header>
