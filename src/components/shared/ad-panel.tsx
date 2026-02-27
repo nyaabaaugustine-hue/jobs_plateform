@@ -79,7 +79,7 @@ export default function AdPanel({ isOpen, onClose, ad }: AdPanelProps) {
           </Button>
 
           <div className="relative">
-            <div className="w-full aspect-[16/9] overflow-hidden">
+            <div className="w-full aspect-[16/9] overflow-hidden relative">
               <Image
                   src={ad.image.imageUrl}
                   alt={ad.headline}
